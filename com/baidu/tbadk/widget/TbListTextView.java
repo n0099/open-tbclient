@@ -18,27 +18,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"WrongCall"})
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TbListTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13343e;
+    public boolean f48376e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f13344a;
+        public final boolean f48377a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<Object> f13345b;
+        public final List<Object> f48378b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final List<Object> f13346c;
+        public final List<Object> f48379c;
 
         public a(boolean z, List<Object> list, List<Object> list2) {
             Interceptable interceptable = $ic;
@@ -55,9 +55,9 @@ public class TbListTextView extends TextView {
                     return;
                 }
             }
-            this.f13344a = z;
-            this.f13345b = list;
-            this.f13346c = list2;
+            this.f48377a = z;
+            this.f48378b = list;
+            this.f48379c = list2;
         }
 
         public static a a(List<Object> list, List<Object> list2) {
@@ -91,7 +91,7 @@ public class TbListTextView extends TextView {
                 return;
             }
         }
-        this.f13343e = true;
+        this.f48376e = true;
     }
 
     public final a a(SpannableStringBuilder spannableStringBuilder, int i2, int i3) {
@@ -147,7 +147,7 @@ public class TbListTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048579, this, spannableStringBuilder, i2, i3) == null) {
             a a2 = a(spannableStringBuilder, i2, i3);
-            if (a2.f13344a) {
+            if (a2.f48377a) {
                 f(i2, i3, spannableStringBuilder, a2);
             } else {
                 b(i2, i3);
@@ -165,7 +165,7 @@ public class TbListTextView extends TextView {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), spannableStringBuilder, aVar}) == null) {
-            for (Object obj : aVar.f13346c) {
+            for (Object obj : aVar.f48379c) {
                 int spanEnd = spannableStringBuilder.getSpanEnd(obj);
                 spannableStringBuilder.delete(spanEnd, spanEnd + 1);
                 try {
@@ -176,7 +176,7 @@ public class TbListTextView extends TextView {
             }
             loop1: while (true) {
                 z = true;
-                for (Object obj2 : aVar.f13345b) {
+                for (Object obj2 : aVar.f48378b) {
                     int spanStart = spannableStringBuilder.getSpanStart(obj2);
                     int i4 = spanStart - 1;
                     spannableStringBuilder.delete(i4, spanStart);
@@ -221,7 +221,7 @@ public class TbListTextView extends TextView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
-            if (!this.f13343e) {
+            if (!this.f48376e) {
                 return super.onTouchEvent(motionEvent);
             }
             setLongClickable(false);
@@ -234,7 +234,7 @@ public class TbListTextView extends TextView {
     public void setCheckSelection(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f13343e = z;
+            this.f48376e = z;
         }
     }
 
@@ -257,7 +257,7 @@ public class TbListTextView extends TextView {
                 return;
             }
         }
-        this.f13343e = true;
+        this.f48376e = true;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -279,6 +279,6 @@ public class TbListTextView extends TextView {
                 return;
             }
         }
-        this.f13343e = true;
+        this.f48376e = true;
     }
 }

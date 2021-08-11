@@ -33,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class TransformationUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Lock BITMAP_DRAWABLE_LOCK;
@@ -46,7 +46,7 @@ public final class TransformationUtils {
     public static final String TAG = "TransformationUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class NoLock implements Lock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,10 +101,10 @@ public final class TransformationUtils {
         }
 
         @Override // java.util.concurrent.locks.Lock
-        public boolean tryLock(long j, @NonNull TimeUnit timeUnit) throws InterruptedException {
+        public boolean tryLock(long j2, @NonNull TimeUnit timeUnit) throws InterruptedException {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j, timeUnit)) == null) {
+            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j2, timeUnit)) == null) {
                 return true;
             }
             return invokeJL.booleanValue;
@@ -203,14 +203,10 @@ public final class TransformationUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmapPool, bitmap, i2, i3)) == null) {
             if (bitmap.getWidth() <= i2 && bitmap.getHeight() <= i3) {
-                if (Log.isLoggable(TAG, 2)) {
-                    Log.v(TAG, "requested target size larger or equal to input, returning input");
-                }
+                Log.isLoggable(TAG, 2);
                 return bitmap;
             }
-            if (Log.isLoggable(TAG, 2)) {
-                Log.v(TAG, "requested target size too big for input, fit centering instead");
-            }
+            Log.isLoggable(TAG, 2);
             return fitCenter(bitmapPool, bitmap, i2, i3);
         }
         return (Bitmap) invokeLLII.objValue;
@@ -265,30 +261,23 @@ public final class TransformationUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65543, null, bitmapPool, bitmap, i2, i3)) == null) {
             if (bitmap.getWidth() == i2 && bitmap.getHeight() == i3) {
-                if (Log.isLoggable(TAG, 2)) {
-                    Log.v(TAG, "requested target size matches input, returning input");
-                }
+                Log.isLoggable(TAG, 2);
                 return bitmap;
             }
             float min = Math.min(i2 / bitmap.getWidth(), i3 / bitmap.getHeight());
             int round = Math.round(bitmap.getWidth() * min);
             int round2 = Math.round(bitmap.getHeight() * min);
             if (bitmap.getWidth() == round && bitmap.getHeight() == round2) {
-                if (Log.isLoggable(TAG, 2)) {
-                    Log.v(TAG, "adjusted target size matches input, returning input");
-                }
+                Log.isLoggable(TAG, 2);
                 return bitmap;
             }
             Bitmap bitmap2 = bitmapPool.get((int) (bitmap.getWidth() * min), (int) (bitmap.getHeight() * min), getNonNullConfig(bitmap));
             setAlpha(bitmap, bitmap2);
             if (Log.isLoggable(TAG, 2)) {
-                Log.v(TAG, "request: " + i2 + "x" + i3);
-                Log.v(TAG, "toFit:   " + bitmap.getWidth() + "x" + bitmap.getHeight());
-                Log.v(TAG, "toReuse: " + bitmap2.getWidth() + "x" + bitmap2.getHeight());
-                StringBuilder sb = new StringBuilder();
-                sb.append("minPct:   ");
-                sb.append(min);
-                Log.v(TAG, sb.toString());
+                String str = "request: " + i2 + "x" + i3;
+                String str2 = "toFit:   " + bitmap.getWidth() + "x" + bitmap.getHeight();
+                String str3 = "toReuse: " + bitmap2.getWidth() + "x" + bitmap2.getHeight();
+                String str4 = "minPct:   " + min;
             }
             Matrix matrix = new Matrix();
             matrix.setScale(min, min);
@@ -424,11 +413,8 @@ public final class TransformationUtils {
                     Matrix matrix = new Matrix();
                     matrix.setRotate(i2);
                     return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-                } catch (Exception e2) {
-                    if (Log.isLoggable(TAG, 6)) {
-                        Log.e(TAG, "Exception when trying to orient image", e2);
-                        return bitmap;
-                    }
+                } catch (Exception unused) {
+                    Log.isLoggable(TAG, 6);
                     return bitmap;
                 }
             }

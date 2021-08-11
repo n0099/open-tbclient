@@ -18,7 +18,7 @@ import java.util.Map;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class e {
             a aVar = new a();
             aVar.setOutput(outputStream, "utf-8");
             aVar.startDocument(null, Boolean.TRUE);
-            aVar.setFeature("http://xmlpull.org/v1/doc/features.html#indent-output", true);
+            aVar.setFeature(a.d(), true);
             a(map, (String) null, (XmlSerializer) aVar);
             aVar.endDocument();
         }
@@ -75,14 +75,14 @@ public class e {
                     obj = Boolean.valueOf(xmlPullParser.getAttributeValue(null, "value"));
                 } else if (name.equals("int-array")) {
                     xmlPullParser.next();
-                    int[] m65a = m65a(xmlPullParser, "int-array", strArr);
+                    int[] m69a = m69a(xmlPullParser, "int-array", strArr);
                     strArr[0] = attributeValue;
-                    return m65a;
+                    return m69a;
                 } else if (name.equals("map")) {
                     xmlPullParser.next();
-                    HashMap m64a = m64a(xmlPullParser, "map", strArr);
+                    HashMap m68a = m68a(xmlPullParser, "map", strArr);
                     strArr[0] = attributeValue;
-                    return m64a;
+                    return m68a;
                 } else if (name.equals("list")) {
                     xmlPullParser.next();
                     ArrayList a2 = a(xmlPullParser, "list", strArr);
@@ -272,7 +272,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static final HashMap m64a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
+    public static final HashMap m68a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, xmlPullParser, str, strArr)) == null) {
@@ -322,7 +322,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static final int[] m65a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
+    public static final int[] m69a(XmlPullParser xmlPullParser, String str, String[] strArr) throws XmlPullParserException, IOException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, xmlPullParser, str, strArr)) == null) {

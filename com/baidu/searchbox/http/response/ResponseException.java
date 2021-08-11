@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ResponseException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CANCELED = "Canceled";

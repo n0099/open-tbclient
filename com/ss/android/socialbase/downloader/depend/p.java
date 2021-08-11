@@ -12,28 +12,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.depend.o;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface p extends IInterface {
-    boolean a(long j, long j2, o oVar) throws RemoteException;
+    boolean a(long j2, long j3, o oVar) throws RemoteException;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static abstract class a extends Binder implements p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.p$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static class C0504a implements p {
+        /* loaded from: classes10.dex */
+        public static class C2064a implements p {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static p f38686a;
+            public static p f75500a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f38687b;
+            public IBinder f75501b;
 
-            public C0504a(IBinder iBinder) {
+            public C2064a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,23 +48,23 @@ public interface p extends IInterface {
                         return;
                     }
                 }
-                this.f38687b = iBinder;
+                this.f75501b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.p
-            public boolean a(long j, long j2, o oVar) throws RemoteException {
+            public boolean a(long j2, long j3, o oVar) throws RemoteException {
                 InterceptResult invokeCommon;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), oVar})) == null) {
+                if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), oVar})) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadDiskSpaceAidlHandler");
-                        obtain.writeLong(j);
                         obtain.writeLong(j2);
+                        obtain.writeLong(j3);
                         obtain.writeStrongBinder(oVar != null ? oVar.asBinder() : null);
-                        if (!this.f38687b.transact(1, obtain, obtain2, 0) && a.a() != null) {
-                            return a.a().a(j, j2, oVar);
+                        if (!this.f75501b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                            return a.a().a(j2, j3, oVar);
                         }
                         obtain2.readException();
                         return obtain2.readInt() != 0;
@@ -80,7 +80,7 @@ public interface p extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38687b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75501b : (IBinder) invokeV.objValue;
             }
         }
 
@@ -111,7 +111,7 @@ public interface p extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof p)) {
                     return (p) queryLocalInterface;
                 }
-                return new C0504a(iBinder);
+                return new C2064a(iBinder);
             }
             return (p) invokeL.objValue;
         }
@@ -147,7 +147,7 @@ public interface p extends IInterface {
         public static p a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0504a.f38686a : (p) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2064a.f75500a : (p) invokeV.objValue;
         }
     }
 }

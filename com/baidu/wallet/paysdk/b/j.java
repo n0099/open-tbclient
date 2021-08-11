@@ -4,7 +4,7 @@ import com.baidu.wallet.paysdk.datamodel.BindFastRequest;
 import com.baidu.wallet.paysdk.datamodel.GetCardInfoResponse;
 import com.baidu.wallet.paysdk.ui.BindCardBaseActivity;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface j {
     public static final String q = "j";
 

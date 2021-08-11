@@ -1,6 +1,7 @@
 package com.baidu.tieba.newfaceshop.facemake;
 
 import android.text.TextUtils;
+import c.a.p0.d2.g.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -20,26 +21,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.c2.g.e;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class UploadFaceGroupModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f19006e;
+    public final HttpMessageListener f54372e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UploadFaceGroupModel f19007a;
+        public final /* synthetic */ UploadFaceGroupModel f54373a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(UploadFaceGroupModel uploadFaceGroupModel, int i2) {
@@ -59,7 +59,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                     return;
                 }
             }
-            this.f19007a = uploadFaceGroupModel;
+            this.f54373a = uploadFaceGroupModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -91,16 +91,16 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                 if (obj3 != null && (obj3 instanceof Boolean)) {
                     z = ((Boolean) obj3).booleanValue();
                     if (arrayList != null) {
-                        this.f19007a.x(lVar, null);
+                        this.f54373a.x(lVar, null);
                         BdLog.e("msg extra empty");
                         return;
                     } else if (httpResponsedMessage.getError() != 0) {
-                        this.f19007a.x(lVar, httpResponsedMessage.getErrorString());
+                        this.f54373a.x(lVar, httpResponsedMessage.getErrorString());
                         return;
                     } else {
                         String groupId = ((UploadFaceGroupResponseMessage) httpResponsedMessage).getGroupId();
                         if (TextUtils.isEmpty(groupId)) {
-                            this.f19007a.x(lVar, httpResponsedMessage.getErrorString());
+                            this.f54373a.x(lVar, httpResponsedMessage.getErrorString());
                             return;
                         }
                         if (lVar != null) {
@@ -137,12 +137,12 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                 return;
             }
         }
-        this.f19006e = new a(this, CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
+        this.f54372e = new a(this, CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f19006e.setTag(getUniqueId());
-        this.f19006e.setSelfListener(true);
-        registerListener(this.f19006e);
+        this.f54372e.setTag(getUniqueId());
+        this.f54372e.setSelfListener(true);
+        registerListener(this.f54372e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -160,7 +160,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f19006e);
+            MessageManager.getInstance().unRegisterListener(this.f54372e);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
             return true;
         }

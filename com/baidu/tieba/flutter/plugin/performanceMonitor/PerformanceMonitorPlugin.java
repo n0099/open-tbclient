@@ -1,13 +1,17 @@
 package com.baidu.tieba.flutter.plugin.performanceMonitor;
 
 import androidx.annotation.NonNull;
+import c.a.e.e.n.a;
+import c.a.o0.o0.j;
+import c.a.o0.o0.k;
+import c.a.p0.r0.a.g.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
+import com.baidu.fsg.base.statistics.h;
 import com.baidu.tieba.flutter.base.util.OpenFlutter;
 import com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorAuto;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,23 +21,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.router.RouterCallback;
 import com.facebook.common.util.UriUtil;
-import d.a.d.e.n.a;
-import d.a.p0.o0.j;
-import d.a.p0.o0.k;
-import d.a.q0.q0.a.g.e;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonitorAuto.HostPerformanceMonitor {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, String> flutterEngineStartInfo;
     public transient /* synthetic */ FieldHolder $fh;
     public final CustomMessageListener mFlutterEngineInitListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class PerfCPULogAsync extends BdAsyncTask<String, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -238,9 +237,9 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
         statsItem.b("action", "image_perf");
         statsItem.c(UriUtil.LOCAL_RESOURCE_SCHEME, params.get("isBundleFile"));
         statsItem.c("try", params.get("tryTimes"));
-        statsItem.c(Config.EXCEPTION_CRASH_TYPE, params.get("contentType"));
+        statsItem.c("ct", params.get("contentType"));
         statsItem.c("dc", params.get("dartCodecCost"));
-        statsItem.c("lc", params.get("loadingCost"));
+        statsItem.c(h.f39306g, params.get("loadingCost"));
         statsItem.c("trans", params.get("channelTransTime"));
         statsItem.c("cc", params.get("codecCost"));
         statsItem.c("tc", params.get("totalCost"));
@@ -265,7 +264,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
         a a2 = j.a();
         a2.b("action", "time");
         a2.c("ishttp", params.get("isHttp"));
-        a2.b("issuccess", params.get(RouterCallback.KEY_ERROR_CODE) == "200" ? "1" : "0");
+        a2.b("issuccess", params.get("errCode") == "200" ? "1" : "0");
         a2.b("nettype", k.d().f());
         if (params.containsKey("whiteTime") && (params.get("whiteTime") instanceof Double)) {
             a2.c("wt", Double.valueOf(((Double) params.get("whiteTime")).doubleValue() * 1000.0d));
@@ -287,11 +286,11 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
             a2.c("hrtn", params.get("httpRetryNum"));
             a2.c("hrtt", params.get("httpRetryCostTime"));
         }
-        if (params.get(RouterCallback.KEY_ERROR_CODE) != "0") {
-            a2.c("errcode", params.get(RouterCallback.KEY_ERROR_CODE));
+        if (params.get("errCode") != "0") {
+            a2.c("errcode", params.get("errCode"));
         }
         if (params.containsKey("viewCreateTime") && (params.get("viewCreateTime") instanceof Double)) {
-            a2.c(Config.EXCEPTION_CRASH_TYPE, Double.valueOf(((Double) params.get("viewCreateTime")).doubleValue() * 1000.0d));
+            a2.c("ct", Double.valueOf(((Double) params.get("viewCreateTime")).doubleValue() * 1000.0d));
         }
         if (params.containsKey("channelTransTime") && (params.get("channelTransTime") instanceof Double)) {
             a2.c("transt", Double.valueOf(((Double) params.get("channelTransTime")).doubleValue() * 1000.0d));

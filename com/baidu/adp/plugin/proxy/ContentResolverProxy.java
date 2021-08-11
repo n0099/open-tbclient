@@ -3,6 +3,7 @@ package com.baidu.adp.plugin.proxy;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.IContentProvider;
+import c.a.e.h.k.d;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,8 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.h.k.d;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ContentResolverProxy extends ContentResolver {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ContentResolverProxy mProxy;

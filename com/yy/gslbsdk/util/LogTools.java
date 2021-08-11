@@ -1,7 +1,6 @@
 package com.yy.gslbsdk.util;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.GslbEvent;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class LogTools {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -55,7 +54,7 @@ public class LogTools {
             return;
         }
         if (GlobalTools.LOG_IS_OPEN) {
-            Log.d(TAG, String.format(Locale.US, "[%s] %s", str, str2));
+            String.format(Locale.US, "[%s] %s", str, str2);
         }
         printMsgEvent("debug", str, str2);
     }
@@ -66,7 +65,7 @@ public class LogTools {
             return;
         }
         if (GlobalTools.LOG_IS_OPEN) {
-            Log.e(TAG, String.format(Locale.US, "[%s] %s", str, str2));
+            String.format(Locale.US, "[%s] %s", str, str2);
         }
         printMsgEvent("error", str, str2);
     }
@@ -77,7 +76,7 @@ public class LogTools {
             return;
         }
         if (GlobalTools.LOG_IS_OPEN) {
-            Log.i(TAG, String.format(Locale.US, "[%s] %s", str, str2));
+            String.format(Locale.US, "[%s] %s", str, str2);
         }
         printMsgEvent("info", str, str2);
     }
@@ -95,7 +94,7 @@ public class LogTools {
             return;
         }
         if (GlobalTools.LOG_IS_OPEN) {
-            Log.w(TAG, String.format(Locale.US, "[%s] %s", str, exc));
+            String.format(Locale.US, "[%s] %s", str, exc);
         }
         printMsgEvent("warn", str, exc.getLocalizedMessage());
     }
@@ -106,7 +105,7 @@ public class LogTools {
             return;
         }
         if (GlobalTools.LOG_IS_OPEN) {
-            Log.w(TAG, String.format(Locale.US, "[%s] %s", str, str2));
+            String.format(Locale.US, "[%s] %s", str, str2);
         }
         printMsgEvent("warn", str, str2);
     }

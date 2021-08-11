@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import c.a.o0.s.d0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -22,9 +23,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.d0.b;
 import java.util.Calendar;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BigdayActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class BigdayActivity extends BaseActivity {
                 this.bigdayId = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
             }
             this.bigdayImg.setTag(getPageContext().getUniqueId());
-            this.bigdayImg.M(this.imgUrl, 41, false);
+            this.bigdayImg.startLoad(this.imgUrl, 41, false);
             this.bigdayImg.setOnClickListener(this);
             this.bigdayClose.setOnClickListener(this);
             TiebaStatic.log(new StatisticItem("c13111").param("obj_id", this.bigdayId).param(TiebaStatic.Params.OBJ_TO, this.jumpUrl));

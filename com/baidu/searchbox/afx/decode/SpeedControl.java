@@ -1,13 +1,12 @@
 package com.baidu.searchbox.afx.decode;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.afx.decode.VideoPlayer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SpeedControl implements VideoPlayer.FrameCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long ONE_MILLION = 1000000;
@@ -41,53 +40,43 @@ public class SpeedControl implements VideoPlayer.FrameCallback {
     }
 
     @Override // com.baidu.searchbox.afx.decode.VideoPlayer.FrameCallback
-    public void preRender(long j) {
+    public void preRender(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) != null) {
+        if (interceptable != null && interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) != null) {
             return;
         }
-        long j2 = 0;
         if (this.mPrevMonoUsec == 0) {
             this.mPrevMonoUsec = System.nanoTime() / 1000;
-            this.mPrevPresentUsec = j;
+            this.mPrevPresentUsec = j2;
             return;
         }
         if (this.mLoopReset) {
-            this.mPrevPresentUsec = j - 40000;
+            this.mPrevPresentUsec = j2 - 40000;
             this.mLoopReset = false;
         }
         long j3 = this.mFixedFrameDurationUsec;
         if (j3 == 0) {
-            j3 = j - this.mPrevPresentUsec;
+            j3 = j2 - this.mPrevPresentUsec;
         }
         int i2 = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
-        if (i2 < 0) {
-            Log.w(TAG, "Weird, video times went backward");
-        } else {
-            if (i2 == 0) {
-                Log.w(TAG, "Warning: current frame and previous frame had same timestamp");
-            } else if (j3 > 10000000) {
-                j2 = 5000000;
-            }
-            j2 = j3;
-        }
-        long j4 = this.mPrevMonoUsec + j2;
+        long j4 = i2 >= 0 ? (i2 != 0 && j3 > 10000000) ? 5000000L : j3 : 0L;
+        long j5 = this.mPrevMonoUsec + j4;
         long nanoTime = System.nanoTime();
         while (true) {
-            long j5 = nanoTime / 1000;
-            if (j5 < j4 - 100) {
-                long j6 = j4 - j5;
-                if (j6 > 500000) {
-                    j6 = 500000;
+            long j6 = nanoTime / 1000;
+            if (j6 < j5 - 100) {
+                long j7 = j5 - j6;
+                if (j7 > 500000) {
+                    j7 = 500000;
                 }
                 try {
-                    Thread.sleep(j6 / 1000, ((int) (j6 % 1000)) * 1000);
+                    Thread.sleep(j7 / 1000, ((int) (j7 % 1000)) * 1000);
                 } catch (InterruptedException unused) {
                 }
                 nanoTime = System.nanoTime();
             } else {
-                this.mPrevMonoUsec += j2;
-                this.mPrevPresentUsec += j2;
+                this.mPrevMonoUsec += j4;
+                this.mPrevPresentUsec += j4;
                 return;
             }
         }

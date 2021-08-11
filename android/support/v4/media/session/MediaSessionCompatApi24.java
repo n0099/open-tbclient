@@ -4,7 +4,6 @@ import android.media.session.MediaSession;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.media.session.MediaSessionCompatApi23;
-import android.util.Log;
 import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -119,8 +118,7 @@ public class MediaSessionCompatApi24 {
             MediaSession mediaSession = (MediaSession) obj;
             try {
                 return (String) mediaSession.getClass().getMethod("getCallingPackage", new Class[0]).invoke(mediaSession, new Object[0]);
-            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e2) {
-                Log.e(TAG, "Cannot execute MediaSession.getCallingPackage()", e2);
+            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
                 return null;
             }
         }

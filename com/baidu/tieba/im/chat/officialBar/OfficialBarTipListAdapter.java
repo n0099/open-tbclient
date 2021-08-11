@@ -2,6 +2,9 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.content.Context;
 import android.text.TextUtils;
+import c.a.e.e.p.l;
+import c.a.o0.t.d.d;
+import c.a.p0.j1.f.i.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -11,11 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.p0.t.d.d;
-import d.a.q0.i1.f.i.c;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class OfficialBarTipListAdapter extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class OfficialBarTipListAdapter extends c {
         }
     }
 
-    @Override // d.a.q0.i1.f.i.c
+    @Override // c.a.p0.j1.f.i.c
     public boolean d(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class OfficialBarTipListAdapter extends c {
         return invokeL.booleanValue;
     }
 
-    @Override // d.a.q0.i1.f.i.c
+    @Override // c.a.p0.j1.f.i.c
     public boolean e(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -60,46 +60,46 @@ public class OfficialBarTipListAdapter extends c {
         return invokeL.booleanValue;
     }
 
-    @Override // d.a.q0.i1.f.i.c
+    @Override // c.a.p0.j1.f.i.c
     public void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, imMessageCenterShowItemData) == null) {
-            aVar.f58915b.setVisibility(8);
-            aVar.f58917d.setVisibility(0);
-            aVar.f58917d.setShowOval(true);
-            aVar.f58917d.setAutoChangeStyle(true);
-            aVar.f58917d.setStrokeWith(l.g(this.f58911e, R.dimen.tbds1));
-            aVar.f58917d.setStrokeColorResId(R.color.CAM_X0401);
-            aVar.f58917d.setTag(null);
-            aVar.f58917d.setPlaceHolder(1);
+            aVar.f20340b.setVisibility(8);
+            aVar.f20342d.setVisibility(0);
+            aVar.f20342d.setShowOval(true);
+            aVar.f20342d.setAutoChangeStyle(true);
+            aVar.f20342d.setStrokeWith(l.g(this.f20336e, R.dimen.tbds1));
+            aVar.f20342d.setStrokeColorResId(R.color.CAM_X0401);
+            aVar.f20342d.setTag(null);
+            aVar.f20342d.setPlaceHolder(1);
             if (TextUtils.isEmpty(imMessageCenterShowItemData.getFriendPortrait())) {
                 return;
             }
-            aVar.f58917d.setTag(imMessageCenterShowItemData.getFriendPortrait());
-            aVar.f58917d.M(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
+            aVar.f20342d.setTag(imMessageCenterShowItemData.getFriendPortrait());
+            aVar.f20342d.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
         }
     }
 
-    @Override // d.a.q0.i1.f.i.c
+    @Override // c.a.p0.j1.f.i.c
     public void i(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, aVar, imMessageCenterShowItemData) == null) {
-            aVar.f58918e.setText(this.f58911e.getString(R.string.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
+            aVar.f20343e.setText(this.f20336e.getString(R.string.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
         }
     }
 
-    @Override // d.a.q0.i1.f.i.c
+    @Override // c.a.p0.j1.f.i.c
     public void m(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, aVar, imMessageCenterShowItemData) == null) {
-            aVar.f58921h.setVisibility(8);
-            SkinManager.setViewTextColor(aVar.f58918e, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(aVar.f58919f, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColor(aVar.f58920g, R.color.CAM_X0109, 1);
+            aVar.f20346h.setVisibility(8);
+            SkinManager.setViewTextColor(aVar.f20343e, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(aVar.f20344f, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(aVar.f20345g, R.color.CAM_X0109, 1);
         }
     }
 
-    @Override // d.a.q0.i1.f.i.c
+    @Override // c.a.p0.j1.f.i.c
     public BasicNameValuePair p(ImMessageCenterShowItemData imMessageCenterShowItemData, int i2, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;

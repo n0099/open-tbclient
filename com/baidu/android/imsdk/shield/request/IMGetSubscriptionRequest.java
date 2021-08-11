@@ -18,20 +18,20 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGetSubscriptionRequest";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public IMGetSubscriptionRequest(Context context, long j, List<Long> list, List<String> list2, String str, String str2) {
-        super(context, j, list, list2, str2, str);
+    public IMGetSubscriptionRequest(Context context, long j2, List<Long> list, List<String> list2, String str, String str2) {
+        super(context, j2, list, list2, str2, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), list, list2, str, str2};
+            Object[] objArr = {context, Long.valueOf(j2), list, list2, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -89,7 +89,7 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i2, byte[] bArr) {
-        long j;
+        long j2;
         Exception exc;
         String str;
         String str2;
@@ -102,13 +102,13 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
             String str5 = new String(bArr);
             LogUtils.d(TAG, "IMGetSubscriptionRequest onSuccess :" + str5);
             ArrayList arrayList = new ArrayList();
-            long j2 = 0;
+            long j3 = 0;
             try {
                 JSONObject jSONObject = new JSONObject(str5);
                 i3 = jSONObject.optInt("error_code");
                 if (i3 == 0) {
                     String optString = jSONObject.optString("error_msg", "");
-                    j2 = jSONObject.optLong("pa_uid");
+                    j3 = jSONObject.optLong("pa_uid");
                     str2 = jSONObject.optString("pa_avatar");
                     try {
                         str4 = jSONObject.optString("pa_nickname");
@@ -124,7 +124,7 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
                         str3 = str4;
                         str4 = optString;
                     } catch (Exception e2) {
-                        j = j2;
+                        j2 = j3;
                         exc = e2;
                         str = str4;
                         str4 = str2;
@@ -132,7 +132,7 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
                         str2 = str4;
                         str3 = str;
                         str4 = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                        j2 = j;
+                        j3 = j2;
                         i3 = 1010;
                         removeListener = ListenerManager.getInstance().removeListener(this.mKey);
                         if (removeListener == null) {
@@ -144,7 +144,7 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
                     str2 = str3;
                 }
             } catch (Exception e3) {
-                j = j2;
+                j2 = j3;
                 exc = e3;
                 str = "";
             }
@@ -153,7 +153,7 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
                 GetSubscriptionResult getSubscriptionResult = new GetSubscriptionResult();
                 getSubscriptionResult.setErrorCode(i3);
                 getSubscriptionResult.setErrorMsg(str4);
-                getSubscriptionResult.setPauid(j2);
+                getSubscriptionResult.setPauid(j3);
                 getSubscriptionResult.setPaAvatar(str2);
                 getSubscriptionResult.setPaNickName(str3);
                 getSubscriptionResult.setSubscriptionList(arrayList);

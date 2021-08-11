@@ -1,5 +1,7 @@
 package com.baidu.tieba.wallet.pay;
 
+import c.a.e.e.m.b;
+import c.a.o0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -9,12 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.m.b;
-import d.a.p0.b1.w;
 import tbclient.GetOrder.DataReq;
 import tbclient.GetOrder.GetOrderReqIdl;
 import tbclient.Wares;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GetOrderNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,8 +1,9 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class RegisterStatus extends BasicPushStatus {
     public int expireTime;
     public String pushId;
@@ -43,6 +44,6 @@ public class RegisterStatus extends BasicPushStatus {
 
     @Override // com.meizu.cloud.pushsdk.platform.message.BasicPushStatus
     public String toString() {
-        return super.toString() + "pushId='" + this.pushId + "', Become invalid after " + this.expireTime + " seconds }";
+        return super.toString() + "pushId='" + this.pushId + ExtendedMessageFormat.QUOTE + ", Become invalid after " + this.expireTime + " seconds " + ExtendedMessageFormat.END_FE;
     }
 }

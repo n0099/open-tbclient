@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -17,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class UnSubscribeMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<UnSubscribeMsg> CREATOR;
@@ -153,7 +152,7 @@ public class UnSubscribeMsg extends NormalMsg {
                 return;
             }
         }
-        setMsgType(IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL);
+        setMsgType(2014);
         this.text = str;
         setText(str);
     }
@@ -173,7 +172,7 @@ public class UnSubscribeMsg extends NormalMsg {
                 return;
             }
         }
-        setMsgType(z ? IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL : IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME);
+        setMsgType(z ? 2014 : 2013);
         this.text = str;
         setText(str);
     }
@@ -191,7 +190,7 @@ public class UnSubscribeMsg extends NormalMsg {
                 return;
             }
         }
-        setMsgType(IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL);
+        setMsgType(2014);
         this.text = "";
         setText("");
     }

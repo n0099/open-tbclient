@@ -2,7 +2,7 @@ package com.baidu.searchbox.anr.impl;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
+import c.a.g0.a.b.d;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.ioc.IANRContext;
@@ -18,9 +18,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.h0.a.b.d;
 @Autowired
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ANRContext {
     public static /* synthetic */ Interceptable $ic;
     public static final IANRContext ANR_CONTEXT_DEFAULT;
@@ -61,15 +60,13 @@ public class ANRContext {
             public void onAppNotResponding(Context context, ANRInfo aNRInfo) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context, aNRInfo) == null) {
-                    if (AppConfig.isDebug()) {
-                        Log.d("Ruka", "onAppNotResponding");
-                    }
+                    AppConfig.isDebug();
                     d<IANRRegister> iANRUploadList = ANRRuntime.getInstance().getIANRUploadList();
                     if (iANRUploadList == null || iANRUploadList.getList() == null || aNRInfo == null) {
                         return;
                     }
                     if (AppConfig.isDebug()) {
-                        Log.i("Ruka", "ANRInfo = " + aNRInfo.getStackTrace());
+                        String str = "ANRInfo = " + aNRInfo.getStackTrace();
                     }
                     TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
                     if (lastTrackUI != null) {

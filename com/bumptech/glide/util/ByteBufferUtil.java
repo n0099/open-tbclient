@@ -23,14 +23,14 @@ import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class ByteBufferUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final AtomicReference<byte[]> BUFFER_REF;
     public static final int BUFFER_SIZE = 16384;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class SafeArray {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +102,7 @@ public final class ByteBufferUtil {
             long length = file.length();
             if (length <= 2147483647L) {
                 if (length != 0) {
-                    randomAccessFile = new RandomAccessFile(file, r.f7788a);
+                    randomAccessFile = new RandomAccessFile(file, r.f42062a);
                     try {
                         fileChannel = randomAccessFile.getChannel();
                         MappedByteBuffer load = fileChannel.map(FileChannel.MapMode.READ_ONLY, 0L, length).load();
@@ -269,7 +269,7 @@ public final class ByteBufferUtil {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class ByteBufferStream extends InputStream {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int UNSET = -1;
@@ -352,12 +352,12 @@ public final class ByteBufferUtil {
         }
 
         @Override // java.io.InputStream
-        public long skip(long j) throws IOException {
+        public long skip(long j2) throws IOException {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
                 if (this.byteBuffer.hasRemaining()) {
-                    long min = Math.min(j, available());
+                    long min = Math.min(j2, available());
                     ByteBuffer byteBuffer = this.byteBuffer;
                     byteBuffer.position((int) (byteBuffer.position() + min));
                     return min;

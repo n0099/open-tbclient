@@ -1,5 +1,8 @@
 package com.baidu.tbadk.message.http;
 
+import c.a.e.e.j.a.d;
+import c.a.e.e.j.a.e;
+import c.a.e.e.p.j;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
@@ -9,10 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.j.a.d;
-import d.a.d.e.j.a.e;
-import d.a.d.e.p.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TbHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,9 +91,9 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
         NetWorkState.mErrorNums.addAndGet(eVar.d().size() - 1);
         NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
         statisticsData.mMode = getMode(j.I());
-        statisticsData.mSize = dVar.f41707b;
-        statisticsData.mTime = dVar.f41711f;
-        statisticsData.mTimesNum = dVar.f41710e;
+        statisticsData.mSize = dVar.f2249b;
+        statisticsData.mTime = dVar.f2253f;
+        statisticsData.mTimesNum = dVar.f2252e;
         statisticsData.mMethod = eVar.b().h() != HttpMessageTask.HTTP_METHOD.POST ? 2 : 1;
         NetWorkState.addStatisticsData(statisticsData);
     }

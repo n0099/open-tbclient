@@ -1,13 +1,13 @@
 package com.baidu.tbadk.switchs;
 
+import c.a.e.e.f.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.f.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class DnsProxySwitch extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DNSPROXY_KEY = "switch_dnsproxy";
@@ -29,21 +29,21 @@ public class DnsProxySwitch extends a {
         }
     }
 
-    @Override // d.a.d.e.f.a
+    @Override // c.a.e.e.f.a
     public void changeSettingByType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
         }
     }
 
-    @Override // d.a.d.e.f.a
+    @Override // c.a.e.e.f.a
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new String[]{"com.baidu.tieba.dnsproxy"} : (String[]) invokeV.objValue;
     }
 
-    @Override // d.a.d.e.f.a
+    @Override // c.a.e.e.f.a
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class DnsProxySwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // d.a.d.e.f.a
+    @Override // c.a.e.e.f.a
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -63,14 +63,14 @@ public class DnsProxySwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // d.a.d.e.f.a
+    @Override // c.a.e.e.f.a
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? DNSPROXY_KEY : (String) invokeV.objValue;
     }
 
-    @Override // d.a.d.e.f.a
+    @Override // c.a.e.e.f.a
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

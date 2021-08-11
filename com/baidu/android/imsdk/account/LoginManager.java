@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import c.a.t.a;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.account.request.IMUserLoginByTokenMsg;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,10 +20,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.u.a;
+import com.baidu.wallet.base.statistics.PayStatServiceEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class LoginManager {
     public static /* synthetic */ Interceptable $ic;
     public static Context mContext;
@@ -35,7 +36,7 @@ public class LoginManager {
     public volatile LoginState mLoginState;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class LoginState {
         public static final /* synthetic */ LoginState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -182,7 +183,7 @@ public class LoginManager {
     private String getStateString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.mLoginState.equals(LoginState.LOGINING) ? "logining" : this.mLoginState.equals(LoginState.LOGINED) ? "logged" : "not_login" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.mLoginState.equals(LoginState.LOGINING) ? "logining" : this.mLoginState.equals(LoginState.LOGINED) ? "logged" : PayStatServiceEvent.NOT_LOGIN : (String) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -193,10 +194,10 @@ public class LoginManager {
             String str = this.TAG;
             LogUtils.d(str, "lcp，im login ：" + IMUserLoginByTokenMsg.sRetrytimes + ", loginType :" + loginType);
             if (z) {
-                Handler handler = a.f68191c;
+                Handler handler = a.f29657c;
                 if (handler != null) {
                     handler.removeCallbacks(this.imLoginRunable);
-                    a.f68191c.postDelayed(this.imLoginRunable, 3000L);
+                    a.f29657c.postDelayed(this.imLoginRunable, 3000L);
                 }
             } else if (loginType == 1) {
                 BIMManager.login(Utility.readUid(mContext), AccountManagerImpl.getInstance(mContext).getToken(), loginType, AccountManagerImpl.getInstance(mContext).getFrom(), AccountManagerImpl.getInstance(mContext).getcFrom(), removeLoginListener());
@@ -334,11 +335,11 @@ public class LoginManager {
                     this.mLoginState = LoginState.NOT_LOGIN;
                     return;
                 } else if (110 != i2 && 7 != i2 && 23 != i2 && 1004 != i2 && 1001 != i2 && 8010 != i2) {
-                    LogUtils.d(this.TAG, "error :" + i2 + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.f68193e);
+                    LogUtils.d(this.TAG, "error :" + i2 + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.f29659e);
                     this.mLoginState = LoginState.NOT_LOGIN;
-                    if (a.f68193e && IMUserLoginByTokenMsg.sRetrytimes < 3) {
+                    if (a.f29659e && IMUserLoginByTokenMsg.sRetrytimes < 3) {
                         imRetryLogin(i2);
-                    } else if (!a.f68193e && IMConnection.getInstance(mContext).shouldRetryLogin()) {
+                    } else if (!a.f29659e && IMConnection.getInstance(mContext).shouldRetryLogin()) {
                         LogUtils.d(this.TAG, "IMConnection，im login ：" + IMUserLoginByTokenMsg.sRetrytimes);
                         IMConnection.getInstance(mContext).disconnectedByPeer();
                     }

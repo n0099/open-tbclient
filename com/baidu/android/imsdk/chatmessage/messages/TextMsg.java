@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class TextMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TextMsg> CREATOR;
@@ -135,17 +135,17 @@ public class TextMsg extends NormalMsg {
         return invokeV.booleanValue;
     }
 
-    public void setCastId(long j) {
+    public void setCastId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.castId = j;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            this.castId = j2;
         }
     }
 
-    public void setPriority(long j) {
+    public void setPriority(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.priority = j;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            this.priority = j2;
         }
     }
 

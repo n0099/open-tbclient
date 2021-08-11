@@ -9,6 +9,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.a.b;
+import c.a.e.a.g;
+import c.a.e.a.i;
+import c.a.e.e.l.d;
+import c.a.e.e.p.l;
+import c.a.e.k.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
@@ -20,13 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.b;
-import d.a.d.a.g;
-import d.a.d.a.i;
-import d.a.d.e.l.d;
-import d.a.d.e.p.l;
-import d.a.d.k.e.q;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class PluginAdpBaseActivity extends PluginBaseActivity implements View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, i, Handler.Callback, g {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRELOAD_DELAY = 100;
@@ -36,13 +36,13 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     public boolean mIsScroll;
     public final Runnable preLoadRunnable;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginAdpBaseActivity f2281e;
+        public final /* synthetic */ PluginAdpBaseActivity f36136e;
 
         public a(PluginAdpBaseActivity pluginAdpBaseActivity) {
             Interceptable interceptable = $ic;
@@ -59,14 +59,14 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
                     return;
                 }
             }
-            this.f2281e = pluginAdpBaseActivity;
+            this.f36136e = pluginAdpBaseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PluginAdpBaseActivity pluginAdpBaseActivity = this.f2281e;
+                PluginAdpBaseActivity pluginAdpBaseActivity = this.f36136e;
                 pluginAdpBaseActivity.onPreLoad(pluginAdpBaseActivity.onGetPreLoadListView());
             }
         }
@@ -96,8 +96,8 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         if (!(interceptable == null || interceptable.invokeL(65537, this, view) == null) || view == null) {
             return;
         }
-        if (view instanceof d.a.d.f.a.i) {
-            ((d.a.d.f.a.i) view).refresh();
+        if (view instanceof c.a.e.f.a.i) {
+            ((c.a.e.f.a.i) view).refresh();
         }
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
@@ -108,7 +108,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         }
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.d.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, c.a.e.a.i
     public BdUniqueId getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.d.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, c.a.e.a.i
     public boolean isScroll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -179,17 +179,17 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
         }
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j) {
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             return true;
         }
         return invokeCommon.booleanValue;
@@ -215,7 +215,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         }
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.d.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, c.a.e.a.i
     public void onPreLoad(q qVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, qVar) == null) {
@@ -256,9 +256,9 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         }
     }
 
-    public void registerListener(d.a.d.c.g.a aVar) {
+    public void registerListener(c.a.e.c.g.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, aVar) == null) {
             if (aVar != null && aVar.getTag() == null) {
                 aVar.setTag(this.mId);
             }
@@ -308,7 +308,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         }
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.d.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, c.a.e.a.i
     public void setIsScroll(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
@@ -323,9 +323,9 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         }
     }
 
-    public void registerListener(int i2, d.a.d.c.g.a aVar) {
+    public void registerListener(int i2, c.a.e.c.g.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048593, this, i2, aVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048592, this, i2, aVar) == null) {
             if (aVar != null && aVar.getTag() == null) {
                 aVar.setTag(this.mId);
             }
@@ -346,7 +346,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
 
     public void registerListener(MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, messageListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, messageListener) == null) {
             if (messageListener != null && messageListener.getTag() == null) {
                 messageListener.setTag(this.mId);
             }
@@ -356,7 +356,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
 
     public void registerListener(int i2, MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048592, this, i2, messageListener) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048593, this, i2, messageListener) == null) {
             if (messageListener != null && messageListener.getTag() == null) {
                 messageListener.setTag(this.mId);
             }

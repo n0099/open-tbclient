@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class bk implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.b.a.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class bk implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.b.a.b> 
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        bVar.f35312a = jSONObject.optBoolean("muted");
+        bVar.f72067a = jSONObject.optBoolean("muted");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,7 +45,7 @@ public class bk implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.b.a.b> 
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "muted", bVar.f35312a);
+            com.kwad.sdk.utils.q.a(jSONObject, "muted", bVar.f72067a);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

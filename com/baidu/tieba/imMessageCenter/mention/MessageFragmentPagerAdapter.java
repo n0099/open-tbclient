@@ -1,6 +1,7 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -13,30 +14,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f17951a;
+    public List<a> f53213a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f17952b;
+    public int f53214b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f17953c;
+    public boolean f53215c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Fragment f17954a;
+        public Fragment f53216a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f17955b;
+        public String f53217b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -54,13 +55,13 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MessageFragmentPagerAdapter(FragmentManager fragmentManager, List<a> list) {
+    public MessageFragmentPagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fragmentManager, list};
+            Object[] objArr = {fragmentManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -71,27 +72,35 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.f17952b = -1;
-        this.f17951a = new ArrayList();
-        if (list == null || list.size() <= 0) {
-            return;
-        }
-        this.f17951a.addAll(list);
+        this.f53214b = -1;
+        this.f53213a = new ArrayList();
     }
 
-    public void b(boolean z) {
+    public void add(a aVar) {
+        List<a> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f17953c = z;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (list = this.f53213a) == null || aVar == null) {
+            return;
         }
+        list.add(aVar);
+        notifyDataSetChanged();
+    }
+
+    public void addAll(List<a> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || this.f53213a == null || list == null || list.size() <= 0) {
+            return;
+        }
+        this.f53213a.addAll(list);
+        notifyDataSetChanged();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<a> list = this.f17951a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            List<a> list = this.f53213a;
             if (list != null) {
                 return list.size();
             }
@@ -104,12 +113,12 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            List<a> list = this.f17951a;
-            if (list == null || i2 < 0 || i2 >= list.size() || this.f17951a.get(i2) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+            List<a> list = this.f53213a;
+            if (list == null || i2 < 0 || i2 >= list.size() || this.f53213a.get(i2) == null) {
                 return null;
             }
-            return this.f17951a.get(i2).f17954a;
+            return this.f53213a.get(i2).f53216a;
         }
         return (Fragment) invokeI.objValue;
     }
@@ -118,10 +127,10 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
     public long getItemId(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            List<a> list = this.f17951a;
-            if (list != null && i2 >= 0 && i2 < list.size() && this.f17951a.get(i2) != null) {
-                return this.f17951a.get(i2).hashCode();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+            List<a> list = this.f53213a;
+            if (list != null && i2 >= 0 && i2 < list.size() && this.f53213a.get(i2) != null) {
+                return this.f53213a.get(i2).hashCode();
             }
             return super.getItemId(i2);
         }
@@ -132,32 +141,84 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            List<a> list = this.f17951a;
-            if (list == null || i2 < 0 || i2 >= list.size() || this.f17951a.get(i2) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
+            List<a> list = this.f53213a;
+            if (list == null || i2 < 0 || i2 >= list.size() || this.f53213a.get(i2) == null) {
                 return null;
             }
-            return this.f17951a.get(i2).f17955b;
+            return this.f53213a.get(i2).f53217b;
         }
         return (CharSequence) invokeI.objValue;
+    }
+
+    public void setPrimary(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.f53215c = z;
+        }
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter, androidx.viewpager.widget.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i2, Object obj) {
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048581, this, viewGroup, i2, obj) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048585, this, viewGroup, i2, obj) == null) {
             super.setPrimaryItem(viewGroup, i2, obj);
-            if (!this.f17953c || (i3 = this.f17952b) == i2) {
+            if (!this.f53215c || (i3 = this.f53214b) == i2) {
                 return;
             }
             if (i3 != -1) {
                 ((BaseFragment) getItem(i3)).setPrimary(false);
             }
-            this.f17952b = i2;
+            this.f53214b = i2;
             if (obj instanceof BaseFragment) {
                 ((BaseFragment) obj).setPrimary(true);
             }
         }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MessageFragmentPagerAdapter(FragmentManager fragmentManager, List<a> list) {
+        super(fragmentManager);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fragmentManager, list};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((FragmentManager) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f53214b = -1;
+        this.f53213a = new ArrayList();
+        if (list == null || list.size() <= 0) {
+            return;
+        }
+        this.f53213a.addAll(list);
+    }
+
+    public void add(a aVar, int i2) {
+        List<a> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, i2) == null) || (list = this.f53213a) == null || aVar == null || i2 < 0 || i2 > list.size()) {
+            return;
+        }
+        this.f53213a.add(i2, aVar);
+        notifyDataSetChanged();
+    }
+
+    public void addAll(List<a> list, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, list, i2) == null) || this.f53213a == null || list == null || list.size() <= 0 || i2 < 0 || i2 > this.f53213a.size()) {
+            return;
+        }
+        this.f53213a.addAll(i2, list);
+        notifyDataSetChanged();
     }
 }

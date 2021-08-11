@@ -10,9 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.text.DecimalFormat;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class CommonUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final DecimalFormat DF;
@@ -34,7 +33,7 @@ public class CommonUtils {
             }
         }
         DF = new DecimalFormat("0.00");
-        PERMISSIONS_STORAGE = new String[]{"android.permission.READ_EXTERNAL_STORAGE", StorageUtils.EXTERNAL_STORAGE_PERMISSION};
+        PERMISSIONS_STORAGE = new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"};
     }
 
     public CommonUtils() {
@@ -51,18 +50,18 @@ public class CommonUtils {
         }
     }
 
-    public static String getDownloadPerSize(long j, long j2) {
+    public static String getDownloadPerSize(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return DF.format(((float) j) / 1048576.0f) + "M/" + DF.format(((float) j2) / 1048576.0f) + "M";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            return DF.format(((float) j2) / 1048576.0f) + "M/" + DF.format(((float) j3) / 1048576.0f) + "M";
         }
         return (String) invokeCommon.objValue;
     }
 
     public static void verifyStoragePermissions(Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, activity) == null) || ContextCompat.checkSelfPermission(activity, StorageUtils.EXTERNAL_STORAGE_PERMISSION) == 0) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, activity) == null) || ContextCompat.checkSelfPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE") == 0) {
             return;
         }
         ActivityCompat.requestPermissions(activity, PERMISSIONS_STORAGE, 1);

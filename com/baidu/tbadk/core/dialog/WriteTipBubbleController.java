@@ -2,6 +2,8 @@ package com.baidu.tbadk.core.dialog;
 
 import android.view.View;
 import androidx.annotation.NonNull;
+import c.a.e.e.p.k;
+import c.a.p0.e0.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -13,24 +15,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
-import d.a.q0.e0.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class WriteTipBubbleController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f12322a;
+    public TbPageContext f47265a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f12323b;
+    public e f47266b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f12324c;
+    public b f47267c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class ANCHOR_VIEW_FROM {
         public static final /* synthetic */ ANCHOR_VIEW_FROM[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -91,16 +91,16 @@ public class WriteTipBubbleController {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f12325e;
+        public final /* synthetic */ String f47268e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ WriteTipBubbleController f12326f;
+        public final /* synthetic */ WriteTipBubbleController f47269f;
 
         public a(WriteTipBubbleController writeTipBubbleController, String str) {
             Interceptable interceptable = $ic;
@@ -117,25 +117,25 @@ public class WriteTipBubbleController {
                     return;
                 }
             }
-            this.f12326f = writeTipBubbleController;
-            this.f12325e = str;
+            this.f47269f = writeTipBubbleController;
+            this.f47268e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f12326f.f12324c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47269f.f47267c == null) {
                 return;
             }
-            this.f12326f.f12324c.a(view, this.f12325e);
-            if (this.f12326f.f12323b == null || !this.f12326f.f12323b.J()) {
+            this.f47269f.f47267c.a(view, this.f47268e);
+            if (this.f47269f.f47266b == null || !this.f47269f.f47266b.J()) {
                 return;
             }
-            this.f12326f.f12323b.I();
+            this.f47269f.f47266b.I();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(View view, String str);
     }
@@ -155,14 +155,14 @@ public class WriteTipBubbleController {
                 return;
             }
         }
-        this.f12322a = tbPageContext;
-        this.f12324c = bVar;
+        this.f47265a = tbPageContext;
+        this.f47267c = bVar;
     }
 
     public void c() {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (eVar = this.f12323b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (eVar = this.f47266b) == null) {
             return;
         }
         eVar.I();
@@ -170,52 +170,52 @@ public class WriteTipBubbleController {
 
     public void d(@NonNull View view, @NonNull String str, @NonNull String str2, @NonNull ANCHOR_VIEW_FROM anchor_view_from) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, str, str2, anchor_view_from) == null) || this.f12322a == null || view == null || k.isEmpty(str) || k.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, str, str2, anchor_view_from) == null) || this.f47265a == null || view == null || k.isEmpty(str) || k.isEmpty(str2)) {
             return;
         }
-        if (this.f12323b == null) {
-            e eVar = new e(this.f12322a, view);
-            this.f12323b = eVar;
+        if (this.f47266b == null) {
+            e eVar = new e(this.f47265a, view);
+            this.f47266b = eVar;
             eVar.g0(R.drawable.pic_post_findlink);
-            this.f12323b.S(2);
-            this.f12323b.Q(true);
-            this.f12323b.f0(19);
-            this.f12323b.X(R.color.CAM_X0105);
-            this.f12323b.N(5000);
+            this.f47266b.S(2);
+            this.f47266b.Q(true);
+            this.f47266b.f0(19);
+            this.f47266b.X(R.color.CAM_X0105);
+            this.f47266b.N(5000);
         }
         if (anchor_view_from == ANCHOR_VIEW_FROM.FROM_EDITOR_TOOL) {
-            this.f12323b.O(32);
-            this.f12323b.L(2);
-            int dimensionPixelSize = this.f12322a.getResources().getDimensionPixelSize(R.dimen.tbds32);
-            int dimensionPixelSize2 = this.f12322a.getResources().getDimensionPixelSize(R.dimen.ds4);
-            this.f12323b.Z(dimensionPixelSize, 0, dimensionPixelSize, dimensionPixelSize);
-            this.f12323b.j0(0);
-            this.f12323b.k0(-dimensionPixelSize2);
-            this.f12323b.P(R.dimen.tbds177);
-            this.f12323b.i0(R.dimen.tbds484);
+            this.f47266b.O(32);
+            this.f47266b.L(2);
+            int dimensionPixelSize = this.f47265a.getResources().getDimensionPixelSize(R.dimen.tbds32);
+            int dimensionPixelSize2 = this.f47265a.getResources().getDimensionPixelSize(R.dimen.ds4);
+            this.f47266b.Z(dimensionPixelSize, 0, dimensionPixelSize, dimensionPixelSize);
+            this.f47266b.j0(0);
+            this.f47266b.k0(-dimensionPixelSize2);
+            this.f47266b.P(R.dimen.tbds177);
+            this.f47266b.i0(R.dimen.tbds484);
         } else if (anchor_view_from == ANCHOR_VIEW_FROM.FROM_EDIT_TEXT) {
-            this.f12323b.O(32);
-            this.f12323b.L(5);
-            int dimensionPixelSize3 = this.f12322a.getResources().getDimensionPixelSize(R.dimen.tbds32);
-            int dimensionPixelSize4 = this.f12322a.getResources().getDimensionPixelSize(R.dimen.tbds32);
-            this.f12323b.Z(dimensionPixelSize3, 0, dimensionPixelSize3, dimensionPixelSize3);
-            this.f12323b.j0(0);
-            this.f12323b.k0(-dimensionPixelSize4);
-            this.f12323b.P(R.dimen.tbds177);
-            this.f12323b.i0(R.dimen.tbds484);
+            this.f47266b.O(32);
+            this.f47266b.L(5);
+            int dimensionPixelSize3 = this.f47265a.getResources().getDimensionPixelSize(R.dimen.tbds32);
+            int dimensionPixelSize4 = this.f47265a.getResources().getDimensionPixelSize(R.dimen.tbds32);
+            this.f47266b.Z(dimensionPixelSize3, 0, dimensionPixelSize3, dimensionPixelSize3);
+            this.f47266b.j0(0);
+            this.f47266b.k0(-dimensionPixelSize4);
+            this.f47266b.P(R.dimen.tbds177);
+            this.f47266b.i0(R.dimen.tbds484);
         } else if (anchor_view_from == ANCHOR_VIEW_FROM.FROM_PB_REPLY) {
-            this.f12323b.O(16);
-            this.f12323b.L(2);
-            int dimensionPixelSize5 = this.f12322a.getResources().getDimensionPixelSize(R.dimen.tbds32);
-            int dimensionPixelSize6 = this.f12322a.getResources().getDimensionPixelSize(R.dimen.ds4);
-            this.f12323b.Z(dimensionPixelSize5, 0, dimensionPixelSize5, dimensionPixelSize5);
-            this.f12323b.j0(0);
-            this.f12323b.k0(-dimensionPixelSize6);
-            this.f12323b.P(R.dimen.tbds177);
-            this.f12323b.i0(R.dimen.tbds484);
+            this.f47266b.O(16);
+            this.f47266b.L(2);
+            int dimensionPixelSize5 = this.f47265a.getResources().getDimensionPixelSize(R.dimen.tbds32);
+            int dimensionPixelSize6 = this.f47265a.getResources().getDimensionPixelSize(R.dimen.ds4);
+            this.f47266b.Z(dimensionPixelSize5, 0, dimensionPixelSize5, dimensionPixelSize5);
+            this.f47266b.j0(0);
+            this.f47266b.k0(-dimensionPixelSize6);
+            this.f47266b.P(R.dimen.tbds177);
+            this.f47266b.i0(R.dimen.tbds484);
         }
-        this.f12323b.M(new a(this, str2));
-        this.f12323b.l0(str);
+        this.f47266b.M(new a(this, str2));
+        this.f47266b.l0(str);
         TiebaStatic.log("c13801");
     }
 }

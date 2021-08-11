@@ -321,7 +321,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
 
     /* JADX WARN: Type inference failed for: r14v12 */
     /* JADX WARN: Type inference failed for: r14v8 */
-    /* JADX WARN: Type inference failed for: r14v9, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r14v9, types: [int, boolean] */
     private void onMeasureExactFormat(int i2, int i3) {
         int i4;
         int i5;
@@ -355,7 +355,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
             int i15 = 0;
             int i16 = 0;
             int i17 = 0;
-            long j = 0;
+            long j2 = 0;
             while (i14 < childCount) {
                 View childAt = getChildAt(i14);
                 int i18 = size2;
@@ -390,7 +390,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
                     i10 -= measureChildForCells;
                     i13 = Math.max(i13, childAt.getMeasuredHeight());
                     if (measureChildForCells == 1) {
-                        j |= 1 << i14;
+                        j2 |= 1 << i14;
                         i13 = i13;
                     }
                     i15 = i7;
@@ -405,7 +405,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
                 int i22 = 0;
                 int i23 = 0;
                 int i24 = Integer.MAX_VALUE;
-                long j2 = 0;
+                long j3 = 0;
                 while (i23 < childCount) {
                     boolean z8 = z7;
                     LayoutParams layoutParams2 = (LayoutParams) getChildAt(i23).getLayoutParams();
@@ -413,12 +413,12 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
                     if (layoutParams2.expandable) {
                         int i26 = layoutParams2.cellsUsed;
                         if (i26 < i24) {
-                            j2 = 1 << i23;
+                            j3 = 1 << i23;
                             i24 = i26;
                             i22 = 1;
                         } else if (i26 == i24) {
                             i22++;
-                            j2 |= 1 << i23;
+                            j3 |= 1 << i23;
                         }
                     }
                     i23++;
@@ -427,7 +427,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
                 }
                 z = z7;
                 i6 = i13;
-                j |= j2;
+                j2 |= j3;
                 if (i22 > i10) {
                     i4 = mode;
                     i5 = i8;
@@ -440,10 +440,10 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
                     LayoutParams layoutParams3 = (LayoutParams) childAt2.getLayoutParams();
                     int i29 = i8;
                     int i30 = mode;
-                    long j3 = 1 << i28;
-                    if ((j2 & j3) == 0) {
+                    long j4 = 1 << i28;
+                    if ((j3 & j4) == 0) {
                         if (layoutParams3.cellsUsed == i27) {
-                            j |= j3;
+                            j2 |= j4;
                         }
                         z3 = z6;
                     } else {
@@ -471,23 +471,23 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
             z = z7;
             i6 = i13;
             boolean z9 = !z4 && i15 == 1;
-            if (i10 <= 0 || j == 0 || (i10 >= i15 - 1 && !z9 && i16 <= 1)) {
+            if (i10 <= 0 || j2 == 0 || (i10 >= i15 - 1 && !z9 && i16 <= 1)) {
                 z2 = z;
             } else {
-                float bitCount = Long.bitCount(j);
+                float bitCount = Long.bitCount(j2);
                 if (!z9) {
-                    if ((j & 1) != 0 && !((LayoutParams) getChildAt(0).getLayoutParams()).preventEdgeOffset) {
+                    if ((j2 & 1) != 0 && !((LayoutParams) getChildAt(0).getLayoutParams()).preventEdgeOffset) {
                         bitCount -= 0.5f;
                     }
                     int i32 = childCount - 1;
-                    if ((j & (1 << i32)) != 0 && !((LayoutParams) getChildAt(i32).getLayoutParams()).preventEdgeOffset) {
+                    if ((j2 & (1 << i32)) != 0 && !((LayoutParams) getChildAt(i32).getLayoutParams()).preventEdgeOffset) {
                         bitCount -= 0.5f;
                     }
                 }
                 int i33 = bitCount > 0.0f ? (int) ((i10 * i12) / bitCount) : 0;
                 z2 = z;
                 for (int i34 = 0; i34 < childCount; i34++) {
-                    if ((j & (1 << i34)) != 0) {
+                    if ((j2 & (1 << i34)) != 0) {
                         View childAt3 = getChildAt(i34);
                         LayoutParams layoutParams4 = (LayoutParams) childAt3.getLayoutParams();
                         if (childAt3 instanceof ActionMenuItemView) {

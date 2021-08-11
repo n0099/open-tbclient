@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class LightAppStatEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALL_NATIVE_VOICE_SUCCESS = "#call_native_voice_success";
@@ -12,10 +12,7 @@ public final class LightAppStatEvent {
     public static final String H5_NOT_LOGGED_IN_SDKHAS_LOGGED = "#H5NotLoggedIn_SDKHasLogged";
     public static final String JS_FILE_VERIFY_FAILED = "JSFileVerifyFailed";
     public static final String LIGHT_APP_BEGIN_LOAD = "#Light_App_Begin_Load";
-    public static final String LIGHT_APP_BROWSER_ACTIVITY_SSL_ERROR = "#light_app_browser_activity_ssl_error";
     public static final String LIGHT_APP_BROWSER_FRAGMENT_SSL_ERROR = "#light_app_browser_fragment_ssl_error";
-    public static final String LIGHT_APP_CUSTOMER_SERVICE_EVENT_KEY = "#do_customer_event";
-    public static final String LIGHT_APP_DO_EVENT_KEY = "#do_state_event";
     public static final String LIGHT_APP_END_lOAD = "#Light_App_End_Load";
     public static final String LIGHT_APP_EVENTID_BACK = "Light_App_Back";
     public static final String LIGHT_APP_EVENTID_CALL_CAMERA = "#callCamera";
@@ -26,20 +23,19 @@ public final class LightAppStatEvent {
     public static final String LIGHT_APP_EVENTID_GET_CURRENT_POS = "#getCurrentPosition";
     public static final String LIGHT_APP_EVENTID_GET_CURRENT_POS_FAIL = "#getCurrentPositionFail";
     public static final String LIGHT_APP_EVENTID_GET_CURRENT_POS_NO_PERMISSION = "#getCurrentPositionNoPermission";
-    public static final String LIGHT_APP_EVENTID_GET_CURRENT_POS_OK = "#getCurrentPositionSuccess";
     public static final String LIGHT_APP_EVENTID_GET_DEVICE_INFO = "#getDeviceInfo";
-    public static final String LIGHT_APP_EVENTID_GET_DEVICE_INFO_OK = "#getDeviceInfoSuccess";
     public static final String LIGHT_APP_EVENTID_GET_SHARE = "#callShare";
     public static final String LIGHT_APP_EVENTID_LOAD = "#Light_App_Load";
     public static final String LIGHT_APP_EVENTID_REFRESH = "Light_App_Refrash";
     public static final String LIGHT_APP_EVENTID_SELECT_ADDRESSBOOK_FAIL = "#selectPhonefromAdressBookFail";
     public static final String LIGHT_APP_EVENTID_SELECT_PHONE_FROM_ADDRESSBOOK = "#selectPhonefromAdressBook";
     public static final String LIGHT_APP_FILE_CHOOSER_INTENT_FAIL = "#file_chooser_intent_invalid";
+    public static final String LIGHT_APP_INPUT_FILE = "#light_app_input_file";
     public static final String LIGHT_APP_INSERT_CALENDAR_NOT_AVAILABLE = "#insert_calendar_not_available";
     public static final String LIGHT_APP_NOT_HTTPS_URL = "#notHttpsUrl";
     public static final String LIGHT_APP_NOT_INTERNAL_URL = "#notInternalUr";
-    public static final String LIGHT_APP_ON_CREATE = "#Light_App_On_Create";
     public static final String LIGHT_APP_VIEW_CALENDAR_NOT_AVAILABLE = "#view_calendar_not_available";
+    public static final String LIGHT_APP_WEBVIEW_CONSOLE_ERROR = "#webview_console_error";
     public static final String LIGHT_APP_WEBVIEW_ERROR = "#webview_error";
     public static final String LIGHT_APP_WEBVIEW_SHOW_ERROR = "#webview_show_error";
     public static final String LIGHT_APP_WHITE_SCREEN = "White_Screen_Detected";
@@ -55,7 +51,6 @@ public final class LightAppStatEvent {
     public static final String METHOD_INVOKE_BD_WALLET_NATIVE_SUCCESS = "#invokeBdWalletNativeSuccess";
     public static final String OFFLINECACHE_DOWNLOAD_JSHOOK_FILE_FAILED = "offlinecache_download_jshook_file_failed";
     public static final String PAGE_URL = "pageUrl";
-    public static final String SYNC_WEB_LOGIN_STATUS_TO_NATIVE = "#sync_web_login_status_to_native";
     public static final String WEB_VIEW_CONSOLE = "WebViewConsole";
     public static final String WEB_VIEW_ERROR = "WebViewError";
     public static final String WEB_VIEW_HTTP_ERROR = "WebViewHttpError";

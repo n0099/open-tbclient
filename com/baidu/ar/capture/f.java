@@ -3,7 +3,6 @@ package com.baidu.ar.capture;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
-import android.util.Log;
 import com.baidu.ar.databasic.AlgoHandleAdapter;
 import com.baidu.ar.databasic.AlgoHandleController;
 import com.baidu.ar.databasic.ReserveHandleData;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +27,7 @@ public class f {
         int i6;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, algoHandleController, bitmapArr, i2)) == null) {
-            long j = 0;
+            long j2 = 0;
             if (bitmapArr == null || bitmapArr.length == 0) {
                 return 0L;
             }
@@ -38,13 +37,13 @@ public class f {
             int[] iArr5 = new int[bitmapArr.length];
             ArrayList arrayList2 = new ArrayList();
             int length = bitmapArr.length;
-            long j2 = 0;
+            long j3 = 0;
             int i7 = 0;
             while (i7 < length) {
                 Bitmap bitmap = bitmapArr[i7];
                 int width = bitmap.getWidth();
                 int height = bitmap.getHeight();
-                if (j2 == j) {
+                if (j3 == j2) {
                     long createHandle = algoHandleController.createHandle();
                     i3 = height;
                     i4 = i7;
@@ -53,7 +52,7 @@ public class f {
                     iArr = iArr5;
                     iArr2 = iArr4;
                     algoHandleController.setHandleInput(createHandle, i2, currentTimeMillis, 4, width, i3, false, 0, false, null);
-                    j2 = createHandle;
+                    j3 = createHandle;
                     i6 = width;
                 } else {
                     i3 = height;
@@ -70,13 +69,13 @@ public class f {
                 iArr6[i4] = i8;
                 iArr[i4] = 2;
                 arrayList.add(a(bitmap));
-                Log.d("ChildLook", "image w: " + i6 + " h: " + i8);
+                String str = "image w: " + i6 + " h: " + i8;
                 i7 = i4 + 1;
                 arrayList2 = arrayList;
                 iArr5 = iArr;
                 iArr4 = iArr6;
                 length = i5;
-                j = 0;
+                j2 = 0;
             }
             ReserveHandleData reserveHandleData = new ReserveHandleData();
             reserveHandleData.setByteDataSize(bitmapArr.length);
@@ -84,8 +83,8 @@ public class f {
             reserveHandleData.setByteHeights(iArr4);
             reserveHandleData.setByteFormats(iArr5);
             reserveHandleData.setByteArrayListData(arrayList2);
-            AlgoHandleAdapter.setHandleReserveData(j2, reserveHandleData);
-            return j2;
+            AlgoHandleAdapter.setHandleReserveData(j3, reserveHandleData);
+            return j3;
         }
         return invokeLLI.longValue;
     }

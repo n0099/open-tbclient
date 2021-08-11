@@ -1,13 +1,12 @@
 package com.baidu.platform.core.c;
 
-import android.util.Log;
 import com.baidu.mapapi.search.poi.PoiDetailSearchOption;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class e extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,18 +31,15 @@ public class e extends com.baidu.platform.base.e {
 
     private void a(PoiDetailSearchOption poiDetailSearchOption) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, poiDetailSearchOption) == null) {
-            if (poiDetailSearchOption == null) {
-                Log.e(e.class.getSimpleName(), "Option is null");
-                return;
-            }
-            if (!poiDetailSearchOption.isSearchByUids()) {
-                poiDetailSearchOption.poiUids(poiDetailSearchOption.getUid());
-            }
-            this.f9434a.a("uids", poiDetailSearchOption.getUids());
-            this.f9434a.a("output", "json");
-            this.f9434a.a("scope", "2");
+        if (!(interceptable == null || interceptable.invokeL(65537, this, poiDetailSearchOption) == null) || poiDetailSearchOption == null) {
+            return;
         }
+        if (!poiDetailSearchOption.isSearchByUids()) {
+            poiDetailSearchOption.poiUids(poiDetailSearchOption.getUid());
+        }
+        this.f44083a.a("uids", poiDetailSearchOption.getUids());
+        this.f44083a.a("output", "json");
+        this.f44083a.a("scope", "2");
     }
 
     @Override // com.baidu.platform.base.e

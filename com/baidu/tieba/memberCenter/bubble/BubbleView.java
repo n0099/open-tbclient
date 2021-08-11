@@ -20,26 +20,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BubbleView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
+    public static final int BCODE_NONE = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18607e;
+    public Context f53905e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f18608f;
+    public ViewGroup f53906f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f18609g;
+    public TbImageView f53907g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f18610h;
+    public ImageView f53908h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f18611i;
-    public ImageView j;
+    public ImageView f53909i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public ImageView f53910j;
     public ImageView k;
     public ImageView l;
     public ImageView m;
@@ -70,27 +73,19 @@ public class BubbleView extends RelativeLayout {
                 return;
             }
         }
-        this.f18607e = context;
-        b();
+        this.f53905e = context;
+        a();
     }
 
-    public void a(TbPageContext<?> tbPageContext) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            tbPageContext.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-            tbPageContext.getLayoutMode().j(this);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.f18607e).inflate(getXmlLayoutResId(), this);
-            this.f18608f = (ViewGroup) inflate.findViewById(R.id.bubble_layout);
-            this.f18609g = (TbImageView) inflate.findViewById(R.id.bubble_image);
-            this.f18610h = (ImageView) inflate.findViewById(R.id.bubble_iamge_bg);
-            this.f18611i = (ImageView) inflate.findViewById(R.id.free_tip);
-            this.j = (ImageView) inflate.findViewById(R.id.defualt_tip);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = LayoutInflater.from(this.f53905e).inflate(getXmlLayoutResId(), this);
+            this.f53906f = (ViewGroup) inflate.findViewById(R.id.bubble_layout);
+            this.f53907g = (TbImageView) inflate.findViewById(R.id.bubble_image);
+            this.f53908h = (ImageView) inflate.findViewById(R.id.bubble_iamge_bg);
+            this.f53909i = (ImageView) inflate.findViewById(R.id.free_tip);
+            this.f53910j = (ImageView) inflate.findViewById(R.id.defualt_tip);
             this.k = (ImageView) inflate.findViewById(R.id.bubble_notuse_iamge);
             this.l = (ImageView) inflate.findViewById(R.id.bubble_round_up);
             this.m = (ImageView) inflate.findViewById(R.id.bubble_round_full);
@@ -103,18 +98,45 @@ public class BubbleView extends RelativeLayout {
         }
     }
 
+    public void changeSkinType(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
+            tbPageContext.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
+            tbPageContext.getLayoutMode().j(this);
+        }
+    }
+
+    public void changeState(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            if (z) {
+                this.f53908h.setVisibility(0);
+                this.f53910j.setVisibility(0);
+                return;
+            }
+            this.f53908h.setVisibility(8);
+            this.f53910j.setVisibility(8);
+        }
+    }
+
     public int getXmlLayoutResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.bubbleview : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.bubbleview : invokeV.intValue;
+    }
+
+    public boolean isShowName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.t : invokeV.booleanValue;
     }
 
     public void setCurrentNotUse() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f18608f.setVisibility(8);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.f53906f.setVisibility(8);
             this.k.setVisibility(0);
-            this.f18611i.setVisibility(8);
+            this.f53909i.setVisibility(8);
             if (!this.t) {
                 this.n.setVisibility(8);
                 this.o.setVisibility(8);
@@ -128,38 +150,38 @@ public class BubbleView extends RelativeLayout {
             this.m.setVisibility(8);
             this.p.setVisibility(8);
             this.s.setVisibility(0);
-            this.s.setText(this.f18607e.getString(R.string.bubble_notuse_text));
+            this.s.setText(this.f53905e.getString(R.string.bubble_notuse_text));
         }
     }
 
     public void setData(BubbleListData.BubbleData bubbleData, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, bubbleData, z) == null) || bubbleData == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048582, this, bubbleData, z) == null) || bubbleData == null) {
             return;
         }
         if (bubbleData.getBcode() == 0) {
             setCurrentNotUse();
-            this.j.setVisibility(z ? 0 : 8);
-            this.f18610h.setVisibility(z ? 0 : 8);
+            this.f53910j.setVisibility(z ? 0 : 8);
+            this.f53908h.setVisibility(z ? 0 : 8);
             return;
         }
-        this.f18608f.setVisibility(0);
+        this.f53906f.setVisibility(0);
         this.k.setVisibility(8);
         if (bubbleData.isDef()) {
-            this.f18610h.setVisibility(0);
-            this.j.setVisibility(0);
+            this.f53908h.setVisibility(0);
+            this.f53910j.setVisibility(0);
         } else {
-            this.f18610h.setVisibility(8);
-            this.j.setVisibility(8);
+            this.f53908h.setVisibility(8);
+            this.f53910j.setVisibility(8);
         }
         if (bubbleData.isFree()) {
-            this.f18611i.setVisibility(0);
+            this.f53909i.setVisibility(0);
         } else {
-            this.f18611i.setVisibility(8);
+            this.f53909i.setVisibility(8);
         }
         if (!TextUtils.isEmpty(bubbleData.getB_url())) {
-            this.f18609g.setTag(bubbleData.getB_url());
-            this.f18609g.M(bubbleData.getB_url(), 10, false);
+            this.f53907g.setTag(bubbleData.getB_url());
+            this.f53907g.startLoad(bubbleData.getB_url(), 10, false);
         }
         if (!this.t) {
             this.n.setVisibility(8);
@@ -177,7 +199,7 @@ public class BubbleView extends RelativeLayout {
             this.s.setVisibility(8);
             this.r.setText(bubbleData.getBname());
             this.q.setTag(bubbleData.getIcon_url());
-            this.q.M(bubbleData.getIcon_url(), 10, false);
+            this.q.startLoad(bubbleData.getIcon_url(), 10, false);
             return;
         }
         this.p.setVisibility(8);
@@ -187,7 +209,7 @@ public class BubbleView extends RelativeLayout {
 
     public void setShowName(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             this.t = z;
         }
     }
@@ -211,8 +233,8 @@ public class BubbleView extends RelativeLayout {
                 return;
             }
         }
-        this.f18607e = context;
-        b();
+        this.f53905e = context;
+        a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -233,7 +255,7 @@ public class BubbleView extends RelativeLayout {
                 return;
             }
         }
-        this.f18607e = context;
-        b();
+        this.f53905e = context;
+        a();
     }
 }

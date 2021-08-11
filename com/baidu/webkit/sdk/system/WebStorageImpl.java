@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebStorage;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class WebStorageImpl extends WebStorage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class QuotaUpdater implements WebStorage.QuotaUpdater {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,10 +39,10 @@ public final class WebStorageImpl extends WebStorage {
         }
 
         @Override // com.baidu.webkit.sdk.WebStorage.QuotaUpdater
-        public void updateQuota(long j) {
+        public void updateQuota(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                this.mImpl.updateQuota(j);
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+                this.mImpl.updateQuota(j2);
             }
         }
     }
@@ -102,10 +102,10 @@ public final class WebStorageImpl extends WebStorage {
     }
 
     @Override // com.baidu.webkit.sdk.WebStorage
-    public final void setQuotaForOrigin(String str, long j) {
+    public final void setQuotaForOrigin(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j) == null) {
-            android.webkit.WebStorage.getInstance().setQuotaForOrigin(str, j);
+        if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j2) == null) {
+            android.webkit.WebStorage.getInstance().setQuotaForOrigin(str, j2);
         }
     }
 }

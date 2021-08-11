@@ -8,7 +8,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class TemporalLevelEntry extends GroupEntry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "tele";
@@ -93,7 +94,7 @@ public class TemporalLevelEntry extends GroupEntry {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "TemporalLevelEntry{levelIndependentlyDecodable=" + this.levelIndependentlyDecodable + '}';
+            return "TemporalLevelEntry{levelIndependentlyDecodable=" + this.levelIndependentlyDecodable + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

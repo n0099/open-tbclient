@@ -14,7 +14,7 @@ import java.io.FileFilter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f32336a;
+                public final /* synthetic */ String f68295a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -44,7 +44,7 @@ public class c {
                             return;
                         }
                     }
-                    this.f32336a = str;
+                    this.f68295a = str;
                 }
 
                 @Override // java.lang.Runnable
@@ -52,9 +52,9 @@ public class c {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            c.d(this.f32336a);
+                            c.d(this.f68295a);
                         } catch (Throwable th) {
-                            com.bytedance.sdk.openadsdk.preload.geckox.utils.c.a(new RuntimeException("delete old channel version failed，path：" + this.f32336a, th));
+                            com.bytedance.sdk.openadsdk.preload.geckox.utils.c.a(new RuntimeException("delete old channel version failed，path：" + this.f68295a, th));
                         }
                     }
                 }
@@ -150,13 +150,13 @@ public class c {
 
     public static List<File> a(File[] fileArr) {
         InterceptResult invokeL;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, fileArr)) == null) {
             ArrayList<File> arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
             File file = null;
-            long j2 = -1;
+            long j3 = -1;
             for (File file2 : fileArr) {
                 String name = file2.getName();
                 if (name.endsWith("--updating")) {
@@ -166,17 +166,17 @@ public class c {
                 } else {
                     try {
                         long parseLong = Long.parseLong(name);
-                        if (parseLong > j2) {
+                        if (parseLong > j3) {
                             if (file != null) {
                                 try {
                                     arrayList2.add(file);
                                 } catch (Exception unused) {
-                                    j2 = parseLong;
+                                    j3 = parseLong;
                                     a(file2);
                                 }
                             }
                             file = file2;
-                            j2 = parseLong;
+                            j3 = parseLong;
                         } else {
                             arrayList2.add(file2);
                         }
@@ -191,12 +191,12 @@ public class c {
                     a(file3);
                 } else {
                     try {
-                        j = Long.parseLong(name2.substring(0, indexOf));
+                        j2 = Long.parseLong(name2.substring(0, indexOf));
                     } catch (NumberFormatException e2) {
                         e2.printStackTrace();
-                        j = -1;
+                        j2 = -1;
                     }
-                    if (j <= j2) {
+                    if (j2 <= j3) {
                         a(file3);
                     }
                 }
@@ -214,7 +214,7 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ File f32337a;
+                public final /* synthetic */ File f68296a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -231,14 +231,14 @@ public class c {
                             return;
                         }
                     }
-                    this.f32337a = file;
+                    this.f68296a = file;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        d.a(this.f32337a);
+                        d.a(this.f68296a);
                     }
                 }
             });

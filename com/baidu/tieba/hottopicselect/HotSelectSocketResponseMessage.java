@@ -2,6 +2,8 @@ package com.baidu.tieba.hottopicselect;
 
 import GetSugTopic.DataRes;
 import GetSugTopic.GetSugTopicResIdl;
+import c.a.o0.s.r.a;
+import c.a.p0.i1.c;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -11,10 +13,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.p0.s.r.a;
-import d.a.q0.h1.c;
 import tbclient.Error;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class HotSelectSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

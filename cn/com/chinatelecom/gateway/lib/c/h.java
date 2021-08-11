@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1635a = "h";
+    public static final String f35470a = "h";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,7 +56,7 @@ public class h {
                 jSONObject.put("msg", str);
                 return jSONObject.toString();
             } catch (Throwable th) {
-                CtAuth.warn(f1635a, "Json parse error", th);
+                CtAuth.warn(f35470a, "Json parse error", th);
                 return "";
             }
         }

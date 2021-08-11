@@ -7,38 +7,40 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f30200a;
+    public final String f66109a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30201b;
+    public int f66110b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30202c;
+    public int f66111c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONArray f30203d;
+    public JSONArray f66112d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f30204e;
+    public int f66113e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f30205f;
+    public long f66114f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f30206g;
+    public long f66115g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f30207h;
+    public long f66116h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f30208i;
-    public JSONObject j;
+    public long f66117i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public JSONObject f66118j;
 
     public n() {
         Interceptable interceptable = $ic;
@@ -53,13 +55,13 @@ public class n {
                 return;
             }
         }
-        this.f30200a = com.bytedance.sdk.openadsdk.q.q.c();
-        this.f30201b = -1;
-        this.f30202c = -1;
-        this.f30203d = null;
-        this.f30204e = 1;
-        this.f30205f = System.currentTimeMillis();
-        this.j = null;
+        this.f66109a = com.bytedance.sdk.openadsdk.q.q.c();
+        this.f66110b = -1;
+        this.f66111c = -1;
+        this.f66112d = null;
+        this.f66113e = 1;
+        this.f66114f = System.currentTimeMillis();
+        this.f66118j = null;
     }
 
     public n a() {
@@ -67,14 +69,14 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             n nVar = new n();
-            nVar.f30201b = this.f30201b;
-            nVar.f30202c = this.f30202c;
-            nVar.f30203d = this.f30203d;
-            nVar.f30204e = this.f30204e;
-            nVar.f30205f = this.f30205f;
-            nVar.f30206g = this.f30206g;
-            nVar.f30207h = this.f30207h;
-            nVar.f30208i = this.f30208i;
+            nVar.f66110b = this.f66110b;
+            nVar.f66111c = this.f66111c;
+            nVar.f66112d = this.f66112d;
+            nVar.f66113e = this.f66113e;
+            nVar.f66114f = this.f66114f;
+            nVar.f66115g = this.f66115g;
+            nVar.f66116h = this.f66116h;
+            nVar.f66117i = this.f66117i;
             return nVar;
         }
         return (n) invokeV.objValue;

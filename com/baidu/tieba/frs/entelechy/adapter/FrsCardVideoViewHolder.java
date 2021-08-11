@@ -2,6 +2,9 @@ package com.baidu.tieba.frs.entelechy.adapter;
 
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import c.a.p0.a0.b;
+import c.a.p0.o2.e;
+import c.a.p0.v0.m1.g.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,10 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a0.b;
-import d.a.q0.n2.e;
-import d.a.q0.u0.m1.g.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,31 +37,12 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
         }
     }
 
-    @Override // d.a.q0.n2.e
-    public boolean C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.holder.CardViewHolder
-    /* renamed from: c */
-    public T b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (T) this.f14598e : (T) invokeV.objValue;
-    }
-
-    @Override // d.a.q0.n2.e
+    @Override // c.a.p0.o2.e
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            T t = this.f14598e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            T t = this.mCardView;
             if (t == 0) {
                 return 0;
             }
@@ -70,54 +51,64 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
         return invokeV.intValue;
     }
 
-    @Override // d.a.q0.n2.e
+    @Override // c.a.p0.o2.e
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            T t = this.f14598e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            T t = this.mCardView;
             if (t == 0) {
                 return null;
             }
-            return ((a) t).K();
+            return ((a) t).N();
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // d.a.q0.n2.e
+    @Override // c.a.p0.o2.e
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            T t = this.f14598e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            T t = this.mCardView;
             if (t == 0) {
                 return null;
             }
-            return ((a) t).L();
+            return ((a) t).O();
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // d.a.q0.n2.e
-    public boolean isPlayStarted() {
+    @Override // c.a.p0.o2.e
+    public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            T t = this.f14598e;
-            if (t == 0) {
-                return false;
-            }
-            return ((a) t).U();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // d.a.q0.n2.e
+    @Override // c.a.p0.o2.e
+    public boolean isPlayStarted() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            T t = this.mCardView;
+            if (t == 0) {
+                return false;
+            }
+            return ((a) t).X();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // c.a.p0.o2.e
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            T t = this.f14598e;
+            T t = this.mCardView;
             if (t == 0) {
                 return false;
             }
@@ -126,23 +117,31 @@ public class FrsCardVideoViewHolder<T extends a> extends CardViewHolder<T> imple
         return invokeV.booleanValue;
     }
 
-    @Override // d.a.q0.n2.e
+    @Override // c.a.p0.o2.e
     public void startPlay() {
         T t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (t = this.f14598e) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (t = this.mCardView) == 0) {
             return;
         }
         ((a) t).startPlay();
     }
 
-    @Override // d.a.q0.n2.e
+    @Override // c.a.p0.o2.e
     public void stopPlay() {
         T t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (t = this.f14598e) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (t = this.mCardView) == 0) {
             return;
         }
         ((a) t).stopPlay();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.card.holder.CardViewHolder
+    public T getCardView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (T) this.mCardView : (T) invokeV.objValue;
     }
 }

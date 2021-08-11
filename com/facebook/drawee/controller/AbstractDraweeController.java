@@ -30,7 +30,7 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class AbstractDraweeController<T, INFO> implements DraweeController, DeferredReleaser.Releasable, GestureDetector.ClickListener {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -67,7 +67,7 @@ public abstract class AbstractDraweeController<T, INFO> implements DraweeControl
     public SettableDraweeHierarchy mSettableDraweeHierarchy;
     public final Executor mUiThreadImmediateExecutor;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class InternalForwardingListener<INFO> extends ForwardingControllerListener<INFO> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

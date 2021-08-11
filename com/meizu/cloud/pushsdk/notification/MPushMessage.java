@@ -5,9 +5,10 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class MPushMessage implements Serializable {
     public static final String TAG = "MPushMessage";
     public String clickType;
@@ -63,16 +64,16 @@ public class MPushMessage implements Serializable {
                             mPushMessage.setParams(getParamsMap(jSONObject3));
                         }
                     } catch (JSONException e2) {
-                        d.h.a.a.a.d(TAG, "parameter parse error message " + e2.getMessage());
+                        c.l.a.a.a.d(TAG, "parameter parse error message " + e2.getMessage());
                     }
                     jSONObject.remove(PushConstants.PARAMS);
                 }
                 mPushMessage.setExtra(getParamsMap(jSONObject));
             }
         } catch (JSONException e3) {
-            d.h.a.a.a.d(TAG, "parse push message error " + e3.getMessage());
+            c.l.a.a.a.d(TAG, "parse push message error " + e3.getMessage());
         }
-        d.h.a.a.a.d(TAG, " parsePushMessage " + mPushMessage);
+        c.l.a.a.a.d(TAG, " parsePushMessage " + mPushMessage);
         return mPushMessage;
     }
 
@@ -157,6 +158,6 @@ public class MPushMessage implements Serializable {
     }
 
     public String toString() {
-        return "MPushMessage{taskId='" + this.taskId + "', pushType='" + this.pushType + "', packageName='" + this.packageName + "', title='" + this.title + "', content='" + this.content + "', notifyType='" + this.notifyType + "', clickType='" + this.clickType + "', isDiscard='" + this.isDiscard + "', extra=" + this.extra + ", params=" + this.params + '}';
+        return "MPushMessage{taskId='" + this.taskId + ExtendedMessageFormat.QUOTE + ", pushType='" + this.pushType + ExtendedMessageFormat.QUOTE + ", packageName='" + this.packageName + ExtendedMessageFormat.QUOTE + ", title='" + this.title + ExtendedMessageFormat.QUOTE + ", content='" + this.content + ExtendedMessageFormat.QUOTE + ", notifyType='" + this.notifyType + ExtendedMessageFormat.QUOTE + ", clickType='" + this.clickType + ExtendedMessageFormat.QUOTE + ", isDiscard='" + this.isDiscard + ExtendedMessageFormat.QUOTE + ", extra=" + this.extra + ", params=" + this.params + ExtendedMessageFormat.END_FE;
     }
 }

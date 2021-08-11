@@ -1,5 +1,9 @@
 package com.baidu.tieba.im.db;
 
+import c.a.o0.b1.h0;
+import c.a.o0.b1.k0;
+import c.a.o0.b1.n;
+import c.a.p0.j1.h.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -10,30 +14,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.b1.f0;
-import d.a.p0.b1.i0;
-import d.a.p0.b1.n;
-import d.a.q0.i1.h.g;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tieba.im.db.Static$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C0208a extends f0<Void> {
+        /* loaded from: classes7.dex */
+        public class C1761a extends h0<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f17517a;
+            public final /* synthetic */ CustomResponsedMessage f52734a;
 
-            public C0208a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public C1761a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,18 +48,18 @@ public class Static {
                         return;
                     }
                 }
-                this.f17517a = customResponsedMessage;
+                this.f52734a = customResponsedMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.p0.b1.f0
+            @Override // c.a.o0.b1.h0
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    if (this.f17517a.getData() instanceof String) {
-                        g.a((String) this.f17517a.getData());
+                    if (this.f52734a.getData() instanceof String) {
+                        g.a((String) this.f52734a.getData());
                         return null;
                     }
                     return null;
@@ -68,7 +68,7 @@ public class Static {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes7.dex */
         public class b implements n<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public class Static {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.a.p0.b1.n
+            @Override // c.a.o0.b1.n
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class Static {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2008015 || customResponsedMessage.getData() == null) {
                 return;
             }
-            i0.c(new C0208a(this, customResponsedMessage), new b(this));
+            k0.c(new C1761a(this, customResponsedMessage), new b(this));
         }
     }
 

@@ -8,7 +8,7 @@ import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class dw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,21 +21,21 @@ public class dw {
     }
 
     public static void a(Context context, HashMap<String, String> hashMap) {
-        ee m283a;
+        ee m286a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, hashMap) == null) || (m283a = ea.a(context).m283a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, hashMap) == null) || (m286a = ea.a(context).m286a()) == null) {
             return;
         }
-        m283a.a(context, hashMap);
+        m286a.a(context, hashMap);
     }
 
     public static void b(Context context, HashMap<String, String> hashMap) {
-        ee m283a;
+        ee m286a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, hashMap) == null) || (m283a = ea.a(context).m283a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, hashMap) == null) || (m286a = ea.a(context).m286a()) == null) {
             return;
         }
-        m283a.c(context, hashMap);
+        m286a.c(context, hashMap);
     }
 
     public static void c(Context context, String str, int i2, String str2) {
@@ -66,11 +66,11 @@ public class dw {
     }
 
     public static void c(Context context, HashMap<String, String> hashMap) {
-        ee m283a;
+        ee m286a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, hashMap) == null) || (m283a = ea.a(context).m283a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, hashMap) == null) || (m286a = ea.a(context).m286a()) == null) {
             return;
         }
-        m283a.b(context, hashMap);
+        m286a.b(context, hashMap);
     }
 }

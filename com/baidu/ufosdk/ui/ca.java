@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class ca implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f23655a;
+    public final /* synthetic */ FeedbackInputActivity f59391a;
 
     public ca(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class ca implements View.OnClickListener {
                 return;
             }
         }
-        this.f23655a = feedbackInputActivity;
+        this.f59391a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -38,22 +38,22 @@ public final class ca implements View.OnClickListener {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            FeedbackInputActivity feedbackInputActivity = this.f23655a;
+            FeedbackInputActivity feedbackInputActivity = this.f59391a;
             if (feedbackInputActivity.D) {
                 return;
             }
             if (feedbackInputActivity.p.getVisibility() == 0) {
-                linearLayout = this.f23655a.p;
+                linearLayout = this.f59391a.p;
                 i2 = 8;
             } else {
-                if (this.f23655a.p.getChildCount() <= 0) {
-                    this.f23655a.a(true);
+                if (this.f59391a.p.getChildCount() <= 0) {
+                    this.f59391a.a(true);
                 }
-                linearLayout = this.f23655a.p;
+                linearLayout = this.f59391a.p;
                 i2 = 0;
             }
             linearLayout.setVisibility(i2);
-            this.f23655a.C.setVisibility(i2);
+            this.f59391a.C.setVisibility(i2);
         }
     }
 }

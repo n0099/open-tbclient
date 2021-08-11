@@ -10,7 +10,7 @@ import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.DeclareErrorOrWarning;
 import org.aspectj.lang.reflect.PointcutExpression;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class DeclareErrorOrWarningImpl implements DeclareErrorOrWarning {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

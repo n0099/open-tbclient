@@ -17,7 +17,6 @@ import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -252,8 +251,8 @@ public class FileProvider extends ContentProvider {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (r.f7788a.equals(str)) {
-                return Label.FORWARD_REFERENCE_TYPE_SHORT;
+            if (r.f42062a.equals(str)) {
+                return 268435456;
             }
             if ("w".equals(str) || "wt".equals(str)) {
                 return 738197504;

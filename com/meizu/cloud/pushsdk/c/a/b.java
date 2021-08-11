@@ -4,14 +4,14 @@ import com.meizu.cloud.pushsdk.c.f.d;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f37530a = b.class.getSimpleName();
+    public final String f74372a = b.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, Object> f37531b = new HashMap<>();
+    public final HashMap<String, Object> f74373b = new HashMap<>();
 
     public b(String str, Object obj) {
         a(str);
@@ -22,26 +22,26 @@ public class b implements a {
         if (obj == null) {
             return this;
         }
-        this.f37531b.put("dt", obj);
+        this.f74373b.put("dt", obj);
         return this;
     }
 
     public b a(String str) {
         d.a(str, "schema cannot be null");
         d.a(!str.isEmpty(), "schema cannot be empty.");
-        this.f37531b.put("sa", str);
+        this.f74373b.put("sa", str);
         return this;
     }
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
     public Map<String, Object> a() {
-        return this.f37531b;
+        return this.f74373b;
     }
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
     @Deprecated
     public void a(String str, String str2) {
-        com.meizu.cloud.pushsdk.c.f.c.c(this.f37530a, "Payload: add(String, String) method called - Doing nothing.", new Object[0]);
+        com.meizu.cloud.pushsdk.c.f.c.c(this.f74372a, "Payload: add(String, String) method called - Doing nothing.", new Object[0]);
     }
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
@@ -51,6 +51,6 @@ public class b implements a {
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
     public String toString() {
-        return e.a((Map) this.f37531b).toString();
+        return e.a((Map) this.f74373b).toString();
     }
 }

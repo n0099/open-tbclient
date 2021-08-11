@@ -2,6 +2,7 @@ package com.baidu.minivideo.effect.core.vlogedit;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ShaderParams implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<ShaderParams> CREATOR;
@@ -30,7 +31,7 @@ public class ShaderParams implements Parcelable, Cloneable {
     public float[] values;
     public int valuesPointer;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Parcelable.Creator<ShaderParams> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,6 +123,63 @@ public class ShaderParams implements Parcelable, Cloneable {
         }
     }
 
+    public ShaderParams(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.name = str;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: clone */
+    public ShaderParams m19clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                ShaderParams shaderParams = (ShaderParams) super.clone();
+                shaderParams.valuesPointer = 0;
+                shaderParams.lastTimeInterval = 0L;
+                return shaderParams;
+            } catch (CloneNotSupportedException e2) {
+                e2.printStackTrace();
+                return new ShaderParams();
+            }
+        }
+        return (ShaderParams) invokeV.objValue;
+    }
+
+    public ShaderParams(String str, String str2, float[] fArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, fArr};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        this.name = str;
+        this.type = str2;
+        this.values = fArr;
+    }
+
     public ShaderParams(Parcel parcel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -144,24 +202,5 @@ public class ShaderParams implements Parcelable, Cloneable {
         this.lastTimeInterval = parcel.readLong();
         this.valuesPointer = parcel.readInt();
         this.interpolator = parcel.readString();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: clone */
-    public ShaderParams m19clone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                ShaderParams shaderParams = (ShaderParams) super.clone();
-                shaderParams.valuesPointer = 0;
-                shaderParams.lastTimeInterval = 0L;
-                return shaderParams;
-            } catch (CloneNotSupportedException e2) {
-                e2.printStackTrace();
-                return new ShaderParams();
-            }
-        }
-        return (ShaderParams) invokeV.objValue;
     }
 }

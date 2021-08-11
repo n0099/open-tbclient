@@ -9,13 +9,13 @@ import com.xiaomi.push.du;
 import com.xiaomi.push.fm;
 import com.xiaomi.push.fp;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class bw extends fm {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f40932a;
+    public final /* synthetic */ XMPushService f77808a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bw(XMPushService xMPushService, Map map, int i2, String str, fp fpVar) {
@@ -36,21 +36,21 @@ public class bw extends fm {
                 return;
             }
         }
-        this.f40932a = xMPushService;
+        this.f77808a = xMPushService;
     }
 
     @Override // com.xiaomi.push.fm
     /* renamed from: a */
-    public byte[] mo328a() {
+    public byte[] mo331a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 du.b bVar = new du.b();
-                bVar.a(bi.a().m615a());
-                return bVar.m281a();
+                bVar.a(bi.a().m618a());
+                return bVar.m284a();
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m70a("getOBBString err: " + e2.toString());
+                com.xiaomi.channel.commonutils.logger.b.m73a("getOBBString err: " + e2.toString());
                 return null;
             }
         }

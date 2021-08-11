@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -13,8 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.utils.DisplayUtils;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,43 +20,45 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.widget.BdMenu;
-import com.baidu.wallet.base.widget.BdMenuItem;
-/* loaded from: classes5.dex */
+import com.dxmpay.apollon.utils.DisplayUtils;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.base.widget.BdMenu;
+import com.dxmpay.wallet.base.widget.BdMenuItem;
+/* loaded from: classes8.dex */
 public class O2OMenuView extends LinearLayout implements BdMenu.OnMenuSetChangedListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f27059a;
+    public static final String f62895a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f27060b;
+    public boolean f62896b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ListView f27061c;
+    public ListView f62897c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f27062d;
+    public a f62898d;
 
     /* renamed from: e  reason: collision with root package name */
-    public OnO2OMenuItemSelectListener f27063e;
+    public OnO2OMenuItemSelectListener f62899e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface OnO2OMenuItemSelectListener {
         void onMenuItemClick(String str);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class a extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ O2OMenuView f27065a;
+        public final /* synthetic */ O2OMenuView f62901a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String[] f27066b;
+        public String[] f62902b;
 
         public a(O2OMenuView o2OMenuView) {
             Interceptable interceptable = $ic;
@@ -76,13 +75,13 @@ public class O2OMenuView extends LinearLayout implements BdMenu.OnMenuSetChanged
                     return;
                 }
             }
-            this.f27065a = o2OMenuView;
+            this.f62901a = o2OMenuView;
         }
 
         public void a(String[] strArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, strArr) == null) {
-                this.f27066b = strArr;
+                this.f62902b = strArr;
             }
         }
 
@@ -91,7 +90,7 @@ public class O2OMenuView extends LinearLayout implements BdMenu.OnMenuSetChanged
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                String[] strArr = this.f27066b;
+                String[] strArr = this.f62902b;
                 if (strArr != null) {
                     return strArr.length;
                 }
@@ -127,11 +126,11 @@ public class O2OMenuView extends LinearLayout implements BdMenu.OnMenuSetChanged
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
                 if (view == null) {
-                    o2OMenuItemView = new O2OMenuItemView(this.f27065a.getContext());
+                    o2OMenuItemView = new O2OMenuItemView(this.f62901a.getContext());
                 } else {
                     o2OMenuItemView = (O2OMenuItemView) view;
                 }
-                o2OMenuItemView.updateItem(this.f27066b[i2]);
+                o2OMenuItemView.updateItem(this.f62902b[i2]);
                 return o2OMenuItemView;
             }
             return (View) invokeILL.objValue;
@@ -151,7 +150,7 @@ public class O2OMenuView extends LinearLayout implements BdMenu.OnMenuSetChanged
                 return;
             }
         }
-        f27059a = O2OMenuView.class.getSimpleName();
+        f62895a = O2OMenuView.class.getSimpleName();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -174,7 +173,7 @@ public class O2OMenuView extends LinearLayout implements BdMenu.OnMenuSetChanged
                 return;
             }
         }
-        this.f27060b = false;
+        this.f62896b = false;
         a();
     }
 
@@ -196,7 +195,7 @@ public class O2OMenuView extends LinearLayout implements BdMenu.OnMenuSetChanged
     public String getMenuItemViewLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "wallet_base_menu_item_view" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "dxm_wallet_base_menu_item_view" : (String) invokeV.objValue;
     }
 
     public int getSeparatorColor() {
@@ -211,39 +210,38 @@ public class O2OMenuView extends LinearLayout implements BdMenu.OnMenuSetChanged
     public void layoutMenu(String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, strArr) == null) {
-            Log.d(f27059a, "layout menu view");
-            a aVar = this.f27062d;
+            a aVar = this.f62898d;
             if (aVar != null) {
                 aVar.a(strArr);
-                this.f27062d.notifyDataSetChanged();
+                this.f62898d.notifyDataSetChanged();
                 return;
             }
             a aVar2 = new a(this);
-            this.f27062d = aVar2;
+            this.f62898d = aVar2;
             aVar2.a(strArr);
-            this.f27061c.setAdapter((ListAdapter) this.f27062d);
+            this.f62897c.setAdapter((ListAdapter) this.f62898d);
         }
     }
 
-    @Override // com.baidu.wallet.base.widget.BdMenu.OnMenuSetChangedListener
+    @Override // com.dxmpay.wallet.base.widget.BdMenu.OnMenuSetChangedListener
     public void onMenuItemUpdated(BdMenuItem bdMenuItem) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bdMenuItem) == null) {
         }
     }
 
-    @Override // com.baidu.wallet.base.widget.BdMenu.OnMenuSetChangedListener
+    @Override // com.dxmpay.wallet.base.widget.BdMenu.OnMenuSetChangedListener
     public void onMenuSetChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f27060b = false;
+            this.f62896b = false;
         }
     }
 
     public void setMenuSelectListener(OnO2OMenuItemSelectListener onO2OMenuItemSelectListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, onO2OMenuItemSelectListener) == null) {
-            this.f27063e = onO2OMenuItemSelectListener;
+            this.f62899e = onO2OMenuItemSelectListener;
         }
     }
 
@@ -252,17 +250,17 @@ public class O2OMenuView extends LinearLayout implements BdMenu.OnMenuSetChanged
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
             setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
             setBackgroundResource(ResUtils.drawable(getContext(), getBackgroundResId()));
-            this.f27061c = new ListView(getContext());
+            this.f62897c = new ListView(getContext());
             int dip2px = DisplayUtils.dip2px(getContext(), 115.0f);
-            this.f27061c.setDivider(new ColorDrawable(getSeparatorColor()));
-            this.f27061c.setDividerHeight(1);
-            this.f27061c.setSelector(new ColorDrawable(0));
-            this.f27061c.setOnItemClickListener(new AdapterView.OnItemClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.widget.O2OMenuView.1
+            this.f62897c.setDivider(new ColorDrawable(getSeparatorColor()));
+            this.f62897c.setDividerHeight(1);
+            this.f62897c.setSelector(new ColorDrawable(0));
+            this.f62897c.setOnItemClickListener(new AdapterView.OnItemClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.widget.O2OMenuView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ O2OMenuView f27064a;
+                public final /* synthetic */ O2OMenuView f62900a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -279,21 +277,21 @@ public class O2OMenuView extends LinearLayout implements BdMenu.OnMenuSetChanged
                             return;
                         }
                     }
-                    this.f27064a = this;
+                    this.f62900a = this;
                 }
 
                 @Override // android.widget.AdapterView.OnItemClickListener
-                public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+                public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) && view != null && (view instanceof O2OMenuItemView)) {
+                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && view != null && (view instanceof O2OMenuItemView)) {
                         String string = ((O2OMenuItemView) view).getString();
-                        if (this.f27064a.f27063e != null) {
-                            this.f27064a.f27063e.onMenuItemClick(string);
+                        if (this.f62900a.f62899e != null) {
+                            this.f62900a.f62899e.onMenuItemClick(string);
                         }
                     }
                 }
             });
-            addView(this.f27061c, new LinearLayout.LayoutParams(dip2px, -2));
+            addView(this.f62897c, new LinearLayout.LayoutParams(dip2px, -2));
             setFocusableInTouchMode(true);
         }
     }
@@ -317,7 +315,7 @@ public class O2OMenuView extends LinearLayout implements BdMenu.OnMenuSetChanged
                 return;
             }
         }
-        this.f27060b = false;
+        this.f62896b = false;
         a();
     }
 
@@ -339,7 +337,7 @@ public class O2OMenuView extends LinearLayout implements BdMenu.OnMenuSetChanged
                 return;
             }
         }
-        this.f27060b = false;
+        this.f62896b = false;
         a();
     }
 }

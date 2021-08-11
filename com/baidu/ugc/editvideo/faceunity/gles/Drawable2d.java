@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.FloatBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class Drawable2d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final FloatBuffer FULL_RECTANGLE_BUF;
@@ -41,7 +41,7 @@ public class Drawable2d {
     public int mVertexStride;
 
     /* renamed from: com.baidu.ugc.editvideo.faceunity.gles.Drawable2d$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ugc$editvideo$faceunity$gles$Drawable2d$Prefab;
         public static /* synthetic */ Interceptable $ic;
@@ -82,7 +82,7 @@ public class Drawable2d {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static final class Prefab {
         public static final /* synthetic */ Prefab[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

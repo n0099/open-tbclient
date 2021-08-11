@@ -42,7 +42,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class GroupMessageManagerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GroupMessageManagerImpl";
@@ -215,7 +215,7 @@ public class GroupMessageManagerImpl {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     private void handleFansGroupSystemMessage(ArrayList<ChatMsg> arrayList) {
-        long j;
+        long j2;
         Iterator<ChatMsg> it;
         ArrayList<String> arrayList2;
         long max;
@@ -226,17 +226,17 @@ public class GroupMessageManagerImpl {
                 ArrayList<String> arrayList3 = new ArrayList<>();
                 arrayList3.add(valueOf);
                 ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList3);
-                long j2 = Long.MAX_VALUE;
+                long j3 = Long.MAX_VALUE;
                 if (groupInfo == null || groupInfo.size() <= 0) {
-                    j = Long.MAX_VALUE;
+                    j2 = Long.MAX_VALUE;
                 } else {
                     GroupInfo groupInfo2 = groupInfo.get(0);
-                    j2 = groupInfo2.getMembersVersion();
-                    j = groupInfo2.getInfoVersion();
+                    j3 = groupInfo2.getMembersVersion();
+                    j2 = groupInfo2.getInfoVersion();
                 }
                 Iterator<ChatMsg> it2 = arrayList.iterator();
-                long j3 = 0;
                 long j4 = 0;
+                long j5 = 0;
                 while (it2.hasNext()) {
                     ChatMsg next = it2.next();
                     next.setChatType(57);
@@ -249,11 +249,11 @@ public class GroupMessageManagerImpl {
                             if (TextUtils.equals(groupMemberJoinMsg.getMemberBuid(), AccountManager.getUid(mContext))) {
                                 GroupInfoDAOImpl.setGroupState(mContext, valueOf, 0);
                             }
-                            if (groupMemberJoinMsg.getMemberVersion() > j2) {
+                            if (groupMemberJoinMsg.getMemberVersion() > j3) {
                                 GroupInfoDAOImpl.modifyGroupMemberNumber(mContext, valueOf, groupMemberJoinMsg.getGroupnum());
                             }
                             GroupInfoDAOImpl.activeGroupState(mContext, valueOf);
-                            j4 = Math.max(groupMemberJoinMsg.getMemberVersion(), j4);
+                            j5 = Math.max(groupMemberJoinMsg.getMemberVersion(), j5);
                             continue;
                             it2 = it;
                             arrayList3 = arrayList2;
@@ -266,8 +266,8 @@ public class GroupMessageManagerImpl {
                                 quitGroupByGroupId(groupMemberQuitMsg.getContacter());
                                 break;
                             } else {
-                                j4 = Math.max(groupMemberQuitMsg.getMemberVersion(), j4);
-                                if (groupMemberQuitMsg.getMemberVersion() > j2) {
+                                j5 = Math.max(groupMemberQuitMsg.getMemberVersion(), j5);
+                                if (groupMemberQuitMsg.getMemberVersion() > j3) {
                                     ArrayList arrayList4 = new ArrayList();
                                     arrayList4.add(quitBuid);
                                     GroupInfoDAOImpl.modifyGroupMemberNumber(mContext, valueOf, groupMemberQuitMsg.getGroupnum());
@@ -288,30 +288,30 @@ public class GroupMessageManagerImpl {
                                 ChatMsgManagerImpl.getInstance(mContext).broadDeleteGroupMsg(mContext, arrayList5);
                                 break;
                             } else {
-                                if (groupMemberDelMsg.getMemberVersion() > j2) {
+                                if (groupMemberDelMsg.getMemberVersion() > j3) {
                                     GroupInfoDAOImpl.modifyGroupMemberNumber(mContext, valueOf, groupMemberDelMsg.getGroupnum());
                                     GroupInfoDAOImpl.delGroupMember(mContext, valueOf, memberBuids);
                                 }
-                                max = Math.max(groupMemberDelMsg.getMemberVersion(), j4);
+                                max = Math.max(groupMemberDelMsg.getMemberVersion(), j5);
                                 GroupInfoDAOImpl.activeGroupState(mContext, valueOf);
-                                j4 = max;
+                                j5 = max;
                                 break;
                             }
                         case 1005:
                             it = it2;
                             arrayList2 = arrayList3;
                             GroupInfoChangeMsg groupInfoChangeMsg = (GroupInfoChangeMsg) next;
-                            if (groupInfoChangeMsg.getInfoVersion() > j) {
+                            if (groupInfoChangeMsg.getInfoVersion() > j2) {
                                 GroupInfoDAOImpl.modifyGroupName(mContext, valueOf, groupInfoChangeMsg.getGroupname());
                                 ConversationManagerImpl.getInstance(mContext).updateConversationName(groupInfoChangeMsg.getGroupname(), 1, valueOf);
                             }
-                            j3 = Math.max(groupInfoChangeMsg.getInfoVersion(), j3);
+                            j4 = Math.max(groupInfoChangeMsg.getInfoVersion(), j4);
                             break;
                         default:
                             switch (msgType) {
                                 case 1012:
                                     GroupMemberNameChangeMsg groupMemberNameChangeMsg = (GroupMemberNameChangeMsg) next;
-                                    if (groupMemberNameChangeMsg.getMemberVersion() > j2) {
+                                    if (groupMemberNameChangeMsg.getMemberVersion() > j3) {
                                         String memberChangedid = groupMemberNameChangeMsg.memberChangedid();
                                         it = it2;
                                         GroupInfoDAOImpl.updateMemberNickName(mContext, valueOf, memberChangedid, groupMemberNameChangeMsg.getNickname());
@@ -325,8 +325,8 @@ public class GroupMessageManagerImpl {
                                         it = it2;
                                         arrayList2 = arrayList3;
                                     }
-                                    max = Math.max(groupMemberNameChangeMsg.getMemberVersion(), j4);
-                                    j4 = max;
+                                    max = Math.max(groupMemberNameChangeMsg.getMemberVersion(), j5);
+                                    j5 = max;
                                     break;
                                 case 1013:
                                     handleDisbandMsg(next);
@@ -334,7 +334,7 @@ public class GroupMessageManagerImpl {
                                     arrayList2 = arrayList3;
                                     break;
                                 case 1014:
-                                    j3 = Math.max(((FansInfoUpdateMsg) next).getInfoVersion(), j3);
+                                    j4 = Math.max(((FansInfoUpdateMsg) next).getInfoVersion(), j4);
                                     it = it2;
                                     arrayList2 = arrayList3;
                                     continue;
@@ -351,12 +351,12 @@ public class GroupMessageManagerImpl {
                     arrayList3 = arrayList2;
                 }
                 ArrayList<String> arrayList6 = arrayList3;
-                if (j < j3) {
-                    LogUtils.d(TAG, "getFansGroupInfo sInfoVersion = " + j + " maxInfoVersion = " + j3);
+                if (j2 < j4) {
+                    LogUtils.d(TAG, "getFansGroupInfo sInfoVersion = " + j2 + " maxInfoVersion = " + j4);
                     GroupManagerImpl.getInstance(mContext).getFansGroupInfo(arrayList6, true, null);
                 }
-                if (j2 < j4) {
-                    LogUtils.d(TAG, "getFansGroupMember sMemberVersion = " + j2 + " maxMemberVersion = " + j4);
+                if (j3 < j5) {
+                    LogUtils.d(TAG, "getFansGroupMember sMemberVersion = " + j3 + " maxMemberVersion = " + j5);
                     GroupManagerImpl.getInstance(mContext).getFansGroupMember(valueOf, null, true, null);
                     return;
                 }
@@ -595,14 +595,14 @@ public class GroupMessageManagerImpl {
         return invokeL.booleanValue;
     }
 
-    private void quitGroupByGroupId(long j) {
+    private void quitGroupByGroupId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65554, this, j) == null) {
-            String valueOf = String.valueOf(j);
+        if (interceptable == null || interceptable.invokeJ(65554, this, j2) == null) {
+            String valueOf = String.valueOf(j2);
             GroupInfoDAOImpl.quitGroup(mContext, valueOf);
             String str = TAG;
-            LogUtils.d(str, "quitGroupByGroupId groupID = " + j);
-            DialogRecordDBManager.getInstance(mContext).delete(1, j);
+            LogUtils.d(str, "quitGroupByGroupId groupID = " + j2);
+            DialogRecordDBManager.getInstance(mContext).delete(1, j2);
             ConversationManagerImpl.getInstance(mContext).deleteConversation(1, valueOf);
         }
     }

@@ -8,6 +8,7 @@ import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.retrieve.RetrieveReportRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
 import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +21,7 @@ import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class MessageUbc {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EVENT_TYPE = "0";
@@ -120,7 +121,7 @@ public class MessageUbc {
                     jSONObject.put("role", AccountManager.getMediaRole(this.mContext) ? "2" : "1");
                     jSONObject.put("package_name", RetrieveReportRequest.APP_NAME);
                     jSONObject.put("appid", String.valueOf(AccountManager.getAppid(this.mContext)));
-                    jSONObject.put("starttime", String.valueOf(this.mStartTime));
+                    jSONObject.put(LaunchedTaskSpeedStats.KEY_START_TIME, String.valueOf(this.mStartTime));
                     jSONObject.put("endtime", String.valueOf(this.mEndTime));
                     jSONObject.put("cost_time", String.valueOf(this.mEndTime - this.mStartTime));
                     jSONObject.put("error_code", str);

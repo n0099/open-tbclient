@@ -5,7 +5,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class RiskDataInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +32,7 @@ public class RiskDataInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "RiskDataInfo{riskLevel=" + this.riskLevel + ", decision=" + this.decision + ", challengeExtension=" + this.challengeExtension + '}';
+            return "RiskDataInfo{riskLevel=" + this.riskLevel + ", decision=" + this.decision + ", challengeExtension=" + this.challengeExtension + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

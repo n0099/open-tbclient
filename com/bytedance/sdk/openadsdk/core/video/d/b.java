@@ -11,41 +11,41 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.utils.k;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.video.d.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0346b {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC1906b {
         void a(Bitmap bitmap);
     }
 
-    public static void a(long j, String str, InterfaceC0346b interfaceC0346b) {
+    public static void a(long j2, String str, InterfaceC1906b interfaceC1906b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), str, interfaceC0346b}) == null) {
-            new a(interfaceC0346b, j).execute(str);
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j2), str, interfaceC1906b}) == null) {
+            new a(interfaceC1906b, j2).execute(str);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a extends AsyncTask<String, Integer, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public InterfaceC0346b f30821a;
+        public InterfaceC1906b f66747a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f30822b;
+        public long f66748b;
 
-        public a(InterfaceC0346b interfaceC0346b, long j) {
+        public a(InterfaceC1906b interfaceC1906b, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {interfaceC0346b, Long.valueOf(j)};
+                Object[] objArr = {interfaceC1906b, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -55,9 +55,9 @@ public class b {
                     return;
                 }
             }
-            this.f30822b = 0L;
-            this.f30821a = interfaceC0346b;
-            this.f30822b = j;
+            this.f66748b = 0L;
+            this.f66747a = interfaceC1906b;
+            this.f66748b = j2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class b {
                     } else {
                         mediaMetadataRetriever.setDataSource(str);
                     }
-                    bitmap = mediaMetadataRetriever.getFrameAtTime(this.f30822b * 1000, 3);
+                    bitmap = mediaMetadataRetriever.getFrameAtTime(this.f66748b * 1000, 3);
                     mediaMetadataRetriever.release();
                     return bitmap;
                 } catch (Throwable th) {
@@ -94,9 +94,9 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
                 super.onPostExecute(bitmap);
-                InterfaceC0346b interfaceC0346b = this.f30821a;
-                if (interfaceC0346b != null) {
-                    interfaceC0346b.a(bitmap);
+                InterfaceC1906b interfaceC1906b = this.f66747a;
+                if (interfaceC1906b != null) {
+                    interfaceC1906b.a(bitmap);
                 }
             }
         }

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.SoftReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class FramesSequenceAnimation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class FramesSequenceAnimation {
     public SoftReference<ImageView> mSoftReferenceImageView;
     public int times;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface OnAnimationStoppedListener {
         void AnimationStopped();
     }

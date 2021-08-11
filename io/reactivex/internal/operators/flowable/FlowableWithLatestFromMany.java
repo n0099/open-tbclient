@@ -28,7 +28,7 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
     @Nullable
     public final Iterable<? extends Publisher<?>> otherIterable;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public final class SingletonArrayFunc implements Function<T, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class WithLatestFromSubscriber<T, R> extends AtomicInteger implements ConditionalSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1577321883966341961L;
@@ -207,10 +207,10 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-                SubscriptionHelper.deferredRequest(this.s, this.requested, j);
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+                SubscriptionHelper.deferredRequest(this.s, this.requested, j2);
             }
         }
 
@@ -260,7 +260,7 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class WithLatestInnerSubscriber extends AtomicReference<Subscription> implements FlowableSubscriber<Object> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3256684027868224024L;

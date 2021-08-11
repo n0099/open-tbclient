@@ -1,7 +1,6 @@
 package com.facebook.soloader;
 
 import android.os.StrictMode;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class DirectorySoSource extends SoSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ON_LD_LIBRARY_PATH = 2;
@@ -61,13 +60,13 @@ public class DirectorySoSource extends SoSource {
     }
 
     private void loadDependencies(File file, int i2, StrictMode.ThreadPolicy threadPolicy) throws IOException {
+        String[] dependencies;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65538, this, file, i2, threadPolicy) == null) {
-            String[] dependencies = getDependencies(file);
-            Log.d("SoLoader", "Loading lib dependencies: " + Arrays.toString(dependencies));
-            for (String str : dependencies) {
-                if (!str.startsWith("/")) {
-                    SoLoader.loadLibraryBySoName(str, i2 | 1, threadPolicy);
+            String str = "Loading lib dependencies: " + Arrays.toString(dependencies);
+            for (String str2 : getDependencies(file)) {
+                if (!str2.startsWith("/")) {
+                    SoLoader.loadLibraryBySoName(str2, i2 | 1, threadPolicy);
                 }
             }
         }
@@ -94,25 +93,24 @@ public class DirectorySoSource extends SoSource {
         if (interceptable == null || (invokeLILL = interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, str, i2, file, threadPolicy)) == null) {
             File file2 = new File(file, str);
             if (!file2.exists()) {
-                Log.d("SoLoader", str + " not found on " + file.getCanonicalPath());
+                String str2 = str + " not found on " + file.getCanonicalPath();
                 return 0;
             }
-            Log.d("SoLoader", str + " found on " + file.getCanonicalPath());
+            String str3 = str + " found on " + file.getCanonicalPath();
             if ((i2 & 1) != 0 && (this.flags & 2) != 0) {
-                Log.d("SoLoader", str + " loaded implicitly");
+                String str4 = str + " loaded implicitly";
                 return 2;
             }
             if ((this.flags & 1) != 0) {
                 loadDependencies(file2, i2, threadPolicy);
             } else {
-                Log.d("SoLoader", "Not resolving dependencies for " + str);
+                String str5 = "Not resolving dependencies for " + str;
             }
             try {
                 SoLoader.sSoFileLoader.load(file2.getAbsolutePath(), i2);
                 return 1;
             } catch (UnsatisfiedLinkError e2) {
                 if (e2.getMessage().contains("bad ELF magic")) {
-                    Log.d("SoLoader", "Corrupted lib file detected");
                     return 3;
                 }
                 throw e2;

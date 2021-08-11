@@ -1,8 +1,8 @@
 package com.baidu.swan.apps.core.prefetch.resource.task;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import c.a.n0.a.k;
 import com.baidu.mobads.container.adrequest.AdParamInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,9 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.k;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class ResType {
     public static final /* synthetic */ ResType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -86,8 +85,8 @@ public final class ResType {
                 }
                 i2++;
             }
-            if (k.f46335a) {
-                Log.d("ResType", "res type - " + resType.name());
+            if (k.f6803a) {
+                String str2 = "res type - " + resType.name();
             }
             return resType;
         }

@@ -10,16 +10,16 @@ import com.xiaomi.push.ai;
 import com.xiaomi.push.hf;
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ie;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class p extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f40088a;
+    public final /* synthetic */ Context f76939a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ ie f95a;
+    public final /* synthetic */ ie f99a;
 
     public p(ie ieVar, Context context) {
         Interceptable interceptable = $ic;
@@ -36,13 +36,13 @@ public final class p extends ai.a {
                 return;
             }
         }
-        this.f95a = ieVar;
-        this.f40088a = context;
+        this.f99a = ieVar;
+        this.f76939a = context;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo184a() {
+    public String mo187a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.tencent.connect.common.Constants.VIA_REPORT_TYPE_DATALINE : (String) invokeV.objValue;
@@ -52,10 +52,10 @@ public final class p extends ai.a {
     public void run() {
         ie ieVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (ieVar = this.f95a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (ieVar = this.f99a) == null) {
             return;
         }
         ieVar.a(com.xiaomi.push.service.at.a());
-        an.a(this.f40088a.getApplicationContext()).a((an) this.f95a, hf.f40530i, true, (hs) null, true);
+        an.a(this.f76939a.getApplicationContext()).a((an) this.f99a, hf.f77389i, true, (hs) null, true);
     }
 }

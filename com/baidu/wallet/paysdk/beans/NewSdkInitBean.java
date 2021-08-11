@@ -13,7 +13,7 @@ import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.paysdk.datamodel.SdkInitResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class NewSdkInitBean extends BaseBean<SdkInitResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +57,10 @@ public class NewSdkInitBean extends BaseBean<SdkInitResponse> {
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.baidu.wallet.core.beans.BeanConstants.BEAN_ID_FOR_NEW_INIT : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 786;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -65,7 +68,7 @@ public class NewSdkInitBean extends BaseBean<SdkInitResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return DomainConfig.getInstance().getInitHost(true) + com.baidu.wallet.core.beans.BeanConstants.API_GET_FP;
+            return DomainConfig.getInstance().getInitHost(true) + "/odp/wireless/sdk/init";
         }
         return (String) invokeV.objValue;
     }

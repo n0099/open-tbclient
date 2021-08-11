@@ -7,7 +7,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes6.dex */
 public final class v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,7 +20,7 @@ public final class v {
                 HashMap hashMap = new HashMap();
                 hashMap.put("0", str);
                 hashMap.put("1", Integer.valueOf(i2));
-                hashMap.put("2", Base64.encodeToString(com.baidu.sofire.b.a(th).getBytes(), 0).replace("\n", "").replace(TrackUI.SEPERATOR, "").replace("\r", ""));
+                hashMap.put("2", Base64.encodeToString(com.baidu.sofire.b.a(th).getBytes(), 0).replace(StringUtils.LF, "").replace(TrackUI.SEPERATOR, "").replace(StringUtils.CR, ""));
                 c.a(context, "1090102", (Map<String, Object>) hashMap, true);
             } catch (Throwable unused) {
                 c.a();

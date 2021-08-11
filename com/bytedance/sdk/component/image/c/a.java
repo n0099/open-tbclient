@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,38 +27,40 @@ import java.util.Queue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a implements IImageHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Future<?> f28876a;
+    public Future<?> f64738a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28877b;
+    public String f64739b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.bytedance.sdk.component.image.c.a.b f28878c;
+    public com.bytedance.sdk.component.image.c.a.b f64740c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28879d;
+    public String f64741d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28880e;
+    public String f64742e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ILoaderListener f28881f;
+    public ILoaderListener f64743f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView.ScaleType f28882g;
+    public ImageView.ScaleType f64744g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap.Config f28883h;
+    public Bitmap.Config f64745h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f28884i;
-    public int j;
+    public int f64746i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f64747j;
     public ResultType k;
     public WeakReference<ImageView> l;
     public volatile boolean m;
@@ -73,18 +74,18 @@ public class a implements IImageHandler {
     public e u;
 
     /* renamed from: com.bytedance.sdk.component.image.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class C0324a implements ILoaderListener {
+    /* loaded from: classes9.dex */
+    public class C1884a implements ILoaderListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f28886a;
+        public final /* synthetic */ a f64749a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ILoaderListener f28887b;
+        public ILoaderListener f64750b;
 
-        public C0324a(a aVar, ILoaderListener iLoaderListener) {
+        public C1884a(a aVar, ILoaderListener iLoaderListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,30 +100,30 @@ public class a implements IImageHandler {
                     return;
                 }
             }
-            this.f28886a = aVar;
-            this.f28887b = iLoaderListener;
+            this.f64749a = aVar;
+            this.f64750b = iLoaderListener;
         }
 
         @Override // com.bytedance.sdk.component.image.ILoaderListener
         public void onFailed(int i2, String str, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, th) == null) {
-                if (this.f28886a.q == ImageThread.MAIN) {
-                    this.f28886a.s.post(new Runnable(this, i2, str, th) { // from class: com.bytedance.sdk.component.image.c.a.a.3
+                if (this.f64749a.q == ImageThread.MAIN) {
+                    this.f64749a.s.post(new Runnable(this, i2, str, th) { // from class: com.bytedance.sdk.component.image.c.a.a.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ int f28893a;
+                        public final /* synthetic */ int f64756a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ String f28894b;
+                        public final /* synthetic */ String f64757b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ Throwable f28895c;
+                        public final /* synthetic */ Throwable f64758c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ C0324a f28896d;
+                        public final /* synthetic */ C1884a f64759d;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -139,24 +140,24 @@ public class a implements IImageHandler {
                                     return;
                                 }
                             }
-                            this.f28896d = this;
-                            this.f28893a = i2;
-                            this.f28894b = str;
-                            this.f28895c = th;
+                            this.f64759d = this;
+                            this.f64756a = i2;
+                            this.f64757b = str;
+                            this.f64758c = th;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f28896d.f28887b == null) {
+                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f64759d.f64750b == null) {
                                 return;
                             }
-                            this.f28896d.f28887b.onFailed(this.f28893a, this.f28894b, this.f28895c);
+                            this.f64759d.f64750b.onFailed(this.f64756a, this.f64757b, this.f64758c);
                         }
                     });
                     return;
                 }
-                ILoaderListener iLoaderListener = this.f28887b;
+                ILoaderListener iLoaderListener = this.f64750b;
                 if (iLoaderListener != null) {
                     iLoaderListener.onFailed(i2, str, th);
                 }
@@ -167,20 +168,20 @@ public class a implements IImageHandler {
         public void onSuccess(ImageResponse imageResponse) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageResponse) == null) {
-                ImageView imageView = (ImageView) this.f28886a.l.get();
-                if (imageView != null && this.f28886a.k == ResultType.BITMAP && a(imageView)) {
-                    this.f28886a.s.post(new Runnable(this, imageView, (Bitmap) imageResponse.getResult()) { // from class: com.bytedance.sdk.component.image.c.a.a.1
+                ImageView imageView = (ImageView) this.f64749a.l.get();
+                if (imageView != null && this.f64749a.k == ResultType.BITMAP && a(imageView)) {
+                    this.f64749a.s.post(new Runnable(this, imageView, (Bitmap) imageResponse.getResult()) { // from class: com.bytedance.sdk.component.image.c.a.a.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ ImageView f28888a;
+                        public final /* synthetic */ ImageView f64751a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ Bitmap f28889b;
+                        public final /* synthetic */ Bitmap f64752b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ C0324a f28890c;
+                        public final /* synthetic */ C1884a f64753c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -197,30 +198,30 @@ public class a implements IImageHandler {
                                     return;
                                 }
                             }
-                            this.f28890c = this;
-                            this.f28888a = imageView;
-                            this.f28889b = r8;
+                            this.f64753c = this;
+                            this.f64751a = imageView;
+                            this.f64752b = r8;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.f28888a.setImageBitmap(this.f28889b);
+                                this.f64751a.setImageBitmap(this.f64752b);
                             }
                         }
                     });
                 }
-                if (this.f28886a.q == ImageThread.MAIN) {
-                    this.f28886a.s.post(new Runnable(this, imageResponse) { // from class: com.bytedance.sdk.component.image.c.a.a.2
+                if (this.f64749a.q == ImageThread.MAIN) {
+                    this.f64749a.s.post(new Runnable(this, imageResponse) { // from class: com.bytedance.sdk.component.image.c.a.a.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ ImageResponse f28891a;
+                        public final /* synthetic */ ImageResponse f64754a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ C0324a f28892b;
+                        public final /* synthetic */ C1884a f64755b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -237,22 +238,22 @@ public class a implements IImageHandler {
                                     return;
                                 }
                             }
-                            this.f28892b = this;
-                            this.f28891a = imageResponse;
+                            this.f64755b = this;
+                            this.f64754a = imageResponse;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f28892b.f28887b == null) {
+                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f64755b.f64750b == null) {
                                 return;
                             }
-                            this.f28892b.f28887b.onSuccess(this.f28891a);
+                            this.f64755b.f64750b.onSuccess(this.f64754a);
                         }
                     });
                     return;
                 }
-                ILoaderListener iLoaderListener = this.f28887b;
+                ILoaderListener iLoaderListener = this.f64750b;
                 if (iLoaderListener != null) {
                     iLoaderListener.onSuccess(imageResponse);
                 }
@@ -263,42 +264,44 @@ public class a implements IImageHandler {
             InterceptResult invokeL;
             Object tag;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, imageView)) == null) ? (imageView == null || (tag = imageView.getTag(1094453505)) == null || !tag.equals(this.f28886a.f28879d)) ? false : true : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, imageView)) == null) ? (imageView == null || (tag = imageView.getTag(1094453505)) == null || !tag.equals(this.f64749a.f64741d)) ? false : true : invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class b implements IImageLoader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ILoaderListener f28936a;
+        public ILoaderListener f64800a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f28937b;
+        public ImageView f64801b;
 
         /* renamed from: c  reason: collision with root package name */
-        public com.bytedance.sdk.component.image.c.a.b f28938c;
+        public com.bytedance.sdk.component.image.c.a.b f64802c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f28939d;
+        public String f64803d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f28940e;
+        public String f64804e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ImageView.ScaleType f28941f;
+        public ImageView.ScaleType f64805f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Bitmap.Config f28942g;
+        public Bitmap.Config f64806g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f28943h;
+        public int f64807h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f28944i;
-        public ResultType j;
+        public int f64808i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public ResultType f64809j;
         public ImageThread k;
         public IStepTracker l;
         public boolean m;
@@ -323,7 +326,7 @@ public class a implements IImageHandler {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-                this.f28938c = new com.bytedance.sdk.component.image.c.a.b(z, z2);
+                this.f64802c = new com.bytedance.sdk.component.image.c.a.b(z, z2);
                 return this;
             }
             return (IImageLoader) invokeCommon.objValue;
@@ -334,7 +337,7 @@ public class a implements IImageHandler {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, config)) == null) {
-                this.f28942g = config;
+                this.f64806g = config;
                 return this;
             }
             return (IImageLoader) invokeL.objValue;
@@ -345,7 +348,7 @@ public class a implements IImageHandler {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f28940e = str;
+                this.f64804e = str;
                 return this;
             }
             return (IImageLoader) invokeL.objValue;
@@ -367,7 +370,7 @@ public class a implements IImageHandler {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                this.f28944i = i2;
+                this.f64808i = i2;
                 return this;
             }
             return (IImageLoader) invokeI.objValue;
@@ -378,7 +381,7 @@ public class a implements IImageHandler {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f28939d = str;
+                this.f64803d = str;
                 return this;
             }
             return (IImageLoader) invokeL.objValue;
@@ -400,7 +403,7 @@ public class a implements IImageHandler {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, scaleType)) == null) {
-                this.f28941f = scaleType;
+                this.f64805f = scaleType;
                 return this;
             }
             return (IImageLoader) invokeL.objValue;
@@ -433,7 +436,7 @@ public class a implements IImageHandler {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, resultType)) == null) {
-                this.j = resultType;
+                this.f64809j = resultType;
                 return this;
             }
             return (IImageLoader) invokeL.objValue;
@@ -444,7 +447,7 @@ public class a implements IImageHandler {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
-                this.f28943h = i2;
+                this.f64807h = i2;
                 return this;
             }
             return (IImageLoader) invokeI.objValue;
@@ -455,7 +458,7 @@ public class a implements IImageHandler {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-                this.f28938c = new com.bytedance.sdk.component.image.c.a.b(z, true);
+                this.f64802c = new com.bytedance.sdk.component.image.c.a.b(z, true);
                 return this;
             }
             return (IImageLoader) invokeZ.objValue;
@@ -466,7 +469,7 @@ public class a implements IImageHandler {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, iLoaderListener)) == null) {
-                this.f28936a = iLoaderListener;
+                this.f64800a = iLoaderListener;
                 return new a(this).o();
             }
             return (IImageHandler) invokeL.objValue;
@@ -477,7 +480,7 @@ public class a implements IImageHandler {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, imageView)) == null) {
-                this.f28937b = imageView;
+                this.f64801b = imageView;
                 return new a(this).o();
             }
             return (IImageHandler) invokeL.objValue;
@@ -492,12 +495,12 @@ public class a implements IImageHandler {
             try {
                 ExecutorService g2 = com.bytedance.sdk.component.image.c.b.a().g();
                 if (g2 != null) {
-                    this.f28876a = g2.submit(new Runnable(this) { // from class: com.bytedance.sdk.component.image.c.a.1
+                    this.f64738a = g2.submit(new Runnable(this) { // from class: com.bytedance.sdk.component.image.c.a.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ a f28885a;
+                        public final /* synthetic */ a f64748a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -514,7 +517,7 @@ public class a implements IImageHandler {
                                     return;
                                 }
                             }
-                            this.f28885a = this;
+                            this.f64748a = this;
                         }
 
                         @Override // java.lang.Runnable
@@ -522,33 +525,33 @@ public class a implements IImageHandler {
                             h hVar;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                while (!this.f28885a.m && (hVar = (h) this.f28885a.r.poll()) != null) {
+                                while (!this.f64748a.m && (hVar = (h) this.f64748a.r.poll()) != null) {
                                     try {
-                                        if (this.f28885a.p != null) {
-                                            this.f28885a.p.onStepStart(hVar.a(), this.f28885a);
+                                        if (this.f64748a.p != null) {
+                                            this.f64748a.p.onStepStart(hVar.a(), this.f64748a);
                                         }
-                                        hVar.a(this.f28885a);
-                                        if (this.f28885a.p != null) {
-                                            this.f28885a.p.onStepEnd(hVar.a(), this.f28885a);
+                                        hVar.a(this.f64748a);
+                                        if (this.f64748a.p != null) {
+                                            this.f64748a.p.onStepEnd(hVar.a(), this.f64748a);
                                         }
                                     } catch (Throwable th) {
-                                        this.f28885a.a(2000, th.getMessage(), th);
-                                        if (this.f28885a.p != null) {
-                                            this.f28885a.p.onStepEnd("exception", this.f28885a);
+                                        this.f64748a.a(2000, th.getMessage(), th);
+                                        if (this.f64748a.p != null) {
+                                            this.f64748a.p.onStepEnd("exception", this.f64748a);
                                             return;
                                         }
                                         return;
                                     }
                                 }
-                                if (this.f28885a.m) {
-                                    this.f28885a.a(1003, "canceled", null);
+                                if (this.f64748a.m) {
+                                    this.f64748a.a(1003, "canceled", null);
                                 }
                             }
                         }
                     });
                 }
             } catch (Exception e2) {
-                Log.e("ImageRequest", e2.getMessage());
+                e2.getMessage();
                 c.b(e2.getMessage());
             }
             return this;
@@ -562,7 +565,7 @@ public class a implements IImageHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             this.m = true;
-            Future<?> future = this.f28876a;
+            Future<?> future = this.f64738a;
             if (future != null) {
                 return future.cancel(true);
             }
@@ -620,25 +623,25 @@ public class a implements IImageHandler {
         this.r = new LinkedBlockingQueue();
         this.s = new Handler(Looper.getMainLooper());
         this.t = true;
-        this.f28877b = bVar.f28940e;
-        this.f28881f = new C0324a(this, bVar.f28936a);
-        this.l = new WeakReference<>(bVar.f28937b);
-        if (bVar.f28938c != null) {
-            bVar2 = bVar.f28938c;
+        this.f64739b = bVar.f64804e;
+        this.f64743f = new C1884a(this, bVar.f64800a);
+        this.l = new WeakReference<>(bVar.f64801b);
+        if (bVar.f64802c != null) {
+            bVar2 = bVar.f64802c;
         } else {
             bVar2 = com.bytedance.sdk.component.image.c.a.b.a();
         }
-        this.f28878c = bVar2;
-        this.f28882g = bVar.f28941f;
-        this.f28883h = bVar.f28942g;
-        this.f28884i = bVar.f28943h;
-        this.j = bVar.f28944i;
-        this.k = bVar.j == null ? ResultType.BITMAP : bVar.j;
+        this.f64740c = bVar2;
+        this.f64744g = bVar.f64805f;
+        this.f64745h = bVar.f64806g;
+        this.f64746i = bVar.f64807h;
+        this.f64747j = bVar.f64808i;
+        this.k = bVar.f64809j == null ? ResultType.BITMAP : bVar.f64809j;
         this.q = bVar.k == null ? ImageThread.MAIN : bVar.k;
         this.p = bVar.l;
-        if (!TextUtils.isEmpty(bVar.f28939d)) {
-            b(bVar.f28939d);
-            a(bVar.f28939d);
+        if (!TextUtils.isEmpty(bVar.f64803d)) {
+            b(bVar.f64803d);
+            a(bVar.f64803d);
         }
         this.n = bVar.m;
         this.o = bVar.n;
@@ -648,55 +651,55 @@ public class a implements IImageHandler {
     public com.bytedance.sdk.component.image.c.a.b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28878c : (com.bytedance.sdk.component.image.c.a.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f64740c : (com.bytedance.sdk.component.image.c.a.b) invokeV.objValue;
     }
 
     public ILoaderListener c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f28881f : (ILoaderListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f64743f : (ILoaderListener) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f28880e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f64742e : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f28879d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f64741d : (String) invokeV.objValue;
     }
 
     public ImageView.ScaleType f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f28882g : (ImageView.ScaleType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f64744g : (ImageView.ScaleType) invokeV.objValue;
     }
 
     public Bitmap.Config g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f28883h : (Bitmap.Config) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f64745h : (Bitmap.Config) invokeV.objValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f28884i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f64746i : invokeV.intValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f64747j : invokeV.intValue;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28877b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64739b : (String) invokeV.objValue;
     }
 
     public void b(String str) {
@@ -706,14 +709,14 @@ public class a implements IImageHandler {
             if (weakReference != null && weakReference.get() != null) {
                 this.l.get().setTag(1094453505, str);
             }
-            this.f28879d = str;
+            this.f64741d = str;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f28880e = str;
+            this.f64742e = str;
         }
     }
 

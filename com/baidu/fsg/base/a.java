@@ -4,38 +4,40 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5139a = false;
+    public static final boolean f39077a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5140b = "com.baidu.fsg.base";
+    public static final String f39078b = "com.baidu.fsg.base";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5141c = "release";
+    public static final String f39079c = "release";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5142d = "";
+    public static final String f39080d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f5143e = 1;
+    public static final int f39081e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5144f = "1.0";
+    public static final String f39082f = "1.0";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5145g = "";
+    public static final String f39083g = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5146h = "BgAAAA";
+    public static final String f39084h = "BgAAAA";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f5147i = true;
-    public static final boolean j = true;
-    public static final String k = "2.0.1.0";
+    public static final boolean f39085i = true;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final boolean f39086j = true;
+    public static final String k = "2.0.2.0";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

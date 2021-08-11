@@ -20,7 +20,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.PollingModeInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.GetChargeOrderStatusResult;
 import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams;
 import com.yy.mobile.framework.revenuesdk.payapi.request.GetChargeOrderStatusReqParams;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class PayResultPoller {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class PayResultPoller {
     public IPayInnerLogic payInnerLogic;
     public IAppPayService payService;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface PollerListener {
         void onFail(ChargeCurrencyReqParams chargeCurrencyReqParams, int i2, String str);
 

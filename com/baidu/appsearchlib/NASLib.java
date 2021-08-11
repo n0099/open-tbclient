@@ -14,13 +14,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLDecoder;
-/* loaded from: classes.dex */
+import org.apache.commons.lang3.text.FormattableUtils;
+/* loaded from: classes5.dex */
 public class NASLib extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public static NASCallBack callback;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public interface NASCallBack {
         void callback(String str, String str2);
     }
@@ -82,7 +83,7 @@ public class NASLib extends Activity {
                 }
                 Logger.onCallUp();
                 if (str2 != null) {
-                    Logger.recordServerAction(context, "%s", str2);
+                    Logger.recordServerAction(context, FormattableUtils.SIMPLEST_FORMAT, str2);
                 }
                 if (trim != null) {
                     try {

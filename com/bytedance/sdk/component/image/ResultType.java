@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class ResultType {
     public static /* synthetic */ Interceptable $ic;
     public static final ResultType BITMAP;
     public static final ResultType RAW;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ ResultType[] f28860a;
+    public static final /* synthetic */ ResultType[] f64722a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class ResultType {
         BITMAP = new ResultType("BITMAP", 0);
         ResultType resultType = new ResultType("RAW", 1);
         RAW = resultType;
-        f28860a = new ResultType[]{BITMAP, resultType};
+        f64722a = new ResultType[]{BITMAP, resultType};
     }
 
     public ResultType(String str, int i2) {
@@ -65,6 +65,6 @@ public final class ResultType {
     public static ResultType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ResultType[]) f28860a.clone() : (ResultType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ResultType[]) f64722a.clone() : (ResultType[]) invokeV.objValue;
     }
 }

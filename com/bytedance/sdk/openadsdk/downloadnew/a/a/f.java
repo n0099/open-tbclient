@@ -3,6 +3,7 @@ package com.bytedance.sdk.openadsdk.downloadnew.a.a;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import c.p.a.e.b.o.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
@@ -11,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.l.a.e.b.o.k;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
@@ -22,13 +22,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
-public class f implements d.l.a.e.b.o.a {
+/* loaded from: classes9.dex */
+public class f implements c.p.a.e.b.o.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f31300a;
+    public final WeakReference<Context> f67239a;
 
     public f(Context context) {
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class f implements d.l.a.e.b.o.a {
                 return;
             }
         }
-        this.f31300a = new WeakReference<>(context);
+        this.f67239a = new WeakReference<>(context);
     }
 
     @Nullable
@@ -83,7 +83,7 @@ public class f implements d.l.a.e.b.o.a {
         return (HttpURLConnection) invokeLL.objValue;
     }
 
-    @Override // d.l.a.e.b.o.a
+    @Override // c.p.a.e.b.o.a
     public k downloadWithConnection(int i2, String str, List<com.ss.android.socialbase.downloader.model.c> list) throws IOException {
         InterceptResult invokeILL;
         int responseCode;
@@ -99,19 +99,19 @@ public class f implements d.l.a.e.b.o.a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ InputStream f31301a;
+                    public final /* synthetic */ InputStream f67240a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Map f31302b;
+                    public final /* synthetic */ Map f67241b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ int f31303c;
+                    public final /* synthetic */ int f67242c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ HttpURLConnection f31304d;
+                    public final /* synthetic */ HttpURLConnection f67243d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ f f31305e;
+                    public final /* synthetic */ f f67244e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -128,50 +128,50 @@ public class f implements d.l.a.e.b.o.a {
                                 return;
                             }
                         }
-                        this.f31305e = this;
-                        this.f31301a = r7;
-                        this.f31302b = a3;
-                        this.f31303c = responseCode;
-                        this.f31304d = a2;
+                        this.f67244e = this;
+                        this.f67240a = r7;
+                        this.f67241b = a3;
+                        this.f67242c = responseCode;
+                        this.f67243d = a2;
                     }
 
-                    @Override // d.l.a.e.b.o.k
+                    @Override // c.p.a.e.b.o.k
                     public InputStream a() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f31301a : (InputStream) invokeV.objValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f67240a : (InputStream) invokeV.objValue;
                     }
 
-                    @Override // d.l.a.e.b.o.i
+                    @Override // c.p.a.e.b.o.i
                     public int b() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31303c : invokeV.intValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f67242c : invokeV.intValue;
                     }
 
-                    @Override // d.l.a.e.b.o.i
+                    @Override // c.p.a.e.b.o.i
                     public void c() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
                         }
                     }
 
-                    @Override // d.l.a.e.b.o.k
+                    @Override // c.p.a.e.b.o.k
                     public void d() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
                             try {
-                                this.f31304d.disconnect();
+                                this.f67243d.disconnect();
                             } catch (Exception unused) {
                             }
                         }
                     }
 
-                    @Override // d.l.a.e.b.o.i
+                    @Override // c.p.a.e.b.o.i
                     public String a(String str2) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2)) == null) ? (String) this.f31302b.get(str2) : (String) invokeL.objValue;
+                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2)) == null) ? (String) this.f67241b.get(str2) : (String) invokeL.objValue;
                     }
                 };
             }

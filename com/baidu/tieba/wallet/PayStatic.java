@@ -1,6 +1,7 @@
 package com.baidu.tieba.wallet;
 
 import android.app.Activity;
+import c.a.o0.e.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pay.PayCallBack;
@@ -23,9 +24,8 @@ import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmSdkServiceProxy;
 import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatProxyCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy;
-import d.a.p0.e.a;
 import tv.athena.revenue.payui.YYPayUIKit;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PayStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,9 +44,6 @@ public class PayStatic {
             }
         }
         ResUtils.setApplicationContext(TbadkCoreApplication.getInst());
-        ResUtils.setResourcePackageName("com.baidu.tieba.pluginWallet");
-        com.baidu.apollon.utils.ResUtils.setApplicationContext(TbadkCoreApplication.getInst());
-        com.baidu.apollon.utils.ResUtils.setResourcePackageName("com.baidu.tieba");
         YYPayUIKit.setAlipaySdkProxy(new IAlipaySdkServiceProxy() { // from class: com.baidu.tieba.wallet.PayStatic.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -66,14 +63,14 @@ public class PayStatic {
             }
 
             @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IAlipaySdkServiceProxy
-            public void sendPay(long j, Activity activity, String str, IAlipayProxyCallback iAlipayProxyCallback) {
+            public void sendPay(long j2, Activity activity, String str, IAlipayProxyCallback iAlipayProxyCallback) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), activity, str, iAlipayProxyCallback}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), activity, str, iAlipayProxyCallback}) == null) {
                     try {
                         a aVar = new a();
-                        aVar.f52495a = activity;
-                        aVar.f52496b = str;
-                        aVar.f52497c = false;
+                        aVar.f13059a = activity;
+                        aVar.f13060b = str;
+                        aVar.f13061c = false;
                         iAlipayProxyCallback.onSuccess((String) MessageManager.getInstance().runTask(2921539, String.class, aVar).getData());
                     } catch (Exception e2) {
                         iAlipayProxyCallback.onFail(e2.getMessage());
@@ -107,9 +104,9 @@ public class PayStatic {
             }
 
             @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy
-            public void sendPay(long j, Activity activity, String str, IWechatProxyCallback iWechatProxyCallback) {
+            public void sendPay(long j2, Activity activity, String str, IWechatProxyCallback iWechatProxyCallback) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), activity, str, iWechatProxyCallback}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), activity, str, iWechatProxyCallback}) == null) {
                     PayActivityStatic.registerYYPayUIKitProxy(str, iWechatProxyCallback);
                 }
             }
@@ -133,9 +130,9 @@ public class PayStatic {
             }
 
             @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmSdkServiceProxy
-            public void sendPay(long j, Activity activity, String str, IDxmProxyCallback iDxmProxyCallback) {
+            public void sendPay(long j2, Activity activity, String str, IDxmProxyCallback iDxmProxyCallback) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), activity, str, iDxmProxyCallback}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), activity, str, iDxmProxyCallback}) == null) {
                     PayActivityStatic.initBaiduWallet();
                     BaiduWallet.getInstance().doPay(TbadkCoreApplication.getInst(), str, new PayCallBack(this, iDxmProxyCallback) { // from class: com.baidu.tieba.wallet.PayStatic.3.1
                         public static /* synthetic */ Interceptable $ic;

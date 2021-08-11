@@ -16,7 +16,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class DownPrefUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -99,10 +99,10 @@ public final class DownPrefUtils {
         return (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, i2)) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getInt(str, i2) : invokeLLI.intValue;
     }
 
-    public static long getLong(Context context, String str, long j) {
+    public static long getLong(Context context, String str, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, str, Long.valueOf(j)})) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getLong(str, j) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, str, Long.valueOf(j2)})) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getLong(str, j2) : invokeCommon.longValue;
     }
 
     public static String getString(Context context, String str, String str2) {
@@ -111,7 +111,7 @@ public final class DownPrefUtils {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, str2)) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getString(str, str2) : (String) invokeLLL.objValue;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:44:0x00d5 -> B:51:0x00d8). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:44:0x00d3 -> B:51:0x00d6). Please submit an issue!!! */
     public static void loadProperties(Context context) {
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
@@ -206,14 +206,14 @@ public final class DownPrefUtils {
         edit.commit();
     }
 
-    public static void setLong(Context context, String str, long j) {
+    public static void setLong(Context context, String str, long j2) {
         SharedPreferences sharedPreferences;
         SharedPreferences.Editor edit;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{context, str, Long.valueOf(j)}) == null) || context == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null || (edit = sharedPreferences.edit()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{context, str, Long.valueOf(j2)}) == null) || context == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null || (edit = sharedPreferences.edit()) == null) {
             return;
         }
-        edit.putLong(str, j);
+        edit.putLong(str, j2);
         edit.commit();
     }
 
@@ -228,9 +228,9 @@ public final class DownPrefUtils {
         edit.commit();
     }
 
-    public static long testConfigurationGetLong(Context context, String str, long j) {
+    public static long testConfigurationGetLong(Context context, String str, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, str, Long.valueOf(j)})) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getLong(str, j) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, str, Long.valueOf(j2)})) == null) ? context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getLong(str, j2) : invokeCommon.longValue;
     }
 }

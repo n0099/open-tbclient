@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.image.IKeyGenerator;
 import java.util.WeakHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public WeakHashMap<String, String> f28863a;
+            public WeakHashMap<String, String> f64725a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -36,17 +36,17 @@ public class b {
                         return;
                     }
                 }
-                this.f28863a = new WeakHashMap<>();
+                this.f64725a = new WeakHashMap<>();
             }
 
             private String a(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(65537, this, str)) == null) {
-                    String str2 = this.f28863a.get(str);
+                    String str2 = this.f64725a.get(str);
                     if (str2 == null) {
                         String a2 = com.bytedance.sdk.component.image.c.c.b.a(str);
-                        this.f28863a.put(str, a2);
+                        this.f64725a.put(str, a2);
                         return a2;
                     }
                     return str2;

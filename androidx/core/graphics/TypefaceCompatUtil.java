@@ -7,7 +7,6 @@ import android.os.CancellationSignal;
 import android.os.ParcelFileDescriptor;
 import android.os.Process;
 import android.os.StrictMode;
-import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
@@ -116,7 +115,7 @@ public class TypefaceCompatUtil {
         } catch (IOException e3) {
             e = e3;
             fileOutputStream2 = fileOutputStream;
-            Log.e(TAG, "Error copying resource contents to temp file: " + e.getMessage());
+            String str = "Error copying resource contents to temp file: " + e.getMessage();
             closeQuietly(fileOutputStream2);
             StrictMode.setThreadPolicy(allowThreadDiskWrites);
             return false;
@@ -176,7 +175,7 @@ public class TypefaceCompatUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, cancellationSignal, uri)) == null) {
             try {
-                ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7788a, cancellationSignal);
+                ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f42062a, cancellationSignal);
                 if (openFileDescriptor == null) {
                     if (openFileDescriptor != null) {
                         openFileDescriptor.close();

@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import c.a.e.e.p.j;
+import c.a.p0.i3.w;
+import c.a.p0.t0.d.a.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -24,31 +27,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
-import d.a.q0.h3.w;
-import d.a.q0.s0.d.a.a;
 import tbclient.GetLevelInfo.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener mCommonListener;
     public String mForumId;
     public String mForumName;
-    public d.a.q0.s0.d.a.a<TbTitleActivity> mGetLevelInfoModel;
+    public c.a.p0.t0.d.a.a<TbTitleActivity> mGetLevelInfoModel;
     public a.c mLevelInfoModelCallback;
-    public d.a.d.a.e mLikeCallback;
+    public c.a.e.a.e mLikeCallback;
     public LikeModel mLikeModel;
     public NoNetworkView.b mNoNetworkChangeListener;
-    public d.a.q0.s0.d.b.a mView;
+    public c.a.p0.t0.d.b.a mView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbTitleActivity f15316a;
+        public final /* synthetic */ TbTitleActivity f50485a;
 
         public a(TbTitleActivity tbTitleActivity) {
             Interceptable interceptable = $ic;
@@ -65,42 +65,42 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
                     return;
                 }
             }
-            this.f15316a = tbTitleActivity;
+            this.f50485a = tbTitleActivity;
         }
 
-        @Override // d.a.q0.s0.d.a.a.c
+        @Override // c.a.p0.t0.d.a.a.c
         public void a(DataRes dataRes, boolean z, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dataRes, Boolean.valueOf(z), Integer.valueOf(i2), str}) == null) {
                 if (z) {
                     if (i2 != 0 || dataRes == null) {
-                        this.f15316a.mGetLevelInfoModel.c(d.a.d.e.m.b.d(this.f15316a.mForumId, 0));
+                        this.f50485a.mGetLevelInfoModel.c(c.a.e.e.m.b.d(this.f50485a.mForumId, 0));
                         return;
                     }
-                    this.f15316a.mView.g();
-                    this.f15316a.mView.h();
-                    this.f15316a.mView.e(dataRes);
-                    this.f15316a.mView.f(dataRes.level_info);
+                    this.f50485a.mView.f();
+                    this.f50485a.mView.g();
+                    this.f50485a.mView.d(dataRes);
+                    this.f50485a.mView.e(dataRes.level_info);
                 } else if (i2 != 0 || dataRes == null) {
-                    this.f15316a.mView.g();
-                    this.f15316a.mView.p(str);
+                    this.f50485a.mView.f();
+                    this.f50485a.mView.n(str);
                 } else {
-                    this.f15316a.mView.g();
-                    this.f15316a.mView.h();
-                    this.f15316a.mView.e(dataRes);
-                    this.f15316a.mView.f(dataRes.level_info);
+                    this.f50485a.mView.f();
+                    this.f50485a.mView.g();
+                    this.f50485a.mView.d(dataRes);
+                    this.f50485a.mView.e(dataRes.level_info);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbTitleActivity f15317e;
+        public final /* synthetic */ TbTitleActivity f50486e;
 
         public b(TbTitleActivity tbTitleActivity) {
             Interceptable interceptable = $ic;
@@ -117,35 +117,35 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
                     return;
                 }
             }
-            this.f15317e = tbTitleActivity;
+            this.f50486e = tbTitleActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getId() == R.id.tbtile_like_btn && this.f15317e.checkUpIsLogin()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getId() == R.id.tbtile_like_btn && this.f50486e.checkUpIsLogin()) {
                 if (j.z()) {
-                    this.f15317e.mLikeModel.L(this.f15317e.mForumName, this.f15317e.mForumId);
+                    this.f50486e.mLikeModel.L(this.f50486e.mForumName, this.f50486e.mForumId);
                 } else {
-                    this.f15317e.showToast(R.string.neterror);
+                    this.f50486e.showToast(R.string.neterror);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class c extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f15318a;
+        public final /* synthetic */ String f50487a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f15319b;
+        public final /* synthetic */ boolean f50488b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ TbTitleActivity f15320c;
+        public final /* synthetic */ TbTitleActivity f50489c;
 
         public c(TbTitleActivity tbTitleActivity, String str, boolean z) {
             Interceptable interceptable = $ic;
@@ -162,9 +162,9 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
                     return;
                 }
             }
-            this.f15320c = tbTitleActivity;
-            this.f15318a = str;
-            this.f15319b = z;
+            this.f50489c = tbTitleActivity;
+            this.f50487a = str;
+            this.f50488b = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -173,23 +173,23 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                if (TextUtils.isEmpty(this.f15318a)) {
+                if (TextUtils.isEmpty(this.f50487a)) {
                     return null;
                 }
-                d.a.q0.i1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f15318a), this.f15319b);
+                c.a.p0.j1.t.d.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f50487a), this.f50488b);
                 return null;
             }
             return (Void) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class d implements NoNetworkView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbTitleActivity f15321e;
+        public final /* synthetic */ TbTitleActivity f50490e;
 
         public d(TbTitleActivity tbTitleActivity) {
             Interceptable interceptable = $ic;
@@ -206,29 +206,29 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
                     return;
                 }
             }
-            this.f15321e = tbTitleActivity;
+            this.f50490e = tbTitleActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-        public void b(boolean z) {
+        public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
-                    this.f15321e.mView.o();
-                    this.f15321e.mGetLevelInfoModel.d(d.a.d.e.m.b.d(this.f15321e.mForumId, 0));
+                    this.f50490e.mView.m();
+                    this.f50490e.mGetLevelInfoModel.d(c.a.e.e.m.b.d(this.f50490e.mForumId, 0));
                 }
-                this.f15321e.mView.l(z);
+                this.f50490e.mView.j(z);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class e extends d.a.d.a.e {
+    /* loaded from: classes7.dex */
+    public class e extends c.a.e.a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbTitleActivity f15322a;
+        public final /* synthetic */ TbTitleActivity f50491a;
 
         public e(TbTitleActivity tbTitleActivity) {
             Interceptable interceptable = $ic;
@@ -245,41 +245,41 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
                     return;
                 }
             }
-            this.f15322a = tbTitleActivity;
+            this.f50491a = tbTitleActivity;
         }
 
-        @Override // d.a.d.a.e
+        @Override // c.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 boolean z = false;
                 if (obj != null && (obj instanceof w)) {
-                    d.a.q0.h3.e.i().n(this.f15322a.mForumName, false);
+                    c.a.p0.i3.e.i().n(this.f50491a.mForumName, false);
                     z = true;
                 }
                 if (!z) {
-                    if (this.f15322a.mLikeModel.getErrorCode() != 22) {
-                        if (AntiHelper.m(this.f15322a.mLikeModel.getErrorCode(), this.f15322a.mLikeModel.getErrorString())) {
-                            AntiHelper.u(this.f15322a.getPageContext().getPageActivity(), this.f15322a.mLikeModel.getErrorString());
+                    if (this.f50491a.mLikeModel.getErrorCode() != 22) {
+                        if (AntiHelper.m(this.f50491a.mLikeModel.getErrorCode(), this.f50491a.mLikeModel.getErrorString())) {
+                            AntiHelper.u(this.f50491a.getPageContext().getPageActivity(), this.f50491a.mLikeModel.getErrorString());
                             return;
                         } else {
-                            this.f15322a.getPageContext().showToast(this.f15322a.mLikeModel.getErrorString());
+                            this.f50491a.getPageContext().showToast(this.f50491a.mLikeModel.getErrorString());
                             return;
                         }
                     }
-                    this.f15322a.getPageContext().showToast(this.f15322a.getPageContext().getString(R.string.had_liked_forum));
+                    this.f50491a.getPageContext().showToast(this.f50491a.getPageContext().getString(R.string.had_liked_forum));
                     return;
                 }
-                this.f15322a.getPageContext().showToast(this.f15322a.getPageContext().getString(R.string.attention_success));
-                TbadkCoreApplication.getInst().addLikeForum(this.f15322a.mForumName);
-                TbTitleActivity tbTitleActivity = this.f15322a;
+                this.f50491a.getPageContext().showToast(this.f50491a.getPageContext().getString(R.string.attention_success));
+                TbadkCoreApplication.getInst().addLikeForum(this.f50491a.mForumName);
+                TbTitleActivity tbTitleActivity = this.f50491a;
                 tbTitleActivity.saveAcceptNotify(true, tbTitleActivity.mForumId);
                 w wVar = (w) obj;
                 if (wVar != null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, wVar));
                 }
-                if (this.f15322a.mView.k != null) {
-                    this.f15322a.mView.k.setVisibility(8);
+                if (this.f50491a.mView.k != null) {
+                    this.f50491a.mView.k.setVisibility(8);
                 }
                 wVar.v(1);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, wVar));
@@ -318,9 +318,9 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     private void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            d.a.q0.h3.d0.a.c(301005, CmdConfigHttp.CMD_GET_LEVLE_INFO, TbConfig.GET_LEVEL_INFO_URL, GetLevelInfoHttpResponsedMessage.class, false, false, true, false);
-            d.a.q0.h3.d0.a.f(301005, GetLevelInfoSocketResponsedMessage.class, false);
-            d.a.q0.h3.d0.a.b(2003007, d.a.q0.s0.d.a.b.b.class);
+            c.a.p0.i3.d0.a.c(301005, CmdConfigHttp.CMD_GET_LEVLE_INFO, TbConfig.GET_LEVEL_INFO_URL, GetLevelInfoHttpResponsedMessage.class, false, false, true, false);
+            c.a.p0.i3.d0.a.f(301005, GetLevelInfoSocketResponsedMessage.class, false);
+            c.a.p0.i3.d0.a.b(2003007, c.a.p0.t0.d.a.b.b.class);
         }
     }
 
@@ -338,7 +338,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.onChangeSkinType(i2);
-            this.mView.k(i2);
+            this.mView.i(i2);
         }
     }
 
@@ -347,11 +347,11 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            d.a.q0.s0.d.b.a aVar = new d.a.q0.s0.d.b.a(this, this.mCommonListener);
+            c.a.p0.t0.d.b.a aVar = new c.a.p0.t0.d.b.a(this, this.mCommonListener);
             this.mView = aVar;
-            aVar.n(this.mNoNetworkChangeListener);
+            aVar.l(this.mNoNetworkChangeListener);
             initLikeModel();
-            this.mGetLevelInfoModel = new d.a.q0.s0.d.a.a<>(this.mLevelInfoModelCallback, this);
+            this.mGetLevelInfoModel = new c.a.p0.t0.d.a.a<>(this.mLevelInfoModelCallback, this);
             Intent intent = getIntent();
             if (intent != null) {
                 this.mForumId = intent.getStringExtra(TbTitleActivityConfig.FORUM_ID);
@@ -359,11 +359,11 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             }
             if (!TextUtils.isEmpty(this.mForumId) && !TextUtils.isEmpty(this.mForumName)) {
                 registerTask();
-                this.mView.o();
-                this.mGetLevelInfoModel.d(d.a.d.e.m.b.d(this.mForumId, 0));
+                this.mView.m();
+                this.mGetLevelInfoModel.d(c.a.e.e.m.b.d(this.mForumId, 0));
                 return;
             }
-            this.mView.p("");
+            this.mView.n("");
         }
     }
 
@@ -379,8 +379,8 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && j.z()) {
-            this.mView.o();
-            this.mGetLevelInfoModel.d(d.a.d.e.m.b.d(this.mForumId, 0));
+            this.mView.m();
+            this.mGetLevelInfoModel.d(c.a.e.e.m.b.d(this.mForumId, 0));
         }
     }
 

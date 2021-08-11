@@ -77,10 +77,10 @@ public final class ColorKt {
     }
 
     @RequiresApi(26)
-    public static final float getAlpha(long j) {
+    public static final float getAlpha(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65554, null, j)) == null) ? Color.alpha(j) : invokeJ.floatValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65554, null, j2)) == null) ? Color.alpha(j2) : invokeJ.floatValue;
     }
 
     public static final int getAlpha(@ColorInt int i2) {
@@ -90,10 +90,10 @@ public final class ColorKt {
     }
 
     @RequiresApi(26)
-    public static final float getBlue(long j) {
+    public static final float getBlue(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65556, null, j)) == null) ? Color.blue(j) : invokeJ.floatValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65556, null, j2)) == null) ? Color.blue(j2) : invokeJ.floatValue;
     }
 
     public static final int getBlue(@ColorInt int i2) {
@@ -103,11 +103,11 @@ public final class ColorKt {
     }
 
     @RequiresApi(26)
-    public static final ColorSpace getColorSpace(long j) {
+    public static final ColorSpace getColorSpace(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65558, null, j)) == null) {
-            ColorSpace colorSpace = Color.colorSpace(j);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65558, null, j2)) == null) {
+            ColorSpace colorSpace = Color.colorSpace(j2);
             Intrinsics.checkExpressionValueIsNotNull(colorSpace, "Color.colorSpace(this)");
             return colorSpace;
         }
@@ -115,10 +115,10 @@ public final class ColorKt {
     }
 
     @RequiresApi(26)
-    public static final float getGreen(long j) {
+    public static final float getGreen(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65559, null, j)) == null) ? Color.green(j) : invokeJ.floatValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65559, null, j2)) == null) ? Color.green(j2) : invokeJ.floatValue;
     }
 
     public static final int getGreen(@ColorInt int i2) {
@@ -135,10 +135,10 @@ public final class ColorKt {
     }
 
     @RequiresApi(26)
-    public static final float getRed(long j) {
+    public static final float getRed(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65563, null, j)) == null) ? Color.red(j) : invokeJ.floatValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65563, null, j2)) == null) ? Color.red(j2) : invokeJ.floatValue;
     }
 
     public static final int getRed(@ColorInt int i2) {
@@ -148,17 +148,17 @@ public final class ColorKt {
     }
 
     @RequiresApi(26)
-    public static final boolean isSrgb(long j) {
+    public static final boolean isSrgb(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65565, null, j)) == null) ? Color.isSrgb(j) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65565, null, j2)) == null) ? Color.isSrgb(j2) : invokeJ.booleanValue;
     }
 
     @RequiresApi(26)
-    public static final boolean isWideGamut(long j) {
+    public static final boolean isWideGamut(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65566, null, j)) == null) ? Color.isWideGamut(j) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65566, null, j2)) == null) ? Color.isWideGamut(j2) : invokeJ.booleanValue;
     }
 
     @RequiresApi(26)
@@ -187,10 +187,10 @@ public final class ColorKt {
 
     @ColorInt
     @RequiresApi(26)
-    public static final int toColorInt(long j) {
+    public static final int toColorInt(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65570, null, j)) == null) ? Color.toArgb(j) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65570, null, j2)) == null) ? Color.toArgb(j2) : invokeJ.intValue;
     }
 
     @RequiresApi(26)
@@ -201,31 +201,31 @@ public final class ColorKt {
     }
 
     @RequiresApi(26)
-    public static final float component1(long j) {
+    public static final float component1(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) ? Color.red(j) : invokeJ.floatValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j2)) == null) ? Color.red(j2) : invokeJ.floatValue;
     }
 
     @RequiresApi(26)
-    public static final float component2(long j) {
+    public static final float component2(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) ? Color.green(j) : invokeJ.floatValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) ? Color.green(j2) : invokeJ.floatValue;
     }
 
     @RequiresApi(26)
-    public static final float component3(long j) {
+    public static final float component3(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.BAIDU_LOGO_ID, null, j)) == null) ? Color.blue(j) : invokeJ.floatValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.BAIDU_LOGO_ID, null, j2)) == null) ? Color.blue(j2) : invokeJ.floatValue;
     }
 
     @RequiresApi(26)
-    public static final float component4(long j) {
+    public static final float component4(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j)) == null) ? Color.alpha(j) : invokeJ.floatValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j2)) == null) ? Color.alpha(j2) : invokeJ.floatValue;
     }
 
     @RequiresApi(26)
@@ -236,18 +236,18 @@ public final class ColorKt {
     }
 
     @RequiresApi(26)
-    public static final float getLuminance(long j) {
+    public static final float getLuminance(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65562, null, j)) == null) ? Color.luminance(j) : invokeJ.floatValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65562, null, j2)) == null) ? Color.luminance(j2) : invokeJ.floatValue;
     }
 
     @RequiresApi(26)
-    public static final Color toColor(long j) {
+    public static final Color toColor(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65569, null, j)) == null) {
-            Color valueOf = Color.valueOf(j);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65569, null, j2)) == null) {
+            Color valueOf = Color.valueOf(j2);
             Intrinsics.checkExpressionValueIsNotNull(valueOf, "Color.valueOf(this)");
             return valueOf;
         }
@@ -262,17 +262,17 @@ public final class ColorKt {
     }
 
     @RequiresApi(26)
-    public static final long convertTo(long j, ColorSpace.Named named) {
+    public static final long convertTo(long j2, ColorSpace.Named named) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65550, null, j, named)) == null) ? Color.convert(j, ColorSpace.get(named)) : invokeJL.longValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(65550, null, j2, named)) == null) ? Color.convert(j2, ColorSpace.get(named)) : invokeJL.longValue;
     }
 
     @RequiresApi(26)
-    public static final long convertTo(long j, ColorSpace colorSpace) {
+    public static final long convertTo(long j2, ColorSpace colorSpace) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65551, null, j, colorSpace)) == null) ? Color.convert(j, colorSpace) : invokeJL.longValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(65551, null, j2, colorSpace)) == null) ? Color.convert(j2, colorSpace) : invokeJL.longValue;
     }
 
     @RequiresApi(26)

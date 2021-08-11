@@ -15,42 +15,42 @@ import java.nio.ByteBuffer;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class cd {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f8935a = 1000;
+    public static int f43246a = 1000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f8936b = 64;
+    public static int f43247b = 64;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f8937c;
+    public static final byte[] f43248c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public by.b f8938d;
+    public by.b f43249d;
 
     /* renamed from: e  reason: collision with root package name */
-    public cq.a f8939e;
+    public cq.a f43250e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f8940a;
+        public static final a f43251a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f8941b;
+        public static final a f43252b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f8942c;
+        public static final a f43253c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final /* synthetic */ a[] f8943d;
+        public static final /* synthetic */ a[] f43254d;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -66,11 +66,11 @@ public abstract class cd {
                     return;
                 }
             }
-            f8940a = new a("NONE", 0);
-            f8941b = new a("ONEWAY", 1);
+            f43251a = new a("NONE", 0);
+            f43252b = new a("ONEWAY", 1);
             a aVar = new a("TWOWAY", 2);
-            f8942c = aVar;
-            f8943d = new a[]{f8940a, f8941b, aVar};
+            f43253c = aVar;
+            f43254d = new a[]{f43251a, f43252b, aVar};
         }
 
         public a(String str, int i2) {
@@ -101,23 +101,23 @@ public abstract class cd {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f8943d.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f43254d.clone() : (a[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f8944a;
+        public static final b f43255a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f8945b;
+        public static final b f43256b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ b[] f8946c;
+        public static final /* synthetic */ b[] f43257c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -133,10 +133,10 @@ public abstract class cd {
                     return;
                 }
             }
-            f8944a = new b("MATCHED", 0);
+            f43255a = new b("MATCHED", 0);
             b bVar = new b("NOT_MATCHED", 1);
-            f8945b = bVar;
-            f8946c = new b[]{f8944a, bVar};
+            f43256b = bVar;
+            f43257c = new b[]{f43255a, bVar};
         }
 
         public b(String str, int i2) {
@@ -167,7 +167,7 @@ public abstract class cd {
         public static b[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f8946c.clone() : (b[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f43257c.clone() : (b[]) invokeV.objValue;
         }
     }
 
@@ -184,7 +184,7 @@ public abstract class cd {
                 return;
             }
         }
-        f8937c = dc.a("<policy-file-request/>\u0000");
+        f43248c = dc.a("<policy-file-request/>\u0000");
     }
 
     public cd() {
@@ -200,8 +200,8 @@ public abstract class cd {
                 return;
             }
         }
-        this.f8938d = null;
-        this.f8939e = null;
+        this.f43249d = null;
+        this.f43250e = null;
     }
 
     public static ByteBuffer a(ByteBuffer byteBuffer) {
@@ -258,7 +258,7 @@ public abstract class cd {
     public cx d(ByteBuffer byteBuffer) throws cj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, byteBuffer)) == null) ? a(byteBuffer, this.f8938d) : (cx) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, byteBuffer)) == null) ? a(byteBuffer, this.f43249d) : (cx) invokeL.objValue;
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -272,7 +272,7 @@ public abstract class cd {
             if (b2 != null) {
                 String[] split = b2.split(" ", 3);
                 if (split.length == 3) {
-                    if (bVar == by.b.f8914a) {
+                    if (bVar == by.b.f43223a) {
                         ?? cwVar = new cw();
                         cwVar.a(Short.parseShort(split[1]));
                         cwVar.a(split[2]);
@@ -364,7 +364,7 @@ public abstract class cd {
     public void a(by.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.f8938d = bVar;
+            this.f43249d = bVar;
         }
     }
 }

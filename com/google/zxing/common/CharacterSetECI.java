@@ -13,10 +13,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.FormatException;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.commons.base.CharEncoding;
 import org.apache.http.protocol.HTTP;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class CharacterSetECI {
     public static final /* synthetic */ CharacterSetECI[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -88,7 +87,7 @@ public final class CharacterSetECI {
         Cp1251 = new CharacterSetECI("Cp1251", 18, 22, "windows-1251");
         Cp1252 = new CharacterSetECI("Cp1252", 19, 23, "windows-1252");
         Cp1256 = new CharacterSetECI("Cp1256", 20, 24, "windows-1256");
-        UnicodeBigUnmarked = new CharacterSetECI("UnicodeBigUnmarked", 21, 25, CharEncoding.UTF_16BE, "UnicodeBig");
+        UnicodeBigUnmarked = new CharacterSetECI("UnicodeBigUnmarked", 21, 25, "UTF-16BE", "UnicodeBig");
         UTF8 = new CharacterSetECI(StringUtils.UTF8, 22, 26, "UTF-8");
         ASCII = new CharacterSetECI(HTTP.ASCII, 23, new int[]{27, Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID}, "US-ASCII");
         Big5 = new CharacterSetECI("Big5", 24, 28);

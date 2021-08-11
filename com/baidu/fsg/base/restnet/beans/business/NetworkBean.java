@@ -37,7 +37,7 @@ import java.util.UUID;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class NetworkBean extends ApollonBean {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -86,17 +86,13 @@ public abstract class NetworkBean extends ApollonBean {
     private void appendCertification(Context context, List<RestNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, context, list) == null) {
-            if ("gbk".equals(getEncode())) {
-                list.add(new RestNameValuePair("encode", "gbk"));
-            } else {
-                list.add(new RestNameValuePair("encode", "utf-8"));
-            }
+            list.add("gbk".equals(getEncode()) ? new RestNameValuePair("encode", "gbk") : new RestNameValuePair("encode", "utf-8"));
             list.add(new RestNameValuePair("ua", BussinessUtils.getUA(context)));
             String hostAppId = ChannelUtils.getHostAppId();
-            if (!TextUtils.isEmpty(hostAppId)) {
-                list.add(new RestNameValuePair("appid", RimArmor.getInstance().encrypt(hostAppId)));
-            } else {
+            if (TextUtils.isEmpty(hostAppId)) {
                 list.add(new RestNameValuePair("appid", ""));
+            } else {
+                list.add(new RestNameValuePair("appid", RimArmor.getInstance().encrypt(hostAppId)));
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -203,36 +199,52 @@ public abstract class NetworkBean extends ApollonBean {
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public void handleCommonErrors(Exception exc) {
+        IBeanResponseCallback iBeanResponseCallback;
+        int i2;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
             LogUtil.d("NetworkBean", "execBean. exception = " + exc);
+            int i3 = -2;
             if (exc instanceof RestRuntimeException) {
                 if (this.mRspCallback != null) {
                     RestRuntimeException restRuntimeException = (RestRuntimeException) exc;
                     if (restRuntimeException.contains(SocketTimeoutException.class)) {
-                        this.mRspCallback.onBeanExecFailure(getBeanId(), -5, BeanConstants.rim_timeout_error);
-                    } else if (!restRuntimeException.contains(SSLPeerUnverifiedException.class) && !restRuntimeException.contains(CertificateException.class)) {
-                        if (restRuntimeException.contains(IllegalArgumentException.class)) {
-                            IBeanResponseCallback iBeanResponseCallback = this.mRspCallback;
-                            if (iBeanResponseCallback != null) {
-                                iBeanResponseCallback.onBeanExecFailure(getBeanId(), -2, BeanConstants.rim_resolve_error);
-                                return;
-                            }
+                        iBeanResponseCallback = this.mRspCallback;
+                        i2 = getBeanId();
+                        i3 = -5;
+                        str = BeanConstants.rim_timeout_error;
+                    } else if (restRuntimeException.contains(SSLPeerUnverifiedException.class) || restRuntimeException.contains(CertificateException.class)) {
+                        iBeanResponseCallback = this.mRspCallback;
+                        i2 = getBeanId();
+                        i3 = -16;
+                        str = BeanConstants.rim_ssl;
+                    } else if (restRuntimeException.contains(IllegalArgumentException.class)) {
+                        iBeanResponseCallback = this.mRspCallback;
+                        if (iBeanResponseCallback == null) {
                             return;
                         }
-                        this.mRspCallback.onBeanExecFailure(getBeanId(), -15, BeanConstants.rim_resolve_error);
                     } else {
-                        this.mRspCallback.onBeanExecFailure(getBeanId(), -16, BeanConstants.rim_ssl);
+                        iBeanResponseCallback = this.mRspCallback;
+                        i2 = getBeanId();
+                        i3 = -15;
+                        str = BeanConstants.rim_resolve_error;
                     }
+                    iBeanResponseCallback.onBeanExecFailure(i2, i3, str);
                 }
-            } else if (exc instanceof IllegalArgumentException) {
-                IBeanResponseCallback iBeanResponseCallback2 = this.mRspCallback;
-                if (iBeanResponseCallback2 != null) {
-                    iBeanResponseCallback2.onBeanExecFailure(getBeanId(), -2, BeanConstants.rim_resolve_error);
-                }
-            } else {
+                return;
+            } else if (!(exc instanceof IllegalArgumentException)) {
                 exc.printStackTrace();
+                return;
+            } else {
+                iBeanResponseCallback = this.mRspCallback;
+                if (iBeanResponseCallback == null) {
+                    return;
+                }
             }
+            i2 = getBeanId();
+            str = BeanConstants.rim_resolve_error;
+            iBeanResponseCallback.onBeanExecFailure(i2, i3, str);
         }
     }
 

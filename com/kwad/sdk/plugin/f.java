@@ -13,12 +13,12 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<Class, d> f35913a;
+    public static final Map<Class, d> f72690a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class f {
                 return;
             }
         }
-        f35913a = new ConcurrentHashMap();
+        f72690a = new ConcurrentHashMap();
     }
 
     @Nullable
@@ -42,7 +42,7 @@ public final class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
-            T t = (T) f35913a.get(cls);
+            T t = (T) f72690a.get(cls);
             if (t != null) {
                 return t;
             }
@@ -76,7 +76,7 @@ public final class f {
                             return invokeLLL.objValue;
                         }
                     });
-                    f35913a.put(cls, t2);
+                    f72690a.put(cls, t2);
                     return t2;
                 }
                 return null;
@@ -91,7 +91,7 @@ public final class f {
     public static void a(Class cls, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, cls, dVar) == null) {
-            f35913a.put(cls, dVar);
+            f72690a.put(cls, dVar);
         }
     }
 }

@@ -8,7 +8,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.Hex;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class UnknownEntry extends GroupEntry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +95,7 @@ public class UnknownEntry extends GroupEntry {
             duplicate.rewind();
             byte[] bArr = new byte[duplicate.limit()];
             duplicate.get(bArr);
-            return "UnknownEntry{content=" + Hex.encodeHex(bArr) + '}';
+            return "UnknownEntry{content=" + Hex.encodeHex(bArr) + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -2,6 +2,7 @@ package com.baidu.tbadk.mutiprocess;
 
 import android.os.Parcelable;
 import android.os.Process;
+import c.a.o0.h0.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,8 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.h0.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class ParcelableEvent implements a, Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,28 +36,28 @@ public abstract class ParcelableEvent implements a, Parcelable {
         this.mPid = Process.myPid();
     }
 
-    @Override // d.a.p0.h0.a
+    @Override // c.a.o0.h0.a
     public int getPid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mPid : invokeV.intValue;
     }
 
-    @Override // d.a.p0.h0.a
+    @Override // c.a.o0.h0.a
     public int getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTag : invokeV.intValue;
     }
 
-    @Override // d.a.p0.h0.a
+    @Override // c.a.o0.h0.a
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mType : invokeV.intValue;
     }
 
-    @Override // d.a.p0.h0.a
+    @Override // c.a.o0.h0.a
     public void setTag(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) || bdUniqueId == null) {

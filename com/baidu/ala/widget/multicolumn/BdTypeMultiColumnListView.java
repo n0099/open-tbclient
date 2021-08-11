@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ListAdapter;
+import c.a.e.k.e.a;
+import c.a.e.k.e.n;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,11 +14,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huewu.pla.lib.internal.PLA_AdapterView;
-import d.a.d.k.e.a;
-import d.a.d.k.e.n;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class BdTypeMultiColumnListView extends BdMultiColumnListView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,13 +74,13 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
                 }
 
                 @Override // com.huewu.pla.lib.internal.PLA_AdapterView.d
-                public void onItemClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i2, long j) {
+                public void onItemClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i2, long j2) {
                     TypeAdapter typeAdapter;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (typeAdapter = this.this$0.mTypeAdapter) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (typeAdapter = this.this$0.mTypeAdapter) == null) {
                         return;
                     }
-                    typeAdapter.f(pLA_AdapterView, view, i2, j);
+                    typeAdapter.d(pLA_AdapterView, view, i2, j2);
                 }
             });
             super.setOnItemLongClickListener(new PLA_AdapterView.e(this) { // from class: com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView.2
@@ -107,13 +107,13 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
                 }
 
                 @Override // com.huewu.pla.lib.internal.PLA_AdapterView.e
-                public boolean onItemLongClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i2, long j) {
+                public boolean onItemLongClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i2, long j2) {
                     InterceptResult invokeCommon;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
                         TypeAdapter typeAdapter = this.this$0.mTypeAdapter;
                         if (typeAdapter != null) {
-                            return typeAdapter.g(pLA_AdapterView, view, i2, j);
+                            return typeAdapter.e(pLA_AdapterView, view, i2, j2);
                         }
                         return false;
                     }
@@ -145,7 +145,7 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
     public List<n> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTypeAdapter.d() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTypeAdapter.b() : (List) invokeV.objValue;
     }
 
     public n getItem(int i2) {
@@ -157,7 +157,7 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
     public void setData(List<? extends n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.mTypeAdapter.h(list);
+            this.mTypeAdapter.f(list);
         }
     }
 

@@ -10,24 +10,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface bi extends IInterface {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static abstract class a extends Binder implements bi {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.bytedance.embedapplog.bi$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public static class C0309a implements bi {
+        /* loaded from: classes9.dex */
+        public static class C1869a implements bi {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f27846a;
+            public IBinder f63680a;
 
-            public C0309a(IBinder iBinder) {
+            public C1869a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +42,7 @@ public interface bi extends IInterface {
                         return;
                     }
                 }
-                this.f27846a = iBinder;
+                this.f63680a = iBinder;
             }
 
             @Override // com.bytedance.embedapplog.bi
@@ -57,7 +57,7 @@ public interface bi extends IInterface {
                         obtain.writeString(str);
                         obtain.writeString(str2);
                         obtain.writeString(str3);
-                        this.f27846a.transact(1, obtain, obtain2, 0);
+                        this.f63680a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -72,7 +72,7 @@ public interface bi extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27846a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63680a : (IBinder) invokeV.objValue;
             }
         }
 
@@ -87,7 +87,7 @@ public interface bi extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof bi)) {
                     return (bi) queryLocalInterface;
                 }
-                return new C0309a(iBinder);
+                return new C1869a(iBinder);
             }
             return (bi) invokeL.objValue;
         }

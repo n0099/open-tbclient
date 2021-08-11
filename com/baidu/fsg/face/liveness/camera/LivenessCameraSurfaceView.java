@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class LivenessCameraSurfaceView extends SurfaceView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,42 +41,42 @@ public class LivenessCameraSurfaceView extends SurfaceView {
         }
     }
 
-    private b.a a(Activity activity, a.C0102a c0102a) {
+    private b.a a(Activity activity, a.C1650a c1650a) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, activity, c0102a)) == null) {
-            if (c0102a == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, activity, c1650a)) == null) {
+            if (c1650a == null) {
                 return null;
             }
-            a.C0102a a2 = a(activity);
-            b.a aVar = new b.a(c0102a.f6031a, c0102a.f6032b);
-            float f2 = c0102a.f6031a / c0102a.f6032b;
-            float f3 = a2.f6032b / a2.f6031a;
+            a.C1650a a2 = a(activity);
+            b.a aVar = new b.a(c1650a.f40001a, c1650a.f40002b);
+            float f2 = c1650a.f40001a / c1650a.f40002b;
+            float f3 = a2.f40002b / a2.f40001a;
             if (Math.abs(f2 - f3) <= 0.02d) {
                 return aVar;
             }
             if (f2 < f3) {
-                int i2 = a2.f6032b;
-                aVar.f6043a = (c0102a.f6032b * i2) / c0102a.f6031a;
-                aVar.f6044b = i2;
+                int i2 = a2.f40002b;
+                aVar.f40014a = (c1650a.f40002b * i2) / c1650a.f40001a;
+                aVar.f40015b = i2;
             } else {
-                int i3 = a2.f6031a;
-                aVar.f6043a = i3;
-                aVar.f6044b = (i3 * c0102a.f6031a) / c0102a.f6032b;
+                int i3 = a2.f40001a;
+                aVar.f40014a = i3;
+                aVar.f40015b = (i3 * c1650a.f40001a) / c1650a.f40002b;
             }
             return aVar;
         }
         return (b.a) invokeLL.objValue;
     }
 
-    public void bindSurfaceView(Activity activity, a.C0102a c0102a) {
+    public void bindSurfaceView(Activity activity, a.C1650a c1650a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, c0102a) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, c1650a) == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getLayoutParams());
-            b.a a2 = a(activity, c0102a);
-            if (a2 != null && (a2.f6043a != c0102a.f6031a || a2.f6044b != c0102a.f6032b)) {
-                layoutParams.width = a2.f6043a;
-                layoutParams.height = a2.f6044b;
+            b.a a2 = a(activity, c1650a);
+            if (a2 != null && (a2.f40014a != c1650a.f40001a || a2.f40015b != c1650a.f40002b)) {
+                layoutParams.width = a2.f40014a;
+                layoutParams.height = a2.f40015b;
             } else {
                 layoutParams.width = -2;
                 layoutParams.height = -1;
@@ -85,13 +85,13 @@ public class LivenessCameraSurfaceView extends SurfaceView {
         }
     }
 
-    private a.C0102a a(Activity activity) {
+    private a.C1650a a(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, activity)) == null) {
             Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
-            return new a.C0102a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
+            return new a.C1650a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
         }
-        return (a.C0102a) invokeL.objValue;
+        return (a.C1650a) invokeL.objValue;
     }
 }

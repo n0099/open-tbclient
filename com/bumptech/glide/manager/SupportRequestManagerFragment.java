@@ -21,7 +21,7 @@ import com.bumptech.glide.RequestManager;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class SupportRequestManagerFragment extends Fragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SupportRMFragment";
@@ -36,7 +36,7 @@ public class SupportRequestManagerFragment extends Fragment {
     @Nullable
     public SupportRequestManagerFragment rootRequestManagerFragment;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class SupportFragmentRequestManagerTreeNode implements RequestManagerTreeNode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -224,10 +224,8 @@ public class SupportRequestManagerFragment extends Fragment {
             super.onAttach(context);
             try {
                 registerFragmentWithRoot(getActivity());
-            } catch (IllegalStateException e2) {
-                if (Log.isLoggable(TAG, 5)) {
-                    Log.w(TAG, "Unable to register fragment with root", e2);
-                }
+            } catch (IllegalStateException unused) {
+                Log.isLoggable(TAG, 5);
             }
         }
     }

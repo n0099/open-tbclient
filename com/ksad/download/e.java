@@ -9,20 +9,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.download.DownloadParams;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f33846a;
+    public f f70568a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f33847a;
+        public static final e f70569a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -38,7 +38,7 @@ public class e {
                     return;
                 }
             }
-            f33847a = new e();
+            f70569a = new e();
         }
     }
 
@@ -59,15 +59,15 @@ public class e {
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f33847a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f70569a : (e) invokeV.objValue;
     }
 
     public synchronized void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             synchronized (this) {
-                if (this.f33846a != null) {
-                    this.f33846a.a(i2);
+                if (this.f70568a != null) {
+                    this.f70568a.a(i2);
                 }
             }
         }
@@ -79,8 +79,8 @@ public class e {
             synchronized (this) {
                 if (downloadTask.isCanceled()) {
                     a(downloadTask.getId());
-                } else if (this.f33846a != null) {
-                    this.f33846a.a(downloadTask);
+                } else if (this.f70568a != null) {
+                    this.f70568a.a(downloadTask);
                 }
             }
         }
@@ -92,8 +92,8 @@ public class e {
             synchronized (this) {
                 if (downloadTask.isCanceled()) {
                     a(downloadTask.getId());
-                } else if (this.f33846a != null) {
-                    this.f33846a.a(downloadTask, z);
+                } else if (this.f70568a != null) {
+                    this.f70568a.a(downloadTask, z);
                 }
             }
         }
@@ -102,7 +102,7 @@ public class e {
     public void a(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-            this.f33846a = fVar;
+            this.f70568a = fVar;
         }
     }
 
@@ -112,8 +112,8 @@ public class e {
             synchronized (this) {
                 if (downloadTask.isCanceled()) {
                     a(downloadTask.getId());
-                } else if (this.f33846a != null) {
-                    this.f33846a.b(downloadTask);
+                } else if (this.f70568a != null) {
+                    this.f70568a.b(downloadTask);
                 }
             }
         }
@@ -123,8 +123,8 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, downloadTask) == null) {
             synchronized (this) {
-                if (this.f33846a != null) {
-                    this.f33846a.c(downloadTask);
+                if (this.f70568a != null) {
+                    this.f70568a.c(downloadTask);
                 }
                 Object tag = downloadTask.getTag();
                 if (tag instanceof DownloadParams) {

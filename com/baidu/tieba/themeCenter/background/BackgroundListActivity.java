@@ -1,6 +1,9 @@
 package com.baidu.tieba.themeCenter.background;
 
 import android.os.Bundle;
+import c.a.o0.s.f0.f;
+import c.a.p0.o3.e.d;
+import c.a.p0.o3.h.e;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -12,11 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.f0.f;
-import d.a.q0.n3.e.d;
-import d.a.q0.n3.h.e;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BackgroundListActivity extends BaseActivity<BackgroundListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,15 +26,15 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
     public final f.g mOnPullRefreshListener;
     public TbPageContext<?> mPageContext;
     public BdListView.p mScrollToBottomListener;
-    public d.a.q0.n3.e.f mView;
+    public c.a.p0.o3.e.f mView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements BackgroundListModel.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BackgroundListActivity f21554a;
+        public final /* synthetic */ BackgroundListActivity f57104a;
 
         public a(BackgroundListActivity backgroundListActivity) {
             Interceptable interceptable = $ic;
@@ -51,33 +51,33 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
                     return;
                 }
             }
-            this.f21554a = backgroundListActivity;
+            this.f57104a = backgroundListActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundListModel.c
         public void a(int i2, String str, e eVar, List<DressItemData> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, eVar, list}) == null) {
-                this.f21554a.mView.j();
-                BackgroundListActivity backgroundListActivity = this.f21554a;
+                this.f57104a.mView.j();
+                BackgroundListActivity backgroundListActivity = this.f57104a;
                 backgroundListActivity.hideLoadingView(backgroundListActivity.mView.c());
                 if (i2 == 0) {
-                    this.f21554a.mView.i(eVar, list, this.f21554a.mModel.P());
+                    this.f57104a.mView.i(eVar, list, this.f57104a.mModel.P());
                     return;
                 }
-                this.f21554a.showToast(str);
-                this.f21554a.mView.h();
+                this.f57104a.showToast(str);
+                this.f57104a.mView.h();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements BdListView.p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BackgroundListActivity f21555e;
+        public final /* synthetic */ BackgroundListActivity f57105e;
 
         public b(BackgroundListActivity backgroundListActivity) {
             Interceptable interceptable = $ic;
@@ -94,26 +94,26 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
                     return;
                 }
             }
-            this.f21555e = backgroundListActivity;
+            this.f57105e = backgroundListActivity;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f21555e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f57105e.mModel == null) {
                 return;
             }
-            this.f21555e.mModel.w();
+            this.f57105e.mModel.w();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class c implements f.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BackgroundListActivity f21556e;
+        public final /* synthetic */ BackgroundListActivity f57106e;
 
         public c(BackgroundListActivity backgroundListActivity) {
             Interceptable interceptable = $ic;
@@ -130,16 +130,16 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
                     return;
                 }
             }
-            this.f21556e = backgroundListActivity;
+            this.f57106e = backgroundListActivity;
         }
 
-        @Override // d.a.p0.s.f0.f.g
+        @Override // c.a.o0.s.f0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f21556e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f57106e.mModel == null) {
                 return;
             }
-            this.f21556e.mModel.LoadData();
+            this.f57106e.mModel.LoadData();
         }
     }
 
@@ -161,7 +161,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         this.mOnPullRefreshListener = new c(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.p0.m0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -169,17 +169,17 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public d.a.p0.m0.d getPageStayDurationItem() {
+    public c.a.o0.m0.d getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            d.a.p0.m0.d pageStayDurationItem = super.getPageStayDurationItem();
+            c.a.o0.m0.d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.f52762a = true;
+                pageStayDurationItem.f13335a = true;
             }
             return pageStayDurationItem;
         }
-        return (d.a.p0.m0.d) invokeV.objValue;
+        return (c.a.o0.m0.d) invokeV.objValue;
     }
 
     public int getPropId() {
@@ -193,7 +193,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.onChangeSkinType(i2);
-            d.a.q0.n3.e.f fVar = this.mView;
+            c.a.p0.o3.e.f fVar = this.mView;
             if (fVar != null) {
                 fVar.d();
             }
@@ -213,7 +213,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
             d dVar = new d(this.mPageContext, this.mModel.getUniqueId());
             this.mItemController = dVar;
             dVar.c(0);
-            d.a.q0.n3.e.f fVar = new d.a.q0.n3.e.f(this, this.mItemController);
+            c.a.p0.o3.e.f fVar = new c.a.p0.o3.e.f(this, this.mItemController);
             this.mView = fVar;
             fVar.g(this.mScrollToBottomListener, this.mOnPullRefreshListener);
             showLoadingView(this.mView.c());
@@ -235,7 +235,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        d.a.q0.n3.e.f fVar;
+        c.a.p0.o3.e.f fVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.mModel == null || (fVar = this.mView) == null) {
             return;

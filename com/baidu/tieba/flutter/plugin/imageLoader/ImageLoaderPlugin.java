@@ -7,6 +7,12 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import androidx.annotation.NonNull;
+import c.a.e.a.h;
+import c.a.e.e.l.c;
+import c.a.e.e.l.d;
+import c.a.e.e.p.j;
+import c.a.e.e.p.k;
+import c.a.e.k.d.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
@@ -28,15 +34,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.h;
-import d.a.d.e.l.c;
-import d.a.d.e.l.d;
-import d.a.d.e.p.j;
-import d.a.d.e.p.k;
-import d.a.d.k.d.a;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostImageLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_LOCAL = 1;
@@ -45,7 +45,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class ImageLoadingError {
         public static final /* synthetic */ ImageLoadingError[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -241,7 +241,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     private boolean shouldMonitorPerformance(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i2)) == null) ? d.a.p0.o0.k.d().g() && i2 % 100 == 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i2)) == null) ? c.a.o0.o0.k.d().g() && i2 % 100 == 0 : invokeI.booleanValue;
     }
 
     @Override // com.baidu.tieba.flutter.plugin.imageLoader.ImageLoaderAuto.HostImageLoader
@@ -372,7 +372,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
                     this.val$startLoad = currentTimeMillis;
                 }
 
-                @Override // d.a.d.e.l.c
+                @Override // c.a.e.e.l.c
                 public void onCancelled(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -383,7 +383,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
                     }
                 }
 
-                @Override // d.a.d.e.l.c
+                @Override // c.a.e.e.l.c
                 public void onProgressUpdate(Object... objArr) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, objArr) == null) {
@@ -392,7 +392,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // d.a.d.e.l.c
+                @Override // c.a.e.e.l.c
                 public void onLoaded(a aVar, String str, int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, str, i2) == null) {
@@ -428,7 +428,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, flutterPluginBinding) == null) {
-            d.a.q0.q0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), this);
+            c.a.p0.r0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), this);
         }
     }
 
@@ -436,7 +436,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, flutterPluginBinding) == null) {
-            d.a.q0.q0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), null);
+            c.a.p0.r0.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), null);
         }
     }
 }

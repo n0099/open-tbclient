@@ -1,6 +1,8 @@
 package com.baidu.ugc.editvideo.record.processor.glrender;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.v0.t.c;
+import c.a.v0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,11 +15,9 @@ import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor;
 import com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource;
 import com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener;
-import d.a.w0.t.c;
-import d.a.w0.t.h;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class MultiMediaPreGlRenderer extends BaseGlRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,35 +60,28 @@ public class MultiMediaPreGlRenderer extends BaseGlRenderer {
         }
     }
 
-    public int onPreProcess(int i2, long j) {
+    public int onPreProcess(int i2, long j2) {
         InterceptResult invokeCommon;
         MultiMediaData multiMediaData;
+        OnDrawUpdateTextureListener onDrawUpdateTextureListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             List<MultiMediaDataTrack> multiMediaDataTrack = this.iMultiMediaDataSource.getMultiMediaDataTrack();
-            if ((h.e(multiMediaDataTrack) || h.b(multiMediaDataTrack.get(0).multiMediaDataList) > i2) && (multiMediaData = (MultiMediaData) h.c(multiMediaDataTrack.get(0).multiMediaDataList, i2)) != null) {
-                OnDrawUpdateTextureListener onDrawUpdateTextureListener = this.mUpdateTextureListener;
-                if (onDrawUpdateTextureListener == null || !(onDrawUpdateTextureListener.getFullFrameRect2D() == null || this.mUpdateTextureListener.getFullFrameRectEXT() == null)) {
-                    OnDrawUpdateTextureListener onDrawUpdateTextureListener2 = this.mUpdateTextureListener;
-                    if (onDrawUpdateTextureListener2 != null) {
-                        onDrawUpdateTextureListener2.onDrawFrame(i2, j);
-                    }
-                    MultiMediaPreProcessor multiMediaPreProcessor = this.mPreProcessor;
-                    if (multiMediaPreProcessor == null) {
-                        this.mUpdateTextureListener.setUpdateTexture(multiMediaData.textureId, multiMediaData.mtx, multiMediaData.textureMode);
-                        return multiMediaData.textureId;
-                    }
-                    multiMediaPreProcessor.initFrameBuffers(this.mOutWidth, this.mOutHeight);
-                    this.mPreProcessor.setShaderConfigMap(this.iMultiMediaDataSource.getShaderConfigMap());
-                    this.mPreProcessor.setUpdateMediaTracks(this.iMultiMediaDataSource.getUpdateMediaTracks());
-                    this.mPreProcessor.setMediaTrackConfig(this.iMultiMediaDataSource.getMediaTrackConfig());
-                    int preProcess = this.mPreProcessor.preProcess(multiMediaDataTrack, i2, j, this.mUpdateTextureListener.getFullFrameRect2D(), this.mUpdateTextureListener.getFullFrameRectEXT());
-                    this.mUpdateTextureListener.setUpdateTexture(preProcess, GlUtil.IDENTITY_MATRIX, multiMediaData.textureMode);
-                    return preProcess;
-                }
+            if ((!h.e(multiMediaDataTrack) && h.b(multiMediaDataTrack.get(0).multiMediaDataList) <= i2) || (multiMediaData = (MultiMediaData) h.c(multiMediaDataTrack.get(0).multiMediaDataList, i2)) == null || (onDrawUpdateTextureListener = this.mUpdateTextureListener) == null || onDrawUpdateTextureListener.getFullFrameRect2D() == null || this.mUpdateTextureListener.getFullFrameRectEXT() == null) {
                 return -1;
             }
-            return -1;
+            MultiMediaPreProcessor multiMediaPreProcessor = this.mPreProcessor;
+            if (multiMediaPreProcessor == null) {
+                this.mUpdateTextureListener.setUpdateTexture(multiMediaData.textureId, multiMediaData.mtx, multiMediaData.textureMode);
+                return multiMediaData.textureId;
+            }
+            multiMediaPreProcessor.initFrameBuffers(this.mOutWidth, this.mOutHeight);
+            this.mPreProcessor.setShaderConfigMap(this.iMultiMediaDataSource.getShaderConfigMap());
+            this.mPreProcessor.setUpdateMediaTracks(this.iMultiMediaDataSource.getUpdateMediaTracks());
+            this.mPreProcessor.setMediaTrackConfig(this.iMultiMediaDataSource.getMediaTrackConfig());
+            int preProcess = this.mPreProcessor.preProcess(multiMediaDataTrack, i2, j2, this.mUpdateTextureListener);
+            this.mUpdateTextureListener.setUpdateTexture(preProcess, GlUtil.IDENTITY_MATRIX, multiMediaData.textureMode);
+            return preProcess;
         }
         return invokeCommon.intValue;
     }

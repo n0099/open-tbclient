@@ -7,6 +7,7 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.a.h;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -23,11 +24,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.containers.BoostFlutterActivity;
 import com.idlefish.flutterboost.containers.FlutterFragment;
 import com.idlefish.flutterboost.containers.ViewSplashScreen;
-import d.a.d.a.h;
 import io.flutter.embedding.android.SplashScreen;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class TbFlutterFragment extends FlutterFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -195,10 +195,10 @@ public class TbFlutterFragment extends FlutterFragment {
         return (SplashScreen) invokeV.objValue;
     }
 
-    public void removeSplashDelay(long j) {
+    public void removeSplashDelay(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.removeDelay = j;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+            this.removeDelay = j2;
         }
     }
 

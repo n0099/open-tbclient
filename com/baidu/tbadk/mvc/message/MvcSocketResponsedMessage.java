@@ -1,6 +1,12 @@
 package com.baidu.tbadk.mvc.message;
 
 import android.text.TextUtils;
+import c.a.e.e.d.l;
+import c.a.e.e.p.b;
+import c.a.e.e.p.n;
+import c.a.o0.i0.b.d;
+import c.a.o0.i0.b.h;
+import c.a.o0.s.r.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -11,16 +17,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import com.squareup.wire.Wire;
-import d.a.d.e.d.l;
-import d.a.d.e.p.b;
-import d.a.d.e.p.n;
-import d.a.p0.i0.b.d;
-import d.a.p0.i0.b.h;
-import d.a.p0.s.r.a;
 import java.lang.reflect.Field;
 import java.util.List;
 import protobuf.Error;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class MvcSocketResponsedMessage<D extends h, M extends Message> extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

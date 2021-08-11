@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Reader;
 import java.util.zip.ZipFile;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class Closes {
     public static boolean closeQuiet(Closeable closeable) {
         if (closeable != null) {

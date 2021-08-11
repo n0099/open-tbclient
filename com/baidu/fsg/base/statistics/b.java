@@ -4,37 +4,39 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5308a = "wallet_stastics";
+    public static final String f39249a = "wallet_stastics";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5309b = 204800;
+    public static final int f39250b = 204800;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5310c = 51200;
+    public static final int f39251c = 51200;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5311d = 200;
+    public static final int f39252d = 200;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long f5312e = 604800000;
+    public static final long f39253e = 604800000;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long f5313f = 86400000;
+    public static final long f39254f = 86400000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5314g = "publish_data";
+    public static final String f39255g = "publish_data";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5315h = "sign";
+    public static final String f39256h = "sign";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f5316i = "mk";
-    public static final String j = "array";
+    public static final String f39257i = "mk";
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final String f39258j = "array";
     public static final String k = "exception";
     public static final String l = "https://www.baifubao.com/chanpin_stat";
     public static final String m = "http://yf-wallet-rd-red-dc00.epc.baidu.com:8090/chanpin_stat";

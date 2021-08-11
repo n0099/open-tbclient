@@ -10,19 +10,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class dh implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40249a;
+    public Context f77101a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f237a;
+    public String f241a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40250b;
+    public String f77102b;
 
     public dh(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public class dh implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f237a = "";
-        this.f40249a = context;
-        this.f237a = str;
+        this.f241a = "";
+        this.f77101a = context;
+        this.f241a = str;
     }
 
     private void a(String str) {
@@ -51,7 +51,7 @@ public class dh implements Application.ActivityLifecycleCallbacks {
             hnVar.a(str);
             hnVar.a(System.currentTimeMillis());
             hnVar.a(hh.s);
-            dq.a(this.f40249a, hnVar);
+            dq.a(this.f77101a, hnVar);
         }
     }
 
@@ -74,17 +74,17 @@ public class dh implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
             String localClassName = activity.getLocalClassName();
-            if (TextUtils.isEmpty(this.f237a) || TextUtils.isEmpty(localClassName)) {
+            if (TextUtils.isEmpty(this.f241a) || TextUtils.isEmpty(localClassName)) {
                 return;
             }
-            this.f40250b = "";
-            if (!TextUtils.isEmpty("") && !TextUtils.equals(this.f40250b, localClassName)) {
-                this.f237a = "";
+            this.f77102b = "";
+            if (!TextUtils.isEmpty("") && !TextUtils.equals(this.f77102b, localClassName)) {
+                this.f241a = "";
                 return;
             }
-            a(this.f40249a.getPackageName() + "|" + localClassName + ":" + this.f237a + "," + String.valueOf(System.currentTimeMillis() / 1000));
-            this.f237a = "";
-            this.f40250b = "";
+            a(this.f77101a.getPackageName() + "|" + localClassName + ":" + this.f241a + "," + String.valueOf(System.currentTimeMillis() / 1000));
+            this.f241a = "";
+            this.f77102b = "";
         }
     }
 
@@ -92,10 +92,10 @@ public class dh implements Application.ActivityLifecycleCallbacks {
     public void onActivityResumed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            if (TextUtils.isEmpty(this.f40250b)) {
-                this.f40250b = activity.getLocalClassName();
+            if (TextUtils.isEmpty(this.f77102b)) {
+                this.f77102b = activity.getLocalClassName();
             }
-            this.f237a = String.valueOf(System.currentTimeMillis() / 1000);
+            this.f241a = String.valueOf(System.currentTimeMillis() / 1000);
         }
     }
 

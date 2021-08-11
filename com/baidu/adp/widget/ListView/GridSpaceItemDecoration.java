@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2416a;
+    public int f36282a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2417b;
+    public int f36283b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2418c;
+    public int f36284c;
 
     public GridSpaceItemDecoration(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        this.f2416a = i2;
-        this.f2417b = i3;
-        this.f2418c = i4;
+        this.f36282a = i2;
+        this.f36283b = i3;
+        this.f36284c = i4;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -49,12 +49,12 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
             GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) view.getLayoutParams();
             if (layoutParams.getSpanIndex() != -1) {
                 if (layoutParams.getSpanIndex() % 2 == 0) {
-                    rect.left = this.f2416a;
-                    rect.right = this.f2417b;
+                    rect.left = this.f36282a;
+                    rect.right = this.f36283b;
                     return;
                 }
-                rect.left = this.f2417b;
-                rect.right = this.f2418c;
+                rect.left = this.f36283b;
+                rect.right = this.f36284c;
             }
         }
     }

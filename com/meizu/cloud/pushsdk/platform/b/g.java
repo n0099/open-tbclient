@@ -7,7 +7,7 @@ import com.baidu.wallet.lightapp.base.LightappConstants;
 import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class g extends c<UnRegisterStatus> {
     public g(Context context, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, null, null, aVar, scheduledExecutorService);
@@ -25,20 +25,20 @@ public class g extends c<UnRegisterStatus> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public void a(UnRegisterStatus unRegisterStatus) {
-        PlatformMessageSender.a(this.f37759e, !TextUtils.isEmpty(this.f37762h) ? this.f37762h : this.f37759e.getPackageName(), unRegisterStatus);
+        PlatformMessageSender.a(this.f74609e, !TextUtils.isEmpty(this.f74612h) ? this.f74612h : this.f74609e.getPackageName(), unRegisterStatus);
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public boolean a() {
-        return (TextUtils.isEmpty(this.f37760f) || TextUtils.isEmpty(this.f37761g)) ? false : true;
+        return (TextUtils.isEmpty(this.f74610f) || TextUtils.isEmpty(this.f74611g)) ? false : true;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public Intent c() {
         Intent intent = new Intent();
-        intent.putExtra("app_id", this.f37760f);
-        intent.putExtra("app_key", this.f37761g);
-        intent.putExtra("strategy_package_name", this.f37759e.getPackageName());
+        intent.putExtra("app_id", this.f74610f);
+        intent.putExtra("app_key", this.f74611g);
+        intent.putExtra("strategy_package_name", this.f74609e.getPackageName());
         intent.putExtra("strategy_type", g());
         return intent;
     }
@@ -55,8 +55,8 @@ public class g extends c<UnRegisterStatus> {
         String str;
         UnRegisterStatus unRegisterStatus = new UnRegisterStatus();
         unRegisterStatus.setCode(LightappConstants.ERRCODE_NOT_ALLOWED_BACKGROUND);
-        if (!TextUtils.isEmpty(this.f37760f)) {
-            str = TextUtils.isEmpty(this.f37761g) ? "appKey not empty" : "appKey not empty";
+        if (!TextUtils.isEmpty(this.f74610f)) {
+            str = TextUtils.isEmpty(this.f74611g) ? "appKey not empty" : "appKey not empty";
             return unRegisterStatus;
         }
         str = "appId not empty";
@@ -69,27 +69,27 @@ public class g extends c<UnRegisterStatus> {
     /* renamed from: i */
     public UnRegisterStatus e() {
         UnRegisterStatus unRegisterStatus = new UnRegisterStatus();
-        if (TextUtils.isEmpty(com.meizu.cloud.pushsdk.util.b.a(this.f37759e, this.f37762h))) {
+        if (TextUtils.isEmpty(com.meizu.cloud.pushsdk.util.b.a(this.f74609e, this.f74612h))) {
             unRegisterStatus.setCode("200");
             unRegisterStatus.setMessage("already unRegister PushId,dont unRegister frequently");
             unRegisterStatus.setIsUnRegisterSuccess(true);
         } else {
-            this.f37763i = o();
-            com.meizu.cloud.pushsdk.b.a.c b2 = this.j.b(this.f37760f, this.f37761g, this.f37763i);
+            this.f74613i = o();
+            com.meizu.cloud.pushsdk.b.a.c b2 = this.f74614j.b(this.f74610f, this.f74611g, this.f74613i);
             if (b2.b()) {
                 unRegisterStatus = new UnRegisterStatus((String) b2.a());
-                d.h.a.a.a.b("Strategy", "network unRegisterStatus " + unRegisterStatus);
+                c.l.a.a.a.b("Strategy", "network unRegisterStatus " + unRegisterStatus);
                 if ("200".equals(unRegisterStatus.getCode())) {
-                    com.meizu.cloud.pushsdk.util.b.g(this.f37759e, "", this.f37762h);
+                    com.meizu.cloud.pushsdk.util.b.g(this.f74609e, "", this.f74612h);
                 }
             } else {
                 com.meizu.cloud.pushsdk.b.b.a c2 = b2.c();
                 if (c2.a() != null) {
-                    d.h.a.a.a.b("Strategy", "status code=" + c2.b() + " data=" + c2.a());
+                    c.l.a.a.a.b("Strategy", "status code=" + c2.b() + " data=" + c2.a());
                 }
                 unRegisterStatus.setCode(String.valueOf(c2.b()));
                 unRegisterStatus.setMessage(c2.c());
-                d.h.a.a.a.b("Strategy", "unRegisterStatus " + unRegisterStatus);
+                c.l.a.a.a.b("Strategy", "unRegisterStatus " + unRegisterStatus);
             }
         }
         return unRegisterStatus;

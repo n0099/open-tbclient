@@ -1,13 +1,13 @@
 package com.baidu.tieba.pb.chosen.cache;
 
+import c.a.p0.i2.g.c.a;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.h2.g.c.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ReadChosenPbCacheResponse extends CustomResponsedMessage<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -9,34 +9,34 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.Log;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f27614a;
+    public long f63442a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f27615b;
+    public long f63443b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f27616c;
+    public long f63444c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f27617d;
+    public long f63445d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f27618e;
+    public long f63446e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f27619f;
+    public long f63447f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f27620g;
+    public long f63448g;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONObject f27621h;
+    public JSONObject f63449h;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -51,31 +51,31 @@ public final class b {
                 return;
             }
         }
-        this.f27614a = -1L;
-        this.f27615b = -1L;
-        this.f27616c = -1L;
-        this.f27617d = -1L;
-        this.f27618e = -1L;
-        this.f27619f = -1L;
-        this.f27620g = -1L;
+        this.f63442a = -1L;
+        this.f63443b = -1L;
+        this.f63444c = -1L;
+        this.f63445d = -1L;
+        this.f63446e = -1L;
+        this.f63447f = -1L;
+        this.f63448g = -1L;
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f27614a = -1L;
-            this.f27615b = -1L;
-            this.f27616c = -1L;
+            this.f63442a = -1L;
+            this.f63443b = -1L;
+            this.f63444c = -1L;
         }
     }
 
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f27617d = -1L;
-            this.f27618e = -1L;
-            this.f27619f = -1L;
-            this.f27620g = -1L;
+            this.f63445d = -1L;
+            this.f63446e = -1L;
+            this.f63447f = -1L;
+            this.f63448g = -1L;
         }
     }
 
@@ -83,22 +83,22 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f27617d == -1) {
+            if (this.f63445d == -1) {
                 return null;
             }
             try {
                 JSONObject jSONObject = new JSONObject();
-                if (this.f27617d != -1) {
-                    jSONObject.put("sf1", this.f27617d);
+                if (this.f63445d != -1) {
+                    jSONObject.put("sf1", this.f63445d);
                 }
-                if (this.f27618e != -1) {
-                    jSONObject.put("sf2", this.f27618e);
+                if (this.f63446e != -1) {
+                    jSONObject.put("sf2", this.f63446e);
                 }
-                if (this.f27619f != -1) {
-                    jSONObject.put("sf3", this.f27619f);
+                if (this.f63447f != -1) {
+                    jSONObject.put("sf3", this.f63447f);
                 }
-                if (this.f27620g != -1) {
-                    jSONObject.put("sf4", this.f27620g);
+                if (this.f63448g != -1) {
+                    jSONObject.put("sf4", this.f63448g);
                 }
                 d();
                 return jSONObject;
@@ -115,19 +115,19 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f27614a == -1 && this.f27615b == -1 && this.f27616c == -1) {
+            if (this.f63442a == -1 && this.f63443b == -1 && this.f63444c == -1) {
                 return null;
             }
             try {
                 JSONObject jSONObject = new JSONObject();
-                if (this.f27614a != -1) {
-                    jSONObject.put(PrefetchEvent.STATE_CLICK, this.f27614a);
+                if (this.f63442a != -1) {
+                    jSONObject.put(PrefetchEvent.STATE_CLICK, this.f63442a);
                 }
-                if (this.f27615b != -1) {
-                    jSONObject.put("evajs", this.f27615b);
+                if (this.f63443b != -1) {
+                    jSONObject.put("evajs", this.f63443b);
                 }
-                if (this.f27616c != -1) {
-                    jSONObject.put("loadurl", this.f27616c);
+                if (this.f63444c != -1) {
+                    jSONObject.put("loadurl", this.f63444c);
                 }
                 c();
                 return jSONObject;

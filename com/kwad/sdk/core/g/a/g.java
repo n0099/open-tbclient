@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.SdkConfigData;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class g extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f34663a;
+    public String f71405a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34664b;
+    public String f71406b;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -40,13 +40,13 @@ public class g extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.co
                 g gVar = new g();
                 String str = a2.h5Url;
                 if (str != null) {
-                    gVar.f34664b = str;
+                    gVar.f71406b = str;
                 }
                 String str2 = a2.h5Version;
                 if (str2 != null) {
-                    gVar.f34663a = str2;
+                    gVar.f71405a = str2;
                 }
-                if (gVar.f34664b == null && gVar.f34663a == null) {
+                if (gVar.f71406b == null && gVar.f71405a == null) {
                     return null;
                 }
                 return gVar;

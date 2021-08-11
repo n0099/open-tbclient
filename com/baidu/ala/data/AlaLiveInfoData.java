@@ -6,6 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
@@ -14,10 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.db.ResultTB;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveInfoData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LIVE_SCREEN_DIRECTION_LANDSCAPE = 2;
@@ -226,8 +226,8 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
         this.live_duration = jSONObject.optLong("live_duration");
         this.charm_count = jSONObject.optInt("charm_count");
         this.flower_count = jSONObject.optInt("flower_count");
-        this.start_time = jSONObject.optInt("start_time");
-        this.end_time = jSONObject.optInt(ResultTB.ENDTIME);
+        this.start_time = jSONObject.optInt(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
+        this.end_time = jSONObject.optInt("end_time");
         this.location = jSONObject.optString("location");
         this.channel_id = jSONObject.optLong("channel_id");
         this.channel_name = jSONObject.optString("channel_name");

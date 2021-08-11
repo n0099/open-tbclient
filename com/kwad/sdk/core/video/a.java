@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a extends TextureView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f35120a;
+    public int f71871a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f35121b;
+    public int f71872b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -41,11 +41,11 @@ public class a extends TextureView {
 
     public void a(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || this.f35121b == i2 || this.f35120a == i3) {
+        if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || this.f71872b == i2 || this.f71871a == i3) {
             return;
         }
-        this.f35121b = i2;
-        this.f35120a = i3;
+        this.f71872b = i2;
+        this.f71871a = i3;
         requestLayout();
     }
 
@@ -59,17 +59,17 @@ public class a extends TextureView {
                 i3 = i2;
                 i2 = i3;
             }
-            int defaultSize = TextureView.getDefaultSize(this.f35121b, i2);
-            int defaultSize2 = TextureView.getDefaultSize(this.f35120a, i3);
-            if (this.f35121b > 0 && this.f35120a > 0) {
+            int defaultSize = TextureView.getDefaultSize(this.f71872b, i2);
+            int defaultSize2 = TextureView.getDefaultSize(this.f71871a, i3);
+            if (this.f71872b > 0 && this.f71871a > 0) {
                 int mode = View.MeasureSpec.getMode(i2);
                 int size = View.MeasureSpec.getSize(i2);
                 int mode2 = View.MeasureSpec.getMode(i3);
                 int size2 = View.MeasureSpec.getSize(i3);
                 if (mode == 1073741824 && mode2 == 1073741824) {
-                    int i5 = this.f35121b;
+                    int i5 = this.f71872b;
                     int i6 = i5 * size2;
-                    int i7 = this.f35120a;
+                    int i7 = this.f71871a;
                     if (i6 < size * i7) {
                         defaultSize = (i5 * size2) / i7;
                     } else if (i5 * size2 > size * i7) {
@@ -80,8 +80,8 @@ public class a extends TextureView {
                     }
                     defaultSize2 = size2;
                 } else if (mode == 1073741824) {
-                    int i8 = this.f35120a;
-                    int i9 = this.f35121b;
+                    int i8 = this.f71871a;
+                    int i9 = this.f71872b;
                     int i10 = (size * i8) / i9;
                     if (mode2 != Integer.MIN_VALUE || i10 <= size2) {
                         defaultSize = size;
@@ -91,8 +91,8 @@ public class a extends TextureView {
                         defaultSize2 = size2;
                     }
                 } else if (mode2 == 1073741824) {
-                    int i11 = this.f35121b;
-                    int i12 = this.f35120a;
+                    int i11 = this.f71872b;
+                    int i12 = this.f71871a;
                     i4 = (size2 * i11) / i12;
                     if (mode != Integer.MIN_VALUE || i4 <= size) {
                         defaultSize2 = size2;
@@ -102,8 +102,8 @@ public class a extends TextureView {
                         defaultSize = size;
                     }
                 } else {
-                    i4 = this.f35121b;
-                    int i13 = this.f35120a;
+                    i4 = this.f71872b;
+                    int i13 = this.f71871a;
                     if (mode2 != Integer.MIN_VALUE || i13 <= size2) {
                         defaultSize2 = i13;
                     } else {
@@ -111,7 +111,7 @@ public class a extends TextureView {
                         defaultSize2 = size2;
                     }
                     if (mode == Integer.MIN_VALUE && i4 > size) {
-                        defaultSize2 = (this.f35120a * size) / this.f35121b;
+                        defaultSize2 = (this.f71871a * size) / this.f71872b;
                         defaultSize = size;
                     }
                     defaultSize = i4;

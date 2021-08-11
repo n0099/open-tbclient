@@ -12,10 +12,10 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.platform.PlatformViewRegistry;
 import io.flutter.view.TextureRegistry;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface FlutterPlugin {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface FlutterAssets {
         String getAssetFilePathByName(@NonNull String str);
 
@@ -26,7 +26,7 @@ public interface FlutterPlugin {
         String getAssetFilePathBySubpath(@NonNull String str, @NonNull String str2);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class FlutterPluginBinding {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class jk extends jl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40799a;
+    public int f77674a;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte[] f818a;
+    public byte[] f822a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40800b;
+    public int f77675b;
 
     public jk() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public final class jk extends jl {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40799a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f77674a : invokeV.intValue;
     }
 
     @Override // com.xiaomi.push.jl
@@ -51,7 +51,7 @@ public final class jk extends jl {
                 i3 = b2;
             }
             if (i3 > 0) {
-                System.arraycopy(this.f818a, this.f40799a, bArr, i2, i3);
+                System.arraycopy(this.f822a, this.f77674a, bArr, i2, i3);
                 a(i3);
             }
             return i3;
@@ -63,7 +63,7 @@ public final class jk extends jl {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f40799a += i2;
+            this.f77674a += i2;
         }
     }
 
@@ -86,23 +86,23 @@ public final class jk extends jl {
     public byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f818a : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f822a : (byte[]) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.jl
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f40800b - this.f40799a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f77675b - this.f77674a : invokeV.intValue;
     }
 
     @Override // com.xiaomi.push.jl
     public void b(byte[] bArr, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048583, this, bArr, i2, i3) == null) {
-            this.f818a = bArr;
-            this.f40799a = i2;
-            this.f40800b = i2 + i3;
+            this.f822a = bArr;
+            this.f77674a = i2;
+            this.f77675b = i2 + i3;
         }
     }
 }

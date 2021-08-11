@@ -8,7 +8,7 @@ import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.core.e.o;
 import com.bytedance.sdk.openadsdk.e.d;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,12 +20,12 @@ public class b {
         }
     }
 
-    public static void a(Context context, m mVar, long j, long j2) {
+    public static void a(Context context, m mVar, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, mVar, Long.valueOf(j), Long.valueOf(j2)}) == null) && o.a(mVar)) {
+        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, mVar, Long.valueOf(j2), Long.valueOf(j3)}) == null) && o.a(mVar)) {
             HashMap hashMap = new HashMap();
-            hashMap.put("loadzip_success_time", Long.valueOf(j));
-            hashMap.put("unzip_success_time", Long.valueOf(j2));
+            hashMap.put("loadzip_success_time", Long.valueOf(j2));
+            hashMap.put("unzip_success_time", Long.valueOf(j3));
             d.j(context, mVar, "playable_preload", "preload_success", hashMap);
         }
     }

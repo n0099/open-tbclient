@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class ObjDetectAR extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class ObjDetectAR extends c {
                 r.a(pointF2, true);
                 hashMap2.put("object_id", Float.valueOf(fArr[i4]));
                 hashMap2.put("category", 3);
-                hashMap2.put(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE, Float.valueOf(fArr[i4 + 2]));
+                hashMap2.put("score", Float.valueOf(fArr[i4 + 2]));
                 hashMap2.put(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1, Float.valueOf(pointF.x));
                 hashMap2.put(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1, Float.valueOf(pointF.y));
                 hashMap2.put(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X2, Float.valueOf(pointF2.x));

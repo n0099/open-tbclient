@@ -1,7 +1,6 @@
 package com.baidu.spswitch.utils;
 
 import android.app.Activity;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ViewUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -81,10 +80,7 @@ public class ViewUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
             View sPSRootLayout = getSPSRootLayout(activity.getWindow().getDecorView());
             if (sPSRootLayout == null) {
-                if (DEBUG) {
-                    Log.d(TAG, "#isFitsSystemWindows#, getSPSRootLayout is NULL");
-                    return false;
-                }
+                boolean z = DEBUG;
                 return false;
             }
             return sPSRootLayout.getFitsSystemWindows();
@@ -118,7 +114,7 @@ public class ViewUtil {
                 return false;
             }
             if (DEBUG) {
-                Log.d(TAG, "refreshHeight, originalHeight: " + view.getHeight() + ", aimHeight: " + i2);
+                String str = "refreshHeight, originalHeight: " + view.getHeight() + ", aimHeight: " + i2;
             }
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             if (layoutParams == null) {
@@ -128,7 +124,7 @@ public class ViewUtil {
                 view.requestLayout();
             }
             if (DEBUG) {
-                Log.d(TAG, "refreshHeight, newHeight: " + view.getHeight());
+                String str2 = "refreshHeight, newHeight: " + view.getHeight();
                 return true;
             }
             return true;

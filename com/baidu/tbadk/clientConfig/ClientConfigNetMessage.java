@@ -1,5 +1,6 @@
 package com.baidu.tbadk.clientConfig;
 
+import c.a.o0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -8,10 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.b1.w;
 import tbclient.GetClientConfig.DataReq;
 import tbclient.GetClientConfig.GetClientConfigReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ClientConfigNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

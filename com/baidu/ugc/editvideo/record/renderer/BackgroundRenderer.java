@@ -1,6 +1,8 @@
 package com.baidu.ugc.editvideo.record.renderer;
 
 import android.opengl.GLES20;
+import c.a.z.b.a.e;
+import c.a.z.b.a.k.c;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,9 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
 import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
-import d.a.a0.b.a.e;
-import d.a.a0.b.a.k.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class BackgroundRenderer extends MediaBaseRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,18 +34,18 @@ public class BackgroundRenderer extends MediaBaseRenderer {
     @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
     public void onDrawFrame(e eVar, int i2, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, eVar, i2, fArr) == null) || eVar == null || eVar.k() == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, eVar, i2, fArr) == null) || eVar == null || eVar.l() == null) {
             return;
         }
-        for (int i3 = 1; i3 < eVar.k().size(); i3++) {
-            MediaTrack mediaTrack = eVar.k().get(i3);
-            if (mediaTrack != null && c.l(mediaTrack, "only_background")) {
+        for (int i3 = 1; i3 < eVar.l().size(); i3++) {
+            MediaTrack mediaTrack = eVar.l().get(i3);
+            if (mediaTrack != null && c.m(mediaTrack, "only_background")) {
                 long a2 = eVar.a();
                 for (MediaSegment mediaSegment : mediaTrack.mediaSegments) {
                     if (mediaSegment.start != 0 || mediaSegment.end != 0) {
-                        long j = mediaSegment.start;
-                        long j2 = mediaSegment.end;
-                        if (j != j2 && a2 >= j && a2 <= j2) {
+                        long j2 = mediaSegment.start;
+                        long j3 = mediaSegment.end;
+                        if (j2 != j3 && a2 >= j2 && a2 <= j3) {
                         }
                     }
                     GLViewPortLocation gLViewPortLocation = this.mGLViewPortLocation;

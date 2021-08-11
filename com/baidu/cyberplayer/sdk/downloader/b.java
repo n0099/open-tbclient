@@ -21,20 +21,20 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface a {
-        void a(String str, long j);
+        void a(String str, long j2);
 
-        void a(String str, long j, long j2);
+        void a(String str, long j2, long j3);
 
-        void a(String str, long j, String str2);
+        void a(String str, long j2, String str2);
 
-        void b(String str, long j);
+        void b(String str, long j2);
     }
 
     public static long a(String str, OutputStream outputStream, a aVar) throws Exception {
@@ -149,13 +149,13 @@ public class b {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f4911a;
+                    public final /* synthetic */ String f38839a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f4912b;
+                    public final /* synthetic */ String f38840b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f4913c;
+                    public final /* synthetic */ a f38841c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -172,16 +172,16 @@ public class b {
                                 return;
                             }
                         }
-                        this.f4911a = str4;
-                        this.f4912b = str;
-                        this.f4913c = aVar;
+                        this.f38839a = str4;
+                        this.f38840b = str;
+                        this.f38841c = aVar;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            b.b(this.f4911a, this.f4912b, this.f4913c);
+                            b.b(this.f38839a, this.f38840b, this.f38841c);
                         }
                     }
                 });

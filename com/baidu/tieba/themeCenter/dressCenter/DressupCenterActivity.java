@@ -1,6 +1,9 @@
 package com.baidu.tieba.themeCenter.dressCenter;
 
 import android.os.Bundle;
+import c.a.p0.o3.h.c;
+import c.a.p0.o3.h.d;
+import c.a.p0.o3.h.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel;
@@ -9,11 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.n3.h.c;
-import d.a.q0.n3.h.d;
-import d.a.q0.n3.h.e;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,13 +21,13 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
     public DressupCenterModel mModel;
     public c mView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements DressupCenterModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DressupCenterActivity f21625a;
+        public final /* synthetic */ DressupCenterActivity f57182a;
 
         public a(DressupCenterActivity dressupCenterActivity) {
             Interceptable interceptable = $ic;
@@ -44,21 +44,21 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
                     return;
                 }
             }
-            this.f21625a = dressupCenterActivity;
+            this.f57182a = dressupCenterActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel.b
-        public void a(int i2, String str, List<d.a.q0.n3.h.a> list, e eVar, List<d> list2) {
+        public void a(int i2, String str, List<c.a.p0.o3.h.a> list, e eVar, List<d> list2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, list, eVar, list2}) == null) {
-                DressupCenterActivity dressupCenterActivity = this.f21625a;
+                DressupCenterActivity dressupCenterActivity = this.f57182a;
                 dressupCenterActivity.hideLoadingView(dressupCenterActivity.mView.e());
                 if (i2 == 0) {
-                    this.f21625a.mView.m(list, eVar, list2, this.f21625a.mModel.D());
+                    this.f57182a.mView.m(list, eVar, list2, this.f57182a.mModel.D());
                     return;
                 }
-                this.f21625a.showToast(str);
-                this.f21625a.mView.l();
+                this.f57182a.showToast(str);
+                this.f57182a.mView.l();
             }
         }
     }
@@ -79,7 +79,7 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         this.mCallback = new a(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.p0.m0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,17 +87,17 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public d.a.p0.m0.d getPageStayDurationItem() {
+    public c.a.o0.m0.d getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            d.a.p0.m0.d pageStayDurationItem = super.getPageStayDurationItem();
+            c.a.o0.m0.d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.f52762a = true;
+                pageStayDurationItem.f13335a = true;
             }
             return pageStayDurationItem;
         }
-        return (d.a.p0.m0.d) invokeV.objValue;
+        return (c.a.o0.m0.d) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity

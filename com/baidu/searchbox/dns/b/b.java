@@ -1,7 +1,6 @@
 package com.baidu.searchbox.dns.b;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.dns.util.DnsChecker;
@@ -20,7 +19,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, List<String>> s;
@@ -109,7 +108,7 @@ public class b {
                             ArrayList arrayList = new ArrayList();
                             arrayList.add(i2);
                             if (DnsUtil.DEBUG) {
-                                Log.d(DnsUtil.TAG, " backup ip " + arrayList + " for \"" + str.trim() + "\"");
+                                String str2 = " backup ip " + arrayList + " for \"" + str.trim() + "\"";
                             }
                             hashMap.put(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, arrayList);
                             return hashMap;

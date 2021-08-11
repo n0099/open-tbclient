@@ -19,48 +19,53 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class BdImageViewTouchBase extends ImageView {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String LOG_TAG = "ImageViewTouchBase";
+    public static final float ZOOM_INVALID = -1.0f;
     public transient /* synthetic */ FieldHolder $fh;
-    public f A;
-    public g B;
-    public boolean C;
+    public final int DEFAULT_ANIMATION_DURATION;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f11730e;
+    public float f46589e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Matrix f11731f;
+    public float f46590f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Matrix f11732g;
+    public boolean f46591g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Matrix f11733h;
+    public boolean f46592h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f11734i;
-    public Runnable j;
-    public boolean k;
-    public float l;
-    public float m;
-    public boolean n;
-    public boolean o;
-    public final Matrix p;
-    public final float[] q;
-    public int r;
-    public int s;
-    public PointF t;
-    public DisplayType u;
-    public boolean v;
-    public boolean w;
-    public RectF x;
-    public RectF y;
-    public RectF z;
+    public int f46593i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f46594j;
+    public PointF k;
+    public boolean l;
+    public boolean m;
+    public Matrix mBaseMatrix;
+    public RectF mBitmapRect;
+    public RectF mCenterRect;
+    public final Matrix mDisplayMatrix;
+    public e mEasing;
+    public Handler mHandler;
+    public Runnable mLayoutRunnable;
+    public final float[] mMatrixValues;
+    public Matrix mNextMatrix;
+    public DisplayType mScaleType;
+    public RectF mScrollRect;
+    public Matrix mSuppMatrix;
+    public boolean mUserScaled;
+    public f n;
+    public g o;
+    public boolean p;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class DisplayType {
         public static final /* synthetic */ DisplayType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -121,25 +126,25 @@ public abstract class BdImageViewTouchBase extends ImageView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Drawable f11735e;
+        public final /* synthetic */ Drawable f46595e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Matrix f11736f;
+        public final /* synthetic */ Matrix f46596f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ float f11737g;
+        public final /* synthetic */ float f46597g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ float f11738h;
+        public final /* synthetic */ float f46598h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ BdImageViewTouchBase f11739i;
+        public final /* synthetic */ BdImageViewTouchBase f46599i;
 
         public a(BdImageViewTouchBase bdImageViewTouchBase, Drawable drawable, Matrix matrix, float f2, float f3) {
             Interceptable interceptable = $ic;
@@ -156,50 +161,52 @@ public abstract class BdImageViewTouchBase extends ImageView {
                     return;
                 }
             }
-            this.f11739i = bdImageViewTouchBase;
-            this.f11735e = drawable;
-            this.f11736f = matrix;
-            this.f11737g = f2;
-            this.f11738h = f3;
+            this.f46599i = bdImageViewTouchBase;
+            this.f46595e = drawable;
+            this.f46596f = matrix;
+            this.f46597g = f2;
+            this.f46598h = f3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11739i.setImageDrawable(this.f11735e, this.f11736f, this.f11737g, this.f11738h);
+                this.f46599i.setImageDrawable(this.f46595e, this.f46596f, this.f46597g, this.f46598h);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public double f11740e;
+        public double f46600e;
 
         /* renamed from: f  reason: collision with root package name */
-        public double f11741f;
+        public double f46601f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ double f11742g;
+        public final /* synthetic */ double f46602g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f11743h;
+        public final /* synthetic */ long f46603h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ double f11744i;
-        public final /* synthetic */ double j;
+        public final /* synthetic */ double f46604i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public final /* synthetic */ double f46605j;
         public final /* synthetic */ BdImageViewTouchBase k;
 
-        public b(BdImageViewTouchBase bdImageViewTouchBase, double d2, long j, double d3, double d4) {
+        public b(BdImageViewTouchBase bdImageViewTouchBase, double d2, long j2, double d3, double d4) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bdImageViewTouchBase, Double.valueOf(d2), Long.valueOf(j), Double.valueOf(d3), Double.valueOf(d4)};
+                Object[] objArr = {bdImageViewTouchBase, Double.valueOf(d2), Long.valueOf(j2), Double.valueOf(d3), Double.valueOf(d4)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -210,66 +217,68 @@ public abstract class BdImageViewTouchBase extends ImageView {
                 }
             }
             this.k = bdImageViewTouchBase;
-            this.f11742g = d2;
-            this.f11743h = j;
-            this.f11744i = d3;
-            this.j = d4;
-            this.f11740e = 0.0d;
-            this.f11741f = 0.0d;
+            this.f46602g = d2;
+            this.f46603h = j2;
+            this.f46604i = d3;
+            this.f46605j = d4;
+            this.f46600e = 0.0d;
+            this.f46601f = 0.0d;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                double min = Math.min(this.f11742g, System.currentTimeMillis() - this.f11743h);
-                double a2 = this.k.f11730e.a(min, 0.0d, this.f11744i, this.f11742g);
-                double a3 = this.k.f11730e.a(min, 0.0d, this.j, this.f11742g);
-                this.k.t(a2 - this.f11740e, a3 - this.f11741f);
-                this.f11740e = a2;
-                this.f11741f = a3;
-                if (min < this.f11742g) {
-                    this.k.f11734i.post(this);
+                double min = Math.min(this.f46602g, System.currentTimeMillis() - this.f46603h);
+                double a2 = this.k.mEasing.a(min, 0.0d, this.f46604i, this.f46602g);
+                double a3 = this.k.mEasing.a(min, 0.0d, this.f46605j, this.f46602g);
+                this.k.panBy(a2 - this.f46600e, a3 - this.f46601f);
+                this.f46600e = a2;
+                this.f46601f = a3;
+                if (min < this.f46602g) {
+                    this.k.mHandler.post(this);
                     return;
                 }
                 BdImageViewTouchBase bdImageViewTouchBase = this.k;
-                RectF h2 = bdImageViewTouchBase.h(bdImageViewTouchBase.f11732g, true, true);
-                if (h2.left == 0.0f && h2.top == 0.0f) {
+                RectF center = bdImageViewTouchBase.getCenter(bdImageViewTouchBase.mSuppMatrix, true, true);
+                if (center.left == 0.0f && center.top == 0.0f) {
                     return;
                 }
-                this.k.w(h2.left, h2.top);
+                this.k.scrollBy(center.left, center.top);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ float f11745e;
+        public final /* synthetic */ float f46606e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f11746f;
+        public final /* synthetic */ long f46607f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ float f11747g;
+        public final /* synthetic */ float f46608g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ float f11748h;
+        public final /* synthetic */ float f46609h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ float f11749i;
-        public final /* synthetic */ float j;
+        public final /* synthetic */ float f46610i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public final /* synthetic */ float f46611j;
         public final /* synthetic */ BdImageViewTouchBase k;
 
-        public c(BdImageViewTouchBase bdImageViewTouchBase, float f2, long j, float f3, float f4, float f5, float f6) {
+        public c(BdImageViewTouchBase bdImageViewTouchBase, float f2, long j2, float f3, float f4, float f5, float f6) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bdImageViewTouchBase, Float.valueOf(f2), Long.valueOf(j), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)};
+                Object[] objArr = {bdImageViewTouchBase, Float.valueOf(f2), Long.valueOf(j2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -280,38 +289,38 @@ public abstract class BdImageViewTouchBase extends ImageView {
                 }
             }
             this.k = bdImageViewTouchBase;
-            this.f11745e = f2;
-            this.f11746f = j;
-            this.f11747g = f3;
-            this.f11748h = f4;
-            this.f11749i = f5;
-            this.j = f6;
+            this.f46606e = f2;
+            this.f46607f = j2;
+            this.f46608g = f3;
+            this.f46609h = f4;
+            this.f46610i = f5;
+            this.f46611j = f6;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                float min = Math.min(this.f11745e, (float) (System.currentTimeMillis() - this.f11746f));
-                this.k.B(this.f11748h + ((float) this.k.f11730e.b(min, 0.0d, this.f11747g, this.f11745e)), this.f11749i, this.j);
-                if (min < this.f11745e) {
-                    this.k.f11734i.post(this);
+                float min = Math.min(this.f46606e, (float) (System.currentTimeMillis() - this.f46607f));
+                this.k.zoomTo(this.f46609h + ((float) this.k.mEasing.b(min, 0.0d, this.f46608g, this.f46606e)), this.f46610i, this.f46611j);
+                if (min < this.f46606e) {
+                    this.k.mHandler.post(this);
                     return;
                 }
                 BdImageViewTouchBase bdImageViewTouchBase = this.k;
-                bdImageViewTouchBase.s(bdImageViewTouchBase.getScale());
-                this.k.a(true, true);
+                bdImageViewTouchBase.onZoomAnimationCompleted(bdImageViewTouchBase.getScale());
+                this.k.center(true, true);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class d implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdImageViewTouchBase f11750a;
+        public final /* synthetic */ BdImageViewTouchBase f46612a;
 
         public d(BdImageViewTouchBase bdImageViewTouchBase) {
             Interceptable interceptable = $ic;
@@ -328,7 +337,7 @@ public abstract class BdImageViewTouchBase extends ImageView {
                     return;
                 }
             }
-            this.f11750a = bdImageViewTouchBase;
+            this.f46612a = bdImageViewTouchBase;
         }
 
         @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouchBase.e
@@ -361,19 +370,19 @@ public abstract class BdImageViewTouchBase extends ImageView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface e {
         double a(double d2, double d3, double d4, double d5);
 
         double b(double d2, double d3, double d4, double d5);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface f {
         void a(Drawable drawable);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface g {
         void a(boolean z, int i2, int i3, int i4, int i5);
     }
@@ -399,210 +408,102 @@ public abstract class BdImageViewTouchBase extends ImageView {
         }
     }
 
-    public void A(float f2, float f3) {
+    public void center(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            PointF center = getCenter();
-            C(f2, center.x, center.y, f3);
-        }
-    }
-
-    public void B(float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            if (f2 > getMaxScale()) {
-                f2 = getMaxScale();
-            }
-            u(f2 / getScale(), f3, f4);
-            r(getScale());
-            a(true, true);
-        }
-    }
-
-    public void C(float f2, float f3, float f4, float f5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            if (f2 > getMaxScale()) {
-                f2 = getMaxScale();
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            float scale = getScale();
-            Matrix matrix = new Matrix(this.f11732g);
-            matrix.postScale(f2, f2, f3, f4);
-            RectF h2 = h(matrix, true, true);
-            this.f11734i.post(new c(this, f5, currentTimeMillis, f2 - scale, scale, f3 + (h2.left * f2), f4 + (h2.top * f2)));
-        }
-    }
-
-    public void a(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || getDrawable() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || getDrawable() == null) {
             return;
         }
-        RectF h2 = h(this.f11732g, z, z2);
-        if (h2.left == 0.0f && h2.top == 0.0f) {
+        RectF center = getCenter(this.mSuppMatrix, z, z2);
+        if (center.left == 0.0f && center.top == 0.0f) {
             return;
         }
-        v(h2.left, h2.top);
+        postTranslate(center.left, center.top);
     }
 
-    public float b() {
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setImageBitmap(null);
+        }
+    }
+
+    public float computeMaxZoom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Drawable drawable = getDrawable();
             if (drawable == null) {
                 return 1.0f;
             }
-            return Math.max(drawable.getIntrinsicWidth() / this.r, drawable.getIntrinsicHeight() / this.s) * 8.0f;
+            return Math.max(drawable.getIntrinsicWidth() / this.f46593i, drawable.getIntrinsicHeight() / this.f46594j) * 8.0f;
         }
         return invokeV.floatValue;
     }
 
-    public float c() {
+    public float computeMinZoom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (getDrawable() == null) {
                 return 1.0f;
             }
-            return Math.min(1.0f, 1.0f / l(this.f11731f));
+            return Math.min(1.0f, 1.0f / getScale(this.mBaseMatrix));
         }
         return invokeV.floatValue;
     }
 
-    public void d(Drawable drawable, Matrix matrix, float f2, float f3) {
+    public void doSetImageDrawable(Drawable drawable, Matrix matrix, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{drawable, matrix, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{drawable, matrix, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             if (drawable != null) {
                 super.setImageDrawable(drawable);
             } else {
-                this.f11731f.reset();
+                this.mBaseMatrix.reset();
                 super.setImageDrawable(null);
             }
             if (f2 != -1.0f && f3 != -1.0f) {
                 float min = Math.min(f2, f3);
                 float max = Math.max(min, f3);
-                this.m = min;
-                this.l = max;
-                this.o = true;
-                this.n = true;
+                this.f46590f = min;
+                this.f46589e = max;
+                this.f46592h = true;
+                this.f46591g = true;
             } else {
-                this.m = -1.0f;
-                this.l = -1.0f;
-                this.o = false;
-                this.n = false;
+                this.f46590f = -1.0f;
+                this.f46589e = -1.0f;
+                this.f46592h = false;
+                this.f46591g = false;
             }
             if (matrix != null) {
-                this.f11733h = new Matrix(matrix);
+                this.mNextMatrix = new Matrix(matrix);
             }
-            this.w = true;
+            this.m = true;
             requestLayout();
         }
     }
 
-    public void e(Drawable drawable) {
+    public void fireOnDrawableChangeListener(Drawable drawable) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, drawable) == null) || (fVar = this.A) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, drawable) == null) || (fVar = this.n) == null) {
             return;
         }
         fVar.a(drawable);
     }
 
-    public void f(int i2, int i3, int i4, int i5) {
+    public void fireOnLayoutChangeListener(int i2, int i3, int i4, int i5) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, i4, i5) == null) || (gVar = this.B) == null) {
+        if (!(interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) || (gVar = this.o) == null) {
             return;
         }
         gVar.a(true, i2, i3, i4, i5);
     }
 
-    public RectF g(Matrix matrix) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, matrix)) == null) {
-            Drawable drawable = getDrawable();
-            if (drawable == null) {
-                return null;
-            }
-            Matrix j = j(matrix);
-            this.x.set(0.0f, 0.0f, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            j.mapRect(this.x);
-            return this.x;
-        }
-        return (RectF) invokeL.objValue;
-    }
-
     public RectF getBitmapRect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? g(this.f11732g) : (RectF) invokeV.objValue;
-    }
-
-    public PointF getCenter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.t : (PointF) invokeV.objValue;
-    }
-
-    public Matrix getDisplayMatrix() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new Matrix(this.f11732g) : (Matrix) invokeV.objValue;
-    }
-
-    public DisplayType getDisplayType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.u : (DisplayType) invokeV.objValue;
-    }
-
-    public Matrix getImageViewMatrix() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? j(this.f11732g) : (Matrix) invokeV.objValue;
-    }
-
-    public float getMaxScale() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (this.l == -1.0f) {
-                this.l = b();
-            }
-            return this.l;
-        }
-        return invokeV.floatValue;
-    }
-
-    public float getMinScale() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (this.m == -1.0f) {
-                this.m = c();
-            }
-            return this.m;
-        }
-        return invokeV.floatValue;
-    }
-
-    @Override // android.view.View
-    public float getRotation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return 0.0f;
-        }
-        return invokeV.floatValue;
-    }
-
-    public float getScale() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? l(this.f11732g) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? getBitmapRect(this.mSuppMatrix) : (RectF) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:29:0x0061, code lost:
@@ -612,100 +513,131 @@ public abstract class BdImageViewTouchBase extends ImageView {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public RectF h(Matrix matrix, boolean z, boolean z2) {
+    public RectF getCenter(Matrix matrix, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         float f2;
         float f3;
         float f4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{matrix, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{matrix, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             if (getDrawable() == null) {
                 return new RectF(0.0f, 0.0f, 0.0f, 0.0f);
             }
-            this.y.set(0.0f, 0.0f, 0.0f, 0.0f);
-            RectF g2 = g(matrix);
-            float height = g2.height();
-            float width = g2.width();
+            this.mCenterRect.set(0.0f, 0.0f, 0.0f, 0.0f);
+            RectF bitmapRect = getBitmapRect(matrix);
+            float height = bitmapRect.height();
+            float width = bitmapRect.width();
             if (z2) {
-                int i2 = this.s;
+                int i2 = this.f46594j;
                 float f5 = i2;
                 if (height < f5) {
-                    f2 = ((f5 - height) / 2.0f) - g2.top;
+                    f2 = ((f5 - height) / 2.0f) - bitmapRect.top;
                 } else {
-                    float f6 = g2.top;
+                    float f6 = bitmapRect.top;
                     if (f6 > 0.0f) {
                         f2 = -f6;
                     } else {
-                        float f7 = g2.bottom;
+                        float f7 = bitmapRect.bottom;
                         if (f7 < f5) {
                             f2 = i2 - f7;
                         }
                     }
                 }
                 if (z) {
-                    float f8 = this.r;
+                    float f8 = this.f46593i;
                     if (width < f8) {
                         f8 = (f8 - width) / 2.0f;
-                        f4 = g2.left;
+                        f4 = bitmapRect.left;
                     } else {
-                        float f9 = g2.left;
+                        float f9 = bitmapRect.left;
                         if (f9 <= 0.0f) {
-                            f4 = g2.right;
+                            f4 = bitmapRect.right;
                         } else {
                             f3 = -f9;
-                            this.y.set(f3, f2, 0.0f, 0.0f);
-                            return this.y;
+                            this.mCenterRect.set(f3, f2, 0.0f, 0.0f);
+                            return this.mCenterRect;
                         }
                     }
                     f3 = f8 - f4;
-                    this.y.set(f3, f2, 0.0f, 0.0f);
-                    return this.y;
+                    this.mCenterRect.set(f3, f2, 0.0f, 0.0f);
+                    return this.mCenterRect;
                 }
                 f3 = 0.0f;
-                this.y.set(f3, f2, 0.0f, 0.0f);
-                return this.y;
+                this.mCenterRect.set(f3, f2, 0.0f, 0.0f);
+                return this.mCenterRect;
             }
             f2 = 0.0f;
             if (z) {
             }
             f3 = 0.0f;
-            this.y.set(f3, f2, 0.0f, 0.0f);
-            return this.y;
+            this.mCenterRect.set(f3, f2, 0.0f, 0.0f);
+            return this.mCenterRect;
         }
         return (RectF) invokeCommon.objValue;
     }
 
-    public float i(DisplayType displayType) {
+    public float getDefaultScale(DisplayType displayType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, displayType)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, displayType)) == null) {
             if (displayType == DisplayType.FIT_TO_SCREEN) {
                 return 1.0f;
             }
             if (displayType == DisplayType.FIT_IF_BIGGER) {
-                return Math.max(1.0f, 1.0f / l(this.f11731f));
+                return Math.max(1.0f, 1.0f / getScale(this.mBaseMatrix));
             }
-            return 1.0f / l(this.f11731f);
+            return 1.0f / getScale(this.mBaseMatrix);
         }
         return invokeL.floatValue;
     }
 
-    public Matrix j(Matrix matrix) {
-        InterceptResult invokeL;
+    public Matrix getDisplayMatrix() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, matrix)) == null) {
-            this.p.set(this.f11731f);
-            this.p.postConcat(matrix);
-            return this.p;
-        }
-        return (Matrix) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new Matrix(this.mSuppMatrix) : (Matrix) invokeV.objValue;
     }
 
-    public void k(Drawable drawable, Matrix matrix) {
+    public DisplayType getDisplayType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048598, this, drawable, matrix) == null) {
-            float f2 = this.r;
-            float f3 = this.s;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mScaleType : (DisplayType) invokeV.objValue;
+    }
+
+    public Matrix getImageViewMatrix() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? getImageViewMatrix(this.mSuppMatrix) : (Matrix) invokeV.objValue;
+    }
+
+    public float getMaxScale() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (this.f46589e == -1.0f) {
+                this.f46589e = computeMaxZoom();
+            }
+            return this.f46589e;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getMinScale() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            if (this.f46590f == -1.0f) {
+                this.f46590f = computeMinZoom();
+            }
+            return this.f46590f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public void getProperBaseMatrix(Drawable drawable, Matrix matrix) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048594, this, drawable, matrix) == null) {
+            float f2 = this.f46593i;
+            float f3 = this.f46594j;
             float intrinsicWidth = drawable.getIntrinsicWidth();
             float intrinsicHeight = drawable.getIntrinsicHeight();
             matrix.reset();
@@ -715,33 +647,63 @@ public abstract class BdImageViewTouchBase extends ImageView {
         }
     }
 
-    public float l(Matrix matrix) {
-        InterceptResult invokeL;
+    public void getProperBaseMatrix2(Drawable drawable, Matrix matrix) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, matrix)) == null) ? m(matrix, 0) : invokeL.floatValue;
+        if (interceptable == null || interceptable.invokeLL(1048595, this, drawable, matrix) == null) {
+            float f2 = this.f46593i;
+            float f3 = this.f46594j;
+            float intrinsicWidth = drawable.getIntrinsicWidth();
+            float intrinsicHeight = drawable.getIntrinsicHeight();
+            matrix.reset();
+            float min = Math.min(f2 / intrinsicWidth, f3 / intrinsicHeight);
+            matrix.postScale(min, min);
+            matrix.postTranslate((f2 - (intrinsicWidth * min)) / 2.0f, (f3 - (intrinsicHeight * min)) / 2.0f);
+        }
     }
 
-    public float m(Matrix matrix, int i2) {
+    @Override // android.view.View
+    public float getRotation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return 0.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getScale(Matrix matrix) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, matrix)) == null) ? getValue(matrix, 0) : invokeL.floatValue;
+    }
+
+    public float getValue(Matrix matrix, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048600, this, matrix, i2)) == null) {
-            matrix.getValues(this.q);
-            return this.q[i2];
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048599, this, matrix, i2)) == null) {
+            matrix.getValues(this.mMatrixValues);
+            return this.mMatrixValues[i2];
         }
         return invokeLI.floatValue;
     }
 
-    public void n(Context context, AttributeSet attributeSet, int i2) {
+    public void init(Context context, AttributeSet attributeSet, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048601, this, context, attributeSet, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048600, this, context, attributeSet, i2) == null) {
             setScaleType(ImageView.ScaleType.MATRIX);
         }
     }
 
-    public void o(Drawable drawable) {
+    public void onDrawableChanged(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, drawable) == null) {
-            e(drawable);
+        if (interceptable == null || interceptable.invokeL(1048601, this, drawable) == null) {
+            fireOnDrawableChangeListener(drawable);
+        }
+    }
+
+    public void onImageMatrixChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
         }
     }
 
@@ -753,146 +715,199 @@ public abstract class BdImageViewTouchBase extends ImageView {
         if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             if (z) {
-                int i8 = this.r;
-                int i9 = this.s;
+                int i8 = this.f46593i;
+                int i9 = this.f46594j;
                 int i10 = i4 - i2;
-                this.r = i10;
+                this.f46593i = i10;
                 int i11 = i5 - i3;
-                this.s = i11;
+                this.f46594j = i11;
                 i6 = i10 - i8;
                 i7 = i11 - i9;
-                PointF pointF = this.t;
+                PointF pointF = this.k;
                 pointF.x = i10 / 2.0f;
                 pointF.y = i11 / 2.0f;
             } else {
                 i6 = 0;
                 i7 = 0;
             }
-            Runnable runnable = this.j;
+            Runnable runnable = this.mLayoutRunnable;
             if (runnable != null) {
-                this.j = null;
+                this.mLayoutRunnable = null;
                 runnable.run();
             }
             Drawable drawable = getDrawable();
             if (drawable != null) {
-                if (z || this.v || this.w) {
-                    float l = l(this.f11731f);
-                    float scale = getScale();
-                    float min = Math.min(1.0f, 1.0f / l);
-                    if (this.C) {
-                        k(drawable, this.f11731f);
+                if (z || this.l || this.m) {
+                    float scale = getScale(this.mBaseMatrix);
+                    float scale2 = getScale();
+                    float min = Math.min(1.0f, 1.0f / scale);
+                    if (this.p) {
+                        getProperBaseMatrix(drawable, this.mBaseMatrix);
                     }
-                    float l2 = l(this.f11731f);
-                    if (this.w || this.v) {
-                        Matrix matrix = this.f11733h;
+                    float scale3 = getScale(this.mBaseMatrix);
+                    if (this.m || this.l) {
+                        Matrix matrix = this.mNextMatrix;
                         if (matrix != null) {
-                            this.f11732g.set(matrix);
-                            this.f11733h = null;
+                            this.mSuppMatrix.set(matrix);
+                            this.mNextMatrix = null;
                             r12 = getScale();
                         } else {
-                            this.f11732g.reset();
+                            this.mSuppMatrix.reset();
                         }
                         setImageMatrix(getImageViewMatrix());
                         if (r12 != getScale()) {
-                            z(r12);
+                            zoomTo(r12);
                         }
                     } else if (z) {
-                        if (!this.o) {
-                            this.m = -1.0f;
+                        if (!this.f46592h) {
+                            this.f46590f = -1.0f;
                         }
-                        if (!this.n) {
-                            this.l = -1.0f;
+                        if (!this.f46591g) {
+                            this.f46589e = -1.0f;
                         }
                         setImageMatrix(getImageViewMatrix());
-                        v(-i6, -i7);
-                        if (!this.k) {
-                            r12 = i(this.u);
-                            z(r12);
+                        postTranslate(-i6, -i7);
+                        if (!this.mUserScaled) {
+                            r12 = getDefaultScale(this.mScaleType);
+                            zoomTo(r12);
                         } else {
-                            r12 = ((double) Math.abs(scale - min)) > 0.001d ? (l / l2) * scale : 1.0f;
-                            z(r12);
+                            r12 = ((double) Math.abs(scale2 - min)) > 0.001d ? (scale / scale3) * scale2 : 1.0f;
+                            zoomTo(r12);
                         }
                     }
-                    this.k = false;
+                    this.mUserScaled = false;
                     if (r12 > getMaxScale() || r12 < getMinScale()) {
-                        z(r12);
+                        zoomTo(r12);
                     }
-                    a(true, true);
-                    if (this.w) {
-                        o(drawable);
+                    center(true, true);
+                    if (this.m) {
+                        onDrawableChanged(drawable);
                     }
-                    if (z || this.w || this.v) {
-                        q(i2, i3, i4, i5);
+                    if (z || this.m || this.l) {
+                        onLayoutChanged(i2, i3, i4, i5);
                     }
-                    if (this.v) {
-                        this.v = false;
+                    if (this.l) {
+                        this.l = false;
                     }
-                    if (this.w) {
-                        this.w = false;
+                    if (this.m) {
+                        this.m = false;
                         return;
                     }
                     return;
                 }
                 return;
             }
-            if (this.w) {
-                o(null);
+            if (this.m) {
+                onDrawableChanged(null);
             }
-            if (z || this.w || this.v) {
-                q(i2, i3, i4, i5);
+            if (z || this.m || this.l) {
+                onLayoutChanged(i2, i3, i4, i5);
             }
-            this.w = false;
-            this.v = false;
+            this.m = false;
+            this.l = false;
         }
     }
 
-    public void p() {
+    public void onLayoutChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048604, this, i2, i3, i4, i5) == null) {
+            fireOnLayoutChangeListener(i2, i3, i4, i5);
         }
     }
 
-    public void q(int i2, int i3, int i4, int i5) {
+    public void onZoom(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048605, this, i2, i3, i4, i5) == null) {
-            f(i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeF(1048605, this, f2) == null) {
         }
     }
 
-    public void r(float f2) {
+    public void onZoomAnimationCompleted(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048606, this, f2) == null) {
         }
     }
 
-    public void s(float f2) {
+    public void panBy(double d2, double d3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048607, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3)}) == null) {
+            RectF bitmapRect = getBitmapRect();
+            this.mScrollRect.set((float) d2, (float) d3, 0.0f, 0.0f);
+            updateRect(bitmapRect, this.mScrollRect);
+            RectF rectF = this.mScrollRect;
+            postTranslate(rectF.left, rectF.top);
+            center(true, true);
+        }
+    }
+
+    public void postScale(float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            this.mSuppMatrix.postScale(f2, f2, f3, f4);
+            setImageMatrix(getImageViewMatrix());
+        }
+    }
+
+    public void postTranslate(float f2, float f3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            if (f2 == 0.0f && f3 == 0.0f) {
+                return;
+            }
+            this.mSuppMatrix.postTranslate(f2, f3);
+            setImageMatrix(getImageViewMatrix());
+        }
+    }
+
+    public void resetDisplay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
+            this.m = true;
+            requestLayout();
+        }
+    }
+
+    public void resetMatrix() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+            this.mSuppMatrix = new Matrix();
+            float defaultScale = getDefaultScale(this.mScaleType);
+            setImageMatrix(getImageViewMatrix());
+            if (defaultScale != getScale()) {
+                zoomTo(defaultScale);
+            }
+            postInvalidate();
+        }
+    }
+
+    public void scrollBy(float f2, float f3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            panBy(f2, f3);
         }
     }
 
     public void setCalcBaseMatrix(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
-            this.C = z;
+        if (interceptable == null || interceptable.invokeZ(1048614, this, z) == null) {
+            this.p = z;
         }
     }
 
     public void setDisplayType(DisplayType displayType) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048609, this, displayType) == null) || displayType == this.u) {
+        if (!(interceptable == null || interceptable.invokeL(1048615, this, displayType) == null) || displayType == this.mScaleType) {
             return;
         }
-        this.k = false;
-        this.u = displayType;
-        this.v = true;
+        this.mUserScaled = false;
+        this.mScaleType = displayType;
+        this.l = true;
         requestLayout();
     }
 
     @Override // android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, bitmap) == null) {
+        if (interceptable == null || interceptable.invokeL(1048616, this, bitmap) == null) {
             setImageBitmap(bitmap, null, -1.0f, -1.0f);
         }
     }
@@ -900,7 +915,7 @@ public abstract class BdImageViewTouchBase extends ImageView {
     @Override // android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048618, this, drawable) == null) {
             setImageDrawable(drawable, null, -1.0f, -1.0f);
         }
     }
@@ -908,12 +923,12 @@ public abstract class BdImageViewTouchBase extends ImageView {
     @Override // android.widget.ImageView
     public void setImageMatrix(Matrix matrix) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, matrix) == null) {
+        if (interceptable == null || interceptable.invokeL(1048620, this, matrix) == null) {
             Matrix imageMatrix = getImageMatrix();
             boolean z = (matrix == null && !imageMatrix.isIdentity()) || !(matrix == null || imageMatrix.equals(matrix));
             super.setImageMatrix(matrix);
             if (z) {
-                p();
+                onImageMatrixChanged();
             }
         }
     }
@@ -921,109 +936,64 @@ public abstract class BdImageViewTouchBase extends ImageView {
     @Override // android.widget.ImageView
     public void setImageResource(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
             setImageDrawable(getContext().getResources().getDrawable(i2));
         }
     }
 
     public void setMaxScale(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048616, this, f2) == null) {
-            this.l = f2;
+        if (interceptable == null || interceptable.invokeF(1048622, this, f2) == null) {
+            this.f46589e = f2;
         }
     }
 
     public void setMinScale(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048617, this, f2) == null) {
-            this.m = f2;
+        if (interceptable == null || interceptable.invokeF(1048623, this, f2) == null) {
+            this.f46590f = f2;
         }
     }
 
     public void setOnDrawableChangedListener(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, fVar) == null) {
-            this.A = fVar;
+        if (interceptable == null || interceptable.invokeL(1048624, this, fVar) == null) {
+            this.n = fVar;
         }
     }
 
     public void setOnLayoutChangeListener(g gVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, gVar) == null) {
-            this.B = gVar;
+        if (interceptable == null || interceptable.invokeL(1048625, this, gVar) == null) {
+            this.o = gVar;
         }
     }
 
     @Override // android.widget.ImageView
     public void setScaleType(ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048620, this, scaleType) == null) && scaleType == ImageView.ScaleType.MATRIX) {
+        if ((interceptable == null || interceptable.invokeL(1048626, this, scaleType) == null) && scaleType == ImageView.ScaleType.MATRIX) {
             super.setScaleType(scaleType);
         }
     }
 
-    public void t(double d2, double d3) {
+    public void updateRect(RectF rectF, RectF rectF2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048621, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3)}) == null) {
-            RectF bitmapRect = getBitmapRect();
-            this.z.set((float) d2, (float) d3, 0.0f, 0.0f);
-            y(bitmapRect, this.z);
-            RectF rectF = this.z;
-            v(rectF.left, rectF.top);
-            a(true, true);
-        }
-    }
-
-    public void u(float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            this.f11732g.postScale(f2, f2, f3, f4);
-            setImageMatrix(getImageViewMatrix());
-        }
-    }
-
-    public void v(float f2, float f3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            if (f2 == 0.0f && f3 == 0.0f) {
-                return;
-            }
-            this.f11732g.postTranslate(f2, f3);
-            setImageMatrix(getImageViewMatrix());
-        }
-    }
-
-    public void w(float f2, float f3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            t(f2, f3);
-        }
-    }
-
-    public void x(float f2, float f3, double d2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048625, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Double.valueOf(d2)}) == null) {
-            this.f11734i.post(new b(this, d2, System.currentTimeMillis(), f2, f3));
-        }
-    }
-
-    public void y(RectF rectF, RectF rectF2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048626, this, rectF, rectF2) == null) || rectF == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048627, this, rectF, rectF2) == null) || rectF == null) {
             return;
         }
-        if (rectF.top >= 0.0f && rectF.bottom <= this.s) {
+        if (rectF.top >= 0.0f && rectF.bottom <= this.f46594j) {
             rectF2.top = 0.0f;
         }
-        if (rectF.left >= 0.0f && rectF.right <= this.r) {
+        if (rectF.left >= 0.0f && rectF.right <= this.f46593i) {
             rectF2.left = 0.0f;
         }
         float f2 = rectF.top;
-        if (rectF2.top + f2 >= 0.0f && rectF.bottom > this.s) {
+        if (rectF2.top + f2 >= 0.0f && rectF.bottom > this.f46594j) {
             rectF2.top = (int) (0.0f - f2);
         }
         float f3 = rectF.bottom;
-        int i2 = this.s;
+        int i2 = this.f46594j;
         if (rectF2.top + f3 <= i2 + 0 && rectF.top < 0.0f) {
             rectF2.top = (int) ((i2 + 0) - f3);
         }
@@ -1032,15 +1002,15 @@ public abstract class BdImageViewTouchBase extends ImageView {
             rectF2.left = (int) (0.0f - f4);
         }
         float f5 = rectF.right;
-        int i3 = this.r;
+        int i3 = this.f46593i;
         if (rectF2.left + f5 <= i3 + 0) {
             rectF2.left = (int) ((i3 + 0) - f5);
         }
     }
 
-    public void z(float f2) {
+    public void zoomTo(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048627, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048628, this, f2) == null) {
             if (f2 > getMaxScale()) {
                 f2 = getMaxScale();
             }
@@ -1048,7 +1018,7 @@ public abstract class BdImageViewTouchBase extends ImageView {
                 f2 = getMinScale();
             }
             PointF center = getCenter();
-            B(f2, center.x, center.y);
+            zoomTo(f2, center.x, center.y);
         }
     }
 
@@ -1073,9 +1043,49 @@ public abstract class BdImageViewTouchBase extends ImageView {
         }
     }
 
+    public RectF getBitmapRect(Matrix matrix) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, matrix)) == null) {
+            Drawable drawable = getDrawable();
+            if (drawable == null) {
+                return null;
+            }
+            Matrix imageViewMatrix = getImageViewMatrix(matrix);
+            this.mBitmapRect.set(0.0f, 0.0f, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            imageViewMatrix.mapRect(this.mBitmapRect);
+            return this.mBitmapRect;
+        }
+        return (RectF) invokeL.objValue;
+    }
+
+    public Matrix getImageViewMatrix(Matrix matrix) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, matrix)) == null) {
+            this.mDisplayMatrix.set(this.mBaseMatrix);
+            this.mDisplayMatrix.postConcat(matrix);
+            return this.mDisplayMatrix;
+        }
+        return (Matrix) invokeL.objValue;
+    }
+
+    public float getScale() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? getScale(this.mSuppMatrix) : invokeV.floatValue;
+    }
+
+    public void scrollBy(float f2, float f3, double d2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Double.valueOf(d2)}) == null) {
+            this.mHandler.post(new b(this, d2, System.currentTimeMillis(), f2, f3));
+        }
+    }
+
     public void setImageBitmap(Bitmap bitmap, Matrix matrix, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{bitmap, matrix, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{bitmap, matrix, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             if (bitmap != null) {
                 setImageDrawable(new BitmapDrawable(getContext().getResources(), bitmap), matrix, f2, f3);
             } else {
@@ -1086,11 +1096,11 @@ public abstract class BdImageViewTouchBase extends ImageView {
 
     public void setImageDrawable(Drawable drawable, Matrix matrix, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{drawable, matrix, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{drawable, matrix, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             if (getWidth() <= 0) {
-                this.j = new a(this, drawable, matrix, f2, f3);
+                this.mLayoutRunnable = new a(this, drawable, matrix, f2, f3);
             } else {
-                d(drawable, matrix, f2, f3);
+                doSetImageDrawable(drawable, matrix, f2, f3);
             }
         }
     }
@@ -1114,24 +1124,66 @@ public abstract class BdImageViewTouchBase extends ImageView {
                 return;
             }
         }
-        this.f11730e = new d(this);
-        this.f11731f = new Matrix();
-        this.f11732g = new Matrix();
-        this.f11734i = new Handler();
-        this.j = null;
-        this.k = false;
-        this.l = -1.0f;
-        this.m = -1.0f;
-        this.p = new Matrix();
-        this.q = new float[9];
-        this.r = -1;
-        this.s = -1;
-        this.t = new PointF();
-        this.u = DisplayType.NONE;
-        this.x = new RectF();
-        this.y = new RectF();
-        this.z = new RectF();
-        this.C = true;
-        n(context, attributeSet, i2);
+        this.mEasing = new d(this);
+        this.mBaseMatrix = new Matrix();
+        this.mSuppMatrix = new Matrix();
+        this.mHandler = new Handler();
+        this.mLayoutRunnable = null;
+        this.mUserScaled = false;
+        this.f46589e = -1.0f;
+        this.f46590f = -1.0f;
+        this.mDisplayMatrix = new Matrix();
+        this.mMatrixValues = new float[9];
+        this.f46593i = -1;
+        this.f46594j = -1;
+        this.k = new PointF();
+        this.mScaleType = DisplayType.NONE;
+        this.DEFAULT_ANIMATION_DURATION = 200;
+        this.mBitmapRect = new RectF();
+        this.mCenterRect = new RectF();
+        this.mScrollRect = new RectF();
+        this.p = true;
+        init(context, attributeSet, i2);
+    }
+
+    public void zoomTo(float f2, float f3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            PointF center = getCenter();
+            zoomTo(f2, center.x, center.y, f3);
+        }
+    }
+
+    public void zoomTo(float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048630, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            if (f2 > getMaxScale()) {
+                f2 = getMaxScale();
+            }
+            postScale(f2 / getScale(), f3, f4);
+            onZoom(getScale());
+            center(true, true);
+        }
+    }
+
+    public void zoomTo(float f2, float f3, float f4, float f5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
+            if (f2 > getMaxScale()) {
+                f2 = getMaxScale();
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            float scale = getScale();
+            Matrix matrix = new Matrix(this.mSuppMatrix);
+            matrix.postScale(f2, f2, f3, f4);
+            RectF center = getCenter(matrix, true, true);
+            this.mHandler.post(new c(this, f5, currentTimeMillis, f2 - scale, scale, f3 + (center.left * f2), f4 + (center.top * f2)));
+        }
+    }
+
+    public PointF getCenter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k : (PointF) invokeV.objValue;
     }
 }

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.mobads.container.video.ICustomVideoView;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface ILpVideoLayout {
     void addView(View view, ViewGroup.LayoutParams layoutParams);
 

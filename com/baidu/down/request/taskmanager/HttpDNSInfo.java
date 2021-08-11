@@ -11,7 +11,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class HttpDNSInfo implements Comparable<HttpDNSInfo> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_IP_AVAILABLE = 2;
@@ -96,11 +96,11 @@ public class HttpDNSInfo implements Comparable<HttpDNSInfo> {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            long j = this.mDownloadTimes;
-            if (j == 0 || (i2 = this.mTestSpeedThread) == 0) {
+            long j2 = this.mDownloadTimes;
+            if (j2 == 0 || (i2 = this.mTestSpeedThread) == 0) {
                 return 0L;
             }
-            return (this.mDownloadBytes * 1000) / (j * i2);
+            return (this.mDownloadBytes * 1000) / (j2 * i2);
         }
         return invokeV.longValue;
     }
@@ -116,12 +116,12 @@ public class HttpDNSInfo implements Comparable<HttpDNSInfo> {
         int i6;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpDNSInfo)) == null) {
-            long j = this.mDownloadTimes;
-            if (j == 0 || (i2 = this.mTestSpeedThread) == 0) {
+            long j2 = this.mDownloadTimes;
+            if (j2 == 0 || (i2 = this.mTestSpeedThread) == 0) {
                 return 1;
             }
-            long j2 = httpDNSInfo.mDownloadTimes;
-            if (j2 == 0 || (i3 = httpDNSInfo.mTestSpeedThread) == 0 || ((float) (this.mDownloadBytes / (j * i2))) > ((float) (httpDNSInfo.mDownloadBytes / (j2 * i3)))) {
+            long j3 = httpDNSInfo.mDownloadTimes;
+            if (j3 == 0 || (i3 = httpDNSInfo.mTestSpeedThread) == 0 || ((float) (this.mDownloadBytes / (j2 * i2))) > ((float) (httpDNSInfo.mDownloadBytes / (j3 * i3)))) {
                 return -1;
             }
             if (i4 != 0 || (i5 = this.mCDNSequence) > (i6 = httpDNSInfo.mCDNSequence)) {

@@ -1,5 +1,6 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 
+import c.a.o0.t.f.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +9,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.p0.t.f.b;
 import protobuf.SetLocation.DataRes;
 import protobuf.SetLocation.LbsInfo;
 import protobuf.SetLocation.SetLocationResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,13 +60,13 @@ public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
             return;
         }
         LbsInfo lbsInfo = dataRes.location;
-        long j = 0;
+        long j2 = 0;
         int i3 = -1;
         if (lbsInfo != null) {
             str = lbsInfo.distance;
             Long l = lbsInfo.time;
             if (l != null && l.longValue() > 0) {
-                j = setLocationResIdl.data.location.time.longValue();
+                j2 = setLocationResIdl.data.location.time.longValue();
             }
             Integer num = setLocationResIdl.data.location.isHide;
             if (num != null && num.intValue() >= 0) {
@@ -75,6 +75,6 @@ public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
         } else {
             str = "";
         }
-        this.lbsInfo = new b(str, j, i3);
+        this.lbsInfo = new b(str, j2, i3);
     }
 }

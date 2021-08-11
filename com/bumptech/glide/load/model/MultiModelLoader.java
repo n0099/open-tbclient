@@ -20,14 +20,15 @@ import com.bumptech.glide.util.Preconditions;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes9.dex */
 public class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Pools.Pool<List<Throwable>> exceptionListPool;
     public final List<ModelLoader<Model, Data>> modelLoaders;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class MultiFetcher<Data> implements DataFetcher<Data>, DataFetcher.DataCallback<Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -209,7 +210,7 @@ public class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "MultiModelLoader{modelLoaders=" + Arrays.toString(this.modelLoaders.toArray()) + '}';
+            return "MultiModelLoader{modelLoaders=" + Arrays.toString(this.modelLoaders.toArray()) + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

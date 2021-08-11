@@ -8,30 +8,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import ms.bd.c.b;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public abstract class j extends b.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static j f73544a;
+    public static j f78843a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f73545a;
+        public long f78844a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f73546b;
+        public long f78845b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f73547c;
+        public String f78846c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f73548d;
+        public String f78847d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -50,9 +50,9 @@ public abstract class j extends b.a {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f73547c = str;
-                this.f73548d = null;
-                this.f73545a = System.currentTimeMillis();
+                this.f78846c = str;
+                this.f78847d = null;
+                this.f78844a = System.currentTimeMillis();
             }
         }
 
@@ -63,10 +63,10 @@ public abstract class j extends b.a {
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            long j = this.f73545a;
-            long j2 = currentTimeMillis - j;
-            this.f73546b = j2;
-            c2.d(j2, j, this.f73547c, this.f73548d, str, i2, null);
+            long j2 = this.f78844a;
+            long j3 = currentTimeMillis - j2;
+            this.f78845b = j3;
+            c2.d(j3, j2, this.f78846c, this.f78847d, str, i2, null);
         }
 
         public void c(String str, int i2) {
@@ -76,10 +76,10 @@ public abstract class j extends b.a {
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            long j = this.f73545a;
-            long j2 = currentTimeMillis - j;
-            this.f73546b = j2;
-            c2.h(j2, j, this.f73547c, this.f73548d, str, i2, null);
+            long j2 = this.f78844a;
+            long j3 = currentTimeMillis - j2;
+            this.f78845b = j3;
+            c2.h(j3, j2, this.f78846c, this.f78847d, str, i2, null);
         }
     }
 
@@ -103,7 +103,7 @@ public abstract class j extends b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (j.class) {
-                jVar = f73544a;
+                jVar = f78843a;
             }
             return jVar;
         }
@@ -114,16 +114,16 @@ public abstract class j extends b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, jVar) == null) {
             synchronized (j.class) {
-                f73544a = jVar;
+                f78843a = jVar;
             }
         }
     }
 
     @Override // ms.bd.c.b.a
-    public Object a(int i2, int i3, long j, String str, Object obj) throws Throwable {
+    public Object a(int i2, int i3, long j2, String str, Object obj) throws Throwable {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), str, obj})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), str, obj})) == null) {
             if (i2 == 131073) {
                 if (str == null || !g(str)) {
                     return null;
@@ -141,11 +141,11 @@ public abstract class j extends b.a {
         return invokeCommon.objValue;
     }
 
-    public abstract void d(long j, long j2, String str, String str2, String str3, int i2, JSONObject jSONObject);
+    public abstract void d(long j2, long j3, String str, String str2, String str3, int i2, JSONObject jSONObject);
 
     public abstract void e(String str, JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3);
 
     public abstract boolean g(String str);
 
-    public abstract void h(long j, long j2, String str, String str2, String str3, int i2, JSONObject jSONObject);
+    public abstract void h(long j2, long j3, String str, String str2, String str3, int i2, JSONObject jSONObject);
 }

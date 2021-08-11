@@ -3,7 +3,6 @@ package androidx.multidex;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -210,8 +209,7 @@ public final class MultiDex {
                 Object[] makeDexElements = new V14().makeDexElements(list);
                 try {
                     MultiDex.expandFieldArray(obj, "dexElements", makeDexElements);
-                } catch (NoSuchFieldException e2) {
-                    Log.w("MultiDex", "Failed find field 'dexElements' attempting 'pathElements'", e2);
+                } catch (NoSuchFieldException unused) {
                     MultiDex.expandFieldArray(obj, "pathElements", makeDexElements);
                 }
             }
@@ -273,7 +271,7 @@ public final class MultiDex {
                 if (arrayList.size() > 0) {
                     Iterator it = arrayList.iterator();
                     while (it.hasNext()) {
-                        Log.w("MultiDex", "Exception in makeDexElement", (IOException) it.next());
+                        IOException iOException = (IOException) it.next();
                     }
                     Field findField = MultiDex.findField(obj, "dexElementsSuppressedExceptions");
                     IOException[] iOExceptionArr2 = (IOException[]) findField.get(obj);
@@ -286,9 +284,9 @@ public final class MultiDex {
                         iOExceptionArr = iOExceptionArr3;
                     }
                     findField.set(obj, iOExceptionArr);
-                    IOException iOException = new IOException("I/O exception during makeDexElement");
-                    iOException.initCause((Throwable) arrayList.get(0));
-                    throw iOException;
+                    IOException iOException2 = new IOException("I/O exception during makeDexElement");
+                    iOException2.initCause((Throwable) arrayList.get(0));
+                    throw iOException2;
                 }
             }
         }
@@ -386,25 +384,25 @@ public final class MultiDex {
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) {
             File file = new File(context.getFilesDir(), "secondary-dexes");
             if (file.isDirectory()) {
-                Log.i("MultiDex", "Clearing old secondary dex dir (" + file.getPath() + ").");
+                r0 = "Clearing old secondary dex dir (" + file.getPath() + ").";
                 File[] listFiles = file.listFiles();
                 if (listFiles == null) {
-                    Log.w("MultiDex", "Failed to list secondary dex dir content (" + file.getPath() + ").");
+                    r0 = "Failed to list secondary dex dir content (" + file.getPath() + ").";
                     return;
                 }
                 for (File file2 : listFiles) {
-                    Log.i("MultiDex", "Trying to delete old file " + file2.getPath() + " of size " + file2.length());
+                    String str = "Trying to delete old file " + file2.getPath() + " of size " + file2.length();
                     if (file2.delete()) {
-                        Log.i("MultiDex", "Deleted old file " + file2.getPath());
+                        String str2 = "Deleted old file " + file2.getPath();
                     } else {
-                        Log.w("MultiDex", "Failed to delete old file " + file2.getPath());
+                        String str3 = "Failed to delete old file " + file2.getPath();
                     }
                 }
                 if (!file.delete()) {
-                    Log.w("MultiDex", "Failed to delete secondary dex dir " + file.getPath());
+                    String str4 = "Failed to delete secondary dex dir " + file.getPath();
                     return;
                 }
-                Log.i("MultiDex", "Deleted old secondary dex dir " + file.getPath());
+                String str5 = "Deleted old secondary dex dir " + file.getPath();
             }
         }
     }
@@ -418,15 +416,17 @@ public final class MultiDex {
                 }
                 installedApk.add(file);
                 if (Build.VERSION.SDK_INT > 20) {
-                    Log.w("MultiDex", "MultiDex is not guaranteed to work in SDK version " + Build.VERSION.SDK_INT + ": SDK version higher than 20 should be backed by runtime with built-in multidex capabilty but it's not the case here: java.vm.version=\"" + System.getProperty("java.vm.version") + "\"");
+                    String str3 = "MultiDex is not guaranteed to work in SDK version " + Build.VERSION.SDK_INT + ": SDK version higher than 20 should be backed by runtime with built-in multidex capabilty but it's not the case here: java.vm.version=\"" + System.getProperty("java.vm.version") + "\"";
                 }
                 try {
                     ClassLoader classLoader = context.getClassLoader();
                     if (classLoader == null) {
-                        Log.e("MultiDex", "Context class loader is null. Must be running in test mode. Skip patching.");
                         return;
                     }
-                    clearOldDexDir(context);
+                    try {
+                        clearOldDexDir(context);
+                    } catch (Throwable unused) {
+                    }
                     File dexDir = getDexDir(context, file2, str);
                     MultiDexExtractor multiDexExtractor = new MultiDexExtractor(file, dexDir);
                     IOException e2 = null;
@@ -434,7 +434,6 @@ public final class MultiDex {
                         installSecondaryDexes(classLoader, dexDir, multiDexExtractor.load(context, str2, false));
                     } catch (IOException e3) {
                         if (z) {
-                            Log.w("MultiDex", "Failed to install extracted secondary dex files, retrying with forced extraction", e3);
                             installSecondaryDexes(classLoader, dexDir, multiDexExtractor.load(context, str2, true));
                         } else {
                             throw e3;
@@ -448,8 +447,7 @@ public final class MultiDex {
                     if (e2 != null) {
                         throw e2;
                     }
-                } catch (RuntimeException e5) {
-                    Log.w("MultiDex", "Failure while trying to obtain Context class loader. Must be running in test mode. Skip patching.", e5);
+                } catch (RuntimeException unused2) {
                 }
             }
         }
@@ -511,8 +509,7 @@ public final class MultiDex {
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             try {
                 return context.getApplicationInfo();
-            } catch (RuntimeException e2) {
-                Log.w("MultiDex", "Failure while trying to obtain ApplicationInfo from Context. Must be running in test mode. Skip patching.", e2);
+            } catch (RuntimeException unused) {
                 return null;
             }
         }
@@ -539,60 +536,46 @@ public final class MultiDex {
 
     public static void install(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
-            Log.i("MultiDex", "Installing application");
-            if (IS_VM_MULTIDEX_CAPABLE) {
-                Log.i("MultiDex", "VM has multidex support, MultiDex support library is disabled.");
-            } else if (Build.VERSION.SDK_INT >= 4) {
-                try {
-                    ApplicationInfo applicationInfo = getApplicationInfo(context);
-                    if (applicationInfo == null) {
-                        Log.i("MultiDex", "No ApplicationInfo available, i.e. running on a test Context: MultiDex support library is disabled.");
-                        return;
-                    }
-                    doInstallation(context, new File(applicationInfo.sourceDir), new File(applicationInfo.dataDir), "secondary-dexes", "", true);
-                    Log.i("MultiDex", "install done");
-                } catch (Exception e2) {
-                    Log.e("MultiDex", "MultiDex installation failure", e2);
-                    throw new RuntimeException("MultiDex installation failed (" + e2.getMessage() + ").");
+        if (!(interceptable == null || interceptable.invokeL(65548, null, context) == null) || IS_VM_MULTIDEX_CAPABLE) {
+            return;
+        }
+        if (Build.VERSION.SDK_INT >= 4) {
+            try {
+                ApplicationInfo applicationInfo = getApplicationInfo(context);
+                if (applicationInfo == null) {
+                    return;
                 }
-            } else {
-                throw new RuntimeException("MultiDex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
+                doInstallation(context, new File(applicationInfo.sourceDir), new File(applicationInfo.dataDir), "secondary-dexes", "", true);
+                return;
+            } catch (Exception e2) {
+                throw new RuntimeException("MultiDex installation failed (" + e2.getMessage() + ").");
             }
         }
+        throw new RuntimeException("MultiDex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
     }
 
     public static void installInstrumentation(Context context, Context context2) {
+        ApplicationInfo applicationInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, context, context2) == null) {
-            Log.i("MultiDex", "Installing instrumentation");
-            if (IS_VM_MULTIDEX_CAPABLE) {
-                Log.i("MultiDex", "VM has multidex support, MultiDex support library is disabled.");
-            } else if (Build.VERSION.SDK_INT >= 4) {
-                try {
-                    ApplicationInfo applicationInfo = getApplicationInfo(context);
-                    if (applicationInfo == null) {
-                        Log.i("MultiDex", "No ApplicationInfo available for instrumentation, i.e. running on a test Context: MultiDex support library is disabled.");
-                        return;
-                    }
-                    ApplicationInfo applicationInfo2 = getApplicationInfo(context2);
-                    if (applicationInfo2 == null) {
-                        Log.i("MultiDex", "No ApplicationInfo available, i.e. running on a test Context: MultiDex support library is disabled.");
-                        return;
-                    }
-                    String str = context.getPackageName() + ".";
-                    File file = new File(applicationInfo2.dataDir);
-                    doInstallation(context2, new File(applicationInfo.sourceDir), file, str + "secondary-dexes", str, false);
-                    doInstallation(context2, new File(applicationInfo2.sourceDir), file, "secondary-dexes", "", false);
-                    Log.i("MultiDex", "Installation done");
-                } catch (Exception e2) {
-                    Log.e("MultiDex", "MultiDex installation failure", e2);
-                    throw new RuntimeException("MultiDex installation failed (" + e2.getMessage() + ").");
+        if (!(interceptable == null || interceptable.invokeLL(65549, null, context, context2) == null) || IS_VM_MULTIDEX_CAPABLE) {
+            return;
+        }
+        if (Build.VERSION.SDK_INT >= 4) {
+            try {
+                ApplicationInfo applicationInfo2 = getApplicationInfo(context);
+                if (applicationInfo2 == null || (applicationInfo = getApplicationInfo(context2)) == null) {
+                    return;
                 }
-            } else {
-                throw new RuntimeException("MultiDex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
+                String str = context.getPackageName() + ".";
+                File file = new File(applicationInfo.dataDir);
+                doInstallation(context2, new File(applicationInfo2.sourceDir), file, str + "secondary-dexes", str, false);
+                doInstallation(context2, new File(applicationInfo.sourceDir), file, "secondary-dexes", "", false);
+                return;
+            } catch (Exception e2) {
+                throw new RuntimeException("MultiDex installation failed (" + e2.getMessage() + ").");
             }
         }
+        throw new RuntimeException("MultiDex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
     }
 
     public static void installSecondaryDexes(ClassLoader classLoader, File file, List<? extends File> list) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException, IOException, SecurityException, ClassNotFoundException, InstantiationException {
@@ -632,24 +615,25 @@ public final class MultiDex {
             sb.append("VM with version ");
             sb.append(str);
             sb.append(z ? " has multidex support" : " does not have multidex support");
-            Log.i("MultiDex", sb.toString());
+            sb.toString();
             return z;
         }
         return invokeL.booleanValue;
     }
 
     public static void mkdirChecked(File file) throws IOException {
+        File parentFile;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, null, file) == null) {
             file.mkdir();
             if (file.isDirectory()) {
                 return;
             }
-            File parentFile = file.getParentFile();
-            if (parentFile == null) {
-                Log.e("MultiDex", "Failed to create dir " + file.getPath() + ". Parent file is null.");
+            if (file.getParentFile() == null) {
+                r0 = "Failed to create dir " + file.getPath() + ". Parent file is null.";
             } else {
-                Log.e("MultiDex", "Failed to create dir " + file.getPath() + ". parent file is a dir " + parentFile.isDirectory() + ", a file " + parentFile.isFile() + ", exists " + parentFile.exists() + ", readable " + parentFile.canRead() + ", writable " + parentFile.canWrite());
+                str = "Failed to create dir " + file.getPath() + ". parent file is a dir " + parentFile.isDirectory() + ", a file " + parentFile.isFile() + ", exists " + parentFile.exists() + ", readable " + parentFile.canRead() + ", writable " + parentFile.canWrite();
             }
             throw new IOException("Failed to create directory " + file.getPath());
         }

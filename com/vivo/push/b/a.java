@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class a extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f39284a;
+    public ArrayList<String> f76116a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(boolean z, String str, String str2, ArrayList<String> arrayList) {
@@ -35,7 +35,7 @@ public final class a extends c {
                 return;
             }
         }
-        this.f39284a = arrayList;
+        this.f76116a = arrayList;
     }
 
     @Override // com.vivo.push.b.c, com.vivo.push.y
@@ -43,7 +43,7 @@ public final class a extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a(CommandMessage.TYPE_TAGS, this.f39284a);
+            aVar.a(CommandMessage.TYPE_TAGS, this.f76116a);
         }
     }
 
@@ -52,7 +52,7 @@ public final class a extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             super.d(aVar);
-            this.f39284a = aVar.b(CommandMessage.TYPE_TAGS);
+            this.f76116a = aVar.b(CommandMessage.TYPE_TAGS);
         }
     }
 

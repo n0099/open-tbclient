@@ -6,11 +6,9 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.util.Base64;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.statistics.g;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,7 +24,7 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class RtcLogReport {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_HOST = "https://rtc-log.cdn.bcebos.com/collect?message=";
@@ -111,7 +109,7 @@ public class RtcLogReport {
                     case 12:
                     case 14:
                     case 15:
-                        return g.f4012b;
+                        return "3G";
                     case 13:
                         return "4G";
                     default:
@@ -160,7 +158,7 @@ public class RtcLogReport {
                 public void onFailure(Call call, IOException iOException) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, call, iOException) == null) {
-                        Log.e(RtcLogReport.LOG, "qualityinfo send fail: " + iOException);
+                        String str3 = "qualityinfo send fail: " + iOException;
                     }
                 }
 

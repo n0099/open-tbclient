@@ -17,10 +17,11 @@ import com.coremedia.iso.boxes.sampleentry.SampleEntry;
 import com.googlecode.mp4parser.AbstractBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class TimeCodeBox extends AbstractBox implements SampleEntry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "tmcd";
@@ -238,11 +239,11 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
         }
     }
 
-    public void setFlags(long j) {
+    public void setFlags(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_14, this, this, Conversions.longObject(j)));
-            this.flags = j;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_14, this, this, Conversions.longObject(j2)));
+            this.flags = j2;
         }
     }
 
@@ -299,7 +300,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return "TimeCodeBox{timeScale=" + this.timeScale + ", frameDuration=" + this.frameDuration + ", numberOfFrames=" + this.numberOfFrames + ", reserved1=" + this.reserved1 + ", reserved2=" + this.reserved2 + ", flags=" + this.flags + '}';
+            return "TimeCodeBox{timeScale=" + this.timeScale + ", frameDuration=" + this.frameDuration + ", numberOfFrames=" + this.numberOfFrames + ", reserved1=" + this.reserved1 + ", reserved2=" + this.reserved2 + ", flags=" + this.flags + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

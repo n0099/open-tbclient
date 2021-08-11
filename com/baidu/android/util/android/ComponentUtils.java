@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class ComponentUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -23,7 +23,7 @@ public final class ComponentUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.util.android.ComponentUtils$1  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$util$android$ComponentUtils$ComponentType;
         public static /* synthetic */ Interceptable $ic;
@@ -68,7 +68,7 @@ public final class ComponentUtils {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class ComponentType {
         public static final /* synthetic */ ComponentType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

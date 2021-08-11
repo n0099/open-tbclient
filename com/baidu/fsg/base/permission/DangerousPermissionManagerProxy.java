@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class DangerousPermissionManagerProxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.fsg.base.permission.DangerousPermissionManagerProxy$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class SingleInstance {
         public static /* synthetic */ Interceptable $ic;
         public static DangerousPermissionManagerProxy mInstance;
@@ -60,6 +60,20 @@ public class DangerousPermissionManagerProxy {
         }
     }
 
+    public DangerousPermissionManagerProxy() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
     public /* synthetic */ DangerousPermissionManagerProxy(AnonymousClass1 anonymousClass1) {
         this();
     }
@@ -91,20 +105,6 @@ public class DangerousPermissionManagerProxy {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, strArr, requestPermissionDialogCallBack) == null) {
             requestPermissionDialogCallBack.isAllAgree(true);
-        }
-    }
-
-    public DangerousPermissionManagerProxy() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
         }
     }
 }

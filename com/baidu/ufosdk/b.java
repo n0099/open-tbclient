@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static int A = -1;
@@ -38,7 +38,7 @@ public final class b {
     public static float Z = 15.0f;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f23440a = false;
+    public static boolean f59168a = false;
     public static int aa = 200;
     public static HashMap ab = null;
     public static ResumeCallBack ac = null;
@@ -50,29 +50,31 @@ public final class b {
     public static int ai = 600;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f23441b = "";
+    public static String f59169b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f23442c = "";
+    public static String f59170c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f23443d = "";
+    public static String f59171d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f23444e = 0;
+    public static int f59172e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f23445f = "";
+    public static String f59173f = "";
 
     /* renamed from: g  reason: collision with root package name */
-    public static Bitmap f23446g = null;
+    public static Bitmap f59174g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f23447h = "";
+    public static String f59175h = "";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f23448i = "";
-    public static int j = 0;
+    public static String f59176i = "";
+
+    /* renamed from: j  reason: collision with root package name */
+    public static int f59177j = 0;
     public static int k = 0;
     public static String l = "";
     public static String m = "";

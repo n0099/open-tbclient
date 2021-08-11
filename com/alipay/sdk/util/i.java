@@ -1,36 +1,28 @@
 package com.alipay.sdk.util;
 
-import android.content.Context;
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+/* loaded from: classes4.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f2013a = "pref_trade_token";
+    public static final String f35879a = "resultStatus";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f2014b = ";";
+    public static final String f35880b = "memo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f2015c = "result={";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final String f2016d = "}";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final String f2017e = "trade_token=\"";
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final String f2018f = "\"";
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final String f2019g = "trade_token=";
+    public static final String f35881c = "result";
     public transient /* synthetic */ FieldHolder $fh;
 
     public i() {
@@ -47,64 +39,72 @@ public class i {
         }
     }
 
-    public static void a(Context context, String str) {
+    public static Map<String, String> a(com.alipay.sdk.sys.a aVar, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, aVar, str)) == null) {
+            Map<String, String> a2 = a();
             try {
-                String a2 = a(str);
-                c.b("", "PayResultUtil::saveTradeToken > tradeToken:" + a2);
-                if (TextUtils.isEmpty(a2)) {
-                    return;
-                }
-                j.a(context, f2013a, a2);
+                return a(str);
             } catch (Throwable th) {
-                com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.B, th);
-                c.a(th);
+                com.alipay.sdk.app.statistic.a.a(aVar, "biz", com.alipay.sdk.app.statistic.b.f35705h, th);
+                return a2;
             }
         }
+        return (Map) invokeLL.objValue;
     }
 
-    public static String a(String str) {
+    public static String b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
+            String str3 = str2 + "={";
+            return str.substring(str.indexOf(str3) + str3.length(), str.lastIndexOf("}"));
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static Map<String, String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            com.alipay.sdk.app.c b2 = com.alipay.sdk.app.c.b(com.alipay.sdk.app.c.f35684c.a());
+            HashMap hashMap = new HashMap();
+            hashMap.put(f35879a, Integer.toString(b2.a()));
+            hashMap.put(f35880b, b2.b());
+            hashMap.put("result", "");
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public static Map<String, String> a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String str2 = null;
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             String[] split = str.split(";");
-            for (int i2 = 0; i2 < split.length; i2++) {
-                if (split[i2].startsWith(f2015c) && split[i2].endsWith("}")) {
-                    String[] split2 = split[i2].substring(8, split[i2].length() - 1).split("&");
-                    int i3 = 0;
-                    while (true) {
-                        if (i3 >= split2.length) {
-                            break;
-                        } else if (split2[i3].startsWith(f2017e) && split2[i3].endsWith("\"")) {
-                            str2 = split2[i3].substring(13, split2[i3].length() - 1);
-                            break;
-                        } else if (split2[i3].startsWith(f2019g)) {
-                            str2 = split2[i3].substring(12);
-                            break;
-                        } else {
-                            i3++;
-                        }
-                    }
-                }
+            HashMap hashMap = new HashMap();
+            for (String str2 : split) {
+                String substring = str2.substring(0, str2.indexOf("={"));
+                hashMap.put(substring, b(str2, substring));
             }
-            return str2;
+            return hashMap;
         }
-        return (String) invokeL.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public static String a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            String b2 = j.b(context, f2013a, "");
-            c.b("", "PayResultUtil::fetchTradeToken > tradeToken:" + b2);
-            return b2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            try {
+                Matcher matcher = Pattern.compile("(^|;)" + str2 + "=\\{([^}]*?)\\}").matcher(str);
+                return matcher.find() ? matcher.group(2) : "?";
+            } catch (Throwable th) {
+                c.a(th);
+                return "?";
+            }
         }
-        return (String) invokeL.objValue;
+        return (String) invokeLL.objValue;
     }
 }

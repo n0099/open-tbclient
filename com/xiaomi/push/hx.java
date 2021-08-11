@@ -13,28 +13,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.BitSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class hx implements iq<hx, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f40634a;
+    public static final iy f77502a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final jg f598a;
+    public static final jg f602a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f40635b;
+    public static final iy f77503b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f599a;
+    public int f603a;
 
     /* renamed from: a  reason: collision with other field name */
-    public BitSet f600a;
+    public BitSet f604a;
 
     /* renamed from: b  reason: collision with other field name */
-    public int f601b;
+    public int f605b;
 
     static {
         InterceptResult invokeClinit;
@@ -49,9 +49,9 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
                 return;
             }
         }
-        f598a = new jg("XmPushActionCheckClientInfo");
-        f40634a = new iy("", (byte) 8, (short) 1);
-        f40635b = new iy("", (byte) 8, (short) 2);
+        f602a = new jg("XmPushActionCheckClientInfo");
+        f77502a = new iy("", (byte) 8, (short) 1);
+        f77503b = new iy("", (byte) 8, (short) 2);
     }
 
     public hx() {
@@ -67,7 +67,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
                 return;
             }
         }
-        this.f600a = new BitSet(2);
+        this.f604a = new BitSet(2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -80,16 +80,16 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hxVar)) == null) {
             if (hx.class.equals(hxVar.getClass())) {
-                int compareTo = Boolean.valueOf(m427a()).compareTo(Boolean.valueOf(hxVar.m427a()));
+                int compareTo = Boolean.valueOf(m430a()).compareTo(Boolean.valueOf(hxVar.m430a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m427a() || (a3 = ir.a(this.f599a, hxVar.f599a)) == 0) {
+                if (!m430a() || (a3 = ir.a(this.f603a, hxVar.f603a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hxVar.b()));
                     if (compareTo2 != 0) {
                         return compareTo2;
                     }
-                    if (!b() || (a2 = ir.a(this.f601b, hxVar.f601b)) == 0) {
+                    if (!b() || (a2 = ir.a(this.f605b, hxVar.f605b)) == 0) {
                         return 0;
                     }
                     return a2;
@@ -105,7 +105,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            this.f599a = i2;
+            this.f603a = i2;
             a(true);
             return this;
         }
@@ -122,17 +122,17 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
     public void a(jb jbVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jbVar) == null) {
-            jbVar.m524a();
+            jbVar.m527a();
             while (true) {
-                iy m520a = jbVar.m520a();
-                byte b2 = m520a.f40780a;
+                iy m523a = jbVar.m523a();
+                byte b2 = m523a.f77655a;
                 if (b2 == 0) {
                     break;
                 }
-                short s = m520a.f810a;
+                short s = m523a.f814a;
                 if (s != 1) {
                     if (s == 2 && b2 == 8) {
-                        this.f601b = jbVar.m518a();
+                        this.f605b = jbVar.m521a();
                         b(true);
                         jbVar.g();
                     }
@@ -140,7 +140,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
                     jbVar.g();
                 } else {
                     if (b2 == 8) {
-                        this.f599a = jbVar.m518a();
+                        this.f603a = jbVar.m521a();
                         a(true);
                         jbVar.g();
                     }
@@ -149,7 +149,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
                 }
             }
             jbVar.f();
-            if (!m427a()) {
+            if (!m430a()) {
                 throw new jc("Required field 'miscConfigVersion' was not found in serialized data! Struct: " + toString());
             } else if (b()) {
                 a();
@@ -162,29 +162,29 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f600a.set(0, z);
+            this.f604a.set(0, z);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m427a() {
+    public boolean m430a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f600a.get(0) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f604a.get(0) : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m428a(hx hxVar) {
+    public boolean m431a(hx hxVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, hxVar)) == null) ? hxVar != null && this.f599a == hxVar.f599a && this.f601b == hxVar.f601b : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, hxVar)) == null) ? hxVar != null && this.f603a == hxVar.f603a && this.f605b == hxVar.f605b : invokeL.booleanValue;
     }
 
     public hx b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            this.f601b = i2;
+            this.f605b = i2;
             b(true);
             return this;
         }
@@ -196,29 +196,29 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jbVar) == null) {
             a();
-            jbVar.a(f598a);
-            jbVar.a(f40634a);
-            jbVar.a(this.f599a);
+            jbVar.a(f602a);
+            jbVar.a(f77502a);
+            jbVar.a(this.f603a);
             jbVar.b();
-            jbVar.a(f40635b);
-            jbVar.a(this.f601b);
+            jbVar.a(f77503b);
+            jbVar.a(this.f605b);
             jbVar.b();
             jbVar.c();
-            jbVar.m528a();
+            jbVar.m531a();
         }
     }
 
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f600a.set(1, z);
+            this.f604a.set(1, z);
         }
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f600a.get(1) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f604a.get(1) : invokeV.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -226,7 +226,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
             if (obj != null && (obj instanceof hx)) {
-                return m428a((hx) obj);
+                return m431a((hx) obj);
             }
             return false;
         }
@@ -246,7 +246,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return "XmPushActionCheckClientInfo(miscConfigVersion:" + this.f599a + StringUtil.ARRAY_ELEMENT_SEPARATOR + "pluginConfigVersion:" + this.f601b + SmallTailInfo.EMOTION_SUFFIX;
+            return "XmPushActionCheckClientInfo(miscConfigVersion:" + this.f603a + StringUtil.ARRAY_ELEMENT_SEPARATOR + "pluginConfigVersion:" + this.f605b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

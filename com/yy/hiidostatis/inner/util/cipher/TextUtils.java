@@ -13,7 +13,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes10.dex */
 public class TextUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadLocal<MessageDigest> MD5_DIGEST;
@@ -176,7 +177,7 @@ public class TextUtils {
     public static String removeLN(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? str.replace("\n", "") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? str.replace(StringUtils.LF, "") : (String) invokeL.objValue;
     }
 
     public static String wrapDecimalLength(String str, int i2) {

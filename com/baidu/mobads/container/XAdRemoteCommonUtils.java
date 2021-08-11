@@ -45,7 +45,7 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class XAdRemoteCommonUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_TIMEOUT = 0;

@@ -12,18 +12,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f35079a;
+    public static String f71828a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f35080b;
+    public static long f71829b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f35081c;
+    public static Context f71830c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,8 +39,8 @@ public class l {
                 return;
             }
         }
-        f35079a = f();
-        f35080b = 0L;
+        f71828a = f();
+        f71829b = 0L;
     }
 
     public static String a() {
@@ -49,7 +49,7 @@ public class l {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             com.kwad.sdk.core.d.a.a("ReportIdManager", ">> updateSessionId");
             String f2 = f();
-            f35079a = f2;
+            f71828a = f2;
             return f2;
         }
         return (String) invokeV.objValue;
@@ -58,18 +58,18 @@ public class l {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            f35081c = context;
+            f71830c = context;
         }
     }
 
     @WorkerThread
-    public static boolean a(Context context, long j) {
+    public static boolean a(Context context, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, context, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, context, j2)) == null) {
             if (context != null) {
                 SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_seq", 0).edit();
-                edit.putLong(IAdRequestParam.SEQ, j);
+                edit.putLong(IAdRequestParam.SEQ, j2);
                 return edit.commit();
             }
             return false;
@@ -94,17 +94,17 @@ public class l {
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f35079a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f71828a : (String) invokeV.objValue;
     }
 
     @WorkerThread
-    public static boolean b(Context context, long j) {
+    public static boolean b(Context context, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(AdIconUtil.BAIDU_LOGO_ID, null, context, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(AdIconUtil.BAIDU_LOGO_ID, null, context, j2)) == null) {
             if (context != null) {
                 SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_mplogseq", 0).edit();
-                edit.putLong(IAdRequestParam.SEQ, j);
+                edit.putLong(IAdRequestParam.SEQ, j2);
                 return edit.commit();
             }
             return false;
@@ -117,8 +117,8 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            long b2 = b(f35081c);
-            a(f35081c, 1 + b2);
+            long b2 = b(f71830c);
+            a(f71830c, 1 + b2);
             return b2;
         }
         return invokeV.longValue;
@@ -145,8 +145,8 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             synchronized (l.class) {
-                c2 = c(f35081c);
-                b(f35081c, 1 + c2);
+                c2 = c(f71830c);
+                b(f71830c, 1 + c2);
             }
             return c2;
         }
@@ -156,7 +156,7 @@ public class l {
     public static long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f35080b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f71829b : invokeV.longValue;
     }
 
     public static String f() {

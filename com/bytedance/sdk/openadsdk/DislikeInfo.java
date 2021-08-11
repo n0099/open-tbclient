@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk;
 
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface DislikeInfo {
     List<FilterWord> getFilterWords();
 

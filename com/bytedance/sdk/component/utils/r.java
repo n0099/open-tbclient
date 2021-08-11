@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class r {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f29008a;
+    public static String f64874a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class r {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            String str = f29008a;
+            String str = f64874a;
             if (TextUtils.isEmpty(str)) {
                 try {
                     int myPid = Process.myPid();
@@ -49,7 +49,7 @@ public class r {
                                 k.b("Process", "processName = " + runningAppProcessInfo.processName);
                             }
                             String str2 = runningAppProcessInfo.processName;
-                            f29008a = str2;
+                            f64874a = str2;
                             return str2;
                         }
                     }
@@ -57,7 +57,7 @@ public class r {
                     e2.printStackTrace();
                 }
                 String a2 = a();
-                f29008a = a2;
+                f64874a = a2;
                 return a2;
             }
             return str;

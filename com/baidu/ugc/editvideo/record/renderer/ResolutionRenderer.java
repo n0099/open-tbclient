@@ -1,13 +1,13 @@
 package com.baidu.ugc.editvideo.record.renderer;
 
 import android.opengl.GLES20;
+import c.a.z.b.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.a0.b.a.e;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class ResolutionRenderer extends MediaBaseRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

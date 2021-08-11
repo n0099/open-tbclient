@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.a.z;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<z> f31592a;
+    public WeakReference<z> f67535a;
 
     public b(z zVar) {
         Interceptable interceptable = $ic;
@@ -31,13 +31,13 @@ public class b {
                 return;
             }
         }
-        this.f31592a = new WeakReference<>(zVar);
+        this.f67535a = new WeakReference<>(zVar);
     }
 
     public void a(z zVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, zVar) == null) {
-            this.f31592a = new WeakReference<>(zVar);
+            this.f67535a = new WeakReference<>(zVar);
         }
     }
 
@@ -45,9 +45,9 @@ public class b {
     public void invokeMethod(String str) {
         WeakReference<z> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (weakReference = this.f31592a) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (weakReference = this.f67535a) == null || weakReference.get() == null) {
             return;
         }
-        this.f31592a.get().invokeMethod(str);
+        this.f67535a.get().invokeMethod(str);
     }
 }

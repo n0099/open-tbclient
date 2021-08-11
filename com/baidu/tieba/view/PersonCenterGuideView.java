@@ -24,26 +24,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PersonCenterGuideView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f22307e;
+    public boolean f57902e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f22308f;
+    public TbImageView f57903f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f22309g;
+    public TextView f57904g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f22310h;
+    public ImageView f57905h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f22311i;
-    public RotateAnimation j;
+    public View f57906i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public RotateAnimation f57907j;
     public AlphaAnimation k;
     public AnimationSet l;
     public ObjectAnimator m;
@@ -52,13 +54,13 @@ public class PersonCenterGuideView extends RelativeLayout {
     public Animation.AnimationListener p;
     public final CustomMessageListener q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonCenterGuideView f22312a;
+        public final /* synthetic */ PersonCenterGuideView f57908a;
 
         public a(PersonCenterGuideView personCenterGuideView) {
             Interceptable interceptable = $ic;
@@ -75,14 +77,14 @@ public class PersonCenterGuideView extends RelativeLayout {
                     return;
                 }
             }
-            this.f22312a = personCenterGuideView;
+            this.f57908a = personCenterGuideView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f22312a.k();
+                this.f57908a.i();
             }
         }
 
@@ -101,13 +103,13 @@ public class PersonCenterGuideView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonCenterGuideView f22313a;
+        public final /* synthetic */ PersonCenterGuideView f57909a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(PersonCenterGuideView personCenterGuideView, int i2) {
@@ -127,21 +129,21 @@ public class PersonCenterGuideView extends RelativeLayout {
                     return;
                 }
             }
-            this.f22313a = personCenterGuideView;
+            this.f57909a = personCenterGuideView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f22313a.f22307e) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f57909a.f57902e) {
                 return;
             }
-            this.f22313a.f22307e = true;
-            this.f22313a.setVisibility(0);
-            this.f22313a.f22311i.setVisibility(4);
-            this.f22313a.f22308f.startAnimation(this.f22313a.l);
-            d.a.p0.s.d0.b.j().t("has_shown_person_center_guide", this.f22313a.f22307e);
+            this.f57909a.f57902e = true;
+            this.f57909a.setVisibility(0);
+            this.f57909a.f57906i.setVisibility(4);
+            this.f57909a.f57903f.startAnimation(this.f57909a.l);
+            c.a.o0.s.d0.b.j().t("has_shown_person_center_guide", this.f57909a.f57902e);
         }
     }
 
@@ -163,10 +165,10 @@ public class PersonCenterGuideView extends RelativeLayout {
                 return;
             }
         }
-        this.f22307e = false;
+        this.f57902e = false;
         this.p = new a(this);
         this.q = new b(this, 2921423);
-        i(context);
+        h(context);
     }
 
     public final void g() {
@@ -180,7 +182,7 @@ public class PersonCenterGuideView extends RelativeLayout {
             if (animationSet != null) {
                 animationSet.cancel();
             }
-            RotateAnimation rotateAnimation = this.j;
+            RotateAnimation rotateAnimation = this.f57907j;
             if (rotateAnimation != null) {
                 rotateAnimation.cancel();
             }
@@ -191,58 +193,48 @@ public class PersonCenterGuideView extends RelativeLayout {
         }
     }
 
-    public void h() {
+    public final void h(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            g();
-            setVisibility(8);
-        }
-    }
-
-    public final void i(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.person_center_header_guide_layout, this);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.person_center_header_guide_circle);
-            this.f22308f = tbImageView;
+            this.f57903f = tbImageView;
             tbImageView.setIsRound(true);
-            this.f22311i = findViewById(R.id.person_center_header_guide_tip_container);
-            this.f22309g = (TextView) findViewById(R.id.person_center_header_guide_tip);
-            this.f22310h = (ImageView) findViewById(R.id.person_center_header_guide_close);
+            this.f57906i = findViewById(R.id.person_center_header_guide_tip_container);
+            this.f57904g = (TextView) findViewById(R.id.person_center_header_guide_tip);
+            this.f57905h = (ImageView) findViewById(R.id.person_center_header_guide_close);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
-            this.j = rotateAnimation;
+            this.f57907j = rotateAnimation;
             rotateAnimation.setDuration(660L);
-            this.j.setAnimationListener(this.p);
+            this.f57907j.setAnimationListener(this.p);
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             this.k = alphaAnimation;
             alphaAnimation.setDuration(660L);
             AnimationSet animationSet = new AnimationSet(true);
             this.l = animationSet;
-            animationSet.addAnimation(this.j);
+            animationSet.addAnimation(this.f57907j);
             this.l.addAnimation(this.k);
-            this.f22307e = d.a.p0.s.d0.b.j().g("has_shown_person_center_guide", false);
+            this.f57902e = c.a.o0.s.d0.b.j().g("has_shown_person_center_guide", false);
         }
     }
 
-    public void j() {
+    public void hideAnim() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            g();
+            setVisibility(8);
+        }
+    }
+
+    public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            SkinManager.setImageResource(this.f22308f, R.drawable.person_center_head_guide_circle);
-            SkinManager.setImageResource(this.f22310h, R.drawable.icon_topbar_close_white_n);
-            SkinManager.setViewTextColor(this.f22309g, R.color.CAM_X0101, 1);
-            SkinManager.setBackgroundResource(this.f22311i, R.drawable.person_center_header_guide_tip_bg);
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f22311i.setVisibility(0);
+            this.f57906i.setVisibility(0);
             if (this.m == null) {
-                this.m = ObjectAnimator.ofFloat(this.f22311i, "translationX", -this.f22309g.getWidth(), 0.0f);
+                this.m = ObjectAnimator.ofFloat(this.f57906i, "translationX", -this.f57904g.getWidth(), 0.0f);
             }
             if (this.o == null) {
-                this.n = ObjectAnimator.ofFloat(this.f22311i, "alpha", 0.0f, 1.0f);
+                this.n = ObjectAnimator.ofFloat(this.f57906i, "alpha", 0.0f, 1.0f);
             }
             if (this.o == null) {
                 AnimatorSet animatorSet = new AnimatorSet();
@@ -257,9 +249,19 @@ public class PersonCenterGuideView extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onAttachedToWindow();
             MessageManager.getInstance().registerListener(this.q);
+        }
+    }
+
+    public void onChangeSkinType() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            SkinManager.setImageResource(this.f57903f, R.drawable.person_center_head_guide_circle);
+            SkinManager.setImageResource(this.f57905h, R.drawable.icon_topbar_close_white_n);
+            SkinManager.setViewTextColor(this.f57904g, R.color.CAM_X0101, 1);
+            SkinManager.setBackgroundResource(this.f57906i, R.drawable.person_center_header_guide_tip_bg);
         }
     }
 
@@ -292,10 +294,10 @@ public class PersonCenterGuideView extends RelativeLayout {
                 return;
             }
         }
-        this.f22307e = false;
+        this.f57902e = false;
         this.p = new a(this);
         this.q = new b(this, 2921423);
-        i(context);
+        h(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -317,9 +319,9 @@ public class PersonCenterGuideView extends RelativeLayout {
                 return;
             }
         }
-        this.f22307e = false;
+        this.f57902e = false;
         this.p = new a(this);
         this.q = new b(this, 2921423);
-        i(context);
+        h(context);
     }
 }

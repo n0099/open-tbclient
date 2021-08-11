@@ -1,7 +1,7 @@
 package com.baidu.mobads.sdk.api;
 
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface IOAdEvent {
     int getCode();
 

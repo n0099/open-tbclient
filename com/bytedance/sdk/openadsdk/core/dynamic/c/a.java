@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -34,46 +33,46 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f30070e;
+    public static String f65972e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Set<String> f30071f;
+    public static final Set<String> f65973f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f30072a;
+    public Context f65974a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SSWebView f30073b;
+    public SSWebView f65975b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30074c;
+    public String f65976c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f30075d;
+    public b f65977d;
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.dynamic.c.a$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.dynamic.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class C0340a {
+    /* loaded from: classes9.dex */
+    public class C1900a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f30076a;
+        public final /* synthetic */ a f65978a;
 
-        public C0340a(a aVar) {
+        public C1900a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,14 +87,14 @@ public class a {
                     return;
                 }
             }
-            this.f30076a = aVar;
+            this.f65978a = aVar;
         }
 
         @JavascriptInterface
         public void calculateResult(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f30076a.c(str);
+                this.f65978a.c(str);
             }
         }
 
@@ -110,7 +109,7 @@ public class a {
                 JSONObject jSONObject = new JSONObject();
                 k.f("DynamicBaseWidget", "getDomSizeFromNative String brickType==" + str2);
                 k.f("DynamicBaseWidget", "getDomSizeFromNative String str==" + str);
-                if (!str.startsWith("<svg") && !a.f30071f.contains(str2)) {
+                if (!str.startsWith("<svg") && !a.f65973f.contains(str2)) {
                     if ("logo".equals(str2)) {
                         jSONObject.put("width", "union".equals(str) ? 10.0d : 20.0d);
                         jSONObject.put("height", 10.0d);
@@ -158,9 +157,9 @@ public class a {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("width", s.c(o.a(), s.c(this.f30076a.f30072a)));
-                    jSONObject.put("height", s.c(o.a(), s.d(this.f30076a.f30072a)));
-                    jSONObject.put(IAdRequestParam.OS, "Android");
+                    jSONObject.put("width", s.c(o.a(), s.c(this.f65978a.f65974a)));
+                    jSONObject.put("height", s.c(o.a(), s.d(this.f65978a.f65974a)));
+                    jSONObject.put("os", "Android");
                 } catch (Exception unused) {
                 }
                 return jSONObject.toString();
@@ -178,7 +177,7 @@ public class a {
             return invokeV.doubleValue;
         }
 
-        public /* synthetic */ C0340a(a aVar, AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C1900a(a aVar, AnonymousClass1 anonymousClass1) {
             this(aVar);
         }
     }
@@ -196,7 +195,7 @@ public class a {
                 return;
             }
         }
-        f30071f = Collections.unmodifiableSet(new HashSet(Arrays.asList("dislike", IntentConfig.CLOSE, "close-fill")));
+        f65973f = Collections.unmodifiableSet(new HashSet(Arrays.asList("dislike", IntentConfig.CLOSE, "close-fill")));
     }
 
     @SuppressLint({"SetJavaScriptEnabled"})
@@ -215,14 +214,14 @@ public class a {
                 return;
             }
         }
-        this.f30072a = context;
-        SSWebView sSWebView = new SSWebView(this.f30072a);
-        this.f30073b = sSWebView;
+        this.f65974a = context;
+        SSWebView sSWebView = new SSWebView(this.f65974a);
+        this.f65975b = sSWebView;
         sSWebView.getSettings().setJavaScriptEnabled(true);
         if (Build.VERSION.SDK_INT >= 17) {
-            this.f30073b.addJavascriptInterface(new C0340a(this, null), "JS_DYNAMIC_LAYOUT_OBJ");
+            this.f65975b.addJavascriptInterface(new C1900a(this, null), "JS_DYNAMIC_LAYOUT_OBJ");
         }
-        this.f30073b.loadUrl("about:blank");
+        this.f65975b.loadUrl("about:blank");
         b();
     }
 
@@ -236,7 +235,7 @@ public class a {
                     c();
                     return;
                 }
-                SSWebView sSWebView = this.f30073b;
+                SSWebView sSWebView = this.f65975b;
                 sSWebView.evaluateJavascript(f2 + h2, null);
                 return;
             }
@@ -251,14 +250,14 @@ public class a {
             if (TextUtils.isEmpty(e2)) {
                 return;
             }
-            j.a(this.f30073b, e2);
+            j.a(this.f65975b, e2);
         }
     }
 
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            j.a(this.f30073b, "javascript:var res = getLayoutInfo(" + this.f30074c + ");window.JS_DYNAMIC_LAYOUT_OBJ.calculateResult(JSON.stringify(res));");
+            j.a(this.f65975b, "javascript:var res = getLayoutInfo(" + this.f65976c + ");window.JS_DYNAMIC_LAYOUT_OBJ.calculateResult(JSON.stringify(res));");
         }
     }
 
@@ -267,14 +266,14 @@ public class a {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (TextUtils.isEmpty(f30070e)) {
+            if (TextUtils.isEmpty(f65972e)) {
                 return null;
             }
             String f2 = f();
             if (i()) {
-                str = "(function () {var se = document.createElement('script');se.type = 'text/javascript';se.src = '" + ("file//" + com.bytedance.sdk.openadsdk.core.widget.webview.a.b.e() + "/" + e.a(f30070e)) + "';document.body.appendChild(se);})();";
+                str = "(function () {var se = document.createElement('script');se.type = 'text/javascript';se.src = '" + ("file//" + com.bytedance.sdk.openadsdk.core.widget.webview.a.b.e() + "/" + e.a(f65972e)) + "';document.body.appendChild(se);})();";
             } else {
-                str = "(function () {var JS_TTDYNAMIC_URL = '" + f30070e + "';var xhrObj = new XMLHttpRequest();xhrObj.open('GET', JS_TTDYNAMIC_URL, false);xhrObj.send('');var se = document.createElement('script');se.type = 'text/javascript';se.text = xhrObj.responseText;document.getElementsByTagName('head')[0].appendChild(se);})();";
+                str = "(function () {var JS_TTDYNAMIC_URL = '" + f65972e + "';var xhrObj = new XMLHttpRequest();xhrObj.open('GET', JS_TTDYNAMIC_URL, false);xhrObj.send('');var se = document.createElement('script');se.type = 'text/javascript';se.text = xhrObj.responseText;document.getElementsByTagName('head')[0].appendChild(se);})();";
             }
             return "javascript:" + f2 + str;
         }
@@ -293,9 +292,9 @@ public class a {
     private void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            aa.a(this.f30072a, this.f30073b);
-            aa.a(this.f30073b);
-            this.f30073b = null;
+            aa.a(this.f65974a, this.f65975b);
+            aa.a(this.f65975b);
+            this.f65975b = null;
         }
     }
 
@@ -304,7 +303,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
             try {
-                return com.bytedance.sdk.openadsdk.n.g.a.a(new FileInputStream(com.bytedance.sdk.openadsdk.core.widget.webview.a.b.e() + "/" + e.a(f30070e)));
+                return com.bytedance.sdk.openadsdk.n.g.a.a(new FileInputStream(com.bytedance.sdk.openadsdk.core.widget.webview.a.b.e() + "/" + e.a(f65972e)));
             } catch (IOException e2) {
                 e2.printStackTrace();
                 return "";
@@ -317,10 +316,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            if (TextUtils.isEmpty(f30070e)) {
+            if (TextUtils.isEmpty(f65972e)) {
                 return false;
             }
-            String a2 = e.a(f30070e);
+            String a2 = e.a(f65972e);
             if (TextUtils.isEmpty(a2)) {
                 return false;
             }
@@ -332,7 +331,7 @@ public class a {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
-            f30070e = str;
+            f65972e = str;
         }
     }
 
@@ -346,7 +345,7 @@ public class a {
             } catch (Exception unused) {
                 fVar = null;
             }
-            b bVar = this.f30075d;
+            b bVar = this.f65977d;
             if (bVar != null) {
                 bVar.a(fVar);
             }
@@ -357,7 +356,7 @@ public class a {
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f30075d = bVar;
+            this.f65977d = bVar;
         }
     }
 
@@ -365,8 +364,8 @@ public class a {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f30074c = str;
-            if (TextUtils.isEmpty(f30070e) && (bVar = this.f30075d) != null) {
+            this.f65976c = str;
+            if (TextUtils.isEmpty(f65972e) && (bVar = this.f65977d) != null) {
                 bVar.a(null);
                 g();
             }

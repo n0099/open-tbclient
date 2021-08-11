@@ -14,7 +14,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class a {
                 }
                 return false;
             } catch (Throwable th) {
-                GDTLogger.e("Exception While check SDK Env", th);
+                GDTLogger.e("检查AndroidManifest.xml时发生异常", th);
                 return false;
             }
         }
@@ -47,11 +47,11 @@ public class a {
                     Intent intent = new Intent();
                     intent.setClass(context, clsArr[0]);
                     if (context.getPackageManager().resolveActivity(intent, 65536) == null) {
-                        GDTLogger.e(String.format("Activity[%s] is required in AndroidManifest.xml", clsArr[0].getName()));
+                        GDTLogger.e(String.format("Activity[%s]需要在AndroidManifest.xml中声明", clsArr[0].getName()));
                         return false;
                     }
                 } catch (Throwable th) {
-                    GDTLogger.e("Exception while checking required activities", th);
+                    GDTLogger.e("检查Activity时发生异常", th);
                     return false;
                 }
             }
@@ -136,11 +136,11 @@ public class a {
                 try {
                     String str = strArr[i2];
                     if (context.checkCallingOrSelfPermission(str) == -1) {
-                        GDTLogger.e(String.format("Permission %s is required in AndroidManifest.xml", str));
+                        GDTLogger.e(String.format("Permission[%s]需要在AndroidManifest.xml中声明", str));
                         return false;
                     }
                 } catch (Throwable th) {
-                    GDTLogger.e("Check required Permissions error", th);
+                    GDTLogger.e("检查权限时发生异常", th);
                     return false;
                 }
             }
@@ -159,11 +159,11 @@ public class a {
                     Intent intent = new Intent();
                     intent.setClass(context, cls);
                     if (context.getPackageManager().resolveService(intent, 65536) == null) {
-                        GDTLogger.e(String.format("Service[%s] is required in AndroidManifest.xml", cls.getName()));
+                        GDTLogger.e(String.format("Service[%s]需要在AndroidManifest.xml中声明", cls.getName()));
                         return false;
                     }
                 } catch (Throwable th) {
-                    GDTLogger.e("Exception while checking required services", th);
+                    GDTLogger.e("检查Service时发生异常", th);
                     return false;
                 }
             }

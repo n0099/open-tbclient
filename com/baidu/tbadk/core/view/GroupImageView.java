@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class GroupImageView extends TbClipImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int y0;
-    public int z0;
+    public int P;
+    public int Q;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public GroupImageView(Context context) {
@@ -36,14 +36,14 @@ public class GroupImageView extends TbClipImageView {
         }
     }
 
-    public final void v() {
+    public final void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setDrawerType(1);
             setGifIconSupport(false);
             setDrawBorder(true);
-            setDefaultResource(this.y0);
-            setDefaultBgResource(this.z0);
+            setDefaultResource(this.P);
+            setDefaultBgResource(this.Q);
         }
     }
 
@@ -87,8 +87,8 @@ public class GroupImageView extends TbClipImageView {
                 return;
             }
         }
-        this.y0 = R.drawable.transparent_bg;
-        this.z0 = R.color.CAM_X0205;
-        v();
+        this.P = R.drawable.transparent_bg;
+        this.Q = R.color.CAM_X0205;
+        init();
     }
 }

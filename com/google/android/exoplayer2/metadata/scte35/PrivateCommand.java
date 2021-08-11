@@ -3,6 +3,7 @@ package com.google.android.exoplayer2.metadata.scte35;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
+import c.i.b.a.i0.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,8 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.b.a.i0.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class PrivateCommand extends SpliceCommand {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<PrivateCommand> CREATOR;
@@ -21,7 +21,7 @@ public final class PrivateCommand extends SpliceCommand {
     public final long identifier;
     public final long ptsAdjustment;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a implements Parcelable.Creator<PrivateCommand> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,15 +79,15 @@ public final class PrivateCommand extends SpliceCommand {
         this(parcel);
     }
 
-    public static PrivateCommand parseFromSection(l lVar, int i2, long j) {
+    public static PrivateCommand parseFromSection(l lVar, int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{lVar, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{lVar, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             long z = lVar.z();
             int i3 = i2 - 4;
             byte[] bArr = new byte[i3];
             lVar.g(bArr, 0, i3);
-            return new PrivateCommand(z, bArr, j);
+            return new PrivateCommand(z, bArr, j2);
         }
         return (PrivateCommand) invokeCommon.objValue;
     }
@@ -103,12 +103,12 @@ public final class PrivateCommand extends SpliceCommand {
         }
     }
 
-    public PrivateCommand(long j, byte[] bArr, long j2) {
+    public PrivateCommand(long j2, byte[] bArr, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), bArr, Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j2), bArr, Long.valueOf(j3)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -118,8 +118,8 @@ public final class PrivateCommand extends SpliceCommand {
                 return;
             }
         }
-        this.ptsAdjustment = j2;
-        this.identifier = j;
+        this.ptsAdjustment = j3;
+        this.identifier = j2;
         this.commandBytes = bArr;
     }
 

@@ -26,7 +26,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class TNCManager implements TNCBridge {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_UPDATE_REMOTE = 10000;
@@ -203,7 +203,7 @@ public class TNCManager implements TNCBridge {
     */
     private void handleTncProbe(ab abVar, String str) {
         int i2;
-        long j;
+        long j2;
         TNCConfig tNCConfig;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65544, this, abVar, str) == null) && abVar != null && this.mIsMainProcess) {
@@ -221,23 +221,23 @@ public class TNCManager implements TNCBridge {
                     i2 = 0;
                 }
                 try {
-                    j = Long.parseLong(split[1]);
+                    j2 = Long.parseLong(split[1]);
                 } catch (Throwable th2) {
                     th = th2;
                     th.printStackTrace();
                     Logger.debug(TAG, "handleTncProbe, probeProto except, " + str);
-                    j = 0L;
-                    Logger.debug(TAG, "handleTncProbe, local: " + this.mTncProbeCmd + TNC_PROBE_HEADER_SECEPTOR + this.mTncProbeVersion + " svr: " + i2 + TNC_PROBE_HEADER_SECEPTOR + j + " " + str);
-                    if (j > this.mTncProbeVersion) {
+                    j2 = 0L;
+                    Logger.debug(TAG, "handleTncProbe, local: " + this.mTncProbeCmd + TNC_PROBE_HEADER_SECEPTOR + this.mTncProbeVersion + " svr: " + i2 + TNC_PROBE_HEADER_SECEPTOR + j2 + " " + str);
+                    if (j2 > this.mTncProbeVersion) {
                     }
                 }
-                Logger.debug(TAG, "handleTncProbe, local: " + this.mTncProbeCmd + TNC_PROBE_HEADER_SECEPTOR + this.mTncProbeVersion + " svr: " + i2 + TNC_PROBE_HEADER_SECEPTOR + j + " " + str);
-                if (j > this.mTncProbeVersion) {
+                Logger.debug(TAG, "handleTncProbe, local: " + this.mTncProbeCmd + TNC_PROBE_HEADER_SECEPTOR + this.mTncProbeVersion + " svr: " + i2 + TNC_PROBE_HEADER_SECEPTOR + j2 + " " + str);
+                if (j2 > this.mTncProbeVersion) {
                     return;
                 }
                 this.mTncProbeCmd = i2;
-                this.mTncProbeVersion = j;
-                this.mContext.getSharedPreferences(getTncSpName(), 0).edit().putInt("tnc_probe_cmd", i2).putLong("tnc_probe_version", j).apply();
+                this.mTncProbeVersion = j2;
+                this.mContext.getSharedPreferences(getTncSpName(), 0).edit().putInt("tnc_probe_cmd", i2).putLong("tnc_probe_version", j2).apply();
                 if (this.mTncProbeCmd != 10000 || (tNCConfig = getTNCConfig()) == null) {
                     return;
                 }
@@ -325,16 +325,16 @@ public class TNCManager implements TNCBridge {
         }
     }
 
-    private void sendUpdateMsg(boolean z, long j) {
+    private void sendUpdateMsg(boolean z, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) || this.mHandler.hasMessages(10000)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) || this.mHandler.hasMessages(10000)) {
             return;
         }
         Message obtainMessage = this.mHandler.obtainMessage();
         obtainMessage.what = 10000;
         obtainMessage.arg1 = z ? 1 : 0;
-        if (j > 0) {
-            this.mHandler.sendMessageDelayed(obtainMessage, j);
+        if (j2 > 0) {
+            this.mHandler.sendMessageDelayed(obtainMessage, j2);
         } else {
             this.mHandler.sendMessage(obtainMessage);
         }

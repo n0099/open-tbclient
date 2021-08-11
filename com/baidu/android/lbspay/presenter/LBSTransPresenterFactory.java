@@ -8,25 +8,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class LBSTransPresenterFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TRANS_AUTH_PRESENTER = "LBSTransAuthPresenter";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.lbspay.presenter.LBSTransPresenterFactory$1  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static LBSTransPresenterFactory f2696a;
+        public static LBSTransPresenterFactory f36571a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,7 +42,7 @@ public class LBSTransPresenterFactory {
                     return;
                 }
             }
-            f2696a = new LBSTransPresenterFactory(null);
+            f36571a = new LBSTransPresenterFactory(null);
         }
     }
 
@@ -53,7 +53,7 @@ public class LBSTransPresenterFactory {
     public static LBSTransPresenterFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f2696a : (LBSTransPresenterFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f36571a : (LBSTransPresenterFactory) invokeV.objValue;
     }
 
     public LBSTransPresenter getTransPresenter(LBSTransActivity lBSTransActivity, String str) {

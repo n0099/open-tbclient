@@ -21,7 +21,7 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class DefaultImageHeaderParser implements ImageHeaderParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BYTES_PER_FORMAT;
@@ -49,7 +49,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     public static final int WEBP_LOSSLESS_ALPHA_FLAG = 8;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class ByteBufferReader implements Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,11 +117,11 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
-        public long skip(long j) {
+        public long skip(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-                int min = (int) Math.min(this.byteBuffer.remaining(), j);
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
+                int min = (int) Math.min(this.byteBuffer.remaining(), j2);
                 ByteBuffer byteBuffer = this.byteBuffer;
                 byteBuffer.position(byteBuffer.position() + min);
                 return min;
@@ -130,7 +130,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class RandomAccessReader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -198,7 +198,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface Reader {
         int getByte() throws IOException;
 
@@ -208,10 +208,10 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
 
         int read(byte[] bArr, int i2) throws IOException;
 
-        long skip(long j) throws IOException;
+        long skip(long j2) throws IOException;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class StreamReader implements Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -275,25 +275,25 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
-        public long skip(long j) throws IOException {
+        public long skip(long j2) throws IOException {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-                if (j < 0) {
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
+                if (j2 < 0) {
                     return 0L;
                 }
-                long j2 = j;
-                while (j2 > 0) {
-                    long skip = this.is.skip(j2);
+                long j3 = j2;
+                while (j3 > 0) {
+                    long skip = this.is.skip(j3);
                     if (skip <= 0) {
                         if (this.is.read() == -1) {
                             break;
                         }
                         skip = 1;
                     }
-                    j2 -= skip;
+                    j3 -= skip;
                 }
-                return j - j2;
+                return j2 - j3;
             }
             return invokeJ.longValue;
         }
@@ -369,7 +369,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         short uInt8;
         short uInt82;
         int uInt16;
-        long j;
+        long j2;
         long skip;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -377,7 +377,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
             do {
                 if (reader.getUInt8() != 255) {
                     if (Log.isLoggable(TAG, 3)) {
-                        Log.d(TAG, "Unknown segmentId=" + ((int) uInt8));
+                        String str = "Unknown segmentId=" + ((int) uInt8);
                     }
                     return -1;
                 }
@@ -386,20 +386,18 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
                     return -1;
                 }
                 if (uInt82 == 217) {
-                    if (Log.isLoggable(TAG, 3)) {
-                        Log.d(TAG, "Found MARKER_EOI in exif segment");
-                    }
+                    Log.isLoggable(TAG, 3);
                     return -1;
                 }
                 uInt16 = reader.getUInt16() - 2;
                 if (uInt82 == 225) {
                     return uInt16;
                 }
-                j = uInt16;
-                skip = reader.skip(j);
-            } while (skip == j);
+                j2 = uInt16;
+                skip = reader.skip(j2);
+            } while (skip == j2);
             if (Log.isLoggable(TAG, 3)) {
-                Log.d(TAG, "Unable to skip enough data, type: " + ((int) uInt82) + ", wanted to skip: " + uInt16 + ", but actually skipped: " + skip);
+                String str2 = "Unable to skip enough data, type: " + ((int) uInt82) + ", wanted to skip: " + uInt16 + ", but actually skipped: " + skip;
             }
             return -1;
         }
@@ -413,15 +411,13 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
             int read = reader.read(bArr, i2);
             if (read != i2) {
                 if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "Unable to read exif segment data, length: " + i2 + ", actually read: " + read);
+                    String str = "Unable to read exif segment data, length: " + i2 + ", actually read: " + read;
                 }
                 return -1;
             } else if (hasJpegExifPreamble(bArr, i2)) {
                 return parseExifSegment(new RandomAccessReader(bArr, i2));
             } else {
-                if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "Missing jpeg exif preamble");
-                }
+                Log.isLoggable(TAG, 3);
                 return -1;
             }
         }
@@ -507,15 +503,13 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
             int uInt16 = reader.getUInt16();
             if (!handles(uInt16)) {
                 if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "Parser doesn't handle magic number: " + uInt16);
+                    String str = "Parser doesn't handle magic number: " + uInt16;
                 }
                 return -1;
             }
             int moveToExifSegmentAndGetLength = moveToExifSegmentAndGetLength(reader);
             if (moveToExifSegmentAndGetLength == -1) {
-                if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "Failed to parse exif segment length, or exif segment not found");
-                }
+                Log.isLoggable(TAG, 3);
                 return -1;
             }
             byte[] bArr = (byte[]) arrayPool.get(moveToExifSegmentAndGetLength, byte[].class);
@@ -531,14 +525,15 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     public static int parseExifSegment(RandomAccessReader randomAccessReader) {
         InterceptResult invokeL;
         ByteOrder byteOrder;
+        short int16;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, randomAccessReader)) == null) {
-            short int16 = randomAccessReader.getInt16(6);
-            if (int16 == 18761) {
+            short int162 = randomAccessReader.getInt16(6);
+            if (int162 == 18761) {
                 byteOrder = ByteOrder.LITTLE_ENDIAN;
-            } else if (int16 != 19789) {
+            } else if (int162 != 19789) {
                 if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "Unknown endianness = " + ((int) int16));
+                    String str = "Unknown endianness = " + ((int) int162);
                 }
                 byteOrder = ByteOrder.BIG_ENDIAN;
             } else {
@@ -546,26 +541,23 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
             }
             randomAccessReader.order(byteOrder);
             int int32 = randomAccessReader.getInt32(10) + 6;
-            short int162 = randomAccessReader.getInt16(int32);
-            for (int i2 = 0; i2 < int162; i2++) {
+            short int163 = randomAccessReader.getInt16(int32);
+            for (int i2 = 0; i2 < int163; i2++) {
                 int calcTagOffset = calcTagOffset(int32, i2);
-                short int163 = randomAccessReader.getInt16(calcTagOffset);
-                if (int163 == 274) {
+                if (randomAccessReader.getInt16(calcTagOffset) == 274) {
                     short int164 = randomAccessReader.getInt16(calcTagOffset + 2);
                     if (int164 >= 1 && int164 <= 12) {
                         int int322 = randomAccessReader.getInt32(calcTagOffset + 4);
                         if (int322 < 0) {
-                            if (Log.isLoggable(TAG, 3)) {
-                                Log.d(TAG, "Negative tiff component count");
-                            }
+                            Log.isLoggable(TAG, 3);
                         } else {
                             if (Log.isLoggable(TAG, 3)) {
-                                Log.d(TAG, "Got tagIndex=" + i2 + " tagType=" + ((int) int163) + " formatCode=" + ((int) int164) + " componentCount=" + int322);
+                                String str2 = "Got tagIndex=" + i2 + " tagType=" + ((int) int16) + " formatCode=" + ((int) int164) + " componentCount=" + int322;
                             }
                             int i3 = int322 + BYTES_PER_FORMAT[int164];
                             if (i3 > 4) {
                                 if (Log.isLoggable(TAG, 3)) {
-                                    Log.d(TAG, "Got byte count > 4, not orientation, continuing, formatCode=" + ((int) int164));
+                                    String str3 = "Got byte count > 4, not orientation, continuing, formatCode=" + ((int) int164);
                                 }
                             } else {
                                 int i4 = calcTagOffset + 8;
@@ -574,15 +566,15 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
                                         return randomAccessReader.getInt16(i4);
                                     }
                                     if (Log.isLoggable(TAG, 3)) {
-                                        Log.d(TAG, "Illegal number of bytes for TI tag data tagType=" + ((int) int163));
+                                        String str4 = "Illegal number of bytes for TI tag data tagType=" + ((int) int16);
                                     }
                                 } else if (Log.isLoggable(TAG, 3)) {
-                                    Log.d(TAG, "Illegal tagValueOffset=" + i4 + " tagType=" + ((int) int163));
+                                    String str5 = "Illegal tagValueOffset=" + i4 + " tagType=" + ((int) int16);
                                 }
                             }
                         }
                     } else if (Log.isLoggable(TAG, 3)) {
-                        Log.d(TAG, "Got invalid format code = " + ((int) int164));
+                        String str6 = "Got invalid format code = " + ((int) int164);
                     }
                 }
             }

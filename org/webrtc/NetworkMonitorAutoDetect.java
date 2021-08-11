@@ -33,7 +33,7 @@ import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class NetworkMonitorAutoDetect extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long INVALID_NET_ID = -1;
@@ -54,14 +54,14 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
     public String wifiSSID;
 
     /* renamed from: org.webrtc.NetworkMonitorAutoDetect$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class ConnectionType {
         public static final /* synthetic */ ConnectionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -136,7 +136,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class ConnectivityManagerDelegate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -257,16 +257,16 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 if (supportNetworkCallback() && (activeNetworkInfo = this.connectivityManager.getActiveNetworkInfo()) != null) {
-                    long j = -1;
+                    long j2 = -1;
                     for (Network network : getAllNetworks()) {
                         if (hasInternetCapability(network) && (networkInfo = this.connectivityManager.getNetworkInfo(network)) != null && networkInfo.getType() == activeNetworkInfo.getType()) {
-                            if (j != -1) {
+                            if (j2 != -1) {
                                 throw new RuntimeException("Multiple connected networks of same type are not supported.");
                             }
-                            j = NetworkMonitorAutoDetect.networkToNetId(network);
+                            j2 = NetworkMonitorAutoDetect.networkToNetId(network);
                         }
                     }
-                    return j;
+                    return j2;
                 }
                 return -1L;
             }
@@ -369,7 +369,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class IPAddress {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -401,7 +401,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class NetworkInformation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -411,12 +411,12 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         public final ConnectionType type;
         public final ConnectionType underlyingTypeForVpn;
 
-        public NetworkInformation(String str, ConnectionType connectionType, ConnectionType connectionType2, long j, IPAddress[] iPAddressArr) {
+        public NetworkInformation(String str, ConnectionType connectionType, ConnectionType connectionType2, long j2, IPAddress[] iPAddressArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, connectionType, connectionType2, Long.valueOf(j), iPAddressArr};
+                Object[] objArr = {str, connectionType, connectionType2, Long.valueOf(j2), iPAddressArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -429,7 +429,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             this.name = str;
             this.type = connectionType;
             this.underlyingTypeForVpn = connectionType2;
-            this.handle = j;
+            this.handle = j2;
             this.ipAddresses = iPAddressArr;
         }
 
@@ -469,7 +469,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class NetworkState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -532,17 +532,17 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public interface Observer {
         void onConnectionTypeChanged(ConnectionType connectionType);
 
         void onNetworkConnect(NetworkInformation networkInformation);
 
-        void onNetworkDisconnect(long j);
+        void onNetworkDisconnect(long j2);
     }
 
     @SuppressLint({"NewApi"})
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class SimpleNetworkCallback extends ConnectivityManager.NetworkCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -624,7 +624,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class WifiDirectManagerDelegate extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public static final int WIFI_P2P_NETWORK_HANDLE = 0;
@@ -715,7 +715,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class WifiManagerDelegate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

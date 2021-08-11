@@ -22,7 +22,7 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.DecoderResult;
 import com.google.zxing.maxicode.decoder.Decoder;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class MaxiCodeReader implements Reader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MATRIX_HEIGHT = 33;

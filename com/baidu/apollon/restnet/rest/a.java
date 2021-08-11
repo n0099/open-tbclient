@@ -23,21 +23,21 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import okhttp3.CertificatePinner;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public final class a implements HostnameVerifier {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f3900a;
+    public static final a f37886a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f3901b;
+    public static final Pattern f37887b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3902c = 2;
+    public static final int f37888c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f3903d = 7;
+    public static final int f37889d = 7;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -53,8 +53,8 @@ public final class a implements HostnameVerifier {
                 return;
             }
         }
-        f3900a = new a();
-        f3901b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+        f37886a = new a();
+        f37887b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
     }
 
     public a() {
@@ -133,7 +133,7 @@ public final class a implements HostnameVerifier {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f3901b.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f37887b.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static List<String> a(X509Certificate x509Certificate) {
@@ -181,10 +181,10 @@ public final class a implements HostnameVerifier {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, str2)) == null) {
             if (str != null && str.length() != 0 && !str.startsWith(".") && !str.endsWith(IStringUtil.TOP_PATH) && str2 != null && str2.length() != 0 && !str2.startsWith(".") && !str2.endsWith(IStringUtil.TOP_PATH)) {
                 if (!str.endsWith(".")) {
-                    str = str + IStringUtil.EXTENSION_SEPARATOR;
+                    str = str + '.';
                 }
                 if (!str2.endsWith(".")) {
-                    str2 = str2 + IStringUtil.EXTENSION_SEPARATOR;
+                    str2 = str2 + '.';
                 }
                 String lowerCase = str2.toLowerCase(Locale.US);
                 if (!lowerCase.contains("*")) {

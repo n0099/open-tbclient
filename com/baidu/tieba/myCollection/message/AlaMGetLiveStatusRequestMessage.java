@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.JsonArray;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaMGetLiveStatusRequestMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,10 +43,10 @@ public class AlaMGetLiveStatusRequestMessage extends HttpMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mOriginDatas : (List) invokeV.objValue;
     }
 
-    public void setAudienceCount(long j) {
+    public void setAudienceCount(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            addParam("audience_count", j);
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            addParam("audience_count", j2);
         }
     }
 

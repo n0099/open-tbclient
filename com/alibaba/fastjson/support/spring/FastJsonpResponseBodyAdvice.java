@@ -24,7 +24,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 @ControllerAdvice
 @Deprecated
 @Order(Integer.MIN_VALUE)
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class FastJsonpResponseBodyAdvice implements ResponseBodyAdvice<Object> {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern CALLBACK_PARAM_PATTERN;

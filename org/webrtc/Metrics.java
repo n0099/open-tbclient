@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class Metrics {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Metrics";
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, HistogramInfo> map;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class HistogramInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

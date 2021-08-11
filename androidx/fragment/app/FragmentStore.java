@@ -1,6 +1,5 @@
 package androidx.fragment.app;
 
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.IdRes;
@@ -329,7 +328,7 @@ public class FragmentStore {
                     Fragment findActiveFragment = findActiveFragment(str);
                     if (findActiveFragment != null) {
                         if (FragmentManager.isLoggingEnabled(2)) {
-                            Log.v("FragmentManager", "restoreSaveState: added (" + str + "): " + findActiveFragment);
+                            String str2 = "restoreSaveState: added (" + str + "): " + findActiveFragment;
                         }
                         addFragment(findActiveFragment);
                     } else {
@@ -343,16 +342,16 @@ public class FragmentStore {
     @NonNull
     public ArrayList<FragmentState> saveActiveFragments() {
         InterceptResult invokeV;
+        FragmentState saveState;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             ArrayList<FragmentState> arrayList = new ArrayList<>(this.mActive.size());
             for (FragmentStateManager fragmentStateManager : this.mActive.values()) {
                 if (fragmentStateManager != null) {
                     Fragment fragment = fragmentStateManager.getFragment();
-                    FragmentState saveState = fragmentStateManager.saveState();
-                    arrayList.add(saveState);
+                    arrayList.add(fragmentStateManager.saveState());
                     if (FragmentManager.isLoggingEnabled(2)) {
-                        Log.v("FragmentManager", "Saved state of " + fragment + ": " + saveState.mSavedFragmentState);
+                        String str = "Saved state of " + fragment + ": " + saveState.mSavedFragmentState;
                     }
                 }
             }
@@ -376,7 +375,7 @@ public class FragmentStore {
                     Fragment next = it.next();
                     arrayList.add(next.mWho);
                     if (FragmentManager.isLoggingEnabled(2)) {
-                        Log.v("FragmentManager", "saveAllState: adding fragment (" + next.mWho + "): " + next);
+                        String str = "saveAllState: adding fragment (" + next.mWho + "): " + next;
                     }
                 }
                 return arrayList;

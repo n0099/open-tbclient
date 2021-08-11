@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import org.apache.http.conn.routing.HttpRoute;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ConnPerRouteBean implements ConnPerRoute {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_MAX_CONNECTIONS_PER_ROUTE = 2;

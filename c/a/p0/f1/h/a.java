@@ -1,0 +1,336 @@
+package c.a.p0.f1.h;
+
+import android.view.View;
+import android.widget.FrameLayout;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
+import com.baidu.tieba.homepage.personalize.PersonalizePageView;
+import com.baidu.tieba.homepage.personalize.data.ConcernUnreadTipHttpResMsg;
+import com.baidu.tieba.homepage.personalize.data.ConcernUnreadTipSocketResMsg;
+import com.baidu.tieba.homepage.personalize.view.ConcernUnreadTipView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
+public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public ScrollFragmentTabHost f17291a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public PersonalizePageView f17292b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ConcernUnreadTipView f17293c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TbPageContext f17294d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public BdUniqueId f17295e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Runnable f17296f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public c.a.e.c.g.a f17297g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public CustomMessageListener f17298h;
+
+    /* renamed from: c.a.p0.f1.h.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public class RunnableC0842a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ a f17299e;
+
+        public RunnableC0842a(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17299e = aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f17299e.f17292b == null) {
+                return;
+            }
+            if (this.f17299e.f17293c != null) {
+                this.f17299e.f17292b.removeView(this.f17299e.f17293c);
+                TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 3));
+            }
+            this.f17299e.f17292b.setIsUnreadTipShow(false);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b extends c.a.e.c.g.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ a f17300a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(a aVar, int i2, int i3) {
+            super(i2, i3);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17300a = aVar;
+        }
+
+        @Override // c.a.e.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                if (responsedMessage instanceof ConcernUnreadTipHttpResMsg) {
+                    this.f17300a.e(((ConcernUnreadTipHttpResMsg) responsedMessage).mData);
+                } else if (responsedMessage instanceof ConcernUnreadTipSocketResMsg) {
+                    this.f17300a.e(((ConcernUnreadTipSocketResMsg) responsedMessage).mData);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ a f17301a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(a aVar, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17301a = aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                this.f17301a.f(true);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ a f17302e;
+
+        public d(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f17302e = aVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f17302e.f17293c == null || this.f17302e.f17293c.mClose == null) {
+                return;
+            }
+            if (view.getId() != this.f17302e.f17293c.mClose.getId()) {
+                if (this.f17302e.f17291a != null) {
+                    this.f17302e.f17291a.setCurrentTab(0);
+                    return;
+                }
+                return;
+            }
+            this.f17302e.f(false);
+            TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 1));
+        }
+    }
+
+    public a(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f17296f = new RunnableC0842a(this);
+        this.f17297g = new b(this, CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, 309541);
+        this.f17298h = new c(this, 2921064);
+        if (tbPageContext == null) {
+            return;
+        }
+        this.f17294d = tbPageContext;
+        tbPageContext.registerListener(this.f17297g);
+        tbPageContext.registerListener(this.f17298h);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, c.a.p0.i3.d0.a.a(TbConfig.URL_CONCERN_UNREAD_TIP, 309541));
+        tbHttpMessageTask.setIsNeedAddCommenParam(true);
+        tbHttpMessageTask.setResponsedClass(ConcernUnreadTipHttpResMsg.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        c.a.o0.x0.b bVar = new c.a.o0.x0.b(309541);
+        bVar.setResponsedClass(ConcernUnreadTipSocketResMsg.class);
+        bVar.g(true);
+        MessageManager.getInstance().registerTask(bVar);
+    }
+
+    public final void e(c.a.p0.f1.h.j.e eVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) && eVar != null && eVar.a()) {
+            k(eVar);
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            c.a.e.e.m.e.a().removeCallbacks(this.f17296f);
+            PersonalizePageView personalizePageView = this.f17292b;
+            if (personalizePageView != null) {
+                ConcernUnreadTipView concernUnreadTipView = this.f17293c;
+                if (concernUnreadTipView != null) {
+                    personalizePageView.removeView(concernUnreadTipView);
+                    if (z && this.f17292b.getIsUnreadTipShow()) {
+                        c.a.o0.s.d0.b.j().w(c.a.o0.s.d0.b.n("concern_unread_tip_next_show_time"), 0L);
+                        TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 2));
+                    }
+                }
+                this.f17292b.setIsUnreadTipShow(false);
+            }
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f17292b = null;
+            this.f17291a = null;
+            if (this.f17296f != null) {
+                c.a.e.e.m.e.a().removeCallbacks(this.f17296f);
+            }
+            MessageManager.getInstance().unRegisterListener(this.f17297g);
+            MessageManager.getInstance().unRegisterListener(this.f17298h);
+        }
+    }
+
+    public void h(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
+            this.f17295e = bdUniqueId;
+        }
+    }
+
+    public void i(PersonalizePageView personalizePageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, personalizePageView) == null) {
+            this.f17292b = personalizePageView;
+        }
+    }
+
+    public void j(ScrollFragmentTabHost scrollFragmentTabHost) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, scrollFragmentTabHost) == null) {
+            this.f17291a = scrollFragmentTabHost;
+        }
+    }
+
+    public void k(c.a.p0.f1.h.j.e eVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) || this.f17292b == null) {
+            return;
+        }
+        ConcernUnreadTipView concernUnreadTipView = new ConcernUnreadTipView(this.f17294d.getContext());
+        this.f17293c = concernUnreadTipView;
+        concernUnreadTipView.setBdUniqueId(this.f17295e);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+        layoutParams.gravity = 49;
+        this.f17293c.setLayoutParams(layoutParams);
+        this.f17293c.setData(eVar);
+        this.f17293c.setClickListener(new d(this));
+        this.f17292b.setIsUnreadTipShow(true);
+        this.f17292b.addView(this.f17293c);
+        if (eVar != null) {
+            TiebaStatic.log(new StatisticItem("c12631").param("obj_param1", eVar.f17467a).param(TiebaStatic.Params.OBJ_PARAM2, eVar.f17471e));
+        }
+        c.a.e.e.m.e.a().postDelayed(this.f17296f, 5000L);
+    }
+}

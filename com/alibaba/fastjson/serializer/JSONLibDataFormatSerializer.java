@@ -1,16 +1,14 @@
 package com.alibaba.fastjson.serializer;
 
 import com.alibaba.fastjson.JSONObject;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.internal.bind.TypeAdapters;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Date;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class JSONLibDataFormatSerializer implements ObjectSerializer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,14 +38,14 @@ public class JSONLibDataFormatSerializer implements ObjectSerializer {
             Date date = (Date) obj;
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("date", (Object) Integer.valueOf(date.getDate()));
-            jSONObject.put(Config.TRACE_VISIT_RECENT_DAY, (Object) Integer.valueOf(date.getDay()));
+            jSONObject.put("day", (Object) Integer.valueOf(date.getDay()));
             jSONObject.put("hours", (Object) Integer.valueOf(date.getHours()));
             jSONObject.put("minutes", (Object) Integer.valueOf(date.getMinutes()));
-            jSONObject.put(TypeAdapters.AnonymousClass27.MONTH, (Object) Integer.valueOf(date.getMonth()));
+            jSONObject.put("month", (Object) Integer.valueOf(date.getMonth()));
             jSONObject.put("seconds", (Object) Integer.valueOf(date.getSeconds()));
             jSONObject.put("time", (Object) Long.valueOf(date.getTime()));
             jSONObject.put("timezoneOffset", (Object) Integer.valueOf(date.getTimezoneOffset()));
-            jSONObject.put(TypeAdapters.AnonymousClass27.YEAR, (Object) Integer.valueOf(date.getYear()));
+            jSONObject.put("year", (Object) Integer.valueOf(date.getYear()));
             jSONSerializer.write(jSONObject);
         }
     }

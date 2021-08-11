@@ -1,5 +1,10 @@
 package com.baidu.tieba.h5power;
 
+import c.a.e.e.p.k;
+import c.a.p0.i3.l0.d.a;
+import c.a.p0.i3.l0.d.b;
+import c.a.p0.i3.l0.d.c;
+import c.a.p0.i3.l0.d.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
@@ -15,11 +20,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.PushClientConstants;
-import d.a.d.e.p.k;
-import d.a.q0.h3.l0.d.a;
-import d.a.q0.h3.l0.d.b;
-import d.a.q0.h3.l0.d.c;
-import d.a.q0.h3.l0.d.e;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -27,7 +27,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class QuickWebViewBridge_Proxy extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class QuickWebViewBridge_Proxy extends a {
         this.mNotificationNameList.add(CommonTbJsBridge.GO_BACK_FROM_NATIVE);
     }
 
-    @Override // d.a.q0.h3.l0.d.a
+    @Override // c.a.p0.i3.l0.d.a
     public c dispatch(e eVar, c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -426,7 +426,7 @@ public class QuickWebViewBridge_Proxy extends a {
         return (c) invokeLL.objValue;
     }
 
-    @Override // d.a.q0.h3.l0.d.a
+    @Override // c.a.p0.i3.l0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

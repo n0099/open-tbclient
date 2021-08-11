@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -631,6 +630,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
+        int findPointerIndex;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, motionEvent)) == null) {
             ensureTarget();
@@ -645,12 +645,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
                 if (actionMasked != 1) {
                     if (actionMasked == 2) {
                         int i2 = this.mActivePointerId;
-                        if (i2 == -1) {
-                            Log.e(LOG_TAG, "Got ACTION_MOVE event but don't have an active pointer id.");
-                            return false;
-                        }
-                        int findPointerIndex = motionEvent.findPointerIndex(i2);
-                        if (findPointerIndex < 0) {
+                        if (i2 == -1 || (findPointerIndex = motionEvent.findPointerIndex(i2)) < 0) {
                             return false;
                         }
                         startDragging(motionEvent.getY(findPointerIndex));
@@ -839,7 +834,6 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
             } else if (actionMasked == 1) {
                 int findPointerIndex = motionEvent.findPointerIndex(this.mActivePointerId);
                 if (findPointerIndex < 0) {
-                    Log.e(LOG_TAG, "Got ACTION_UP event but don't have an active pointer id.");
                     return false;
                 }
                 if (this.mIsBeingDragged) {
@@ -851,7 +845,6 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
             } else if (actionMasked == 2) {
                 int findPointerIndex2 = motionEvent.findPointerIndex(this.mActivePointerId);
                 if (findPointerIndex2 < 0) {
-                    Log.e(LOG_TAG, "Got ACTION_MOVE event but have an invalid active pointer id.");
                     return false;
                 }
                 float y = motionEvent.getY(findPointerIndex2);
@@ -869,7 +862,6 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
                 if (actionMasked == 5) {
                     int actionIndex = motionEvent.getActionIndex();
                     if (actionIndex < 0) {
-                        Log.e(LOG_TAG, "Got ACTION_POINTER_DOWN event but have an invalid action index.");
                         return false;
                     }
                     this.mActivePointerId = motionEvent.getPointerId(actionIndex);

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class ContentLengthInputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ContentLengthStream";
@@ -24,13 +24,13 @@ public final class ContentLengthInputStream extends FilterInputStream {
     public int readSoFar;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ContentLengthInputStream(@NonNull InputStream inputStream, long j) {
+    public ContentLengthInputStream(@NonNull InputStream inputStream, long j2) {
         super(inputStream);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Long.valueOf(j)};
+            Object[] objArr = {inputStream, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -41,7 +41,7 @@ public final class ContentLengthInputStream extends FilterInputStream {
                 return;
             }
         }
-        this.contentLength = j;
+        this.contentLength = j2;
     }
 
     private int checkReadSoFarOrThrow(int i2) throws IOException {
@@ -72,9 +72,9 @@ public final class ContentLengthInputStream extends FilterInputStream {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     return Integer.parseInt(str);
-                } catch (NumberFormatException e2) {
+                } catch (NumberFormatException unused) {
                     if (Log.isLoggable(TAG, 3)) {
-                        Log.d(TAG, "failed to parse content length header: " + str, e2);
+                        String str2 = "failed to parse content length header: " + str;
                     }
                 }
             }
@@ -113,10 +113,10 @@ public final class ContentLengthInputStream extends FilterInputStream {
     }
 
     @NonNull
-    public static InputStream obtain(@NonNull InputStream inputStream, long j) {
+    public static InputStream obtain(@NonNull InputStream inputStream, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, inputStream, j)) == null) ? new ContentLengthInputStream(inputStream, j) : (InputStream) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, inputStream, j2)) == null) ? new ContentLengthInputStream(inputStream, j2) : (InputStream) invokeLJ.objValue;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream

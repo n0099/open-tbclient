@@ -7,15 +7,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class aw extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<a> f36726a;
+    public WeakReference<a> f73549a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(Message message);
     }
@@ -35,7 +35,7 @@ public class aw extends Handler {
                 return;
             }
         }
-        this.f36726a = new WeakReference<>(aVar);
+        this.f73549a = new WeakReference<>(aVar);
     }
 
     @Override // android.os.Handler
@@ -47,7 +47,7 @@ public class aw extends Handler {
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
-            if (this.f36726a == null || (aVar = this.f36726a.get()) == null) {
+            if (this.f73549a == null || (aVar = this.f73549a.get()) == null) {
                 return;
             }
             aVar.a(message);

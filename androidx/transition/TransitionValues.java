@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes.dex */
 public class TransitionValues {
     public static /* synthetic */ Interceptable $ic;
@@ -60,9 +61,9 @@ public class TransitionValues {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = (("TransitionValues@" + Integer.toHexString(hashCode()) + ":\n") + "    view = " + this.view + "\n") + "    values:";
+            String str = (("TransitionValues@" + Integer.toHexString(hashCode()) + ":\n") + "    view = " + this.view + StringUtils.LF) + "    values:";
             for (String str2 : this.values.keySet()) {
-                str = str + "    " + str2 + ": " + this.values.get(str2) + "\n";
+                str = str + "    " + str2 + ": " + this.values.get(str2) + StringUtils.LF;
             }
             return str;
         }

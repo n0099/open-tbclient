@@ -17,7 +17,7 @@ import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.multipro.b;
 import java.io.File;
 import java.util.HashSet;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class CacheDirConstants {
     public static /* synthetic */ Interceptable $ic;
     public static String ROOT_DIR;
@@ -71,13 +71,13 @@ public class CacheDirConstants {
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             HashSet hashSet = new HashSet();
             if (Build.VERSION.SDK_INT >= 23) {
-                for (a aVar : a.f29016a.values()) {
+                for (a aVar : a.f64882a.values()) {
                     if (aVar != null && aVar.a() != null) {
                         com.bytedance.sdk.component.video.b.a a2 = aVar.a();
                         hashSet.add(com.bytedance.sdk.component.video.d.b.b(a2.d(), a2.c()).getAbsolutePath());
                     }
                 }
-                for (com.bytedance.sdk.component.video.a.c.a aVar2 : com.bytedance.sdk.component.video.a.b.a.f29031a.values()) {
+                for (com.bytedance.sdk.component.video.a.c.a aVar2 : com.bytedance.sdk.component.video.a.b.a.f64898a.values()) {
                     if (aVar2 != null && aVar2.a() != null) {
                         com.bytedance.sdk.component.video.b.a a3 = aVar2.a();
                         hashSet.add(com.bytedance.sdk.component.video.d.b.b(a3.d(), a3.c()).getAbsolutePath());

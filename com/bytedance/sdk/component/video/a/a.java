@@ -17,25 +17,25 @@ import com.bytedance.sdk.component.video.d.c;
 import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
 @RequiresApi(api = 23)
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a extends MediaDataSource {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, a> f29016a;
+    public static final ConcurrentHashMap<String, a> f64882a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.component.video.a.a.a f29017b;
+    public com.bytedance.sdk.component.video.a.a.a f64883b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f29018c;
+    public long f64884c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f29019d;
+    public Context f64885d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.bytedance.sdk.component.video.b.a f29020e;
+    public final com.bytedance.sdk.component.video.b.a f64886e;
 
     static {
         InterceptResult invokeClinit;
@@ -50,7 +50,7 @@ public class a extends MediaDataSource {
                 return;
             }
         }
-        f29016a = new ConcurrentHashMap<>();
+        f64882a = new ConcurrentHashMap<>();
     }
 
     public a(Context context, com.bytedance.sdk.component.video.b.a aVar) {
@@ -68,35 +68,35 @@ public class a extends MediaDataSource {
                 return;
             }
         }
-        this.f29017b = null;
-        this.f29018c = -2147483648L;
-        this.f29019d = context;
-        this.f29020e = aVar;
+        this.f64883b = null;
+        this.f64884c = -2147483648L;
+        this.f64885d = context;
+        this.f64886e = aVar;
     }
 
     private void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.f29017b == null) {
-            this.f29017b = new b(this.f29019d, this.f29020e);
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.f64883b == null) {
+            this.f64883b = new b(this.f64885d, this.f64886e);
         }
     }
 
     public com.bytedance.sdk.component.video.b.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29020e : (com.bytedance.sdk.component.video.b.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64886e : (com.bytedance.sdk.component.video.b.a) invokeV.objValue;
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.b("SdkMediaDataSource", "close: ", this.f29020e.b());
-            com.bytedance.sdk.component.video.a.a.a aVar = this.f29017b;
+            c.b("SdkMediaDataSource", "close: ", this.f64886e.b());
+            com.bytedance.sdk.component.video.a.a.a aVar = this.f64883b;
             if (aVar != null) {
                 aVar.a();
             }
-            f29016a.remove(this.f29020e.c());
+            f64882a.remove(this.f64886e.c());
         }
     }
 
@@ -106,26 +106,26 @@ public class a extends MediaDataSource {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             b();
-            if (this.f29018c == -2147483648L) {
-                if (this.f29019d == null || TextUtils.isEmpty(this.f29020e.b())) {
+            if (this.f64884c == -2147483648L) {
+                if (this.f64885d == null || TextUtils.isEmpty(this.f64886e.b())) {
                     return -1L;
                 }
-                this.f29018c = this.f29017b.b();
-                c.a("SdkMediaDataSource", "getSize: " + this.f29018c);
+                this.f64884c = this.f64883b.b();
+                c.a("SdkMediaDataSource", "getSize: " + this.f64884c);
             }
-            return this.f29018c;
+            return this.f64884c;
         }
         return invokeV.longValue;
     }
 
     @Override // android.media.MediaDataSource
-    public int readAt(long j, byte[] bArr, int i2, int i3) throws IOException {
+    public int readAt(long j2, byte[] bArr, int i2, int i3) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             b();
-            int a2 = this.f29017b.a(j, bArr, i2, i3);
-            c.a("SdkMediaDataSource", "readAt: position = " + j + "  buffer.length =" + bArr.length + "  offset = " + i2 + " size =" + a2 + "  current = " + Thread.currentThread());
+            int a2 = this.f64883b.a(j2, bArr, i2, i3);
+            c.a("SdkMediaDataSource", "readAt: position = " + j2 + "  buffer.length =" + bArr.length + "  offset = " + i2 + " size =" + a2 + "  current = " + Thread.currentThread());
             return a2;
         }
         return invokeCommon.intValue;
@@ -136,7 +136,7 @@ public class a extends MediaDataSource {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, aVar)) == null) {
             a aVar2 = new a(context, aVar);
-            f29016a.put(aVar.c(), aVar2);
+            f64882a.put(aVar.c(), aVar2);
             return aVar2;
         }
         return (a) invokeLL.objValue;

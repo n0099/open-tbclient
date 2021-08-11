@@ -1,6 +1,5 @@
 package com.baidu.mobads.sdk.internal;
 
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ThreadPoolFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BACKUP_POOL_SIZE = 5;
@@ -95,7 +94,7 @@ public class ThreadPoolFactory {
                         public void uncaughtException(Thread thread2, Throwable th) {
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeLL(1048576, this, thread2, th) == null) {
-                                Log.i("ThreadPoolFactory", "线程名字=" + thread2.getName() + "线程crash信息", th);
+                                String str = "线程名字=" + thread2.getName() + "线程crash信息";
                             }
                         }
                     });
@@ -126,7 +125,6 @@ public class ThreadPoolFactory {
             public void rejectedExecution(Runnable runnable, ThreadPoolExecutor threadPoolExecutor) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, runnable, threadPoolExecutor) == null) {
-                    Log.w("ThreadPoolFactory", "Exceeded ThreadPoolExecutor pool size");
                     synchronized (this) {
                         if (ThreadPoolFactory.sBackupExecutor == null) {
                             LinkedBlockingQueue unused = ThreadPoolFactory.sBackupExecutorQueue = new LinkedBlockingQueue();

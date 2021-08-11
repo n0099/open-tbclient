@@ -9,7 +9,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.text.FormattableUtils;
+/* loaded from: classes9.dex */
 public final class Preconditions {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +127,7 @@ public final class Preconditions {
             StringBuilder sb = new StringBuilder(valueOf.length() + (objArr.length * 16));
             int i2 = 0;
             int i3 = 0;
-            while (i2 < objArr.length && (indexOf = valueOf.indexOf("%s", i3)) != -1) {
+            while (i2 < objArr.length && (indexOf = valueOf.indexOf(FormattableUtils.SIMPLEST_FORMAT, i3)) != -1) {
                 sb.append(valueOf.substring(i3, indexOf));
                 sb.append(objArr[i2]);
                 i3 = indexOf + 2;

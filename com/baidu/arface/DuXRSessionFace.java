@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-import android.util.Log;
 import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.dumix.face.FaceListener;
@@ -25,7 +24,7 @@ import java.nio.ByteBuffer;
 import java.util.List;
 import kotlinx.coroutines.DebugKt;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class DuXRSessionFace {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -57,13 +56,13 @@ public class DuXRSessionFace {
     public SurfaceTexture mSurfaceTexture;
     public int mTextureId;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public class a implements PermissionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DuXRSessionFace f4257a;
+        public final /* synthetic */ DuXRSessionFace f38190a;
 
         public a(DuXRSessionFace duXRSessionFace) {
             Interceptable interceptable = $ic;
@@ -80,7 +79,7 @@ public class DuXRSessionFace {
                     return;
                 }
             }
-            this.f4257a = duXRSessionFace;
+            this.f38190a = duXRSessionFace;
         }
 
         @Override // com.baidu.smallgame.sdk.permission.PermissionListener
@@ -88,25 +87,25 @@ public class DuXRSessionFace {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
                 if (i2 == 0) {
-                    Log.i(DuXRSessionFace.TAG, "Permission ok!@ permissionState:" + i2);
-                    this.f4257a.initAlgoModule();
+                    String str2 = "Permission ok!@ permissionState:" + i2;
+                    this.f38190a.initAlgoModule();
                     return;
                 }
                 int i3 = i2 + 1000;
-                DuXRSessionFace duXRSessionFace = this.f4257a;
+                DuXRSessionFace duXRSessionFace = this.f38190a;
                 duXRSessionFace.sessionCreateFail(duXRSessionFace.mNativeSessionHandle, i3);
-                Log.i(DuXRSessionFace.TAG, "Permission fail:" + i3);
+                String str3 = "Permission fail:" + i3;
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public class b implements SurfaceTexture.OnFrameAvailableListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DuXRSessionFace f4258e;
+        public final /* synthetic */ DuXRSessionFace f38191e;
 
         public b(DuXRSessionFace duXRSessionFace) {
             Interceptable interceptable = $ic;
@@ -123,26 +122,26 @@ public class DuXRSessionFace {
                     return;
                 }
             }
-            this.f4258e = duXRSessionFace;
+            this.f38191e = duXRSessionFace;
         }
 
         @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
         public void onFrameAvailable(SurfaceTexture surfaceTexture) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, surfaceTexture) == null) {
-                DuXRSessionFace duXRSessionFace = this.f4258e;
+                DuXRSessionFace duXRSessionFace = this.f38191e;
                 duXRSessionFace.onCameraFrameAvailable(duXRSessionFace.mNativeSessionHandle);
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public class c implements Camera.PreviewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DuXRSessionFace f4259e;
+        public final /* synthetic */ DuXRSessionFace f38192e;
 
         public c(DuXRSessionFace duXRSessionFace) {
             Interceptable interceptable = $ic;
@@ -159,22 +158,22 @@ public class DuXRSessionFace {
                     return;
                 }
             }
-            this.f4259e = duXRSessionFace;
+            this.f38192e = duXRSessionFace;
         }
 
         @Override // android.hardware.Camera.PreviewCallback
         public void onPreviewFrame(byte[] bArr, Camera camera) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) && this.f4259e.mAlgoInited) {
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) && this.f38192e.mAlgoInited) {
                 Message message = new Message();
                 message.what = 114;
                 message.obj = bArr;
-                this.f4259e.mSessionHandler.sendMessage(message);
+                this.f38192e.mSessionHandler.sendMessage(message);
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public class d implements FaceListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -196,13 +195,13 @@ public class DuXRSessionFace {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public class e extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DuXRSessionFace f4260a;
+        public final /* synthetic */ DuXRSessionFace f38193a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(DuXRSessionFace duXRSessionFace, Looper looper) {
@@ -222,7 +221,7 @@ public class DuXRSessionFace {
                     return;
                 }
             }
-            this.f4260a = duXRSessionFace;
+            this.f38193a = duXRSessionFace;
         }
 
         @Override // android.os.Handler
@@ -231,40 +230,40 @@ public class DuXRSessionFace {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 switch (message.what) {
                     case 110:
-                        this.f4260a.mAlgoInited = true;
-                        this.f4260a.startCamera(true);
+                        this.f38193a.mAlgoInited = true;
+                        this.f38193a.startCamera(true);
                         break;
                     case 111:
-                        this.f4260a.mAlgoInited = false;
-                        this.f4260a.mFaceSession = new FaceSession(this.f4260a.mContext, this.f4260a.mFaceListener);
-                        this.f4260a.mFaceSession.init();
+                        this.f38193a.mAlgoInited = false;
+                        this.f38193a.mFaceSession = new FaceSession(this.f38193a.mContext, this.f38193a.mFaceListener);
+                        this.f38193a.mFaceSession.init();
                         break;
                     case 112:
                         Object obj = message.obj;
                         long longValue = obj != null ? ((Long) obj).longValue() : 0L;
-                        DuXRSessionFace duXRSessionFace = this.f4260a;
+                        DuXRSessionFace duXRSessionFace = this.f38193a;
                         duXRSessionFace.onSessionFrameTracked(duXRSessionFace.mNativeSessionHandle, longValue);
                         break;
                     case 113:
                         long longValue2 = ((Long) message.obj).longValue();
-                        if (this.f4260a.mFaceSession != null) {
-                            this.f4260a.mFaceSession.destroyHandle(longValue2);
+                        if (this.f38193a.mFaceSession != null) {
+                            this.f38193a.mFaceSession.destroyHandle(longValue2);
                             break;
                         }
                         break;
                     case 114:
-                        if (this.f4260a.mAlgoInited) {
+                        if (this.f38193a.mAlgoInited) {
                             byte[] bArr = (byte[]) message.obj;
                             ByteBuffer allocateDirect = ByteBuffer.allocateDirect(bArr != null ? bArr.length : 0);
                             allocateDirect.put(bArr);
-                            this.f4260a.mFaceSession.updateFrameAsync(allocateDirect, this.f4260a.mPreviewWidth, this.f4260a.mPreviewHeight, 1);
+                            this.f38193a.mFaceSession.updateFrameAsync(allocateDirect, this.f38193a.mPreviewWidth, this.f38193a.mPreviewHeight, 1);
                             break;
                         }
                         break;
                     case 115:
-                        this.f4260a.mAlgoInited = false;
-                        this.f4260a.releaseCamera();
-                        this.f4260a.endAlgoModule();
+                        this.f38193a.mAlgoInited = false;
+                        this.f38193a.releaseCamera();
+                        this.f38193a.endAlgoModule();
                         removeMessages(112);
                         removeMessages(113);
                         break;
@@ -363,10 +362,10 @@ public class DuXRSessionFace {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void onCameraFrameAvailable(long j);
+    public native void onCameraFrameAvailable(long j2);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void onSessionFrameTracked(long j, long j2);
+    public native void onSessionFrameTracked(long j2, long j3);
 
     /* JADX INFO: Access modifiers changed from: private */
     public void releaseCamera() {
@@ -384,10 +383,10 @@ public class DuXRSessionFace {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void sessionCreateFail(long j, int i2);
+    public native void sessionCreateFail(long j2, int i2);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void sessionCreateSuccess(long j);
+    public native void sessionCreateSuccess(long j2);
 
     private void setOptimalPreviewSize(List<Camera.Size> list, int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -474,7 +473,7 @@ public class DuXRSessionFace {
                 return;
             }
             this.mTextureId = i4;
-            PermissionProxy permissionProxy = d.a.j0.a.a.o;
+            PermissionProxy permissionProxy = c.a.i0.a.a.o;
             if (permissionProxy != null) {
                 permissionProxy.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new a(this));
             } else {

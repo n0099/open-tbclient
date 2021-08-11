@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.plugin.capture.Application;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +23,7 @@ import java.util.Random;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PUBLIC_SUCCESS_TEMP_DIR = "public_succes_temp";
@@ -145,16 +146,16 @@ public class FileUtils {
                 return file.length();
             }
             int length2 = listFiles.length;
-            long j = 0;
+            long j2 = 0;
             for (int i2 = 0; i2 < length2; i2++) {
                 if (listFiles[i2].isDirectory()) {
                     length = getDirectorySize(listFiles[i2]);
                 } else {
                     length = listFiles[i2].length();
                 }
-                j += length;
+                j2 += length;
             }
-            return j;
+            return j2;
         }
         return invokeL.longValue;
     }
@@ -254,7 +255,7 @@ public class FileUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, bitmap)) == null) {
             File videoCoverCacheDir = getVideoCoverCacheDir();
-            File file = new File(videoCoverCacheDir, System.currentTimeMillis() + ".jpg");
+            File file = new File(videoCoverCacheDir, System.currentTimeMillis() + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX);
             try {
                 FileOutputStream fileOutputStream = new FileOutputStream(file);
                 if (bitmap != null) {
@@ -320,16 +321,16 @@ public class FileUtils {
                 return file.length();
             }
             int length2 = listFiles.length;
-            long j = 0;
+            long j2 = 0;
             for (int i2 = 0; i2 < length2; i2++) {
                 if (listFiles[i2].isDirectory()) {
                     length = getDirectorySize(listFiles[i2]);
                 } else {
                     length = listFiles[i2].length();
                 }
-                j += length;
+                j2 += length;
             }
-            return j;
+            return j2;
         }
         return invokeL.longValue;
     }

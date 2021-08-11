@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a2 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ c2 f39728a;
+    public final /* synthetic */ c2 f76568a;
 
     public a2(c2 c2Var) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class a2 extends Handler {
                 return;
             }
         }
-        this.f39728a = c2Var;
+        this.f76568a = c2Var;
     }
 
     @Override // android.os.Handler
@@ -46,19 +46,19 @@ public class a2 extends Handler {
                 if (i2 != 11) {
                     if (i2 == 12) {
                         str = (String) message.obj;
-                        context = this.f39728a.f39772a;
+                        context = this.f76568a.f76612a;
                     }
                 }
                 str = (String) message.obj;
-                Y0 a2 = Z0.a(this.f39728a.f39772a);
+                Y0 a2 = Z0.a(this.f76568a.f76612a);
                 try {
-                    a2.f39714b = Z0.a("ps", new a1(this.f39728a.f39773b));
+                    a2.f76554b = Z0.a("ps", new a1(this.f76568a.f76613b));
                     a2.a("co", 2002);
                     a2.a("msg", str);
                 } catch (JSONException unused) {
                 }
                 a2.a();
-                context = this.f39728a.f39772a;
+                context = this.f76568a.f76612a;
                 Z1.a(context, Uri.parse(str));
             } catch (Exception unused2) {
             }

@@ -1,24 +1,55 @@
 package com.ta.utdid2.a.a;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import java.util.regex.Pattern;
+/* loaded from: classes10.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final Pattern f75664a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String get(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
-                return (String) cls.getMethod("get", String.class, String.class).invoke(cls.newInstance(), str, str2);
-            } catch (Exception unused) {
-                return "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(641360133, "Lcom/ta/utdid2/a/a/g;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(641360133, "Lcom/ta/utdid2/a/a/g;");
+                return;
             }
         }
-        return (String) invokeLL.objValue;
+        f75664a = Pattern.compile("([\t\r\n])+");
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static boolean m63a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? str == null || str.length() <= 0 : invokeL.booleanValue;
+    }
+
+    public static int a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str.length() > 0) {
+                int i2 = 0;
+                for (char c2 : str.toCharArray()) {
+                    i2 = (i2 * 31) + c2;
+                }
+                return i2;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
     }
 }

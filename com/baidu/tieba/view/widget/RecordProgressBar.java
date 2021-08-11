@@ -9,6 +9,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.l;
+import c.a.p0.a4.l.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,30 +18,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.q0.z3.m.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
-public class RecordProgressBar extends View implements d.a.q0.z3.m.a, Runnable {
+/* loaded from: classes7.dex */
+public class RecordProgressBar extends View implements c.a.p0.a4.l.a, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22535e;
+    public int f58150e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f22536f;
+    public int f58151f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f22537g;
+    public int f58152g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f22538h;
+    public int f58153h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f22539i;
-    public int j;
+    public int f58154i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f58155j;
     public int k;
     public Paint l;
     public Paint m;
@@ -52,16 +54,16 @@ public class RecordProgressBar extends View implements d.a.q0.z3.m.a, Runnable {
     public int t;
     public boolean u;
     public boolean v;
-    public a.InterfaceC1883a w;
+    public a.InterfaceC0736a w;
     public float x;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecordProgressBar f22540e;
+        public final /* synthetic */ RecordProgressBar f58156e;
 
         public a(RecordProgressBar recordProgressBar) {
             Interceptable interceptable = $ic;
@@ -78,27 +80,27 @@ public class RecordProgressBar extends View implements d.a.q0.z3.m.a, Runnable {
                     return;
                 }
             }
-            this.f22540e = recordProgressBar;
+            this.f58156e = recordProgressBar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RecordProgressBar recordProgressBar = this.f22540e;
+                RecordProgressBar recordProgressBar = this.f58156e;
                 int i2 = recordProgressBar.t;
                 if (i2 <= 0) {
                     recordProgressBar.u = true;
                 } else if (i2 >= 255) {
                     recordProgressBar.u = false;
                 }
-                RecordProgressBar recordProgressBar2 = this.f22540e;
+                RecordProgressBar recordProgressBar2 = this.f58156e;
                 if (recordProgressBar2.u) {
                     recordProgressBar2.t += 50;
                 } else {
                     recordProgressBar2.t -= 50;
                 }
-                this.f22540e.invalidate();
+                this.f58156e.invalidate();
             }
         }
     }
@@ -124,34 +126,9 @@ public class RecordProgressBar extends View implements d.a.q0.z3.m.a, Runnable {
         }
     }
 
-    @Override // d.a.q0.z3.m.a
-    public void a() {
+    public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.s = false;
-            if (this.o.size() > 0) {
-                List<Float> list = this.o;
-                list.remove(list.size() - 1);
-                this.x = getProgress();
-                invalidate();
-            }
-            a.InterfaceC1883a interfaceC1883a = this.w;
-            if (interfaceC1883a != null) {
-                interfaceC1883a.b(this.x);
-            }
-        }
-    }
-
-    @Override // d.a.q0.z3.m.a
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s : invokeV.booleanValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             postDelayed(new a(this), 100L);
             int i2 = this.t;
             if (i2 <= 0) {
@@ -164,26 +141,44 @@ public class RecordProgressBar extends View implements d.a.q0.z3.m.a, Runnable {
         }
     }
 
-    public final void d() {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            a.InterfaceC1883a interfaceC1883a = this.w;
-            postDelayed(this, (interfaceC1883a == null || !(interfaceC1883a.a() == 0.5f || this.w.a() == 0.33333334f)) ? 50L : 25L);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a.InterfaceC0736a interfaceC0736a = this.w;
+            postDelayed(this, (interfaceC0736a == null || !(interfaceC0736a.a() == 0.5f || this.w.a() == 0.33333334f)) ? 50L : 25L);
         }
     }
 
-    @Override // d.a.q0.z3.m.a
+    @Override // c.a.p0.a4.l.a
+    public void deleteLast() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.s = false;
+            if (this.o.size() > 0) {
+                List<Float> list = this.o;
+                list.remove(list.size() - 1);
+                this.x = getProgress();
+                invalidate();
+            }
+            a.InterfaceC0736a interfaceC0736a = this.w;
+            if (interfaceC0736a != null) {
+                interfaceC0736a.b(this.x);
+            }
+        }
+    }
+
+    @Override // c.a.p0.a4.l.a
     public int getMaxDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.r : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.r : invokeV.intValue;
     }
 
-    @Override // d.a.q0.z3.m.a
+    @Override // c.a.p0.a4.l.a
     public float getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             float f2 = 0.0f;
             for (Float f3 : this.o) {
                 f2 += f3.floatValue();
@@ -193,11 +188,18 @@ public class RecordProgressBar extends View implements d.a.q0.z3.m.a, Runnable {
         return invokeV.floatValue;
     }
 
-    @Override // d.a.q0.z3.m.a
+    @Override // c.a.p0.a4.l.a
     public int getSlideNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.o.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.o.size() : invokeV.intValue;
+    }
+
+    @Override // c.a.p0.a4.l.a
+    public boolean isShowingDeleteLastTip() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.s : invokeV.booleanValue;
     }
 
     @Override // android.view.View
@@ -226,9 +228,9 @@ public class RecordProgressBar extends View implements d.a.q0.z3.m.a, Runnable {
                     if (i2 >= this.r) {
                         break;
                     } else if (i2 == this.q) {
-                        this.n.setColor(this.f22539i);
+                        this.n.setColor(this.f58154i);
                         float f3 = width * i2;
-                        canvas.drawRect(f3, 0.0f, f3 + this.f22535e, getHeight(), this.n);
+                        canvas.drawRect(f3, 0.0f, f3 + this.f58150e, getHeight(), this.n);
                         this.n.setColor(this.k);
                         break;
                     } else {
@@ -238,10 +240,10 @@ public class RecordProgressBar extends View implements d.a.q0.z3.m.a, Runnable {
             }
             for (int i3 = 0; i3 < this.o.size(); i3++) {
                 if (this.s && i3 == this.o.size() - 1) {
-                    this.l.setColor(this.f22538h);
-                    c();
+                    this.l.setColor(this.f58153h);
+                    a();
                 } else {
-                    this.l.setColor(this.f22537g);
+                    this.l.setColor(this.f58152g);
                 }
                 if (i3 != 0) {
                     float f4 = f2 * width;
@@ -258,17 +260,17 @@ public class RecordProgressBar extends View implements d.a.q0.z3.m.a, Runnable {
                 }
                 if (i3 == 0 && getProgress() >= 0.2f) {
                     float f7 = f2 * width;
-                    canvas.drawRect(f7 - this.f22536f, 0.0f, f7, getHeight(), this.l);
+                    canvas.drawRect(f7 - this.f58151f, 0.0f, f7, getHeight(), this.l);
                 }
                 if (i3 < this.o.size() - 1 || this.p == 0) {
                     float f8 = f2 * width;
-                    canvas.drawRect(f8 - this.f22536f, 0.0f, f8, getHeight(), this.m);
+                    canvas.drawRect(f8 - this.f58151f, 0.0f, f8, getHeight(), this.m);
                 }
             }
         }
     }
 
-    @Override // d.a.q0.z3.m.a
+    @Override // c.a.p0.a4.l.a
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -287,19 +289,19 @@ public class RecordProgressBar extends View implements d.a.q0.z3.m.a, Runnable {
         if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.p == 0 || this.o.size() == 0) {
             return;
         }
-        a.InterfaceC1883a interfaceC1883a = this.w;
-        if (interfaceC1883a != null) {
-            interfaceC1883a.onProgress(this.x);
+        a.InterfaceC0736a interfaceC0736a = this.w;
+        if (interfaceC0736a != null) {
+            interfaceC0736a.onProgress(this.x);
         }
         if (this.x >= this.r) {
-            a.InterfaceC1883a interfaceC1883a2 = this.w;
-            if (interfaceC1883a2 != null) {
-                interfaceC1883a2.onFinish();
+            a.InterfaceC0736a interfaceC0736a2 = this.w;
+            if (interfaceC0736a2 != null) {
+                interfaceC0736a2.onFinish();
                 return;
             }
             return;
         }
-        d();
+        b();
     }
 
     public void setIsAbandonMin(boolean z) {
@@ -309,7 +311,7 @@ public class RecordProgressBar extends View implements d.a.q0.z3.m.a, Runnable {
         }
     }
 
-    @Override // d.a.q0.z3.m.a
+    @Override // c.a.p0.a4.l.a
     public void setMaxDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
@@ -317,7 +319,7 @@ public class RecordProgressBar extends View implements d.a.q0.z3.m.a, Runnable {
         }
     }
 
-    @Override // d.a.q0.z3.m.a
+    @Override // c.a.p0.a4.l.a
     public void setMinDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
@@ -325,11 +327,11 @@ public class RecordProgressBar extends View implements d.a.q0.z3.m.a, Runnable {
         }
     }
 
-    @Override // d.a.q0.z3.m.a
-    public void setOnProgressListener(a.InterfaceC1883a interfaceC1883a) {
+    @Override // c.a.p0.a4.l.a
+    public void setOnProgressListener(a.InterfaceC0736a interfaceC0736a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, interfaceC1883a) == null) {
-            this.w = interfaceC1883a;
+        if (interceptable == null || interceptable.invokeL(1048590, this, interfaceC0736a) == null) {
+            this.w = interfaceC0736a;
         }
     }
 
@@ -341,7 +343,7 @@ public class RecordProgressBar extends View implements d.a.q0.z3.m.a, Runnable {
         }
     }
 
-    @Override // d.a.q0.z3.m.a
+    @Override // c.a.p0.a4.l.a
     public void setShowDeleteLastTip(boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || this.s == z) {
@@ -351,17 +353,17 @@ public class RecordProgressBar extends View implements d.a.q0.z3.m.a, Runnable {
         invalidate();
     }
 
-    @Override // d.a.q0.z3.m.a
+    @Override // c.a.p0.a4.l.a
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.p = System.currentTimeMillis();
             this.o.add(Float.valueOf(0.0f));
-            d();
+            b();
         }
     }
 
-    @Override // d.a.q0.z3.m.a
+    @Override // c.a.p0.a4.l.a
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
@@ -415,13 +417,13 @@ public class RecordProgressBar extends View implements d.a.q0.z3.m.a, Runnable {
         this.t = 255;
         this.u = false;
         this.x = 0.0f;
-        this.f22537g = getContext().getResources().getColor(R.color.CAM_X0302);
-        this.f22538h = getContext().getResources().getColor(R.color.CAM_X0301);
-        this.j = getContext().getResources().getColor(R.color.CAM_X0313);
+        this.f58152g = getContext().getResources().getColor(R.color.CAM_X0302);
+        this.f58153h = getContext().getResources().getColor(R.color.CAM_X0301);
+        this.f58155j = getContext().getResources().getColor(R.color.CAM_X0313);
         this.k = getContext().getResources().getColor(R.color.CAM_X0615);
-        this.f22539i = getContext().getResources().getColor(R.color.CAM_X0312);
-        this.f22535e = l.e(context, 2.0f);
-        this.f22536f = l.e(context, 2.0f);
+        this.f58154i = getContext().getResources().getColor(R.color.CAM_X0312);
+        this.f58150e = l.e(context, 2.0f);
+        this.f58151f = l.e(context, 2.0f);
         l.e(context, 6.0f);
         Paint paint = new Paint();
         this.n = paint;
@@ -429,17 +431,17 @@ public class RecordProgressBar extends View implements d.a.q0.z3.m.a, Runnable {
         this.l = new Paint();
         Paint paint2 = new Paint();
         this.m = paint2;
-        paint2.setColor(this.j);
+        paint2.setColor(this.f58155j);
     }
 
-    @Override // d.a.q0.z3.m.a
-    public void setProgress(long j) {
+    @Override // c.a.p0.a4.l.a
+    public void setProgress(long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048591, this, j) == null) || this.o.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) || this.o.size() <= 0) {
             return;
         }
         List<Float> list = this.o;
-        list.set(list.size() - 1, Float.valueOf(((float) j) / 1000.0f));
+        list.set(list.size() - 1, Float.valueOf(((float) j2) / 1000.0f));
         this.x = getProgress();
         postInvalidate();
     }

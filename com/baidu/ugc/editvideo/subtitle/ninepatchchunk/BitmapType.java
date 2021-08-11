@@ -19,7 +19,7 @@ import com.baidu.ugc.editvideo.data.Div;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class BitmapType {
     public static final /* synthetic */ BitmapType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

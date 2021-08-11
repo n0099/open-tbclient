@@ -1,5 +1,5 @@
 package com.baidu.searchbox.live.interfaces.callback;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface ILiveFileSizeCallback {
-    void getFileSize(long j);
+    void getFileSize(long j2);
 }

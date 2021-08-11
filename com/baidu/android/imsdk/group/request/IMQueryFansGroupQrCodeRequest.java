@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryFansGroupQrCodeRequest";
@@ -26,19 +26,19 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
     public String mGroupId;
     public String mKey;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class QrCode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long mExpireTime;
         public String mQrCode;
 
-        public QrCode(String str, long j) {
+        public QrCode(String str, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Long.valueOf(j)};
+                Object[] objArr = {str, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -51,7 +51,7 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
             this.mQrCode = "";
             this.mExpireTime = 0L;
             this.mQrCode = str;
-            this.mExpireTime = j;
+            this.mExpireTime = j2;
         }
 
         public long getExpireTime() {
@@ -139,7 +139,7 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
             String str2 = "";
             String str3 = new String(bArr);
             LogUtils.d(TAG, "json is " + str3);
-            long j = 0;
+            long j2 = 0;
             try {
                 JSONObject jSONObject = new JSONObject(str3);
                 i3 = jSONObject.getInt("error_code");
@@ -147,7 +147,7 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
                 JSONObject optJSONObject = jSONObject.optJSONObject("response_params");
                 if (optJSONObject != null) {
                     str2 = optJSONObject.optString("qrcode_url");
-                    j = optJSONObject.optLong(ContentUtil.RESULT_KEY_EXPIRE);
+                    j2 = optJSONObject.optLong(ContentUtil.RESULT_KEY_EXPIRE);
                 }
             } catch (JSONException e2) {
                 LogUtils.e(LogUtils.TAG, "IMQueryFansUnreadRequest JSONException", e2);
@@ -155,7 +155,7 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
-            QrCode qrCode = new QrCode(str2, j);
+            QrCode qrCode = new QrCode(str2, j2);
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener instanceof BIMValueCallBack) {
                 ((BIMValueCallBack) removeListener).onResult(i3, str, qrCode);

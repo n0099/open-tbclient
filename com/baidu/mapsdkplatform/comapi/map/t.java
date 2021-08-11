@@ -5,38 +5,40 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class t {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7794a;
+    public int f42068a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7795b;
+    public String f42069b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7796c;
+    public String f42070c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7797d;
+    public String f42071d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7798e;
+    public int f42072e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f7799f;
+    public int f42073f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GeoPoint f7800g;
+    public GeoPoint f42074g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f7801h;
+    public int f42075h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f7802i;
-    public boolean j;
+    public int f42076i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f42077j;
     public int k;
     public int l;
 

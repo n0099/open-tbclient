@@ -21,15 +21,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class DeviceInfoUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4835a;
+    public static String f38760a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4836b;
+    public static String f38761b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -307,7 +307,7 @@ public class DeviceInfoUtils {
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
-            String str2 = f4835a;
+            String str2 = f38760a;
             if (str2 != null) {
                 return str2;
             }
@@ -324,7 +324,7 @@ public class DeviceInfoUtils {
                 str = null;
             }
             if (str != null) {
-                f4835a = str;
+                f38760a = str;
             }
             return str;
         }
@@ -386,7 +386,7 @@ public class DeviceInfoUtils {
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
-            String str2 = f4836b;
+            String str2 = f38761b;
             if (str2 != null) {
                 return str2;
             }
@@ -403,7 +403,7 @@ public class DeviceInfoUtils {
                 str = null;
             }
             if (str != null) {
-                f4836b = str;
+                f38761b = str;
             }
             return str;
         }

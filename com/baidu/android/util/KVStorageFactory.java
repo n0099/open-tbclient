@@ -1,7 +1,6 @@
 package com.baidu.android.util;
 
 import android.content.SharedPreferences;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class KVStorageFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PREFERENCE_SUFFIX = "preferences";
@@ -71,19 +70,19 @@ public class KVStorageFactory {
     }
 
     public static SharedPreferences getSharedPreferences(String str, int i2) {
-        InterceptResult invokeLI;
         SharedPreferences proxy;
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2)) == null) {
             try {
                 if (KVStorageRuntime.getKVStorageControl().getKVStorageType() != 0 && (proxy = KVStorageRuntime.getKVStorageProxy().getProxy(str)) != null) {
-                    Log.d(TAG, "use SwanKV " + str);
+                    String str2 = "use SwanKV " + str;
                     return proxy;
                 }
             } catch (UnsatisfiedLinkError unused) {
                 sIsKVInitSuccessfully = false;
             }
-            Log.d(TAG, "use default SharedPreferences " + str);
+            String str3 = "use default SharedPreferences " + str;
             return AppRuntime.getAppContext().getSharedPreferences(str, i2);
         }
         return (SharedPreferences) invokeLI.objValue;

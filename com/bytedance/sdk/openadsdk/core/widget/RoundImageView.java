@@ -20,19 +20,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class RoundImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30939a;
+    public int f66869a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30940b;
+    public int f66870b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30941c;
+    public int f66871c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RoundImageView(Context context) {
@@ -52,9 +52,9 @@ public class RoundImageView extends ImageView {
                 return;
             }
         }
-        this.f30939a = 0;
-        this.f30940b = 0;
-        this.f30941c = 0;
+        this.f66869a = 0;
+        this.f66870b = 0;
+        this.f66871c = 0;
     }
 
     private Bitmap a(Bitmap bitmap, int i2) {
@@ -116,14 +116,14 @@ public class RoundImageView extends ImageView {
             super.onDraw(canvas);
             return;
         }
-        if (this.f30939a == 0) {
-            this.f30939a = getWidth();
+        if (this.f66869a == 0) {
+            this.f66869a = getWidth();
         }
-        if (this.f30940b == 0) {
-            this.f30940b = getHeight();
+        if (this.f66870b == 0) {
+            this.f66870b = getHeight();
         }
-        int i3 = this.f30939a;
-        int i4 = this.f30940b;
+        int i3 = this.f66869a;
+        int i4 = this.f66870b;
         if (i3 >= i4) {
             i3 = i4;
         }
@@ -135,7 +135,7 @@ public class RoundImageView extends ImageView {
         if (bitmap3 == null) {
             super.onDraw(canvas);
         } else {
-            canvas.drawBitmap(bitmap3, (this.f30939a / 2) - i2, (this.f30940b / 2) - i2, (Paint) null);
+            canvas.drawBitmap(bitmap3, (this.f66869a / 2) - i2, (this.f66870b / 2) - i2, (Paint) null);
         }
     }
 
@@ -157,12 +157,12 @@ public class RoundImageView extends ImageView {
                 return;
             }
         }
-        this.f30939a = 0;
-        this.f30940b = 0;
-        this.f30941c = 0;
-        this.f30941c = i2;
-        this.f30939a = i3;
-        this.f30940b = i4;
+        this.f66869a = 0;
+        this.f66870b = 0;
+        this.f66871c = 0;
+        this.f66871c = i2;
+        this.f66869a = i3;
+        this.f66870b = i4;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -184,9 +184,9 @@ public class RoundImageView extends ImageView {
                 return;
             }
         }
-        this.f30939a = 0;
-        this.f30940b = 0;
-        this.f30941c = 0;
+        this.f66869a = 0;
+        this.f66870b = 0;
+        this.f66871c = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -208,8 +208,8 @@ public class RoundImageView extends ImageView {
                 return;
             }
         }
-        this.f30939a = 0;
-        this.f30940b = 0;
-        this.f30941c = 0;
+        this.f66869a = 0;
+        this.f66870b = 0;
+        this.f66871c = 0;
     }
 }

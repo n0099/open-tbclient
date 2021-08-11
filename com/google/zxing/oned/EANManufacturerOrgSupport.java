@@ -15,14 +15,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.RecordConstants;
-import com.baidu.wallet.core.beans.BeanConstants;
 import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.baidu.wallet.paysdk.fingerprint.bean.FingerprintBeanFactory;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class EANManufacturerOrgSupport {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,18 +87,18 @@ public final class EANManufacturerOrgSupport {
                     add(new int[]{490, DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR}, "JP");
                     add(new int[]{500, 509}, "GB");
                     add(new int[]{UIMsg.m_AppUI.MSG_PLACEFIELD_RELOAD}, "GR");
-                    add(new int[]{528}, ExpandedProductParsedResult.POUND);
+                    add(new int[]{SDKLogTypeConstants.TYPE_DOWNLOAD_COMPLETED_ACTION}, ExpandedProductParsedResult.POUND);
                     add(new int[]{529}, "CY");
-                    add(new int[]{PayBeanFactory.BEAN_ID_RCS_APPLY_NO_PWD}, "MK");
+                    add(new int[]{531}, "MK");
                     add(new int[]{535}, "MT");
                     add(new int[]{539}, "IE");
                     add(new int[]{RecordConstants.DEFAULT_PREVIEW_WIDTH, 549}, "BE/LU");
-                    add(new int[]{PayBeanFactory.BEAN_ID_PAY_SORT_SAVE}, "PT");
+                    add(new int[]{560}, "PT");
                     add(new int[]{569}, "IS");
                     add(new int[]{570, 579}, "DK");
                     add(new int[]{590}, "PL");
                     add(new int[]{PayBeanFactory.BEAN_ID_SCANCODE_PAY}, "RO");
-                    add(new int[]{PayBeanFactory.BEAN_ID_CARD_LIST}, "HU");
+                    add(new int[]{599}, "HU");
                     add(new int[]{600, 601}, "ZA");
                     add(new int[]{603}, "GH");
                     add(new int[]{608}, "BH");
@@ -141,7 +140,7 @@ public final class EANManufacturerOrgSupport {
                     add(new int[]{780}, "CL");
                     add(new int[]{784}, "PY");
                     add(new int[]{785}, "PE");
-                    add(new int[]{BeanConstants.BEAN_ID_FOR_NEW_INIT}, "EC");
+                    add(new int[]{786}, "EC");
                     add(new int[]{789, AppConfig.VOICE_ID}, "BR");
                     add(new int[]{800, 839}, "IT");
                     add(new int[]{840, 849}, "ES");

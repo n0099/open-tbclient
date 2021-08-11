@@ -1,6 +1,7 @@
 package com.win.opensdk;
 
 import android.text.TextUtils;
+import com.baidu.adp.widget.VerticalTranslateLayout;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,37 +14,39 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class s1 {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a */
-    public static String f39933a = "https://pp.xdplt.com/";
+    public static String f76781a = "https://pp.xdplt.com/";
 
     /* renamed from: b */
-    public static final String f39934b;
+    public static final String f76782b;
 
     /* renamed from: c */
-    public static final String f39935c;
+    public static final String f76783c;
 
     /* renamed from: d */
-    public static String f39936d;
+    public static String f76784d;
 
     /* renamed from: e */
-    public static String f39937e;
+    public static String f76785e;
 
     /* renamed from: f */
-    public static String f39938f;
+    public static String f76786f;
 
     /* renamed from: g */
-    public static String f39939g;
+    public static String f76787g;
 
     /* renamed from: h */
-    public static String f39940h;
+    public static String f76788h;
 
     /* renamed from: i */
-    public static String f39941i;
-    public static String j;
+    public static String f76789i;
+
+    /* renamed from: j */
+    public static String f76790j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,22 +62,22 @@ public class s1 {
                 return;
             }
         }
-        f39934b = f39933a + "behavior?";
-        f39935c = f39933a + "report?";
-        f39936d = "https://cd.xdplt.com/";
-        f39937e = "jy/da?";
-        f39938f = "?";
-        f39939g = "jy/da?";
-        f39940h = "jy/da?";
-        f39941i = "jy/da?";
-        j = "jy/da?";
+        f76782b = f76781a + "behavior?";
+        f76783c = f76781a + "report?";
+        f76784d = "https://cd.xdplt.com/";
+        f76785e = "jy/da?";
+        f76786f = "?";
+        f76787g = "jy/da?";
+        f76788h = "jy/da?";
+        f76789i = "jy/da?";
+        f76790j = "jy/da?";
     }
 
     public static /* synthetic */ void a(r1 r1Var) {
         String str;
         if (r1Var != null) {
-            str = r1Var.f39929c;
-            if (TextUtils.isEmpty(str) || r1Var.f39927a == null || TextUtils.isEmpty(r1Var.f39928b)) {
+            str = r1Var.f76777c;
+            if (TextUtils.isEmpty(str) || r1Var.f76775a == null || TextUtils.isEmpty(r1Var.f76776b)) {
                 return;
             }
             W1.a(new q1(r1Var));
@@ -82,13 +85,13 @@ public class s1 {
     }
 
     public static /* synthetic */ void a(r1 r1Var, HashMap hashMap) {
-        if (r1Var.f39928b.startsWith(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE602)) {
-            hashMap.put("lo_timeout", String.valueOf(U1.d(r1Var.f39927a)));
-            float a2 = U1.a(r1Var.f39927a, "splash_width", 0.0f);
+        if (r1Var.f76776b.startsWith(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE602)) {
+            hashMap.put("lo_timeout", String.valueOf(U1.d(r1Var.f76775a)));
+            float a2 = U1.a(r1Var.f76775a, "splash_width", 0.0f);
             if (a2 > 0.0f) {
                 hashMap.put("sp_w", String.valueOf(a2));
             }
-            float a3 = U1.a(r1Var.f39927a, "splash_height", 0.0f);
+            float a3 = U1.a(r1Var.f76775a, "splash_height", 0.0f);
             if (a3 > 0.0f) {
                 hashMap.put("sp_h", String.valueOf(a3));
             }
@@ -100,8 +103,8 @@ public class s1 {
             try {
                 if (jSONObject.length() != 0) {
                     K k = new K();
-                    k.f39592c = jSONObject.optString("traceid", "");
-                    k.f39591b = jSONObject.optString("pid", "");
+                    k.f76428c = jSONObject.optString("traceid", "");
+                    k.f76427b = jSONObject.optString("pid", "");
                     jSONObject.optString("bt", "");
                     JSONArray optJSONArray = jSONObject.optJSONArray("list");
                     ArrayList arrayList = new ArrayList();
@@ -110,7 +113,7 @@ public class s1 {
                             JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                             if (optJSONObject != null && optJSONObject.length() > 0) {
                                 Info info = new Info();
-                                info.setTraceid(k.f39592c);
+                                info.setTraceid(k.f76428c);
                                 info.setPid(k.a());
                                 info.setId(optJSONObject.optString("id", ""));
                                 info.setLoad(optJSONObject.optString("load", ""));
@@ -130,7 +133,7 @@ public class s1 {
                                 }
                                 info.setWt(optInt2);
                                 info.setPs(optJSONObject.optInt("ps", 0));
-                                info.setVertical(optJSONObject.optBoolean("vertical", true));
+                                info.setVertical(optJSONObject.optBoolean(VerticalTranslateLayout.VERTICAL, true));
                                 info.setNat(optJSONObject.optBoolean("nat", true));
                                 info.setHo_c_sw(optJSONObject.optBoolean("ho_c_sw", true));
                                 info.setOpen(optJSONObject.optString("open", ""));
@@ -166,7 +169,7 @@ public class s1 {
                             }
                         }
                     }
-                    k.f39590a = arrayList;
+                    k.f76426a = arrayList;
                     return k;
                 }
             } catch (Exception unused) {

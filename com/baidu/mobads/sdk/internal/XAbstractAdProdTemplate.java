@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class XAbstractAdProdTemplate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_CODE = "error_code";
@@ -35,7 +35,7 @@ public abstract class XAbstractAdProdTemplate {
     public IOAdEventListener mEventListener;
     public boolean mExecuteRequest;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class CustomAdEventListener implements IOAdEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

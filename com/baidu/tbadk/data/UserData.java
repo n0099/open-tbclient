@@ -1,6 +1,9 @@
 package com.baidu.tbadk.data;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.k.e.n;
+import c.a.o0.s.q.i2;
+import c.a.o0.u.m;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -10,15 +13,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.k.e.n;
-import d.a.p0.s.q.h2;
-import d.a.p0.u.m;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +39,7 @@ import tbclient.UserPics;
 import tbclient.UserVipInfo;
 import tbclient.VipCloseAd;
 import tbclient.VipShowInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class UserData extends MetaData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int USER_PICS_MAX_COUNT = 9;
@@ -77,7 +76,7 @@ public class UserData extends MetaData {
     public String lng;
     public long loginTime;
     public ActivitySponsorData mActivitySponsorData;
-    public h2 mBirthdayInfo;
+    public i2 mBirthdayInfo;
     public List<MyGift> mGift;
     public int mGiftNum;
     public List<MyGroup> mGroup;
@@ -105,7 +104,7 @@ public class UserData extends MetaData {
     public UserVipInfoData vipInfo;
     public int visitorNum;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class Permission extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TRUE = 1;
@@ -230,10 +229,10 @@ public class UserData extends MetaData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.bimg_url : (String) invokeV.objValue;
     }
 
-    public h2 getBirthdayInfo() {
+    public i2 getBirthdayInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mBirthdayInfo : (h2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mBirthdayInfo : (i2) invokeV.objValue;
     }
 
     public CloseAdData getCloseAdData() {
@@ -549,7 +548,7 @@ public class UserData extends MetaData {
         }
         this.mPhotoAlbum.clear();
         m mVar = new m();
-        mVar.e(getPortraitH());
+        mVar.g(getPortraitH());
         mVar.i(getPortrait());
         mVar.h(true);
         this.mPhotoAlbum.add(mVar);
@@ -558,7 +557,7 @@ public class UserData extends MetaData {
             for (UserPics userPics : user.user_pics) {
                 if (userPics != null) {
                     m mVar2 = new m();
-                    mVar2.e(userPics.big);
+                    mVar2.g(userPics.big);
                     mVar2.i(userPics.small);
                     mVar2.h(false);
                     this.mPhotoAlbum.add(mVar2);
@@ -682,9 +681,9 @@ public class UserData extends MetaData {
         this.isShowRedPacket = user.is_show_redpacket.intValue() == 1;
         BirthdayInfo birthdayInfo = user.birthday_info;
         if (birthdayInfo != null) {
-            h2 h2Var = new h2();
-            this.mBirthdayInfo = h2Var;
-            h2Var.b(birthdayInfo);
+            i2 i2Var = new i2();
+            this.mBirthdayInfo = i2Var;
+            i2Var.b(birthdayInfo);
         }
         this.bawuThrones = user.bawu_thrones;
         this.showPbPrivateFlag = user.show_pb_private_flag.intValue();
@@ -755,10 +754,10 @@ public class UserData extends MetaData {
         }
     }
 
-    public void setInTime(long j) {
+    public void setInTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048638, this, j) == null) {
-            this.inTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048638, this, j2) == null) {
+            this.inTime = j2;
         }
     }
 
@@ -790,10 +789,10 @@ public class UserData extends MetaData {
         }
     }
 
-    public void setLastReplyTime(long j) {
+    public void setLastReplyTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048643, this, j) == null) {
-            this.lastReplyTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048643, this, j2) == null) {
+            this.lastReplyTime = j2;
         }
     }
 
@@ -822,7 +821,7 @@ public class UserData extends MetaData {
         }
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, d.a.p0.s.f0.t.a
+    @Override // com.baidu.tbadk.data.MetaData, c.a.o0.s.f0.t.a
     public void setLikeStatus(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048647, this, i2) == null) {
@@ -845,10 +844,10 @@ public class UserData extends MetaData {
         }
     }
 
-    public void setLoginTime(long j) {
+    public void setLoginTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048650, this, j) == null) {
-            this.loginTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048650, this, j2) == null) {
+            this.loginTime = j2;
         }
     }
 
@@ -931,7 +930,7 @@ public class UserData extends MetaData {
                     return;
                 }
                 this.ip = jSONObject.optString("ip");
-                this.BDUSS = jSONObject.optString(HttpRequest.BDUSS);
+                this.BDUSS = jSONObject.optString("BDUSS");
                 int optInt = jSONObject.optInt("sex", 1);
                 this.sex = optInt;
                 if (optInt != 2 && optInt != 1) {
@@ -1002,7 +1001,7 @@ public class UserData extends MetaData {
                 }
                 this.mPhotoAlbum.clear();
                 m mVar = new m();
-                mVar.e(getPortraitH());
+                mVar.g(getPortraitH());
                 mVar.i(getPortrait());
                 mVar.h(true);
                 this.mPhotoAlbum.add(mVar);
@@ -1013,7 +1012,7 @@ public class UserData extends MetaData {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                         if (jSONObject2 != null) {
                             m mVar2 = new m();
-                            mVar2.e(jSONObject2.optString("big"));
+                            mVar2.g(jSONObject2.optString("big"));
                             mVar2.i(jSONObject2.optString("small"));
                             mVar2.h(false);
                             this.mPhotoAlbum.add(mVar2);
@@ -1071,9 +1070,9 @@ public class UserData extends MetaData {
                 }
                 JSONObject optJSONObject10 = jSONObject.optJSONObject("birthday_info");
                 if (optJSONObject10 != null) {
-                    h2 h2Var = new h2();
-                    this.mBirthdayInfo = h2Var;
-                    h2Var.a(optJSONObject10);
+                    i2 i2Var = new i2();
+                    this.mBirthdayInfo = i2Var;
+                    i2Var.a(optJSONObject10);
                 }
                 this.mTiebaUid = jSONObject.optString("tieba_uid");
             } catch (Exception e2) {
@@ -1082,12 +1081,12 @@ public class UserData extends MetaData {
         }
     }
 
-    public UserData(long j, String str, String str2, int i2) {
+    public UserData(long j2, String str, String str2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), str, str2, Integer.valueOf(i2)};
+            Object[] objArr = {Long.valueOf(j2), str, str2, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -1110,7 +1109,7 @@ public class UserData extends MetaData {
         this.liveStatus = 0;
         this.liveId = "0";
         this.isGodInvited = false;
-        setUserId(String.valueOf(j));
+        setUserId(String.valueOf(j2));
         setUserName(str);
         setPortrait(str2);
         this.sex = i2;

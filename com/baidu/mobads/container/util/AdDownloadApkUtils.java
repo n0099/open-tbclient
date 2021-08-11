@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.container.components.command.XAdRemoteAPKDownloadExtraInfo;
@@ -23,10 +22,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class AdDownloadApkUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DL_STATUS_DONE = "DONE";
@@ -64,10 +62,10 @@ public class AdDownloadApkUtils {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00bd, code lost:
-        if (java.lang.Math.abs(r9 - r3.length()) >= 2) goto L43;
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00b7, code lost:
+        if (java.lang.Math.abs(r8 - r2.length()) >= 2) goto L43;
      */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x00c2  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00bc  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -87,7 +85,7 @@ public class AdDownloadApkUtils {
                         }
                     }
                 } catch (Exception e2) {
-                    Log.e(TAG, e2.getMessage());
+                    e2.getMessage();
                 }
                 try {
                     SPUtils sPUtils2 = new SPUtils(context, PKGS_PREF_DOWNLOAD);
@@ -110,7 +108,7 @@ public class AdDownloadApkUtils {
                                         } catch (Exception e3) {
                                             e = e3;
                                             i2 = 5;
-                                            Log.e(TAG, e.getMessage());
+                                            e.getMessage();
                                             return i2;
                                         }
                                     }
@@ -319,6 +317,6 @@ public class AdDownloadApkUtils {
         InterceptResult invokeL;
         File externalStorageDirectory;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? Build.VERSION.SDK_INT <= 28 && PermissionUtils.checkPermission(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION) && PermissionUtils.hasPermission("permission_storage") && (externalStorageDirectory = Environment.getExternalStorageDirectory()) != null && supportInstallApk(context, SdcardUtils.getApkDlPath(externalStorageDirectory.getPath())) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? Build.VERSION.SDK_INT <= 28 && PermissionUtils.checkPermission(context, "android.permission.WRITE_EXTERNAL_STORAGE") && PermissionUtils.hasPermission("permission_storage") && (externalStorageDirectory = Environment.getExternalStorageDirectory()) != null && supportInstallApk(context, SdcardUtils.getApkDlPath(externalStorageDirectory.getPath())) : invokeL.booleanValue;
     }
 }

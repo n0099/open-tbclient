@@ -6,7 +6,6 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +46,7 @@ import javax.microedition.khronos.opengles.GL10;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BaiduMap {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAP_TYPE_NONE = 3;
@@ -55,7 +54,7 @@ public class BaiduMap {
     public static final int MAP_TYPE_SATELLITE = 2;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f6906e = "BaiduMap";
+    public static final String f41146e = "BaiduMap";
     public static int mapStatusReason;
     public transient /* synthetic */ FieldHolder $fh;
     public OnMyLocationClickListener A;
@@ -80,29 +79,31 @@ public class BaiduMap {
     public Point T;
 
     /* renamed from: a  reason: collision with root package name */
-    public MapView f6907a;
+    public MapView f41147a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextureMapView f6908b;
+    public TextureMapView f41148b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WearMapView f6909c;
+    public WearMapView f41149c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.map.aa f6910d;
+    public com.baidu.mapsdkplatform.comapi.map.aa f41150d;
 
     /* renamed from: f  reason: collision with root package name */
-    public Projection f6911f;
+    public Projection f41151f;
 
     /* renamed from: g  reason: collision with root package name */
-    public UiSettings f6912g;
+    public UiSettings f41152g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.map.j f6913h;
+    public com.baidu.mapsdkplatform.comapi.map.j f41153h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.map.e f6914i;
-    public ac j;
+    public com.baidu.mapsdkplatform.comapi.map.e f41154i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public ac f41155j;
     public List<Overlay> k;
     public List<Marker> l;
     public List<Marker> m;
@@ -120,24 +121,24 @@ public class BaiduMap {
     public CopyOnWriteArrayList<OnPolylineClickListener> y;
     public OnMarkerDragListener z;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnBaseIndoorMapListener {
         void onBaseIndoorMapMode(boolean z, MapBaseIndoorMapInfo mapBaseIndoorMapInfo);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnMapClickListener {
         void onMapClick(LatLng latLng);
 
         boolean onMapPoiClick(MapPoi mapPoi);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnMapDoubleClickListener {
         void onMapDoubleClick(LatLng latLng);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnMapDrawFrameCallback {
         void onMapDrawFrame(MapStatus mapStatus);
 
@@ -145,27 +146,27 @@ public class BaiduMap {
         void onMapDrawFrame(GL10 gl10, MapStatus mapStatus);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnMapLoadedCallback {
         void onMapLoaded();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnMapLongClickListener {
         void onMapLongClick(LatLng latLng);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnMapRenderCallback {
         void onMapRenderFinished();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnMapRenderValidDataListener {
         void onMapRenderValidData(boolean z, int i2, String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnMapStatusChangeListener {
         public static final int REASON_API_ANIMATION = 2;
         public static final int REASON_DEVELOPER_ANIMATION = 3;
@@ -180,17 +181,17 @@ public class BaiduMap {
         void onMapStatusChangeStart(MapStatus mapStatus, int i2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnMapTouchListener {
         void onTouch(MotionEvent motionEvent);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnMarkerClickListener {
         boolean onMarkerClick(Marker marker);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnMarkerDragListener {
         void onMarkerDrag(Marker marker);
 
@@ -199,22 +200,22 @@ public class BaiduMap {
         void onMarkerDragStart(Marker marker);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnMyLocationClickListener {
         boolean onMyLocationClick();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnPolylineClickListener {
         boolean onPolylineClick(Polyline polyline);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnSynchronizationListener {
         void onMapStatusChangeReason(int i2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface SnapshotReadyCallback {
         void onSnapshotReady(Bitmap bitmap);
     }
@@ -253,9 +254,9 @@ public class BaiduMap {
         this.y = new CopyOnWriteArrayList<>();
         this.I = new ReentrantLock();
         this.J = new ReentrantLock();
-        this.j = acVar;
-        this.f6914i = acVar.b();
-        this.f6910d = com.baidu.mapsdkplatform.comapi.map.aa.f7684b;
+        this.f41155j = acVar;
+        this.f41154i = acVar.b();
+        this.f41150d = com.baidu.mapsdkplatform.comapi.map.aa.f41953b;
         c();
     }
 
@@ -278,9 +279,9 @@ public class BaiduMap {
         this.y = new CopyOnWriteArrayList<>();
         this.I = new ReentrantLock();
         this.J = new ReentrantLock();
-        this.f6913h = jVar;
-        this.f6914i = jVar.a();
-        this.f6910d = com.baidu.mapsdkplatform.comapi.map.aa.f7683a;
+        this.f41153h = jVar;
+        this.f41154i = jVar.a();
+        this.f41150d = com.baidu.mapsdkplatform.comapi.map.aa.f41952a;
         c();
     }
 
@@ -311,12 +312,12 @@ public class BaiduMap {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, mapStatusUpdate)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
             if (eVar == null) {
                 return null;
             }
             ab E = eVar.E();
-            MapStatus a2 = mapStatusUpdate.a(this.f6914i, getMapStatus());
+            MapStatus a2 = mapStatusUpdate.a(this.f41154i, getMapStatus());
             if (a2 == null) {
                 return null;
             }
@@ -392,39 +393,39 @@ public class BaiduMap {
             showInfoWindow(infoWindow, false);
             return;
         }
-        View view = infoWindow.f6988b;
-        if (view != null && infoWindow.j) {
+        View view = infoWindow.f41233b;
+        if (view != null && infoWindow.f41241j) {
             view.destroyDrawingCache();
-            MapViewLayoutParams build = new MapViewLayoutParams.Builder().layoutMode(MapViewLayoutParams.ELayoutMode.mapMode).position(infoWindow.f6989c).yOffset(infoWindow.f6992f).build();
-            int i2 = f.f7193b[this.f6910d.ordinal()];
+            MapViewLayoutParams build = new MapViewLayoutParams.Builder().layoutMode(MapViewLayoutParams.ELayoutMode.mapMode).position(infoWindow.f41234c).yOffset(infoWindow.f41237f).build();
+            int i2 = f.f41451b[this.f41150d.ordinal()];
             if (i2 == 1) {
-                TextureMapView textureMapView = this.f6908b;
+                TextureMapView textureMapView = this.f41148b;
                 if (textureMapView != null) {
                     textureMapView.removeView(view);
-                    this.f6908b.addView(view, build);
+                    this.f41148b.addView(view, build);
                 }
-            } else if (i2 == 2 && (mapView = this.f6907a) != null) {
+            } else if (i2 == 2 && (mapView = this.f41147a) != null) {
                 mapView.removeView(view);
-                this.f6907a.addView(view, build);
+                this.f41147a.addView(view, build);
             }
-            if (infoWindow.f6995i) {
+            if (infoWindow.f41240i) {
                 z = false;
                 BitmapDescriptor b2 = b(infoWindow);
                 marker = this.L.get(infoWindow);
                 if (marker == null) {
                     Bundle bundle = new Bundle();
-                    if (infoWindow.f6987a != null) {
-                        marker.type = com.baidu.mapsdkplatform.comapi.map.h.f7748b;
-                        marker.f7055b = b2;
-                        if (infoWindow.f6988b != null) {
+                    if (infoWindow.f41232a != null) {
+                        marker.type = com.baidu.mapsdkplatform.comapi.map.h.f42020b;
+                        marker.f41303b = b2;
+                        if (infoWindow.f41233b != null) {
                             bundle.putInt("draw_with_view", 1);
                         } else {
                             bundle.putInt("draw_with_view", 0);
                         }
                     }
-                    marker.f7054a = infoWindow.f6989c;
+                    marker.f41302a = infoWindow.f41234c;
                     marker.a(bundle);
-                    com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+                    com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
                     if (eVar == null || !z) {
                         return;
                     }
@@ -441,11 +442,11 @@ public class BaiduMap {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0104  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0109  */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x01a1  */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x01b5  */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x01f7  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0103  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0108  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x01a0  */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x01b4  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x01f6  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -507,10 +508,10 @@ public class BaiduMap {
                     e.printStackTrace();
                     if (myLocationConfiguration.customMarker != null) {
                     }
-                    eVar = baiduMap.f6914i;
+                    eVar = baiduMap.f41154i;
                     if (eVar != null) {
                     }
-                    i2 = f.f7192a[myLocationConfiguration.locationMode.ordinal()];
+                    i2 = f.f41450a[myLocationConfiguration.locationMode.ordinal()];
                     if (i2 != 1) {
                     }
                     baiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(zoom.build()));
@@ -530,7 +531,7 @@ public class BaiduMap {
             for (BitmapDescriptor bitmapDescriptor : arrayList) {
                 ParcelItem parcelItem = new ParcelItem();
                 Bundle bundle3 = new Bundle();
-                Bitmap bitmap = bitmapDescriptor.f6924a;
+                Bitmap bitmap = bitmapDescriptor.f41166a;
                 ByteBuffer allocate = ByteBuffer.allocate(bitmap.getWidth() * bitmap.getHeight() * 4);
                 bitmap.copyPixelsToBuffer(allocate);
                 bundle3.putByteArray("imgdata", allocate.array());
@@ -550,11 +551,11 @@ public class BaiduMap {
             baiduMap = this;
             bundle = bundle2;
         }
-        eVar = baiduMap.f6914i;
+        eVar = baiduMap.f41154i;
         if (eVar != null) {
             eVar.a(jSONObject.toString(), bundle);
         }
-        i2 = f.f7192a[myLocationConfiguration.locationMode.ordinal()];
+        i2 = f.f41450a[myLocationConfiguration.locationMode.ordinal()];
         if (i2 != 1) {
             zoom = new MapStatus.Builder().rotate(myLocationData.direction).overlook(-45.0f).target(new LatLng(myLocationData.latitude, myLocationData.longitude)).targetScreen(getMapStatus().targetScreen).zoom(getMapStatus().zoom);
         } else if (i2 != 2) {
@@ -570,19 +571,19 @@ public class BaiduMap {
         BitmapDescriptor fromView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, infoWindow)) == null) {
-            View view = infoWindow.f6988b;
-            if (view == null || !infoWindow.j) {
-                return infoWindow.f6987a;
+            View view = infoWindow.f41233b;
+            if (view == null || !infoWindow.f41241j) {
+                return infoWindow.f41232a;
             }
-            if (infoWindow.f6993g) {
-                if (infoWindow.f6994h <= 0) {
-                    infoWindow.f6994h = SysOSUtil.getDensityDpi();
+            if (infoWindow.f41238g) {
+                if (infoWindow.f41239h <= 0) {
+                    infoWindow.f41239h = SysOSUtil.getDensityDpi();
                 }
-                fromView = BitmapDescriptorFactory.fromViewWithDpi(infoWindow.f6988b, infoWindow.f6994h);
+                fromView = BitmapDescriptorFactory.fromViewWithDpi(infoWindow.f41233b, infoWindow.f41239h);
             } else {
                 fromView = BitmapDescriptorFactory.fromView(view);
             }
-            infoWindow.f6987a = fromView;
+            infoWindow.f41232a = fromView;
             return fromView;
         }
         return (BitmapDescriptor) invokeL.objValue;
@@ -598,21 +599,21 @@ public class BaiduMap {
             this.L = new ConcurrentHashMap();
             this.n = new CopyOnWriteArrayList();
             this.T = new Point((int) (SysOSUtil.getDensity() * 40.0f), (int) (SysOSUtil.getDensity() * 40.0f));
-            this.f6912g = new UiSettings(this.f6914i);
+            this.f41152g = new UiSettings(this.f41154i);
             this.o = new a(this);
             this.p = new b(this);
-            this.f6914i.a(new c(this));
-            this.f6914i.a(new d(this));
-            this.f6914i.a(new e(this));
-            this.P = this.f6914i.C();
-            this.Q = this.f6914i.D();
+            this.f41154i.a(new c(this));
+            this.f41154i.a(new d(this));
+            this.f41154i.a(new e(this));
+            this.P = this.f41154i.C();
+            this.Q = this.f41154i.D();
         }
     }
 
     public void a() {
         com.baidu.mapsdkplatform.comapi.map.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (eVar = this.f6914i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (eVar = this.f41154i) == null) {
             return;
         }
         eVar.t();
@@ -623,13 +624,13 @@ public class BaiduMap {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, heatMap) == null) {
             this.I.lock();
             try {
-                if (this.H != null && this.f6914i != null && heatMap == this.H) {
+                if (this.H != null && this.f41154i != null && heatMap == this.H) {
                     this.H.b();
                     this.H.c();
-                    this.H.f6978a = null;
-                    this.f6914i.o();
+                    this.H.f41222a = null;
+                    this.f41154i.o();
                     this.H = null;
-                    this.f6914i.o(false);
+                    this.f41154i.o(false);
                 }
             } finally {
                 this.I.unlock();
@@ -645,9 +646,9 @@ public class BaiduMap {
                 try {
                     if (this.G == tileOverlay) {
                         tileOverlay.b();
-                        tileOverlay.f7156a = null;
-                        if (this.f6914i != null) {
-                            this.f6914i.f(false);
+                        tileOverlay.f41412a = null;
+                        if (this.f41154i != null) {
+                            this.f41154i.f(false);
                         }
                     }
                 } finally {
@@ -671,12 +672,12 @@ public class BaiduMap {
             if (this.H != null) {
                 this.H.b();
                 this.H.c();
-                this.H.f6978a = null;
-                this.f6914i.o();
+                this.H.f41222a = null;
+                this.f41154i.o();
             }
             this.H = heatMap;
-            heatMap.f6978a = this;
-            this.f6914i.o(true);
+            heatMap.f41222a = this;
+            this.f41154i.o(true);
         } finally {
             this.I.unlock();
         }
@@ -697,7 +698,7 @@ public class BaiduMap {
                 ArrayList<BitmapDescriptor> arrayList = marker.o;
                 if (arrayList != null && arrayList.size() != 0) {
                     this.l.add(marker);
-                    com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+                    com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
                     if (eVar != null) {
                         eVar.b(true);
                     }
@@ -710,7 +711,7 @@ public class BaiduMap {
             }
             Bundle bundle = new Bundle();
             a2.a(bundle);
-            com.baidu.mapsdkplatform.comapi.map.e eVar2 = this.f6914i;
+            com.baidu.mapsdkplatform.comapi.map.e eVar2 = this.f41154i;
             if (eVar2 != null) {
                 eVar2.b(bundle);
             }
@@ -743,7 +744,7 @@ public class BaiduMap {
                         ArrayList<BitmapDescriptor> arrayList2 = marker.o;
                         if (arrayList2 != null && arrayList2.size() != 0) {
                             this.l.add(marker);
-                            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+                            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
                             if (eVar != null) {
                                 eVar.b(true);
                             }
@@ -765,7 +766,7 @@ public class BaiduMap {
                         arrayList3.add(bundleArr[i2]);
                     }
                 }
-                com.baidu.mapsdkplatform.comapi.map.e eVar2 = this.f6914i;
+                com.baidu.mapsdkplatform.comapi.map.e eVar2 = this.f41154i;
                 if (eVar2 != null) {
                     eVar2.a(arrayList3);
                 }
@@ -785,9 +786,9 @@ public class BaiduMap {
             TileOverlay tileOverlay = this.G;
             if (tileOverlay != null) {
                 tileOverlay.b();
-                this.G.f7156a = null;
+                this.G.f41412a = null;
             }
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
             if (eVar == null || !eVar.a(tileOverlayOptions.a())) {
                 return null;
             }
@@ -811,7 +812,7 @@ public class BaiduMap {
             return;
         }
         ab a2 = a(mapStatusUpdate);
-        com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+        com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
         if (eVar == null) {
             return;
         }
@@ -827,7 +828,7 @@ public class BaiduMap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
             if (eVar == null) {
                 return false;
             }
@@ -839,7 +840,7 @@ public class BaiduMap {
     public void changeLocationLayerOrder(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f6914i.d(z);
+            this.f41154i.d(z);
         }
     }
 
@@ -849,10 +850,10 @@ public class BaiduMap {
             this.k.clear();
             this.l.clear();
             this.m.clear();
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
             if (eVar != null) {
                 eVar.b(false);
-                this.f6914i.n();
+                this.f41154i.n();
             }
             hideInfoWindow();
         }
@@ -868,7 +869,7 @@ public class BaiduMap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
             if (eVar != null) {
                 return a(eVar.h());
             }
@@ -880,7 +881,7 @@ public class BaiduMap {
     public MapBaseIndoorMapInfo getFocusedBaseIndoorMapInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f6914i.p() : (MapBaseIndoorMapInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f41154i.p() : (MapBaseIndoorMapInfo) invokeV.objValue;
     }
 
     public final MyLocationConfiguration getLocationConfigeration() {
@@ -905,7 +906,7 @@ public class BaiduMap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
             if (eVar == null) {
                 return null;
             }
@@ -918,7 +919,7 @@ public class BaiduMap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
             if (eVar == null) {
                 return null;
             }
@@ -931,12 +932,12 @@ public class BaiduMap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
             if (eVar == null) {
                 return 1;
             }
             if (eVar.l()) {
-                return this.f6914i.k() ? 2 : 1;
+                return this.f41154i.k() ? 2 : 1;
             }
             return 3;
         }
@@ -968,11 +969,11 @@ public class BaiduMap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
             if (eVar == null) {
                 return 0.0f;
             }
-            return eVar.f7734a;
+            return eVar.f42005a;
         }
         return invokeV.floatValue;
     }
@@ -981,11 +982,11 @@ public class BaiduMap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
             if (eVar == null) {
                 return 0.0f;
             }
-            return eVar.f7735b;
+            return eVar.f42006b;
         }
         return invokeV.floatValue;
     }
@@ -993,14 +994,14 @@ public class BaiduMap {
     public final Projection getProjection() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f6911f : (Projection) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f41151f : (Projection) invokeV.objValue;
     }
 
     public float[] getProjectionMatrix() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
             if (eVar == null) {
                 return null;
             }
@@ -1012,14 +1013,14 @@ public class BaiduMap {
     public final UiSettings getUiSettings() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f6912g : (UiSettings) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f41152g : (UiSettings) invokeV.objValue;
     }
 
     public float[] getViewMatrix() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
             if (eVar == null) {
                 return null;
             }
@@ -1032,7 +1033,7 @@ public class BaiduMap {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)})) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
             if (eVar == null) {
                 return 0.0f;
             }
@@ -1044,7 +1045,7 @@ public class BaiduMap {
     public com.baidu.mapsdkplatform.comapi.map.j getmGLMapView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f6913h : (com.baidu.mapsdkplatform.comapi.map.j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f41153h : (com.baidu.mapsdkplatform.comapi.map.j) invokeV.objValue;
     }
 
     public void hideInfoWindow() {
@@ -1055,14 +1056,14 @@ public class BaiduMap {
             Collection<InfoWindow> values = this.K.values();
             if (!values.isEmpty()) {
                 for (InfoWindow infoWindow : values) {
-                    if (infoWindow != null && (view = infoWindow.f6988b) != null) {
-                        int i2 = f.f7193b[this.f6910d.ordinal()];
+                    if (infoWindow != null && (view = infoWindow.f41233b) != null) {
+                        int i2 = f.f41451b[this.f41150d.ordinal()];
                         if (i2 == 1) {
-                            TextureMapView textureMapView = this.f6908b;
+                            TextureMapView textureMapView = this.f41148b;
                             if (textureMapView != null) {
                                 textureMapView.removeView(view);
                             }
-                        } else if (i2 == 2 && (mapView = this.f6907a) != null) {
+                        } else if (i2 == 2 && (mapView = this.f41147a) != null) {
                             mapView.removeView(view);
                         }
                     }
@@ -1089,15 +1090,15 @@ public class BaiduMap {
             if (infoWindow == null || keySet.isEmpty() || !keySet.contains(infoWindow)) {
                 return;
             }
-            View view = infoWindow.f6988b;
+            View view = infoWindow.f41233b;
             if (view != null) {
-                int i2 = f.f7193b[this.f6910d.ordinal()];
+                int i2 = f.f41451b[this.f41150d.ordinal()];
                 if (i2 == 1) {
-                    TextureMapView textureMapView = this.f6908b;
+                    TextureMapView textureMapView = this.f41148b;
                     if (textureMapView != null) {
                         textureMapView.removeView(view);
                     }
-                } else if (i2 == 2 && (mapView = this.f6907a) != null) {
+                } else if (i2 == 2 && (mapView = this.f41147a) != null) {
                     mapView.removeView(view);
                 }
             }
@@ -1114,7 +1115,7 @@ public class BaiduMap {
     public void hideSDKLayer() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            this.f6914i.c();
+            this.f41154i.c();
         }
     }
 
@@ -1122,7 +1123,7 @@ public class BaiduMap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
             if (eVar == null) {
                 return false;
             }
@@ -1134,14 +1135,14 @@ public class BaiduMap {
     public boolean isBaseIndoorMapMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f6914i.q() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f41154i.q() : invokeV.booleanValue;
     }
 
     public final boolean isBuildingsEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
             if (eVar == null) {
                 return false;
             }
@@ -1154,7 +1155,7 @@ public class BaiduMap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
             if (eVar == null) {
                 return false;
             }
@@ -1167,7 +1168,7 @@ public class BaiduMap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
             if (eVar == null) {
                 return false;
             }
@@ -1180,7 +1181,7 @@ public class BaiduMap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
             if (eVar == null) {
                 return false;
             }
@@ -1199,7 +1200,7 @@ public class BaiduMap {
     public final void setBaiduHeatMapEnabled(boolean z) {
         com.baidu.mapsdkplatform.comapi.map.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048616, this, z) == null) || (eVar = this.f6914i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048616, this, z) == null) || (eVar = this.f41154i) == null) {
             return;
         }
         eVar.h(z);
@@ -1208,7 +1209,7 @@ public class BaiduMap {
     public final void setBuildingsEnabled(boolean z) {
         com.baidu.mapsdkplatform.comapi.map.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048617, this, z) == null) || (eVar = this.f6914i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048617, this, z) == null) || (eVar = this.f41154i) == null) {
             return;
         }
         eVar.j(z);
@@ -1217,7 +1218,7 @@ public class BaiduMap {
     public void setCompassEnable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
-            this.f6914i.e(z);
+            this.f41154i.e(z);
         }
     }
 
@@ -1227,13 +1228,13 @@ public class BaiduMap {
             if (bitmap == null) {
                 throw new IllegalArgumentException("BDMapSDKException: compass's icon can not be null");
             }
-            this.f6914i.a(bitmap);
+            this.f41154i.a(bitmap);
         }
     }
 
     public void setCompassPosition(Point point) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048620, this, point) == null) && this.f6914i.a(point)) {
+        if ((interceptable == null || interceptable.invokeL(1048620, this, point) == null) && this.f41154i.a(point)) {
             this.T = point;
         }
     }
@@ -1244,15 +1245,14 @@ public class BaiduMap {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048621, this, str, str2, str3, str4)) == null) {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
                 if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2) && TextUtils.isEmpty(str3) && TextUtils.isEmpty(str4)) {
-                    this.f6914i.a(Color.parseColor("#ffffffff"), Color.parseColor("#ffffffff"), Color.parseColor("#ffffffff"), Color.parseColor("#ffffffff"), false);
+                    this.f41154i.a(Color.parseColor("#ffffffff"), Color.parseColor("#ffffffff"), Color.parseColor("#ffffffff"), Color.parseColor("#ffffffff"), false);
                     return true;
                 }
                 return true;
             } else if (str.matches("^#[0-9a-fA-F]{8}$") && str2.matches("^#[0-9a-fA-F]{8}$") && str3.matches("^#[0-9a-fA-F]{8}$") && str4.matches("^#[0-9a-fA-F]{8}$")) {
-                this.f6914i.a(Color.parseColor(str), Color.parseColor(str2), Color.parseColor(str3), Color.parseColor(str4), true);
+                this.f41154i.a(Color.parseColor(str), Color.parseColor(str2), Color.parseColor(str3), Color.parseColor(str4), true);
                 return true;
             } else {
-                Log.e(f6906e, "the string of the input customTrafficColor is error");
                 return false;
             }
         }
@@ -1262,7 +1262,7 @@ public class BaiduMap {
     public final void setIndoorEnable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048622, this, z) == null) {
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
             if (eVar != null) {
                 this.R = z;
                 eVar.l(z);
@@ -1281,7 +1281,7 @@ public class BaiduMap {
             return;
         }
         ab a2 = a(mapStatusUpdate);
-        com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+        com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
         if (eVar == null) {
             return;
         }
@@ -1295,7 +1295,7 @@ public class BaiduMap {
     public final void setMapStatusLimits(LatLngBounds latLngBounds) {
         com.baidu.mapsdkplatform.comapi.map.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048624, this, latLngBounds) == null) || (eVar = this.f6914i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048624, this, latLngBounds) == null) || (eVar = this.f41154i) == null) {
             return;
         }
         eVar.a(latLngBounds);
@@ -1305,31 +1305,31 @@ public class BaiduMap {
     public final void setMapType(int i2) {
         com.baidu.mapsdkplatform.comapi.map.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048625, this, i2) == null) || (eVar = this.f6914i) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048625, this, i2) == null) || (eVar = this.f41154i) == null) {
             return;
         }
         if (i2 == 1) {
             eVar.a(false);
-            this.f6914i.u(this.P);
-            this.f6914i.v(this.Q);
-            this.f6914i.g(true);
-            this.f6914i.l(this.R);
+            this.f41154i.u(this.P);
+            this.f41154i.v(this.Q);
+            this.f41154i.g(true);
+            this.f41154i.l(this.R);
         } else if (i2 == 2) {
             eVar.a(true);
-            this.f6914i.u(this.P);
-            this.f6914i.v(this.Q);
-            this.f6914i.g(true);
+            this.f41154i.u(this.P);
+            this.f41154i.v(this.Q);
+            this.f41154i.g(true);
         } else if (i2 == 3) {
             if (eVar.C()) {
-                this.f6914i.u(false);
+                this.f41154i.u(false);
             }
-            if (this.f6914i.D()) {
-                this.f6914i.v(false);
+            if (this.f41154i.D()) {
+                this.f41154i.v(false);
             }
-            this.f6914i.g(false);
-            this.f6914i.l(false);
+            this.f41154i.g(false);
+            this.f41154i.l(false);
         }
-        com.baidu.mapsdkplatform.comapi.map.j jVar = this.f6913h;
+        com.baidu.mapsdkplatform.comapi.map.j jVar = this.f41153h;
         if (jVar != null) {
             jVar.a(i2);
         }
@@ -1338,7 +1338,7 @@ public class BaiduMap {
     public final void setMaxAndMinZoomLevel(float f2, float f3) {
         com.baidu.mapsdkplatform.comapi.map.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || f2 > 21.0f || f3 < 4.0f || f2 < f3 || (eVar = this.f6914i) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || f2 > 21.0f || f3 < 4.0f || f2 < f3 || (eVar = this.f41154i) == null) {
             return;
         }
         eVar.a(f2, f3);
@@ -1373,7 +1373,7 @@ public class BaiduMap {
     public final void setMyLocationEnabled(boolean z) {
         com.baidu.mapsdkplatform.comapi.map.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048630, this, z) == null) || (eVar = this.f6914i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048630, this, z) == null) || (eVar = this.f41154i) == null) {
             return;
         }
         eVar.n(z);
@@ -1489,7 +1489,7 @@ public class BaiduMap {
     public void setOverlayUnderPoi(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048646, this, z) == null) {
-            this.f6914i.c(z);
+            this.f41154i.c(z);
         }
     }
 
@@ -1499,37 +1499,37 @@ public class BaiduMap {
         ViewGroup viewGroup;
         MapView mapView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048647, this, i2, i3, i4, i5) == null) || i2 < 0 || i3 < 0 || i4 < 0 || i5 < 0 || (eVar = this.f6914i) == null) {
+        if (!(interceptable == null || interceptable.invokeIIII(1048647, this, i2, i3, i4, i5) == null) || i2 < 0 || i3 < 0 || i4 < 0 || i5 < 0 || (eVar = this.f41154i) == null) {
             return;
         }
         eVar.E();
-        int i6 = f.f7193b[this.f6910d.ordinal()];
+        int i6 = f.f41451b[this.f41150d.ordinal()];
         if (i6 == 1) {
-            TextureMapView textureMapView = this.f6908b;
+            TextureMapView textureMapView = this.f41148b;
             if (textureMapView == null) {
                 return;
             }
-            float width = ((textureMapView.getWidth() - i2) - i4) / this.f6908b.getWidth();
-            float height = ((this.f6908b.getHeight() - i3) - i5) / this.f6908b.getHeight();
-            MapStatusUpdate newMapStatus = MapStatusUpdateFactory.newMapStatus(new MapStatus.Builder().targetScreen(new Point(((this.f6908b.getWidth() + i2) - i4) / 2, ((this.f6908b.getHeight() + i3) - i5) / 2)).build());
-            com.baidu.mapsdkplatform.comapi.map.e eVar2 = this.f6914i;
+            float width = ((textureMapView.getWidth() - i2) - i4) / this.f41148b.getWidth();
+            float height = ((this.f41148b.getHeight() - i3) - i5) / this.f41148b.getHeight();
+            MapStatusUpdate newMapStatus = MapStatusUpdateFactory.newMapStatus(new MapStatus.Builder().targetScreen(new Point(((this.f41148b.getWidth() + i2) - i4) / 2, ((this.f41148b.getHeight() + i3) - i5) / 2)).build());
+            com.baidu.mapsdkplatform.comapi.map.e eVar2 = this.f41154i;
             Point point = this.T;
             eVar2.a(new Point((int) (i2 + (point.x * width)), (int) (i3 + (point.y * height))));
             setMapStatus(newMapStatus);
-            this.f6908b.setPadding(i2, i3, i4, i5);
-            viewGroup = this.f6908b;
-        } else if (i6 != 2 || (mapView = this.f6907a) == null) {
+            this.f41148b.setPadding(i2, i3, i4, i5);
+            viewGroup = this.f41148b;
+        } else if (i6 != 2 || (mapView = this.f41147a) == null) {
             return;
         } else {
-            float width2 = ((mapView.getWidth() - i2) - i4) / this.f6907a.getWidth();
-            float height2 = ((this.f6907a.getHeight() - i3) - i5) / this.f6907a.getHeight();
-            MapStatusUpdate newMapStatus2 = MapStatusUpdateFactory.newMapStatus(new MapStatus.Builder().targetScreen(new Point(((this.f6907a.getWidth() + i2) - i4) / 2, ((this.f6907a.getHeight() + i3) - i5) / 2)).build());
-            com.baidu.mapsdkplatform.comapi.map.e eVar3 = this.f6914i;
+            float width2 = ((mapView.getWidth() - i2) - i4) / this.f41147a.getWidth();
+            float height2 = ((this.f41147a.getHeight() - i3) - i5) / this.f41147a.getHeight();
+            MapStatusUpdate newMapStatus2 = MapStatusUpdateFactory.newMapStatus(new MapStatus.Builder().targetScreen(new Point(((this.f41147a.getWidth() + i2) - i4) / 2, ((this.f41147a.getHeight() + i3) - i5) / 2)).build());
+            com.baidu.mapsdkplatform.comapi.map.e eVar3 = this.f41154i;
             Point point2 = this.T;
             eVar3.a(new Point((int) (i2 + (point2.x * width2)), (int) (i3 + (point2.y * height2))));
             setMapStatus(newMapStatus2);
-            this.f6907a.setPadding(i2, i3, i4, i5);
-            viewGroup = this.f6907a;
+            this.f41147a.setPadding(i2, i3, i4, i5);
+            viewGroup = this.f41147a;
         }
         viewGroup.invalidate();
     }
@@ -1537,7 +1537,7 @@ public class BaiduMap {
     public void setPixelFormatTransparent(boolean z) {
         com.baidu.mapsdkplatform.comapi.map.j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048648, this, z) == null) || (jVar = this.f6913h) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048648, this, z) == null) || (jVar = this.f41153h) == null) {
             return;
         }
         if (z) {
@@ -1550,7 +1550,7 @@ public class BaiduMap {
     public final void setTrafficEnabled(boolean z) {
         com.baidu.mapsdkplatform.comapi.map.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048649, this, z) == null) || (eVar = this.f6914i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048649, this, z) == null) || (eVar = this.f41154i) == null) {
             return;
         }
         eVar.i(z);
@@ -1560,32 +1560,32 @@ public class BaiduMap {
         ViewGroup viewGroup;
         MapView mapView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048650, this, i2, i3, i4, i5) == null) || i2 < 0 || i3 < 0 || i4 < 0 || i5 < 0 || this.f6914i == null) {
+        if (!(interceptable == null || interceptable.invokeIIII(1048650, this, i2, i3, i4, i5) == null) || i2 < 0 || i3 < 0 || i4 < 0 || i5 < 0 || this.f41154i == null) {
             return;
         }
-        int i6 = f.f7193b[this.f6910d.ordinal()];
+        int i6 = f.f41451b[this.f41150d.ordinal()];
         if (i6 == 1) {
-            TextureMapView textureMapView = this.f6908b;
+            TextureMapView textureMapView = this.f41148b;
             if (textureMapView == null) {
                 return;
             }
-            float width = ((textureMapView.getWidth() - i2) - i4) / this.f6908b.getWidth();
-            float height = ((this.f6908b.getHeight() - i3) - i5) / this.f6908b.getHeight();
-            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f6914i;
+            float width = ((textureMapView.getWidth() - i2) - i4) / this.f41148b.getWidth();
+            float height = ((this.f41148b.getHeight() - i3) - i5) / this.f41148b.getHeight();
+            com.baidu.mapsdkplatform.comapi.map.e eVar = this.f41154i;
             Point point = this.T;
             eVar.a(new Point((int) (i2 + (point.x * width)), (int) (i3 + (point.y * height))));
-            this.f6908b.setPadding(i2, i3, i4, i5);
-            viewGroup = this.f6908b;
-        } else if (i6 != 2 || (mapView = this.f6907a) == null) {
+            this.f41148b.setPadding(i2, i3, i4, i5);
+            viewGroup = this.f41148b;
+        } else if (i6 != 2 || (mapView = this.f41147a) == null) {
             return;
         } else {
-            float width2 = ((mapView.getWidth() - i2) - i4) / this.f6907a.getWidth();
-            float height2 = ((this.f6907a.getHeight() - i3) - i5) / this.f6907a.getHeight();
-            com.baidu.mapsdkplatform.comapi.map.e eVar2 = this.f6914i;
+            float width2 = ((mapView.getWidth() - i2) - i4) / this.f41147a.getWidth();
+            float height2 = ((this.f41147a.getHeight() - i3) - i5) / this.f41147a.getHeight();
+            com.baidu.mapsdkplatform.comapi.map.e eVar2 = this.f41154i;
             Point point2 = this.T;
             eVar2.a(new Point((int) (i2 + (point2.x * width2)), (int) (i3 + (point2.y * height2))));
-            this.f6907a.setPadding(i2, i3, i4, i5);
-            viewGroup = this.f6907a;
+            this.f41147a.setPadding(i2, i3, i4, i5);
+            viewGroup = this.f41147a;
         }
         viewGroup.invalidate();
     }
@@ -1616,33 +1616,33 @@ public class BaiduMap {
             if (z) {
                 hideInfoWindow();
             }
-            infoWindow.f6991e = this.p;
-            View view = infoWindow.f6988b;
-            if (view != null && infoWindow.j) {
+            infoWindow.f41236e = this.p;
+            View view = infoWindow.f41233b;
+            if (view != null && infoWindow.f41241j) {
                 view.destroyDrawingCache();
-                MapViewLayoutParams build = new MapViewLayoutParams.Builder().layoutMode(MapViewLayoutParams.ELayoutMode.mapMode).position(infoWindow.f6989c).yOffset(infoWindow.f6992f).build();
-                int i2 = f.f7193b[this.f6910d.ordinal()];
+                MapViewLayoutParams build = new MapViewLayoutParams.Builder().layoutMode(MapViewLayoutParams.ELayoutMode.mapMode).position(infoWindow.f41234c).yOffset(infoWindow.f41237f).build();
+                int i2 = f.f41451b[this.f41150d.ordinal()];
                 if (i2 == 1) {
-                    TextureMapView textureMapView = this.f6908b;
+                    TextureMapView textureMapView = this.f41148b;
                     if (textureMapView != null) {
                         textureMapView.addView(view, build);
                     }
-                } else if (i2 == 2 && this.f6913h != null) {
-                    this.f6907a.addView(view, build);
+                } else if (i2 == 2 && this.f41153h != null) {
+                    this.f41147a.addView(view, build);
                 }
-                if (infoWindow.f6995i) {
+                if (infoWindow.f41240i) {
                     z2 = false;
-                    a2 = new MarkerOptions().perspective(false).icon(b(infoWindow)).position(infoWindow.f6989c).zIndex(Integer.MAX_VALUE).yOffset(infoWindow.f6992f).infoWindow(infoWindow).a();
+                    a2 = new MarkerOptions().perspective(false).icon(b(infoWindow)).position(infoWindow.f41234c).zIndex(Integer.MAX_VALUE).yOffset(infoWindow.f41237f).infoWindow(infoWindow).a();
                     a2.listener = this.o;
-                    a2.type = com.baidu.mapsdkplatform.comapi.map.h.f7748b;
+                    a2.type = com.baidu.mapsdkplatform.comapi.map.h.f42020b;
                     bundle = new Bundle();
                     a2.a(bundle);
-                    if (infoWindow.f6988b == null) {
+                    if (infoWindow.f41233b == null) {
                         bundle.putInt("draw_with_view", 1);
                     } else {
                         bundle.putInt("draw_with_view", 0);
                     }
-                    eVar = this.f6914i;
+                    eVar = this.f41154i;
                     if (eVar != null && z2) {
                         eVar.b(bundle);
                         this.k.add(a2);
@@ -1655,14 +1655,14 @@ public class BaiduMap {
                 }
             }
             z2 = true;
-            a2 = new MarkerOptions().perspective(false).icon(b(infoWindow)).position(infoWindow.f6989c).zIndex(Integer.MAX_VALUE).yOffset(infoWindow.f6992f).infoWindow(infoWindow).a();
+            a2 = new MarkerOptions().perspective(false).icon(b(infoWindow)).position(infoWindow.f41234c).zIndex(Integer.MAX_VALUE).yOffset(infoWindow.f41237f).infoWindow(infoWindow).a();
             a2.listener = this.o;
-            a2.type = com.baidu.mapsdkplatform.comapi.map.h.f7748b;
+            a2.type = com.baidu.mapsdkplatform.comapi.map.h.f42020b;
             bundle = new Bundle();
             a2.a(bundle);
-            if (infoWindow.f6988b == null) {
+            if (infoWindow.f41233b == null) {
             }
-            eVar = this.f6914i;
+            eVar = this.f41154i;
             if (eVar != null) {
                 eVar.b(bundle);
                 this.k.add(a2);
@@ -1688,7 +1688,7 @@ public class BaiduMap {
     public final void showMapIndoorPoi(boolean z) {
         com.baidu.mapsdkplatform.comapi.map.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048654, this, z) == null) || (eVar = this.f6914i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048654, this, z) == null) || (eVar = this.f41154i) == null) {
             return;
         }
         eVar.v(z);
@@ -1698,7 +1698,7 @@ public class BaiduMap {
     public final void showMapPoi(boolean z) {
         com.baidu.mapsdkplatform.comapi.map.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048655, this, z) == null) || (eVar = this.f6914i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048655, this, z) == null) || (eVar = this.f41154i) == null) {
             return;
         }
         eVar.u(z);
@@ -1708,7 +1708,7 @@ public class BaiduMap {
     public void showSDKLayer() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048656, this) == null) {
-            this.f6914i.d();
+            this.f41154i.d();
         }
     }
 
@@ -1717,15 +1717,15 @@ public class BaiduMap {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048657, this, snapshotReadyCallback) == null) {
             this.B = snapshotReadyCallback;
-            int i2 = f.f7193b[this.f6910d.ordinal()];
+            int i2 = f.f41451b[this.f41150d.ordinal()];
             if (i2 != 1) {
-                if (i2 == 2 && (jVar = this.f6913h) != null) {
+                if (i2 == 2 && (jVar = this.f41153h) != null) {
                     jVar.a("anything", (Rect) null);
                     return;
                 }
                 return;
             }
-            ac acVar = this.j;
+            ac acVar = this.f41155j;
             if (acVar != null) {
                 acVar.a("anything", null);
             }
@@ -1737,15 +1737,15 @@ public class BaiduMap {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048658, this, rect, snapshotReadyCallback) == null) {
             this.B = snapshotReadyCallback;
-            int i2 = f.f7193b[this.f6910d.ordinal()];
+            int i2 = f.f41451b[this.f41150d.ordinal()];
             if (i2 != 1) {
-                if (i2 == 2 && (jVar = this.f6913h) != null) {
+                if (i2 == 2 && (jVar = this.f41153h) != null) {
                     jVar.a("anything", rect);
                     return;
                 }
                 return;
             }
-            ac acVar = this.j;
+            ac acVar = this.f41155j;
             if (acVar != null) {
                 acVar.a("anything", rect);
             }
@@ -1763,9 +1763,9 @@ public class BaiduMap {
             if (focusedBaseIndoorMapInfo == null) {
                 return MapBaseIndoorMapInfo.SwitchFloorError.SWITCH_ERROR;
             }
-            if (str2.equals(focusedBaseIndoorMapInfo.f6999a)) {
+            if (str2.equals(focusedBaseIndoorMapInfo.f41245a)) {
                 ArrayList<String> floors = focusedBaseIndoorMapInfo.getFloors();
-                return (floors == null || !floors.contains(str)) ? MapBaseIndoorMapInfo.SwitchFloorError.FLOOR_OVERLFLOW : this.f6914i.a(str, str2) ? MapBaseIndoorMapInfo.SwitchFloorError.SWITCH_OK : MapBaseIndoorMapInfo.SwitchFloorError.SWITCH_ERROR;
+                return (floors == null || !floors.contains(str)) ? MapBaseIndoorMapInfo.SwitchFloorError.FLOOR_OVERLFLOW : this.f41154i.a(str, str2) ? MapBaseIndoorMapInfo.SwitchFloorError.SWITCH_OK : MapBaseIndoorMapInfo.SwitchFloorError.SWITCH_ERROR;
             }
             return MapBaseIndoorMapInfo.SwitchFloorError.FOCUSED_ID_ERROR;
         }

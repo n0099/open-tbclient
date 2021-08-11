@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.UtilsBlink;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class Base64 {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] DECODING_TABLE;

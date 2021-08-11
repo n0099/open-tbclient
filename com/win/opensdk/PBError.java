@@ -1,6 +1,7 @@
 package com.win.opensdk;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class PBError {
     public static /* synthetic */ Interceptable $ic;
     public static final PBError LOAD_TIME_OUT;
@@ -26,10 +28,10 @@ public class PBError {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39627a;
+    public int f76464a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39628b;
+    public String f76465b;
 
     static {
         InterceptResult invokeClinit;
@@ -50,12 +52,12 @@ public class PBError {
         SERVER_ERROR = new PBError(2004, "NET ERROR");
         PID_INVALID = new PBError(2005, "PID INVALID");
         PID_TYPE_ERROR = new PBError(2006, "PID ERROR");
-        UNKNOWN = new PBError(2030, "UNKNOWN ERROR");
-        NO_NETWORK = new PBError(2030, "No network available");
-        NO_LOAD = new PBError(2031, "No Load");
-        NO_RESUOURCE = new PBError(2031, "No Resources");
-        LOAD_TIME_OUT = new PBError(2031, "Load Time Out");
-        LOAD_TYPE_ERROR = new PBError(2031, "Load Type error");
+        UNKNOWN = new PBError(SpeedStatsStampTable.INIT_RUKA_STAMP_KEY, "UNKNOWN ERROR");
+        NO_NETWORK = new PBError(SpeedStatsStampTable.INIT_RUKA_STAMP_KEY, "No network available");
+        NO_LOAD = new PBError(SpeedStatsStampTable.INIT_AXE_STAMP_KEY, "No Load");
+        NO_RESUOURCE = new PBError(SpeedStatsStampTable.INIT_AXE_STAMP_KEY, "No Resources");
+        LOAD_TIME_OUT = new PBError(SpeedStatsStampTable.INIT_AXE_STAMP_KEY, "Load Time Out");
+        LOAD_TYPE_ERROR = new PBError(SpeedStatsStampTable.INIT_AXE_STAMP_KEY, "Load Type error");
     }
 
     public PBError(int i2, String str) {
@@ -73,33 +75,33 @@ public class PBError {
                 return;
             }
         }
-        this.f39627a = i2;
-        this.f39628b = str;
+        this.f76464a = i2;
+        this.f76465b = str;
     }
 
     public int getCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39627a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76464a : invokeV.intValue;
     }
 
     public String getMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39628b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76465b : (String) invokeV.objValue;
     }
 
     public void setCode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f39627a = i2;
+            this.f76464a = i2;
         }
     }
 
     public void setMsg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f39628b = str;
+            this.f76465b = str;
         }
     }
 
@@ -107,7 +109,7 @@ public class PBError {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "PBError{code=" + this.f39627a + ", msg='" + this.f39628b + "'}";
+            return "PBError{code=" + this.f76464a + ", msg='" + this.f76465b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import androidx.appcompat.widget.ActivityChooserModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.armor.SafePay;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
+import com.baidu.apollon.utils.DxmApplicationContextImpl;
 import com.baidu.apollon.utils.Md5Utils;
 import com.baidu.apollon.utils.SharedPreferencesUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,9 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.core.NoProguard;
-import com.baidu.wallet.core.beans.BeanConstants;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.router.LocalRouter;
 import com.baidu.wallet.router.RouterCallback;
@@ -29,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class AccountManager implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FILE_PREFERENCE_ACCOUNT = "account";
@@ -41,7 +39,7 @@ public final class AccountManager implements NoProguard {
     public final SharedPreferences mPreferences;
     public String mbfbToken;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class User implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -77,7 +75,7 @@ public final class AccountManager implements NoProguard {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("user_type", this.userType);
-                    jSONObject.put(BeanConstants.KEY_TOEKN_VALUE, this.tokenValue);
+                    jSONObject.put("token_value", this.tokenValue);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -102,7 +100,7 @@ public final class AccountManager implements NoProguard {
                 return;
             }
         }
-        this.mContext = context.getApplicationContext();
+        this.mContext = DxmApplicationContextImpl.getApplicationContext(context);
         this.mPreferences = context.getSharedPreferences("account", 0);
     }
 
@@ -112,7 +110,7 @@ public final class AccountManager implements NoProguard {
             String passUid = WalletLoginHelper.getInstance().getPassUid();
             this.mContext.getPackageName();
             if (TextUtils.isEmpty(passUid) || !TextUtils.isDigitsOnly(passUid)) {
-                String str = getFileNamePrefix() + PREFERENCES_NAME_PRE;
+                String str = getFileNamePrefix() + "o2o_service.preferences";
                 try {
                     SharedPreferencesUtils.clear(this.mContext, str);
                     File file = new File(this.mContext.getFilesDir().getParent() + "/shared_prefs/" + str + ActivityChooserModel.HISTORY_FILE_EXTENSION);
@@ -133,7 +131,7 @@ public final class AccountManager implements NoProguard {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             synchronized (AccountManager.class) {
                 if (sInstance == null) {
-                    sInstance = new AccountManager(context.getApplicationContext());
+                    sInstance = new AccountManager(DxmApplicationContextImpl.getApplicationContext(context));
                 }
                 accountManager = sInstance;
             }
@@ -154,7 +152,7 @@ public final class AccountManager implements NoProguard {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String str = this.mbfbToken;
             if (str == null) {
-                LogUtil.d(TAG, "mtoken 为NULL mPreferences=" + this.mPreferences);
+                LogUtil.d("AccountManager", "mtoken 为NULL mPreferences=" + this.mPreferences);
                 return this.mPreferences.getString("token", null);
             }
             return str;
@@ -170,7 +168,7 @@ public final class AccountManager implements NoProguard {
             if (TextUtils.isEmpty(localEncrypt1)) {
                 return "";
             }
-            LogUtil.i(TAG, "PREFERENCES_NAME_PRE: uid " + localEncrypt1);
+            LogUtil.i("AccountManager", "PREFERENCES_NAME_PRE: uid " + localEncrypt1);
             return Md5Utils.toMD5(localEncrypt1);
         }
         return (String) invokeV.objValue;
@@ -199,12 +197,12 @@ public final class AccountManager implements NoProguard {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             delScanCodeSP();
             if (LocalRouter.getInstance(this.mContext).isRequestAvailable(new RouterRequest().provider("hce").action("cleanData"))) {
-                LocalRouter.getInstance(this.mContext.getApplicationContext()).route(this.mContext, new RouterRequest().provider("hce").action("cleanData"), new RouterCallback(this) { // from class: com.baidu.wallet.base.datamodel.AccountManager.1
+                LocalRouter.getInstance(DxmApplicationContextImpl.getApplicationContext(this.mContext)).route(this.mContext, new RouterRequest().provider("hce").action("cleanData"), new RouterCallback(this) { // from class: com.baidu.wallet.base.datamodel.AccountManager.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AccountManager f24185a;
+                    public final /* synthetic */ AccountManager f59932a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -221,7 +219,7 @@ public final class AccountManager implements NoProguard {
                                 return;
                             }
                         }
-                        this.f24185a = this;
+                        this.f59932a = this;
                     }
 
                     @Override // com.baidu.wallet.router.RouterCallback
@@ -231,8 +229,7 @@ public final class AccountManager implements NoProguard {
                             HashMap hashMap2 = new HashMap();
                             hashMap2.put("provider", "hce");
                             hashMap2.put("action", "cleanData");
-                            DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
-                            PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
+                            DXMSdkSAUtils.onEventEndWithValues("sdk_router_error", i2, hashMap2.values());
                         }
                     }
                 });
@@ -243,7 +240,7 @@ public final class AccountManager implements NoProguard {
     public void setBfbToken(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            LogUtil.d(TAG, "setBfbToken=" + str);
+            LogUtil.d("AccountManager", "setBfbToken=" + str);
             this.mbfbToken = str;
             SharedPreferences.Editor edit = this.mPreferences.edit();
             edit.putString("token", str);

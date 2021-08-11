@@ -2,11 +2,11 @@ package com.bytedance.sdk.openadsdk.preload.geckox.buffer;
 
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface a {
     int a(byte[] bArr, int i2, int i3) throws IOException;
 
-    long a(long j) throws IOException;
+    long a(long j2) throws IOException;
 
     void a() throws IOException;
 
@@ -20,7 +20,7 @@ public interface a {
 
     long b() throws IOException;
 
-    void b(long j) throws IOException;
+    void b(long j2) throws IOException;
 
     long c() throws IOException;
 

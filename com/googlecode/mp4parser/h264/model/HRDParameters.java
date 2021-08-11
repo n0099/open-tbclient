@@ -6,7 +6,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class HRDParameters {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +40,7 @@ public class HRDParameters {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "HRDParameters{cpb_cnt_minus1=" + this.cpb_cnt_minus1 + ", bit_rate_scale=" + this.bit_rate_scale + ", cpb_size_scale=" + this.cpb_size_scale + ", bit_rate_value_minus1=" + Arrays.toString(this.bit_rate_value_minus1) + ", cpb_size_value_minus1=" + Arrays.toString(this.cpb_size_value_minus1) + ", cbr_flag=" + Arrays.toString(this.cbr_flag) + ", initial_cpb_removal_delay_length_minus1=" + this.initial_cpb_removal_delay_length_minus1 + ", cpb_removal_delay_length_minus1=" + this.cpb_removal_delay_length_minus1 + ", dpb_output_delay_length_minus1=" + this.dpb_output_delay_length_minus1 + ", time_offset_length=" + this.time_offset_length + '}';
+            return "HRDParameters{cpb_cnt_minus1=" + this.cpb_cnt_minus1 + ", bit_rate_scale=" + this.bit_rate_scale + ", cpb_size_scale=" + this.cpb_size_scale + ", bit_rate_value_minus1=" + Arrays.toString(this.bit_rate_value_minus1) + ", cpb_size_value_minus1=" + Arrays.toString(this.cpb_size_value_minus1) + ", cbr_flag=" + Arrays.toString(this.cbr_flag) + ", initial_cpb_removal_delay_length_minus1=" + this.initial_cpb_removal_delay_length_minus1 + ", cpb_removal_delay_length_minus1=" + this.cpb_removal_delay_length_minus1 + ", dpb_output_delay_length_minus1=" + this.dpb_output_delay_length_minus1 + ", time_offset_length=" + this.time_offset_length + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

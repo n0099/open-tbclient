@@ -1,5 +1,6 @@
 package com.baidu.tieba.pbextra;
 
+import c.a.p0.i3.h0.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -14,13 +15,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.h3.h0.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PbExtraStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class PbExtraStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof d)) {
-                ((d) customResponsedMessage.getData()).a().add(new d.a.q0.i2.a.a(null, PostData.y0));
+                ((d) customResponsedMessage.getData()).a().add(new c.a.p0.j2.a.a(null, PostData.z0));
             }
         }
     }
@@ -70,7 +70,7 @@ public class PbExtraStatic {
         }
         TbadkCoreApplication.getInst().RegisterIntent(EmotionEditActivityConfig.class, EmotionEditActivity.class);
         MessageManager.getInstance().registerListener(new a(2004015));
-        PostData.B0 = true;
+        PostData.C0 = true;
     }
 
     public PbExtraStatic() {

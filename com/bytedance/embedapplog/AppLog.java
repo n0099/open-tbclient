@@ -9,6 +9,17 @@ import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import c.b.a.e1;
+import c.b.a.h0;
+import c.b.a.j1;
+import c.b.a.n0;
+import c.b.a.r;
+import c.b.a.s;
+import c.b.a.t;
+import c.b.a.x;
+import c.b.a.y1;
+import c.b.a.z;
+import c.b.a.z1;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,40 +30,29 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.embedapplog.util.TTEncryptUtils;
-import d.b.a.e1;
-import d.b.a.h0;
-import d.b.a.j1;
-import d.b.a.n0;
-import d.b.a.r;
-import d.b.a.s;
-import d.b.a.t;
-import d.b.a.x;
-import d.b.a.y1;
-import d.b.a.z;
-import d.b.a.z1;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class AppLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String UMENG_CATEGORY = "umeng";
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile y1 f27832a = null;
+    public static volatile y1 f63665a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f27833b = true;
+    public static boolean f63666b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public static z f27834c;
+    public static z f63667c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile IExtraParams f27835d;
+    public static volatile IExtraParams f63668d;
     public static ConcurrentHashMap<String, String> sCustomNetParams;
     @SuppressLint({"StaticFieldLeak"})
     public static z1 sDevice;
@@ -72,7 +72,7 @@ public final class AppLog {
                 return;
             }
         }
-        f27834c = new z();
+        f63667c = new z();
         sCustomNetParams = new ConcurrentHashMap<>(4);
     }
 
@@ -107,7 +107,7 @@ public final class AppLog {
     public static void addDataObserver(IDataObserver iDataObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, iDataObserver) == null) {
-            f27834c.a(iDataObserver);
+            f63667c.a(iDataObserver);
         }
     }
 
@@ -123,8 +123,8 @@ public final class AppLog {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, t)) == null) {
-            if (f27832a != null) {
-                JSONObject B = f27832a.B(str);
+            if (f63665a != null) {
+                JSONObject B = f63665a.B(str);
                 if (B != null) {
                     String optString = B.optString(TiebaStatic.Params.VID);
                     Object opt = B.opt("val");
@@ -143,8 +143,8 @@ public final class AppLog {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f27832a != null) {
-                return f27832a.U();
+            if (f63665a != null) {
+                return f63665a.U();
             }
             return null;
         }
@@ -177,7 +177,7 @@ public final class AppLog {
     public static boolean getAutoActiveState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f27833b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f63666b : invokeV.booleanValue;
     }
 
     public static String getClientUdid() {
@@ -200,7 +200,7 @@ public final class AppLog {
     public static IDataObserver getDataObserver() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? f27834c : (IDataObserver) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? f63667c : (IDataObserver) invokeV.objValue;
     }
 
     public static String getDid() {
@@ -225,7 +225,7 @@ public final class AppLog {
     public static IExtraParams getExtraParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? f27835d : (IExtraParams) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? f63668d : (IExtraParams) invokeV.objValue;
     }
 
     public static <T> T getHeaderValue(String str, T t) {
@@ -261,8 +261,8 @@ public final class AppLog {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
-            if (f27832a != null) {
-                return f27832a.o();
+            if (f63665a != null) {
+                return f63665a.o();
             }
             return null;
         }
@@ -293,8 +293,8 @@ public final class AppLog {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
-            if (f27832a != null) {
-                return f27832a.J();
+            if (f63665a != null) {
+                return f63665a.J();
             }
             return 0;
         }
@@ -324,7 +324,7 @@ public final class AppLog {
     public static void init(@NonNull Context context, @NonNull InitConfig initConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65562, null, context, initConfig) == null) {
-            if (f27832a != null) {
+            if (f63665a != null) {
                 h0.b(new RuntimeException("Init Twice!"));
             } else if (initConfig.getSensitiveInfoProvider() == null) {
                 h0.b(new RuntimeException("need to involve setSensitiveInfoProvider!"));
@@ -334,7 +334,7 @@ public final class AppLog {
                 y1 y1Var = new y1(application, initConfig);
                 z1 z1Var = new z1(application, y1Var);
                 k.c(application, y1Var, z1Var, new e1(initConfig.getPicker()));
-                f27832a = y1Var;
+                f63665a = y1Var;
                 sDevice = z1Var;
                 h0.e("Inited", null);
             }
@@ -353,14 +353,14 @@ public final class AppLog {
         return invokeV.booleanValue;
     }
 
-    public static void onEvent(@NonNull String str, @NonNull String str2, String str3, long j, long j2, JSONObject jSONObject) {
+    public static void onEvent(@NonNull String str, @NonNull String str2, String str3, long j2, long j3, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65567, null, new Object[]{str, str2, str3, Long.valueOf(j), Long.valueOf(j2), jSONObject}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65567, null, new Object[]{str, str2, str3, Long.valueOf(j2), Long.valueOf(j3), jSONObject}) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3)) {
-                j1.d(new r(str, str2, str3, j, j2, jSONObject != null ? jSONObject.toString() : null));
+                j1.d(new r(str, str2, str3, j2, j3, jSONObject != null ? jSONObject.toString() : null));
                 return;
             }
-            if (h0.f69234b) {
+            if (h0.f31132b) {
                 h0.a("category or label is empty", null);
             }
             j1.d(new x("" + str2 + str3, "2", 1));
@@ -420,7 +420,7 @@ public final class AppLog {
     public static void removeDataObserver(IDataObserver iDataObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65573, null, iDataObserver) == null) {
-            f27834c.b(iDataObserver);
+            f63667c.b(iDataObserver);
         }
     }
 
@@ -436,7 +436,7 @@ public final class AppLog {
     public static void setAutoActiveState(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65575, null, z) == null) {
-            f27833b = z;
+            f63666b = z;
         }
     }
 
@@ -454,7 +454,7 @@ public final class AppLog {
     public static void setEnableLog(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65577, null, z) == null) {
-            h0.f69234b = z;
+            h0.f31132b = z;
         }
     }
 
@@ -466,8 +466,8 @@ public final class AppLog {
 
     public static void setExtraParams(IExtraParams iExtraParams) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65579, null, iExtraParams) == null) && f27835d == null && iExtraParams != null) {
-            f27835d = iExtraParams;
+        if ((interceptable == null || interceptable.invokeL(65579, null, iExtraParams) == null) && f63668d == null && iExtraParams != null) {
+            f63668d = iExtraParams;
         }
     }
 
@@ -599,10 +599,10 @@ public final class AppLog {
         }
     }
 
-    public static void onEvent(String str, String str2, String str3, long j, long j2) {
+    public static void onEvent(String str, String str2, String str3, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{str, str2, str3, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            onEvent(str, str2, str3, j, j2, null);
+        if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{str, str2, str3, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            onEvent(str, str2, str3, j2, j3, null);
         }
     }
 
@@ -611,8 +611,8 @@ public final class AppLog {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (f27832a != null) {
-                return f27832a.V();
+            if (f63665a != null) {
+                return f63665a.V();
             }
             return null;
         }

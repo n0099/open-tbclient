@@ -3,7 +3,6 @@ package com.bytedance.sdk.openadsdk.core.nativeexpress.b;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.ar.gesture.GestureAR;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,12 +15,12 @@ import com.bytedance.sdk.openadsdk.core.e.m;
 import com.tencent.connect.common.Constants;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f30574a = "{\"id\":0,\"tplId\":0,\"title\":\"\",\"data\":{\"id\":\"root\",\"type\":\"vessel\",\"values\":{\"widthMode\":\"fixed\",\"width\":320,\"height\":320},\"children\":[[{\"type\":\"text\",\"values\":{\"fontSize\":19,\"fontWeight\":500,\"color\":\"#222222\",\"lineHeight\":1.3,\"data\":\"title\"}}],[{\"type\":\"text\",\"values\":{\"fontSize\":15,\"fontWeight\":500,\"color\":\"#999999\",\"lineHeight\":1,\"data\":\"subtitle\"}}],[{\"type\":\"image\",\"values\":{},\"children\":[]}],[{\"type\":\"vessel\",\"values\":{\"height\":40,\"paddingTop\":10,\"paddingRight\":15,\"paddingBottom\":10,\"paddingLeft\":15},\"children\":[[{\"type\":\"logo\",\"values\":{}},{\"type\":\"text\",\"values\":{\"widthMode\":\"auto\",\"paddingTop\":3,\"paddingRight\":0,\"paddingBottom\":3,\"paddingLeft\":6,\"fontSize\":12,\"color\":\"#999999\",\"lineHeight\":1,\"data\":\"source\"}},{\"type\":\"text\",\"values\":{\"widthMode\":\"auto\",\"paddingTop\":3,\"paddingRight\":0,\"paddingBottom\":3,\"paddingLeft\":10,\"fontSize\":12,\"color\":\"#999999\",\"lineHeight\":1,\"data\":\"time\"}},{\"type\":\"empty\",\"values\":{\"height\":18}},{\"type\":\"dislike\",\"values\":{}}]]}]]}}";
+    public static String f66496a = "{\"id\":0,\"tplId\":0,\"title\":\"\",\"data\":{\"id\":\"root\",\"type\":\"vessel\",\"values\":{\"widthMode\":\"fixed\",\"width\":320,\"height\":320},\"children\":[[{\"type\":\"text\",\"values\":{\"fontSize\":19,\"fontWeight\":500,\"color\":\"#222222\",\"lineHeight\":1.3,\"data\":\"title\"}}],[{\"type\":\"text\",\"values\":{\"fontSize\":15,\"fontWeight\":500,\"color\":\"#999999\",\"lineHeight\":1,\"data\":\"subtitle\"}}],[{\"type\":\"image\",\"values\":{},\"children\":[]}],[{\"type\":\"vessel\",\"values\":{\"height\":40,\"paddingTop\":10,\"paddingRight\":15,\"paddingBottom\":10,\"paddingLeft\":15},\"children\":[[{\"type\":\"logo\",\"values\":{}},{\"type\":\"text\",\"values\":{\"widthMode\":\"auto\",\"paddingTop\":3,\"paddingRight\":0,\"paddingBottom\":3,\"paddingLeft\":6,\"fontSize\":12,\"color\":\"#999999\",\"lineHeight\":1,\"data\":\"source\"}},{\"type\":\"text\",\"values\":{\"widthMode\":\"auto\",\"paddingTop\":3,\"paddingRight\":0,\"paddingBottom\":3,\"paddingLeft\":10,\"fontSize\":12,\"color\":\"#999999\",\"lineHeight\":1,\"data\":\"time\"}},{\"type\":\"empty\",\"values\":{\"height\":18}},{\"type\":\"dislike\",\"values\":{}}]]}]]}}";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -69,11 +68,11 @@ public class a {
                     str = null;
                 }
                 if (!TextUtils.isEmpty(str2)) {
-                    f30574a = str2;
+                    f66496a = str2;
                 } else if (com.bytedance.sdk.openadsdk.core.widget.webview.a.a.d(mVar) != null) {
-                    f30574a = com.bytedance.sdk.openadsdk.core.widget.webview.a.a.d(mVar).e();
+                    f66496a = com.bytedance.sdk.openadsdk.core.widget.webview.a.a.d(mVar).e();
                 }
-                jSONObject.put("template_Plugin", f30574a);
+                jSONObject.put("template_Plugin", f66496a);
                 jSONObject.put("diff_template_Plugin", str);
             } catch (Exception unused) {
             }
@@ -107,11 +106,11 @@ public class a {
                     str2 = null;
                 }
                 if (!TextUtils.isEmpty(str)) {
-                    f30574a = str;
+                    f66496a = str;
                 } else if (com.bytedance.sdk.openadsdk.core.widget.webview.a.a.c(mVar) != null) {
-                    f30574a = com.bytedance.sdk.openadsdk.core.widget.webview.a.a.c(mVar).e();
+                    f66496a = com.bytedance.sdk.openadsdk.core.widget.webview.a.a.c(mVar).e();
                 }
-                jSONObject.put("template_Plugin", f30574a);
+                jSONObject.put("template_Plugin", f66496a);
                 jSONObject.put("diff_template_Plugin", str2);
                 return jSONObject;
             } catch (Exception unused) {
@@ -151,7 +150,7 @@ public class a {
                 jSONObject.put("source", mVar.W());
                 if (mVar.al() != null) {
                     jSONObject.put("comment_num", mVar.al().f());
-                    jSONObject.put(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE, mVar.al().e());
+                    jSONObject.put("score", mVar.al().e());
                     jSONObject.put("app_size", mVar.al().g());
                     jSONObject.put("app", mVar.al().h());
                 }

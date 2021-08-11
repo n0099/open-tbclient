@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.j;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface d {
     void e();
 

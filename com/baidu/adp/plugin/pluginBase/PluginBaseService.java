@@ -12,7 +12,8 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.IBinder;
-import com.alibaba.fastjson.asm.Label;
+import c.a.e.h.f.c;
+import c.a.e.h.j.g.d;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,15 +22,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.h.f.c;
-import d.a.d.h.j.g.d;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class PluginBaseService extends PluginContextWrapper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int START_CONTINUATION_MASK = 15;
@@ -259,7 +258,7 @@ public abstract class PluginBaseService extends PluginContextWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, intent) == null) {
             if (intent != null) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             this.mServiceProxy.proxyStartActivity(intent);
         }

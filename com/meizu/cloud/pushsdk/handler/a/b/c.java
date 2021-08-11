@@ -3,7 +3,8 @@ package com.meizu.cloud.pushsdk.handler.a.b;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class c implements Parcelable {
     public static final Parcelable.Creator<c> CREATOR = new Parcelable.Creator<c>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.c.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -22,50 +23,50 @@ public class c implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageV3 f37666a;
+    public MessageV3 f74514a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37667b;
+    public String f74515b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f37668c;
+    public int f74516c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f37669d;
+    public int f74517d;
 
     public c(Parcel parcel) {
-        this.f37666a = (MessageV3) parcel.readParcelable(MessageV3.class.getClassLoader());
-        this.f37667b = parcel.readString();
-        this.f37668c = parcel.readInt();
-        this.f37669d = parcel.readInt();
+        this.f74514a = (MessageV3) parcel.readParcelable(MessageV3.class.getClassLoader());
+        this.f74515b = parcel.readString();
+        this.f74516c = parcel.readInt();
+        this.f74517d = parcel.readInt();
     }
 
     public c(MessageV3 messageV3) {
-        this.f37666a = messageV3;
+        this.f74514a = messageV3;
     }
 
     public MessageV3 a() {
-        return this.f37666a;
+        return this.f74514a;
     }
 
     public void a(int i2) {
-        this.f37668c = i2;
+        this.f74516c = i2;
     }
 
     public void a(String str) {
-        this.f37667b = str;
+        this.f74515b = str;
     }
 
     public int b() {
-        return this.f37668c;
+        return this.f74516c;
     }
 
     public void b(int i2) {
-        this.f37669d = i2;
+        this.f74517d = i2;
     }
 
     public int c() {
-        return this.f37669d;
+        return this.f74517d;
     }
 
     @Override // android.os.Parcelable
@@ -74,14 +75,14 @@ public class c implements Parcelable {
     }
 
     public String toString() {
-        return "NotificationState{messageV3=" + this.f37666a + ", notificationPkg='" + this.f37667b + "', notificationId='" + this.f37668c + "', state='" + this.f37669d + "'}";
+        return "NotificationState{messageV3=" + this.f74514a + ", notificationPkg='" + this.f74515b + ExtendedMessageFormat.QUOTE + ", notificationId='" + this.f74516c + ExtendedMessageFormat.QUOTE + ", state='" + this.f74517d + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeParcelable(this.f37666a, i2);
-        parcel.writeString(this.f37667b);
-        parcel.writeInt(this.f37668c);
-        parcel.writeInt(this.f37669d);
+        parcel.writeParcelable(this.f74514a, i2);
+        parcel.writeString(this.f74515b);
+        parcel.writeInt(this.f74516c);
+        parcel.writeInt(this.f74517d);
     }
 }

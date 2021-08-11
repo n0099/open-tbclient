@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 @SuppressLint({"NewApi"})
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class PreferencesUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LEFT_MOUNT = "[";
@@ -69,10 +69,10 @@ public class PreferencesUtil {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, str, i2)) == null) ? getPreferences().getInt(str, i2) : invokeLI.intValue;
     }
 
-    public static long getLong(String str, long j) {
+    public static long getLong(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(AdIconUtil.BAIDU_LOGO_ID, null, str, j)) == null) ? getPreferences().getLong(str, j) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(AdIconUtil.BAIDU_LOGO_ID, null, str, j2)) == null) ? getPreferences().getLong(str, j2) : invokeLJ.longValue;
     }
 
     public static SharedPreferences getPreferences() {
@@ -168,11 +168,11 @@ public class PreferencesUtil {
         }
     }
 
-    public static void putLong(String str, long j) {
+    public static void putLong(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65550, null, str, j2) == null) {
             SharedPreferences.Editor edit = getPreferences().edit();
-            edit.putLong(str, j);
+            edit.putLong(str, j2);
             if (Build.VERSION.SDK_INT < 9) {
                 edit.commit();
             } else {

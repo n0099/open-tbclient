@@ -9,7 +9,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.b;
 import com.baidu.sofire.core.f;
@@ -23,41 +22,41 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f10282d;
+    public static a f44960d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f10283a;
+    public int f44961a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10284b;
+    public String f44962b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SQLiteDatabase f10285c;
+    public SQLiteDatabase f44963c;
 
     /* renamed from: e  reason: collision with root package name */
-    public C0158a f10286e;
+    public C1707a f44964e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f10287f;
+    public Context f44965f;
 
     /* renamed from: com.baidu.sofire.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0158a extends SQLiteOpenHelper {
+    /* loaded from: classes5.dex */
+    public class C1707a extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f10288a;
+        public final /* synthetic */ a f44966a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0158a(a aVar, Context context) {
-            super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, aVar.f10283a);
+        public C1707a(a aVar, Context context) {
+            super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, aVar.f44961a);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,7 +73,7 @@ public final class a {
                     return;
                 }
             }
-            this.f10288a = aVar;
+            this.f44966a = aVar;
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
@@ -82,7 +81,7 @@ public final class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
                 try {
-                    sQLiteDatabase.execSQL(this.f10288a.f10284b);
+                    sQLiteDatabase.execSQL(this.f44966a.f44962b);
                 } catch (Throwable unused) {
                     c.a();
                 }
@@ -141,13 +140,13 @@ public final class a {
                 return;
             }
         }
-        this.f10283a = 5;
-        this.f10284b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
-        this.f10287f = context.getApplicationContext();
-        C0158a c0158a = new C0158a(this, context.getApplicationContext());
-        this.f10286e = c0158a;
+        this.f44961a = 5;
+        this.f44962b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
+        this.f44965f = context.getApplicationContext();
+        C1707a c1707a = new C1707a(this, context.getApplicationContext());
+        this.f44964e = c1707a;
         try {
-            this.f10285c = c0158a.getWritableDatabase();
+            this.f44963c = c1707a.getWritableDatabase();
         } catch (Throwable unused) {
             c.a();
         }
@@ -159,10 +158,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (a.class) {
-                if (f10282d == null) {
-                    f10282d = new a(context);
+                if (f44960d == null) {
+                    f44960d = new a(context);
                 }
-                aVar = f10282d;
+                aVar = f44960d;
             }
             return aVar;
         }
@@ -189,11 +188,11 @@ public final class a {
             HashMap hashMap = new HashMap();
             try {
                 try {
-                    cursor = this.f10285c.query("pgn", null, "n=1", null, null, null, null);
+                    cursor = this.f44963c.query("pgn", null, "n=1", null, null, null, null);
                     if (cursor != null) {
                         while (cursor.moveToNext()) {
                             try {
-                                int i2 = cursor.getInt(cursor.getColumnIndex(Config.APP_KEY));
+                                int i2 = cursor.getInt(cursor.getColumnIndex("k"));
                                 String string = cursor.getString(cursor.getColumnIndex("v"));
                                 Integer valueOf = Integer.valueOf(i2);
                                 hashMap.put(valueOf, "'" + string + "'");
@@ -251,11 +250,11 @@ public final class a {
             HashMap hashMap = new HashMap();
             try {
                 try {
-                    cursor = this.f10285c.query("pgn", null, "n=1", null, null, null, null);
+                    cursor = this.f44963c.query("pgn", null, "n=1", null, null, null, null);
                     if (cursor != null) {
                         while (cursor.moveToNext()) {
                             try {
-                                hashMap.put(Integer.valueOf(cursor.getInt(cursor.getColumnIndex(Config.APP_KEY))), cursor.getString(cursor.getColumnIndex("p")));
+                                hashMap.put(Integer.valueOf(cursor.getInt(cursor.getColumnIndex("k"))), cursor.getString(cursor.getColumnIndex("p")));
                             } catch (Throwable unused) {
                                 try {
                                     c.a();
@@ -296,7 +295,7 @@ public final class a {
             try {
                 ArrayList<ApkInfo> arrayList = new ArrayList();
                 for (ApkInfo apkInfo : a()) {
-                    if (!c.c(apkInfo.pkgPath) && f.f10390b != null && !f.f10390b.contains(Integer.valueOf(apkInfo.key))) {
+                    if (!c.c(apkInfo.pkgPath) && f.f45070b != null && !f.f45070b.contains(Integer.valueOf(apkInfo.key))) {
                         arrayList.add(apkInfo);
                     }
                 }
@@ -305,11 +304,11 @@ public final class a {
                     if (a2 != null) {
                         a2.b(apkInfo2.packageName);
                     }
-                    SQLiteDatabase sQLiteDatabase = this.f10285c;
+                    SQLiteDatabase sQLiteDatabase = this.f44963c;
                     sQLiteDatabase.delete("pgn", "k=" + apkInfo2.key, null);
-                    c.d(this.f10287f.getFilesDir().getCanonicalPath() + "/." + apkInfo2.key);
-                    if (this.f10287f != null) {
-                        c.d(this.f10287f.getFileStreamPath(apkInfo2.packageName).getAbsolutePath());
+                    c.d(this.f44965f.getFilesDir().getCanonicalPath() + "/." + apkInfo2.key);
+                    if (this.f44965f != null) {
+                        c.d(this.f44965f.getFileStreamPath(apkInfo2.packageName).getAbsolutePath());
                     }
                 }
             } catch (Throwable unused) {
@@ -318,13 +317,13 @@ public final class a {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0040, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x003f, code lost:
         if (r11.isClosed() == false) goto L10;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0042, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0041, code lost:
         r11.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0054, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0053, code lost:
         if (r11.isClosed() == false) goto L10;
      */
     /*
@@ -338,7 +337,7 @@ public final class a {
             boolean z = false;
             try {
                 try {
-                    cursor = this.f10285c.query("pgn", new String[]{"s"}, "k=" + i2, null, null, null, null);
+                    cursor = this.f44963c.query("pgn", new String[]{"s"}, "k=" + i2, null, null, null, null);
                     if (cursor != null) {
                         try {
                             if (cursor.moveToFirst()) {
@@ -385,7 +384,7 @@ public final class a {
             try {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("n", (Integer) (-1));
-                SQLiteDatabase sQLiteDatabase = this.f10285c;
+                SQLiteDatabase sQLiteDatabase = this.f44963c;
                 sQLiteDatabase.update("pgn", contentValues, "k=" + i2, null);
             } catch (Throwable unused) {
                 c.a();
@@ -413,7 +412,7 @@ public final class a {
             int i3 = 0;
             try {
                 try {
-                    cursor = this.f10285c.query("pgn", new String[]{"pdld"}, "k=" + i2, null, null, null, null);
+                    cursor = this.f44963c.query("pgn", new String[]{"pdld"}, "k=" + i2, null, null, null, null);
                     if (cursor != null) {
                         try {
                             if (cursor.moveToFirst()) {
@@ -458,7 +457,7 @@ public final class a {
             return;
         }
         try {
-            SQLiteDatabase sQLiteDatabase = this.f10285c;
+            SQLiteDatabase sQLiteDatabase = this.f44963c;
             sQLiteDatabase.delete("pgn", "k=" + i2, null);
         } catch (Throwable unused) {
             c.a();
@@ -469,7 +468,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, apkInfo)) == null) {
-            long j = 0;
+            long j2 = 0;
             if (apkInfo == null) {
                 return 0L;
             }
@@ -481,26 +480,26 @@ public final class a {
             contentValues.put("v", apkInfo.versionName);
             contentValues.put("apk", apkInfo.dexPath);
             contentValues.put("ap", Integer.valueOf(apkInfo.apkParseSuc));
-            contentValues.put(Config.CELL_LOCATION, apkInfo.className);
+            contentValues.put("cl", apkInfo.className);
             contentValues.put("st", Long.valueOf(apkInfo.startTime));
             contentValues.put("du", Integer.valueOf(apkInfo.duration));
             contentValues.put("m5", apkInfo.apkMD5);
             contentValues.put("th", Integer.valueOf(apkInfo.applicationTheme));
-            contentValues.put(Config.PRINCIPAL_PART, Integer.valueOf(apkInfo.priority));
+            contentValues.put("pr", Integer.valueOf(apkInfo.priority));
             ActivityInfo[] activityInfoArr = apkInfo.activities;
             if (activityInfoArr != null) {
                 contentValues.put("ac", new com.baidu.sofire.core.a(activityInfoArr).a());
             }
             try {
                 if (b(apkInfo.key)) {
-                    j = this.f10285c.update("pgn", contentValues, "k=" + apkInfo.key, null);
+                    j2 = this.f44963c.update("pgn", contentValues, "k=" + apkInfo.key, null);
                 } else {
-                    contentValues.put(Config.APP_KEY, Integer.valueOf(apkInfo.key));
-                    j = this.f10285c.insert("pgn", null, contentValues);
+                    contentValues.put("k", Integer.valueOf(apkInfo.key));
+                    j2 = this.f44963c.insert("pgn", null, contentValues);
                 }
             } catch (Throwable unused) {
             }
-            return j;
+            return j2;
         }
         return invokeL.longValue;
     }
@@ -525,7 +524,7 @@ public final class a {
             boolean z = false;
             try {
                 try {
-                    cursor = this.f10285c.query("pgn", new String[]{"p"}, "k=" + i2, null, null, null, null);
+                    cursor = this.f44963c.query("pgn", new String[]{"p"}, "k=" + i2, null, null, null, null);
                     if (cursor != null) {
                         try {
                             if (cursor.getCount() > 0) {
@@ -584,7 +583,7 @@ public final class a {
             int i3 = 0;
             try {
                 try {
-                    cursor = this.f10285c.query("pgn", new String[]{"n"}, "k=" + i2, null, null, null, null);
+                    cursor = this.f44963c.query("pgn", new String[]{"n"}, "k=" + i2, null, null, null, null);
                     if (cursor != null) {
                         try {
                             if (cursor.moveToFirst()) {
@@ -623,13 +622,13 @@ public final class a {
         return invokeI.intValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0040, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x003f, code lost:
         if (r11.isClosed() == false) goto L10;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0042, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0041, code lost:
         r11.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0054, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0053, code lost:
         if (r11.isClosed() == false) goto L10;
      */
     /*
@@ -643,7 +642,7 @@ public final class a {
             boolean z = false;
             try {
                 try {
-                    cursor = this.f10285c.query("pgn", new String[]{"u"}, "k=" + i2, null, null, null, null);
+                    cursor = this.f44963c.query("pgn", new String[]{"u"}, "k=" + i2, null, null, null, null);
                     if (cursor != null) {
                         try {
                             if (cursor.moveToFirst()) {
@@ -684,13 +683,13 @@ public final class a {
         return invokeI.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0090, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x008f, code lost:
         if (r1.isClosed() == false) goto L10;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x009d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x009c, code lost:
         if (r1.isClosed() == false) goto L10;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x009f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x009e, code lost:
         r1.close();
      */
     /*
@@ -704,19 +703,19 @@ public final class a {
             ArrayList arrayList = new ArrayList();
             try {
                 try {
-                    cursor = this.f10285c.query("pgn", null, null, null, null, null, null);
+                    cursor = this.f44963c.query("pgn", null, null, null, null, null, null);
                     if (cursor != null) {
                         while (cursor.moveToNext()) {
                             try {
                                 ApkInfo apkInfo = new ApkInfo();
-                                apkInfo.key = cursor.getInt(cursor.getColumnIndex(Config.APP_KEY));
+                                apkInfo.key = cursor.getInt(cursor.getColumnIndex("k"));
                                 apkInfo.packageName = cursor.getString(cursor.getColumnIndex("p"));
                                 apkInfo.pkgPath = cursor.getString(cursor.getColumnIndex("a"));
                                 apkInfo.libPath = cursor.getString(cursor.getColumnIndex("l"));
                                 apkInfo.versionName = cursor.getString(cursor.getColumnIndex("v"));
                                 apkInfo.startTime = cursor.getLong(cursor.getColumnIndex("st"));
                                 apkInfo.duration = cursor.getInt(cursor.getColumnIndex("du"));
-                                apkInfo.priority = cursor.getInt(cursor.getColumnIndex(Config.PRINCIPAL_PART));
+                                apkInfo.priority = cursor.getInt(cursor.getColumnIndex("pr"));
                                 arrayList.add(apkInfo);
                             } catch (Throwable unused) {
                                 try {
@@ -758,7 +757,7 @@ public final class a {
             ContentValues contentValues = new ContentValues();
             contentValues.put("pdld", Integer.valueOf(i3));
             try {
-                SQLiteDatabase sQLiteDatabase = this.f10285c;
+                SQLiteDatabase sQLiteDatabase = this.f44963c;
                 sQLiteDatabase.update("pgn", contentValues, "k=" + i2, null);
             } catch (Throwable unused) {
                 c.a();
@@ -771,8 +770,8 @@ public final class a {
         if (interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) {
             try {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(Config.PRINCIPAL_PART, Integer.valueOf(i3));
-                SQLiteDatabase sQLiteDatabase = this.f10285c;
+                contentValues.put("pr", Integer.valueOf(i3));
+                SQLiteDatabase sQLiteDatabase = this.f44963c;
                 sQLiteDatabase.update("pgn", contentValues, "k=" + i2, null);
             } catch (Throwable unused) {
                 c.a();
@@ -796,13 +795,13 @@ public final class a {
             return null;
         }
         try {
-            Cursor query = this.f10285c.query("pgn", null, "p=?", new String[]{str}, null, null, null);
+            Cursor query = this.f44963c.query("pgn", null, "p=?", new String[]{str}, null, null, null);
             if (query != null) {
                 try {
                     if (query.moveToFirst()) {
                         apkInfo = new ApkInfo();
                         try {
-                            apkInfo.key = query.getInt(query.getColumnIndex(Config.APP_KEY));
+                            apkInfo.key = query.getInt(query.getColumnIndex("k"));
                             apkInfo.initStatus = query.getInt(query.getColumnIndex("n"));
                             apkInfo.packageName = query.getString(query.getColumnIndex("p"));
                             apkInfo.pkgPath = query.getString(query.getColumnIndex("a"));
@@ -810,30 +809,30 @@ public final class a {
                             apkInfo.versionName = query.getString(query.getColumnIndex("v"));
                             apkInfo.dexPath = query.getString(query.getColumnIndex("apk"));
                             apkInfo.apkParseSuc = query.getInt(query.getColumnIndex("ap"));
-                            apkInfo.className = query.getString(query.getColumnIndex(Config.CELL_LOCATION));
+                            apkInfo.className = query.getString(query.getColumnIndex("cl"));
                             apkInfo.applicationTheme = query.getInt(query.getColumnIndex("th"));
                             apkInfo.startTime = query.getLong(query.getColumnIndex("st"));
                             apkInfo.duration = query.getInt(query.getColumnIndex("du"));
                             apkInfo.apkMD5 = query.getString(query.getColumnIndex("m5"));
-                            apkInfo.priority = query.getInt(query.getColumnIndex(Config.PRINCIPAL_PART));
+                            apkInfo.priority = query.getInt(query.getColumnIndex("pr"));
                             byte[] blob = query.getBlob(query.getColumnIndex("ac"));
                             if (blob != null && (a2 = com.baidu.sofire.core.a.a(blob)) != null && (size = a2.size()) > 0) {
                                 apkInfo.activities = new ActivityInfo[size];
                                 for (int i2 = 0; i2 < size; i2++) {
                                     ActivityInfo activityInfo = new ActivityInfo();
-                                    activityInfo.theme = a2.get(i2).f10340a;
-                                    activityInfo.name = a2.get(i2).j;
-                                    activityInfo.configChanges = a2.get(i2).f10347h;
-                                    activityInfo.flags = a2.get(i2).f10345f;
+                                    activityInfo.theme = a2.get(i2).f45019a;
+                                    activityInfo.name = a2.get(i2).f45028j;
+                                    activityInfo.configChanges = a2.get(i2).f45026h;
+                                    activityInfo.flags = a2.get(i2).f45024f;
                                     activityInfo.labelRes = a2.get(i2).l;
-                                    activityInfo.launchMode = a2.get(i2).f10341b;
+                                    activityInfo.launchMode = a2.get(i2).f45020b;
                                     activityInfo.nonLocalizedLabel = a2.get(i2).m;
                                     activityInfo.packageName = a2.get(i2).k;
-                                    activityInfo.permission = a2.get(i2).f10342c;
-                                    activityInfo.screenOrientation = a2.get(i2).f10346g;
-                                    activityInfo.softInputMode = a2.get(i2).f10348i;
-                                    activityInfo.targetActivity = a2.get(i2).f10344e;
-                                    activityInfo.taskAffinity = a2.get(i2).f10343d;
+                                    activityInfo.permission = a2.get(i2).f45021c;
+                                    activityInfo.screenOrientation = a2.get(i2).f45025g;
+                                    activityInfo.softInputMode = a2.get(i2).f45027i;
+                                    activityInfo.targetActivity = a2.get(i2).f45023e;
+                                    activityInfo.taskAffinity = a2.get(i2).f45022d;
                                     apkInfo.activities[i2] = activityInfo;
                                 }
                             }
@@ -891,7 +890,7 @@ public final class a {
         r0 = null;
         ApkInfo apkInfo2 = null;
         try {
-            Cursor query = this.f10285c.query("pgn", null, "k=" + i2, null, null, null, null);
+            Cursor query = this.f44963c.query("pgn", null, "k=" + i2, null, null, null, null);
             if (query != null) {
                 try {
                     if (query.moveToFirst()) {
@@ -905,30 +904,30 @@ public final class a {
                             apkInfo.versionName = query.getString(query.getColumnIndex("v"));
                             apkInfo.dexPath = query.getString(query.getColumnIndex("apk"));
                             apkInfo.apkParseSuc = query.getInt(query.getColumnIndex("ap"));
-                            apkInfo.className = query.getString(query.getColumnIndex(Config.CELL_LOCATION));
+                            apkInfo.className = query.getString(query.getColumnIndex("cl"));
                             apkInfo.applicationTheme = query.getInt(query.getColumnIndex("th"));
                             apkInfo.startTime = query.getLong(query.getColumnIndex("st"));
                             apkInfo.duration = query.getInt(query.getColumnIndex("du"));
                             apkInfo.apkMD5 = query.getString(query.getColumnIndex("m5"));
-                            apkInfo.priority = query.getInt(query.getColumnIndex(Config.PRINCIPAL_PART));
+                            apkInfo.priority = query.getInt(query.getColumnIndex("pr"));
                             byte[] blob = query.getBlob(query.getColumnIndex("ac"));
                             if (blob != null && (a2 = com.baidu.sofire.core.a.a(blob)) != null && (size = a2.size()) > 0) {
                                 apkInfo.activities = new ActivityInfo[size];
                                 for (int i3 = 0; i3 < size; i3++) {
                                     ActivityInfo activityInfo = new ActivityInfo();
-                                    activityInfo.theme = a2.get(i3).f10340a;
-                                    activityInfo.name = a2.get(i3).j;
-                                    activityInfo.configChanges = a2.get(i3).f10347h;
-                                    activityInfo.flags = a2.get(i3).f10345f;
+                                    activityInfo.theme = a2.get(i3).f45019a;
+                                    activityInfo.name = a2.get(i3).f45028j;
+                                    activityInfo.configChanges = a2.get(i3).f45026h;
+                                    activityInfo.flags = a2.get(i3).f45024f;
                                     activityInfo.labelRes = a2.get(i3).l;
-                                    activityInfo.launchMode = a2.get(i3).f10341b;
+                                    activityInfo.launchMode = a2.get(i3).f45020b;
                                     activityInfo.nonLocalizedLabel = a2.get(i3).m;
                                     activityInfo.packageName = a2.get(i3).k;
-                                    activityInfo.permission = a2.get(i3).f10342c;
-                                    activityInfo.screenOrientation = a2.get(i3).f10346g;
-                                    activityInfo.softInputMode = a2.get(i3).f10348i;
-                                    activityInfo.targetActivity = a2.get(i3).f10344e;
-                                    activityInfo.taskAffinity = a2.get(i3).f10343d;
+                                    activityInfo.permission = a2.get(i3).f45021c;
+                                    activityInfo.screenOrientation = a2.get(i3).f45025g;
+                                    activityInfo.softInputMode = a2.get(i3).f45027i;
+                                    activityInfo.targetActivity = a2.get(i3).f45023e;
+                                    activityInfo.taskAffinity = a2.get(i3).f45022d;
                                     apkInfo.activities[i3] = activityInfo;
                                 }
                             }
@@ -979,7 +978,7 @@ public final class a {
             return;
         }
         try {
-            this.f10285c.delete("pgn", "p=?", new String[]{str});
+            this.f44963c.delete("pgn", "p=?", new String[]{str});
         } catch (Throwable unused) {
             c.a();
         }
@@ -992,7 +991,7 @@ public final class a {
             try {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("u", Integer.valueOf(i3));
-                SQLiteDatabase sQLiteDatabase = this.f10285c;
+                SQLiteDatabase sQLiteDatabase = this.f44963c;
                 return sQLiteDatabase.update("pgn", contentValues, "k=" + i2, null);
             } catch (Throwable unused) {
                 return 0;
@@ -1007,7 +1006,7 @@ public final class a {
             return;
         }
         try {
-            SQLiteDatabase sQLiteDatabase = this.f10285c;
+            SQLiteDatabase sQLiteDatabase = this.f44963c;
             sQLiteDatabase.delete("pgn", "k=" + i2 + " and v=?", new String[]{str});
         } catch (Throwable unused) {
             c.a();

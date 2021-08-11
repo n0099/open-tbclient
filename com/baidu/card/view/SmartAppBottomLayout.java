@@ -9,6 +9,10 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
+import c.a.e.e.p.l;
+import c.a.l.p;
+import c.a.o0.s.q.a;
+import c.a.o0.s.q.c2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -22,29 +26,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.k.p;
-import d.a.p0.s.q.a;
-import d.a.p0.s.q.b2;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SmartAppBottomLayout extends LinearLayout implements p<a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f4606i;
+    public static final int f38586i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f4607e;
+    public View f38587e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f4608f;
+    public HeadImageView f38588f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f4609g;
+    public TextView f38589g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f4610h;
+    public int f38590h;
 
     static {
         InterceptResult invokeClinit;
@@ -59,7 +59,7 @@ public class SmartAppBottomLayout extends LinearLayout implements p<a> {
                 return;
             }
         }
-        f4606i = (l.k(TbadkCoreApplication.getInst()) - (l.g(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.tbds58);
+        f38586i = (l.k(TbadkCoreApplication.getInst()) - (l.g(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.tbds58);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -81,50 +81,49 @@ public class SmartAppBottomLayout extends LinearLayout implements p<a> {
                 return;
             }
         }
-        b(context);
+        a(context);
     }
 
-    public final void b(Context context) {
+    public final void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f4607e = LayoutInflater.from(context).inflate(R.layout.smart_app_bottom_layout, (ViewGroup) this, true);
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.f38587e = LayoutInflater.from(context).inflate(R.layout.smart_app_bottom_layout, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f4608f = (HeadImageView) this.f4607e.findViewById(R.id.ai_smart_app_icon);
-            this.f4609g = (TextView) this.f4607e.findViewById(R.id.ai_smart_app_text);
-            this.f4608f.setIsBigV(false);
-            this.f4608f.setIsGod(false);
-            this.f4608f.setShowV(false);
+            this.f38588f = (HeadImageView) this.f38587e.findViewById(R.id.ai_smart_app_icon);
+            this.f38589g = (TextView) this.f38587e.findViewById(R.id.ai_smart_app_text);
+            this.f38588f.setIsBigV(false);
+            this.f38588f.setIsGod(false);
+            this.f38588f.setShowV(false);
         }
+    }
+
+    public void onChangeSkinType() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f38590h == TbadkCoreApplication.getInst().getSkinType()) {
+            return;
+        }
+        this.f38590h = TbadkCoreApplication.getInst().getSkinType();
+        SkinManager.setViewTextColor(this.f38589g, R.color.CAM_X0109);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.k.p
-    /* renamed from: c */
-    public void a(a aVar) {
-        b2 threadData;
+    @Override // c.a.l.p
+    public void onBindDataToView(a aVar) {
+        c2 threadData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) || (threadData = aVar.getThreadData()) == null || threadData.a1() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || (threadData = aVar.getThreadData()) == null || threadData.c1() == null) {
             return;
         }
-        if (!TextUtils.isEmpty(threadData.a1().avatar)) {
-            this.f4608f.M(threadData.a1().avatar, 10, false);
+        if (!TextUtils.isEmpty(threadData.c1().avatar)) {
+            this.f38588f.startLoad(threadData.c1().avatar, 10, false);
         } else {
-            SkinManager.setImageResource(this.f4608f, R.drawable.icon_avatar_smallapp_tie);
+            SkinManager.setImageResource(this.f38588f, R.drawable.icon_avatar_smallapp_tie);
         }
-        if (threadData.a1() != null && !TextUtils.isEmpty(threadData.a1().name)) {
-            ThreadCardUtils.cutAndSetTextByMaxLine(this.f4609g, threadData.a1().name, R.string.ai_smart_app, R.dimen.tbds0, 1, f4606i, false);
+        if (threadData.c1() != null && !TextUtils.isEmpty(threadData.c1().name)) {
+            ThreadCardUtils.cutAndSetTextByMaxLine(this.f38589g, threadData.c1().name, R.string.ai_smart_app, R.dimen.tbds0, 1, f38586i, false);
         } else {
-            this.f4609g.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ai_smart_app));
+            this.f38589g.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ai_smart_app));
         }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f4610h == TbadkCoreApplication.getInst().getSkinType()) {
-            return;
-        }
-        this.f4610h = TbadkCoreApplication.getInst().getSkinType();
-        SkinManager.setViewTextColor(this.f4609g, R.color.CAM_X0109);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -146,7 +145,7 @@ public class SmartAppBottomLayout extends LinearLayout implements p<a> {
                 return;
             }
         }
-        this.f4610h = 3;
-        b(context);
+        this.f38590h = 3;
+        a(context);
     }
 }

@@ -12,14 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.utils.StatHelper;
 import org.apache.http.client.methods.HttpDelete;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class FaceTracker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class ActionType {
         public static final /* synthetic */ ActionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -83,7 +84,7 @@ public class FaceTracker {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class ErrCode {
         public static final /* synthetic */ ErrCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -112,7 +113,7 @@ public class FaceTracker {
                     return;
                 }
             }
-            OK = new ErrCode("OK", 0);
+            OK = new ErrCode(StatHelper.SENSOR_OK, 0);
             PITCH_OUT_OF_RANGE = new ErrCode("PITCH_OUT_OF_RANGE", 1);
             YAW_OUT_OF_RANGE = new ErrCode("YAW_OUT_OF_RANGE", 2);
             LIVENESS_NOT_SUCCEED = new ErrCode("LIVENESS_NOT_SUCCEED", 3);

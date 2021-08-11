@@ -8,7 +8,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
@@ -22,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 @Keep
 @TargetApi(17)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SingleViewPresentation extends Presentation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class SingleViewPresentation extends Presentation {
     public final PlatformViewFactory viewFactory;
     public int viewId;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class AccessibilityDelegatingFrameLayout extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class FakeWindowViewGroup extends ViewGroup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -146,7 +146,7 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ImmContext extends ContextWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -216,7 +216,7 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class PresentationContext extends ContextWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -272,7 +272,7 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class PresentationState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -295,7 +295,7 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class WindowManagerHandler implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "PlatformViewsController";
@@ -323,52 +323,40 @@ public class SingleViewPresentation extends Presentation {
         }
 
         private void addView(Object[] objArr) {
+            FakeWindowViewGroup fakeWindowViewGroup;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65537, this, objArr) == null) {
-                FakeWindowViewGroup fakeWindowViewGroup = this.fakeWindowRootView;
-                if (fakeWindowViewGroup == null) {
-                    Log.w("PlatformViewsController", "Embedded view called addView while detached from presentation");
-                } else {
-                    fakeWindowViewGroup.addView((View) objArr[0], (WindowManager.LayoutParams) objArr[1]);
-                }
+            if (!(interceptable == null || interceptable.invokeL(65537, this, objArr) == null) || (fakeWindowViewGroup = this.fakeWindowRootView) == null) {
+                return;
             }
+            fakeWindowViewGroup.addView((View) objArr[0], (WindowManager.LayoutParams) objArr[1]);
         }
 
         private void removeView(Object[] objArr) {
+            FakeWindowViewGroup fakeWindowViewGroup;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65538, this, objArr) == null) {
-                FakeWindowViewGroup fakeWindowViewGroup = this.fakeWindowRootView;
-                if (fakeWindowViewGroup == null) {
-                    Log.w("PlatformViewsController", "Embedded view called removeView while detached from presentation");
-                } else {
-                    fakeWindowViewGroup.removeView((View) objArr[0]);
-                }
+            if (!(interceptable == null || interceptable.invokeL(65538, this, objArr) == null) || (fakeWindowViewGroup = this.fakeWindowRootView) == null) {
+                return;
             }
+            fakeWindowViewGroup.removeView((View) objArr[0]);
         }
 
         private void removeViewImmediate(Object[] objArr) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65539, this, objArr) == null) {
-                if (this.fakeWindowRootView == null) {
-                    Log.w("PlatformViewsController", "Embedded view called removeViewImmediate while detached from presentation");
-                    return;
-                }
-                View view = (View) objArr[0];
-                view.clearAnimation();
-                this.fakeWindowRootView.removeView(view);
+            if (!(interceptable == null || interceptable.invokeL(65539, this, objArr) == null) || this.fakeWindowRootView == null) {
+                return;
             }
+            View view = (View) objArr[0];
+            view.clearAnimation();
+            this.fakeWindowRootView.removeView(view);
         }
 
         private void updateViewLayout(Object[] objArr) {
+            FakeWindowViewGroup fakeWindowViewGroup;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, objArr) == null) {
-                FakeWindowViewGroup fakeWindowViewGroup = this.fakeWindowRootView;
-                if (fakeWindowViewGroup == null) {
-                    Log.w("PlatformViewsController", "Embedded view called updateViewLayout while detached from presentation");
-                } else {
-                    fakeWindowViewGroup.updateViewLayout((View) objArr[0], (WindowManager.LayoutParams) objArr[1]);
-                }
+            if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, objArr) == null) || (fakeWindowViewGroup = this.fakeWindowRootView) == null) {
+                return;
             }
+            fakeWindowViewGroup.updateViewLayout((View) objArr[0], (WindowManager.LayoutParams) objArr[1]);
         }
 
         public WindowManager getWindowManager() {
@@ -470,7 +458,7 @@ public class SingleViewPresentation extends Presentation {
         this.state = new PresentationState();
         getWindow().setFlags(8, 8);
         if (Build.VERSION.SDK_INT >= 19) {
-            getWindow().setType(2030);
+            getWindow().setType(SpeedStatsStampTable.INIT_RUKA_STAMP_KEY);
         }
     }
 

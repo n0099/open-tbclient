@@ -1,28 +1,33 @@
 package com.baidu.wallet.paysdk.beans;
 
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.lbspay.channelpay.alipay.LBSPayAli;
-import com.baidu.apollon.restnet.RestNameValuePair;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.datamodel.PayData;
-import com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse;
-import com.baidu.wallet.paysdk.storage.PayDataCache;
-import com.tencent.connect.common.Constants;
+import com.baidu.wallet.base.controllers.PasswordController;
+import com.baidu.wallet.paysdk.datamodel.CheckPwdErrorContent;
+import com.baidu.wallet.paysdk.datamodel.PwdRequest;
+import com.baidu.wallet.paysdk.storage.PayRequestCache;
+import com.dxmpay.apollon.armor.SecurePay;
+import com.dxmpay.apollon.restnet.RestNameValuePair;
+import com.dxmpay.wallet.core.beans.BaseBean;
+import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class g extends h {
+import java.util.Map;
+/* loaded from: classes8.dex */
+public class g extends BaseBean<Void> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* renamed from: a  reason: collision with root package name */
+    public PwdRequest f62033a;
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public <T> g(Context context) {
+    public g(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -39,54 +44,67 @@ public class g extends h {
                 return;
             }
         }
+        this.f62033a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
-    private boolean a(DirectPayContentResponse directPayContentResponse) {
-        InterceptResult invokeL;
-        PayData.DirectPayPay directPayPay;
-        PayData.EasyPay easyPay;
+    @Override // com.dxmpay.apollon.beans.ApollonBean
+    public void execBean() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, directPayContentResponse)) == null) ? (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (easyPay = directPayPay.easypay) == null || TextUtils.isEmpty(easyPay.getService())) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.execBean(null, CheckPwdErrorContent.class);
+        }
     }
 
-    @Override // com.baidu.wallet.paysdk.beans.h, com.baidu.wallet.core.beans.NetworkBean
+    @Override // com.dxmpay.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList(super.generateRequestParam());
-            Iterator it = arrayList.iterator();
-            while (it.hasNext()) {
-                if ("request_type".indexOf(((RestNameValuePair) it.next()).getName()) != -1) {
-                    it.remove();
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (this.f62033a == null) {
+                return arrayList;
             }
-            arrayList.add(new RestNameValuePair("request_type", Constants.VIA_REPORT_TYPE_WPA_STATE));
-            if (com.baidu.wallet.paysdk.a.b.a()) {
-                DirectPayContentResponse payResponse = PayDataCache.getInstance().getPayResponse();
-                if (a(payResponse)) {
-                    arrayList.add(new RestNameValuePair("service", payResponse.pay.easypay.getService()));
-                } else {
-                    if (com.baidu.wallet.paysdk.a.b.c()) {
-                        arrayList.add(new RestNameValuePair("service", LBSPayAli.ALI_AUTH_PAY));
-                    }
-                    if (com.baidu.wallet.paysdk.a.b.b()) {
-                        arrayList.add(new RestNameValuePair("service", "authorize_pure"));
-                    }
+            String seed = PasswordController.getSeed();
+            arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f62033a.mPayPass, seed)));
+            arrayList.add(new RestNameValuePair("seed", SecurePay.getInstance().encryptProxy(seed)));
+            arrayList.add(new RestNameValuePair("key", SecurePay.getInstance().getpwProxy()));
+            Map<String, String> map = this.f62033a.mExtData;
+            if (map == null) {
+                return arrayList;
+            }
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                String key = entry.getKey();
+                String value = entry.getValue();
+                if (key == null) {
+                    key = "";
                 }
+                if (value == null) {
+                    value = "";
+                }
+                arrayList.add(new RestNameValuePair(key, value));
             }
             return arrayList;
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.wallet.paysdk.beans.h, com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 17;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 529;
         }
         return invokeV.intValue;
+    }
+
+    @Override // com.dxmpay.apollon.beans.ApollonBean
+    public String getUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_CHECK_PWD;
+        }
+        return (String) invokeV.objValue;
     }
 }

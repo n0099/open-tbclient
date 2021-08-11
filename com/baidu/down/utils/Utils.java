@@ -10,15 +10,14 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import android.util.Log;
 import android.webkit.MimeTypeMap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.DocumentOpenUtil;
-import com.baidu.apollon.statistics.g;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +37,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_DL_FILENAME = "downloadfile";
@@ -75,7 +74,7 @@ public class Utils {
         extMimeMap.put(".jp2", "image/jp2");
         extMimeMap.put(".jpe", "image/jpeg");
         extMimeMap.put(".jpeg", "image/jpeg");
-        extMimeMap.put(".jpg", "image/jpeg");
+        extMimeMap.put(ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX, "image/jpeg");
         extMimeMap.put(".kar", "audio/midi");
         extMimeMap.put(".m3u", "audio/x-mpegurl");
         extMimeMap.put(".m4a", "audio/mp4a-latm");
@@ -144,8 +143,8 @@ public class Utils {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x0050  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00b3  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x00e4  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00b0  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00e1  */
     /* JADX WARN: Removed duplicated region for block: B:56:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -410,11 +409,7 @@ public class Utils {
             System.currentTimeMillis();
             try {
                 HttpUrlHelper parse = HttpUrlHelper.parse(str);
-                if (parse == null) {
-                    Log.i(TAG, "HttpUrlHelper parse error");
-                    return str;
-                }
-                return parse.toString();
+                return parse == null ? str : parse.toString();
             } catch (Exception unused) {
                 return str;
             }
@@ -457,7 +452,7 @@ public class Utils {
                             case 12:
                             case 14:
                             case 15:
-                                return g.f4012b;
+                                return "3G";
                             case 4:
                             case 11:
                             default:

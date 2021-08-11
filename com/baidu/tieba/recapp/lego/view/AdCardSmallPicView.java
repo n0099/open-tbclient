@@ -2,6 +2,8 @@ package com.baidu.tieba.recapp.lego.view;
 
 import android.text.TextUtils;
 import android.view.View;
+import c.a.p0.o1.o.k.a;
+import c.a.p0.x2.i0.b.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
@@ -12,14 +14,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.n1.o.k.a;
-import d.a.q0.w2.f0.b.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AdCardSmallPicView extends AdSimpleCardBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbImageView A;
-    public XfremodeRoundLayout z;
+
+    /* renamed from: i  reason: collision with root package name */
+    public XfremodeRoundLayout f56044i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public TbImageView f56045j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdCardSmallPicView(TbPageContext tbPageContext) {
@@ -42,34 +46,21 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
-    public void N(AdCard adCard) {
-        c cVar;
+    public void fillCustomView(AdCard adCard) {
+        d dVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
-            if (adCard != null && (cVar = adCard.picInfo) != null && a.k(cVar.f66587c) >= 1) {
-                String str = (String) a.d(adCard.picInfo.f66587c, 0);
+            if (adCard != null && (dVar = adCard.picInfo) != null && a.k(dVar.f28542c) >= 1) {
+                String str = (String) a.d(adCard.picInfo.f28542c, 0);
                 if (!TextUtils.isEmpty(str)) {
-                    this.t.setVisibility(0);
-                    this.A.M(str, 17, false);
+                    this.mCustomRoot.setVisibility(0);
+                    this.f56045j.startLoad(str, 17, false);
                     return;
                 }
-                this.t.setVisibility(8);
+                this.mCustomRoot.setVisibility(8);
                 return;
             }
-            this.t.setVisibility(8);
-        }
-    }
-
-    @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
-    public void P(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            float dimensionPixelSize = this.m.getResources().getDimensionPixelSize(R.dimen.tbds10);
-            this.z = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
-            TbImageView tbImageView = (TbImageView) view.findViewById(R.id.ad_img);
-            this.A = tbImageView;
-            tbImageView.setPlaceHolder(3);
-            this.z.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
+            this.mCustomRoot.setVisibility(8);
         }
     }
 
@@ -77,13 +68,26 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
     public int getCustomLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.ad_card_small_pic_view : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.ad_card_small_pic_view : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.card_small_pic_ad : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.card_small_pic_ad : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
+    public void initCustomView(View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+            float dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds10);
+            this.f56044i = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
+            TbImageView tbImageView = (TbImageView) view.findViewById(R.id.ad_img);
+            this.f56045j = tbImageView;
+            tbImageView.setPlaceHolder(3);
+            this.f56044i.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
+        }
     }
 }

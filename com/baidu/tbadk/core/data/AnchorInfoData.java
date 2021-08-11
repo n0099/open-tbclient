@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +13,7 @@ import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.AnchorInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AnchorInfoData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -144,7 +145,7 @@ public class AnchorInfoData extends OrmObject implements Serializable {
         try {
             this.portrait = jSONObject.getString("portrait");
             this.name = jSONObject.getString("name");
-            this.startTime = jSONObject.getInt("start_time");
+            this.startTime = jSONObject.getInt(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
             this.status = jSONObject.getInt("status");
             this.authorId = jSONObject.getLong("author_id");
             this.authorName = jSONObject.getString("author_name");
@@ -178,10 +179,10 @@ public class AnchorInfoData extends OrmObject implements Serializable {
         this.isVip = anchorInfo.is_vip.intValue();
     }
 
-    public void setAuthorId(long j) {
+    public void setAuthorId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.authorId = j;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
+            this.authorId = j2;
         }
     }
 
@@ -192,10 +193,10 @@ public class AnchorInfoData extends OrmObject implements Serializable {
         }
     }
 
-    public void setGroup_id(long j) {
+    public void setGroup_id(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            this.group_id = j;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
+            this.group_id = j2;
         }
     }
 

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.image.IRawCache;
 import com.bytedance.sdk.component.image.ResultType;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class k extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,13 +38,13 @@ public class k extends a {
     public void a(com.bytedance.sdk.component.image.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            ResultType j = aVar.j();
+            ResultType j2 = aVar.j();
             byte[] a2 = com.bytedance.sdk.component.image.c.b.a().c().a((IRawCache) aVar.d());
             if (a2 == null) {
                 aVar.a(new e());
             } else if (j.a(a2)) {
                 aVar.a(new l(a2, true));
-            } else if (j == ResultType.BITMAP) {
+            } else if (j2 == ResultType.BITMAP) {
                 aVar.a(new d(a2, true));
             } else {
                 aVar.a(new l(a2));

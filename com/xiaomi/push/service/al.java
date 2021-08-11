@@ -25,27 +25,27 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @TargetApi(24)
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class al {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static al f40858a;
+    public static al f77733a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ al f40859a;
+        public final /* synthetic */ al f77734a;
 
         /* renamed from: a  reason: collision with other field name */
-        public List<b> f888a;
+        public List<b> f892a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<b> f40860b;
+        public List<b> f77735b;
 
         public a(al alVar) {
             Interceptable interceptable = $ic;
@@ -62,9 +62,9 @@ public class al {
                     return;
                 }
             }
-            this.f40859a = alVar;
-            this.f888a = new ArrayList();
-            this.f40860b = new ArrayList();
+            this.f77734a = alVar;
+            this.f892a = new ArrayList();
+            this.f77735b = new ArrayList();
         }
 
         public /* synthetic */ a(al alVar, am amVar) {
@@ -72,19 +72,19 @@ public class al {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40861a;
+        public int f77736a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Notification f889a;
+        public Notification f893a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final /* synthetic */ al f890a;
+        public final /* synthetic */ al f894a;
 
         public b(al alVar, int i2, Notification notification) {
             Interceptable interceptable = $ic;
@@ -101,16 +101,16 @@ public class al {
                     return;
                 }
             }
-            this.f890a = alVar;
-            this.f40861a = i2;
-            this.f889a = notification;
+            this.f894a = alVar;
+            this.f77736a = i2;
+            this.f893a = notification;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "id:" + this.f40861a;
+                return "id:" + this.f77736a;
             }
             return (String) invokeV.objValue;
         }
@@ -129,7 +129,7 @@ public class al {
                 return;
             }
         }
-        f40858a = new al();
+        f77733a = new al();
     }
 
     public al() {
@@ -158,7 +158,7 @@ public class al {
     public static al a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f40858a : (al) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f77733a : (al) invokeV.objValue;
     }
 
     private String a(Notification notification) {
@@ -178,11 +178,11 @@ public class al {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, aoVar)) == null) {
-            List<StatusBarNotification> m597b = aoVar != null ? aoVar.m597b() : null;
-            if (m597b == null || m597b.size() == 0) {
+            List<StatusBarNotification> m600b = aoVar != null ? aoVar.m600b() : null;
+            if (m600b == null || m600b.size() == 0) {
                 return null;
             }
-            return m597b;
+            return m600b;
         }
         return (List) invokeL.objValue;
     }
@@ -208,13 +208,13 @@ public class al {
                         String key = entry.getKey();
                         if (!TextUtils.isEmpty(key)) {
                             a value = entry.getValue();
-                            if (z && key.equals(b2) && !m587b(notification)) {
-                                (m586a(notification) ? value.f40860b : value.f888a).add(new b(this, i2, notification));
+                            if (z && key.equals(b2) && !m590b(notification)) {
+                                (m589a(notification) ? value.f77735b : value.f892a).add(new b(this, i2, notification));
                             }
-                            int size = value.f888a.size();
-                            if (value.f40860b.size() <= 0) {
+                            int size = value.f892a.size();
+                            if (value.f77735b.size() <= 0) {
                                 if (z && size >= 2) {
-                                    a(context, a2, key, value.f888a.get(0).f889a);
+                                    a(context, a2, key, value.f892a.get(0).f893a);
                                 }
                             } else if (size <= 0) {
                                 a(context, a2, key);
@@ -225,7 +225,7 @@ public class al {
                 }
                 str = "group auto not get notifications";
             }
-            com.xiaomi.channel.commonutils.logger.b.m70a(str);
+            com.xiaomi.channel.commonutils.logger.b.m73a(str);
         }
     }
 
@@ -243,19 +243,19 @@ public class al {
         if (interceptable == null || interceptable.invokeLLLL(65544, this, context, str, str2, notification) == null) {
             try {
                 if (TextUtils.isEmpty(str2)) {
-                    com.xiaomi.channel.commonutils.logger.b.m70a("group show summary group is null");
+                    com.xiaomi.channel.commonutils.logger.b.m73a("group show summary group is null");
                     return;
                 }
                 int a2 = ap.a(context, str);
                 if (a2 == 0) {
-                    com.xiaomi.channel.commonutils.logger.b.m70a("group show summary not get icon from " + str);
+                    com.xiaomi.channel.commonutils.logger.b.m73a("group show summary not get icon from " + str);
                     return;
                 }
                 ao a3 = ao.a(context, str);
                 if (Build.VERSION.SDK_INT >= 26) {
                     String b2 = a3.b(notification.getChannelId(), "groupSummary");
-                    NotificationChannel m591a = a3.m591a(b2);
-                    if ("groupSummary".equals(b2) && m591a == null) {
+                    NotificationChannel m594a = a3.m594a(b2);
+                    if ("groupSummary".equals(b2) && m594a == null) {
                         a3.a(new NotificationChannel(b2, "group_summary", 3));
                     }
                     defaults = new Notification.Builder(context, b2);
@@ -271,7 +271,7 @@ public class al {
                 a3.a(a4, build);
                 com.xiaomi.channel.commonutils.logger.b.b("group show summary notify:" + a4);
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m70a("group show summary error " + e2);
+                com.xiaomi.channel.commonutils.logger.b.m73a("group show summary error " + e2);
             }
         }
     }
@@ -285,19 +285,19 @@ public class al {
                 aVar = new a(this, null);
                 map.put(b2, aVar);
             }
-            (m586a(statusBarNotification.getNotification()) ? aVar.f40860b : aVar.f888a).add(new b(this, statusBarNotification.getId(), statusBarNotification.getNotification()));
+            (m589a(statusBarNotification.getNotification()) ? aVar.f77735b : aVar.f892a).add(new b(this, statusBarNotification.getId(), statusBarNotification.getNotification()));
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m585a() {
+    private boolean m588a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? Build.VERSION.SDK_INT >= 24 : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m586a(Notification notification) {
+    private boolean m589a(Notification notification) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, notification)) == null) {
@@ -317,7 +317,7 @@ public class al {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, context)) == null) {
-            if (b(context) && ao.m590a(context)) {
+            if (b(context) && ao.m593a(context)) {
                 return aq.a(context).a(hk.aX.a(), false);
             }
             return false;
@@ -332,7 +332,7 @@ public class al {
             if (notification == null) {
                 return null;
             }
-            return m587b(notification) ? a(notification) : notification.getGroup();
+            return m590b(notification) ? a(notification) : notification.getGroup();
         }
         return (String) invokeL.objValue;
     }
@@ -350,10 +350,10 @@ public class al {
                 if (a4 != null) {
                     for (StatusBarNotification statusBarNotification : a4) {
                         Notification notification2 = statusBarNotification.getNotification();
-                        if (notification2 != null && m587b(notification2) && statusBarNotification.getId() != i2) {
+                        if (notification2 != null && m590b(notification2) && statusBarNotification.getId() != i2) {
                             Notification.Builder recoverBuilder = Notification.Builder.recoverBuilder(context, statusBarNotification.getNotification());
                             recoverBuilder.setGroup(a(notification2));
-                            ap.a(recoverBuilder, m586a(notification2));
+                            ap.a(recoverBuilder, m589a(notification2));
                             a3.a(statusBarNotification.getId(), recoverBuilder.build());
                             com.xiaomi.channel.commonutils.logger.b.b("group restore notification:" + statusBarNotification.getId());
                         }
@@ -362,12 +362,12 @@ public class al {
                 }
                 str = "group restore not get notifications";
             }
-            com.xiaomi.channel.commonutils.logger.b.m70a(str);
+            com.xiaomi.channel.commonutils.logger.b.m73a(str);
         }
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    private boolean m587b(Notification notification) {
+    private boolean m590b(Notification notification) {
         InterceptResult invokeL;
         Bundle bundle;
         Interceptable interceptable = $ic;
@@ -390,7 +390,7 @@ public class al {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, builder, str)) == null) {
-            if (m585a() && a(context)) {
+            if (m588a() && a(context)) {
                 long currentTimeMillis = System.currentTimeMillis();
                 Bundle extras = builder.getExtras();
                 extras.putString("push_src_group_name", str);
@@ -404,19 +404,19 @@ public class al {
 
     public void a(Context context, int i2, Notification notification) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i2, notification) == null) && m585a()) {
+        if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i2, notification) == null) && m588a()) {
             if (a(context)) {
                 try {
                     b(context, i2, notification);
                 } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.m70a("group notify handle restore error " + e2);
+                    com.xiaomi.channel.commonutils.logger.b.m73a("group notify handle restore error " + e2);
                 }
             }
             if (b(context)) {
                 try {
                     a(context, i2, notification, true);
                 } catch (Exception e3) {
-                    com.xiaomi.channel.commonutils.logger.b.m70a("group notify handle auto error " + e3);
+                    com.xiaomi.channel.commonutils.logger.b.m73a("group notify handle auto error " + e3);
                 }
             }
         }

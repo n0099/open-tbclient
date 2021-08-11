@@ -1,5 +1,8 @@
 package com.baidu.tieba.myAttentionAndFans.message;
 
+import c.a.e.e.d.l;
+import c.a.o0.s.q.i1;
+import c.a.o0.s.r.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -11,15 +14,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.d.l;
-import d.a.p0.s.q.h1;
-import d.a.p0.s.r.a;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h1 data;
+    public i1 data;
     public int mErrCode;
     public String mErrMsg;
     public PersonListModel mModel;
@@ -55,17 +55,17 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
             if (statusCode == 200 && error == 0) {
                 this.mErrCode = jSONObject.optInt("error_code");
                 this.mErrMsg = jSONObject.optString("error_msg");
-                h1 h1Var = new h1();
-                this.data = h1Var;
-                h1Var.c(jSONObject);
+                i1 i1Var = new i1();
+                this.data = i1Var;
+                i1Var.c(jSONObject);
             }
         }
     }
 
-    public h1 getData() {
+    public i1 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (h1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (i1) invokeV.objValue;
     }
 
     public String getErrMsg() {

@@ -1,5 +1,6 @@
 package com.baidu.wallet.lightapp.base;
 
+import android.content.ActivityNotFoundException;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
@@ -18,20 +19,18 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.permission.PermissionManager;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.Base64Utils;
 import com.baidu.apollon.utils.BussinessUtils;
 import com.baidu.apollon.utils.CheckUtils;
 import com.baidu.apollon.utils.Crypto;
+import com.baidu.apollon.utils.DxmApplicationContextImpl;
 import com.baidu.apollon.utils.ImageBase64Utils;
 import com.baidu.apollon.utils.JsonUtils;
-import com.baidu.apollon.utils.LogUtil;
 import com.baidu.apollon.utils.NetworkUtils;
 import com.baidu.apollon.utils.PhoneUtils;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.openbduss.PASSMethodCallTransfer;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -46,8 +45,10 @@ import com.baidu.wallet.api.ILocationCallback;
 import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
 import com.baidu.wallet.core.ContactManager;
 import com.baidu.wallet.core.utils.BaiduWalletUtils;
-import com.baidu.wallet.core.utils.DangerousPermissionUtils;
+import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.core.utils.contacts.ContactSelectModel;
+import com.baidu.wallet.lightapp.base.LightappJsClient;
+import com.baidu.wallet.lightapp.base.LocationCache;
 import com.baidu.wallet.lightapp.base.contacts.PhoneContactsMananger;
 import com.baidu.wallet.lightapp.base.datamodel.LightAppContactSelectModelBase64;
 import com.baidu.wallet.lightapp.base.datamodel.LightAppDeviceInfoModel;
@@ -56,15 +57,18 @@ import com.baidu.wallet.lightapp.base.datamodel.LightAppLocationModel;
 import com.baidu.wallet.lightapp.base.datamodel.LightAppNewLocationModel;
 import com.baidu.wallet.lightapp.base.datamodel.LightAppShareModel;
 import com.baidu.wallet.lightapp.base.datamodel.LightAppTakePictureModel;
+import com.baidu.wallet.lightapp.base.datamodel.LocationProvider;
 import com.baidu.wallet.lightapp.base.statistics.LightAppStatEvent;
 import com.baidu.wallet.lightapp.base.utils.LightappUtils;
+import com.baidu.wallet.lightapp.business.LightappBrowseActivity;
 import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.baidu.wallet.lightapp.multipage.LangbridgeSettings;
-import com.baidu.wallet.lightapp.multipage.h;
-import com.baidu.wallet.router.RouterCallback;
+import com.baidu.wallet.lightapp.multipage.i;
+import com.baidu.wallet.lightapp.multipage.j;
 import com.baidu.wallet.utils.BdWalletUtils;
 import com.baidu.webkit.sdk.PermissionRequest;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
+import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
+import com.qq.e.comm.constants.Constants;
 import java.io.File;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -77,10 +81,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.apache.commons.lang3.ArrayUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class LightappJsNativeClient implements ILightappInvoker {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADJUST_SCREEN_BRIGHTNESS = "adjustScreenBrightness";
@@ -98,11 +103,15 @@ public class LightappJsNativeClient implements ILightappInvoker {
     public static final String METHOD_GET_DEVIDE_INFO = "getDeviceInfo";
     public static final String METHOD_SELECT_CONTACTS = "selectPhonefromAdressBook";
     public static final String MW_CLOSE_TOP_WEBVIEW = "closeTopWebview";
+    public static final String MW_GET_LANGBRIDGE_HASH_STAMP = "getLangbridgeHashStamp";
+    public static final String MW_GET_LANGBRIDGE_SETTINGS = "getLangbridgeSettings";
     public static final String MW_HSITORY_GO = "historyGo";
+    public static final String MW_IS_PRELOADED = "isPreloaded";
     public static final String MW_NATIVE_LOG = "nativeLog";
     public static final String MW_OPEN_NEW_WEBVIEW = "openInNewWebView";
     public static final String MW_PRE_LOAD_EXCEPTION = "preLoadException";
     public static final String MW_PRE_LOAD_URL = "preLoadUrl";
+    public static final String MW_RM_FROM_PRELOAD_POOL = "rmFromPreloadPool";
     public static final int RESULT_FAILURE = 1;
     public static final int RESULT_NO_PERMISSION = 2;
     public static final int RESULT_SUCCESS = 0;
@@ -110,33 +119,35 @@ public class LightappJsNativeClient implements ILightappInvoker {
     public static final String VIEW_CALENDAR_EVENT = "viewCalendarEvent";
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f25464c = 1;
+    public static int f61313c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f25465d = 2;
+    public static int f61314d = 2;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f25466e = 1;
+    public static int f61315e = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25467a;
+    public String f61316a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, ILightappInvokerCallback> f25468b;
+    public final HashMap<String, ILightappInvokerCallback> f61317b;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f25469f;
+    public final String f61318f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f25470g;
+    public final String f61319g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f25471h;
+    public final String f61320h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f25472i;
-    public final String j;
+    public final String f61321i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public final String f61322j;
     public com.baidu.wallet.lightapp.multipage.a k;
     public String l;
     public int m;
@@ -145,29 +156,30 @@ public class LightappJsNativeClient implements ILightappInvoker {
     public String p;
     public Method q;
     public boolean r;
-    public ILightappInvokerCallback s;
-    public String t;
+    public LocationProvider s;
+    public ILightappInvokerCallback t;
     public String u;
+    public String v;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class a implements LocationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final ILightappInvokerCallback f25494a;
+        public final ILightappInvokerCallback f61340a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f25495b;
+        public final String f61341b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final LocationManager f25496c;
+        public final LocationManager f61342c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final ArrayList<String> f25497d;
+        public final ArrayList<String> f61343d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final LightAppNewLocationModel f25498e;
+        public final LightAppNewLocationModel f61344e;
 
         public a(ILightappInvokerCallback iLightappInvokerCallback, String str, LocationManager locationManager, ArrayList<String> arrayList, LightAppNewLocationModel lightAppNewLocationModel) {
             Interceptable interceptable = $ic;
@@ -184,11 +196,11 @@ public class LightappJsNativeClient implements ILightappInvoker {
                     return;
                 }
             }
-            this.f25494a = iLightappInvokerCallback;
-            this.f25495b = str;
-            this.f25496c = locationManager;
-            this.f25497d = arrayList;
-            this.f25498e = lightAppNewLocationModel;
+            this.f61340a = iLightappInvokerCallback;
+            this.f61341b = str;
+            this.f61342c = locationManager;
+            this.f61343d = arrayList;
+            this.f61344e = lightAppNewLocationModel;
         }
 
         @Override // android.location.LocationListener
@@ -196,26 +208,20 @@ public class LightappJsNativeClient implements ILightappInvoker {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, location) == null) {
                 if (location != null) {
-                    LightAppNewLocationModel lightAppNewLocationModel = this.f25498e;
+                    LightAppNewLocationModel lightAppNewLocationModel = this.f61344e;
                     lightAppNewLocationModel.result = 0;
                     lightAppNewLocationModel.cnt.data.latitude = location.getLatitude();
-                    this.f25498e.cnt.data.longitude = location.getLongitude();
-                    String json = this.f25498e.toJson();
-                    this.f25494a.onResult(0, json);
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.add(this.f25495b);
-                    arrayList.add(Base64Utils.encodeToString(json.getBytes()));
-                    DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_OK, arrayList);
-                    PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_OK, arrayList);
+                    this.f61344e.cnt.data.longitude = location.getLongitude();
+                    this.f61340a.onResult(0, this.f61344e.toJson());
+                    LocationCache.a(location.getLatitude(), location.getLongitude(), LocationCache.Coord.WGS84, LocationProvider.SYSTEM);
                 } else {
-                    PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_FAIL, this.f25497d);
                     LightAppErrorModel lightAppErrorModel = new LightAppErrorModel(1);
                     LightAppErrorModel.Data data = lightAppErrorModel.cnt;
                     data.errCode = LightappConstants.ERRCODE_INNER_ERROR;
                     data.des = "定位失败";
-                    this.f25494a.onResult(1, lightAppErrorModel.toJson());
+                    this.f61340a.onResult(1, lightAppErrorModel.toJson());
                 }
-                this.f25496c.removeUpdates(this);
+                this.f61342c.removeUpdates(this);
             }
         }
 
@@ -223,12 +229,11 @@ public class LightappJsNativeClient implements ILightappInvoker {
         public void onProviderDisabled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_FAIL, this.f25497d);
                 LightAppErrorModel lightAppErrorModel = new LightAppErrorModel(1);
                 LightAppErrorModel.Data data = lightAppErrorModel.cnt;
                 data.errCode = LightappConstants.ERRCODE_INNER_ERROR;
                 data.des = "定位失败";
-                this.f25494a.onResult(1, lightAppErrorModel.toJson());
+                this.f61340a.onResult(1, lightAppErrorModel.toJson());
             }
         }
 
@@ -277,76 +282,48 @@ public class LightappJsNativeClient implements ILightappInvoker {
                 return;
             }
         }
-        this.f25467a = LightappJsNativeClient.class.getSimpleName();
-        this.f25468b = new HashMap<>();
-        this.f25469f = "访问相机的权限";
-        this.f25470g = "读写存储卡的权限";
-        this.f25471h = "访问通信录的权限";
-        this.f25472i = "获取地理位置的权限";
-        this.j = "没有";
+        this.f61316a = LightappJsNativeClient.class.getSimpleName();
+        this.f61317b = new HashMap<>();
+        this.f61318f = "访问相机的权限";
+        this.f61319g = "读写存储卡的权限";
+        this.f61320h = "访问通信录的权限";
+        this.f61321i = "获取地理位置的权限";
+        this.f61322j = "没有";
         this.m = -1;
         this.n = -1;
         this.o = -1;
         this.p = null;
         this.q = null;
         this.r = false;
-        this.t = null;
+        this.s = LocationProvider.HOST;
         this.u = null;
+        this.v = null;
         this.k = aVar;
-    }
-
-    private void e() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65562, this) == null) || TextUtils.isEmpty(this.t)) {
-            return;
-        }
-        d(this.k.getContext(), this.t, this.s, this.u);
-        this.t = null;
-        this.u = null;
     }
 
     private void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65565, this) == null) {
-            this.k.closeTopWebview();
+        if (!(interceptable == null || interceptable.invokeV(65569, this) == null) || this.t == null) {
+            return;
         }
+        LightAppErrorModel lightAppErrorModel = new LightAppErrorModel(1);
+        LightAppErrorModel.Data data = lightAppErrorModel.cnt;
+        data.errCode = LightappConstants.ERRCODE_INNER_ERROR;
+        data.des = "定位失败";
+        this.t.onResult(1, lightAppErrorModel.toJson());
     }
 
-    private void g(JSONObject jSONObject, String str) {
+    private void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65567, this, jSONObject, str) == null) {
-            String optString = jSONObject.optString("title");
-            if (TextUtils.isEmpty(optString)) {
-                LightappUtils.onError(this.f25468b.get(INSERT_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INVALID_PARAMETER, "标题不能为空", "#insertCalendarEventFail");
-                return;
-            }
-            Long valueOf = Long.valueOf(jSONObject.optLong("beginTime"));
-            Long valueOf2 = Long.valueOf(jSONObject.optLong("endTime"));
-            if (valueOf.longValue() >= 0 && valueOf2.longValue() >= 0 && valueOf2.longValue() >= valueOf.longValue()) {
-                Intent putExtra = new Intent("android.intent.action.INSERT").setData(CalendarContract.Events.CONTENT_URI).putExtra("title", optString).putExtra("beginTime", valueOf).putExtra("endTime", valueOf2).putExtra("allDay", jSONObject.optBoolean("allDay")).putExtra("eventLocation", jSONObject.optString("eventLocation")).putExtra("description", jSONObject.optString("description")).putExtra("rrule", jSONObject.optString("rrule"));
-                if (this.k.getActivity() != null && putExtra.resolveActivity(this.k.getActivity().getPackageManager()) != null) {
-                    this.k.getActivity().startActivityForResult(putExtra, 6);
-                    return;
-                }
-                Toast.makeText(this.k.getActivity(), ResUtils.string(this.k.getActivity(), "insert_calendar_not_available"), 1).show();
-                LightappUtils.onError(this.f25468b.get(INSERT_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INTENT_NOT_AVAILABLE, ResUtils.getString(this.k.getContext(), "insert_calendar_not_available"), LightAppStatEvent.LIGHT_APP_INSERT_CALENDAR_NOT_AVAILABLE);
-                return;
-            }
-            String str2 = valueOf.longValue() < 0 ? "开始时间必须大于零" : "";
-            if (valueOf2.longValue() < 0) {
-                str2 = str2 + "结束时间必须大于零";
-            }
-            if (valueOf2.longValue() < valueOf.longValue()) {
-                str2 = str2 + "结束时间必须大于开始时间";
-            }
-            LightappUtils.onError(this.f25468b.get(INSERT_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INVALID_PARAMETER, str2, "#insertCalendarEventFail");
+        if (interceptable == null || interceptable.invokeV(65571, this) == null) {
+            this.k.rmFromPreloadPool();
         }
     }
 
     public static Set<String> getSupportMethodList(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, context)) == null) {
             HashSet hashSet = new HashSet();
             hashSet.add("selectPhonefromAdressBook");
             hashSet.add("getDeviceInfo");
@@ -358,7 +335,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
             hashSet.add(ADJUST_SCREEN_BRIGHTNESS);
             hashSet.add(SCREEN_CAPTURE_SETTINGS);
             hashSet.add(METHOD_CALL_VIBRATE);
-            LangbridgeSettings a2 = h.a().a(context);
+            LangbridgeSettings a2 = i.a().a(context);
             if (a2.MW_ON && a2.MW_MULTI_ON) {
                 hashSet.add(MW_OPEN_NEW_WEBVIEW);
                 hashSet.add(MW_CLOSE_TOP_WEBVIEW);
@@ -367,39 +344,26 @@ public class LightappJsNativeClient implements ILightappInvoker {
             }
             hashSet.add(MW_HSITORY_GO);
             hashSet.add(MW_NATIVE_LOG);
+            hashSet.add(MW_IS_PRELOADED);
+            hashSet.add(MW_RM_FROM_PRELOAD_POOL);
+            hashSet.add(MW_GET_LANGBRIDGE_HASH_STAMP);
+            hashSet.add(MW_GET_LANGBRIDGE_SETTINGS);
             return hashSet;
         }
         return (Set) invokeL.objValue;
     }
 
-    private void h(JSONObject jSONObject, String str) {
+    private void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65569, this, jSONObject, str) == null) {
-            long optLong = jSONObject.optLong("beginTime");
-            int i2 = (optLong > 0L ? 1 : (optLong == 0L ? 0 : -1));
-            if (i2 < 0) {
-                LightappUtils.onError(this.f25468b.get(VIEW_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INVALID_PARAMETER, "时间必须大于零", "#viewCalendarEventFail");
-                return;
-            }
-            if (i2 == 0) {
-                optLong = Calendar.getInstance().getTimeInMillis();
-            }
-            Uri.Builder buildUpon = CalendarContract.CONTENT_URI.buildUpon();
-            buildUpon.appendPath("time");
-            ContentUris.appendId(buildUpon, optLong);
-            Intent data = new Intent("android.intent.action.VIEW").setData(buildUpon.build());
-            if (this.k.getActivity() != null && data.resolveActivity(this.k.getActivity().getPackageManager()) != null) {
-                this.k.getActivity().startActivity(data);
-            } else {
-                LightappUtils.onError(this.f25468b.get(VIEW_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INTENT_NOT_AVAILABLE, ResUtils.getString(this.k.getContext(), "view_calendar_not_available"), LightAppStatEvent.LIGHT_APP_VIEW_CALENDAR_NOT_AVAILABLE);
-            }
+        if (interceptable == null || interceptable.invokeV(65574, this) == null) {
+            this.k.closeTopWebview();
         }
     }
 
     private void i(JSONObject jSONObject, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65570, this, jSONObject, str) == null) {
-            ILightappInvokerCallback iLightappInvokerCallback = this.f25468b.get(ADJUST_SCREEN_BRIGHTNESS);
+        if (interceptable == null || interceptable.invokeLL(65576, this, jSONObject, str) == null) {
+            ILightappInvokerCallback iLightappInvokerCallback = this.f61317b.get(ADJUST_SCREEN_BRIGHTNESS);
             if (this.k.getActivity() == null) {
                 iLightappInvokerCallback.onResult(1, LightappUtils.assembleFailResultWithErrCode(LightappConstants.ERRCODE_INNER_ERROR, "内部错误"));
                 return;
@@ -438,19 +402,18 @@ public class LightappJsNativeClient implements ILightappInvoker {
             arrayList.add(CheckUtils.stripUrlParams(str3));
         } catch (Exception unused2) {
         }
-        PayStatisticsUtil.onEventWithValues("#callShare", arrayList);
         LightAppWrapper.getInstance().callShare(this.k.getActivity(), lightAppShareModel, new ILightappInvokerCallback(this, arrayList, iLightappInvokerCallback) { // from class: com.baidu.wallet.lightapp.base.LightappJsNativeClient.6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ArrayList f25489a;
+            public final /* synthetic */ ArrayList f61335a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ ILightappInvokerCallback f25490b;
+            public final /* synthetic */ ILightappInvokerCallback f61336b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ LightappJsNativeClient f25491c;
+            public final /* synthetic */ LightappJsNativeClient f61337c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -467,22 +430,19 @@ public class LightappJsNativeClient implements ILightappInvoker {
                         return;
                     }
                 }
-                this.f25491c = this;
-                this.f25489a = arrayList;
-                this.f25490b = iLightappInvokerCallback;
+                this.f61337c = this;
+                this.f61335a = arrayList;
+                this.f61336b = iLightappInvokerCallback;
             }
 
             @Override // com.baidu.wallet.api.ILightappInvokerCallback
             public void onResult(int i2, String str4) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str4) == null) {
-                    if (1 == i2) {
-                        if (!TextUtils.isEmpty(str4)) {
-                            this.f25489a.add(str4);
-                        }
-                        PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_CALL_SHARE_FAIL, this.f25489a);
+                    if (1 == i2 && !TextUtils.isEmpty(str4)) {
+                        this.f61335a.add(str4);
                     }
-                    ILightappInvokerCallback iLightappInvokerCallback2 = this.f25490b;
+                    ILightappInvokerCallback iLightappInvokerCallback2 = this.f61336b;
                     if (iLightappInvokerCallback2 != null) {
                         iLightappInvokerCallback2.onResult(i2, str4);
                     }
@@ -492,19 +452,12 @@ public class LightappJsNativeClient implements ILightappInvoker {
     }
 
     public void closeWindow(String str) {
+        com.baidu.wallet.lightapp.multipage.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            ArrayList arrayList = new ArrayList();
-            try {
-                arrayList.add(CheckUtils.stripUrlParams(str));
-            } catch (Exception unused) {
-            }
-            PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_CLOSE_WINDOW, arrayList);
-            com.baidu.wallet.lightapp.multipage.a aVar = this.k;
-            if (aVar != null) {
-                aVar.closeWindow();
-            }
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (aVar = this.k) == null) {
+            return;
         }
+        aVar.closeWindow();
     }
 
     public void getBattery(String str, String str2) {
@@ -523,7 +476,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
     public void handleInsertEventDone(boolean z) {
         ILightappInvokerCallback iLightappInvokerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (iLightappInvokerCallback = this.f25468b.get(INSERT_CALENDAR_EVENT)) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (iLightappInvokerCallback = this.f61317b.get(INSERT_CALENDAR_EVENT)) == null) {
             return;
         }
         if (z) {
@@ -531,7 +484,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
             return;
         }
         HashMap hashMap = new HashMap();
-        hashMap.put(RouterCallback.KEY_ERROR_CODE, LightappConstants.ERRCODE_ACTION_WITHOUT_RESULT);
+        hashMap.put("errCode", LightappConstants.ERRCODE_ACTION_WITHOUT_RESULT);
         iLightappInvokerCallback.onResult(1, LightappUtils.assembleResult((Map<String, Object>) hashMap, false));
     }
 
@@ -547,7 +500,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
             if (TextUtils.isEmpty(string)) {
                 return;
             }
-            this.f25468b.put(string, iLightappInvokerCallback);
+            this.f61317b.put(string, iLightappInvokerCallback);
             String string2 = jSONObject.getString(LightappConstants.LIGHT_APP_NATIVE_INVOKER_FROM_URL);
             if (!JavascriptInterfaceManager.verifyPermission(new URL(string2), string)) {
                 ArrayList arrayList = new ArrayList();
@@ -585,7 +538,15 @@ public class LightappJsNativeClient implements ILightappInvoker {
             } else if (MW_PRE_LOAD_EXCEPTION.equals(string)) {
                 e(jSONObject, string2);
             } else if (MW_CLOSE_TOP_WEBVIEW.equals(string)) {
-                f();
+                h();
+            } else if (MW_IS_PRELOADED.equals(string)) {
+                a(iLightappInvokerCallback, string2);
+            } else if (MW_RM_FROM_PRELOAD_POOL.equals(string)) {
+                g();
+            } else if (MW_GET_LANGBRIDGE_HASH_STAMP.equals(string)) {
+                b(context, iLightappInvokerCallback, string2);
+            } else if (MW_GET_LANGBRIDGE_SETTINGS.equals(string)) {
+                a(context, iLightappInvokerCallback, string2);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -601,10 +562,10 @@ public class LightappJsNativeClient implements ILightappInvoker {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LightAppTakePictureModel f25475a;
+                public final /* synthetic */ LightAppTakePictureModel f61325a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LightappJsNativeClient f25476b;
+                public final /* synthetic */ LightappJsNativeClient f61326b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -621,19 +582,19 @@ public class LightappJsNativeClient implements ILightappInvoker {
                             return;
                         }
                     }
-                    this.f25476b = this;
-                    this.f25475a = lightAppTakePictureModel;
+                    this.f61326b = this;
+                    this.f61325a = lightAppTakePictureModel;
                 }
 
                 @Override // com.baidu.apollon.utils.ImageBase64Utils.ImageBase64Listener
                 public void onBase64Result(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                        LightAppTakePictureModel lightAppTakePictureModel2 = this.f25475a;
+                        LightAppTakePictureModel lightAppTakePictureModel2 = this.f61325a;
                         lightAppTakePictureModel2.cnt.image = str;
-                        this.f25476b.a(LightappBusinessClient.METHOD_CALL_CAMERA, 0, lightAppTakePictureModel2.toJson());
+                        this.f61326b.a(LightappBusinessClient.METHOD_CALL_CAMERA, 0, lightAppTakePictureModel2.toJson());
                         try {
-                            File file = new File(this.f25476b.l);
+                            File file = new File(this.f61326b.l);
                             if (file.exists()) {
                                 file.delete();
                             }
@@ -659,7 +620,6 @@ public class LightappJsNativeClient implements ILightappInvoker {
                 if (!TextUtils.isEmpty(str2)) {
                     arrayList.add(str2);
                 }
-                PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_SELECT_ADDRESSBOOK_FAIL, arrayList);
                 contactSelectModel.result = 1;
                 ContactSelectModel.Data data = contactSelectModel.cnt;
                 data.errCode = LightappConstants.ERRCODE_NO_PERMISSION;
@@ -672,16 +632,16 @@ public class LightappJsNativeClient implements ILightappInvoker {
                 ContactSelectModel.SelectedContact selectedContact = contactSelectModel.cnt.selected;
                 selectedContact.name = str3;
                 selectedContact.phone = str4;
-                if (this.m == f25465d) {
+                if (this.m == f61314d) {
                     PhoneContactsMananger.a(this.k.getContext()).a(new PhoneContactsMananger.d(this, contactSelectModel) { // from class: com.baidu.wallet.lightapp.base.LightappJsNativeClient.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ ContactSelectModel f25473a;
+                        public final /* synthetic */ ContactSelectModel f61323a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ LightappJsNativeClient f25474b;
+                        public final /* synthetic */ LightappJsNativeClient f61324b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -698,31 +658,31 @@ public class LightappJsNativeClient implements ILightappInvoker {
                                     return;
                                 }
                             }
-                            this.f25474b = this;
-                            this.f25473a = contactSelectModel;
+                            this.f61324b = this;
+                            this.f61323a = contactSelectModel;
                         }
 
                         @Override // com.baidu.wallet.lightapp.base.contacts.PhoneContactsMananger.d
                         public void a(List<ContactSelectModel.AllContact> list, int i3) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLI(1048576, this, list, i3) == null) {
-                                if (this.f25474b.p != null) {
-                                    this.f25473a.cnt.abc = Base64Utils.encodeToString(Crypto.aesEncrypt(JsonUtils.toJson(list).getBytes(), this.f25474b.p));
+                                if (this.f61324b.p != null) {
+                                    this.f61323a.cnt.abc = Base64Utils.encodeToString(Crypto.aesEncrypt(JsonUtils.toJson(list).getBytes(), this.f61324b.p));
                                 } else {
-                                    this.f25473a.cnt.all = list;
+                                    this.f61323a.cnt.all = list;
                                 }
-                                if (this.f25474b.o != LightappJsNativeClient.f25466e) {
-                                    this.f25474b.a("selectPhonefromAdressBook", 0, this.f25473a.toJson());
+                                if (this.f61324b.o != LightappJsNativeClient.f61315e) {
+                                    this.f61324b.a("selectPhonefromAdressBook", 0, this.f61323a.toJson());
                                     return;
                                 }
                                 LightAppContactSelectModelBase64 lightAppContactSelectModelBase64 = new LightAppContactSelectModelBase64();
-                                ContactSelectModel contactSelectModel2 = this.f25473a;
+                                ContactSelectModel contactSelectModel2 = this.f61323a;
                                 lightAppContactSelectModelBase64.result = contactSelectModel2.result;
                                 ContactSelectModel.Data data2 = contactSelectModel2.cnt;
                                 if (data2 != null) {
                                     lightAppContactSelectModelBase64.cnt = Base64Utils.encodeToString(JsonUtils.toJson(data2).getBytes());
                                 }
-                                this.f25474b.a("selectPhonefromAdressBook", 0, lightAppContactSelectModelBase64.toJson());
+                                this.f61324b.a("selectPhonefromAdressBook", 0, lightAppContactSelectModelBase64.toJson());
                             }
                         }
                     });
@@ -731,7 +691,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
                     } else {
                         PhoneContactsMananger.a(this.k.getContext()).a(1000, false);
                     }
-                } else if (this.o == f25466e) {
+                } else if (this.o == f61315e) {
                     LightAppContactSelectModelBase64 lightAppContactSelectModelBase64 = new LightAppContactSelectModelBase64();
                     lightAppContactSelectModelBase64.result = contactSelectModel.result;
                     ContactSelectModel.Data data2 = contactSelectModel.cnt;
@@ -750,72 +710,74 @@ public class LightappJsNativeClient implements ILightappInvoker {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2, strArr, iArr) == null) {
             int i3 = 0;
+            boolean z = ArrayUtils.isEmpty(strArr) || ArrayUtils.isEmpty(iArr);
             switch (i2) {
                 case 209:
-                    if (strArr != null && iArr != null && strArr.length != 0 && iArr.length != 0) {
-                        while (i3 < strArr.length) {
-                            if (PermissionRequest.RESOURCE_VIDEO_CAPTURE.equalsIgnoreCase(strArr[i3]) && i3 < iArr.length) {
-                                int i4 = iArr[i3];
-                                if (i4 == 0) {
-                                    if (PermissionManager.checkCallingPermission(this.k.getActivity(), StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
-                                        a(this.k.getActivity());
-                                    } else if (!PermissionManager.checkCallingOrSelfPermission(this.k.getActivity(), new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, 210)) {
-                                        c();
-                                    }
-                                } else if (i4 == -1) {
-                                    b();
-                                }
-                            }
-                            i3++;
-                        }
+                    if (z) {
+                        b();
                         return;
                     }
-                    b();
-                    return;
-                case 210:
-                    if (strArr != null && iArr != null && strArr.length != 0 && iArr.length != 0) {
-                        while (i3 < strArr.length) {
-                            if (StorageUtils.EXTERNAL_STORAGE_PERMISSION.equalsIgnoreCase(strArr[i3]) && i3 < iArr.length) {
-                                int i5 = iArr[i3];
-                                if (i5 == 0) {
-                                    if (PermissionManager.checkCallingPermission(this.k.getActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
-                                        a(this.k.getActivity());
-                                    } else if (!PermissionManager.checkCallingOrSelfPermission(this.k.getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 209)) {
-                                        b();
-                                    }
-                                } else if (i5 == -1) {
+                    while (i3 < strArr.length) {
+                        if (PermissionRequest.RESOURCE_VIDEO_CAPTURE.equalsIgnoreCase(strArr[i3]) && i3 < iArr.length) {
+                            int i4 = iArr[i3];
+                            if (i4 == 0) {
+                                if (PermissionManager.checkCallingPermission(this.k.getActivity(), "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                                    a(this.k.getActivity());
+                                } else if (!PermissionManager.checkCallingOrSelfPermission(this.k.getActivity(), new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 210)) {
                                     c();
                                 }
+                            } else if (i4 == -1) {
+                                b();
                             }
-                            i3++;
                         }
+                        i3++;
+                    }
+                    return;
+                case 210:
+                    if (z) {
+                        c();
                         return;
                     }
-                    c();
+                    while (i3 < strArr.length) {
+                        if ("android.permission.WRITE_EXTERNAL_STORAGE".equalsIgnoreCase(strArr[i3]) && i3 < iArr.length) {
+                            int i5 = iArr[i3];
+                            if (i5 == 0) {
+                                if (PermissionManager.checkCallingPermission(this.k.getActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
+                                    a(this.k.getActivity());
+                                } else if (!PermissionManager.checkCallingOrSelfPermission(this.k.getActivity(), new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 209)) {
+                                    b();
+                                }
+                            } else if (i5 == -1) {
+                                c();
+                            }
+                        }
+                        i3++;
+                    }
                     return;
                 case 211:
-                    if (strArr != null && iArr != null && strArr.length != 0 && iArr.length != 0) {
-                        while (i3 < strArr.length) {
-                            if ("android.permission.READ_CONTACTS".equalsIgnoreCase(strArr[i3]) && i3 < iArr.length) {
-                                int i6 = iArr[i3];
-                                if (i6 == 0) {
-                                    d();
-                                } else if (i6 == -1) {
-                                    a(str);
-                                }
-                            }
-                            i3++;
-                        }
+                    if (z) {
+                        a(str);
                         return;
                     }
-                    a(str);
+                    while (i3 < strArr.length) {
+                        if ("android.permission.READ_CONTACTS".equalsIgnoreCase(strArr[i3]) && i3 < iArr.length) {
+                            int i6 = iArr[i3];
+                            if (i6 == 0) {
+                                d();
+                            } else if (i6 == -1) {
+                                a(str);
+                            }
+                        }
+                        i3++;
+                    }
                     return;
                 case 212:
-                    e();
-                    if (iArr == null || iArr[0] == 0) {
+                    if (!ArrayUtils.isEmpty(iArr) && iArr[0] != 0) {
+                        a(this.k.getContext(), this.v, new LightAppNewLocationModel());
+                        DXMSdkSAUtils.onEvent(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_NO_PERMISSION);
                         return;
                     }
-                    DXMSdkSAUtils.onEvent(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_NO_PERMISSION);
+                    e();
                     return;
                 default:
                     return;
@@ -825,7 +787,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             LightAppTakePictureModel lightAppTakePictureModel = new LightAppTakePictureModel(1);
             LogUtil.d(lightAppTakePictureModel.toJson());
             LightAppTakePictureModel.Data data = lightAppTakePictureModel.cnt;
@@ -837,7 +799,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
 
     private void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65558, this) == null) {
             LightAppTakePictureModel lightAppTakePictureModel = new LightAppTakePictureModel(1);
             LogUtil.d(lightAppTakePictureModel.toJson());
             LightAppTakePictureModel.Data data = lightAppTakePictureModel.cnt;
@@ -849,102 +811,106 @@ public class LightappJsNativeClient implements ILightappInvoker {
 
     private void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65559, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65562, this) == null) {
             ContactManager.getIContactsImpl().pickContactsByContactsContentUri(this.k.getActivity(), 4);
         }
     }
 
-    private void f(JSONObject jSONObject, String str) {
+    private void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65566, this, jSONObject, str) == null) {
-            ILightappInvokerCallback iLightappInvokerCallback = this.f25468b.get(SCREEN_CAPTURE_SETTINGS);
-            boolean optBoolean = jSONObject.optBoolean("prevent", false);
-            if (this.k.getActivity() != null) {
-                LightappUtils.runOnUiThread(new Runnable(this, optBoolean) { // from class: com.baidu.wallet.lightapp.base.LightappJsNativeClient.7
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
+        if (!(interceptable == null || interceptable.invokeV(65566, this) == null) || TextUtils.isEmpty(this.u)) {
+            return;
+        }
+        d(this.k.getContext(), this.u, this.t, this.v);
+        this.u = null;
+        this.v = null;
+    }
 
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ boolean f25492a;
-
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ LightappJsNativeClient f25493b;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Boolean.valueOf(optBoolean)};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f25493b = this;
-                        this.f25492a = optBoolean;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            if (this.f25492a) {
-                                BdWalletUtils.addFlagsSecure(this.f25493b.k.getActivity());
-                            } else {
-                                BdWalletUtils.clearFlagsSecure(this.f25493b.k.getActivity());
-                            }
-                        }
-                    }
-                });
-                iLightappInvokerCallback.onResult(0, LightappUtils.assembleResult(0, new JSONObject()));
+    private void g(JSONObject jSONObject, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65572, this, jSONObject, str) == null) {
+            String optString = jSONObject.optString("title");
+            if (TextUtils.isEmpty(optString)) {
+                LightappUtils.onError(this.f61317b.get(INSERT_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INVALID_PARAMETER, "标题不能为空", "#insertCalendarEventFail");
                 return;
             }
-            iLightappInvokerCallback.onResult(1, LightappUtils.assembleFailResultWithErrCode(LightappConstants.ERRCODE_INNER_ERROR, "内部错误"));
+            Long valueOf = Long.valueOf(jSONObject.optLong("beginTime"));
+            Long valueOf2 = Long.valueOf(jSONObject.optLong("endTime"));
+            if (valueOf.longValue() >= 0 && valueOf2.longValue() >= 0 && valueOf2.longValue() >= valueOf.longValue()) {
+                Intent putExtra = new Intent("android.intent.action.INSERT").setData(CalendarContract.Events.CONTENT_URI).putExtra("title", optString).putExtra("beginTime", valueOf).putExtra("endTime", valueOf2).putExtra("allDay", jSONObject.optBoolean("allDay")).putExtra("eventLocation", jSONObject.optString("eventLocation")).putExtra("description", jSONObject.optString("description")).putExtra("rrule", jSONObject.optString("rrule"));
+                if (this.k.getActivity() != null) {
+                    try {
+                        this.k.getActivity().startActivityForResult(putExtra, 6);
+                        return;
+                    } catch (ActivityNotFoundException unused) {
+                        Toast.makeText(this.k.getActivity(), ResUtils.string(this.k.getActivity(), "insert_calendar_not_available"), 1).show();
+                        LightappUtils.onError(this.f61317b.get(INSERT_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INTENT_NOT_AVAILABLE, ResUtils.getString(this.k.getContext(), "insert_calendar_not_available"), LightAppStatEvent.LIGHT_APP_INSERT_CALENDAR_NOT_AVAILABLE);
+                        return;
+                    }
+                }
+                return;
+            }
+            String str2 = valueOf.longValue() < 0 ? "开始时间必须大于零" : "";
+            if (valueOf2.longValue() < 0) {
+                str2 = str2 + "结束时间必须大于零";
+            }
+            if (valueOf2.longValue() < valueOf.longValue()) {
+                str2 = str2 + "结束时间必须大于开始时间";
+            }
+            LightappUtils.onError(this.f61317b.get(INSERT_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INVALID_PARAMETER, str2, "#insertCalendarEventFail");
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d(Context context, String str, ILightappInvokerCallback iLightappInvokerCallback, String str2) {
+    private void h(JSONObject jSONObject, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65560, this, context, str, iLightappInvokerCallback, str2) == null) {
-            a(METHOD_GET_CURRENT_POSITION, str);
-            ArrayList arrayList = new ArrayList();
-            try {
-                arrayList.add(CheckUtils.stripUrlParams(str2));
-            } catch (Exception unused) {
+        if (interceptable == null || interceptable.invokeLL(65575, this, jSONObject, str) == null) {
+            long optLong = jSONObject.optLong("beginTime");
+            int i2 = (optLong > 0L ? 1 : (optLong == 0L ? 0 : -1));
+            if (i2 < 0) {
+                LightappUtils.onError(this.f61317b.get(VIEW_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INVALID_PARAMETER, "时间必须大于零", "#viewCalendarEventFail");
+                return;
             }
-            PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS, arrayList);
+            if (i2 == 0) {
+                optLong = Calendar.getInstance().getTimeInMillis();
+            }
+            Uri.Builder buildUpon = CalendarContract.CONTENT_URI.buildUpon();
+            buildUpon.appendPath("time");
+            ContentUris.appendId(buildUpon, optLong);
+            Intent data = new Intent("android.intent.action.VIEW").setData(buildUpon.build());
+            if (this.k.getActivity() != null) {
+                try {
+                    this.k.getActivity().startActivity(data);
+                } catch (ActivityNotFoundException unused) {
+                    LightappUtils.onError(this.f61317b.get(VIEW_CALENDAR_EVENT), str, LightappConstants.ERRCODE_INTENT_NOT_AVAILABLE, ResUtils.getString(this.k.getContext(), "view_calendar_not_available"), LightAppStatEvent.LIGHT_APP_VIEW_CALENDAR_NOT_AVAILABLE);
+                }
+            }
+        }
+    }
+
+    private void d(Context context, String str, ILightappInvokerCallback iLightappInvokerCallback, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65563, this, context, str, iLightappInvokerCallback, str2) == null) {
+            a(METHOD_GET_CURRENT_POSITION, str);
             LightAppNewLocationModel lightAppNewLocationModel = new LightAppNewLocationModel();
-            ILocationCallback iLocationCallback = new ILocationCallback(this, lightAppNewLocationModel, iLightappInvokerCallback, str2, arrayList) { // from class: com.baidu.wallet.lightapp.base.LightappJsNativeClient.4
+            ILocationCallback iLocationCallback = new ILocationCallback(this, iLightappInvokerCallback, lightAppNewLocationModel) { // from class: com.baidu.wallet.lightapp.base.LightappJsNativeClient.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LightAppNewLocationModel f25482a;
+                public final /* synthetic */ ILightappInvokerCallback f61330a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ILightappInvokerCallback f25483b;
+                public final /* synthetic */ LightAppNewLocationModel f61331b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f25484c;
-
-                /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ ArrayList f25485d;
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ LightappJsNativeClient f25486e;
+                public final /* synthetic */ LightappJsNativeClient f61332c;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, lightAppNewLocationModel, iLightappInvokerCallback, str2, arrayList};
+                        Object[] objArr = {this, iLightappInvokerCallback, lightAppNewLocationModel};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -954,39 +920,37 @@ public class LightappJsNativeClient implements ILightappInvoker {
                             return;
                         }
                     }
-                    this.f25486e = this;
-                    this.f25482a = lightAppNewLocationModel;
-                    this.f25483b = iLightappInvokerCallback;
-                    this.f25484c = str2;
-                    this.f25485d = arrayList;
+                    this.f61332c = this;
+                    this.f61330a = iLightappInvokerCallback;
+                    this.f61331b = lightAppNewLocationModel;
                 }
 
                 @Override // com.baidu.wallet.api.ILocationCallback
                 public void onReceiveLocation(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
+                        ILightappInvokerCallback iLightappInvokerCallback2 = this.f61330a;
+                        if (iLightappInvokerCallback2 instanceof LightappJsClient.LightappInvokerCallbackImpl) {
+                            ((LightappJsClient.LightappInvokerCallbackImpl) iLightappInvokerCallback2).addStatics(this.f61332c.s.name());
+                        }
                         if (obj != null && (obj instanceof LightAppLocationModel)) {
-                            LightAppNewLocationModel lightAppNewLocationModel2 = this.f25482a;
+                            LightAppLocationModel lightAppLocationModel = (LightAppLocationModel) obj;
+                            LightAppNewLocationModel lightAppNewLocationModel2 = this.f61331b;
                             lightAppNewLocationModel2.result = 0;
                             LightAppNewLocationModel.Loc loc = lightAppNewLocationModel2.cnt.data;
-                            LightAppLocationModel.Coords coords = ((LightAppLocationModel) obj).coords;
+                            LightAppLocationModel.Coords coords = lightAppLocationModel.coords;
                             loc.latitude = coords.latitude;
                             loc.longitude = coords.longitude;
-                            String json = lightAppNewLocationModel2.toJson();
-                            this.f25483b.onResult(0, json);
-                            ArrayList arrayList2 = new ArrayList();
-                            arrayList2.add(this.f25484c);
-                            arrayList2.add(Base64Utils.encodeToString(json.getBytes()));
-                            DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_OK, arrayList2);
-                            PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_OK, arrayList2);
+                            this.f61330a.onResult(0, lightAppNewLocationModel2.toJson());
+                            LightAppLocationModel.Coords coords2 = lightAppLocationModel.coords;
+                            LocationCache.a(coords2.latitude, coords2.longitude, LocationCache.Coord.BD09LL, this.f61332c.s);
                             return;
                         }
-                        PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_FAIL, this.f25485d);
                         LightAppErrorModel lightAppErrorModel = new LightAppErrorModel(1);
                         LightAppErrorModel.Data data = lightAppErrorModel.cnt;
                         data.errCode = LightappConstants.ERRCODE_INNER_ERROR;
                         data.des = "定位失败";
-                        this.f25483b.onResult(1, lightAppErrorModel.toJson());
+                        this.f61330a.onResult(1, lightAppErrorModel.toJson());
                     }
                 }
             };
@@ -997,25 +961,26 @@ public class LightappJsNativeClient implements ILightappInvoker {
                 try {
                     try {
                         this.q = Class.forName("com.baidu.wallet.locationsdk.LocationInvoker").getDeclaredMethod("getLocation", Context.class, InvocationHandler.class);
-                    } catch (Throwable unused2) {
-                        LogUtil.d("InvokeLocatonLib", "lib reflect fail");
+                    } finally {
+                        this.r = true;
                     }
-                } finally {
-                    this.r = true;
+                } catch (Throwable unused) {
+                    LogUtil.d("InvokeLocatonLib", "lib reflect fail");
                 }
             }
             Method method = this.q;
             if (method != null) {
+                this.s = LocationProvider.OWN;
                 try {
                     method.invoke(null, context, new InvocationHandler(this, iLocationCallback) { // from class: com.baidu.wallet.lightapp.base.LightappJsNativeClient.5
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ ILocationCallback f25487a;
+                        public final /* synthetic */ ILocationCallback f61333a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ LightappJsNativeClient f25488b;
+                        public final /* synthetic */ LightappJsNativeClient f61334b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1032,8 +997,8 @@ public class LightappJsNativeClient implements ILightappInvoker {
                                     return;
                                 }
                             }
-                            this.f25488b = this;
-                            this.f25487a = iLocationCallback;
+                            this.f61334b = this;
+                            this.f61333a = iLocationCallback;
                         }
 
                         @Override // java.lang.reflect.InvocationHandler
@@ -1049,38 +1014,31 @@ public class LightappJsNativeClient implements ILightappInvoker {
                                     coords.accuracy = ((Float) objArr[0]).floatValue();
                                     lightAppLocationModel.coords.latitude = ((Double) objArr[1]).doubleValue();
                                     lightAppLocationModel.coords.longitude = ((Double) objArr[2]).doubleValue();
-                                    this.f25487a.onReceiveLocation(lightAppLocationModel);
+                                    this.f61333a.onReceiveLocation(lightAppLocationModel);
                                 } else {
-                                    this.f25487a.onReceiveLocation(null);
+                                    this.f61333a.onReceiveLocation(null);
                                 }
                                 return null;
                             }
                             return invokeLLL.objValue;
                         }
                     });
-                } catch (Throwable unused3) {
+                    return;
+                } catch (Throwable unused2) {
                     iLocationCallback.onReceiveLocation(null);
                     LogUtil.d("InvokeLocatonLib", "lib invoke fail");
+                    return;
                 }
-            } else if (PermissionManager.checkCallingPermission(context, "android.permission.ACCESS_FINE_LOCATION")) {
-                b(context, str2, lightAppNewLocationModel);
-            } else {
-                a(context, str2, lightAppNewLocationModel);
             }
+            this.s = LocationProvider.SYSTEM;
+            b(context, str2, lightAppNewLocationModel);
         }
     }
 
     private void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65549, this, str, str2) == null) {
             LogUtil.logd("method:" + str + "#options=" + str2);
-        }
-    }
-
-    private void e(JSONObject jSONObject, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65564, this, jSONObject, str) == null) {
-            this.k.preLoadException(jSONObject.optString("msg", ""));
         }
     }
 
@@ -1100,51 +1058,93 @@ public class LightappJsNativeClient implements ILightappInvoker {
                     file.delete();
                 }
                 Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                if (intent.resolveActivity(context.getPackageManager()) != null) {
+                try {
                     intent.putExtra("output", Uri.fromFile(file));
                     this.k.getActivity().startActivityForResult(intent, 3);
                     this.l = file.getAbsolutePath();
+                } catch (ActivityNotFoundException e2) {
+                    e2.printStackTrace();
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e3) {
+                e3.printStackTrace();
                 LightAppTakePictureModel lightAppTakePictureModel = new LightAppTakePictureModel(1);
                 LightAppTakePictureModel.Data data = lightAppTakePictureModel.cnt;
                 data.errCode = LightappConstants.ERRCODE_INNER_ERROR;
-                data.des = e2.getMessage();
+                data.des = e3.getMessage();
                 a(LightappBusinessClient.METHOD_CALL_CAMERA, 1, lightAppTakePictureModel.toJson());
             }
         }
     }
 
-    private void e(Context context, String str, ILightappInvokerCallback iLightappInvokerCallback, String str2) {
-        Long l;
+    private void e(JSONObject jSONObject, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65563, this, context, str, iLightappInvokerCallback, str2) == null) {
-            try {
-                l = Long.valueOf(new JSONObject(str).optLong("time", r9.longValue()));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                l = r9;
+        if (interceptable == null || interceptable.invokeLL(65568, this, jSONObject, str) == null) {
+            this.k.preLoadException(jSONObject.optString("msg", ""));
+        }
+    }
+
+    private void f(JSONObject jSONObject, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65570, this, jSONObject, str) == null) {
+            ILightappInvokerCallback iLightappInvokerCallback = this.f61317b.get(SCREEN_CAPTURE_SETTINGS);
+            boolean optBoolean = jSONObject.optBoolean("prevent", false);
+            if (this.k.getActivity() != null) {
+                LightappUtils.runOnUiThread(new Runnable(this, optBoolean) { // from class: com.baidu.wallet.lightapp.base.LightappJsNativeClient.7
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ boolean f61338a;
+
+                    /* renamed from: b  reason: collision with root package name */
+                    public final /* synthetic */ LightappJsNativeClient f61339b;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, Boolean.valueOf(optBoolean)};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f61339b = this;
+                        this.f61338a = optBoolean;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            if (this.f61338a) {
+                                BdWalletUtils.addFlagsSecure(this.f61339b.k.getActivity());
+                            } else {
+                                BdWalletUtils.clearFlagsSecure(this.f61339b.k.getActivity());
+                            }
+                        }
+                    }
+                });
+                iLightappInvokerCallback.onResult(0, LightappUtils.assembleResult(0, new JSONObject()));
+                return;
             }
-            ((Vibrator) context.getSystemService("vibrator")).vibrate((l.longValue() > 0 ? l : 500L).longValue());
-            iLightappInvokerCallback.onResult(0, "");
+            iLightappInvokerCallback.onResult(1, LightappUtils.assembleFailResultWithErrCode(LightappConstants.ERRCODE_INNER_ERROR, "内部错误"));
         }
     }
 
     private void b(Context context, String str, ILightappInvokerCallback iLightappInvokerCallback, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65551, this, context, str, iLightappInvokerCallback, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65554, this, context, str, iLightappInvokerCallback, str2) == null) {
             a("getDeviceInfo", str);
-            ArrayList arrayList = new ArrayList();
-            try {
-                arrayList.add(CheckUtils.stripUrlParams(str2));
-            } catch (Exception unused) {
-            }
-            PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_DEVICE_INFO, arrayList);
             LightAppDeviceInfoModel lightAppDeviceInfoModel = new LightAppDeviceInfoModel(0);
             try {
                 lightAppDeviceInfoModel.cnt.data.BAIDUCUID = DeviceId.getCUID(context);
-            } catch (Exception unused2) {
+            } catch (Exception unused) {
             }
             lightAppDeviceInfoModel.cnt.data.cuid = PhoneUtils.getCUID(context);
             LightAppDeviceInfoModel.DeviceInfo deviceInfo = lightAppDeviceInfoModel.cnt.data;
@@ -1165,49 +1165,41 @@ public class LightappJsNativeClient implements ILightappInvoker {
             lightAppDeviceInfoModel.cnt.data.macAddress = phisicalMac != null ? phisicalMac : "";
             String json = lightAppDeviceInfoModel.toJson();
             a("getDeviceInfo", 0, json);
-            ArrayList arrayList2 = new ArrayList();
-            arrayList2.add(str2);
-            arrayList2.add(Base64Utils.encodeToString(json.getBytes()));
-            DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_DEVICE_INFO_OK, arrayList2);
-            PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_DEVICE_INFO_OK, arrayList2);
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(str2);
+            arrayList.add(Base64Utils.encodeToString(json.getBytes()));
         }
     }
 
     private void c(Context context, String str, ILightappInvokerCallback iLightappInvokerCallback, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65556, this, context, str, iLightappInvokerCallback, str2) == null) {
-            this.s = iLightappInvokerCallback;
+        if (interceptable == null || interceptable.invokeLLLL(65559, this, context, str, iLightappInvokerCallback, str2) == null) {
+            this.t = iLightappInvokerCallback;
             if (PermissionManager.checkCallingPermission(context, "android.permission.ACCESS_FINE_LOCATION")) {
                 d(context, str, iLightappInvokerCallback, str2);
                 return;
             }
-            this.t = str;
-            this.u = str2;
-            BaiduWalletUtils.requestPermissionsDialog(DangerousPermissionUtils.DPU_SOURCE_LANGBRIDGE, this.k.getActivity(), new String[]{"android.permission.ACCESS_FINE_LOCATION"}, new BaiduWalletUtils.IRequestPermissionCallBack(this, context, str, iLightappInvokerCallback, str2) { // from class: com.baidu.wallet.lightapp.base.LightappJsNativeClient.3
+            this.u = str;
+            this.v = str2;
+            BaiduWalletUtils.requestPermissionsDialog("wallet_langbridge", this.k.getActivity(), new String[]{"android.permission.ACCESS_FINE_LOCATION"}, new BaiduWalletUtils.IRequestPermissionCallBack(this, context, str2) { // from class: com.baidu.wallet.lightapp.base.LightappJsNativeClient.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f25477a;
+                public final /* synthetic */ Context f61327a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f25478b;
+                public final /* synthetic */ String f61328b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ ILightappInvokerCallback f25479c;
-
-                /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f25480d;
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ LightappJsNativeClient f25481e;
+                public final /* synthetic */ LightappJsNativeClient f61329c;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, context, str, iLightappInvokerCallback, str2};
+                        Object[] objArr = {this, context, str2};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -1217,11 +1209,9 @@ public class LightappJsNativeClient implements ILightappInvoker {
                             return;
                         }
                     }
-                    this.f25481e = this;
-                    this.f25477a = context;
-                    this.f25478b = str;
-                    this.f25479c = iLightappInvokerCallback;
-                    this.f25480d = str2;
+                    this.f61329c = this;
+                    this.f61327a = context;
+                    this.f61328b = str2;
                 }
 
                 @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
@@ -1229,10 +1219,9 @@ public class LightappJsNativeClient implements ILightappInvoker {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
                         if (!bool.booleanValue()) {
-                            this.f25481e.d(this.f25477a, this.f25478b, this.f25479c, this.f25480d);
-                        } else if (PermissionManager.checkCallingOrSelfPermission(this.f25481e.k.getActivity(), new String[]{"android.permission.ACCESS_FINE_LOCATION"}, 212)) {
+                            this.f61329c.a(this.f61327a, this.f61328b, new LightAppNewLocationModel());
                         } else {
-                            this.f25481e.d(this.f25477a, this.f25478b, this.f25479c, this.f25480d);
+                            PermissionManager.checkCallingOrSelfPermission(this.f61329c.k.getActivity(), new String[]{"android.permission.ACCESS_FINE_LOCATION"}, 212);
                         }
                     }
                 }
@@ -1254,10 +1243,25 @@ public class LightappJsNativeClient implements ILightappInvoker {
         }
     }
 
+    private void e(Context context, String str, ILightappInvokerCallback iLightappInvokerCallback, String str2) {
+        Long l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65567, this, context, str, iLightappInvokerCallback, str2) == null) {
+            try {
+                l = Long.valueOf(new JSONObject(str).optLong("time", r9.longValue()));
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                l = r9;
+            }
+            ((Vibrator) context.getSystemService("vibrator")).vibrate((l.longValue() > 0 ? l : 500L).longValue());
+            iLightappInvokerCallback.onResult(0, "");
+        }
+    }
+
     private void c(JSONObject jSONObject, String str) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65557, this, jSONObject, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65560, this, jSONObject, str) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
             try {
                 JSONArray jSONArray = jSONObject.getJSONArray("url");
@@ -1280,8 +1284,8 @@ public class LightappJsNativeClient implements ILightappInvoker {
 
     private void d(JSONObject jSONObject, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65561, this, jSONObject, str) == null) {
-            com.baidu.wallet.core.utils.LogUtil.d("WEBLOG", jSONObject.optString(TbConfig.TMP_LOG_DIR_NAME, ""));
+        if (interceptable == null || interceptable.invokeLL(65564, this, jSONObject, str) == null) {
+            LogUtil.d("WEBLOG", jSONObject.optString(TbConfig.TMP_LOG_DIR_NAME, ""));
         }
     }
 
@@ -1289,13 +1293,13 @@ public class LightappJsNativeClient implements ILightappInvoker {
     public void a(String str, int i2, String str2) {
         ILightappInvokerCallback iLightappInvokerCallback;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65546, this, str, i2, str2) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65548, this, str, i2, str2) == null) {
             try {
-                if (this.f25468b == null || (iLightappInvokerCallback = this.f25468b.get(str)) == null) {
+                if (this.f61317b == null || (iLightappInvokerCallback = this.f61317b.get(str)) == null) {
                     return;
                 }
                 iLightappInvokerCallback.onResult(i2, str2);
-                this.f25468b.remove(str);
+                this.f61317b.remove(str);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1304,7 +1308,7 @@ public class LightappJsNativeClient implements ILightappInvoker {
 
     private void a(Context context, String str, ILightappInvokerCallback iLightappInvokerCallback, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(AdIconUtil.AD_TEXT_ID, this, context, str, iLightappInvokerCallback, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, this, context, str, iLightappInvokerCallback, str2) == null) {
             a("selectPhonefromAdressBook", str);
             try {
                 try {
@@ -1316,16 +1320,9 @@ public class LightappJsNativeClient implements ILightappInvoker {
                     this.m = LightappUtils.parseJsonInt(str, "type");
                     this.n = LightappUtils.parseJsonInt(str, "maxNum");
                     this.o = LightappUtils.parseJsonInt(str, "base64");
-                    if (this.m != f25464c && this.m != f25465d) {
-                        throw new InvalidParameterException("参数非法");
+                    if (this.m != f61313c && this.m != f61314d) {
+                        throw new InvalidParameterException(EnterDxmPayServiceAction.ERR_MSG);
                     }
-                    ArrayList arrayList = new ArrayList();
-                    try {
-                        arrayList.add(CheckUtils.stripUrlParams(str2));
-                    } catch (Exception unused) {
-                    }
-                    arrayList.add(this.m + "");
-                    PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_SELECT_PHONE_FROM_ADDRESSBOOK, arrayList);
                     if (PermissionManager.checkCallingPermission(context, "android.permission.READ_CONTACTS")) {
                         d();
                     } else if (PermissionManager.checkCallingOrSelfPermission(this.k.getActivity(), new String[]{"android.permission.READ_CONTACTS"}, 211)) {
@@ -1349,57 +1346,83 @@ public class LightappJsNativeClient implements ILightappInvoker {
 
     private void b(Context context, String str, LightAppNewLocationModel lightAppNewLocationModel) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65552, this, context, str, lightAppNewLocationModel) == null) || context == null || this.s == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65555, this, context, str, lightAppNewLocationModel) == null) || context == null || this.t == null) {
             return;
         }
         if (lightAppNewLocationModel == null) {
             lightAppNewLocationModel = new LightAppNewLocationModel();
         }
         LightAppNewLocationModel lightAppNewLocationModel2 = lightAppNewLocationModel;
-        LocationManager locationManager = (LocationManager) context.getApplicationContext().getSystemService("location");
+        ILightappInvokerCallback iLightappInvokerCallback = this.t;
+        if (iLightappInvokerCallback instanceof LightappJsClient.LightappInvokerCallbackImpl) {
+            ((LightappJsClient.LightappInvokerCallbackImpl) iLightappInvokerCallback).addStatics(LocationProvider.SYSTEM.name());
+        }
+        LocationManager locationManager = (LocationManager) DxmApplicationContextImpl.getApplicationContext(context).getSystemService("location");
         if (locationManager != null) {
             ArrayList arrayList = new ArrayList();
             try {
                 arrayList.add(CheckUtils.stripUrlParams(str));
             } catch (Exception unused) {
             }
-            locationManager.requestLocationUpdates("network", 0L, 0.0f, new a(this.s, str, locationManager, arrayList, lightAppNewLocationModel2));
+            locationManager.requestLocationUpdates("network", 0L, 0.0f, new a(this.t, str, locationManager, arrayList, lightAppNewLocationModel2));
+            return;
         }
+        f();
     }
 
-    private void b(JSONObject jSONObject, String str) {
+    private void b(Context context, ILightappInvokerCallback iLightappInvokerCallback, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65553, this, jSONObject, str) == null) {
-            String optString = jSONObject.optString("url", "");
-            boolean equalsIgnoreCase = jSONObject.optString(PrefetchEvent.EVENT_DATA_ROOT_PATH, "no").equalsIgnoreCase("yes");
-            if (TextUtils.isEmpty(optString)) {
+        if (interceptable == null || interceptable.invokeLLL(65553, this, context, iLightappInvokerCallback, str) == null) {
+            if (this.k instanceof LightappBrowseActivity) {
+                LightAppErrorModel lightAppErrorModel = new LightAppErrorModel(1);
+                LightAppErrorModel.Data data = lightAppErrorModel.cnt;
+                data.errCode = "10004";
+                data.des = "没有找到对应的方法";
+                iLightappInvokerCallback.onResult(1, lightAppErrorModel.toJson());
                 return;
             }
-            this.k.openInNewWebView(optString, equalsIgnoreCase);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                String[] a2 = j.a().a(context);
+                a2[0] = this.k.getCellHashStamps();
+                jSONObject.put("data", new JSONArray(JsonUtils.toJson(a2)));
+                String str2 = this.f61316a;
+                LogUtil.i(str2, "端能力返回值 getLangbridgeHashStamp = " + jSONObject.toString());
+                iLightappInvokerCallback.onResult(0, LightappUtils.assembleResult(0, jSONObject));
+            } catch (Throwable th) {
+                th.printStackTrace();
+                LightappUtils.onError(iLightappInvokerCallback, str, LightappConstants.ERRCODE_INNER_ERROR, "返回值异常", "#getLangbridgeHashStampFail");
+            }
         }
     }
 
     private void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65547, this, str) == null) {
             ContactSelectModel contactSelectModel = new ContactSelectModel(1);
             ContactSelectModel.Data data = contactSelectModel.cnt;
             data.errCode = LightappConstants.ERRCODE_NO_PERMISSION;
             data.des = PhoneUtils.getApplicationName(this.k.getActivity()) + "没有访问通信录的权限";
             a("selectPhonefromAdressBook", 1, contactSelectModel.toJson());
-            ArrayList arrayList = new ArrayList();
-            try {
-                arrayList.add(CheckUtils.stripUrlParams(str));
-            } catch (Exception unused) {
-            }
-            arrayList.add(contactSelectModel.cnt.des);
-            PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_SELECT_ADDRESSBOOK_FAIL, arrayList);
         }
     }
 
-    private void a(Context context, String str, LightAppNewLocationModel lightAppNewLocationModel) {
+    private void b(JSONObject jSONObject, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, context, str, lightAppNewLocationModel) == null) || context == null || this.s == null) {
+        if (interceptable == null || interceptable.invokeLL(65556, this, jSONObject, str) == null) {
+            String optString = jSONObject.optString("url", "");
+            String optString2 = jSONObject.optString("backup_url", "");
+            if (TextUtils.isEmpty(optString)) {
+                return;
+            }
+            this.k.openInNewWebView(optString, optString2);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(Context context, String str, LightAppNewLocationModel lightAppNewLocationModel) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65543, this, context, str, lightAppNewLocationModel) == null) || context == null || this.t == null) {
             return;
         }
         if (lightAppNewLocationModel == null) {
@@ -1410,19 +1433,48 @@ public class LightappJsNativeClient implements ILightappInvoker {
         data.errCode = LightappConstants.ERRCODE_NO_PERMISSION;
         data.des = PhoneUtils.getApplicationName(context) + "没有获取地理位置的权限";
         a(METHOD_GET_CURRENT_POSITION, 1, lightAppNewLocationModel.toJson());
-        ArrayList arrayList = new ArrayList();
-        try {
-            arrayList.add(CheckUtils.stripUrlParams(str));
-        } catch (Exception unused) {
+    }
+
+    private void a(Context context, ILightappInvokerCallback iLightappInvokerCallback, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, context, iLightappInvokerCallback, str) == null) {
+            LangbridgeSettings a2 = i.a().a(context);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("data", JsonUtils.toJson(a2));
+                String str2 = this.f61316a;
+                LogUtil.i(str2, "端能力返回值 框架配置情况 = " + jSONObject.toString());
+                iLightappInvokerCallback.onResult(0, LightappUtils.assembleResult(0, jSONObject));
+            } catch (Throwable th) {
+                th.printStackTrace();
+                LightappUtils.onError(iLightappInvokerCallback, str, LightappConstants.ERRCODE_INNER_ERROR, "返回值异常", "#getLangbridgeSettingsFail");
+            }
         }
-        arrayList.add(lightAppNewLocationModel.cnt.des);
-        PayStatisticsUtil.onEventWithValues(LightAppStatEvent.LIGHT_APP_EVENTID_GET_CURRENT_POS_FAIL, arrayList);
     }
 
     private void a(JSONObject jSONObject, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, this, jSONObject, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65550, this, jSONObject, str) == null) {
             this.k.historyGo(jSONObject.optInt("index"));
+        }
+    }
+
+    private void a(ILightappInvokerCallback iLightappInvokerCallback, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, this, iLightappInvokerCallback, str) == null) {
+            if (this.k == null) {
+                LightappUtils.onError(iLightappInvokerCallback, str, LightappConstants.ERRCODE_INNER_ERROR, "internal error", "#isPreloadedFail");
+            }
+            boolean isPreloaded = this.k.isPreloaded();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(Constants.KEYS.RET, isPreloaded ? "1" : "0");
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            if (iLightappInvokerCallback != null) {
+                iLightappInvokerCallback.onResult(0, LightappUtils.assembleResult(0, jSONObject));
+            }
         }
     }
 }

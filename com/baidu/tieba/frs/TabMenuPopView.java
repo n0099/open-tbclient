@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.l;
+import c.a.p0.v0.b0;
+import c.a.p0.v0.d1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -17,42 +20,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.q0.u0.b0;
-import d.a.q0.u0.d1;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class TabMenuPopView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15507e;
+    public int f50680e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15508f;
+    public int f50681f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15509g;
+    public int f50682g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15510h;
+    public int f50683h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f15511i;
-    public List<d1> j;
-    public d.a.d.e.k.b<TextView> k;
+    public c f50684i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public List<d1> f50685j;
+    public c.a.e.e.k.b<TextView> k;
     public Context l;
     public d1 m;
 
-    /* loaded from: classes4.dex */
-    public class a implements d.a.d.e.k.c<TextView> {
+    /* loaded from: classes7.dex */
+    public class a implements c.a.e.e.k.c<TextView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TabMenuPopView f15512a;
+        public final /* synthetic */ TabMenuPopView f50686a;
 
         public a(TabMenuPopView tabMenuPopView) {
             Interceptable interceptable = $ic;
@@ -69,12 +71,12 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
                     return;
                 }
             }
-            this.f15512a = tabMenuPopView;
+            this.f50686a = tabMenuPopView;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // d.a.d.e.k.c
+        @Override // c.a.e.e.k.c
         public /* bridge */ /* synthetic */ TextView a(TextView textView) {
             TextView textView2 = textView;
             e(textView2);
@@ -83,7 +85,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // d.a.d.e.k.c
+        @Override // c.a.e.e.k.c
         public /* bridge */ /* synthetic */ TextView c(TextView textView) {
             TextView textView2 = textView;
             h(textView2);
@@ -104,7 +106,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.d.e.k.c
+        @Override // c.a.e.e.k.c
         /* renamed from: f */
         public void b(TextView textView) {
             Interceptable interceptable = $ic;
@@ -117,18 +119,18 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.d.e.k.c
+        @Override // c.a.e.e.k.c
         /* renamed from: g */
         public TextView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                TextView textView = new TextView(this.f15512a.l);
-                textView.setTextSize(0, l.g(this.f15512a.l, R.dimen.fontsize28));
+                TextView textView = new TextView(this.f50686a.l);
+                textView.setTextSize(0, l.g(this.f50686a.l, R.dimen.fontsize28));
                 SkinManager.setBackgroundResource(textView, R.drawable.bg_tab_meun);
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0106, 1);
                 textView.setGravity(17);
-                textView.setOnClickListener(this.f15512a);
+                textView.setOnClickListener(this.f50686a);
                 return textView;
             }
             return (TextView) invokeV.objValue;
@@ -149,13 +151,13 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements ViewGroup.OnHierarchyChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TabMenuPopView f15513e;
+        public final /* synthetic */ TabMenuPopView f50687e;
 
         public b(TabMenuPopView tabMenuPopView) {
             Interceptable interceptable = $ic;
@@ -172,7 +174,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
                     return;
                 }
             }
-            this.f15513e = tabMenuPopView;
+            this.f50687e = tabMenuPopView;
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -186,12 +188,12 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         public void onChildViewRemoved(View view, View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof TextView)) {
-                this.f15513e.k.e((TextView) view2);
+                this.f50687e.k.e((TextView) view2);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface c {
         void a(View view, d1 d1Var);
     }
@@ -215,14 +217,14 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
                 return;
             }
         }
-        this.f15507e = 2;
-        this.f15508f = 2;
-        this.f15509g = 4;
-        this.f15510h = 5;
+        this.f50680e = 2;
+        this.f50681f = 2;
+        this.f50682g = 4;
+        this.f50683h = 5;
         setOrientation(1);
         this.l = context;
-        this.f15508f = l.g(context, R.dimen.ds20);
-        this.k = new d.a.d.e.k.b<>(new a(this), 17, 0);
+        this.f50681f = l.g(context, R.dimen.ds20);
+        this.k = new c.a.e.e.k.b<>(new a(this), 17, 0);
         setOnHierarchyChangeListener(new b(this));
     }
 
@@ -234,17 +236,17 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         removeAllViews();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds150), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds60));
         if (this.m != null) {
-            if (f(list)) {
-                this.m.f63256c = false;
+            if (e(list)) {
+                this.m.f25577c = false;
             } else {
-                this.m.f63256c = true;
+                this.m.f25577c = true;
             }
-            this.f15510h = ((int) Math.ceil(list.size() / this.f15509g)) + 1;
+            this.f50683h = ((int) Math.ceil(list.size() / this.f50682g)) + 1;
             c(this.m, layoutParams);
         } else {
-            this.f15510h = (int) Math.ceil(list.size() / this.f15509g);
+            this.f50683h = (int) Math.ceil(list.size() / this.f50682g);
         }
-        this.j = list;
+        this.f50685j = list;
         for (int i2 = 0; i2 < list.size(); i2++) {
             c(list.get(i2), layoutParams);
         }
@@ -256,13 +258,13 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
             return;
         }
         TextView b2 = this.k.b();
-        b2.setText(d1Var.f63254a);
-        b2.setSelected(d1Var.f63256c);
+        b2.setText(d1Var.f25575a);
+        b2.setSelected(d1Var.f25577c);
         b2.setTag(d1Var);
         addView(b2, layoutParams);
     }
 
-    public void d() {
+    public void changeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
@@ -276,17 +278,10 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) ? super.dispatchTouchEvent(motionEvent) : invokeL.booleanValue;
-    }
-
-    public final int e(int i2, int i3) {
+    public final int d(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) {
             int mode = View.MeasureSpec.getMode(i3);
             int size = View.MeasureSpec.getSize(i3);
             if (mode != Integer.MIN_VALUE) {
@@ -301,12 +296,19 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         return invokeII.intValue;
     }
 
-    public final boolean f(List<d1> list) {
+    @Override // android.view.ViewGroup, android.view.View
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) ? super.dispatchTouchEvent(motionEvent) : invokeL.booleanValue;
+    }
+
+    public final boolean e(List<d1> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
             for (int i2 = 0; i2 < list.size(); i2++) {
-                if (list.get(i2).f63256c) {
+                if (list.get(i2).f25577c) {
                     return true;
                 }
             }
@@ -315,32 +317,15 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         return invokeL.booleanValue;
     }
 
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.j == null || getChildCount() <= 0) {
-            return;
-        }
-        d1 d1Var = this.m;
-        if (d1Var != null) {
-            d1Var.f63256c = false;
-        }
-        for (d1 d1Var2 : this.j) {
-            d1Var2.f63256c = false;
-        }
-        for (int i2 = 0; i2 < getChildCount(); i2++) {
-            getChildAt(i2).setSelected(false);
-        }
-    }
-
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, view) == null) && (view.getTag() instanceof d1)) {
-            g();
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view) == null) && (view.getTag() instanceof d1)) {
+            resetSelectState();
             d1 d1Var = (d1) view.getTag();
             setItemSelectState(d1Var, true);
             view.setSelected(true);
-            c cVar = this.f15511i;
+            c cVar = this.f50684i;
             if (cVar != null) {
                 cVar.a(view, d1Var);
             }
@@ -355,17 +340,17 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         int i8;
         int i9;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || (childCount = getChildCount()) <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || (childCount = getChildCount()) <= 0) {
             return;
         }
         int measuredWidth = getMeasuredWidth();
         int measuredWidth2 = getChildAt(0).getMeasuredWidth();
-        int i10 = this.f15509g;
+        int i10 = this.f50682g;
         int i11 = 1;
         if (i10 > 1) {
-            this.f15507e = (measuredWidth - (measuredWidth2 * i10)) / (i10 - 1);
+            this.f50680e = (measuredWidth - (measuredWidth2 * i10)) / (i10 - 1);
         }
-        int[] iArr = new int[this.f15510h + 1];
+        int[] iArr = new int[this.f50683h + 1];
         int i12 = 0;
         int i13 = 0;
         int i14 = 0;
@@ -376,7 +361,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
             int i15 = i13 + measuredWidth3;
             int i16 = i14 + measuredHeight;
             if (this.m != null && i12 == 0) {
-                i9 = (this.f15508f * 2) + i16;
+                i9 = (this.f50681f * 2) + i16;
                 if (measuredHeight > iArr[i11]) {
                     iArr[i11] = measuredHeight;
                 }
@@ -388,10 +373,10 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
                 if (measuredHeight > iArr[i11]) {
                     iArr[i11] = measuredHeight;
                 }
-                int i17 = i14 + iArr[i11] + this.f15508f;
+                int i17 = i14 + iArr[i11] + this.f50681f;
                 i15 = measuredWidth3 + 0;
                 i16 = i17 + measuredHeight;
-                i13 = this.f15507e + i15;
+                i13 = this.f50680e + i15;
                 i9 = i17;
                 i6 = i9;
                 i7 = i11 + 1;
@@ -403,7 +388,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
                 i6 = i14;
                 i7 = i11;
                 i8 = i13;
-                i13 = this.f15507e + i15;
+                i13 = this.f50680e + i15;
                 i9 = i6;
             }
             if (i15 > i4) {
@@ -419,30 +404,47 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
     @Override // android.widget.LinearLayout, android.view.View
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
             if (getChildCount() > 0) {
                 int measuredHeight = getChildAt(0).getMeasuredHeight();
-                int i4 = this.f15510h;
-                int i5 = this.f15508f;
-                setMeasuredDimension(getMeasuredWidth(), e((measuredHeight * i4) + ((i4 - 1) * i5) + (i5 * 2), i3));
+                int i4 = this.f50683h;
+                int i5 = this.f50681f;
+                setMeasuredDimension(getMeasuredWidth(), d((measuredHeight * i4) + ((i4 - 1) * i5) + (i5 * 2), i3));
             }
+        }
+    }
+
+    public void resetSelectState() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f50685j == null || getChildCount() <= 0) {
+            return;
+        }
+        d1 d1Var = this.m;
+        if (d1Var != null) {
+            d1Var.f25577c = false;
+        }
+        for (d1 d1Var2 : this.f50685j) {
+            d1Var2.f25577c = false;
+        }
+        for (int i2 = 0; i2 < getChildCount(); i2++) {
+            getChildAt(i2).setSelected(false);
         }
     }
 
     public void setItemSelectState(d1 d1Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048587, this, d1Var, z) == null) || d1Var == null || this.j == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048587, this, d1Var, z) == null) || d1Var == null || this.f50685j == null) {
             return;
         }
         d1 d1Var2 = this.m;
-        if (d1Var2 != null && d1Var2.f63255b == d1Var.f63255b) {
-            d1Var2.f63256c = z;
+        if (d1Var2 != null && d1Var2.f25576b == d1Var.f25576b) {
+            d1Var2.f25577c = z;
             return;
         }
-        for (d1 d1Var3 : this.j) {
-            if (d1Var.f63255b == d1Var3.f63255b) {
-                d1Var.f63256c = z;
+        for (d1 d1Var3 : this.f50685j) {
+            if (d1Var.f25576b == d1Var3.f25576b) {
+                d1Var.f25577c = z;
                 return;
             }
         }
@@ -451,7 +453,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
     public void setOnItemClickCallBack(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
-            this.f15511i = cVar;
+            this.f50684i = cVar;
         }
     }
 
@@ -460,13 +462,13 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         if (!(interceptable == null || interceptable.invokeI(1048589, this, i2) == null) || i2 <= 0) {
             return;
         }
-        this.f15509g = i2;
+        this.f50682g = i2;
     }
 
     public void setViewVerticalMargin(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f15508f = i2;
+            this.f50681f = i2;
         }
     }
 
@@ -479,10 +481,10 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         for (int i3 = 0; i3 < list.size(); i3++) {
             if (list.get(i3) != null) {
                 d1 d1Var = new d1();
-                d1Var.f63255b = list.get(i3).f63211b;
-                d1Var.f63254a = list.get(i3).f63210a;
-                if (i2 == list.get(i3).f63211b) {
-                    d1Var.f63256c = true;
+                d1Var.f25576b = list.get(i3).f25531b;
+                d1Var.f25575a = list.get(i3).f25530a;
+                if (i2 == list.get(i3).f25531b) {
+                    d1Var.f25577c = true;
                 }
                 arrayList.add(d1Var);
             }
@@ -490,11 +492,11 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         d1 d1Var2 = null;
         if (b0Var != null) {
             d1Var2 = new d1();
-            int i4 = b0Var.f63211b;
-            d1Var2.f63255b = i4;
-            d1Var2.f63254a = b0Var.f63210a;
+            int i4 = b0Var.f25531b;
+            d1Var2.f25576b = i4;
+            d1Var2.f25575a = b0Var.f25530a;
             if (i2 == i4) {
-                d1Var2.f63256c = true;
+                d1Var2.f25577c = true;
             }
         }
         setData(arrayList, d1Var2);

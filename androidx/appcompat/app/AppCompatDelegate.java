@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -175,9 +174,7 @@ public abstract class AppCompatDelegate {
     public static void setDefaultNightMode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65549, null, i2) == null) {
-            if (i2 != -1 && i2 != 0 && i2 != 1 && i2 != 2 && i2 != 3) {
-                Log.d(TAG, "setDefaultNightMode() called with an unknown mode");
-            } else if (sDefaultNightMode != i2) {
+            if ((i2 == -1 || i2 == 0 || i2 == 1 || i2 == 2 || i2 == 3) && sDefaultNightMode != i2) {
                 sDefaultNightMode = i2;
                 applyDayNightToActiveDelegates();
             }

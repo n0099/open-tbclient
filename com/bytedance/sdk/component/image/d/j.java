@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.image.IHttpClient;
 import com.bytedance.sdk.component.image.ResultType;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class j extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,19 +55,19 @@ public class j extends a {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ com.bytedance.sdk.component.image.c.a f28980a;
+                            public final /* synthetic */ com.bytedance.sdk.component.image.c.a f64846a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ boolean f28981b;
+                            public final /* synthetic */ boolean f64847b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ com.bytedance.sdk.component.image.c.b f28982c;
+                            public final /* synthetic */ com.bytedance.sdk.component.image.c.b f64848c;
 
                             /* renamed from: d  reason: collision with root package name */
-                            public final /* synthetic */ byte[] f28983d;
+                            public final /* synthetic */ byte[] f64849d;
 
                             /* renamed from: e  reason: collision with root package name */
-                            public final /* synthetic */ j f28984e;
+                            public final /* synthetic */ j f64850e;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -84,23 +84,23 @@ public class j extends a {
                                         return;
                                     }
                                 }
-                                this.f28984e = this;
-                                this.f28980a = aVar;
-                                this.f28981b = a3;
-                                this.f28982c = a2;
-                                this.f28983d = bArr;
+                                this.f64850e = this;
+                                this.f64846a = aVar;
+                                this.f64847b = a3;
+                                this.f64848c = a2;
+                                this.f64849d = bArr;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    String d2 = this.f28980a.d();
-                                    if (this.f28980a.b().f28934a && (this.f28981b || this.f28980a.j() == ResultType.RAW)) {
-                                        this.f28982c.c().a(d2, this.f28983d);
+                                    String d2 = this.f64846a.d();
+                                    if (this.f64846a.b().f64798a && (this.f64847b || this.f64846a.j() == ResultType.RAW)) {
+                                        this.f64848c.c().a(d2, this.f64849d);
                                     }
-                                    if (this.f28980a.b().f28935b) {
-                                        this.f28982c.d().a(d2, this.f28983d);
+                                    if (this.f64846a.b().f64799b) {
+                                        this.f64848c.d().a(d2, this.f64849d);
                                     }
                                 }
                             }
@@ -113,19 +113,19 @@ public class j extends a {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ com.bytedance.sdk.component.image.c.a f28980a;
+                        public final /* synthetic */ com.bytedance.sdk.component.image.c.a f64846a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ boolean f28981b;
+                        public final /* synthetic */ boolean f64847b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ com.bytedance.sdk.component.image.c.b f28982c;
+                        public final /* synthetic */ com.bytedance.sdk.component.image.c.b f64848c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ byte[] f28983d;
+                        public final /* synthetic */ byte[] f64849d;
 
                         /* renamed from: e  reason: collision with root package name */
-                        public final /* synthetic */ j f28984e;
+                        public final /* synthetic */ j f64850e;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -142,23 +142,23 @@ public class j extends a {
                                     return;
                                 }
                             }
-                            this.f28984e = this;
-                            this.f28980a = aVar;
-                            this.f28981b = a3;
-                            this.f28982c = a2;
-                            this.f28983d = bArr;
+                            this.f64850e = this;
+                            this.f64846a = aVar;
+                            this.f64847b = a3;
+                            this.f64848c = a2;
+                            this.f64849d = bArr;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                String d2 = this.f28980a.d();
-                                if (this.f28980a.b().f28934a && (this.f28981b || this.f28980a.j() == ResultType.RAW)) {
-                                    this.f28982c.c().a(d2, this.f28983d);
+                                String d2 = this.f64846a.d();
+                                if (this.f64846a.b().f64798a && (this.f64847b || this.f64846a.j() == ResultType.RAW)) {
+                                    this.f64848c.c().a(d2, this.f64849d);
                                 }
-                                if (this.f28980a.b().f28935b) {
-                                    this.f28982c.d().a(d2, this.f28983d);
+                                if (this.f64846a.b().f64799b) {
+                                    this.f64848c.d().a(d2, this.f64849d);
                                 }
                             }
                         }

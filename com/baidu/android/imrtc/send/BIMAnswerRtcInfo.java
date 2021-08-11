@@ -14,8 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class BIMAnswerRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<BIMAnswerRtcInfo> CREATOR;
@@ -181,7 +182,7 @@ public class BIMAnswerRtcInfo extends BIMRtcInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "BIMAnswerRtcInfo{" + super.toString() + ", mAnswerDeviceInfo='" + this.mAnswerDeviceInfo + "', mAnswerType=" + this.mAnswerType + ", mAnswerMediaType=" + this.mAnswerMediaType + '}';
+            return "BIMAnswerRtcInfo{" + super.toString() + ", mAnswerDeviceInfo='" + this.mAnswerDeviceInfo + ExtendedMessageFormat.QUOTE + ", mAnswerType=" + this.mAnswerType + ", mAnswerMediaType=" + this.mAnswerMediaType + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

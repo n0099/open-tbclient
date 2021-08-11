@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.CancellationSignal;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
@@ -139,11 +138,7 @@ public class TypefaceCompatBaseImpl {
                 Field declaredField = Typeface.class.getDeclaredField("native_instance");
                 declaredField.setAccessible(true);
                 return ((Number) declaredField.get(typeface)).longValue();
-            } catch (IllegalAccessException e2) {
-                Log.e(TAG, "Could not retrieve font from family.", e2);
-                return 0L;
-            } catch (NoSuchFieldException e3) {
-                Log.e(TAG, "Could not retrieve font from family.", e3);
+            } catch (IllegalAccessException | NoSuchFieldException unused) {
                 return 0L;
             }
         }

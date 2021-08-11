@@ -7,38 +7,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f36038a;
+    public final int f72832a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f36039b;
+    public final int f72833b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f36040c;
+    public final int f72834c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f36041d;
+    public final int f72835d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f36042e;
+    public final boolean f72836e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f36043f;
+    public final boolean f72837f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f36044g;
+    public final boolean f72838g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f36045h;
+    public final boolean f72839h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f36046i;
-    public final int j;
+    public final int f72840i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public final int f72841j;
     public final int k;
     public final int l;
     public final int m;
@@ -62,37 +64,37 @@ public class k {
         }
         this.n = -1L;
         this.o = -1L;
-        this.f36038a = i2;
-        this.f36039b = i3;
-        this.f36042e = z;
-        this.f36044g = z3;
-        this.f36043f = z2;
+        this.f72832a = i2;
+        this.f72833b = i3;
+        this.f72836e = z;
+        this.f72838g = z3;
+        this.f72837f = z2;
         if (z2 && z3) {
             throw new PngjException("palette and greyscale are mutually exclusive");
         }
-        this.f36041d = (z2 || z3) ? z ? 2 : 1 : z ? 4 : 3;
-        this.f36040c = i4;
+        this.f72835d = (z2 || z3) ? z ? 2 : 1 : z ? 4 : 3;
+        this.f72834c = i4;
         boolean z4 = i4 < 8;
-        this.f36045h = z4;
-        int i7 = this.f36041d;
-        int i8 = this.f36040c * i7;
-        this.f36046i = i8;
-        this.j = (i8 + 7) / 8;
+        this.f72839h = z4;
+        int i7 = this.f72835d;
+        int i8 = this.f72834c * i7;
+        this.f72840i = i8;
+        this.f72841j = (i8 + 7) / 8;
         int i9 = ((i8 * i2) + 7) / 8;
         this.k = i9;
-        int i10 = i7 * this.f36038a;
+        int i10 = i7 * this.f72832a;
         this.l = i10;
         this.m = z4 ? i9 : i10;
-        int i11 = this.f36040c;
+        int i11 = this.f72834c;
         if (i11 == 1 || i11 == 2 || i11 == 4) {
-            if (!this.f36044g && !this.f36043f) {
-                throw new PngjException("only indexed or grayscale can have bitdepth=" + this.f36040c);
+            if (!this.f72838g && !this.f72837f) {
+                throw new PngjException("only indexed or grayscale can have bitdepth=" + this.f72834c);
             }
         } else if (i11 != 8) {
             if (i11 != 16) {
-                throw new PngjException("invalid bitdepth=" + this.f36040c);
-            } else if (this.f36044g) {
-                throw new PngjException("indexed can't have bitdepth=" + this.f36040c);
+                throw new PngjException("invalid bitdepth=" + this.f72834c);
+            } else if (this.f72838g) {
+                throw new PngjException("indexed can't have bitdepth=" + this.f72834c);
             }
         }
         if (i2 < 1 || i2 > 16777216) {
@@ -115,7 +117,7 @@ public class k {
             }
             if (obj != null && k.class == obj.getClass()) {
                 k kVar = (k) obj;
-                return this.f36042e == kVar.f36042e && this.f36040c == kVar.f36040c && this.f36038a == kVar.f36038a && this.f36043f == kVar.f36043f && this.f36044g == kVar.f36044g && this.f36039b == kVar.f36039b;
+                return this.f72836e == kVar.f72836e && this.f72834c == kVar.f72834c && this.f72832a == kVar.f72832a && this.f72837f == kVar.f72837f && this.f72838g == kVar.f72838g && this.f72833b == kVar.f72833b;
             }
             return false;
         }
@@ -126,7 +128,7 @@ public class k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (((((((((((this.f36042e ? 1231 : 1237) + 31) * 31) + this.f36040c) * 31) + this.f36038a) * 31) + (this.f36043f ? 1231 : 1237)) * 31) + (this.f36044g ? 1231 : 1237)) * 31) + this.f36039b;
+            return (((((((((((this.f72836e ? 1231 : 1237) + 31) * 31) + this.f72834c) * 31) + this.f72832a) * 31) + (this.f72837f ? 1231 : 1237)) * 31) + (this.f72838g ? 1231 : 1237)) * 31) + this.f72833b;
         }
         return invokeV.intValue;
     }
@@ -135,7 +137,7 @@ public class k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "ImageInfo [cols=" + this.f36038a + ", rows=" + this.f36039b + ", bitDepth=" + this.f36040c + ", channels=" + this.f36041d + ", alpha=" + this.f36042e + ", greyscale=" + this.f36043f + ", indexed=" + this.f36044g + PreferencesUtil.RIGHT_MOUNT;
+            return "ImageInfo [cols=" + this.f72832a + ", rows=" + this.f72833b + ", bitDepth=" + this.f72834c + ", channels=" + this.f72835d + ", alpha=" + this.f72836e + ", greyscale=" + this.f72837f + ", indexed=" + this.f72838g + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

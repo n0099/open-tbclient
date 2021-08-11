@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.net.tnc.TNCManager;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class TraceManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TO_BACKGROUND = "To background";

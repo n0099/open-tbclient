@@ -1,5 +1,5 @@
 package com.vivo.push.cache;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface e {
-    boolean isInBlackList(long j);
+    boolean isInBlackList(long j2);
 }

@@ -40,7 +40,7 @@ import java.io.BufferedWriter;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.Objects;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class WebViewImpl extends WebView implements WebViewProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     public WebViewClient mWebViewClient;
     public final WebView.PrivateAccess mWebViewPrivateAccess;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class FindAdapter implements WebView.FindListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class PictureAdapter implements WebView.PictureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +121,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class WebViewTransportImpl extends WebView.WebViewTransport {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -754,12 +754,12 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(23)
-    public final void insertVisualStateCallback(long j, WebView.VisualStateCallback visualStateCallback) {
+    public final void insertVisualStateCallback(long j2, WebView.VisualStateCallback visualStateCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(1048636, this, j, visualStateCallback) == null) || Build.VERSION.SDK_INT < 23) {
+        if (!(interceptable == null || interceptable.invokeJL(1048636, this, j2, visualStateCallback) == null) || Build.VERSION.SDK_INT < 23) {
             return;
         }
-        postVisualStateCallback(j, new WebView.VisualStateCallback(this, visualStateCallback) { // from class: com.baidu.webkit.sdk.system.WebViewImpl.1
+        postVisualStateCallback(j2, new WebView.VisualStateCallback(this, visualStateCallback) { // from class: com.baidu.webkit.sdk.system.WebViewImpl.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ WebViewImpl this$0;
@@ -785,13 +785,13 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
             }
 
             @Override // android.webkit.WebView.VisualStateCallback
-            public void onComplete(long j2) {
+            public void onComplete(long j3) {
                 WebView.VisualStateCallback visualStateCallback2;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeJ(1048576, this, j2) == null) || (visualStateCallback2 = this.val$callback) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeJ(1048576, this, j3) == null) || (visualStateCallback2 = this.val$callback) == null) {
                     return;
                 }
-                visualStateCallback2.onComplete(j2);
+                visualStateCallback2.onComplete(j3);
             }
         });
     }

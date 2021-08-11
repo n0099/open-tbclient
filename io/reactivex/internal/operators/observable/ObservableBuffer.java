@@ -18,7 +18,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ObservableBuffer<T, U extends Collection<? super T>> extends AbstractObservableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
     public final int count;
     public final int skip;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class BufferExactObserver<T, U extends Collection<? super T>> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +145,7 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class BufferSkipObserver<T, U extends Collection<? super T>> extends AtomicBoolean implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8223395059921494546L;
@@ -221,9 +221,9 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                long j = this.index;
-                this.index = 1 + j;
-                if (j % this.skip == 0) {
+                long j2 = this.index;
+                this.index = 1 + j2;
+                if (j2 % this.skip == 0) {
                     try {
                         this.buffers.offer((Collection) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The bufferSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources."));
                     } catch (Throwable th) {

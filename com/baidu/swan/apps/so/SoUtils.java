@@ -3,9 +3,10 @@ package com.baidu.swan.apps.so;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
+import c.a.n0.a.h2.c;
+import c.a.n0.a.k;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,15 +16,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.h2.c;
-import d.a.o0.a.k;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class SoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARM64_V8A = "arm64-v8a";
@@ -40,7 +39,7 @@ public final class SoUtils {
     public static String[] uris;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void onEvent(String str, String str2);
     }
@@ -58,7 +57,7 @@ public final class SoUtils {
                 return;
             }
         }
-        DEBUG = k.f46335a;
+        DEBUG = k.f6803a;
         sUbcImpl = new c();
         uris = new String[]{"lib/armeabi", "lib/arm64-v8a"};
     }
@@ -84,15 +83,15 @@ public final class SoUtils {
             if (inputStream != null && outputStream != null) {
                 try {
                     byte[] bArr = new byte[i2 * 1024];
-                    long j = 0;
+                    long j2 = 0;
                     while (true) {
                         int read = inputStream.read(bArr);
                         if (read > 0) {
                             outputStream.write(bArr, 0, read);
-                            j += read;
+                            j2 += read;
                         } else {
                             outputStream.flush();
-                            return j;
+                            return j2;
                         }
                     }
                 } catch (IOException e2) {
@@ -130,7 +129,7 @@ public final class SoUtils {
                 String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                 String substring = (split == null || split.length != 2) ? str : split[0].substring(3);
                 if (DEBUG) {
-                    Log.e("SoUtils", "SoUtils load but the param soName:" + str + ", name:" + substring);
+                    String str2 = "SoUtils load but the param soName:" + str + ", name:" + substring;
                 }
                 return substring;
             }
@@ -170,7 +169,7 @@ public final class SoUtils {
                 aVar.onEvent(str, str2);
             }
             if (DEBUG) {
-                Log.d("SoUtils", "onEvent:UbcImpl=" + aVar + ";eventId=" + str + ";content=" + str2);
+                String str3 = "onEvent:UbcImpl=" + aVar + ";eventId=" + str + ";content=" + str2;
             }
         }
     }

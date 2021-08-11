@@ -2,6 +2,7 @@ package com.cmic.sso.sdk.c;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,15 +16,16 @@ import com.cmic.sso.sdk.d.k;
 import com.cmic.sso.sdk.d.n;
 import com.cmic.sso.sdk.d.q;
 import java.util.Iterator;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.cmic.sso.sdk.a f32828a;
+    public com.cmic.sso.sdk.a f68799a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -58,7 +60,7 @@ public class b {
         aVar.q(n.b());
         aVar.r(n.c());
         aVar.z(String.valueOf(aVar2.b("networktype", 0)));
-        aVar.u(aVar2.b("starttime"));
+        aVar.u(aVar2.b(LaunchedTaskSpeedStats.KEY_START_TIME));
         aVar.x(aVar2.b("endtime"));
         aVar.n(String.valueOf(aVar2.b("systemEndTime", 0L) - aVar2.b("systemStartTime", 0L)));
         aVar.d(aVar2.b("imsiState"));
@@ -92,22 +94,22 @@ public class b {
                 a2.c(aVar.b("hsaReadPhoneStatePermission", false) ? "1" : "0");
                 a(a2, aVar);
                 JSONArray jSONArray = null;
-                if (a2.f32819a.size() > 0) {
+                if (a2.f68789a.size() > 0) {
                     jSONArray = new JSONArray();
-                    Iterator<Throwable> it = a2.f32819a.iterator();
+                    Iterator<Throwable> it = a2.f68789a.iterator();
                     while (it.hasNext()) {
                         Throwable next = it.next();
                         StringBuffer stringBuffer = new StringBuffer();
                         JSONObject jSONObject = new JSONObject();
                         for (StackTraceElement stackTraceElement : next.getStackTrace()) {
-                            stringBuffer.append("\n");
+                            stringBuffer.append(StringUtils.LF);
                             stringBuffer.append(stackTraceElement.toString());
                         }
                         jSONObject.put("message", next.toString());
                         jSONObject.put("stack", stringBuffer.toString());
                         jSONArray.put(jSONObject);
                     }
-                    a2.f32819a.clear();
+                    a2.f68789a.clear();
                 }
                 if (jSONArray != null && jSONArray.length() > 0) {
                     a2.a(jSONArray);
@@ -123,7 +125,7 @@ public class b {
     private void a(JSONObject jSONObject, com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, jSONObject, aVar) == null) {
-            this.f32828a = aVar;
+            this.f68799a = aVar;
             a(jSONObject);
         }
     }
@@ -132,12 +134,12 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, jSONObject) == null) {
             if (q.o() == 0 || q.n() == 0 || System.currentTimeMillis() > k.a("logCloseTime", 0L) + q.o()) {
-                com.cmic.sso.sdk.b.c.a.a().a(jSONObject, this.f32828a, new d(this) { // from class: com.cmic.sso.sdk.c.b.1
+                com.cmic.sso.sdk.b.c.a.a().a(jSONObject, this.f68799a, new d(this) { // from class: com.cmic.sso.sdk.c.b.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ b f32829a;
+                    public final /* synthetic */ b f68800a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -154,7 +156,7 @@ public class b {
                                 return;
                             }
                         }
-                        this.f32829a = this;
+                        this.f68800a = this;
                     }
 
                     @Override // com.cmic.sso.sdk.b.c.d

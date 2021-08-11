@@ -1,5 +1,5 @@
 package com.facebook.drawable.base;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface DrawableWithCaches {
     void dropCaches();
 }

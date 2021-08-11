@@ -17,12 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import javax.annotation.Nullable;
-import kotlin.text.Typography;
 import okhttp3.internal.Util;
 import okio.Buffer;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class MultipartBody extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
     public static final MediaType ALTERNATIVE;
@@ -40,7 +39,7 @@ public final class MultipartBody extends RequestBody {
     public final MediaType originalType;
     public final List<Part> parts;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,7 +151,7 @@ public final class MultipartBody extends RequestBody {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class Part {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -290,7 +289,7 @@ public final class MultipartBody extends RequestBody {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, sb, str)) == null) {
-            sb.append(Typography.quote);
+            sb.append('\"');
             int length = str.length();
             for (int i2 = 0; i2 < length; i2++) {
                 char charAt = str.charAt(i2);
@@ -304,7 +303,7 @@ public final class MultipartBody extends RequestBody {
                     sb.append("%22");
                 }
             }
-            sb.append(Typography.quote);
+            sb.append('\"');
             return sb;
         }
         return (StringBuilder) invokeLL.objValue;
@@ -326,7 +325,7 @@ public final class MultipartBody extends RequestBody {
                 buffer = 0;
             }
             int size = this.parts.size();
-            long j = 0;
+            long j2 = 0;
             for (int i2 = 0; i2 < size; i2++) {
                 Part part = this.parts.get(i2);
                 Headers headers = part.headers;
@@ -353,7 +352,7 @@ public final class MultipartBody extends RequestBody {
                 }
                 bufferedSink.write(CRLF);
                 if (z) {
-                    j += contentLength;
+                    j2 += contentLength;
                 } else {
                     requestBody.writeTo(bufferedSink);
                 }
@@ -364,11 +363,11 @@ public final class MultipartBody extends RequestBody {
             bufferedSink.write(DASHDASH);
             bufferedSink.write(CRLF);
             if (z) {
-                long size3 = j + buffer.size();
+                long size3 = j2 + buffer.size();
                 buffer.clear();
                 return size3;
             }
-            return j;
+            return j2;
         }
         return invokeLZ.longValue;
     }
@@ -384,9 +383,9 @@ public final class MultipartBody extends RequestBody {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = this.contentLength;
-            if (j != -1) {
-                return j;
+            long j2 = this.contentLength;
+            if (j2 != -1) {
+                return j2;
             }
             long writeOrCountBytes = writeOrCountBytes(null, true);
             this.contentLength = writeOrCountBytes;

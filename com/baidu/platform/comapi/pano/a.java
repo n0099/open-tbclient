@@ -14,17 +14,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AsyncHttpClient f9443a;
+    public AsyncHttpClient f44092a;
 
     /* renamed from: com.baidu.platform.comapi.pano.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0136a<T> {
+    /* loaded from: classes5.dex */
+    public interface InterfaceC1685a<T> {
         void a(HttpClient.HttpStateError httpStateError);
 
         void a(T t);
@@ -43,7 +43,7 @@ public class a {
                 return;
             }
         }
-        this.f9443a = new AsyncHttpClient();
+        this.f44092a = new AsyncHttpClient();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -52,34 +52,34 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             if (str == null || str.equals("")) {
-                return new c(PanoStateError.f9440c);
+                return new c(PanoStateError.f44089c);
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 JSONObject optJSONObject = jSONObject.optJSONObject("result");
                 if (optJSONObject == null) {
-                    return new c(PanoStateError.f9440c);
+                    return new c(PanoStateError.f44089c);
                 }
                 if (optJSONObject.optInt("error") == 0) {
                     JSONArray optJSONArray = jSONObject.optJSONArray("content");
                     if (optJSONArray == null) {
-                        return new c(PanoStateError.f9440c);
+                        return new c(PanoStateError.f44089c);
                     }
                     c cVar = null;
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2).optJSONObject("poiinfo");
                         if (optJSONObject2 != null) {
-                            cVar = new c(PanoStateError.f9438a);
+                            cVar = new c(PanoStateError.f44087a);
                             cVar.a(optJSONObject2.optString("PID"));
                             cVar.a(optJSONObject2.optInt("hasstreet"));
                         }
                     }
                     return cVar;
                 }
-                return new c(PanoStateError.f9439b);
+                return new c(PanoStateError.f44088b);
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                return new c(PanoStateError.f9440c);
+                return new c(PanoStateError.f44089c);
             }
         }
         return (c) invokeL.objValue;
@@ -105,9 +105,9 @@ public class a {
         builder.appendQueryParameter(str, str2);
     }
 
-    public void a(String str, InterfaceC0136a<c> interfaceC0136a) {
+    public void a(String str, InterfaceC1685a<c> interfaceC1685a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, interfaceC0136a) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, interfaceC1685a) == null) {
             Uri.Builder builder = new Uri.Builder();
             builder.scheme(HttpClient.isHttpsEnable ? "https" : "http");
             builder.encodedAuthority("api.map.baidu.com");
@@ -117,11 +117,11 @@ public class a {
             a(builder, "action", "0");
             String authToken = HttpClient.getAuthToken();
             if (authToken == null) {
-                interfaceC0136a.a((InterfaceC0136a<c>) new c(PanoStateError.f9441d));
+                interfaceC1685a.a((InterfaceC1685a<c>) new c(PanoStateError.f44090d));
                 return;
             }
             a(builder, "token", authToken);
-            this.f9443a.get(a(builder), new b(this, interfaceC0136a));
+            this.f44092a.get(a(builder), new b(this, interfaceC1685a));
         }
     }
 }

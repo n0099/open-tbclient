@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.C1;
 import com.win.opensdk.N;
 import com.win.opensdk.U1;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class PProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39950a;
+    public Context f76799a;
 
     public PProvider() {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class PProvider extends ContentProvider {
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && U1.h(this.f39950a) == 0) {
-            N.d(this.f39950a);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && U1.h(this.f76799a) == 0) {
+            N.d(this.f76799a);
         }
     }
 
@@ -81,10 +81,10 @@ public class PProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Context context = getContext();
-            this.f39950a = context;
+            this.f76799a = context;
             if (context != null) {
                 if (U1.h(context) == 0) {
-                    N.d(this.f39950a);
+                    N.d(this.f76799a);
                     return true;
                 }
                 return true;

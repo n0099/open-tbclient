@@ -1,12 +1,12 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
+import c.a.o0.s.m.b;
 import com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilityVideoCreationCenterAuto;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.m.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class UtilityVideoCreationCenter implements TiebaUtilityVideoCreationCenterAuto.HostUtilityVideoCreationCenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class UtilityVideoCreationCenter implements TiebaUtilityVideoCreationCent
     public void sendThread(TiebaUtilityVideoCreationCenterAuto.VideoCreationCenterSendParams videoCreationCenterSendParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, videoCreationCenterSendParams) == null) {
-            b.d(videoCreationCenterSendParams.getObjLocate());
+            b.g(videoCreationCenterSendParams.getObjLocate());
         }
     }
 }

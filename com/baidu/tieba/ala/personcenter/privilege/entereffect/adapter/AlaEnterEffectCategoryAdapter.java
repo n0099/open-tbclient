@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import c.a.e.k.e.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,22 +17,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.k.e.a;
-/* loaded from: classes4.dex */
-public class AlaEnterEffectCategoryAdapter extends a<d.a.q0.v.j.g.d.d.a, ViewHolder> {
+/* loaded from: classes7.dex */
+public class AlaEnterEffectCategoryAdapter extends a<c.a.p0.v.j.g.d.d.a, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public TextView f14379a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public View f14380b;
+        public TextView mCategoryName;
+        public View mDevide;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(View view) {
@@ -51,14 +47,14 @@ public class AlaEnterEffectCategoryAdapter extends a<d.a.q0.v.j.g.d.d.a, ViewHol
                     return;
                 }
             }
-            this.f14379a = (TextView) a().findViewById(R.id.enter_effect_txt);
-            this.f14380b = a().findViewById(R.id.ala_enter_effect_devide);
+            this.mCategoryName = (TextView) getView().findViewById(R.id.enter_effect_txt);
+            this.mDevide = getView().findViewById(R.id.ala_enter_effect_devide);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaEnterEffectCategoryAdapter(Context context) {
-        super(context, d.a.q0.v.j.g.d.d.a.f65614f);
+        super(context, c.a.p0.v.j.g.d.d.a.f25437f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,42 +73,42 @@ public class AlaEnterEffectCategoryAdapter extends a<d.a.q0.v.j.g.d.d.a, ViewHol
         }
     }
 
-    public final void e0(ViewHolder viewHolder) {
+    public final void h0(ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewHolder) == null) || viewHolder == null) {
             return;
         }
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        SkinManager.setViewTextColor(viewHolder.f14379a, R.color.CAM_X0105, 1, skinType);
-        SkinManager.setBackgroundResource(viewHolder.f14380b, R.color.CAM_X0204, skinType);
+        SkinManager.setViewTextColor(viewHolder.mCategoryName, R.color.CAM_X0105, 1, skinType);
+        SkinManager.setBackgroundResource(viewHolder.mDevide, R.color.CAM_X0204, skinType);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.d.k.e.a
-    /* renamed from: f0 */
-    public ViewHolder Q(ViewGroup viewGroup) {
+    @Override // c.a.e.k.e.a
+    /* renamed from: i0 */
+    public ViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ViewHolder(LayoutInflater.from(this.f42341e).inflate(R.layout.ala_enter_effect_category_layout, (ViewGroup) null)) : (ViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ViewHolder(LayoutInflater.from(this.f2904e).inflate(R.layout.ala_enter_effect_category_layout, (ViewGroup) null)) : (ViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.d.k.e.a
-    /* renamed from: g0 */
-    public View X(int i2, View view, ViewGroup viewGroup, d.a.q0.v.j.g.d.d.a aVar, ViewHolder viewHolder) {
+    @Override // c.a.e.k.e.a
+    /* renamed from: j0 */
+    public View a0(int i2, View view, ViewGroup viewGroup, c.a.p0.v.j.g.d.d.a aVar, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, aVar, viewHolder})) == null) {
             if (aVar != null) {
-                viewHolder.f14379a.setText(aVar.f65615e);
+                viewHolder.mCategoryName.setText(aVar.f25438e);
             }
             if (i2 == 0) {
-                viewHolder.f14380b.setVisibility(8);
+                viewHolder.mDevide.setVisibility(8);
             } else {
-                viewHolder.f14380b.setVisibility(0);
+                viewHolder.mDevide.setVisibility(0);
             }
-            e0(viewHolder);
-            return viewHolder.a();
+            h0(viewHolder);
+            return viewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }

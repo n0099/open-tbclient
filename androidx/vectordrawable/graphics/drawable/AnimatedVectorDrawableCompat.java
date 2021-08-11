@@ -19,7 +19,6 @@ import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.Xml;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
@@ -201,11 +200,7 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
                     return createFromXmlInner(context, context.getResources(), xml, asAttributeSet, context.getTheme());
                 }
                 throw new XmlPullParserException("No start tag found");
-            } catch (IOException e2) {
-                Log.e(LOGTAG, "parser error", e2);
-                return null;
-            } catch (XmlPullParserException e3) {
-                Log.e(LOGTAG, "parser error", e3);
+            } catch (IOException | XmlPullParserException unused) {
                 return null;
             }
         }
@@ -1027,10 +1022,10 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
             }
 
             @Override // android.graphics.drawable.Drawable.Callback
-            public void scheduleDrawable(Drawable drawable, Runnable runnable, long j) {
+            public void scheduleDrawable(Drawable drawable, Runnable runnable, long j2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) {
-                    this.this$0.scheduleSelf(runnable, j);
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{drawable, runnable, Long.valueOf(j2)}) == null) {
+                    this.this$0.scheduleSelf(runnable, j2);
                 }
             }
 

@@ -1,7 +1,6 @@
 package com.baidu.rtc;
 
 import android.os.Environment;
-import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,7 +16,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, RTCAudioSamples.RTCRemoteSamplesReadyCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MAX_FILE_SIZE_IN_BYTES = 58348800;
@@ -46,17 +45,12 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
             }
         }
         this.lock = new Object();
-        Log.d(TAG, "remote audio dumper created");
         this.executor = executorService;
     }
 
     private void dumpAudioSamples(final RTCAudioSamples rTCAudioSamples) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, rTCAudioSamples) == null) {
-            if (rTCAudioSamples.getAudioFormat() != 2) {
-                Log.e(TAG, "Invalid audio format");
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeL(65537, this, rTCAudioSamples) == null) && rTCAudioSamples.getAudioFormat() == 2) {
             synchronized (this.lock) {
                 if (this.isRunning) {
                     if (this.rawAudioFileOutputStream == null) {
@@ -95,7 +89,7 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
                     rtcAudioDumper.fileSizeInBytes += rTCAudioSamples.getData().length;
                 }
             } catch (IOException e2) {
-                Log.e(TAG, "Failed to write audio to file: " + e2.getMessage());
+                String str = "Failed to write audio to file: " + e2.getMessage();
             }
         }
     }
@@ -116,9 +110,9 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
             try {
                 this.rawAudioFileOutputStream = new FileOutputStream(new File(sb2));
             } catch (FileNotFoundException e2) {
-                Log.e(TAG, "Failed to open audio output file: " + e2.getMessage());
+                String str = "Failed to open audio output file: " + e2.getMessage();
             }
-            Log.d(TAG, "Opened file for recording: " + sb2);
+            String str2 = "Opened file for recording: " + sb2;
         }
     }
 
@@ -142,15 +136,13 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Log.d(TAG, "remote audio dumper start");
-            if (!isExternalStorageWritable()) {
-                Log.e(TAG, "Writing to external media is not possible");
-                return false;
+            if (isExternalStorageWritable()) {
+                synchronized (this.lock) {
+                    this.isRunning = true;
+                }
+                return true;
             }
-            synchronized (this.lock) {
-                this.isRunning = true;
-            }
-            return true;
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -158,14 +150,13 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Log.d(TAG, "remote audio dumper stop");
             synchronized (this.lock) {
                 this.isRunning = false;
                 if (this.rawAudioFileOutputStream != null) {
                     try {
                         this.rawAudioFileOutputStream.close();
                     } catch (IOException e2) {
-                        Log.e(TAG, "Failed to close file with saved input audio: " + e2);
+                        String str = "Failed to close file with saved input audio: " + e2;
                     }
                     this.rawAudioFileOutputStream = null;
                 }

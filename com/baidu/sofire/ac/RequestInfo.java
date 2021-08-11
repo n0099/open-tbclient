@@ -5,8 +5,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class RequestInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +39,7 @@ public class RequestInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "RequestInfo{sKey='" + this.sKey + "', xDeviceId='" + this.xDeviceId + "', dataLen=" + this.data.length() + '}';
+            return "RequestInfo{sKey='" + this.sKey + ExtendedMessageFormat.QUOTE + ", xDeviceId='" + this.xDeviceId + ExtendedMessageFormat.QUOTE + ", dataLen=" + this.data.length() + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

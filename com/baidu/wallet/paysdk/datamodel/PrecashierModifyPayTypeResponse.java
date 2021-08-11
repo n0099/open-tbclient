@@ -2,7 +2,6 @@ package com.baidu.wallet.paysdk.datamodel;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.beans.IBeanResponse;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,22 +10,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.PayData;
-import com.baidu.wallet.base.datamodel.UserData;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
+import com.dxmpay.apollon.beans.IBeanResponse;
+import com.dxmpay.wallet.base.datamodel.UserData;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class PrecashierModifyPayTypeResponse extends DirectPayContentResponse implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -936968920336557051L;
     public transient /* synthetic */ FieldHolder $fh;
     public String mOriginHttpResponse;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static PrecashierModifyPayTypeResponse f26197a;
+        public static PrecashierModifyPayTypeResponse f62083a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,7 +42,7 @@ public class PrecashierModifyPayTypeResponse extends DirectPayContentResponse im
                     return;
                 }
             }
-            f26197a = new PrecashierModifyPayTypeResponse();
+            f62083a = new PrecashierModifyPayTypeResponse();
         }
     }
 
@@ -63,21 +63,21 @@ public class PrecashierModifyPayTypeResponse extends DirectPayContentResponse im
     public static PrecashierModifyPayTypeResponse getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f26197a : (PrecashierModifyPayTypeResponse) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f62083a : (PrecashierModifyPayTypeResponse) invokeV.objValue;
     }
 
     public static void updateContent(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, obj) == null) {
             if (obj instanceof PrecashierModifyPayTypeResponse) {
-                PrecashierModifyPayTypeResponse unused = a.f26197a = (PrecashierModifyPayTypeResponse) obj;
+                PrecashierModifyPayTypeResponse unused = a.f62083a = (PrecashierModifyPayTypeResponse) obj;
             } else if (obj == null) {
-                PrecashierModifyPayTypeResponse unused2 = a.f26197a = null;
+                PrecashierModifyPayTypeResponse unused2 = a.f62083a = null;
             }
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse, com.baidu.apollon.beans.IBeanResponse
+    @Override // com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse, com.dxmpay.apollon.beans.IBeanResponse
     public boolean checkResponseValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class PrecashierModifyPayTypeResponse extends DirectPayContentResponse im
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse, com.baidu.apollon.beans.IBeanResponse
+    @Override // com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse, com.dxmpay.apollon.beans.IBeanResponse
     public void storeResponse(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {

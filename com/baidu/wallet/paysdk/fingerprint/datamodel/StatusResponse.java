@@ -9,15 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.utils.LogUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class StatusResponse extends a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f26275a = "StatusResponse";
+    public static final String f62174a = "StatusResponse";
     public transient /* synthetic */ FieldHolder $fh;
     public JSONObject fingerprint;
     public JSONObject user_info;
@@ -51,7 +50,7 @@ public class StatusResponse extends a {
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.fingerprint.datamodel.a, com.baidu.apollon.beans.IBeanResponse
+    @Override // com.baidu.wallet.paysdk.fingerprint.datamodel.a, com.dxmpay.apollon.beans.IBeanResponse
     public /* bridge */ /* synthetic */ boolean checkResponseValidity() {
         return super.checkResponseValidity();
     }
@@ -59,22 +58,21 @@ public class StatusResponse extends a {
     public void print() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String str = "test\n";
             try {
+                String str = "test\n";
                 if (this.fingerprint != null) {
                     str = "test\n" + this.fingerprint.toString(2);
                 }
                 if (this.user_info != null) {
-                    str = str + this.user_info.toString(2);
+                    String str2 = str + this.user_info.toString(2);
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            LogUtil.d(f26275a, str);
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.fingerprint.datamodel.a, com.baidu.apollon.beans.IBeanResponse
+    @Override // com.baidu.wallet.paysdk.fingerprint.datamodel.a, com.dxmpay.apollon.beans.IBeanResponse
     public /* bridge */ /* synthetic */ void storeResponse(Context context) {
         super.storeResponse(context);
     }

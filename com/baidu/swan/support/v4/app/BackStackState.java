@@ -3,7 +3,8 @@ package com.baidu.swan.support.v4.app;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import android.util.Log;
+import c.a.n0.o.a.a.e;
+import c.a.n0.o.a.a.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,10 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.o.a.a.e;
-import d.a.o0.o.a.a.m;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class BackStackState implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<BackStackState> CREATOR;
@@ -32,7 +31,7 @@ public final class BackStackState implements Parcelable {
     public final int mTransition;
     public final int mTransitionStyle;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<BackStackState> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,39 +101,39 @@ public final class BackStackState implements Parcelable {
             }
         }
         int i4 = 0;
-        for (e.d dVar = eVar.f51323f; dVar != null; dVar = dVar.f51338a) {
-            ArrayList<Fragment> arrayList = dVar.f51346i;
+        for (e.d dVar = eVar.f11796f; dVar != null; dVar = dVar.f11813a) {
+            ArrayList<Fragment> arrayList = dVar.f11821i;
             if (arrayList != null) {
                 i4 += arrayList.size();
             }
         }
-        this.mOps = new int[(eVar.f51325h * 7) + i4];
+        this.mOps = new int[(eVar.f11798h * 7) + i4];
         if (eVar.o) {
             int i5 = 0;
-            for (e.d dVar2 = eVar.f51323f; dVar2 != null; dVar2 = dVar2.f51338a) {
+            for (e.d dVar2 = eVar.f11796f; dVar2 != null; dVar2 = dVar2.f11813a) {
                 int[] iArr = this.mOps;
                 int i6 = i5 + 1;
-                iArr[i5] = dVar2.f51340c;
+                iArr[i5] = dVar2.f11815c;
                 int i7 = i6 + 1;
-                Fragment fragment = dVar2.f51341d;
-                iArr[i6] = fragment != null ? fragment.j : -1;
+                Fragment fragment = dVar2.f11816d;
+                iArr[i6] = fragment != null ? fragment.f47011j : -1;
                 int[] iArr2 = this.mOps;
                 int i8 = i7 + 1;
-                iArr2[i7] = dVar2.f51342e;
+                iArr2[i7] = dVar2.f11817e;
                 int i9 = i8 + 1;
-                iArr2[i8] = dVar2.f51343f;
+                iArr2[i8] = dVar2.f11818f;
                 int i10 = i9 + 1;
-                iArr2[i9] = dVar2.f51344g;
+                iArr2[i9] = dVar2.f11819g;
                 int i11 = i10 + 1;
-                iArr2[i10] = dVar2.f51345h;
-                ArrayList<Fragment> arrayList2 = dVar2.f51346i;
+                iArr2[i10] = dVar2.f11820h;
+                ArrayList<Fragment> arrayList2 = dVar2.f11821i;
                 if (arrayList2 != null) {
                     int size = arrayList2.size();
                     int i12 = i11 + 1;
                     this.mOps[i11] = size;
                     int i13 = 0;
                     while (i13 < size) {
-                        this.mOps[i12] = dVar2.f51346i.get(i13).j;
+                        this.mOps[i12] = dVar2.f11821i.get(i13).f47011j;
                         i13++;
                         i12++;
                     }
@@ -179,36 +178,36 @@ public final class BackStackState implements Parcelable {
             while (i2 < this.mOps.length) {
                 e.d dVar = new e.d();
                 int i4 = i2 + 1;
-                dVar.f51340c = this.mOps[i2];
+                dVar.f11815c = this.mOps[i2];
                 if (m.x) {
-                    Log.v("FragmentManager", "Instantiate " + eVar + " op #" + i3 + " base fragment #" + this.mOps[i4]);
+                    String str = "Instantiate " + eVar + " op #" + i3 + " base fragment #" + this.mOps[i4];
                 }
                 int i5 = i4 + 1;
                 int i6 = this.mOps[i4];
                 if (i6 >= 0) {
-                    dVar.f51341d = mVar.f51363d.get(i6);
+                    dVar.f11816d = mVar.f11838d.get(i6);
                 } else {
-                    dVar.f51341d = null;
+                    dVar.f11816d = null;
                 }
                 int[] iArr = this.mOps;
                 int i7 = i5 + 1;
-                dVar.f51342e = iArr[i5];
+                dVar.f11817e = iArr[i5];
                 int i8 = i7 + 1;
-                dVar.f51343f = iArr[i7];
+                dVar.f11818f = iArr[i7];
                 int i9 = i8 + 1;
-                dVar.f51344g = iArr[i8];
+                dVar.f11819g = iArr[i8];
                 int i10 = i9 + 1;
-                dVar.f51345h = iArr[i9];
+                dVar.f11820h = iArr[i9];
                 int i11 = i10 + 1;
                 int i12 = iArr[i10];
                 if (i12 > 0) {
-                    dVar.f51346i = new ArrayList<>(i12);
+                    dVar.f11821i = new ArrayList<>(i12);
                     int i13 = 0;
                     while (i13 < i12) {
                         if (m.x) {
-                            Log.v("FragmentManager", "Instantiate " + eVar + " set remove fragment #" + this.mOps[i11]);
+                            String str2 = "Instantiate " + eVar + " set remove fragment #" + this.mOps[i11];
                         }
-                        dVar.f51346i.add(mVar.f51363d.get(this.mOps[i11]));
+                        dVar.f11821i.add(mVar.f11838d.get(this.mOps[i11]));
                         i13++;
                         i11++;
                     }

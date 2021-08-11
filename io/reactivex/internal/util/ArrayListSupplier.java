@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ArrayListSupplier implements Callable<List<Object>>, Function<Object, List<Object>> {
     public static final /* synthetic */ ArrayListSupplier[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

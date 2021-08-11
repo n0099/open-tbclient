@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class Label {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FORWARD_REFERENCE_HANDLE_MASK = 268435455;
@@ -72,7 +72,7 @@ public class Label {
                 addReference(i2, byteVector.length, 536870912);
                 byteVector.putInt(-1);
             } else {
-                addReference(i2, byteVector.length, FORWARD_REFERENCE_TYPE_SHORT);
+                addReference(i2, byteVector.length, 268435456);
                 byteVector.putShort(-1);
             }
         }

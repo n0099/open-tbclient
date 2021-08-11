@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.b.d;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<Class<? extends d<?, ?>>, com.bytedance.sdk.openadsdk.preload.b.b.b> f32403a;
+    public final Map<Class<? extends d<?, ?>>, com.bytedance.sdk.openadsdk.preload.b.b.b> f68364a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -30,17 +30,17 @@ public class b {
                 return;
             }
         }
-        this.f32403a = new HashMap();
+        this.f68364a = new HashMap();
     }
 
     public void a(Class<? extends d<?, ?>> cls, com.bytedance.sdk.openadsdk.preload.b.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, aVar) == null) {
-            synchronized (this.f32403a) {
-                com.bytedance.sdk.openadsdk.preload.b.b.b bVar = this.f32403a.get(cls);
+            synchronized (this.f68364a) {
+                com.bytedance.sdk.openadsdk.preload.b.b.b bVar = this.f68364a.get(cls);
                 if (bVar == null) {
                     bVar = new com.bytedance.sdk.openadsdk.preload.b.b.b(new com.bytedance.sdk.openadsdk.preload.b.b.a[0]);
-                    this.f32403a.put(cls, bVar);
+                    this.f68364a.put(cls, bVar);
                 }
                 bVar.a(aVar);
             }
@@ -52,8 +52,8 @@ public class b {
         com.bytedance.sdk.openadsdk.preload.b.b.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            synchronized (this.f32403a) {
-                bVar = this.f32403a.get(cls);
+            synchronized (this.f68364a) {
+                bVar = this.f68364a.get(cls);
             }
             return bVar;
         }

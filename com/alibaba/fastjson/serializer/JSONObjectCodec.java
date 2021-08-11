@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class JSONObjectCodec implements ObjectSerializer {
     public static /* synthetic */ Interceptable $ic;
     public static final JSONObjectCodec instance;

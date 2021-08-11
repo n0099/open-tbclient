@@ -7,7 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public final class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public final class m {
                 return "wifi";
             }
             int w = w(context);
-            return w == 2 ? "2G" : w == 3 ? com.baidu.apollon.statistics.g.f4012b : w == 4 ? "4G" : "other_network";
+            return w == 2 ? "2G" : w == 3 ? "3G" : w == 4 ? "4G" : "other_network";
         }
         return (String) invokeL.objValue;
     }

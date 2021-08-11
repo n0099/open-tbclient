@@ -1,7 +1,6 @@
 package androidx.transition;
 
 import android.graphics.Matrix;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
@@ -77,8 +76,7 @@ public class GhostViewPlatform implements GhostView {
             Method declaredMethod = sGhostViewClass.getDeclaredMethod("addGhost", View.class, ViewGroup.class, Matrix.class);
             sAddGhostMethod = declaredMethod;
             declaredMethod.setAccessible(true);
-        } catch (NoSuchMethodException e2) {
-            Log.i(TAG, "Failed to retrieve addGhost method", e2);
+        } catch (NoSuchMethodException unused) {
         }
         sAddGhostMethodFetched = true;
     }
@@ -90,8 +88,7 @@ public class GhostViewPlatform implements GhostView {
         }
         try {
             sGhostViewClass = Class.forName("android.view.GhostView");
-        } catch (ClassNotFoundException e2) {
-            Log.i(TAG, "Failed to retrieve GhostView class", e2);
+        } catch (ClassNotFoundException unused) {
         }
         sGhostViewClassFetched = true;
     }
@@ -106,8 +103,7 @@ public class GhostViewPlatform implements GhostView {
             Method declaredMethod = sGhostViewClass.getDeclaredMethod("removeGhost", View.class);
             sRemoveGhostMethod = declaredMethod;
             declaredMethod.setAccessible(true);
-        } catch (NoSuchMethodException e2) {
-            Log.i(TAG, "Failed to retrieve removeGhost method", e2);
+        } catch (NoSuchMethodException unused) {
         }
         sRemoveGhostMethodFetched = true;
     }

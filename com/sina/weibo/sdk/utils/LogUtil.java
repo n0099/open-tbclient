@@ -1,6 +1,5 @@
 package com.sina.weibo.sdk.utils;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class LogUtil {
     public static /* synthetic */ Interceptable $ic;
     public static boolean sIsLogEnable;
@@ -49,7 +48,7 @@ public class LogUtil {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && sIsLogEnable) {
             StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
-            Log.d(str, (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2);
+            String str3 = (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2;
         }
     }
 
@@ -64,7 +63,7 @@ public class LogUtil {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && sIsLogEnable) {
             StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
-            Log.e(str, (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2);
+            String str3 = (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2;
         }
     }
 
@@ -89,7 +88,7 @@ public class LogUtil {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) && sIsLogEnable) {
             StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
-            Log.i(str, (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2);
+            String str3 = (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2;
         }
     }
 
@@ -97,7 +96,7 @@ public class LogUtil {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && sIsLogEnable) {
             StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
-            Log.v(str, (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2);
+            String str3 = (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2;
         }
     }
 
@@ -105,7 +104,7 @@ public class LogUtil {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) && sIsLogEnable) {
             StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
-            Log.w(str, (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2);
+            String str3 = (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2;
         }
     }
 }

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.InstallActivity;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class WbSdkProgressBar extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,12 +64,12 @@ public class WbSdkProgressBar extends View {
         }
     }
 
-    private void calculateProgress(long j) {
+    private void calculateProgress(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
-            long j2 = this.stopGrowTime;
-            if (j2 >= this.stopGrowTimeMax) {
-                double d2 = this.growTime + j;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2) == null) {
+            long j3 = this.stopGrowTime;
+            if (j3 >= this.stopGrowTimeMax) {
+                double d2 = this.growTime + j2;
                 this.growTime = d2;
                 double d3 = this.growTimeMax;
                 if (d2 >= d3) {
@@ -87,7 +87,7 @@ public class WbSdkProgressBar extends View {
                 this.length = f2;
                 return;
             }
-            this.stopGrowTime = j2 + j;
+            this.stopGrowTime = j3 + j2;
         }
     }
 

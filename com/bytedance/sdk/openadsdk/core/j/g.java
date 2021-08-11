@@ -1,6 +1,5 @@
 package com.bytedance.sdk.openadsdk.core.j;
 
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.sdk.openadsdk.core.o;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static AtomicInteger f30404a;
+    public static AtomicInteger f66321a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,13 +28,13 @@ public class g {
                 return;
             }
         }
-        f30404a = new AtomicInteger(1);
+        f66321a = new AtomicInteger(1);
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f30404a.get() == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f66321a.get() == 1 : invokeV.booleanValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:21:0x0025  */
@@ -49,9 +48,9 @@ public class g {
             boolean z = true;
             if (i2 == 1 || i2 == 2) {
                 try {
-                    if (f30404a.get() != i2) {
+                    if (f66321a.get() != i2) {
                         try {
-                            f30404a.set(i2);
+                            f66321a.set(i2);
                         } catch (Throwable th) {
                             th = th;
                             th.printStackTrace();
@@ -68,7 +67,7 @@ public class g {
                 if (z) {
                     return;
                 }
-                Log.e("SdkSwitch", "switch status changed: " + a());
+                String str = "switch status changed: " + a();
                 if (a()) {
                     o.b();
                     return;

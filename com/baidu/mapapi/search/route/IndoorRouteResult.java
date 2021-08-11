@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class IndoorRouteResult extends SearchResult {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<IndoorRouteResult> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<IndoorRouteLine> f7405a;
+    public List<IndoorRouteLine> f41667a;
 
     static {
         InterceptResult invokeClinit;
@@ -69,7 +69,7 @@ public class IndoorRouteResult extends SearchResult {
                 return;
             }
         }
-        this.f7405a = parcel.createTypedArrayList(IndoorRouteLine.CREATOR);
+        this.f41667a = parcel.createTypedArrayList(IndoorRouteLine.CREATOR);
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -85,13 +85,13 @@ public class IndoorRouteResult extends SearchResult {
     public List<IndoorRouteLine> getRouteLines() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7405a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41667a : (List) invokeV.objValue;
     }
 
     public void setRouteLines(List<IndoorRouteLine> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f7405a = list;
+            this.f41667a = list;
         }
     }
 
@@ -100,7 +100,7 @@ public class IndoorRouteResult extends SearchResult {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
             super.writeToParcel(parcel, i2);
-            parcel.writeTypedList(this.f7405a);
+            parcel.writeTypedList(this.f41667a);
         }
     }
 }

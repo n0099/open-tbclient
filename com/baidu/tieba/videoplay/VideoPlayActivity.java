@@ -11,6 +11,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentTransaction;
+import c.a.e.e.p.l;
+import c.a.o0.a.c;
+import c.a.o0.b.d;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -39,12 +42,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.p0.a.c;
-import d.a.p0.b.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class VideoPlayActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM_VIDEO_PLAY = "nani_midpage";
@@ -56,20 +56,20 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public String mFrom;
     public String mFromPage;
     public boolean mIsFromSchema;
-    public d.a.q0.h.a mNEGFeedBackManager;
+    public c.a.p0.i.a mNEGFeedBackManager;
     public String mNid;
     public String mSourceFrom;
     public long mStartTime;
     public CustomMessageListener mSuspendedViewAnimationListener;
     public List<VideoItemData> mVideoDataList;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoPlayActivity f21909a;
+        public final /* synthetic */ VideoPlayActivity f57486a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(VideoPlayActivity videoPlayActivity, int i2) {
@@ -89,7 +89,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f21909a = videoPlayActivity;
+            this.f57486a = videoPlayActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -97,24 +97,24 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             BdUniqueId tag;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getOrginalMessage() == null || (tag = customResponsedMessage.getOrginalMessage().getTag()) == null || this.f21909a.getUniqueId().getId() != tag.getId() || !(customResponsedMessage.getData() instanceof Float)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getOrginalMessage() == null || (tag = customResponsedMessage.getOrginalMessage().getTag()) == null || this.f57486a.getUniqueId().getId() != tag.getId() || !(customResponsedMessage.getData() instanceof Float)) {
                 return;
             }
             float floatValue = ((Float) customResponsedMessage.getData()).floatValue();
             if (floatValue < 0.0f || floatValue > 1.0f) {
                 return;
             }
-            this.f21909a.mBackImage.setAlpha(floatValue);
+            this.f57486a.mBackImage.setAlpha(floatValue);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoPlayActivity f21910e;
+        public final /* synthetic */ VideoPlayActivity f57487e;
 
         public b(VideoPlayActivity videoPlayActivity) {
             Interceptable interceptable = $ic;
@@ -131,14 +131,14 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f21910e = videoPlayActivity;
+            this.f57487e = videoPlayActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f21910e.finish();
+                this.f57487e.finish();
             }
         }
     }
@@ -218,7 +218,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             }
             VideoMiddleFragment videoMiddleFragment = new VideoMiddleFragment();
             this.mFragment = videoMiddleFragment;
-            videoMiddleFragment.d1(getUniqueId());
+            videoMiddleFragment.setActivityPageUniqueId(getUniqueId());
             this.mFragment.setArguments(getIntent().getExtras());
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
             beginTransaction.add(R.id.video_vertical_root, this.mFragment);
@@ -268,7 +268,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             super.onActivityResult(i2, i3, intent);
             VideoMiddleFragment videoMiddleFragment = this.mFragment;
             if (videoMiddleFragment != null) {
-                videoMiddleFragment.r0(i2, i3, intent);
+                videoMiddleFragment.handleActivityResult(i2, i3, intent);
             }
         }
     }
@@ -298,7 +298,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !d.a.d.a.b.f().h("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.e.a.b.f().h("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {
@@ -307,7 +307,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             super.onCreate(bundle);
             this.mStartTime = System.currentTimeMillis();
             setContentView(R.layout.video_play_activity);
-            this.mNEGFeedBackManager = new d.a.q0.h.a(getPageContext(), "client_videomiddle");
+            this.mNEGFeedBackManager = new c.a.p0.i.a(getPageContext(), "client_videomiddle");
             initData();
             initFragment();
             addGlobalLayoutListener();
@@ -322,15 +322,15 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            d.a.q0.h.a aVar = this.mNEGFeedBackManager;
+            c.a.p0.i.a aVar = this.mNEGFeedBackManager;
             if (aVar != null) {
                 aVar.h();
             }
-            if (d.a0()) {
-                d.a.q0.v0.a.i().d("6061002332-203360688");
+            if (d.d0()) {
+                c.a.p0.w0.a.i().d("6061002332-203360688");
             }
-            if (d.b0()) {
-                d.a.q0.v0.a.i().c("6061002410-390177882");
+            if (d.e0()) {
+                c.a.p0.w0.a.i().c("6061002410-390177882");
             }
             String str = TextUtils.isEmpty(this.mNid) ? "0" : "1";
             long currentTimeMillis = System.currentTimeMillis() - this.mStartTime;
@@ -365,10 +365,10 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (i2 == 4) {
                 VideoMiddleFragment videoMiddleFragment = this.mFragment;
                 if (videoMiddleFragment != null) {
-                    if (videoMiddleFragment.E0()) {
+                    if (videoMiddleFragment.handleBackPress()) {
                         return false;
                     }
-                    this.mFragment.Z();
+                    this.mFragment.handleIndexMessage();
                 }
                 finish();
                 return false;
@@ -400,7 +400,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 videoMiddleFragment.setPrimary(false);
                 this.mFragment.setUserVisibleHint(false);
             }
-            d.a.p0.a.d.y().E();
+            c.a.o0.a.d.y().E();
         }
     }
 
@@ -413,7 +413,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (videoMiddleFragment != null) {
                 videoMiddleFragment.setPrimary(true);
                 this.mFragment.setUserVisibleHint(true);
-                d.a.p0.a.d.y().P(c.Z, this.mFragment.d0());
+                c.a.o0.a.d.y().P(c.Z, this.mFragment.getMissionTid());
             }
         }
     }

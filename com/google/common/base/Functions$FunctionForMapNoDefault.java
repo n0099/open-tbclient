@@ -1,5 +1,7 @@
 package com.google.common.base;
 
+import c.i.d.a.g;
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,11 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.d.a.g;
-import d.f.d.a.n;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class Functions$FunctionForMapNoDefault<K, V> implements g<K, V>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -37,7 +37,7 @@ public class Functions$FunctionForMapNoDefault<K, V> implements g<K, V>, Seriali
         this.map = map;
     }
 
-    @Override // d.f.d.a.g
+    @Override // c.i.d.a.g
     public V apply(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class Functions$FunctionForMapNoDefault<K, V> implements g<K, V>, Seriali
         return (V) invokeL.objValue;
     }
 
-    @Override // d.f.d.a.g
+    @Override // c.i.d.a.g
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class UgcSharedPreferences {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUDIO_ROINTS_LIST = "audio_points_list";
@@ -200,10 +200,10 @@ public class UgcSharedPreferences {
         }
     }
 
-    public static void setLastCaptureConfigTime(long j) {
+    public static void setLastCaptureConfigTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65555, null, j) == null) {
-            sPref.edit().putLong(LAST_CAPTURE_CONFIG_TIME, j).apply();
+        if (interceptable == null || interceptable.invokeJ(65555, null, j2) == null) {
+            sPref.edit().putLong(LAST_CAPTURE_CONFIG_TIME, j2).apply();
         }
     }
 

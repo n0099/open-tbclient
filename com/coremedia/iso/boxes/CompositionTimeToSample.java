@@ -17,9 +17,10 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class CompositionTimeToSample extends AbstractFullBox {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -29,7 +30,7 @@ public class CompositionTimeToSample extends AbstractFullBox {
     public transient /* synthetic */ FieldHolder $fh;
     public List<Entry> entries;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +86,7 @@ public class CompositionTimeToSample extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return "Entry{count=" + this.count + ", offset=" + this.offset + '}';
+                return "Entry{count=" + this.count + ", offset=" + this.offset + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -136,11 +137,11 @@ public class CompositionTimeToSample extends AbstractFullBox {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
-            long j = 0;
+            long j2 = 0;
             for (Entry entry : list) {
-                j += entry.getCount();
+                j2 += entry.getCount();
             }
-            int[] iArr = new int[(int) j];
+            int[] iArr = new int[(int) j2];
             int i2 = 0;
             for (Entry entry2 : list) {
                 int i3 = 0;

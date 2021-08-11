@@ -3,8 +3,12 @@ package com.baidu.ubc;
 import android.content.Context;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import c.a.p0.d3.r;
+import c.a.r0.d;
+import c.a.r0.e0;
+import c.a.r0.q;
+import c.a.s0.a;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
@@ -20,15 +24,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.IRemoteUBCService;
-import d.a.s0.d;
-import d.a.s0.e0;
-import d.a.s0.r;
-import d.a.t0.a;
 import java.util.Map;
 import org.json.JSONObject;
 @Autowired
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class UBC {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_KEY_DURATION = "duration";
@@ -117,10 +117,10 @@ public class UBC {
     }
 
     @Inject
-    public static final r getUBCContext() {
+    public static final q getUBCContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? d.a.q0.c3.r.a() : (r) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? r.a() : (q) invokeV.objValue;
     }
 
     public static String getUploadType(String str) {
@@ -145,9 +145,9 @@ public class UBC {
         if (interceptable == null || interceptable.invokeLLL(65558, null, str, str2, str3) == null) {
             String a2 = a.a(str3);
             if (DEBUG) {
-                Log.d(TAG, "on onMutilProcessEvent id:" + str + " value:" + str2 + " name: " + a2);
+                String str4 = "on onMutilProcessEvent id:" + str + " value:" + str2 + " name: " + a2;
             }
-            d.q().t(str, str2, a2, 8);
+            d.v().y(str, str2, a2, 8);
         }
     }
 

@@ -17,9 +17,10 @@ import com.googlecode.mp4parser.util.CastUtils;
 import com.googlecode.mp4parser.util.UUIDConverter;
 import java.nio.ByteBuffer;
 import java.util.UUID;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class UuidBasedProtectionSystemSpecificHeaderBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic;
     public static byte[] USER_TYPE;
@@ -183,7 +184,7 @@ public class UuidBasedProtectionSystemSpecificHeaderBox extends AbstractFullBox 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this));
-            return "UuidBasedProtectionSystemSpecificHeaderBox{systemId=" + this.systemId.toString() + ", dataSize=" + this.protectionSpecificHeader.getData().limit() + '}';
+            return "UuidBasedProtectionSystemSpecificHeaderBox{systemId=" + this.systemId.toString() + ", dataSize=" + this.protectionSpecificHeader.getData().limit() + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

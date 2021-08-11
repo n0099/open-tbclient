@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class AnimatorSetCompat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,13 +34,13 @@ public class AnimatorSetCompat {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, animatorSet, list) == null) {
             int size = list.size();
-            long j = 0;
+            long j2 = 0;
             for (int i2 = 0; i2 < size; i2++) {
                 Animator animator = list.get(i2);
-                j = Math.max(j, animator.getStartDelay() + animator.getDuration());
+                j2 = Math.max(j2, animator.getStartDelay() + animator.getDuration());
             }
             ValueAnimator ofInt = ValueAnimator.ofInt(0, 0);
-            ofInt.setDuration(j);
+            ofInt.setDuration(j2);
             list.add(0, ofInt);
             animatorSet.playTogether(list);
         }

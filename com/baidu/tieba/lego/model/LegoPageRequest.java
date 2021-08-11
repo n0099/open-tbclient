@@ -2,6 +2,8 @@ package com.baidu.tieba.lego.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.l;
+import c.a.o0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -11,11 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.p0.b1.w;
 import tbclient.Lego.DataReq;
 import tbclient.Lego.LegoReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LegoPageRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,9 +70,9 @@ public class LegoPageRequest extends NetMessage {
             if (!TextUtils.isEmpty(this.itemId)) {
                 builder.item_id = this.itemId;
             }
-            long j = this.tagCode;
-            if (j != 0) {
-                builder.page_id = Long.valueOf(j);
+            long j2 = this.tagCode;
+            if (j2 != 0) {
+                builder.page_id = Long.valueOf(j2);
             }
             LegoReqIdl.Builder builder2 = new LegoReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -153,10 +153,10 @@ public class LegoPageRequest extends NetMessage {
         }
     }
 
-    public void setTagCode(long j) {
+    public void setTagCode(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            this.tagCode = j;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
+            this.tagCode = j2;
         }
     }
 }

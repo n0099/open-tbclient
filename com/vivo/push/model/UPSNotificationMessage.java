@@ -9,7 +9,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class UPSNotificationMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CUSTOM = 3;
@@ -161,10 +162,10 @@ public class UPSNotificationMessage {
         }
     }
 
-    public void setMsgId(long j) {
+    public void setMsgId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
-            this.mMsgId = j;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
+            this.mMsgId = j2;
         }
     }
 
@@ -235,7 +236,7 @@ public class UPSNotificationMessage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return "UPSNotificationMessage{mTargetType=" + this.mTargetType + ", mTragetContent='" + this.mTragetContent + "', mTitle='" + this.mTitle + "', mContent='" + this.mContent + "', mNotifyType=" + this.mNotifyType + ", mPurePicUrl='" + this.mPurePicUrl + "', mIconUrl='" + this.mIconUrl + "', mCoverUrl='" + this.mCoverUrl + "', mSkipContent='" + this.mSkipContent + "', mSkipType=" + this.mSkipType + ", mShowTime=" + this.mShowTime + ", mMsgId=" + this.mMsgId + ", mParams=" + this.mParams + '}';
+            return "UPSNotificationMessage{mTargetType=" + this.mTargetType + ", mTragetContent='" + this.mTragetContent + ExtendedMessageFormat.QUOTE + ", mTitle='" + this.mTitle + ExtendedMessageFormat.QUOTE + ", mContent='" + this.mContent + ExtendedMessageFormat.QUOTE + ", mNotifyType=" + this.mNotifyType + ", mPurePicUrl='" + this.mPurePicUrl + ExtendedMessageFormat.QUOTE + ", mIconUrl='" + this.mIconUrl + ExtendedMessageFormat.QUOTE + ", mCoverUrl='" + this.mCoverUrl + ExtendedMessageFormat.QUOTE + ", mSkipContent='" + this.mSkipContent + ExtendedMessageFormat.QUOTE + ", mSkipType=" + this.mSkipType + ", mShowTime=" + this.mShowTime + ", mMsgId=" + this.mMsgId + ", mParams=" + this.mParams + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

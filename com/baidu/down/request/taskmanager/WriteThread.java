@@ -21,7 +21,7 @@ import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class WriteThread implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -158,9 +158,9 @@ public class WriteThread implements Runnable {
         r0.put(com.baidu.down.request.db.DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, java.lang.Long.valueOf(r5.mProgressInfo.getCurrentLength()));
         com.baidu.down.request.taskmanager.TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(r0, "_id=?", new java.lang.String[]{java.lang.String.valueOf(r5.mDownloadId)});
      */
-    /* JADX WARN: Removed duplicated region for block: B:121:0x034a A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x02b4 A[Catch: all -> 0x0347, TryCatch #6 {all -> 0x0347, blocks: (B:60:0x0217, B:66:0x0220, B:68:0x0226, B:71:0x022e, B:73:0x02b4, B:83:0x02d5, B:85:0x0308, B:77:0x02bb, B:79:0x02c1, B:81:0x02cd, B:82:0x02d1), top: B:108:0x0217 }] */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x0308 A[Catch: all -> 0x0347, TRY_LEAVE, TryCatch #6 {all -> 0x0347, blocks: (B:60:0x0217, B:66:0x0220, B:68:0x0226, B:71:0x022e, B:73:0x02b4, B:83:0x02d5, B:85:0x0308, B:77:0x02bb, B:79:0x02c1, B:81:0x02cd, B:82:0x02d1), top: B:108:0x0217 }] */
+    /* JADX WARN: Removed duplicated region for block: B:121:0x0349 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x02b4 A[Catch: all -> 0x0346, TryCatch #5 {all -> 0x0346, blocks: (B:60:0x0217, B:66:0x0220, B:68:0x0226, B:71:0x022e, B:73:0x02b4, B:83:0x02d5, B:85:0x0308, B:77:0x02bb, B:79:0x02c1, B:81:0x02cd, B:82:0x02d1), top: B:108:0x0217 }] */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x0308 A[Catch: all -> 0x0346, TRY_LEAVE, TryCatch #5 {all -> 0x0346, blocks: (B:60:0x0217, B:66:0x0220, B:68:0x0226, B:71:0x022e, B:73:0x02b4, B:83:0x02d5, B:85:0x0308, B:77:0x02bb, B:79:0x02c1, B:81:0x02cd, B:82:0x02d1), top: B:108:0x0217 }] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -230,9 +230,9 @@ public class WriteThread implements Runnable {
                                 this.mTaskmsg.transferedSize = taskByKey.mProgressInfo.getCurrentLength();
                                 this.mTaskmsg.progressMap = taskByKey.mProgressInfo.toString();
                                 long elapsedRealtime = SystemClock.elapsedRealtime();
-                                long j = elapsedRealtime - taskByKey.mLastNotifyTime;
+                                long j2 = elapsedRealtime - taskByKey.mLastNotifyTime;
                                 try {
-                                    if (j < 500) {
+                                    if (j2 < 500) {
                                         binaryTaskMng3 = binaryTaskMng;
                                         try {
                                             if (taskByKey.mLastNotifySpeed <= 0) {
@@ -286,8 +286,8 @@ public class WriteThread implements Runnable {
                                     } else {
                                         binaryTaskMng3 = binaryTaskMng;
                                     }
-                                    if (j > 0) {
-                                        this.mTaskmsg.transferedSpeed = ((this.mTaskmsg.transferedSize - taskByKey.mLastNotifyBytes) * 1000) / j;
+                                    if (j2 > 0) {
+                                        this.mTaskmsg.transferedSpeed = ((this.mTaskmsg.transferedSize - taskByKey.mLastNotifyBytes) * 1000) / j2;
                                         if (this.mTaskmsg.transferedSpeed < 0) {
                                             this.mTaskmsg.transferedSpeed = 0L;
                                         }

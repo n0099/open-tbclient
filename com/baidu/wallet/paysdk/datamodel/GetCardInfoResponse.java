@@ -3,7 +3,6 @@ package com.baidu.wallet.paysdk.datamodel;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.beans.IBeanResponse;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,9 +10,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.PayData;
+import com.dxmpay.apollon.beans.IBeanResponse;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class GetCardInfoResponse implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7267923736947733889L;
@@ -26,7 +26,7 @@ public class GetCardInfoResponse implements IBeanResponse, Serializable {
     public ProtocolInfo protocol_info;
     public SpInfo sp_info;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class Algorithm implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1246105472340646254L;
@@ -49,7 +49,7 @@ public class GetCardInfoResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class BindCardInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 424736973323730942L;
@@ -71,7 +71,7 @@ public class GetCardInfoResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class CalcPaymentResponseImpl extends CalcPaymentResponse implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -93,7 +93,7 @@ public class GetCardInfoResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class CardInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4241463573323730942L;
@@ -120,7 +120,7 @@ public class GetCardInfoResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class CardItemRequired implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String IS_REQUIRED = "1";
@@ -149,7 +149,7 @@ public class GetCardInfoResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class CertificateTypeInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String HONG_KONG_AND_MACAO_PASS = "4";
@@ -182,17 +182,17 @@ public class GetCardInfoResponse implements IBeanResponse, Serializable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                long j = "1".equals(this.type) ? 2L : 1L;
+                long j2 = "1".equals(this.type) ? 2L : 1L;
                 if ("2".equals(this.type)) {
-                    j = 16;
+                    j2 = 16;
                 }
                 if ("3".equals(this.type)) {
-                    j = 4;
+                    j2 = 4;
                 }
                 if ("4".equals(this.type)) {
-                    j = 8;
+                    j2 = 8;
                 }
-                return new com.baidu.wallet.paysdk.a(j);
+                return new com.baidu.wallet.paysdk.a(j2);
             }
             return (com.baidu.wallet.paysdk.a) invokeV.objValue;
         }
@@ -220,7 +220,7 @@ public class GetCardInfoResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class ChannelInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1655363585956229526L;
@@ -261,7 +261,7 @@ public class GetCardInfoResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class ProtocolInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4330766379370170338L;
@@ -294,7 +294,7 @@ public class GetCardInfoResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class ProtocolItem implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1246105472340646254L;
@@ -317,7 +317,7 @@ public class GetCardInfoResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class SpInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4241462876393730942L;
@@ -354,7 +354,7 @@ public class GetCardInfoResponse implements IBeanResponse, Serializable {
         }
     }
 
-    @Override // com.baidu.apollon.beans.IBeanResponse
+    @Override // com.dxmpay.apollon.beans.IBeanResponse
     public boolean checkResponseValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -407,7 +407,7 @@ public class GetCardInfoResponse implements IBeanResponse, Serializable {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.apollon.beans.IBeanResponse
+    @Override // com.dxmpay.apollon.beans.IBeanResponse
     public void storeResponse(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {

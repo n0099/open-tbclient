@@ -5,12 +5,14 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
+import c.a.n0.a.f;
+import c.a.n0.a.k;
+import c.a.n0.a.v2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.FullScreenFloatView;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
@@ -21,14 +23,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.f;
-import d.a.o0.a.k;
-import d.a.o0.a.v2.n0;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class FloatButton extends FullScreenFloatView {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean s;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final boolean f46063f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,7 +45,7 @@ public class FloatButton extends FullScreenFloatView {
                 return;
             }
         }
-        s = k.f46335a;
+        f46063f = k.f6803a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,20 +69,20 @@ public class FloatButton extends FullScreenFloatView {
         }
     }
 
-    private void d(float f2, float f3) {
+    private void b(float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.f11354e == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.mFloatImgView == null) {
             return;
         }
-        if (s) {
-            Log.e("FloatButton", "move--> x = " + f2 + ", y = " + f3);
+        if (f46063f) {
+            String str = "move--> x = " + f2 + ", y = " + f3;
         }
-        int i2 = this.f11355f;
+        int i2 = this.mFloatViewWidth;
         int i3 = (int) (f2 - (i2 / 2));
-        int i4 = this.f11356g;
+        int i4 = this.mFloatViewHeight;
         int i5 = (int) (f3 - (i4 / 2));
-        int i6 = this.f11357h - i2;
-        int i7 = (this.f11358i - i4) - 168;
+        int i6 = this.mParentWidth - i2;
+        int i7 = (this.mParentHeight - i4) - 168;
         if (i3 <= 0) {
             i3 = 0;
         }
@@ -94,11 +95,11 @@ public class FloatButton extends FullScreenFloatView {
         if (i5 <= i7) {
             i7 = i5;
         }
-        if (s) {
-            Log.e("FloatButton", "move--> left = 0, top = 288, mStatusBarHeight = " + this.j);
+        if (f46063f) {
+            String str2 = "move--> left = 0, top = 288, mStatusBarHeight = " + this.mStatusBarHeight;
         }
-        this.f11354e.setX(i6);
-        this.f11354e.setY(i7);
+        this.mFloatImgView.setX(i6);
+        this.mFloatImgView.setY(i7);
         requestLayout();
     }
 
@@ -106,6 +107,7 @@ public class FloatButton extends FullScreenFloatView {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         FullScreenFloatView.c cVar;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
             float x = motionEvent.getX();
@@ -113,50 +115,49 @@ public class FloatButton extends FullScreenFloatView {
             Rect rect = new Rect();
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f11354e.getHitRect(rect);
+                this.mFloatImgView.getHitRect(rect);
                 if (rect.contains((int) x, (int) y)) {
-                    this.n = x;
-                    this.o = y;
-                    this.l = true;
-                    this.k = true;
-                    postDelayed(this.p, ViewConfiguration.getTapTimeout());
+                    this.mStartX = x;
+                    this.mStartY = y;
+                    this.mIsTouchDrag = true;
+                    this.mIsClickDrag = true;
+                    postDelayed(this.mCheckClick, ViewConfiguration.getTapTimeout());
                 }
             } else if (action == 1) {
-                if (this.k) {
-                    FullScreenFloatView.c cVar2 = this.q;
+                if (this.mIsClickDrag) {
+                    FullScreenFloatView.c cVar2 = this.mDragImageListener;
                     if (cVar2 != null) {
                         cVar2.onClick();
                     }
-                    removeCallbacks(this.p);
-                } else if (this.l && (cVar = this.q) != null) {
+                    removeCallbacks(this.mCheckClick);
+                } else if (this.mIsTouchDrag && (cVar = this.mDragImageListener) != null) {
                     cVar.a();
                 }
-                if (s) {
-                    Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.k);
+                if (f46063f) {
+                    r0 = "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.mIsClickDrag;
                 }
-                if (this.m && !this.k && x >= 0.0f) {
-                    int i2 = this.f11357h;
-                    if (x <= i2 && y >= 0.0f && y <= this.f11358i + this.f11356g) {
-                        this.f11354e.animate().x(i2 - this.f11355f).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+                if (this.mIsAutoAttachEnable && !this.mIsClickDrag && x >= 0.0f) {
+                    if (x <= this.mParentWidth && y >= 0.0f && y <= this.mParentHeight + this.mFloatViewHeight) {
+                        this.mFloatImgView.animate().x(i2 - this.mFloatViewWidth).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
                     }
                 }
-                this.k = false;
-                this.l = false;
+                this.mIsClickDrag = false;
+                this.mIsTouchDrag = false;
             } else if (action == 2) {
-                float abs = Math.abs(x - this.n);
-                float abs2 = Math.abs(y - this.o);
+                float abs = Math.abs(x - this.mStartX);
+                float abs2 = Math.abs(y - this.mStartY);
                 if (Math.sqrt((abs2 * abs2) + (abs * abs)) > 10.0d) {
-                    this.k = false;
+                    this.mIsClickDrag = false;
                 }
-                d(x, y);
+                b(x, y);
             } else if (action == 3) {
-                this.k = false;
-                this.l = false;
+                this.mIsClickDrag = false;
+                this.mIsTouchDrag = false;
             } else if (action == 4) {
-                this.k = false;
-                this.l = false;
+                this.mIsClickDrag = false;
+                this.mIsTouchDrag = false;
             }
-            return this.k | this.l;
+            return this.mIsClickDrag | this.mIsTouchDrag;
         }
         return invokeL.booleanValue;
     }
@@ -164,7 +165,7 @@ public class FloatButton extends FullScreenFloatView {
     public void setFloatButtonDefaultPosition() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            findViewById(f.float_imgview).setBottom(n0.K(191.0f));
+            findViewById(f.float_imgview).setBottom(n0.L(191.0f));
         }
     }
 

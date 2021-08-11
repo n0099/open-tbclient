@@ -19,15 +19,15 @@ import com.bytedance.sdk.openadsdk.multipro.aidl.a.c;
 import com.bytedance.sdk.openadsdk.multipro.aidl.a.d;
 import com.bytedance.sdk.openadsdk.multipro.aidl.a.e;
 import com.bytedance.sdk.openadsdk.multipro.aidl.a.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class BinderPoolService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Binder f31709a;
+    public Binder f67654a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a extends IBinderPool.Stub {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public class BinderPoolService extends Service {
                 return;
             }
         }
-        this.f31709a = new a();
+        this.f67654a = new a();
     }
 
     @Override // android.app.Service
@@ -96,7 +96,7 @@ public class BinderPoolService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
             k.b("MultiProcess", "BinderPoolService onBind ! ");
-            return this.f31709a;
+            return this.f67654a;
         }
         return (IBinder) invokeL.objValue;
     }

@@ -4,21 +4,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.eventbus.EventBus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.BaiduPayDelegate;
-import com.baidu.wallet.base.statistics.PayStatServiceEvent;
 import com.baidu.wallet.paysdk.contract.PayTypeContract;
 import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.baidu.wallet.paysdk.ui.PayTypeActivity;
 import com.baidu.wallet.paysdk.ui.widget.PayTypeItemView;
-import com.baidu.wallet.statistics.api.StatisticManager;
-import com.baidu.wallet.util.StatHelper;
-/* loaded from: classes5.dex */
+import com.dxmpay.apollon.eventbus.EventBus;
+import com.dxmpay.wallet.utils.StatHelper;
+/* loaded from: classes8.dex */
 public class PayTypePresenter extends PayTypeContract.Presenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PayTypePresenter";
@@ -64,7 +62,6 @@ public class PayTypePresenter extends PayTypeContract.Presenter {
             if (payTypeItemViewData.isChecked) {
                 this.mActivity.gotoOrderConfim();
             } else if (payTypeItemViewData.type == PayTypeItemView.ItemViewType.ADD_NEWCARD) {
-                StatisticManager.onEventWithValue(PayStatServiceEvent.PAY_BIND_CARD_ENTER, StatHelper.getOrderNo());
                 StatHelper.cachePayType(0);
                 StatHelper.cachePayWay(4);
                 this.mActivity.gotoPwdPay(true);

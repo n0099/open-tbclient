@@ -11,22 +11,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a resultData;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f18664a;
+        public int f53971a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18665b;
+        public String f53972b;
 
         public a(SetPrivilegeHttpResponseMessage setPrivilegeHttpResponseMessage) {
             Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
                     return;
                 }
             }
-            this.f18665b = null;
+            this.f53972b = null;
         }
 
         public void a(JSONObject jSONObject) throws Exception {
@@ -51,13 +51,13 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f18664a = jSONObject.optInt("error_code");
+            this.f53971a = jSONObject.optInt("error_code");
             jSONObject.optString("error_msg");
-            this.f18665b = jSONObject.optString("field_text");
+            this.f53972b = jSONObject.optString("field_text");
             jSONObject.optString("left_button");
             jSONObject.optString("right_button");
-            if (this.f18664a == 0) {
-                StringUtils.isNull(this.f18665b);
+            if (this.f53971a == 0) {
+                StringUtils.isNull(this.f53972b);
             }
         }
     }

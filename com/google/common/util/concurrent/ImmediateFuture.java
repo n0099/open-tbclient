@@ -1,5 +1,6 @@
 package com.google.common.util.concurrent;
 
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,19 +10,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.util.concurrent.AbstractFuture;
-import d.f.d.a.n;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class ImmediateFuture<V> implements ListenableFuture<V> {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger log;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class ImmediateCancelledFuture<V> extends AbstractFuture.TrustedFuture<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public abstract class ImmediateFuture<V> implements ListenableFuture<V> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class ImmediateFailedFuture<V> extends AbstractFuture.TrustedFuture<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public abstract class ImmediateFuture<V> implements ListenableFuture<V> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class ImmediateSuccessfulFuture<V> extends ImmediateFuture<V> {
         public static /* synthetic */ Interceptable $ic;
         public static final ImmediateSuccessfulFuture<Object> NULL;
@@ -185,10 +185,10 @@ public abstract class ImmediateFuture<V> implements ListenableFuture<V> {
     public abstract V get() throws ExecutionException;
 
     @Override // java.util.concurrent.Future
-    public V get(long j, TimeUnit timeUnit) throws ExecutionException {
+    public V get(long j2, TimeUnit timeUnit) throws ExecutionException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j, timeUnit)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j2, timeUnit)) == null) {
             n.p(timeUnit);
             return get();
         }

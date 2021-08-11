@@ -1,7 +1,6 @@
 package androidx.transition;
 
 import android.animation.LayoutTransition;
-import android.util.Log;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +47,6 @@ public class ViewGroupUtilsApi14 {
                     sCancelMethod = declaredMethod;
                     declaredMethod.setAccessible(true);
                 } catch (NoSuchMethodException unused) {
-                    Log.i(TAG, "Failed to access cancel method by reflection");
                 }
                 sCancelMethodFetched = true;
             }
@@ -56,28 +54,18 @@ public class ViewGroupUtilsApi14 {
             if (method != null) {
                 try {
                     method.invoke(layoutTransition, new Object[0]);
-                } catch (IllegalAccessException unused2) {
-                    Log.i(TAG, "Failed to access cancel method by reflection");
-                } catch (InvocationTargetException unused3) {
-                    Log.i(TAG, "Failed to invoke cancel method by reflection");
+                } catch (IllegalAccessException | InvocationTargetException unused2) {
                 }
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0085  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x0092  */
-    /* JADX WARN: Removed duplicated region for block: B:49:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static void suppressLayout(@NonNull ViewGroup viewGroup, boolean z) {
-        LayoutTransition layoutTransition;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65538, null, viewGroup, z) == null) {
             boolean z2 = false;
             if (sEmptyLayoutTransition == null) {
-                LayoutTransition layoutTransition2 = new LayoutTransition() { // from class: androidx.transition.ViewGroupUtilsApi14.1
+                LayoutTransition layoutTransition = new LayoutTransition() { // from class: androidx.transition.ViewGroupUtilsApi14.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,21 +93,21 @@ public class ViewGroupUtilsApi14 {
                         return invokeV.booleanValue;
                     }
                 };
-                sEmptyLayoutTransition = layoutTransition2;
-                layoutTransition2.setAnimator(2, null);
+                sEmptyLayoutTransition = layoutTransition;
+                layoutTransition.setAnimator(2, null);
                 sEmptyLayoutTransition.setAnimator(0, null);
                 sEmptyLayoutTransition.setAnimator(1, null);
                 sEmptyLayoutTransition.setAnimator(3, null);
                 sEmptyLayoutTransition.setAnimator(4, null);
             }
             if (z) {
-                LayoutTransition layoutTransition3 = viewGroup.getLayoutTransition();
-                if (layoutTransition3 != null) {
-                    if (layoutTransition3.isRunning()) {
-                        cancelLayoutTransition(layoutTransition3);
+                LayoutTransition layoutTransition2 = viewGroup.getLayoutTransition();
+                if (layoutTransition2 != null) {
+                    if (layoutTransition2.isRunning()) {
+                        cancelLayoutTransition(layoutTransition2);
                     }
-                    if (layoutTransition3 != sEmptyLayoutTransition) {
-                        viewGroup.setTag(R.id.transition_layout_save, layoutTransition3);
+                    if (layoutTransition2 != sEmptyLayoutTransition) {
+                        viewGroup.setTag(R.id.transition_layout_save, layoutTransition2);
                     }
                 }
                 viewGroup.setLayoutTransition(sEmptyLayoutTransition);
@@ -132,7 +120,6 @@ public class ViewGroupUtilsApi14 {
                     sLayoutSuppressedField = declaredField;
                     declaredField.setAccessible(true);
                 } catch (NoSuchFieldException unused) {
-                    Log.i(TAG, "Failed to access mLayoutSuppressed field by reflection");
                 }
                 sLayoutSuppressedFieldFetched = true;
             }
@@ -144,13 +131,6 @@ public class ViewGroupUtilsApi14 {
                         try {
                             sLayoutSuppressedField.setBoolean(viewGroup, false);
                         } catch (IllegalAccessException unused2) {
-                            z2 = z3;
-                            Log.i(TAG, "Failed to get mLayoutSuppressed field by reflection");
-                            if (z2) {
-                            }
-                            layoutTransition = (LayoutTransition) viewGroup.getTag(R.id.transition_layout_save);
-                            if (layoutTransition == null) {
-                            }
                         }
                     }
                     z2 = z3;
@@ -160,10 +140,10 @@ public class ViewGroupUtilsApi14 {
             if (z2) {
                 viewGroup.requestLayout();
             }
-            layoutTransition = (LayoutTransition) viewGroup.getTag(R.id.transition_layout_save);
-            if (layoutTransition == null) {
+            LayoutTransition layoutTransition3 = (LayoutTransition) viewGroup.getTag(R.id.transition_layout_save);
+            if (layoutTransition3 != null) {
                 viewGroup.setTag(R.id.transition_layout_save, null);
-                viewGroup.setLayoutTransition(layoutTransition);
+                viewGroup.setLayoutTransition(layoutTransition3);
             }
         }
     }

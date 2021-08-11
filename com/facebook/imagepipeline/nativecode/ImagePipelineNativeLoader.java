@@ -11,7 +11,7 @@ import com.facebook.common.soloader.SoLoaderProxy;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ImagePipelineNativeLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final List<String> DEPENDENCIES;

@@ -7,8 +7,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class BannerConfigItem {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,7 +18,7 @@ public class BannerConfigItem {
     public int type;
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class BannerInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +45,7 @@ public class BannerConfigItem {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "BannerInfo{id=" + this.id + ", imageUrl=" + this.imageUrl + ", jumpType=" + this.jumpType + ", jumpData='" + this.jumpData + "'}";
+                return "BannerInfo{id=" + this.id + ", imageUrl=" + this.imageUrl + ", jumpType=" + this.jumpType + ", jumpData='" + this.jumpData + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }

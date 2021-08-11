@@ -6,7 +6,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +21,6 @@ import com.baidu.mobads.container.util.ScreenUtils;
 import com.baidu.mobads.container.video.ICustomVideoView;
 import com.baidu.mobads.container.widget.player.AdVideoView;
 import com.baidu.mobads.container.widget.player.AdVideoViewListener;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class LPVideoLayout extends RelativeLayout implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, View.OnTouchListener, ILpVideoLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUTTON_MARGIN = 15;
@@ -197,20 +195,20 @@ public class LPVideoLayout extends RelativeLayout implements View.OnClickListene
                         this.this$0.seekBar.setMax(duration);
                         this.this$0.seekBar.setProgress(lastPosition);
                         int i4 = duration / 1000;
-                        long j = i4 % 60;
-                        long j2 = (i4 / 60) % 60;
-                        long j3 = (i4 / 3600) % 24;
+                        long j2 = i4 % 60;
+                        long j3 = (i4 / 60) % 60;
+                        long j4 = (i4 / 3600) % 24;
                         if (lastPosition == 0) {
-                            if (j3 > 0) {
+                            if (j4 > 0) {
                                 this.this$0.textElapsed.setText("00:00:00");
                             } else {
                                 this.this$0.textElapsed.setText("00:00");
                             }
                         }
-                        if (j3 > 0) {
-                            this.this$0.textTotal.setText(String.format("%d:%02d:%02d", Long.valueOf(j3), Long.valueOf(j2), Long.valueOf(j)));
+                        if (j4 > 0) {
+                            this.this$0.textTotal.setText(String.format("%d:%02d:%02d", Long.valueOf(j4), Long.valueOf(j3), Long.valueOf(j2)));
                         } else {
-                            this.this$0.textTotal.setText(String.format("%02d:%02d", Long.valueOf(j2), Long.valueOf(j)));
+                            this.this$0.textTotal.setText(String.format("%02d:%02d", Long.valueOf(j3), Long.valueOf(j2)));
                         }
                     }
                     this.this$0.videoControlsView.setVisibility(0);
@@ -277,7 +275,6 @@ public class LPVideoLayout extends RelativeLayout implements View.OnClickListene
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            Log.d(TAG, "init");
             LPVideoControllerView lPVideoControllerView = new LPVideoControllerView(this.mViewContext);
             this.videoControlsView = lPVideoControllerView;
             lPVideoControllerView.setId(1);
@@ -380,13 +377,13 @@ public class LPVideoLayout extends RelativeLayout implements View.OnClickListene
         }
         this.seekBar.setProgress(currentPosition);
         int round = Math.round(currentPosition / 1000.0f);
-        long j = round % 60;
-        long j2 = (round / 60) % 60;
-        long j3 = (round / 3600) % 24;
-        if (j3 > 0) {
-            this.textElapsed.setText(String.format("%d:%02d:%02d", Long.valueOf(j3), Long.valueOf(j2), Long.valueOf(j)));
+        long j2 = round % 60;
+        long j3 = (round / 60) % 60;
+        long j4 = (round / 3600) % 24;
+        if (j4 > 0) {
+            this.textElapsed.setText(String.format("%d:%02d:%02d", Long.valueOf(j4), Long.valueOf(j3), Long.valueOf(j2)));
         } else {
-            this.textElapsed.setText(String.format("%02d:%02d", Long.valueOf(j2), Long.valueOf(j)));
+            this.textElapsed.setText(String.format("%02d:%02d", Long.valueOf(j3), Long.valueOf(j2)));
         }
     }
 
@@ -460,14 +457,12 @@ public class LPVideoLayout extends RelativeLayout implements View.OnClickListene
     }
 
     public void hideControls() {
+        LPVideoControllerView lPVideoControllerView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Log.d(TAG, "hideControls");
-            LPVideoControllerView lPVideoControllerView = this.videoControlsView;
-            if (lPVideoControllerView != null) {
-                lPVideoControllerView.setVisibility(4);
-            }
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (lPVideoControllerView = this.videoControlsView) == null) {
+            return;
         }
+        lPVideoControllerView.setVisibility(4);
     }
 
     @Override // android.view.View.OnClickListener
@@ -494,7 +489,6 @@ public class LPVideoLayout extends RelativeLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
             if (this.mPlayCompletion) {
-                Log.d(TAG, "onDetachedFromWindow END");
                 stopCounter();
             }
         }
@@ -512,7 +506,6 @@ public class LPVideoLayout extends RelativeLayout implements View.OnClickListene
     public void onProgressChanged(SeekBar seekBar, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{seekBar, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            Log.d(TAG, "onProgressChanged");
         }
     }
 
@@ -561,13 +554,9 @@ public class LPVideoLayout extends RelativeLayout implements View.OnClickListene
 
     @Override // com.baidu.mobads.container.video.ILpVideoLayout
     public void pause() {
+        AdVideoView adVideoView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            Log.d(TAG, "pause");
-            AdVideoView adVideoView = this.mAdVideoView;
-            if (adVideoView == null || !adVideoView.isPlaying()) {
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (adVideoView = this.mAdVideoView) != null && adVideoView.isPlaying()) {
             this.mAdVideoView.onPause();
             stopCounter();
             updateControls(true);
@@ -576,16 +565,14 @@ public class LPVideoLayout extends RelativeLayout implements View.OnClickListene
 
     @Override // com.baidu.mobads.container.video.ILpVideoLayout
     public void play() {
+        AdVideoView adVideoView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            Log.d(TAG, "start");
-            AdVideoView adVideoView = this.mAdVideoView;
-            if (adVideoView != null) {
-                adVideoView.startPlay(this.mVideoUrl);
-                startCounter();
-                updateControls(false);
-            }
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (adVideoView = this.mAdVideoView) == null) {
+            return;
         }
+        adVideoView.startPlay(this.mVideoUrl);
+        startCounter();
+        updateControls(false);
     }
 
     @Override // com.baidu.mobads.container.video.ILpVideoLayout
@@ -638,7 +625,6 @@ public class LPVideoLayout extends RelativeLayout implements View.OnClickListene
     public void showControls() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            Log.d(TAG, "showControls");
             LPVideoControllerView lPVideoControllerView = this.videoControlsView;
             if (lPVideoControllerView != null) {
                 lPVideoControllerView.setVisibility(0);
@@ -650,15 +636,13 @@ public class LPVideoLayout extends RelativeLayout implements View.OnClickListene
 
     public void stop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            Log.d(TAG, IntentConfig.STOP);
-            if (this.mAdVideoView != null) {
-                this.mActivity.getWindow().clearFlags(128);
-                this.mAdVideoView.stopAndRelease();
-                stopCounter();
-                updateControls(true);
-            }
+        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || this.mAdVideoView == null) {
+            return;
         }
+        this.mActivity.getWindow().clearFlags(128);
+        this.mAdVideoView.stopAndRelease();
+        stopCounter();
+        updateControls(true);
     }
 
     @Override // com.baidu.mobads.container.video.ILpVideoLayout

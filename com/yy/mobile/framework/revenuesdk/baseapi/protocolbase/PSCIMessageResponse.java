@@ -10,8 +10,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class PSCIMessageResponse extends ResponsePacket {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +79,7 @@ public class PSCIMessageResponse extends ResponsePacket {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "PSCIMessageResponse{result=" + this.result + ", cmd=" + this.cmd + ", appId=" + this.appId + ", version=" + this.version + ", seq=" + this.seq + ",responseJson=" + this.responseJson + '}';
+            return "PSCIMessageResponse{result=" + this.result + ", cmd=" + this.cmd + ", appId=" + this.appId + ", version=" + this.version + ", seq=" + this.seq + ",responseJson=" + this.responseJson + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.apollon.utils.DxmApplicationContextImpl;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.dto.WebLoginDTO;
@@ -23,7 +24,7 @@ import com.baidu.wallet.base.datamodel.AccountManager;
 import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.utils.JsonUtil;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class LoginImpl implements IWalletLoginListener, NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "LoginImpl";
@@ -63,7 +64,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
         if (context == null) {
             return;
         }
-        this.mContext = context.getApplicationContext();
+        this.mContext = DxmApplicationContextImpl.getApplicationContext(context);
     }
 
     private void loginBaidu(ILoginBackListener iLoginBackListener, String str) {
@@ -80,10 +81,10 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ILoginBackListener f25944a;
+                public final /* synthetic */ ILoginBackListener f61858a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LoginImpl f25945b;
+                public final /* synthetic */ LoginImpl f61859b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -100,8 +101,8 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                             return;
                         }
                     }
-                    this.f25945b = this;
-                    this.f25944a = iLoginBackListener;
+                    this.f61859b = this;
+                    this.f61858a = iLoginBackListener;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -110,7 +111,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                 public void onSuccess(WebAuthResult webAuthResult) {
                     ILoginBackListener iLoginBackListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, webAuthResult) == null) || (iLoginBackListener2 = this.f25944a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, webAuthResult) == null) || (iLoginBackListener2 = this.f61858a) == null) {
                         return;
                     }
                     iLoginBackListener2.onSuccess(0, "");
@@ -122,7 +123,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                 public void onFailure(WebAuthResult webAuthResult) {
                     ILoginBackListener iLoginBackListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) || (iLoginBackListener2 = this.f25944a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) || (iLoginBackListener2 = this.f61858a) == null) {
                         return;
                     }
                     iLoginBackListener2.onFail(webAuthResult.getResultCode(), webAuthResult.getResultMsg());
@@ -170,10 +171,10 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
     }
 
     @Override // com.baidu.wallet.api.IWalletLoginListener
-    public void getOpenBduss(boolean z, ILoginBackListener iLoginBackListener) {
+    public void getOpenBduss(boolean z, ILoginBackListener iLoginBackListener, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048580, this, z, iLoginBackListener) == null) {
-            PassLoginUtil.getInstance().getOpenBduss(z, iLoginBackListener);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), iLoginBackListener, Integer.valueOf(i2)}) == null) {
+            PassLoginUtil.getInstance().getOpenBduss(z, iLoginBackListener, i2);
         }
     }
 
@@ -181,13 +182,13 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
     public String getOpenLoginToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? PassLoginUtil.getInstance().getLoginOpenToken() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? PassLoginUtil.getInstance().getLoginOpenToken() : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.api.IWalletLoginListener
     public void handlerWalletError(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048582, this, i2) == null) && i2 == 5003) {
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i2) == null) && i2 == 5003) {
             PassLoginUtil.getInstance().logout();
             AccountManager.getInstance(this.mContext).logout();
         }
@@ -197,20 +198,20 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
     public boolean isLogin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? PassLoginUtil.getInstance().isLogin() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? PassLoginUtil.getInstance().isLogin() : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.api.IWalletLoginListener
     public boolean isPassLogin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? PassLoginUtil.getInstance().isPassLogin() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? PassLoginUtil.getInstance().isPassLogin() : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.api.IWalletHostListener
     public void login(ILoginBackListener iLoginBackListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, iLoginBackListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, iLoginBackListener) == null) {
             loginBaidu(iLoginBackListener, null);
         }
     }
@@ -218,7 +219,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
     @Override // com.baidu.wallet.api.IWalletLoginListener
     public void onLoginChanaged(Context context, Map map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048587, this, context, map) == null) && map == null) {
+        if ((interceptable == null || interceptable.invokeLL(1048588, this, context, map) == null) && map == null) {
             PassLoginUtil.getInstance().logout();
             AccountManager.getInstance(this.mContext).logout();
         }
@@ -228,17 +229,25 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
     public boolean startPage(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
             BaiduWalletDelegate.getInstance().openH5Module(this.mContext, str, true);
             return true;
         }
         return invokeL.booleanValue;
     }
 
+    @Override // com.baidu.wallet.api.IWalletLoginListener
+    public void getOpenBduss(boolean z, ILoginBackListener iLoginBackListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048580, this, z, iLoginBackListener) == null) {
+            getOpenBduss(z, iLoginBackListener, 0);
+        }
+    }
+
     @Override // com.baidu.wallet.api.IWalletHostListener2
     public void login(ILoginBackListener iLoginBackListener, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, iLoginBackListener, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048587, this, iLoginBackListener, str) == null) {
             loginBaidu(iLoginBackListener, str);
         }
     }

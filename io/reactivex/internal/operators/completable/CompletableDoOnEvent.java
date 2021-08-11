@@ -12,14 +12,14 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Consumer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class CompletableDoOnEvent extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Consumer<? super Throwable> onEvent;
     public final CompletableSource source;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final class DoOnEvent implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

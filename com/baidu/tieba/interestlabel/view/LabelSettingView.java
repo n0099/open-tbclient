@@ -8,6 +8,10 @@ import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.j;
+import c.a.o0.f0.g;
+import c.a.o0.f0.h;
+import c.a.o0.s.s.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -23,46 +27,44 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
-import d.a.p0.f0.g;
-import d.a.p0.f0.h;
-import d.a.p0.s.s.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LabelSettingView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18136e;
+    public int f53398e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f18137f;
+    public TbPageContext<?> f53399f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.q0.l1.c.a f18138g;
+    public c.a.p0.m1.c.a f53400g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NavigationBar f18139h;
+    public NavigationBar f53401h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f18140i;
-    public TextView j;
+    public View f53402i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public TextView f53403j;
     public NoNetworkView k;
     public GridLineView l;
     public g m;
     public h n;
-    public d.a.q0.l1.a.b o;
-    public d.a.p0.s.s.a p;
+    public c.a.p0.m1.a.b o;
+    public c.a.o0.s.s.a p;
     public boolean q;
     public NoNetworkView.b r;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements NoNetworkView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LabelSettingView f18141e;
+        public final /* synthetic */ LabelSettingView f53404e;
 
         public a(LabelSettingView labelSettingView) {
             Interceptable interceptable = $ic;
@@ -79,25 +81,25 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
                     return;
                 }
             }
-            this.f18141e = labelSettingView;
+            this.f53404e = labelSettingView;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-        public void b(boolean z) {
+        public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && this.f18141e.o.getCount() == 0 && this.f18141e.f18138g != null) {
-                this.f18141e.f18138g.getLabel();
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && this.f53404e.o.getCount() == 0 && this.f53404e.f53400g != null) {
+                this.f53404e.f53400g.getLabel();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LabelSettingView f18142e;
+        public final /* synthetic */ LabelSettingView f53405e;
 
         public b(LabelSettingView labelSettingView) {
             Interceptable interceptable = $ic;
@@ -114,26 +116,26 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
                     return;
                 }
             }
-            this.f18142e = labelSettingView;
+            this.f53405e = labelSettingView;
         }
 
-        @Override // d.a.p0.s.s.a.e
-        public void onClick(d.a.p0.s.s.a aVar) {
+        @Override // c.a.o0.s.s.a.e
+        public void onClick(c.a.o0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f18142e.f18137f.getPageActivity().finish();
+                this.f53405e.f53399f.getPageActivity().finish();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class c implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LabelSettingView f18143e;
+        public final /* synthetic */ LabelSettingView f53406e;
 
         public c(LabelSettingView labelSettingView) {
             Interceptable interceptable = $ic;
@@ -150,11 +152,11 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
                     return;
                 }
             }
-            this.f18143e = labelSettingView;
+            this.f53406e = labelSettingView;
         }
 
-        @Override // d.a.p0.s.s.a.e
-        public void onClick(d.a.p0.s.s.a aVar) {
+        @Override // c.a.o0.s.s.a.e
+        public void onClick(c.a.o0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -162,13 +164,13 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LabelSettingView f18144e;
+        public final /* synthetic */ LabelSettingView f53407e;
 
         public d(LabelSettingView labelSettingView) {
             Interceptable interceptable = $ic;
@@ -185,20 +187,20 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
                     return;
                 }
             }
-            this.f18144e = labelSettingView;
+            this.f53407e = labelSettingView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && j.A() && this.f18144e.f18138g != null) {
-                this.f18144e.f18138g.getLabel();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && j.A() && this.f53407e.f53400g != null) {
+                this.f53407e.f53400g.getLabel();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LabelSettingView(TbPageContext<?> tbPageContext, d.a.q0.l1.c.a aVar) {
+    public LabelSettingView(TbPageContext<?> tbPageContext, c.a.p0.m1.c.a aVar) {
         super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -215,40 +217,63 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
                 return;
             }
         }
-        this.f18136e = 3;
+        this.f53398e = 3;
         this.r = new a(this);
-        this.f18137f = tbPageContext;
-        this.f18138g = aVar;
-        i(tbPageContext.getPageActivity());
-        l();
+        this.f53399f = tbPageContext;
+        this.f53400g = aVar;
+        d(tbPageContext.getPageActivity());
+        onChangeSkinType();
     }
 
-    public void d(boolean z) {
+    public void changeCompleteStatu(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             this.q = z;
-            this.j.setSelected(z);
+            this.f53403j.setSelected(z);
         }
     }
 
-    public void e() {
+    public final void d(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.activity_label_setting_layout, (ViewGroup) this, true);
+            this.f53401h = (NavigationBar) findViewById(R.id.label_setting_navigation_bar_view);
+            this.k = (NoNetworkView) findViewById(R.id.label_setting_no_network_view);
+            this.l = (GridLineView) findViewById(R.id.label_setting_gridview);
+            this.f53401h.setTitleText(context.getString(R.string.choose_interest_label));
+            this.f53402i = this.f53401h.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
+            this.f53403j = (TextView) this.f53401h.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.item_label_setting_nav_complete, this);
+            this.k.addNetworkChangeListener(this.r);
+            c.a.o0.s.s.a aVar = new c.a.o0.s.s.a(this.f53399f.getPageActivity());
+            this.p = aVar;
+            aVar.setMessage(this.f53399f.getString(R.string.confirm_give_up_label));
+            this.p.setPositiveButton(this.f53399f.getString(R.string.alert_yes_button), new b(this));
+            this.p.setNegativeButton(this.f53399f.getString(R.string.cancel), new c(this));
+            this.p.create(this.f53399f);
+            c.a.p0.m1.a.b bVar = new c.a.p0.m1.a.b(this);
+            this.o = bVar;
+            this.l.setAdapter((ListAdapter) bVar);
+        }
+    }
+
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             NoNetworkView noNetworkView = this.k;
             if (noNetworkView != null) {
-                noNetworkView.d(this.r);
+                noNetworkView.removeNetworkChangeListener(this.r);
             }
             this.p.dismiss();
-            g();
-            h();
+            hideLoadingView();
+            hideNetRefreshView();
         }
     }
 
-    public boolean f() {
+    public boolean hasChangeLabel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            d.a.q0.l1.a.b bVar = this.o;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            c.a.p0.m1.a.b bVar = this.o;
             if (bVar == null) {
                 return false;
             }
@@ -257,50 +282,27 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
         return invokeV.booleanValue;
     }
 
-    public void g() {
+    public void hideLoadingView() {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (gVar = this.m) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (gVar = this.m) == null) {
             return;
         }
         gVar.dettachView(this);
         this.m = null;
     }
 
-    public void h() {
+    public void hideNetRefreshView() {
         h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (hVar = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (hVar = this.n) == null) {
             return;
         }
         hVar.dettachView(this);
         this.n = null;
     }
 
-    public final void i(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.activity_label_setting_layout, (ViewGroup) this, true);
-            this.f18139h = (NavigationBar) findViewById(R.id.label_setting_navigation_bar_view);
-            this.k = (NoNetworkView) findViewById(R.id.label_setting_no_network_view);
-            this.l = (GridLineView) findViewById(R.id.label_setting_gridview);
-            this.f18139h.setTitleText(context.getString(R.string.choose_interest_label));
-            this.f18140i = this.f18139h.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
-            this.j = (TextView) this.f18139h.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.item_label_setting_nav_complete, this);
-            this.k.a(this.r);
-            d.a.p0.s.s.a aVar = new d.a.p0.s.s.a(this.f18137f.getPageActivity());
-            this.p = aVar;
-            aVar.setMessage(this.f18137f.getString(R.string.confirm_give_up_label));
-            this.p.setPositiveButton(this.f18137f.getString(R.string.alert_yes_button), new b(this));
-            this.p.setNegativeButton(this.f18137f.getString(R.string.cancel), new c(this));
-            this.p.create(this.f18137f);
-            d.a.q0.l1.a.b bVar = new d.a.q0.l1.a.b(this);
-            this.o = bVar;
-            this.l.setAdapter((ListAdapter) bVar);
-        }
-    }
-
-    public boolean j() {
+    public boolean isLoadingViewShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -313,7 +315,7 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
         return invokeV.booleanValue;
     }
 
-    public boolean k() {
+    public boolean isRefreshViewShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -326,30 +328,30 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
         return invokeV.booleanValue;
     }
 
-    public void l() {
+    public void onChangeSkinType() {
         int skinType;
         NoNetworkView noNetworkView;
         NavigationBar navigationBar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f18136e) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f53398e) {
             return;
         }
-        this.f18136e = skinType;
-        TbPageContext<?> tbPageContext = this.f18137f;
-        if (tbPageContext != null && (navigationBar = this.f18139h) != null) {
+        this.f53398e = skinType;
+        TbPageContext<?> tbPageContext = this.f53399f;
+        if (tbPageContext != null && (navigationBar = this.f53401h) != null) {
             navigationBar.onChangeSkinType(tbPageContext, skinType);
         }
-        TextView textView = this.j;
+        TextView textView = this.f53403j;
         if (textView != null) {
             SkinManager.setViewTextColor(textView, R.drawable.color_nav_complete_selector);
         }
-        TbPageContext<?> tbPageContext2 = this.f18137f;
+        TbPageContext<?> tbPageContext2 = this.f53399f;
         if (tbPageContext2 != null && (noNetworkView = this.k) != null) {
-            noNetworkView.c(tbPageContext2, this.f18136e);
+            noNetworkView.onChangeSkinType(tbPageContext2, this.f53398e);
         }
         GridLineView gridLineView = this.l;
         if (gridLineView != null) {
-            gridLineView.d();
+            gridLineView.onChangeSkinType();
         }
         g gVar = this.m;
         if (gVar != null) {
@@ -359,23 +361,59 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
         if (hVar != null) {
             hVar.onChangeSkinType();
         }
-        d.a.q0.l1.a.b bVar = this.o;
+        c.a.p0.m1.a.b bVar = this.o;
         if (bVar != null) {
             bVar.notifyDataSetChanged();
         }
-        setBackgroundColor(SkinManager.getColor(this.f18136e, R.color.CAM_X0205));
+        setBackgroundColor(SkinManager.getColor(this.f53398e, R.color.CAM_X0205));
     }
 
-    public void m() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
+            if (view == this.f53402i) {
+                if (hasChangeLabel()) {
+                    showDialog();
+                } else {
+                    this.f53399f.getPageActivity().finish();
+                }
+            } else if (view == this.f53403j && this.f53400g != null && this.q) {
+                TiebaStatic.log(new StatisticItem("c12237").param("uid", TbadkCoreApplication.getCurrentAccount()));
+                this.f53400g.subLabel(this.o.g());
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            destroy();
+            super.onDetachedFromWindow();
+        }
+    }
+
+    public void setData(c.a.p0.m1.b.b bVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) || bVar == null || ListUtils.isEmpty(bVar.b())) {
+            return;
+        }
+        this.l.setVisibility(0);
+        this.o.h(bVar);
+        this.o.notifyDataSetChanged();
+    }
+
+    public void showDialog() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             this.p.show();
         }
     }
 
-    public void n(boolean z) {
+    public void showLoadingView(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || j()) {
+        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || isLoadingViewShowing()) {
             return;
         }
         if (this.m == null) {
@@ -386,53 +424,17 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
         this.m.attachView(this, z);
     }
 
-    public void o(boolean z) {
+    public void showNetRefreshView(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || k()) {
+        if (!(interceptable == null || interceptable.invokeZ(1048590, this, z) == null) || isRefreshViewShowing()) {
             return;
         }
         if (this.n == null) {
             this.n = new h(getContext(), new d(this));
         }
-        this.n.j(this.f18137f.getResources().getDimensionPixelSize(R.dimen.ds380));
+        this.n.j(this.f53399f.getResources().getDimensionPixelSize(R.dimen.ds380));
         this.n.attachView(this, z);
         this.n.o();
         this.l.setVisibility(8);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, view) == null) {
-            if (view == this.f18140i) {
-                if (f()) {
-                    m();
-                } else {
-                    this.f18137f.getPageActivity().finish();
-                }
-            } else if (view == this.j && this.f18138g != null && this.q) {
-                TiebaStatic.log(new StatisticItem("c12237").param("uid", TbadkCoreApplication.getCurrentAccount()));
-                this.f18138g.subLabel(this.o.g());
-            }
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            e();
-            super.onDetachedFromWindow();
-        }
-    }
-
-    public void setData(d.a.q0.l1.b.b bVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, bVar) == null) || bVar == null || ListUtils.isEmpty(bVar.b())) {
-            return;
-        }
-        this.l.setVisibility(0);
-        this.o.h(bVar);
-        this.o.notifyDataSetChanged();
     }
 }

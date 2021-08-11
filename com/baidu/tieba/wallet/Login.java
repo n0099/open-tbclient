@@ -1,6 +1,7 @@
 package com.baidu.tieba.wallet;
 
 import android.content.Context;
+import c.a.o0.m.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -18,8 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.ILoginBackListener;
 import com.baidu.wallet.api.IWalletListener;
-import d.a.p0.m.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class Login extends LightAppListenerImpl implements IWalletListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

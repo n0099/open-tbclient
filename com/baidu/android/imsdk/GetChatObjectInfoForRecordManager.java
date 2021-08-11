@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class GetChatObjectInfoForRecordManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int RETRYTIMES = 2;
@@ -114,11 +114,11 @@ public class GetChatObjectInfoForRecordManager {
             }
 
             @Override // com.baidu.android.imsdk.CallBack
-            public void onError(int i2, int i3, long j) {
+            public void onError(int i2, int i3, long j2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
                     String str = GetChatObjectInfoForRecordManager.TAG;
-                    LogUtils.i(str, "testsession callback type ," + i2 + " ,category :" + i3 + ", contacterId" + j);
+                    LogUtils.i(str, "testsession callback type ," + i2 + " ,category :" + i3 + ", contacterId" + j2);
                     if (i3 == 0 && i2 == 10) {
                         this.val$handler.updateChatRecord(this.val$fChatObject, Utility.createAnonyMousUserName(null), 0, "", 0, "", "", 0, 0, 0L, 0, 0L, "", "", "");
                         return;
@@ -149,12 +149,12 @@ public class GetChatObjectInfoForRecordManager {
         });
     }
 
-    public static Object newInstance(Context context, int i2, long j, int i3) {
+    public static Object newInstance(Context context, int i2, long j2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3)})) == null) {
             if (i2 == 0) {
-                if ((j & Constants.PAFLAG) == 0) {
+                if ((j2 & Constants.PAFLAG) == 0) {
                     return newInstance(context, i2, 0);
                 }
                 return newInstance(context, i2, 1);

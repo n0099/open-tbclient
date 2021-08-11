@@ -4,9 +4,7 @@ import android.app.Application;
 import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.biometrics.face.liveness.b.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +16,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Set;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class CmdRouter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ROUTE_ROOT_PAKCAGE = "com.baidu.tieba.route";
@@ -88,7 +86,6 @@ public class CmdRouter {
                 loadInfo();
             } catch (Exception e2) {
                 e2.printStackTrace();
-                Log.e("CmdRouter", "初始化失败!", e2);
             }
         }
     }
@@ -105,20 +102,19 @@ public class CmdRouter {
                 declaredField.setAccessible(true);
                 tiebaCmdClassesArray.cmdClassesArray = (String[]) declaredField.get(newInstance);
             } catch (Exception e2) {
-                Log.e("cmdClassesArray: ", a.g0);
                 e2.printStackTrace();
             }
-            Log.e("cmdClassesArray: ", "" + tiebaCmdClassesArray.cmdClassesArray.length);
+            String str = "" + tiebaCmdClassesArray.cmdClassesArray.length;
             if (tiebaCmdClassesArray.loadCmdClasses().size() == 0) {
                 loadCmdClasses = ClassUtils.getFileNameByPackageName(mContext, ROUTE_ROOT_PAKCAGE);
             } else {
                 loadCmdClasses = tiebaCmdClassesArray.loadCmdClasses();
             }
-            Log.e("CmdRouter", loadCmdClasses.toString());
-            for (String str : loadCmdClasses) {
-                if (str.startsWith("com.baidu.tieba.route.")) {
-                    cmdMaps.addAll(((ICmdRouter) Class.forName(str).getConstructor(new Class[0]).newInstance(new Object[0])).getCmdRouterMap());
-                    configMaps.addAll(((ICmdRouter) Class.forName(str).getConstructor(new Class[0]).newInstance(new Object[0])).getConfigRouterMap());
+            loadCmdClasses.toString();
+            for (String str2 : loadCmdClasses) {
+                if (str2.startsWith("com.baidu.tieba.route.")) {
+                    cmdMaps.addAll(((ICmdRouter) Class.forName(str2).getConstructor(new Class[0]).newInstance(new Object[0])).getCmdRouterMap());
+                    configMaps.addAll(((ICmdRouter) Class.forName(str2).getConstructor(new Class[0]).newInstance(new Object[0])).getConfigRouterMap());
                 }
             }
         }

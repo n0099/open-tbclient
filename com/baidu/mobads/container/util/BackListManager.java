@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BackListManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BackListManager";
@@ -20,7 +20,7 @@ public class BackListManager {
     public int mCurrentIndex;
     public WebView mView;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class BackRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

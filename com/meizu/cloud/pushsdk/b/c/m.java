@@ -9,23 +9,23 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f37417a = new byte[0];
+    public static final byte[] f74259a = new byte[0];
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f37418b = new String[0];
+    public static final String[] f74260b = new String[0];
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Charset f37419c = Charset.forName("UTF-8");
+    public static final Charset f74261c = Charset.forName("UTF-8");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final TimeZone f37420d = TimeZone.getTimeZone("GMT");
+    public static final TimeZone f74262d = TimeZone.getTimeZone("GMT");
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f37421e = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    public static final Pattern f74263e = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
 
     public static int a(String str, int i2, int i3) {
         while (i2 < i3) {
@@ -77,8 +77,8 @@ public class m {
         return Collections.unmodifiableList(new ArrayList(list));
     }
 
-    public static void a(long j, long j2, long j3) {
-        if ((j2 | j3) < 0 || j2 > j || j - j2 < j3) {
+    public static void a(long j2, long j3, long j4) {
+        if ((j3 | j4) < 0 || j3 > j2 || j2 - j3 < j4) {
             throw new ArrayIndexOutOfBoundsException();
         }
     }

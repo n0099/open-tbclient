@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class MemoryUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 8192;

@@ -20,7 +20,7 @@ import java.util.Date;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class MediaHeaderBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "mdhd";
@@ -204,11 +204,11 @@ public class MediaHeaderBox extends AbstractFullBox {
         }
     }
 
-    public void setDuration(long j) {
+    public void setDuration(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this, Conversions.longObject(j)));
-            this.duration = j;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this, Conversions.longObject(j2)));
+            this.duration = j2;
         }
     }
 
@@ -228,11 +228,11 @@ public class MediaHeaderBox extends AbstractFullBox {
         }
     }
 
-    public void setTimescale(long j) {
+    public void setTimescale(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.longObject(j)));
-            this.timescale = j;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.longObject(j2)));
+            this.timescale = j2;
         }
     }
 

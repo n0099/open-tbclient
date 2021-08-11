@@ -13,6 +13,7 @@ import com.baidu.ar.callback.IError;
 import com.baidu.ar.ihttp.IProgressCallback;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +23,7 @@ import com.qq.e.comm.constants.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class d implements com.baidu.ar.lua.c, IStepLoading {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -225,7 +226,7 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
         if ((interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) && this.xE && !TextUtils.isEmpty(this.xD)) {
             this.xE = false;
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("id", 3021);
+            hashMap.put("id", Integer.valueOf((int) SpeedStatsStampTable.CHECK_REAL_NAME_END_STAMP_KEY));
             hashMap.put("if_download", 0);
             hashMap.put("download_batchid", this.xD);
             ARPMessage.getInstance().sendMessage(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);
@@ -263,7 +264,7 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.xE && !TextUtils.isEmpty(this.xD)) {
             this.xE = false;
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("id", 3021);
+            hashMap.put("id", Integer.valueOf((int) SpeedStatsStampTable.CHECK_REAL_NAME_END_STAMP_KEY));
             hashMap.put("if_download", 1);
             hashMap.put("download_batchid", this.xD);
             ARPMessage.getInstance().sendMessage(ARPMessageType.MSG_TYPE_SDK_LUA_BRIDGE, hashMap);

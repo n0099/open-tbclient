@@ -1011,7 +1011,7 @@ public abstract class FragmentManager {
             Fragment fragment = fragmentStateManager.getFragment();
             if (this.mFragmentStore.containsActiveFragment(fragment.mWho)) {
                 if (isLoggingEnabled(2)) {
-                    Log.v("FragmentManager", "Removed fragment from active set " + fragment);
+                    String str = "Removed fragment from active set " + fragment;
                 }
                 this.mFragmentStore.makeInactive(fragmentStateManager);
                 removeRetainedFragment(fragment);
@@ -1153,22 +1153,16 @@ public abstract class FragmentManager {
     private void throwException(RuntimeException runtimeException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65572, this, runtimeException) == null) {
-            Log.e("FragmentManager", runtimeException.getMessage());
-            Log.e("FragmentManager", "Activity state:");
+            runtimeException.getMessage();
             PrintWriter printWriter = new PrintWriter(new LogWriter("FragmentManager"));
             FragmentHostCallback<?> fragmentHostCallback = this.mHost;
-            if (fragmentHostCallback != null) {
-                try {
+            try {
+                if (fragmentHostCallback != null) {
                     fragmentHostCallback.onDump(GlideException.IndentedAppendable.INDENT, null, printWriter, new String[0]);
-                } catch (Exception e2) {
-                    Log.e("FragmentManager", "Failed dumping state", e2);
-                }
-            } else {
-                try {
+                } else {
                     dump(GlideException.IndentedAppendable.INDENT, null, printWriter, new String[0]);
-                } catch (Exception e3) {
-                    Log.e("FragmentManager", "Failed dumping state", e3);
                 }
+            } catch (Exception unused) {
             }
             throw runtimeException;
         }
@@ -1212,7 +1206,7 @@ public abstract class FragmentManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fragment) == null) {
             if (isLoggingEnabled(2)) {
-                Log.v("FragmentManager", "add: " + fragment);
+                String str = "add: " + fragment;
             }
             makeActive(fragment);
             if (fragment.mDetached) {
@@ -1243,11 +1237,9 @@ public abstract class FragmentManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fragment) == null) {
             if (isStateSaved()) {
-                if (isLoggingEnabled(2)) {
-                    Log.v("FragmentManager", "Ignoring addRetainedFragment as the state is already saved");
-                }
+                isLoggingEnabled(2);
             } else if (this.mNonConfig.addRetainedFragment(fragment) && isLoggingEnabled(2)) {
-                Log.v("FragmentManager", "Updating retained Fragments: Added " + fragment);
+                String str = "Updating retained Fragments: Added " + fragment;
             }
         }
     }
@@ -1298,7 +1290,7 @@ public abstract class FragmentManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, fragment) == null) {
             if (isLoggingEnabled(2)) {
-                Log.v("FragmentManager", "attach: " + fragment);
+                String str = "attach: " + fragment;
             }
             if (fragment.mDetached) {
                 fragment.mDetached = false;
@@ -1307,7 +1299,7 @@ public abstract class FragmentManager {
                 }
                 this.mFragmentStore.addFragment(fragment);
                 if (isLoggingEnabled(2)) {
-                    Log.v("FragmentManager", "add from attach: " + fragment);
+                    String str2 = "add from attach: " + fragment;
                 }
                 if (isMenuAvailable(fragment)) {
                     this.mNeedMenuInvalidate = true;
@@ -1381,7 +1373,7 @@ public abstract class FragmentManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, fragment) == null) {
             if (isLoggingEnabled(2)) {
-                Log.v("FragmentManager", "detach: " + fragment);
+                String str = "detach: " + fragment;
             }
             if (fragment.mDetached) {
                 return;
@@ -1389,7 +1381,7 @@ public abstract class FragmentManager {
             fragment.mDetached = true;
             if (fragment.mAdded) {
                 if (isLoggingEnabled(2)) {
-                    Log.v("FragmentManager", "remove from detach: " + fragment);
+                    String str2 = "remove from detach: " + fragment;
                 }
                 this.mFragmentStore.removeFragment(fragment);
                 if (isMenuAvailable(fragment)) {
@@ -1938,7 +1930,7 @@ public abstract class FragmentManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048628, this, fragment) == null) {
             if (isLoggingEnabled(2)) {
-                Log.v("FragmentManager", "hide: " + fragment);
+                String str = "hide: " + fragment;
             }
             if (fragment.mHidden) {
                 return;
@@ -1998,7 +1990,7 @@ public abstract class FragmentManager {
         }
         fragmentStateManager.setFragmentManagerState(this.mCurState);
         if (isLoggingEnabled(2)) {
-            Log.v("FragmentManager", "Added fragment to active set " + fragment);
+            String str = "Added fragment to active set " + fragment;
         }
     }
 
@@ -2007,7 +1999,7 @@ public abstract class FragmentManager {
         if (interceptable == null || interceptable.invokeL(1048634, this, fragment) == null) {
             if (!this.mFragmentStore.containsActiveFragment(fragment.mWho)) {
                 if (isLoggingEnabled(3)) {
-                    Log.d("FragmentManager", "Ignoring moving " + fragment + " to state " + this.mCurState + "since it is not added to " + this);
+                    String str = "Ignoring moving " + fragment + " to state " + this.mCurState + "since it is not added to " + this;
                     return;
                 }
                 return;
@@ -2050,14 +2042,14 @@ public abstract class FragmentManager {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0042, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0040, code lost:
         if (r2 != 3) goto L20;
      */
-    /* JADX WARN: Removed duplicated region for block: B:127:0x01f3  */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00ea  */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x00ef  */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00fc  */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x0101  */
+    /* JADX WARN: Removed duplicated region for block: B:127:0x01e9  */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00e4  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00e9  */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00f6  */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x00fb  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -2107,7 +2099,7 @@ public abstract class FragmentManager {
                     }
                 } else if (min > -1) {
                     if (isLoggingEnabled(3)) {
-                        Log.d("FragmentManager", "moveto ATTACHED: " + fragment);
+                        String str = "moveto ATTACHED: " + fragment;
                     }
                     Fragment fragment2 = fragment.mTarget;
                     if (fragment2 != null) {
@@ -2122,9 +2114,9 @@ public abstract class FragmentManager {
                             throw new IllegalStateException("Fragment " + fragment + " declared target fragment " + fragment.mTarget + " that does not belong to this FragmentManager!");
                         }
                     }
-                    String str = fragment.mTargetWho;
-                    if (str != null) {
-                        Fragment findActiveFragment2 = findActiveFragment(str);
+                    String str2 = fragment.mTargetWho;
+                    if (str2 != null) {
+                        Fragment findActiveFragment2 = findActiveFragment(str2);
                         if (findActiveFragment2 != null) {
                             if (findActiveFragment2.mState < 1) {
                                 moveToState(findActiveFragment2, 1);
@@ -2164,7 +2156,7 @@ public abstract class FragmentManager {
                         }
                         if (min < 2) {
                             if (isLoggingEnabled(3)) {
-                                Log.d("FragmentManager", "movefrom ACTIVITY_CREATED: " + fragment);
+                                String str3 = "movefrom ACTIVITY_CREATED: " + fragment;
                             }
                             if (fragment.mView != null && this.mHost.onShouldSaveFragmentState(fragment) && fragment.mSavedViewState == null) {
                                 fragmentStateManager.saveViewState();
@@ -2202,8 +2194,8 @@ public abstract class FragmentManager {
                             z = true;
                         }
                         if (!z && !this.mNonConfig.shouldDestroy(fragment)) {
-                            String str2 = fragment.mTargetWho;
-                            if (str2 != null && (findActiveFragment = findActiveFragment(str2)) != null && findActiveFragment.getRetainInstance()) {
+                            String str4 = fragment.mTargetWho;
+                            if (str4 != null && (findActiveFragment = findActiveFragment(str4)) != null && findActiveFragment.getRetainInstance()) {
                                 fragment.mTarget = findActiveFragment;
                             }
                         } else {
@@ -2227,7 +2219,7 @@ public abstract class FragmentManager {
             }
             if (fragment.mState != min) {
                 if (isLoggingEnabled(3)) {
-                    Log.d("FragmentManager", "moveToState: Fragment state for " + fragment + " not updated inline; expected state " + min + " found " + fragment.mState);
+                    String str5 = "moveToState: Fragment state for " + fragment + " not updated inline; expected state " + min + " found " + fragment.mState;
                 }
                 fragment.mState = min;
             }
@@ -2374,7 +2366,7 @@ public abstract class FragmentManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048651, this, fragment) == null) {
             if (isLoggingEnabled(2)) {
-                Log.v("FragmentManager", "remove: " + fragment + " nesting=" + fragment.mBackStackNesting);
+                String str = "remove: " + fragment + " nesting=" + fragment.mBackStackNesting;
             }
             boolean z = !fragment.isInBackStack();
             if (!fragment.mDetached || z) {
@@ -2401,11 +2393,9 @@ public abstract class FragmentManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048653, this, fragment) == null) {
             if (isStateSaved()) {
-                if (isLoggingEnabled(2)) {
-                    Log.v("FragmentManager", "Ignoring removeRetainedFragment as the state is already saved");
-                }
+                isLoggingEnabled(2);
             } else if (this.mNonConfig.removeRetainedFragment(fragment) && isLoggingEnabled(2)) {
-                Log.v("FragmentManager", "Updating retained Fragments: Removed " + fragment);
+                String str = "Updating retained Fragments: Removed " + fragment;
             }
         }
     }
@@ -2439,7 +2429,7 @@ public abstract class FragmentManager {
                 Fragment findRetainedFragmentByWho = this.mNonConfig.findRetainedFragmentByWho(next.mWho);
                 if (findRetainedFragmentByWho != null) {
                     if (isLoggingEnabled(2)) {
-                        Log.v("FragmentManager", "restoreSaveState: re-attaching retained " + findRetainedFragmentByWho);
+                        String str = "restoreSaveState: re-attaching retained " + findRetainedFragmentByWho;
                     }
                     fragmentStateManager = new FragmentStateManager(this.mLifecycleCallbacksDispatcher, findRetainedFragmentByWho, next);
                 } else {
@@ -2448,7 +2438,7 @@ public abstract class FragmentManager {
                 Fragment fragment = fragmentStateManager.getFragment();
                 fragment.mFragmentManager = this;
                 if (isLoggingEnabled(2)) {
-                    Log.v("FragmentManager", "restoreSaveState: active (" + fragment.mWho + "): " + fragment);
+                    String str2 = "restoreSaveState: active (" + fragment.mWho + "): " + fragment;
                 }
                 fragmentStateManager.restoreState(this.mHost.getContext().getClassLoader());
                 this.mFragmentStore.makeActive(fragmentStateManager);
@@ -2458,7 +2448,7 @@ public abstract class FragmentManager {
         for (Fragment fragment2 : this.mNonConfig.getRetainedFragments()) {
             if (!this.mFragmentStore.containsActiveFragment(fragment2.mWho)) {
                 if (isLoggingEnabled(2)) {
-                    Log.v("FragmentManager", "Discarding retained Fragment " + fragment2 + " that was not found in the set of active Fragments " + fragmentManagerState.mActive);
+                    String str3 = "Discarding retained Fragment " + fragment2 + " that was not found in the set of active Fragments " + fragmentManagerState.mActive;
                 }
                 moveToState(fragment2, 1);
                 fragment2.mRemoving = true;
@@ -2476,7 +2466,7 @@ public abstract class FragmentManager {
                 }
                 BackStackRecord instantiate = backStackStateArr[i2].instantiate(this);
                 if (isLoggingEnabled(2)) {
-                    Log.v("FragmentManager", "restoreAllState: back stack #" + i2 + " (index " + instantiate.mIndex + "): " + instantiate);
+                    String str4 = "restoreAllState: back stack #" + i2 + " (index " + instantiate.mIndex + "): " + instantiate;
                     PrintWriter printWriter = new PrintWriter(new LogWriter("FragmentManager"));
                     instantiate.dump(GlideException.IndentedAppendable.INDENT, printWriter, false);
                     printWriter.close();
@@ -2488,9 +2478,9 @@ public abstract class FragmentManager {
             this.mBackStack = null;
         }
         this.mBackStackIndex.set(fragmentManagerState.mBackStackIndex);
-        String str = fragmentManagerState.mPrimaryNavActiveWho;
-        if (str != null) {
-            Fragment findActiveFragment = findActiveFragment(str);
+        String str5 = fragmentManagerState.mPrimaryNavActiveWho;
+        if (str5 != null) {
+            Fragment findActiveFragment = findActiveFragment(str5);
             this.mPrimaryNav = findActiveFragment;
             dispatchParentPrimaryNavigationFragmentChanged(findActiveFragment);
         }
@@ -2521,9 +2511,7 @@ public abstract class FragmentManager {
             ArrayList<FragmentState> saveActiveFragments = this.mFragmentStore.saveActiveFragments();
             BackStackState[] backStackStateArr = null;
             if (saveActiveFragments.isEmpty()) {
-                if (isLoggingEnabled(2)) {
-                    Log.v("FragmentManager", "saveAllState: no fragments!");
-                }
+                isLoggingEnabled(2);
                 return null;
             }
             ArrayList<String> saveAddedFragments = this.mFragmentStore.saveAddedFragments();
@@ -2533,7 +2521,7 @@ public abstract class FragmentManager {
                 for (int i2 = 0; i2 < size; i2++) {
                     backStackStateArr[i2] = new BackStackState(this.mBackStack.get(i2));
                     if (isLoggingEnabled(2)) {
-                        Log.v("FragmentManager", "saveAllState: adding back stack #" + i2 + ": " + this.mBackStack.get(i2));
+                        String str = "saveAllState: adding back stack #" + i2 + ": " + this.mBackStack.get(i2);
                     }
                 }
             }
@@ -2623,7 +2611,7 @@ public abstract class FragmentManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048664, this, fragment) == null) {
             if (isLoggingEnabled(2)) {
-                Log.v("FragmentManager", "show: " + fragment);
+                String str = "show: " + fragment;
             }
             if (fragment.mHidden) {
                 fragment.mHidden = false;

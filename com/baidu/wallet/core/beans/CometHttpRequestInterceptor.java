@@ -6,15 +6,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class CometHttpRequestInterceptor extends EbpayHttpRequestInterceptor {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f24842a = 60000;
+    public static final int f60555a = 60000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f24843b = "CometHttpRequestInterceptor";
+    public static final String f60556b = "CometHttpRequestInterceptor";
     public transient /* synthetic */ FieldHolder $fh;
 
     public CometHttpRequestInterceptor() {

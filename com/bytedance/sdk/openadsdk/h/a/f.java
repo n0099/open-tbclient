@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.a.r;
 import com.bytedance.sdk.openadsdk.g.a;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class f extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class f extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
                     return jSONObject2;
                 }
                 com.bytedance.sdk.component.utils.k.b("GetDownloadStatusMethod", "GetDownloadStatusMethod analysisJson downloadId " + optString);
-                JSONObject a2 = a.C0355a.a(optString);
+                JSONObject a2 = a.C1915a.a(optString);
                 com.bytedance.sdk.component.utils.k.b("GetDownloadStatusMethod", "GetDownloadStatusMethod analysisJson downloadJson " + a2.toString());
                 return a2;
             } catch (Throwable unused) {

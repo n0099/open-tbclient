@@ -6,7 +6,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Looper;
-import android.util.Log;
 import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -382,7 +381,7 @@ public abstract class RoomDatabase {
                 }
                 Migration migration2 = sparseArrayCompat.get(i3);
                 if (migration2 != null) {
-                    Log.w(Room.LOG_TAG, "Overriding migration " + migration2 + " with " + migration);
+                    String str = "Overriding migration " + migration2 + " with " + migration;
                 }
                 sparseArrayCompat.append(i3, migration);
             }

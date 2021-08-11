@@ -8,7 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class AspectRatio {
     public static /* synthetic */ Interceptable $ic;
     public static final AspectRatio Extended_SAR;
@@ -69,7 +70,7 @@ public class AspectRatio {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "AspectRatio{value=" + this.value + '}';
+            return "AspectRatio{value=" + this.value + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

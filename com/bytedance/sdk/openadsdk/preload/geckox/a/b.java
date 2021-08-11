@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.StatisticModel;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f32335a;
+    public static volatile b f68294a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -49,15 +49,15 @@ public class b extends SQLiteOpenHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f32335a == null) {
+            if (f68294a == null) {
                 synchronized (b.class) {
-                    if (f32335a == null) {
+                    if (f68294a == null) {
                         Context applicationContext = context.getApplicationContext();
-                        f32335a = new b(applicationContext, "geckox_clean_statistic" + com.bytedance.sdk.openadsdk.preload.geckox.utils.a.c(context) + ".db", null, 1);
+                        f68294a = new b(applicationContext, "geckox_clean_statistic" + com.bytedance.sdk.openadsdk.preload.geckox.utils.a.c(context) + ".db", null, 1);
                     }
                 }
             }
-            return f32335a;
+            return f68294a;
         }
         return (b) invokeL.objValue;
     }
@@ -77,18 +77,18 @@ public class b extends SQLiteOpenHelper {
         }
     }
 
-    public void a(String str, String str2, int i2, int i3, long j, int i4, String str3, long j2, int i5) {
+    public void a(String str, String str2, int i2, int i3, long j2, int i4, String str3, long j3, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), Integer.valueOf(i4), str3, Long.valueOf(j2), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Integer.valueOf(i4), str3, Long.valueOf(j3), Integer.valueOf(i5)}) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("access_key", str);
             contentValues.put("channel", str2);
             contentValues.put("clean_type", Integer.valueOf(i2));
             contentValues.put("status", Integer.valueOf(i3));
-            contentValues.put(IntentConfig.PKG_ID, Long.valueOf(j));
+            contentValues.put(IntentConfig.PKG_ID, Long.valueOf(j2));
             contentValues.put(PmsConstant.Statistic.STATISTIC_ERRCODE, Integer.valueOf(i4));
             contentValues.put(PmsConstant.Statistic.STATISTIC_ERRMSG, str3);
-            contentValues.put("clean_duration", Long.valueOf(j2));
+            contentValues.put("clean_duration", Long.valueOf(j3));
             contentValues.put("clean_strategy", Integer.valueOf(i5));
             try {
                 getWritableDatabase().insert("geckox_clean_statistic", null, contentValues);
@@ -123,7 +123,7 @@ public class b extends SQLiteOpenHelper {
                     int i4 = cursor.getInt(cursor.getColumnIndex(PmsConstant.Statistic.STATISTIC_ERRCODE));
                     String string3 = cursor.getString(cursor.getColumnIndex(PmsConstant.Statistic.STATISTIC_ERRMSG));
                     int i5 = cursor.getInt(cursor.getColumnIndex("clean_strategy"));
-                    long j = cursor.getLong(cursor.getColumnIndex("clean_duration"));
+                    long j2 = cursor.getLong(cursor.getColumnIndex("clean_duration"));
                     StatisticModel.PackageStatisticModel packageStatisticModel = new StatisticModel.PackageStatisticModel();
                     packageStatisticModel.accessKey = string;
                     packageStatisticModel.channel = string2;
@@ -137,7 +137,7 @@ public class b extends SQLiteOpenHelper {
                     packageStatisticModel.errCode = str;
                     packageStatisticModel.errMsg = string3;
                     packageStatisticModel.cleanType = Integer.valueOf(i2);
-                    packageStatisticModel.cleanDuration = Long.valueOf(j);
+                    packageStatisticModel.cleanDuration = Long.valueOf(j2);
                     packageStatisticModel.cleanStrategy = Integer.valueOf(i5);
                     arrayList.add(packageStatisticModel);
                 } catch (Exception e3) {

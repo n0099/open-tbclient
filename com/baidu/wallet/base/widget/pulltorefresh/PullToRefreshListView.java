@@ -15,22 +15,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class PullToRefreshListView extends PullToRefreshBase<ListView> implements AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ListView f24739a;
+    public ListView f60448a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LoadingLayout f24740b;
+    public LoadingLayout f60449b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AbsListView.OnScrollListener f24741c;
+    public AbsListView.OnScrollListener f60450c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f24742d;
+    public int f60451d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PullToRefreshListView(Context context) {
@@ -57,7 +57,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            LoadingLayout loadingLayout = this.f24740b;
+            LoadingLayout loadingLayout = this.f60449b;
             return loadingLayout == null || loadingLayout.getState() != LoadingLayout.State.NO_MORE_DATA;
         }
         return invokeV.booleanValue;
@@ -67,11 +67,11 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            ListAdapter adapter = this.f24739a.getAdapter();
+            ListAdapter adapter = this.f60448a.getAdapter();
             if (adapter == null || adapter.isEmpty()) {
                 return true;
             }
-            return (this.f24739a.getChildCount() > 0 ? this.f24739a.getChildAt(0).getTop() : 0) >= 0 && this.f24742d == 0;
+            return (this.f60448a.getChildCount() > 0 ? this.f60448a.getChildAt(0).getTop() : 0) >= 0 && this.f60451d == 0;
         }
         return invokeV.booleanValue;
     }
@@ -80,14 +80,14 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            ListAdapter adapter = this.f24739a.getAdapter();
+            ListAdapter adapter = this.f60448a.getAdapter();
             if (adapter == null || adapter.isEmpty()) {
                 return true;
             }
-            int lastVisiblePosition = this.f24739a.getLastVisiblePosition();
+            int lastVisiblePosition = this.f60448a.getLastVisiblePosition();
             if (lastVisiblePosition >= (adapter.getCount() - 1) - 1) {
-                View childAt = this.f24739a.getChildAt(Math.min(lastVisiblePosition - this.f24739a.getFirstVisiblePosition(), this.f24739a.getChildCount() - 1));
-                return childAt != null && childAt.getBottom() <= this.f24739a.getBottom();
+                View childAt = this.f60448a.getChildAt(Math.min(lastVisiblePosition - this.f60448a.getFirstVisiblePosition(), this.f60448a.getChildCount() - 1));
+                return childAt != null && childAt.getBottom() <= this.f60448a.getBottom();
             }
             return false;
         }
@@ -100,7 +100,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (isScrollLoadEnabled()) {
-                return this.f24740b;
+                return this.f60449b;
             }
             return super.getFooterLoadingLayout();
         }
@@ -133,11 +133,11 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048582, this, absListView, i2, i3, i4) == null) {
-            AbsListView.OnScrollListener onScrollListener = this.f24741c;
+            AbsListView.OnScrollListener onScrollListener = this.f60450c;
             if (onScrollListener != null) {
                 onScrollListener.onScroll(absListView, i2, i3, i4);
             }
-            this.f24742d = i2;
+            this.f60451d = i2;
         }
     }
 
@@ -148,7 +148,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
             if (isScrollLoadEnabled() && a() && ((i2 == 0 || i2 == 2) && isReadyForPullUp())) {
                 startLoading();
             }
-            AbsListView.OnScrollListener onScrollListener = this.f24741c;
+            AbsListView.OnScrollListener onScrollListener = this.f60450c;
             if (onScrollListener != null) {
                 onScrollListener.onScrollStateChanged(absListView, i2);
             }
@@ -158,7 +158,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     public void setHasMoreData(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            LoadingLayout loadingLayout = this.f24740b;
+            LoadingLayout loadingLayout = this.f60449b;
             if (loadingLayout != null) {
                 loadingLayout.setState(z ? LoadingLayout.State.RESET : LoadingLayout.State.NO_MORE_DATA);
             }
@@ -172,7 +172,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, onScrollListener) == null) {
-            this.f24741c = onScrollListener;
+            this.f60450c = onScrollListener;
         }
     }
 
@@ -197,15 +197,15 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         }
         super.setScrollLoadEnabled(z);
         if (z) {
-            if (this.f24740b == null) {
+            if (this.f60449b == null) {
                 FooterLoadingLayout footerLoadingLayout = new FooterLoadingLayout(getContext());
-                this.f24740b = footerLoadingLayout;
-                this.f24739a.addFooterView(footerLoadingLayout, null, false);
+                this.f60449b = footerLoadingLayout;
+                this.f60448a.addFooterView(footerLoadingLayout, null, false);
             }
-            this.f24740b.show(true);
+            this.f60449b.show(true);
             return;
         }
-        LoadingLayout loadingLayout = this.f24740b;
+        LoadingLayout loadingLayout = this.f60449b;
         if (loadingLayout != null) {
             loadingLayout.show(false);
         }
@@ -214,10 +214,10 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     public void showOrHideFootView(int i2) {
         LoadingLayout loadingLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || (loadingLayout = this.f24740b) == null || loadingLayout.getVisibility() == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || (loadingLayout = this.f60449b) == null || loadingLayout.getVisibility() == i2) {
             return;
         }
-        this.f24740b.setVisibility(i2);
+        this.f60449b.show(i2 == 0);
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -247,7 +247,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
                 return;
             }
         }
-        this.f24742d = 0;
+        this.f60451d = 0;
         setPullLoadEnabled(false);
     }
 
@@ -258,7 +258,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet)) == null) {
             ListView listView = new ListView(context);
-            this.f24739a = listView;
+            this.f60448a = listView;
             listView.setOnScrollListener(this);
             return listView;
         }

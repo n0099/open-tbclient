@@ -4,9 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
-import com.baidu.apollon.utils.GlobalUtils;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,9 +11,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.CardData;
 import com.baidu.wallet.base.datamodel.PayData;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
-import com.baidu.wallet.core.beans.BeanManager;
-import com.baidu.wallet.core.utils.StringUtils;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.baidu.wallet.paysdk.beans.c;
@@ -28,14 +22,18 @@ import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.PayTypeActivity;
 import com.baidu.wallet.paysdk.ui.widget.PayTypeItemView;
-import com.baidu.wallet.util.StatHelper;
+import com.dxmpay.apollon.utils.GlobalUtils;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.core.beans.BeanManager;
+import com.dxmpay.wallet.core.utils.StringUtils;
+import com.dxmpay.wallet.utils.StatHelper;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface PayTypeContract {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static abstract class Presenter extends NetWorkPresenter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +89,6 @@ public interface PayTypeContract {
                 this.mActivity.showLoading(0);
                 this.mActivity.setPageClickable(false);
                 c cVar = (c) PayBeanFactory.getInstance().getBean((Context) this.mActivity, 16, this.TAG);
-                PayStatisticsUtil.onEventStart(StatServiceEvent.CALCU_COUPON);
                 cVar.a(payTypeItemViewData);
                 cVar.setResponseCallback(this);
                 cVar.execBean();
@@ -222,7 +219,6 @@ public interface PayTypeContract {
                 this.mActivity.dismissLoading(0);
                 this.mActivity.setPageClickable(true);
                 if (i2 == 16) {
-                    PayStatisticsUtil.onEventEnd(StatServiceEvent.CALCU_COUPON, 0);
                     CalcPaymentResponse calcPaymentResponse = obj instanceof CalcPaymentResponse ? (CalcPaymentResponse) obj : null;
                     PayTypeItemView payTypeItemView = this.mActivity.mClickedItemView;
                     if (payTypeItemView != null && (payTypeItemViewData = payTypeItemView.mData) != null) {
@@ -279,7 +275,7 @@ public interface PayTypeContract {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Presenter f26181a;
+                    public final /* synthetic */ Presenter f62067a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -296,7 +292,7 @@ public interface PayTypeContract {
                                 return;
                             }
                         }
-                        this.f26181a = this;
+                        this.f62067a = this;
                     }
 
                     @Override // java.util.Comparator

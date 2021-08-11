@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewParent;
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.s.k;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -15,15 +16,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ForeDrawableImageView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Paint A0;
-    public Drawable x0;
-    public String y0;
-    public int z0;
+    public Drawable O;
+    public String P;
+    public int Q;
+    public Paint R;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForeDrawableImageView(Context context, AttributeSet attributeSet, int i2) {
@@ -44,24 +44,16 @@ public class ForeDrawableImageView extends TbImageView {
                 return;
             }
         }
-        this.A0 = new Paint();
-    }
-
-    public final void S(Canvas canvas, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048576, this, canvas, i2, i3) == null) || StringUtils.isNull(this.y0) || k.c().g()) {
-            return;
-        }
-        canvas.drawText(this.y0, (int) (i2 - (this.A0.measureText(this.y0) / 2.0f)), i3 + this.z0, this.A0);
+        this.R = new Paint();
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void drawableStateChanged() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.drawableStateChanged();
-            Drawable drawable = this.x0;
-            if (drawable != null && drawable.isStateful() && this.x0.setState(getDrawableState())) {
+            Drawable drawable = this.O;
+            if (drawable != null && drawable.isStateful() && this.O.setState(getDrawableState())) {
                 invalidate();
             }
         }
@@ -70,9 +62,9 @@ public class ForeDrawableImageView extends TbImageView {
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.x0 != null) {
+            if (this.O != null) {
                 canvas.save();
                 ViewParent parent = getParent();
                 int measuredWidth = parent instanceof View ? ((View) parent).getMeasuredWidth() : 0;
@@ -80,17 +72,25 @@ public class ForeDrawableImageView extends TbImageView {
                 if (width <= measuredWidth) {
                     measuredWidth = width;
                 }
-                int intrinsicWidth = this.x0.getIntrinsicWidth();
-                int intrinsicHeight = this.x0.getIntrinsicHeight();
+                int intrinsicWidth = this.O.getIntrinsicWidth();
+                int intrinsicHeight = this.O.getIntrinsicHeight();
                 int i2 = intrinsicWidth / 2;
                 int i3 = (measuredWidth / 2) - i2;
                 int height = (getHeight() / 2) - (intrinsicHeight / 2);
                 canvas.translate(i3, height);
-                this.x0.draw(canvas);
+                this.O.draw(canvas);
                 canvas.restore();
-                S(canvas, i3 + i2, height + intrinsicHeight);
+                s(canvas, i3 + i2, height + intrinsicHeight);
             }
         }
+    }
+
+    public final void s(Canvas canvas, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, canvas, i2, i3) == null) || StringUtils.isNull(this.P) || k.c().g()) {
+            return;
+        }
+        canvas.drawText(this.P, (int) (i2 - (this.R.measureText(this.P) / 2.0f)), i3 + this.Q, this.R);
     }
 
     public void setForegroundDrawable(int i2) {
@@ -103,21 +103,21 @@ public class ForeDrawableImageView extends TbImageView {
     public void setNoImageBottomText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.y0 = str;
+            this.P = str;
         }
     }
 
     public void setNoImageBottomTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.A0.setColor(SkinManager.getColor(i2));
+            this.R.setColor(SkinManager.getColor(i2));
         }
     }
 
     public void setNoImageBottomTextPadding(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.z0 = i2;
+            this.Q = i2;
         }
     }
 
@@ -126,15 +126,15 @@ public class ForeDrawableImageView extends TbImageView {
         if (!(interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f2) == null) || f2 <= 0.0f) {
             return;
         }
-        this.A0.setTextSize(f2);
+        this.R.setTextSize(f2);
     }
 
     public void setForegroundDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
-            this.x0 = drawable;
+            this.O = drawable;
             if (drawable != null) {
-                drawable.setBounds(0, 0, drawable.getIntrinsicHeight(), this.x0.getMinimumWidth());
+                drawable.setBounds(0, 0, drawable.getIntrinsicHeight(), this.O.getMinimumWidth());
             }
             invalidate();
         }
@@ -159,7 +159,7 @@ public class ForeDrawableImageView extends TbImageView {
                 return;
             }
         }
-        this.A0 = new Paint();
+        this.R = new Paint();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -180,6 +180,6 @@ public class ForeDrawableImageView extends TbImageView {
                 return;
             }
         }
-        this.A0 = new Paint();
+        this.R = new Paint();
     }
 }

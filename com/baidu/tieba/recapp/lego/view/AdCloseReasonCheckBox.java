@@ -6,6 +6,8 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.util.AttributeSet;
 import android.widget.CheckBox;
+import c.a.e.e.p.l;
+import c.a.p0.i3.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -14,24 +16,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.q0.h3.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AdCloseReasonCheckBox extends CheckBox {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20649e;
+    public Context f56047e;
 
     /* renamed from: f  reason: collision with root package name */
-    public GradientDrawable f20650f;
+    public GradientDrawable f56048f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GradientDrawable f20651g;
+    public GradientDrawable f56049g;
 
     /* renamed from: h  reason: collision with root package name */
-    public StateListDrawable f20652h;
+    public StateListDrawable f56050h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdCloseReasonCheckBox(Context context) {
@@ -51,7 +51,7 @@ public class AdCloseReasonCheckBox extends CheckBox {
                 return;
             }
         }
-        this.f20649e = context;
+        this.f56047e = context;
         a(context);
     }
 
@@ -72,21 +72,21 @@ public class AdCloseReasonCheckBox extends CheckBox {
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
             int parseInt = Integer.parseInt(TbadkCoreApplication.getInst().getResources().getString(i2).split(",")[0]);
             GradientDrawable gradientDrawable = new GradientDrawable();
-            this.f20650f = gradientDrawable;
+            this.f56048f = gradientDrawable;
             gradientDrawable.setShape(0);
             float f2 = parseInt;
-            this.f20650f.setCornerRadius(f2);
-            this.f20650f.setStroke(i3, SkinManager.getColor(i4));
+            this.f56048f.setCornerRadius(f2);
+            this.f56048f.setStroke(i3, SkinManager.getColor(i4));
             GradientDrawable gradientDrawable2 = new GradientDrawable();
-            this.f20651g = gradientDrawable2;
+            this.f56049g = gradientDrawable2;
             gradientDrawable2.setShape(0);
-            this.f20651g.setCornerRadius(f2);
-            this.f20651g.setStroke(i3, c.a(SkinManager.getColor(i5), 0.5f));
+            this.f56049g.setCornerRadius(f2);
+            this.f56049g.setStroke(i3, c.a(SkinManager.getColor(i5), 0.5f));
             StateListDrawable stateListDrawable = new StateListDrawable();
-            this.f20652h = stateListDrawable;
-            stateListDrawable.addState(new int[]{-16842912}, this.f20650f);
-            this.f20652h.addState(new int[]{16842912}, this.f20651g);
-            setBackgroundDrawable(this.f20652h);
+            this.f56050h = stateListDrawable;
+            stateListDrawable.addState(new int[]{-16842912}, this.f56048f);
+            this.f56050h.addState(new int[]{16842912}, this.f56049g);
+            setBackgroundDrawable(this.f56050h);
         }
     }
 
@@ -109,7 +109,7 @@ public class AdCloseReasonCheckBox extends CheckBox {
                 return;
             }
         }
-        this.f20649e = context;
+        this.f56047e = context;
         a(context);
     }
 
@@ -132,7 +132,7 @@ public class AdCloseReasonCheckBox extends CheckBox {
                 return;
             }
         }
-        this.f20649e = context;
+        this.f56047e = context;
         a(context);
     }
 }

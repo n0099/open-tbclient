@@ -14,22 +14,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PersonExpandImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Rect f20376e;
+    public final Rect f55747e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Rect f20377f;
+    public final Rect f55748f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Paint f20378g;
+    public final Paint f55749g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20379h;
+    public int f55750h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonExpandImageView(Context context, AttributeSet attributeSet) {
@@ -50,11 +50,11 @@ public class PersonExpandImageView extends ImageView {
                 return;
             }
         }
-        this.f20376e = new Rect();
-        this.f20377f = new Rect();
-        this.f20379h = 0;
+        this.f55747e = new Rect();
+        this.f55748f = new Rect();
+        this.f55750h = 0;
         setScaleType(ImageView.ScaleType.MATRIX);
-        this.f20378g = new Paint();
+        this.f55749g = new Paint();
         getResources().getDisplayMetrics();
     }
 
@@ -65,7 +65,7 @@ public class PersonExpandImageView extends ImageView {
         float f2;
         float f3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.f20379h == 0 || (drawable = getDrawable()) == null || !(drawable instanceof BitmapDrawable) || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null || bitmap.isRecycled()) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.f55750h == 0 || (drawable = getDrawable()) == null || !(drawable instanceof BitmapDrawable) || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null || bitmap.isRecycled()) {
             return;
         }
         int width = bitmap.getWidth();
@@ -76,8 +76,8 @@ public class PersonExpandImageView extends ImageView {
         float f4 = width;
         float f5 = height;
         float f6 = 0.0f;
-        if ((f4 * 1.0f) / f5 < (getWidth() * 1.0f) / this.f20379h) {
-            float width2 = (((((getWidth() * getHeight()) * 1.0f) / this.f20379h) - getWidth()) * 0.2f) + getWidth();
+        if ((f4 * 1.0f) / f5 < (getWidth() * 1.0f) / this.f55750h) {
+            float width2 = (((((getWidth() * getHeight()) * 1.0f) / this.f55750h) - getWidth()) * 0.2f) + getWidth();
             float f7 = ((1.0f * f5) / f4) * width2;
             if (width2 == 0.0f || f7 == 0.0f) {
                 return;
@@ -105,15 +105,15 @@ public class PersonExpandImageView extends ImageView {
             f2 = (f4 - width4) / 2.0f;
             f3 = width4 + f2;
         }
-        this.f20376e.set((int) f2, (int) f6, (int) f3, (int) f5);
-        this.f20377f.set(0, 0, getWidth(), getHeight());
-        canvas.drawBitmap(bitmap, this.f20376e, this.f20377f, this.f20378g);
+        this.f55747e.set((int) f2, (int) f6, (int) f3, (int) f5);
+        this.f55748f.set(0, 0, getWidth(), getHeight());
+        canvas.drawBitmap(bitmap, this.f55747e, this.f55748f, this.f55749g);
     }
 
     public void setInitHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f20379h = i2;
+            this.f55750h = i2;
         }
     }
 }

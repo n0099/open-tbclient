@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class PrefetchOptions implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<PrefetchOptions> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f5008a;
+    public Map<String, String> f38942a;
 
     static {
         InterceptResult invokeClinit;
@@ -87,7 +87,7 @@ public class PrefetchOptions implements Parcelable {
                 return;
             }
         }
-        this.f5008a = new HashMap();
+        this.f38942a = new HashMap();
     }
 
     public PrefetchOptions(Parcel parcel) {
@@ -105,7 +105,7 @@ public class PrefetchOptions implements Parcelable {
                 return;
             }
         }
-        this.f5008a = new HashMap();
+        this.f38942a = new HashMap();
         readFromParcel(parcel);
     }
 
@@ -122,13 +122,13 @@ public class PrefetchOptions implements Parcelable {
     public Map<String, String> getOptions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5008a : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38942a : (Map) invokeV.objValue;
     }
 
     public void readFromParcel(Parcel parcel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, parcel) == null) {
-            this.f5008a = parcel.readHashMap(HashMap.class.getClassLoader());
+            this.f38942a = parcel.readHashMap(HashMap.class.getClassLoader());
         }
     }
 
@@ -137,10 +137,10 @@ public class PrefetchOptions implements Parcelable {
         if (!(interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) || str == null) {
             return;
         }
-        if (this.f5008a == null) {
-            this.f5008a = new HashMap();
+        if (this.f38942a == null) {
+            this.f38942a = new HashMap();
         }
-        this.f5008a.put(str, String.valueOf(i2));
+        this.f38942a.put(str, String.valueOf(i2));
     }
 
     public void setOption(String str, String str2) {
@@ -148,17 +148,17 @@ public class PrefetchOptions implements Parcelable {
         if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) || str == null || str2 == null) {
             return;
         }
-        if (this.f5008a == null) {
-            this.f5008a = new HashMap();
+        if (this.f38942a == null) {
+            this.f38942a = new HashMap();
         }
-        this.f5008a.put(str, str2);
+        this.f38942a.put(str, str2);
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
-            parcel.writeMap(this.f5008a);
+            parcel.writeMap(this.f38942a);
         }
     }
 }

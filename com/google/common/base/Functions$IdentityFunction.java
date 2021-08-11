@@ -1,5 +1,6 @@
 package com.google.common.base;
 
+import c.i.d.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,9 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.d.a.g;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class Functions$IdentityFunction implements g<Object, Object> {
     public static final /* synthetic */ Functions$IdentityFunction[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -66,7 +66,7 @@ public final class Functions$IdentityFunction implements g<Object, Object> {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Functions$IdentityFunction[]) $VALUES.clone() : (Functions$IdentityFunction[]) invokeV.objValue;
     }
 
-    @Override // d.f.d.a.g
+    @Override // c.i.d.a.g
     public Object apply(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

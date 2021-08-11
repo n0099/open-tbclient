@@ -10,13 +10,13 @@ import com.bytedance.sdk.openadsdk.DislikeInfo;
 import com.bytedance.sdk.openadsdk.FilterWord;
 import com.bytedance.sdk.openadsdk.PersonalizationPrompt;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a implements DislikeInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f31209a;
+    public final b f67147a;
 
     public a(b bVar) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class a implements DislikeInfo {
                 return;
             }
         }
-        this.f31209a = bVar;
+        this.f67147a = bVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.DislikeInfo
@@ -41,7 +41,7 @@ public class a implements DislikeInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b bVar = this.f31209a;
+            b bVar = this.f67147a;
             if (bVar == null) {
                 return null;
             }
@@ -55,7 +55,7 @@ public class a implements DislikeInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b bVar = this.f31209a;
+            b bVar = this.f67147a;
             if (bVar == null) {
                 return null;
             }

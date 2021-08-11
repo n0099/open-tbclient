@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.LikeForumInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class MyLikeForum extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -62,10 +62,10 @@ public class MyLikeForum extends OrmObject implements Serializable {
         this.mForumName = likeForumInfo.forum_name;
     }
 
-    public void setForumId(long j) {
+    public void setForumId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.mForumId = j;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            this.mForumId = j2;
         }
     }
 

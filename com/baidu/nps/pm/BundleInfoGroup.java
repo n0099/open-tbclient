@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BundleInfoGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<Integer, BundleInfo> bundleInfoMap;
     public long timeStamp;
 
-    public BundleInfoGroup(long j) {
+    public BundleInfoGroup(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -32,7 +32,7 @@ public class BundleInfoGroup {
         }
         this.bundleInfoMap = new HashMap();
         this.timeStamp = 0L;
-        this.timeStamp = j;
+        this.timeStamp = j2;
     }
 
     public synchronized BundleInfo getBundleByType(int i2) {
@@ -50,13 +50,13 @@ public class BundleInfoGroup {
 
     public synchronized long getTimeStamp() {
         InterceptResult invokeV;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                j = this.timeStamp;
+                j2 = this.timeStamp;
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }
@@ -70,11 +70,11 @@ public class BundleInfoGroup {
         }
     }
 
-    public synchronized void setTimeStamp(long j) {
+    public synchronized void setTimeStamp(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
             synchronized (this) {
-                this.timeStamp = j;
+                this.timeStamp = j2;
             }
         }
     }

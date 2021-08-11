@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ar {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Handler f36706a;
+    public static final Handler f73528a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class ar {
                 return;
             }
         }
-        f36706a = new Handler(Looper.getMainLooper());
+        f73528a = new Handler(Looper.getMainLooper());
     }
 
     public static void a(Runnable runnable) {
@@ -41,17 +41,17 @@ public class ar {
             if (Looper.getMainLooper() == Looper.myLooper()) {
                 runnable.run();
             } else {
-                f36706a.post(runnable);
+                f73528a.post(runnable);
             }
         }
     }
 
-    public static void a(Runnable runnable, Object obj, long j) {
+    public static void a(Runnable runnable, Object obj, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, obj, Long.valueOf(j)}) == null) {
-            Message obtain = Message.obtain(f36706a, runnable);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, obj, Long.valueOf(j2)}) == null) {
+            Message obtain = Message.obtain(f73528a, runnable);
             obtain.obj = obj;
-            f36706a.sendMessageDelayed(obtain, j);
+            f73528a.sendMessageDelayed(obtain, j2);
         }
     }
 

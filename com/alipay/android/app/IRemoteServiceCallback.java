@@ -12,25 +12,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+import java.util.Map;
+/* loaded from: classes4.dex */
 public interface IRemoteServiceCallback extends IInterface {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Stub extends Binder implements IRemoteServiceCallback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.alipay.android.app.IRemoteServiceCallback";
+        public static final int TRANSACTION_getVersion = 4;
         public static final int TRANSACTION_isHideLoadingScreen = 3;
         public static final int TRANSACTION_payEnd = 2;
+        public static final int TRANSACTION_r03 = 5;
         public static final int TRANSACTION_startActivity = 1;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes4.dex */
         public static class a implements IRemoteServiceCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f1643a;
+            public IBinder f35478a;
 
             public a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -47,7 +50,7 @@ public interface IRemoteServiceCallback extends IInterface {
                         return;
                     }
                 }
-                this.f1643a = iBinder;
+                this.f35478a = iBinder;
             }
 
             public String a() {
@@ -60,11 +63,11 @@ public interface IRemoteServiceCallback extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1643a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35478a : (IBinder) invokeV.objValue;
             }
 
             @Override // com.alipay.android.app.IRemoteServiceCallback
-            public boolean isHideLoadingScreen() throws RemoteException {
+            public int getVersion() throws RemoteException {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -72,7 +75,27 @@ public interface IRemoteServiceCallback extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        this.f1643a.transact(3, obtain, obtain2, 0);
+                        this.f35478a.transact(4, obtain, obtain2, 0);
+                        obtain2.readException();
+                        return obtain2.readInt();
+                    } finally {
+                        obtain2.recycle();
+                        obtain.recycle();
+                    }
+                }
+                return invokeV.intValue;
+            }
+
+            @Override // com.alipay.android.app.IRemoteServiceCallback
+            public boolean isHideLoadingScreen() throws RemoteException {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                    Parcel obtain = Parcel.obtain();
+                    Parcel obtain2 = Parcel.obtain();
+                    try {
+                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                        this.f35478a.transact(3, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt() != 0;
                     } finally {
@@ -86,14 +109,14 @@ public interface IRemoteServiceCallback extends IInterface {
             @Override // com.alipay.android.app.IRemoteServiceCallback
             public void payEnd(boolean z, String str) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeZL(1048579, this, z, str) == null) {
+                if (interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                         obtain.writeInt(z ? 1 : 0);
                         obtain.writeString(str);
-                        this.f1643a.transact(2, obtain, obtain2, 0);
+                        this.f35478a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();
@@ -103,9 +126,26 @@ public interface IRemoteServiceCallback extends IInterface {
             }
 
             @Override // com.alipay.android.app.IRemoteServiceCallback
+            public void r03(String str, String str2, Map map) throws RemoteException {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, map) == null) {
+                    Parcel obtain = Parcel.obtain();
+                    try {
+                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                        obtain.writeString(str);
+                        obtain.writeString(str2);
+                        obtain.writeMap(map);
+                        this.f35478a.transact(5, obtain, null, 1);
+                    } finally {
+                        obtain.recycle();
+                    }
+                }
+            }
+
+            @Override // com.alipay.android.app.IRemoteServiceCallback
             public void startActivity(String str, String str2, int i2, Bundle bundle) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLLIL(1048580, this, str, str2, i2, bundle) == null) {
+                if (interceptable == null || interceptable.invokeLLIL(1048582, this, str, str2, i2, bundle) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
@@ -119,7 +159,7 @@ public interface IRemoteServiceCallback extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        this.f1643a.transact(1, obtain, obtain2, 0);
+                        this.f35478a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();
@@ -183,17 +223,26 @@ public interface IRemoteServiceCallback extends IInterface {
                     payEnd(parcel.readInt() != 0, parcel.readString());
                     parcel2.writeNoException();
                     return true;
-                } else if (i2 != 3) {
-                    if (i2 != 1598968902) {
-                        return super.onTransact(i2, parcel, parcel2, i3);
-                    }
-                    parcel2.writeString(DESCRIPTOR);
-                    return true;
-                } else {
+                } else if (i2 == 3) {
                     parcel.enforceInterface(DESCRIPTOR);
                     boolean isHideLoadingScreen = isHideLoadingScreen();
                     parcel2.writeNoException();
                     parcel2.writeInt(isHideLoadingScreen ? 1 : 0);
+                    return true;
+                } else if (i2 == 4) {
+                    parcel.enforceInterface(DESCRIPTOR);
+                    int version = getVersion();
+                    parcel2.writeNoException();
+                    parcel2.writeInt(version);
+                    return true;
+                } else if (i2 == 5) {
+                    parcel.enforceInterface(DESCRIPTOR);
+                    r03(parcel.readString(), parcel.readString(), parcel.readHashMap(getClass().getClassLoader()));
+                    return true;
+                } else if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
+                } else {
+                    parcel2.writeString(DESCRIPTOR);
                     return true;
                 }
             }
@@ -201,9 +250,13 @@ public interface IRemoteServiceCallback extends IInterface {
         }
     }
 
+    int getVersion() throws RemoteException;
+
     boolean isHideLoadingScreen() throws RemoteException;
 
     void payEnd(boolean z, String str) throws RemoteException;
+
+    void r03(String str, String str2, Map map) throws RemoteException;
 
     void startActivity(String str, String str2, int i2, Bundle bundle) throws RemoteException;
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class V8DefaultThreadPolicy implements V8ThreadDelegatePolicy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,7 +17,7 @@ public class V8DefaultThreadPolicy implements V8ThreadDelegatePolicy {
     public Handler mHandler;
     public V8Engine mV8Engine;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class V8EngineRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,12 +127,12 @@ public class V8DefaultThreadPolicy implements V8ThreadDelegatePolicy {
     }
 
     @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
-    public void doDelegateRunnable(Runnable runnable, long j) {
+    public void doDelegateRunnable(Runnable runnable, long j2) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j) == null) || (handler = this.mHandler) == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j2) == null) || (handler = this.mHandler) == null) {
             return;
         }
-        handler.postDelayed(runnable, j);
+        handler.postDelayed(runnable, j2);
     }
 }

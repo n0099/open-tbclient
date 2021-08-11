@@ -2,6 +2,10 @@ package com.baidu.tieba.ala.frsgamelive.view;
 
 import android.view.View;
 import android.view.ViewGroup;
+import c.a.o0.s.q.c2;
+import c.a.p0.a0.b;
+import c.a.p0.v.e.b.c;
+import c.a.p0.v.e.d.a;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -11,28 +15,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.q.b2;
-import d.a.q0.a0.b;
-import d.a.q0.v.e.b.c;
-import d.a.q0.v.e.d.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaGameFrsLiveGameCardView extends b<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
     public a n;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class AlaGameFrsGameViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public AlaGameFrsLiveGameCardView f14276a;
+        public AlaGameFrsLiveGameCardView mView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public AlaGameFrsGameViewHolder(AlaGameFrsLiveGameCardView alaGameFrsLiveGameCardView) {
-            super(alaGameFrsLiveGameCardView.k());
+            super(alaGameFrsLiveGameCardView.j());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,7 +46,7 @@ public class AlaGameFrsLiveGameCardView extends b<c> {
                     return;
                 }
             }
-            this.f14276a = alaGameFrsLiveGameCardView;
+            this.mView = alaGameFrsLiveGameCardView;
         }
     }
 
@@ -71,18 +69,18 @@ public class AlaGameFrsLiveGameCardView extends b<c> {
             }
         }
         this.m = tbPageContext;
-        q();
+        p();
     }
 
-    @Override // d.a.q0.a0.b
-    public int g() {
+    @Override // c.a.p0.a0.b
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.ala_sub_list_game_live : invokeV.intValue;
     }
 
-    @Override // d.a.q0.a0.b
-    public void m(TbPageContext<?> tbPageContext, int i2) {
+    @Override // c.a.p0.a0.b
+    public void l(TbPageContext<?> tbPageContext, int i2) {
         a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || (aVar = this.n) == null) {
@@ -98,28 +96,28 @@ public class AlaGameFrsLiveGameCardView extends b<c> {
         }
     }
 
-    public final void q() {
+    public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.n = new a(this.m);
-            ((ViewGroup) k()).addView(this.n.c());
+            ((ViewGroup) j()).addView(this.n.c());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.q0.a0.b
-    /* renamed from: s */
-    public void l(c cVar) {
-        b2 b2Var;
+    @Override // c.a.p0.a0.b
+    /* renamed from: q */
+    public void k(c cVar) {
+        c2 c2Var;
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (b2Var = cVar.f65316e) == null || (aVar = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (c2Var = cVar.f25138e) == null || (aVar = this.n) == null) {
             return;
         }
-        aVar.d(b2Var);
+        aVar.d(c2Var);
     }
 
-    public void t(d.a.q0.v.c cVar) {
+    public void s(c.a.p0.v.c cVar) {
         a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) || (aVar = this.n) == null) {

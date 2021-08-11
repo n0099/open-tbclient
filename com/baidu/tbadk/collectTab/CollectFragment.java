@@ -1,6 +1,7 @@
 package com.baidu.tbadk.collectTab;
 
 import android.os.Bundle;
+import c.a.e.e.p.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -12,25 +13,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class CollectFragment extends BaseFragment {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String EDITOR_ENABLE_EXTRA = "is_enable_edit";
+    public static final String EDITOR_STATE_EXTRA = "is_edit_state";
+    public static final String FRAGMENT_TYPE = "fragment_type";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f12223e;
+    public final CustomMessageListener f47141e;
+    public boolean mIsEnableEdit;
 
-    /* renamed from: f  reason: collision with root package name */
-    public final CustomMessageListener f12224f;
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CollectFragment f12225a;
+        public final /* synthetic */ CollectFragment f47142a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(CollectFragment collectFragment, int i2) {
@@ -50,7 +51,7 @@ public abstract class CollectFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f12225a = collectFragment;
+            this.f47142a = collectFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,13 +59,13 @@ public abstract class CollectFragment extends BaseFragment {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-                CollectFragment collectFragment = this.f12225a;
-                collectFragment.P0(collectFragment.M0());
-                CollectFragment collectFragment2 = this.f12225a;
-                if (collectFragment2.f12223e) {
+                CollectFragment collectFragment = this.f47142a;
+                collectFragment.sendEditEnableMessage(collectFragment.getType());
+                CollectFragment collectFragment2 = this.f47142a;
+                if (collectFragment2.mIsEnableEdit) {
                     return;
                 }
-                collectFragment2.Q0(false, collectFragment2.M0());
+                collectFragment2.sendEditStateMessage(false, collectFragment2.getType());
             }
         }
     }
@@ -82,57 +83,57 @@ public abstract class CollectFragment extends BaseFragment {
                 return;
             }
         }
-        this.f12223e = false;
-        this.f12224f = new a(this, 2000994);
+        this.mIsEnableEdit = false;
+        this.f47141e = new a(this, 2000994);
     }
 
-    public abstract int M0();
+    public abstract int getType();
 
-    public abstract boolean N0();
+    public abstract boolean isEmptyData();
 
-    public boolean O0() {
+    public boolean isEnableEdit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12223e : invokeV.booleanValue;
-    }
-
-    public void P0(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            Bundle bundle = new Bundle();
-            boolean z = !N0() && j.z();
-            this.f12223e = z;
-            bundle.putBoolean("is_enable_edit", z);
-            bundle.putInt("fragment_type", i2);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022209, bundle));
-        }
-    }
-
-    public void Q0(boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putBoolean("is_edit_state", z);
-            bundle.putInt("fragment_type", i2);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022208, bundle));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIsEnableEdit : invokeV.booleanValue;
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onStart();
-            registerListener(this.f12224f);
+            registerListener(this.f47141e);
         }
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onStop();
-            MessageManager.getInstance().unRegisterListener(this.f12224f);
+            MessageManager.getInstance().unRegisterListener(this.f47141e);
+        }
+    }
+
+    public void sendEditEnableMessage(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            Bundle bundle = new Bundle();
+            boolean z = !isEmptyData() && j.z();
+            this.mIsEnableEdit = z;
+            bundle.putBoolean(EDITOR_ENABLE_EXTRA, z);
+            bundle.putInt(FRAGMENT_TYPE, i2);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022209, bundle));
+        }
+    }
+
+    public void sendEditStateMessage(boolean z, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putBoolean(EDITOR_STATE_EXTRA, z);
+            bundle.putInt(FRAGMENT_TYPE, i2);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022208, bundle));
         }
     }
 }

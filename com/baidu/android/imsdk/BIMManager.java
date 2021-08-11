@@ -9,6 +9,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import c.a.u.a.b.a;
+import c.a.u.a.h.c;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.account.IConnectListener;
@@ -53,7 +55,6 @@ import com.baidu.android.imsdk.internal.IMManagerImpl;
 import com.baidu.android.imsdk.internal.IMSettings;
 import com.baidu.android.imsdk.mcast.ILiveMsgReceiveListener;
 import com.baidu.android.imsdk.retrieve.RetrieveMsgReceiver;
-import com.baidu.android.imsdk.retrieve.RetrieveReportRequest;
 import com.baidu.android.imsdk.shield.ISetForbidListener;
 import com.baidu.android.imsdk.shield.ShieldAndTopManager;
 import com.baidu.android.imsdk.task.TaskManager;
@@ -70,12 +71,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.v.a.b.a;
-import d.a.v.a.h.c;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class BIMManager extends BaseManager implements NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static volatile Runnable checkIMLoginState;
@@ -85,7 +84,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class CATEGORY {
         public static final /* synthetic */ CATEGORY[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -322,10 +321,10 @@ public class BIMManager extends BaseManager implements NoProGuard {
         return invokeL.booleanValue;
     }
 
-    public static int deleteDraftMsg(Context context, int i2, long j) {
+    public static int deleteDraftMsg(Context context, int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j)})) == null) ? ChatMsgManager.deleteDraftMsg(context, i2, j) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? ChatMsgManager.deleteDraftMsg(context, i2, j2) : invokeCommon.intValue;
     }
 
     public static int deleteMsg(Context context, ChatMsg chatMsg) {
@@ -334,14 +333,14 @@ public class BIMManager extends BaseManager implements NoProGuard {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, context, chatMsg)) == null) ? ChatMsgManager.deleteMsg(context, chatMsg) : invokeLL.intValue;
     }
 
-    public static long deleteMsgs(Context context, int i2, long j, boolean z) {
+    public static long deleteMsgs(Context context, int i2, long j2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
             if (BaseManager.isNullContext(context)) {
                 return -1L;
             }
-            return ChatMsgManagerImpl.getInstance(context).deleteAllMsgs(i2, j, z);
+            return ChatMsgManagerImpl.getInstance(context).deleteAllMsgs(i2, j2, z);
         }
         return invokeCommon.longValue;
     }
@@ -354,7 +353,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 return false;
             }
             try {
-                c.f68435a = z;
+                c.f29903a = z;
             } catch (Throwable unused) {
                 LogUtils.e(BaseManager.TAG, "LCPConstants.LOG_DEBUG not found");
             }
@@ -363,45 +362,45 @@ public class BIMManager extends BaseManager implements NoProGuard {
         return invokeZ.booleanValue;
     }
 
-    public static ArrayList<ChatMsg> fetchMessageSync(Context context, long j, long j2, int i2) {
+    public static ArrayList<ChatMsg> fetchMessageSync(Context context, long j2, long j3, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65558, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? ChatMsgManager.fetchMessageSync(context, 0, j, j2, i2) : (ArrayList) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65558, null, new Object[]{context, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)})) == null) ? ChatMsgManager.fetchMessageSync(context, 0, j2, j3, i2) : (ArrayList) invokeCommon.objValue;
     }
 
-    public static Pair<Integer, ArrayList<ChatMsg>> fetchMessageSyncWithState(Context context, int i2, long j, int i3, ChatMsg chatMsg) {
+    public static Pair<Integer, ArrayList<ChatMsg>> fetchMessageSyncWithState(Context context, int i2, long j2, int i3, ChatMsg chatMsg) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, null, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), chatMsg})) == null) ? ChatMsgManager.fetchMessageSyncWithState(context, i2, j, i3, chatMsg) : (Pair) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, null, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), chatMsg})) == null) ? ChatMsgManager.fetchMessageSyncWithState(context, i2, j2, i3, chatMsg) : (Pair) invokeCommon.objValue;
     }
 
-    public static void fetchMsgByHostRequest(Context context, long j, int i2, long j2, long j3, long j4, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener) {
+    public static void fetchMsgByHostRequest(Context context, long j2, int i2, long j3, long j4, long j5, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i3), Integer.valueOf(i4), iFetchMsgByIdListener}) == null) {
-            fetchMsgByHostRequest(context, j, i2, j2, j3, j4, i3, i4, iFetchMsgByIdListener, false);
+        if (interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Integer.valueOf(i3), Integer.valueOf(i4), iFetchMsgByIdListener}) == null) {
+            fetchMsgByHostRequest(context, j2, i2, j3, j4, j5, i3, i4, iFetchMsgByIdListener, false);
         }
     }
 
-    public static void fetchMsgByMsgid(Context context, int i2, long j, long j2, long j3, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener) {
+    public static void fetchMsgByMsgid(Context context, int i2, long j2, long j3, long j4, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65562, null, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3), Integer.valueOf(i4), iFetchMsgByIdListener}) == null) {
-            fetchMsgByMsgid(context, i2, j, j2, j3, i3, i4, iFetchMsgByIdListener, false);
+        if (interceptable == null || interceptable.invokeCommon(65562, null, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i3), Integer.valueOf(i4), iFetchMsgByIdListener}) == null) {
+            fetchMsgByMsgid(context, i2, j2, j3, j4, i3, i4, iFetchMsgByIdListener, false);
         }
     }
 
-    public static void fetchMsgRequest(Context context, long j, long j2, int i2, long j3, long j4, long j5, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener) {
+    public static void fetchMsgRequest(Context context, long j2, long j3, int i2, long j4, long j5, long j6, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65564, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Integer.valueOf(i3), Integer.valueOf(i4), iFetchMsgByIdListener}) == null) {
-            fetchMsgRequest(context, j, j2, i2, j3, j4, j5, i3, i4, iFetchMsgByIdListener, false);
+        if (interceptable == null || interceptable.invokeCommon(65564, null, new Object[]{context, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Integer.valueOf(i3), Integer.valueOf(i4), iFetchMsgByIdListener}) == null) {
+            fetchMsgRequest(context, j2, j3, i2, j4, j5, j6, i3, i4, iFetchMsgByIdListener, false);
         }
     }
 
-    public static void fetchPaChatMsgs(Context context, int i2, int i3, long j, long j2, long j3, int i4, IFetchMessageListener iFetchMessageListener) {
+    public static void fetchPaChatMsgs(Context context, int i2, int i3, long j2, long j3, long j4, int i4, IFetchMessageListener iFetchMessageListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i4), iFetchMessageListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i4), iFetchMessageListener}) == null) {
             String str = BaseManager.TAG;
-            LogUtils.d(str, "fetchPaChatMsgs patype = " + i2 + " subPatype = " + i3 + " paid = " + j + " msgid = " + j2 + " time = " + j3 + " count = " + i4);
-            ChatMsgManager.fetchPaChatMsgs(context, i2, i3, j, j2, j3, i4, iFetchMessageListener);
+            LogUtils.d(str, "fetchPaChatMsgs patype = " + i2 + " subPatype = " + i3 + " paid = " + j2 + " msgid = " + j3 + " time = " + j4 + " count = " + i4);
+            ChatMsgManager.fetchPaChatMsgs(context, i2, i3, j2, j3, j4, i4, iFetchMessageListener);
         }
     }
 
@@ -445,8 +444,8 @@ public class BIMManager extends BaseManager implements NoProGuard {
             long readLongData = Utility.readLongData(context, IMConstants.KEY_TRACK_DB_DEFAULT_SIZE, 0L);
             String str = BaseManager.TAG;
             LogUtils.d(str, "getCacheSize pluginCacheSize = " + sumCacheSize + " trackSize = " + imTrackDbSize + " defSize = " + readLongData);
-            long j = imTrackDbSize - readLongData;
-            return sumCacheSize + (j >= 0 ? j : 0L);
+            long j2 = imTrackDbSize - readLongData;
+            return sumCacheSize + (j2 >= 0 ? j2 : 0L);
         }
         return invokeL.longValue;
     }
@@ -458,10 +457,10 @@ public class BIMManager extends BaseManager implements NoProGuard {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65572, null, context, list)) == null) ? ChatMsgManager.getChatRecords(context, list) : (List) invokeLL.objValue;
     }
 
-    public static ChatUser getChatUserSync(Context context, long j) {
+    public static ChatUser getChatUserSync(Context context, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65574, null, context, j)) == null) ? ChatUserManager.getChatUserSync(context, j) : (ChatUser) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65574, null, context, j2)) == null) ? ChatUserManager.getChatUserSync(context, j2) : (ChatUser) invokeLJ.objValue;
     }
 
     public static BIMConversation getConversation(String str, CATEGORY category) {
@@ -579,10 +578,10 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
     }
 
-    public static ChatMsg getDraftMsg(Context context, int i2, long j) {
+    public static ChatMsg getDraftMsg(Context context, int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65580, null, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j)})) == null) ? ChatMsgManager.getDraftMsg(context, i2, j) : (ChatMsg) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65580, null, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? ChatMsgManager.getDraftMsg(context, i2, j2) : (ChatMsg) invokeCommon.objValue;
     }
 
     public static long getJoinedCastId(Context context) {
@@ -609,10 +608,10 @@ public class BIMManager extends BaseManager implements NoProGuard {
         return (String) invokeV.objValue;
     }
 
-    public static long getMaxReliableMsgId(Context context, long j) {
+    public static long getMaxReliableMsgId(Context context, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65584, null, context, j)) == null) ? ConversationStudioManImpl.getInstance(context).getMaxReliableMsgId(j) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65584, null, context, j2)) == null) ? ConversationStudioManImpl.getInstance(context).getMaxReliableMsgId(j2) : invokeLJ.longValue;
     }
 
     public static int getNewMsgCount(Context context) {
@@ -621,25 +620,25 @@ public class BIMManager extends BaseManager implements NoProGuard {
         return (interceptable == null || (invokeL = interceptable.invokeL(65585, null, context)) == null) ? ChatMsgManager.getNewMsgCount(context) : invokeL.intValue;
     }
 
-    public static void getPaNewMsgCount(Context context, int i2, int i3, long j, IGetNewMsgCountListener iGetNewMsgCountListener) {
+    public static void getPaNewMsgCount(Context context, int i2, int i3, long j2, IGetNewMsgCountListener iGetNewMsgCountListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65587, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), iGetNewMsgCountListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65587, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), iGetNewMsgCountListener}) == null) {
             String str = BaseManager.TAG;
-            LogUtils.d(str, "getPaNewMsgCount patype = " + i2 + " subPatype = " + i3 + " paid = " + j);
-            ChatMsgManager.getPaNewMsgCount(context, i2, i3, j, iGetNewMsgCountListener);
+            LogUtils.d(str, "getPaNewMsgCount patype = " + i2 + " subPatype = " + i3 + " paid = " + j2);
+            ChatMsgManager.getPaNewMsgCount(context, i2, i3, j2, iGetNewMsgCountListener);
         }
     }
 
-    public static long getReliableMsgCount(Context context, long j) {
+    public static long getReliableMsgCount(Context context, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65588, null, context, j)) == null) ? ConversationStudioManImpl.getInstance(context).getReliableMsgCount(j) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65588, null, context, j2)) == null) ? ConversationStudioManImpl.getInstance(context).getReliableMsgCount(j2) : invokeLJ.longValue;
     }
 
-    public static int getUnReadMsgCountByPaid(Context context, long j) {
+    public static int getUnReadMsgCountByPaid(Context context, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65589, null, context, j)) == null) ? ChatMsgManager.getUnReadMsgCountByPaid(context, j) : invokeLJ.intValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65589, null, context, j2)) == null) ? ChatMsgManager.getUnReadMsgCountByPaid(context, j2) : invokeLJ.intValue;
     }
 
     public static void getUsersProfiles(Context context, ArrayList<Long> arrayList, boolean z, IGetUsersProfileBatchListener iGetUsersProfileBatchListener) {
@@ -659,7 +658,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65592, null, context) == null) {
             try {
-                d.a.u.a.e(context);
+                c.a.t.a.e(context);
                 LoginManager.getInstance(context).onLogoutResultInternal(0, "lcp unconnected");
             } catch (Exception e2) {
                 LogUtils.e(BaseManager.TAG, "imLogoutByLcp exception ", e2);
@@ -704,17 +703,17 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
     }
 
-    public static boolean init(Context context, long j, int i2, String str) {
+    public static boolean init(Context context, long j2, int i2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65594, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65594, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), str})) == null) {
             if (BaseManager.isNullContext(context) || TextUtils.isEmpty(str)) {
                 return false;
             }
             Context applicationContext = context.getApplicationContext();
             sContext = applicationContext;
-            d.a.u.a.f68193e = a.d(applicationContext);
-            if (d.a.u.a.f68193e) {
+            c.a.t.a.f29659e = a.d(applicationContext);
+            if (c.a.t.a.f29659e) {
                 try {
                     initLCP();
                     c.c(applicationContext, i2 != 0);
@@ -755,7 +754,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                         }
                         try {
                             BIMManager.initIMServiceImpl(context2);
-                            d.a.u.a.f68191c.removeCallbacks(BIMManager.checkIMLoginState);
+                            c.a.t.a.f29657c.removeCallbacks(BIMManager.checkIMLoginState);
                             if (z) {
                                 BIMManager.postCheckRunnable();
                             }
@@ -766,8 +765,8 @@ public class BIMManager extends BaseManager implements NoProGuard {
                     }
                 }
             }, intentFilter);
-            Log.d(RetrieveReportRequest.APP_NAME, "set env as " + i2 + "， appId:" + j + ", cuid :" + str);
-            AccountManagerImpl.getInstance(applicationContext).setAppid(j);
+            String str2 = "set env as " + i2 + "， appId:" + j2 + ", cuid :" + str;
+            AccountManagerImpl.getInstance(applicationContext).setAppid(j2);
             Utility.setDeviceId(applicationContext, str);
             Constants.setEnv(applicationContext, i2);
             IMManagerImpl.getInstance(applicationContext);
@@ -775,7 +774,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
             ConversationManagerImpl.getInstance(applicationContext);
             Utility.clearExpiredMsg(applicationContext);
             registerInternalListener(RetrieveMsgReceiver.getInstance(applicationContext));
-            d.a.t.a.a.d().e(applicationContext, str, i2, Constants.isDebugMode());
+            c.a.s.a.a.d().e(applicationContext, str, i2, Constants.isDebugMode());
             return true;
         }
         return invokeCommon.booleanValue;
@@ -811,7 +810,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        d.a.u.a.g(this.val$context);
+                        c.a.t.a.g(this.val$context);
                     }
                 }
             });
@@ -821,7 +820,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     public static void initLCP() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65596, null) == null) {
-            d.a.v.a.b.c.f().j(sContext);
+            c.a.u.a.b.c.f().j(sContext);
         }
     }
 
@@ -843,7 +842,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void login(String str, String str2, int i2, String str3, String str4, String str5, String str6, int i3, ILoginListener iLoginListener) {
-        long j;
+        long j2;
         IMTrack.RequestBuilder requestId;
         String str7;
         Interceptable interceptable = $ic;
@@ -860,14 +859,14 @@ public class BIMManager extends BaseManager implements NoProGuard {
             try {
                 String[] loginFlag = Utility.getLoginFlag(sContext);
                 if (loginFlag.length >= 2) {
-                    j = Long.valueOf(loginFlag[0]).longValue();
+                    j2 = Long.valueOf(loginFlag[0]).longValue();
                     try {
                         try {
                             str7 = loginFlag[1];
                         } catch (Exception unused) {
                             LogUtils.e(BaseManager.TAG, "IMTrack init request getLoginFlag Exception ");
                             requestId = new IMTrack.RequestBuilder(sContext).method(String.valueOf(Utility.getLoginOpenType(sContext))).requestId("1Y");
-                            requestId.requestTime(Utility.getLoginCallTime(sContext)).responseTime(j).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
+                            requestId.requestTime(Utility.getLoginCallTime(sContext)).responseTime(j2).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
                             Utility.writeLoginCallTime(sContext);
                             Context context = sContext;
                             Utility.writeLoginFlag(context, "1Y", "context is nonnull, accessToken is null -> " + TextUtils.isEmpty(str2));
@@ -879,23 +878,23 @@ public class BIMManager extends BaseManager implements NoProGuard {
                         }
                     } catch (Throwable th) {
                         th = th;
-                        new IMTrack.RequestBuilder(sContext).method(String.valueOf(Utility.getLoginOpenType(sContext))).requestId("1Y").requestTime(Utility.getLoginCallTime(sContext)).responseTime(j).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
+                        new IMTrack.RequestBuilder(sContext).method(String.valueOf(Utility.getLoginOpenType(sContext))).requestId("1Y").requestTime(Utility.getLoginCallTime(sContext)).responseTime(j2).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
                         throw th;
                     }
                 } else {
                     str7 = "1Y";
-                    j = 0;
+                    j2 = 0;
                 }
                 requestId = new IMTrack.RequestBuilder(sContext).method(String.valueOf(Utility.getLoginOpenType(sContext))).requestId(str7);
             } catch (Exception unused2) {
-                j = 0;
+                j2 = 0;
             } catch (Throwable th2) {
                 th = th2;
-                j = 0;
-                new IMTrack.RequestBuilder(sContext).method(String.valueOf(Utility.getLoginOpenType(sContext))).requestId("1Y").requestTime(Utility.getLoginCallTime(sContext)).responseTime(j).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
+                j2 = 0;
+                new IMTrack.RequestBuilder(sContext).method(String.valueOf(Utility.getLoginOpenType(sContext))).requestId("1Y").requestTime(Utility.getLoginCallTime(sContext)).responseTime(j2).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
                 throw th;
             }
-            requestId.requestTime(Utility.getLoginCallTime(sContext)).responseTime(j).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
+            requestId.requestTime(Utility.getLoginCallTime(sContext)).responseTime(j2).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
             Utility.writeLoginCallTime(sContext);
             Context context2 = sContext;
             Utility.writeLoginFlag(context2, "1Y", "context is nonnull, accessToken is null -> " + TextUtils.isEmpty(str2));
@@ -1028,59 +1027,59 @@ public class BIMManager extends BaseManager implements NoProGuard {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65603, null, context, chatMsg)) == null) ? ChatMsgManager.markMsgClicked(context, chatMsg) : invokeLL.intValue;
     }
 
-    public static void mediaContactorSetting(Context context, long j, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
+    public static void mediaContactorSetting(Context context, long j2, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65605, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), iMediaContactorSettingListener}) == null) {
-            ChatMsgManager.mediaContactorSetting(context, j, i2, iMediaContactorSettingListener);
+        if (interceptable == null || interceptable.invokeCommon(65605, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), iMediaContactorSettingListener}) == null) {
+            ChatMsgManager.mediaContactorSetting(context, j2, i2, iMediaContactorSettingListener);
         }
     }
 
-    public static void mediaDeleteAllChatMsg(Context context, long j, long j2, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
+    public static void mediaDeleteAllChatMsg(Context context, long j2, long j3, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65607, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), iMediaDeleteChatMsgListener}) == null) {
-            ChatMsgManager.mediaDeleteChatMsg(context, j, j2, null, iMediaDeleteChatMsgListener);
+        if (interceptable == null || interceptable.invokeCommon(65607, null, new Object[]{context, Long.valueOf(j2), Long.valueOf(j3), iMediaDeleteChatMsgListener}) == null) {
+            ChatMsgManager.mediaDeleteChatMsg(context, j2, j3, null, iMediaDeleteChatMsgListener);
         }
     }
 
-    public static void mediaDeleteChatMsg(Context context, long j, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
+    public static void mediaDeleteChatMsg(Context context, long j2, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65609, null, new Object[]{context, Long.valueOf(j), list, iMediaDeleteChatMsgListener}) == null) {
-            ChatMsgManager.mediaDeleteChatMsg(context, j, -1L, list, iMediaDeleteChatMsgListener);
+        if (interceptable == null || interceptable.invokeCommon(65609, null, new Object[]{context, Long.valueOf(j2), list, iMediaDeleteChatMsgListener}) == null) {
+            ChatMsgManager.mediaDeleteChatMsg(context, j2, -1L, list, iMediaDeleteChatMsgListener);
         }
     }
 
-    public static void mediaDeleteChatSession(Context context, long j, long j2, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
+    public static void mediaDeleteChatSession(Context context, long j2, long j3, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65611, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), iMediaDeleteChatSessionListener}) == null) {
-            ChatMsgManager.mediaDeleteChatSession(context, j, j2, iMediaDeleteChatSessionListener);
+        if (interceptable == null || interceptable.invokeCommon(65611, null, new Object[]{context, Long.valueOf(j2), Long.valueOf(j3), iMediaDeleteChatSessionListener}) == null) {
+            ChatMsgManager.mediaDeleteChatSession(context, j2, j3, iMediaDeleteChatSessionListener);
         }
     }
 
-    public static void mediaFetchChatMsgs(Context context, long j, long j2, long j3, int i2, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
+    public static void mediaFetchChatMsgs(Context context, long j2, long j3, long j4, int i2, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65613, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), iMediaFetchChatMsgsListener}) == null) {
-            ChatMsgManager.mediaFetchChatMsgs(context, j, j2, j3, i2, iMediaFetchChatMsgsListener);
+        if (interceptable == null || interceptable.invokeCommon(65613, null, new Object[]{context, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i2), iMediaFetchChatMsgsListener}) == null) {
+            ChatMsgManager.mediaFetchChatMsgs(context, j2, j3, j4, i2, iMediaFetchChatMsgsListener);
         }
     }
 
-    public static void mediaGetChatSessions(Context context, long j, long j2, int i2, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
+    public static void mediaGetChatSessions(Context context, long j2, long j3, int i2, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65615, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), iMediaGetChatSessionListener}) == null) {
-            ChatMsgManager.mediaGetChatSessions(context, j, j2, i2, iMediaGetChatSessionListener);
+        if (interceptable == null || interceptable.invokeCommon(65615, null, new Object[]{context, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), iMediaGetChatSessionListener}) == null) {
+            ChatMsgManager.mediaGetChatSessions(context, j2, j3, i2, iMediaGetChatSessionListener);
         }
     }
 
-    public static void mediaGetContactorPauid(Context context, long j, IMediaGetContactorPauidListener iMediaGetContactorPauidListener) {
+    public static void mediaGetContactorPauid(Context context, long j2, IMediaGetContactorPauidListener iMediaGetContactorPauidListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65617, null, new Object[]{context, Long.valueOf(j), iMediaGetContactorPauidListener}) == null) {
-            ChatMsgManager.mediaGetContactorPauid(context, j, iMediaGetContactorPauidListener);
+        if (interceptable == null || interceptable.invokeCommon(65617, null, new Object[]{context, Long.valueOf(j2), iMediaGetContactorPauidListener}) == null) {
+            ChatMsgManager.mediaGetContactorPauid(context, j2, iMediaGetContactorPauidListener);
         }
     }
 
-    public static void mediaGetContactorSetting(Context context, long j, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
+    public static void mediaGetContactorSetting(Context context, long j2, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65619, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), iMediaContactorSettingListener}) == null) {
-            ChatMsgManager.mediaGetContactorSetting(context, j, i2, iMediaContactorSettingListener);
+        if (interceptable == null || interceptable.invokeCommon(65619, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), iMediaContactorSettingListener}) == null) {
+            ChatMsgManager.mediaGetContactorSetting(context, j2, i2, iMediaContactorSettingListener);
         }
     }
 
@@ -1091,10 +1090,10 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
     }
 
-    public static void mediaSendChatMsg(Context context, long j, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
+    public static void mediaSendChatMsg(Context context, long j2, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65622, null, new Object[]{context, Long.valueOf(j), chatMsg, iMediaSendChatMsgListener}) == null) {
-            ChatMsgManager.mediaSendChatMsg(context, j, chatMsg, iMediaSendChatMsgListener);
+        if (interceptable == null || interceptable.invokeCommon(65622, null, new Object[]{context, Long.valueOf(j2), chatMsg, iMediaSendChatMsgListener}) == null) {
+            ChatMsgManager.mediaSendChatMsg(context, j2, chatMsg, iMediaSendChatMsgListener);
         }
     }
 
@@ -1112,10 +1111,10 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
     }
 
-    public static void mediaSetSessionRead(Context context, long j, long j2, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
+    public static void mediaSetSessionRead(Context context, long j2, long j3, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65626, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), iMediaSetSessionReadListener}) == null) {
-            ChatMsgManager.mediaSetSessionRead(context, j, j2, iMediaSetSessionReadListener);
+        if (interceptable == null || interceptable.invokeCommon(65626, null, new Object[]{context, Long.valueOf(j2), Long.valueOf(j3), iMediaSetSessionReadListener}) == null) {
+            ChatMsgManager.mediaSetSessionRead(context, j2, j3, iMediaSetSessionReadListener);
         }
     }
 
@@ -1138,7 +1137,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
         if (interceptable == null || interceptable.invokeV(65629, null) == null) {
             try {
                 LogUtils.i("BIMManager", "postCheckRunnable after 30s");
-                d.a.u.a.f68191c.postDelayed(checkIMLoginState, 30000L);
+                c.a.t.a.f29657c.postDelayed(checkIMLoginState, 30000L);
             } catch (Exception e2) {
                 LogUtils.e(BaseManager.TAG, "postCheckRunnable exception ", e2);
             }
@@ -1268,54 +1267,54 @@ public class BIMManager extends BaseManager implements NoProGuard {
         ChatMsgManager.sendMessage(context, chatMsg, iSendMessageListener);
     }
 
-    public static void sendPaChatMsg(Context context, int i2, int i3, long j, int i4, String str, ISendMessageListener iSendMessageListener) {
+    public static void sendPaChatMsg(Context context, int i2, int i3, long j2, int i4, String str, ISendMessageListener iSendMessageListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65644, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), Integer.valueOf(i4), str, iSendMessageListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65644, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Integer.valueOf(i4), str, iSendMessageListener}) == null) {
             String str2 = BaseManager.TAG;
-            LogUtils.d(str2, "sendPaChatMsg patype = " + i2 + " subPatype = " + i3 + " paid = " + j + " msgtype = " + i4 + " content = " + str);
-            ChatMsgManager.sendPaChatMsg(context, i2, i3, j, i4, str, iSendMessageListener);
+            LogUtils.d(str2, "sendPaChatMsg patype = " + i2 + " subPatype = " + i3 + " paid = " + j2 + " msgtype = " + i4 + " content = " + str);
+            ChatMsgManager.sendPaChatMsg(context, i2, i3, j2, i4, str, iSendMessageListener);
         }
     }
 
-    public static boolean setAllMsgRead(Context context, int i2, long j, boolean z) {
+    public static boolean setAllMsgRead(Context context, int i2, long j2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65645, null, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j), Boolean.valueOf(z)})) == null) ? ChatMsgManager.setAllMsgRead(context, i2, j, z) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65645, null, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j2), Boolean.valueOf(z)})) == null) ? ChatMsgManager.setAllMsgRead(context, i2, j2, z) : invokeCommon.booleanValue;
     }
 
-    public static void setForbid(Context context, long j, long j2, int i2, ISetForbidListener iSetForbidListener) {
+    public static void setForbid(Context context, long j2, long j3, int i2, ISetForbidListener iSetForbidListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65646, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), iSetForbidListener}) == null) {
-            ShieldAndTopManager.getInstance(context).setForbid(j, j2, i2, iSetForbidListener);
+        if (interceptable == null || interceptable.invokeCommon(65646, null, new Object[]{context, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), iSetForbidListener}) == null) {
+            ShieldAndTopManager.getInstance(context).setForbid(j2, j3, i2, iSetForbidListener);
         }
     }
 
-    public static void setGroupMarkTop(Context context, long j, int i2, IStatusListener iStatusListener) {
+    public static void setGroupMarkTop(Context context, long j2, int i2, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65647, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), iStatusListener}) == null) {
-            ShieldAndTopManager.getInstance(context).setMarkTop(j, 3, i2, iStatusListener);
+        if (interceptable == null || interceptable.invokeCommon(65647, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), iStatusListener}) == null) {
+            ShieldAndTopManager.getInstance(context).setMarkTop(j2, 3, i2, iStatusListener);
         }
     }
 
-    public static void setMarkTop(Context context, long j, int i2, IStatusListener iStatusListener) {
+    public static void setMarkTop(Context context, long j2, int i2, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65648, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), iStatusListener}) == null) {
-            ShieldAndTopManager.getInstance(context).setMarkTop(j, 1, i2, iStatusListener);
+        if (interceptable == null || interceptable.invokeCommon(65648, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), iStatusListener}) == null) {
+            ShieldAndTopManager.getInstance(context).setMarkTop(j2, 1, i2, iStatusListener);
         }
     }
 
-    public static boolean setMsgRead(Context context, long j, long j2, boolean z) {
+    public static boolean setMsgRead(Context context, long j2, long j3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65650, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)})) == null) ? ChatMsgManager.setMsgRead(context, 0, j, j2, z) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65650, null, new Object[]{context, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) == null) ? ChatMsgManager.setMsgRead(context, 0, j2, j3, z) : invokeCommon.booleanValue;
     }
 
-    public static void setPaMsgsRead(Context context, int i2, int i3, long j, long j2, long j3) {
+    public static void setPaMsgsRead(Context context, int i2, int i3, long j2, long j3, long j4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65651, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65651, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
             String str = BaseManager.TAG;
-            LogUtils.d(str, "setPaMsgsRead patype = " + i2 + " subPatype = " + i3 + " paid = " + j + " msgid = " + j2 + " time = " + j3);
-            ChatMsgManager.setPaMsgsRead(context, i2, i3, j, j2, j3);
+            LogUtils.d(str, "setPaMsgsRead patype = " + i2 + " subPatype = " + i3 + " paid = " + j2 + " msgid = " + j3 + " time = " + j4);
+            ChatMsgManager.setPaMsgsRead(context, i2, i3, j2, j3, j4);
         }
     }
 
@@ -1346,23 +1345,23 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
     }
 
-    public static void setUserDisturb(Context context, long j, int i2, IUserPrivacyListener iUserPrivacyListener) {
+    public static void setUserDisturb(Context context, long j2, int i2, IUserPrivacyListener iUserPrivacyListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65654, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), iUserPrivacyListener}) == null) {
-            IMBoxManager.setUserDisturb(context, j, i2, iUserPrivacyListener);
+        if (interceptable == null || interceptable.invokeCommon(65654, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), iUserPrivacyListener}) == null) {
+            IMBoxManager.setUserDisturb(context, j2, i2, iUserPrivacyListener);
         }
     }
 
-    public static void setUserMarkTop(Context context, long j, int i2, IStatusListener iStatusListener) {
+    public static void setUserMarkTop(Context context, long j2, int i2, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65655, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), iStatusListener}) == null) {
-            ShieldAndTopManager.getInstance(context).setMarkTop(j, 0, i2, iStatusListener);
+        if (interceptable == null || interceptable.invokeCommon(65655, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), iStatusListener}) == null) {
+            ShieldAndTopManager.getInstance(context).setMarkTop(j2, 0, i2, iStatusListener);
         }
     }
 
     public static void tryConnection(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65656, null, context) == null) || d.a.u.a.f68193e) {
+        if (!(interceptable == null || interceptable.invokeL(65656, null, context) == null) || c.a.t.a.f29659e) {
             return;
         }
         AccountManagerImpl.getInstance(context);
@@ -1427,24 +1426,24 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
     }
 
-    public static void fetchMsgByHostRequest(Context context, long j, int i2, long j2, long j3, long j4, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
+    public static void fetchMsgByHostRequest(Context context, long j2, int i2, long j3, long j4, long j5, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i3), Integer.valueOf(i4), iFetchMsgByIdListener, Boolean.valueOf(z)}) == null) {
-            ChatMsgManager.fetchMsgByHostRequst(context, j, i2, j2, j3, j4, i3, iFetchMsgByIdListener);
+        if (interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Integer.valueOf(i3), Integer.valueOf(i4), iFetchMsgByIdListener, Boolean.valueOf(z)}) == null) {
+            ChatMsgManager.fetchMsgByHostRequst(context, j2, i2, j3, j4, j5, i3, iFetchMsgByIdListener);
         }
     }
 
-    public static void fetchMsgByMsgid(Context context, int i2, long j, long j2, long j3, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
+    public static void fetchMsgByMsgid(Context context, int i2, long j2, long j3, long j4, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65563, null, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3), Integer.valueOf(i4), iFetchMsgByIdListener, Boolean.valueOf(z)}) == null) {
-            ChatMsgManager.fetchMsgRequst(context, Utility.getAppId(context), Utility.getUK(context), i2, j, j2, j3, i3, iFetchMsgByIdListener, z);
+        if (interceptable == null || interceptable.invokeCommon(65563, null, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i3), Integer.valueOf(i4), iFetchMsgByIdListener, Boolean.valueOf(z)}) == null) {
+            ChatMsgManager.fetchMsgRequst(context, Utility.getAppId(context), Utility.getUK(context), i2, j2, j3, j4, i3, iFetchMsgByIdListener, z);
         }
     }
 
-    public static void fetchMsgRequest(Context context, long j, long j2, int i2, long j3, long j4, long j5, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
+    public static void fetchMsgRequest(Context context, long j2, long j3, int i2, long j4, long j5, long j6, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65565, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Integer.valueOf(i3), Integer.valueOf(i4), iFetchMsgByIdListener, Boolean.valueOf(z)}) == null) {
-            ChatMsgManager.fetchMsgRequst(context, j, j2, i2, j3, j4, j5, i3, iFetchMsgByIdListener, z);
+        if (interceptable == null || interceptable.invokeCommon(65565, null, new Object[]{context, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Integer.valueOf(i3), Integer.valueOf(i4), iFetchMsgByIdListener, Boolean.valueOf(z)}) == null) {
+            ChatMsgManager.fetchMsgRequst(context, j2, j3, i2, j4, j5, j6, i3, iFetchMsgByIdListener, z);
         }
     }
 
@@ -1462,104 +1461,104 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
     }
 
-    public static void mediaContactorSetting(Context context, long j, int i2, long j2, String str, int i3, IMediaContactorSettingListener iMediaContactorSettingListener) {
+    public static void mediaContactorSetting(Context context, long j2, int i2, long j3, String str, int i3, IMediaContactorSettingListener iMediaContactorSettingListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65604, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), str, Integer.valueOf(i3), iMediaContactorSettingListener}) == null) {
-            ChatMsgManager.mediaContactorSetting(context, j, i2, j2, str, i3, iMediaContactorSettingListener);
+        if (interceptable == null || interceptable.invokeCommon(65604, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, Integer.valueOf(i3), iMediaContactorSettingListener}) == null) {
+            ChatMsgManager.mediaContactorSetting(context, j2, i2, j3, str, i3, iMediaContactorSettingListener);
         }
     }
 
-    public static void mediaDeleteAllChatMsg(Context context, long j, int i2, long j2, String str, long j3, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
+    public static void mediaDeleteAllChatMsg(Context context, long j2, int i2, long j3, String str, long j4, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65606, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), str, Long.valueOf(j3), iMediaDeleteChatMsgListener}) == null) {
-            ChatMsgManager.mediaDeleteChatMsg(context, j, i2, j2, str, j3, null, iMediaDeleteChatMsgListener);
+        if (interceptable == null || interceptable.invokeCommon(65606, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, Long.valueOf(j4), iMediaDeleteChatMsgListener}) == null) {
+            ChatMsgManager.mediaDeleteChatMsg(context, j2, i2, j3, str, j4, null, iMediaDeleteChatMsgListener);
         }
     }
 
-    public static void mediaDeleteChatMsg(Context context, long j, int i2, long j2, String str, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
+    public static void mediaDeleteChatMsg(Context context, long j2, int i2, long j3, String str, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65608, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), str, list, iMediaDeleteChatMsgListener}) == null) {
-            ChatMsgManager.mediaDeleteChatMsg(context, j, i2, j2, str, -1L, list, iMediaDeleteChatMsgListener);
+        if (interceptable == null || interceptable.invokeCommon(65608, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, list, iMediaDeleteChatMsgListener}) == null) {
+            ChatMsgManager.mediaDeleteChatMsg(context, j2, i2, j3, str, -1L, list, iMediaDeleteChatMsgListener);
         }
     }
 
-    public static void mediaDeleteChatSession(Context context, long j, int i2, long j2, String str, long j3, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
+    public static void mediaDeleteChatSession(Context context, long j2, int i2, long j3, String str, long j4, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65610, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), str, Long.valueOf(j3), iMediaDeleteChatSessionListener}) == null) {
-            ChatMsgManager.mediaDeleteChatSession(context, j, i2, j2, str, j3, iMediaDeleteChatSessionListener);
+        if (interceptable == null || interceptable.invokeCommon(65610, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, Long.valueOf(j4), iMediaDeleteChatSessionListener}) == null) {
+            ChatMsgManager.mediaDeleteChatSession(context, j2, i2, j3, str, j4, iMediaDeleteChatSessionListener);
         }
     }
 
-    public static void mediaFetchChatMsgs(Context context, long j, int i2, long j2, String str, long j3, long j4, int i3, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
+    public static void mediaFetchChatMsgs(Context context, long j2, int i2, long j3, String str, long j4, long j5, int i3, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65612, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), str, Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i3), iMediaFetchChatMsgsListener}) == null) {
-            ChatMsgManager.mediaFetchChatMsgs(context, j, i2, j2, str, j3, j4, i3, iMediaFetchChatMsgsListener);
+        if (interceptable == null || interceptable.invokeCommon(65612, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, Long.valueOf(j4), Long.valueOf(j5), Integer.valueOf(i3), iMediaFetchChatMsgsListener}) == null) {
+            ChatMsgManager.mediaFetchChatMsgs(context, j2, i2, j3, str, j4, j5, i3, iMediaFetchChatMsgsListener);
         }
     }
 
-    public static void mediaGetChatSessions(Context context, long j, int i2, long j2, String str, long j3, int i3, int i4, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
+    public static void mediaGetChatSessions(Context context, long j2, int i2, long j3, String str, long j4, int i3, int i4, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65614, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), str, Long.valueOf(j3), Integer.valueOf(i3), Integer.valueOf(i4), iMediaGetChatSessionListener}) == null) {
-            ChatMsgManager.mediaGetChatSessions(context, j, i2, j2, str, j3, i3, i4, iMediaGetChatSessionListener);
+        if (interceptable == null || interceptable.invokeCommon(65614, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, Long.valueOf(j4), Integer.valueOf(i3), Integer.valueOf(i4), iMediaGetChatSessionListener}) == null) {
+            ChatMsgManager.mediaGetChatSessions(context, j2, i2, j3, str, j4, i3, i4, iMediaGetChatSessionListener);
         }
     }
 
-    public static void mediaGetContactorPauid(Context context, long j, int i2, long j2, String str, IMediaGetContactorPauidListener iMediaGetContactorPauidListener) {
+    public static void mediaGetContactorPauid(Context context, long j2, int i2, long j3, String str, IMediaGetContactorPauidListener iMediaGetContactorPauidListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65616, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), str, iMediaGetContactorPauidListener}) == null) {
-            ChatMsgManager.mediaGetContactorPauid(context, j, i2, j2, str, iMediaGetContactorPauidListener);
+        if (interceptable == null || interceptable.invokeCommon(65616, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, iMediaGetContactorPauidListener}) == null) {
+            ChatMsgManager.mediaGetContactorPauid(context, j2, i2, j3, str, iMediaGetContactorPauidListener);
         }
     }
 
-    public static void mediaGetContactorSetting(Context context, long j, int i2, long j2, String str, int i3, IMediaContactorSettingListener iMediaContactorSettingListener) {
+    public static void mediaGetContactorSetting(Context context, long j2, int i2, long j3, String str, int i3, IMediaContactorSettingListener iMediaContactorSettingListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65618, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), str, Integer.valueOf(i3), iMediaContactorSettingListener}) == null) {
-            ChatMsgManager.mediaGetContactorSetting(context, j, i2, j2, str, i3, iMediaContactorSettingListener);
+        if (interceptable == null || interceptable.invokeCommon(65618, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, Integer.valueOf(i3), iMediaContactorSettingListener}) == null) {
+            ChatMsgManager.mediaGetContactorSetting(context, j2, i2, j3, str, i3, iMediaContactorSettingListener);
         }
     }
 
-    public static void mediaSendChatMsg(Context context, long j, int i2, long j2, String str, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
+    public static void mediaSendChatMsg(Context context, long j2, int i2, long j3, String str, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65621, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), str, chatMsg, iMediaSendChatMsgListener}) == null) {
-            ChatMsgManager.mediaSendChatMsg(context, j, i2, j2, str, chatMsg, iMediaSendChatMsgListener);
+        if (interceptable == null || interceptable.invokeCommon(65621, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, chatMsg, iMediaSendChatMsgListener}) == null) {
+            ChatMsgManager.mediaSendChatMsg(context, j2, i2, j3, str, chatMsg, iMediaSendChatMsgListener);
         }
     }
 
-    public static void mediaSetSessionRead(Context context, long j, int i2, long j2, String str, long j3, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
+    public static void mediaSetSessionRead(Context context, long j2, int i2, long j3, String str, long j4, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65625, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), str, Long.valueOf(j3), iMediaSetSessionReadListener}) == null) {
-            ChatMsgManager.mediaSetSessionRead(context, j, i2, j2, str, j3, iMediaSetSessionReadListener);
+        if (interceptable == null || interceptable.invokeCommon(65625, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, Long.valueOf(j4), iMediaSetSessionReadListener}) == null) {
+            ChatMsgManager.mediaSetSessionRead(context, j2, i2, j3, str, j4, iMediaSetSessionReadListener);
         }
     }
 
     @Deprecated
-    public static boolean setMsgRead(Context context, long j, long j2) {
+    public static boolean setMsgRead(Context context, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65649, null, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)})) == null) ? ChatMsgManager.setMsgRead(context, 0, j, j2, false) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65649, null, new Object[]{context, Long.valueOf(j2), Long.valueOf(j3)})) == null) ? ChatMsgManager.setMsgRead(context, 0, j2, j3, false) : invokeCommon.booleanValue;
     }
 
-    public static int deleteMsgs(Context context, long j, long[] jArr, boolean z) {
+    public static int deleteMsgs(Context context, long j2, long[] jArr, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{context, Long.valueOf(j), jArr, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{context, Long.valueOf(j2), jArr, Boolean.valueOf(z)})) == null) {
             if (BaseManager.isNullContext(context)) {
                 return -1;
             }
-            return ChatMsgManagerImpl.getInstance(context).deleteMsgs(0, j, jArr, z);
+            return ChatMsgManagerImpl.getInstance(context).deleteMsgs(0, j2, jArr, z);
         }
         return invokeCommon.intValue;
     }
 
     @Deprecated
-    public static long deleteMsgs(Context context, long j) {
+    public static long deleteMsgs(Context context, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65556, null, context, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65556, null, context, j2)) == null) {
             if (BaseManager.isNullContext(context)) {
                 return -1L;
             }
-            return ChatMsgManagerImpl.getInstance(context).deleteAllMsgs(0, j, false);
+            return ChatMsgManagerImpl.getInstance(context).deleteAllMsgs(0, j2, false);
         }
         return invokeLJ.longValue;
     }
@@ -1602,12 +1601,12 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 }
                 return;
             }
-            long j = 0;
+            long j2 = 0;
             try {
                 try {
                     String[] loginFlag = Utility.getLoginFlag(sContext);
                     if (loginFlag.length >= 2) {
-                        j = Long.valueOf(loginFlag[0]).longValue();
+                        j2 = Long.valueOf(loginFlag[0]).longValue();
                         str5 = loginFlag[1];
                     } else {
                         str5 = "1Y";
@@ -1617,7 +1616,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                     LogUtils.e(BaseManager.TAG, "IMTrack init request getLoginFlag Exception ");
                     requestId = new IMTrack.RequestBuilder(sContext).method(String.valueOf(AccountManagerImpl.getInstance(sContext).getAppOpenType())).requestId("1Y");
                 }
-                requestId.requestTime(Utility.getLoginCallTime(sContext)).responseTime(j).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
+                requestId.requestTime(Utility.getLoginCallTime(sContext)).responseTime(j2).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
                 Utility.writeLoginCallTime(sContext);
                 Context context = sContext;
                 Utility.writeLoginFlag(context, "1Y", "context is nonnull, accessToken is null -> " + TextUtils.isEmpty(str2));
@@ -1645,7 +1644,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 }
                 loginExecutor(i2, str, str2, str3, str4, iLoginListener);
             } catch (Throwable th) {
-                new IMTrack.RequestBuilder(sContext).method(String.valueOf(AccountManagerImpl.getInstance(sContext).getAppOpenType())).requestId("1Y").requestTime(Utility.getLoginCallTime(sContext)).responseTime(j).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
+                new IMTrack.RequestBuilder(sContext).method(String.valueOf(AccountManagerImpl.getInstance(sContext).getAppOpenType())).requestId("1Y").requestTime(Utility.getLoginCallTime(sContext)).responseTime(j2).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
                 throw th;
             }
         }

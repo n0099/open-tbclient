@@ -10,34 +10,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class HotRankListManualItemHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f17152a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f17153b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f17154c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f17155d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public View f17156e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public View f17157f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TbImageView f17158g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f17159h;
+    public View dividerLineBottom;
+    public View dividerLineTop;
+    public int skinType;
+    public TextView topicDesc;
+    public LinearLayout topicManualItem;
+    public TextView topicModule;
+    public TextView topicNeme;
+    public TbImageView topicPic;
+    public TextView topicTagPic;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotRankListManualItemHolder(View view) {
@@ -57,20 +42,21 @@ public class HotRankListManualItemHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f17152a = 3;
-        this.f17153b = null;
-        this.f17154c = null;
-        this.f17155d = null;
-        this.f17156e = null;
-        this.f17157f = null;
-        this.f17158g = null;
-        this.f17159h = null;
-        this.f17153b = (TextView) view.findViewById(R.id.topic_module);
-        this.f17155d = (TextView) view.findViewById(R.id.topic_desc);
-        this.f17154c = (TextView) view.findViewById(R.id.topic_title);
-        this.f17158g = (TbImageView) view.findViewById(R.id.topic_pic);
-        this.f17156e = view.findViewById(R.id.devide_line_top);
-        this.f17157f = view.findViewById(R.id.devide_line_bottom);
-        this.f17159h = (LinearLayout) view.findViewById(R.id.topic_manual_item);
+        this.skinType = 3;
+        this.topicModule = null;
+        this.topicNeme = null;
+        this.topicDesc = null;
+        this.topicTagPic = null;
+        this.dividerLineTop = null;
+        this.dividerLineBottom = null;
+        this.topicPic = null;
+        this.topicManualItem = null;
+        this.topicModule = (TextView) view.findViewById(R.id.topic_module);
+        this.topicDesc = (TextView) view.findViewById(R.id.topic_desc);
+        this.topicNeme = (TextView) view.findViewById(R.id.topic_title);
+        this.topicPic = (TbImageView) view.findViewById(R.id.topic_pic);
+        this.dividerLineTop = view.findViewById(R.id.devide_line_top);
+        this.dividerLineBottom = view.findViewById(R.id.devide_line_bottom);
+        this.topicManualItem = (LinearLayout) view.findViewById(R.id.topic_manual_item);
     }
 }

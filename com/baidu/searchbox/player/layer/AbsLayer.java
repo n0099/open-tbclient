@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class AbsLayer implements ILayer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public abstract class AbsLayer implements ILayer {
     public Handler mHandler;
     public LayerContainer mLayerContainer;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class PrivateHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -36,28 +36,28 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f34005a;
+    public static final String f70733a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a();
 
         void a(File file);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class b implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final OutputStream f34009a;
+        public final OutputStream f70737a;
 
         public b(File file, boolean z) {
             Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public class h {
                     return;
                 }
             }
-            this.f34009a = new FileOutputStream(file, z);
+            this.f70737a = new FileOutputStream(file, z);
         }
 
         @Override // com.kwad.sdk.api.loader.h.d
@@ -85,9 +85,9 @@ public class h {
         }
 
         @Override // com.kwad.sdk.api.loader.h.d
-        public void a(long j) {
+        public void a(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
             }
         }
 
@@ -95,7 +95,7 @@ public class h {
         public void a(byte[] bArr, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3) == null) {
-                this.f34009a.write(bArr, i2, i3);
+                this.f70737a.write(bArr, i2, i3);
             }
         }
 
@@ -103,21 +103,21 @@ public class h {
         public void close() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f34009a.close();
+                this.f70737a.close();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface c {
         boolean a(int i2, int i3, Object obj);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface d extends Closeable {
         void a(int i2, Map<String, List<String>> map);
 
-        void a(long j);
+        void a(long j2);
 
         void a(byte[] bArr, int i2, int i3);
     }
@@ -135,7 +135,7 @@ public class h {
                 return;
             }
         }
-        f34005a = a(Loader.get().getContext()) + "/apkfileD/dynamic";
+        f70733a = a(Loader.get().getContext()) + "/apkfileD/dynamic";
     }
 
     @NonNull
@@ -217,13 +217,13 @@ public class h {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f34006a;
+                public final /* synthetic */ String f70734a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ File f34007b;
+                public final /* synthetic */ File f70735b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f34008c;
+                public final /* synthetic */ a f70736c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -240,9 +240,9 @@ public class h {
                             return;
                         }
                     }
-                    this.f34006a = str;
-                    this.f34007b = file;
-                    this.f34008c = aVar;
+                    this.f70734a = str;
+                    this.f70735b = file;
+                    this.f70736c = aVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -250,17 +250,17 @@ public class h {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            boolean a2 = h.a(this.f34006a, this.f34007b, null, 0);
-                            if (this.f34008c != null) {
+                            boolean a2 = h.a(this.f70734a, this.f70735b, null, 0);
+                            if (this.f70736c != null) {
                                 if (a2) {
-                                    this.f34008c.a(this.f34007b);
+                                    this.f70736c.a(this.f70735b);
                                 } else {
-                                    this.f34008c.a();
+                                    this.f70736c.a();
                                 }
                             }
                         } catch (Exception e2) {
                             e2.printStackTrace();
-                            a aVar2 = this.f34008c;
+                            a aVar2 = this.f70736c;
                             if (aVar2 != null) {
                                 aVar2.a();
                             }
@@ -301,10 +301,10 @@ public class h {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{str, str2, dVar, cVar, Integer.valueOf(i2)})) == null) ? a(str, str2, dVar, cVar, i2, -1L, -1L, false) : invokeCommon.booleanValue;
     }
 
-    public static boolean a(String str, String str2, d dVar, c cVar, int i2, long j, long j2, boolean z) {
+    public static boolean a(String str, String str2, d dVar, c cVar, int i2, long j2, long j3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, str2, dVar, cVar, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, str2, dVar, cVar, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) != null) {
             return invokeCommon.booleanValue;
         }
         HttpURLConnection httpURLConnection = null;
@@ -312,7 +312,7 @@ public class h {
             HttpURLConnection httpURLConnection2 = (HttpURLConnection) a(str, 10000, i2 > 0 ? i2 : 120000, false, true);
             try {
                 if (httpURLConnection2 != null) {
-                    boolean a2 = a(httpURLConnection2, str2, dVar, cVar, i2, j, j2, z);
+                    boolean a2 = a(httpURLConnection2, str2, dVar, cVar, i2, j2, j3, z);
                     a(dVar);
                     if (httpURLConnection2 != null) {
                         httpURLConnection2.disconnect();
@@ -343,7 +343,7 @@ public class h {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean a(HttpURLConnection httpURLConnection, String str, d dVar, c cVar, int i2, long j, long j2, boolean z) {
+    public static boolean a(HttpURLConnection httpURLConnection, String str, d dVar, c cVar, int i2, long j2, long j3, boolean z) {
         InterceptResult invokeCommon;
         Object valueOf;
         FileOutputStream fileOutputStream;
@@ -353,18 +353,18 @@ public class h {
         int i3;
         BufferedInputStream bufferedInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{httpURLConnection, str, dVar, cVar, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{httpURLConnection, str, dVar, cVar, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) != null) {
             return invokeCommon.booleanValue;
         }
         InputStream inputStream = null;
-        int i4 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        if (i4 > 0 || j2 > 0) {
+        int i4 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+        if (i4 > 0 || j3 > 0) {
             try {
                 Object[] objArr = new Object[2];
-                objArr[0] = Long.valueOf(j);
-                if (j2 > 0) {
+                objArr[0] = Long.valueOf(j2);
+                if (j3 > 0) {
                     try {
-                        valueOf = Long.valueOf(j2);
+                        valueOf = Long.valueOf(j3);
                     } catch (Throwable th) {
                         th = th;
                         fileOutputStream = null;
@@ -435,7 +435,7 @@ public class h {
             if (contentLength <= 0) {
                 try {
                     Random random = new Random(System.currentTimeMillis());
-                    file2 = new File(f34005a, random.nextInt() + ".tmp");
+                    file2 = new File(f70733a, random.nextInt() + ".tmp");
                     try {
                         fileOutputStream = new FileOutputStream(file2);
                         try {
@@ -490,7 +490,7 @@ public class h {
                 fileOutputStream = null;
                 file2 = null;
             }
-            int i5 = (i4 <= 0 || !z) ? 0 : (int) j;
+            int i5 = (i4 <= 0 || !z) ? 0 : (int) j2;
             int i6 = contentLength + i5;
             dVar.a(i6);
             dVar.a(httpURLConnection.getResponseCode(), hashMap);

@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.provider.Settings;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.util.ObjectsCompat;
 import androidx.media.MediaSessionManager;
@@ -178,12 +177,12 @@ public class MediaSessionManagerImplBase implements MediaSessionManager.MediaSes
                     return isPermissionGranted(remoteUserInfoImpl, PERMISSION_STATUS_BAR_SERVICE) || isPermissionGranted(remoteUserInfoImpl, PERMISSION_MEDIA_CONTENT_CONTROL) || remoteUserInfoImpl.getUid() == 1000 || isEnabledNotificationListener(remoteUserInfoImpl);
                 }
                 if (DEBUG) {
-                    Log.d("MediaSessionManager", "Package name " + remoteUserInfoImpl.getPackageName() + " doesn't match with the uid " + remoteUserInfoImpl.getUid());
+                    String str = "Package name " + remoteUserInfoImpl.getPackageName() + " doesn't match with the uid " + remoteUserInfoImpl.getUid();
                 }
                 return false;
             } catch (PackageManager.NameNotFoundException unused) {
                 if (DEBUG) {
-                    Log.d("MediaSessionManager", "Package " + remoteUserInfoImpl.getPackageName() + " doesn't exist");
+                    String str2 = "Package " + remoteUserInfoImpl.getPackageName() + " doesn't exist";
                 }
                 return false;
             }

@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.security.MessageDigest;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class EncodeUtils {
     public static String bytesToHex(byte[] bArr) {
         if (bArr == null) {

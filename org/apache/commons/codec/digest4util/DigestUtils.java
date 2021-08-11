@@ -18,7 +18,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.apache.commons.base.binary4util.CodecStringUtils;
 import org.apache.commons.base.binary4util.Hex;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class DigestUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STREAM_BUFFER_LENGTH = 1024;

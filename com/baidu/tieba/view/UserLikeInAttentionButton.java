@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
+import c.a.o0.s.f0.t.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
@@ -12,14 +13,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.f0.t.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a s;
+    public a r;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(View view);
     }
@@ -45,82 +45,62 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // d.a.p0.s.f0.t.b
-    public void a(View view) {
+    @Override // c.a.o0.s.f0.t.b
+    public void bindOnClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
+            setOnClickListener(onClickListener);
+        }
+    }
+
+    public void onChangeSkinType(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            changeSkinType();
+        }
+    }
+
+    @Override // c.a.o0.s.f0.t.b
+    public void onClickEvent(View view) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.s) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (aVar = this.r) == null) {
             return;
         }
         aVar.a(view);
     }
 
-    @Override // d.a.p0.s.f0.t.b
-    public void b(View.OnClickListener onClickListener) {
+    public void setOnClickEvent(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            setOnClickListener(onClickListener);
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.r = aVar;
         }
     }
 
-    @Override // d.a.p0.s.f0.t.b
-    public void c(boolean z, int i2, boolean z2) {
+    @Override // c.a.o0.s.f0.t.b
+    public void updateFansNum(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
-            e(z, i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
         }
     }
 
-    @Override // d.a.p0.s.f0.t.b
-    public void d(int i2) {
+    public void updateLikeStatus(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-        }
-    }
-
-    @Override // d.a.p0.s.f0.t.b
-    public void e(boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             if (z) {
-                s(true);
-            } else {
-                s(false);
-            }
-        }
-    }
-
-    public void r(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            k();
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (z) {
-                d.a.p0.s.f0.n.b bVar = new d.a.p0.s.f0.n.b();
+                c.a.o0.s.f0.n.b bVar = new c.a.o0.s.f0.n.b();
                 bVar.o(R.color.CAM_X0613, R.color.CAM_X0103);
                 setConfig(bVar);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
-                d.a.p0.s.f0.n.b bVar2 = new d.a.p0.s.f0.n.b();
+                c.a.o0.s.f0.n.b bVar2 = new c.a.o0.s.f0.n.b();
                 bVar2.o(R.color.CAM_X0302, R.color.CAM_X0101);
                 setConfig(bVar2);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.attention));
             }
-            r(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public void setOnClickEvent(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.s = aVar;
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -164,9 +144,29 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b {
                 return;
             }
         }
-        d.a.p0.s.f0.n.b bVar = new d.a.p0.s.f0.n.b();
+        c.a.o0.s.f0.n.b bVar = new c.a.o0.s.f0.n.b();
         bVar.o(R.color.CAM_X0302, R.color.CAM_X0101);
         setConfig(bVar);
         setText(TbadkCoreApplication.getInst().getString(R.string.attention));
+    }
+
+    @Override // c.a.o0.s.f0.t.b
+    public void updateLikeStatus(boolean z, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            if (z) {
+                updateLikeStatus(true);
+            } else {
+                updateLikeStatus(false);
+            }
+        }
+    }
+
+    @Override // c.a.o0.s.f0.t.b
+    public void updateLikeStatus(boolean z, int i2, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
+            updateLikeStatus(z, i2);
+        }
     }
 }

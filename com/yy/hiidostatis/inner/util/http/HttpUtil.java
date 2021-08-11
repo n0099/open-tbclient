@@ -3,7 +3,6 @@ package com.yy.hiidostatis.inner.util.http;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -30,13 +29,13 @@ import java.net.URL;
 import java.util.Map;
 import java.util.regex.Pattern;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class HttpUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern ipv4Pattern;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class HttpResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +135,7 @@ public class HttpUtil {
                 Field declaredField = httpURLConnection.getClass().getDeclaredField(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE);
                 declaredField.setAccessible(true);
                 Object obj = declaredField.get(httpURLConnection);
-                Field declaredField2 = obj.getClass().getDeclaredField(IMTrack.AckBuilder.PROXY_TYPE);
+                Field declaredField2 = obj.getClass().getDeclaredField("proxy");
                 declaredField2.setAccessible(true);
                 Field declaredField3 = obj.getClass().getDeclaredField("inetSocketAddress");
                 declaredField3.setAccessible(true);

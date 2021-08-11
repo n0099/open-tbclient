@@ -10,25 +10,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class ae extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f40852a;
+    public final /* synthetic */ int f77727a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Notification f881a;
+    public final /* synthetic */ Notification f885a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Context f882a;
+    public final /* synthetic */ Context f886a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f883a;
+    public final /* synthetic */ String f887a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f40853b;
+    public final /* synthetic */ String f77728b;
 
     public ae(int i2, String str, Context context, String str2, Notification notification) {
         Interceptable interceptable = $ic;
@@ -45,21 +45,21 @@ public final class ae extends ai.a {
                 return;
             }
         }
-        this.f40852a = i2;
-        this.f883a = str;
-        this.f882a = context;
-        this.f40853b = str2;
-        this.f881a = notification;
+        this.f77727a = i2;
+        this.f887a = str;
+        this.f886a = context;
+        this.f77728b = str2;
+        this.f885a = notification;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo184a() {
+    public String mo187a() {
         InterceptResult invokeV;
         String b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b2 = ac.b(this.f40852a, this.f883a);
+            b2 = ac.b(this.f77727a, this.f887a);
             return b2;
         }
         return (String) invokeV.objValue;
@@ -70,7 +70,7 @@ public final class ae extends ai.a {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ac.b(this.f882a, this.f40853b, this.f40852a, this.f883a, this.f881a);
+            ac.b(this.f886a, this.f77728b, this.f77727a, this.f887a, this.f885a);
         }
     }
 }

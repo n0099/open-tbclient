@@ -9,7 +9,6 @@ import android.widget.FrameLayout;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +40,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(KsFullScreenVideoActivity.class)
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kwad.sdk.reward.a> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_TEMPLATE = "key_template_json";
@@ -80,7 +79,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ KsFullScreenVideoActivityProxy f35860a;
+            public final /* synthetic */ KsFullScreenVideoActivityProxy f72636a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -97,14 +96,14 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
                         return;
                     }
                 }
-                this.f35860a = this;
+                this.f72636a = this;
             }
 
             @Override // com.kwad.sdk.reward.a.f
             public void a() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f35860a.mIsBackEnable = true;
+                    this.f72636a.mIsBackEnable = true;
                 }
             }
         };
@@ -113,7 +112,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ KsFullScreenVideoActivityProxy f35861a;
+            public final /* synthetic */ KsFullScreenVideoActivityProxy f72637a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -130,7 +129,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
                         return;
                     }
                 }
-                this.f35861a = this;
+                this.f72637a = this;
             }
 
             @Override // com.kwad.sdk.reward.a.c, com.kwad.sdk.reward.a.b
@@ -157,7 +156,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
             public void a(boolean z) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                    this.f35861a.notifyPageDismiss();
+                    this.f72637a.notifyPageDismiss();
                 }
             }
 
@@ -265,7 +264,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
             int d2 = com.kwad.sdk.core.response.b.a.d(this.mAdInfo);
             int e2 = com.kwad.sdk.core.response.b.a.e(this.mAdInfo);
-            if (this.mCallerContext.f36076e == 1) {
+            if (this.mCallerContext.f72872e == 1) {
                 if (d2 > e2) {
                     return false;
                 }
@@ -285,7 +284,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
                 KsAdSDKImpl.putComponentProxy(FeedDownloadActivity.class, KsFullScreenVideoActivityProxy.class);
             }
             Intent intent = new Intent(context, ksVideoPlayConfig.isShowLandscape() ? KsFullScreenLandScapeVideoActivity.class : FeedDownloadActivity.class);
-            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            intent.setFlags(268435456);
             intent.putExtra("key_template_json", adTemplate.toJson().toString());
             intent.putExtra("key_video_play_config", ksVideoPlayConfig);
             mInteractionListener = fullScreenVideoAdInteractionListener;
@@ -353,20 +352,20 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             com.kwad.sdk.reward.a aVar = new com.kwad.sdk.reward.a();
-            aVar.f36078g = this.mContext;
-            aVar.f36073b = this.mAdOpenInteractionListener;
-            aVar.f36076e = this.mScreenOrientation;
+            aVar.f72874g = this.mContext;
+            aVar.f72869b = this.mAdOpenInteractionListener;
+            aVar.f72872e = this.mScreenOrientation;
             KsVideoPlayConfig ksVideoPlayConfig = this.mVideoPlayConfig;
-            aVar.f36074c = ksVideoPlayConfig;
-            aVar.f36075d = this.mReportExtData;
-            aVar.f36079h = this.mRootContainer;
+            aVar.f72870c = ksVideoPlayConfig;
+            aVar.f72871d = this.mReportExtData;
+            aVar.f72875h = this.mRootContainer;
             AdTemplate adTemplate = this.mAdTemplate;
-            aVar.f36077f = adTemplate;
+            aVar.f72873f = adTemplate;
             com.kwad.sdk.reward.c.a aVar2 = new com.kwad.sdk.reward.c.a(adTemplate, this.mDetailVideoView, ksVideoPlayConfig);
-            aVar.f36080i = aVar2;
-            aVar.f36072a.add(aVar2);
+            aVar.f72876i = aVar2;
+            aVar.f72868a.add(aVar2);
             if (com.kwad.sdk.core.response.b.a.v(this.mAdInfo)) {
-                aVar.j = new com.kwad.sdk.core.download.b.b(this.mAdTemplate, this.mReportExtData);
+                aVar.f72877j = new com.kwad.sdk.core.download.b.b(this.mAdTemplate, this.mReportExtData);
             }
             aVar.k = new com.kwad.sdk.reward.b.b.a.a(this.mAdTemplate, this.mScreenOrientation);
             aVar.a(this.mPlayEndPageListener);

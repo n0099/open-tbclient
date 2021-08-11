@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class PrefOperate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,20 +34,20 @@ public class PrefOperate {
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? CooperService.instance().getAppKey(context) : (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:42:0x0085 -> B:45:0x0085). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:42:0x0084 -> B:45:0x0084). Please submit an issue!!! */
     public static void loadMetaDataConfig(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             SendStrategyEnum sendStrategyEnum = SendStrategyEnum.APP_START;
             try {
-                String a2 = bw.a(context, Config.EXCEPTION_LOG_META_NAME);
+                String a2 = bw.a(context, "BaiduMobAd_EXCEPTION_LOG");
                 if (!TextUtils.isEmpty(a2) && "true".equals(a2)) {
                     ExceptionAnalysis.getInstance().openExceptionAnalysis(context, false);
                 }
             } catch (Exception unused) {
             }
             try {
-                String a3 = bw.a(context, Config.SEND_STRATEGY_META_NAME);
+                String a3 = bw.a(context, "BaiduMobAd_SEND_STRATEGY");
                 if (!TextUtils.isEmpty(a3)) {
                     if (a3.equals(SendStrategyEnum.APP_START.name())) {
                         sendStrategyEnum = SendStrategyEnum.APP_START;
@@ -64,7 +64,7 @@ public class PrefOperate {
             } catch (Exception unused2) {
             }
             try {
-                String a4 = bw.a(context, Config.TIME_INTERVAL_META_NAME);
+                String a4 = bw.a(context, "BaiduMobAd_TIME_INTERVAL");
                 if (!TextUtils.isEmpty(a4)) {
                     int parseInt = Integer.parseInt(a4);
                     if (sendStrategyEnum.ordinal() == SendStrategyEnum.SET_TIME_INTERVAL.ordinal() && parseInt > 0 && parseInt <= 24) {
@@ -74,7 +74,7 @@ public class PrefOperate {
             } catch (Exception unused3) {
             }
             try {
-                String a5 = bw.a(context, Config.ONLY_WIFI_META_NAME);
+                String a5 = bw.a(context, "BaiduMobAd_ONLY_WIFI");
                 if (TextUtils.isEmpty(a5)) {
                     return;
                 }
@@ -101,7 +101,7 @@ public class PrefOperate {
     public static void setAppKey(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
-            CooperService.instance().getHeadObject().f8570e = str;
+            CooperService.instance().getHeadObject().f42868e = str;
         }
     }
 

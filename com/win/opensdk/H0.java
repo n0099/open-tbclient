@@ -1,19 +1,18 @@
 package com.win.opensdk;
 
-import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class H0 implements ViewTreeObserver.OnGlobalFocusChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ N0 f39582a;
+    public final /* synthetic */ N0 f76418a;
 
     public H0(O0 o0, N0 n0) {
         Interceptable interceptable = $ic;
@@ -30,15 +29,15 @@ public class H0 implements ViewTreeObserver.OnGlobalFocusChangeListener {
                 return;
             }
         }
-        this.f39582a = n0;
+        this.f76418a = n0;
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalFocusChangeListener
     public void onGlobalFocusChanged(View view, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view, view2) == null) {
-            Log.e("register", "onGlobalFocusChanged:" + view + ",newFocus:" + view2);
-            N0 n0 = this.f39582a;
+            String str = "onGlobalFocusChanged:" + view + ",newFocus:" + view2;
+            N0 n0 = this.f76418a;
             if (n0 != null) {
                 n0.b();
             }

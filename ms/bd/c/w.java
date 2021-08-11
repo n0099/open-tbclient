@@ -20,13 +20,13 @@ import java.util.Collections;
 import java.util.List;
 import ms.bd.c.t;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class w implements Closeable, t {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final FileChannel f73601e;
+    public final FileChannel f78902e;
 
     public w(File file) throws FileNotFoundException {
         Interceptable interceptable = $ic;
@@ -46,27 +46,27 @@ public class w implements Closeable, t {
         if (file == null || !file.exists()) {
             throw new IllegalArgumentException("File is null or does not exist");
         }
-        this.f73601e = new FileInputStream(file).getChannel();
+        this.f78902e = new FileInputStream(file).getChannel();
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f73601e.close();
+            this.f78902e.close();
         }
     }
 
     public List<String> g() throws IOException {
         InterceptResult invokeV;
         t.b vVar;
-        long j;
         long j2;
+        long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.f73601e.position(0L);
+            this.f78902e.position(0L);
             ArrayList arrayList = new ArrayList();
-            this.f73601e.position(0L);
+            this.f78902e.position(0L);
             ByteBuffer allocate = ByteBuffer.allocate(8);
             allocate.order(ByteOrder.LITTLE_ENDIAN);
             h(allocate, 0L, 4);
@@ -83,63 +83,63 @@ public class w implements Closeable, t {
                     vVar = new v(z, this);
                 }
                 ByteBuffer allocate2 = ByteBuffer.allocate(8);
-                allocate2.order(vVar.f73585a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
-                long j3 = vVar.f73589e;
-                if (j3 == WebSocketProtocol.PAYLOAD_SHORT_MAX) {
-                    j3 = vVar.c(0).f73595a;
+                allocate2.order(vVar.f78886a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
+                long j4 = vVar.f78890e;
+                if (j4 == WebSocketProtocol.PAYLOAD_SHORT_MAX) {
+                    j4 = vVar.c(0).f78896a;
                 }
-                long j4 = 0;
+                long j5 = 0;
                 while (true) {
-                    if (j4 >= j3) {
-                        j = j3;
-                        j2 = 0;
+                    if (j5 >= j4) {
+                        j2 = j4;
+                        j3 = 0;
                         break;
                     }
-                    t.c b2 = vVar.b(j4);
-                    j = j3;
-                    if (b2.f73591a == 2) {
-                        j2 = b2.f73592b;
+                    t.c b2 = vVar.b(j5);
+                    j2 = j4;
+                    if (b2.f78892a == 2) {
+                        j3 = b2.f78893b;
                         break;
                     }
-                    j4++;
-                    j3 = j;
+                    j5++;
+                    j4 = j2;
                 }
-                if (j2 == 0) {
+                if (j3 == 0) {
                     return Collections.unmodifiableList(arrayList);
                 }
                 ArrayList<Long> arrayList2 = new ArrayList();
-                long j5 = 0;
+                long j6 = 0;
                 int i3 = 0;
                 while (true) {
-                    t.a a2 = vVar.a(j2, i3);
-                    long j6 = a2.f73583a;
-                    if (j6 == 1) {
-                        arrayList2.add(Long.valueOf(a2.f73584b));
-                    } else if (j6 == 5) {
-                        j5 = a2.f73584b;
+                    t.a a2 = vVar.a(j3, i3);
+                    long j7 = a2.f78884a;
+                    if (j7 == 1) {
+                        arrayList2.add(Long.valueOf(a2.f78885b));
+                    } else if (j7 == 5) {
+                        j6 = a2.f78885b;
                     }
                     i3++;
-                    if (a2.f73583a == 0) {
+                    if (a2.f78884a == 0) {
                         break;
                     }
                 }
-                if (j5 != 0) {
-                    for (long j7 = 0; j7 < j; j7++) {
-                        t.c b3 = vVar.b(j7);
-                        if (b3.f73591a == 1) {
-                            long j8 = b3.f73593c;
-                            if (j8 <= j5 && j5 <= b3.f73594d + j8) {
-                                long j9 = (j5 - j8) + b3.f73592b;
+                if (j6 != 0) {
+                    for (long j8 = 0; j8 < j2; j8++) {
+                        t.c b3 = vVar.b(j8);
+                        if (b3.f78892a == 1) {
+                            long j9 = b3.f78894c;
+                            if (j9 <= j6 && j6 <= b3.f78895d + j9) {
+                                long j10 = (j6 - j9) + b3.f78893b;
                                 for (Long l : arrayList2) {
-                                    long longValue = l.longValue() + j9;
+                                    long longValue = l.longValue() + j10;
                                     StringBuilder sb = new StringBuilder();
                                     while (true) {
-                                        long j10 = longValue + 1;
+                                        long j11 = longValue + 1;
                                         h(allocate2, longValue, 1);
                                         int i4 = allocate2.get() & 255;
                                         if (i4 != 0) {
                                             sb.append((char) i4);
-                                            longValue = j10;
+                                            longValue = j11;
                                         }
                                     }
                                     arrayList.add(sb.toString());
@@ -157,18 +157,18 @@ public class w implements Closeable, t {
         return (List) invokeV.objValue;
     }
 
-    public void h(ByteBuffer byteBuffer, long j, int i2) throws IOException {
+    public void h(ByteBuffer byteBuffer, long j2, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{byteBuffer, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{byteBuffer, Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
             byteBuffer.position(0);
             byteBuffer.limit(i2);
-            long j2 = 0;
-            while (j2 < i2) {
-                int read = this.f73601e.read(byteBuffer, j + j2);
+            long j3 = 0;
+            while (j3 < i2) {
+                int read = this.f78902e.read(byteBuffer, j2 + j3);
                 if (read == -1) {
                     throw new EOFException();
                 }
-                j2 += read;
+                j3 += read;
             }
             byteBuffer.position(0);
         }

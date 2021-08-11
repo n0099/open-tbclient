@@ -12,7 +12,6 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.i.a.b;
@@ -31,7 +30,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class PublicMsg implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<PublicMsg> CREATOR;
@@ -228,19 +227,19 @@ public class PublicMsg implements Parcelable {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f3543a;
+                public final /* synthetic */ Context f37445a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f3544b;
+                public final /* synthetic */ String f37446b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f3545c;
+                public final /* synthetic */ String f37447c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f3546d;
+                public final /* synthetic */ String f37448d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ PublicMsg f3547e;
+                public final /* synthetic */ PublicMsg f37449e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -261,11 +260,11 @@ public class PublicMsg implements Parcelable {
                             return;
                         }
                     }
-                    this.f3547e = this;
-                    this.f3543a = context;
-                    this.f3544b = b2;
-                    this.f3545c = r13;
-                    this.f3546d = a2;
+                    this.f37449e = this;
+                    this.f37445a = context;
+                    this.f37446b = b2;
+                    this.f37447c = r13;
+                    this.f37448d = a2;
                 }
 
                 @Override // com.baidu.android.pushservice.h.c
@@ -274,16 +273,16 @@ public class PublicMsg implements Parcelable {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             HashMap hashMap = new HashMap();
-                            com.baidu.android.pushservice.d.b.a(this.f3543a, hashMap);
+                            com.baidu.android.pushservice.d.b.a(this.f37445a, hashMap);
                             hashMap.put("method", "linkhit");
-                            hashMap.put("channel_token", this.f3544b);
-                            hashMap.put("data", this.f3545c);
-                            if (com.baidu.android.pushservice.e.c.a(this.f3543a, com.baidu.android.pushservice.h.e() + this.f3546d, "POST", hashMap).b() == 200) {
-                                com.baidu.android.pushservice.g.a.c(PublicMsg.TAG, "<<< public msg send result return OK!", this.f3543a.getApplicationContext());
+                            hashMap.put("channel_token", this.f37446b);
+                            hashMap.put("data", this.f37447c);
+                            if (com.baidu.android.pushservice.e.c.a(this.f37445a, com.baidu.android.pushservice.h.e() + this.f37448d, "POST", hashMap).b() == 200) {
+                                com.baidu.android.pushservice.g.a.c(PublicMsg.TAG, "<<< public msg send result return OK!", this.f37445a.getApplicationContext());
                             }
                         } catch (Exception e3) {
-                            com.baidu.android.pushservice.g.a.b(PublicMsg.TAG, "error : " + e3.getMessage(), this.f3543a.getApplicationContext());
-                            new b.c(this.f3543a).a(Log.getStackTraceString(e3)).a();
+                            com.baidu.android.pushservice.g.a.b(PublicMsg.TAG, "error : " + e3.getMessage(), this.f37445a.getApplicationContext());
+                            new b.c(this.f37445a).a(Log.getStackTraceString(e3)).a();
                         }
                     }
                 }
@@ -299,7 +298,7 @@ public class PublicMsg implements Parcelable {
                 String launcherActivityName = getLauncherActivityName(context, str);
                 if (launcherActivityName != null) {
                     parseUri.setClassName(str, launcherActivityName);
-                    parseUri.setFlags(parseUri.getFlags() | Label.FORWARD_REFERENCE_TYPE_SHORT);
+                    parseUri.setFlags(parseUri.getFlags() | 268435456);
                     parseUri.putExtra("open_type", 1);
                     parseUri.putExtra("msgid", str2);
                     context.startActivity(parseUri);
@@ -340,7 +339,7 @@ public class PublicMsg implements Parcelable {
         return (String) invokeLL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:27:0x00ce  */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x00cf  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -364,7 +363,7 @@ public class PublicMsg implements Parcelable {
                     if (packageManager.queryBroadcastReceivers(parseUri, 0).size() > 0) {
                         context.sendBroadcast(parseUri);
                     } else if (packageManager.queryIntentActivities(parseUri, 0).size() > 0) {
-                        parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                        parseUri.addFlags(268435456);
                         context.startActivity(parseUri);
                     }
                     i2 = 1;
@@ -397,7 +396,7 @@ public class PublicMsg implements Parcelable {
             if (i2 == 0) {
                 Intent intent = new Intent("android.intent.action.VIEW");
                 intent.setData(Uri.parse(this.mUrl));
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
                 try {
                     context.startActivity(intent);
                 } catch (ActivityNotFoundException e5) {
@@ -438,7 +437,7 @@ public class PublicMsg implements Parcelable {
                         Intent intent2 = new Intent();
                         intent2.setAction("android.intent.action.VIEW");
                         intent2.setData(Uri.parse(this.mUrl));
-                        intent2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                        intent2.addFlags(268435456);
                         context.startActivity(intent2);
                     } else if (this.mOpenType == 2) {
                         if (TextUtils.isEmpty(this.mPkgContent)) {
@@ -454,7 +453,7 @@ public class PublicMsg implements Parcelable {
                             } else {
                                 List<ResolveInfo> queryIntentActivities = packageManager.queryIntentActivities(parseUri, 0);
                                 if (queryIntentActivities != null && queryIntentActivities.size() > 0 && (activityInfo = queryIntentActivities.get(0).activityInfo) != null && activityInfo.exported) {
-                                    parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                                    parseUri.addFlags(268435456);
                                     parseUri.putExtra("open_type", 1);
                                     parseUri.putExtra("msgid", str2);
                                     context.startActivity(parseUri);

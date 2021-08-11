@@ -6,22 +6,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class d implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f31381a;
+    public long f67321a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f31382b;
+    public long f67322b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f31383c;
+    public int f67323c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f31384d;
+    public int f67324d;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -36,34 +36,34 @@ public class d implements c {
                 return;
             }
         }
-        this.f31384d = 0;
+        this.f67324d = 0;
     }
 
-    public void a(long j) {
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f31381a = j;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            this.f67321a = j2;
         }
     }
 
-    public void b(long j) {
+    public void b(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.f31382b = j;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            this.f67322b = j2;
         }
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f31383c = i2;
+            this.f67323c = i2;
         }
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f31384d = i2;
+            this.f67324d = i2;
         }
     }
 
@@ -74,10 +74,10 @@ public class d implements c {
             return;
         }
         try {
-            jSONObject.put("total_duration", this.f31381a);
-            jSONObject.put("buffers_time", this.f31382b);
-            jSONObject.put("break_reason", this.f31383c);
-            jSONObject.put("video_backup", this.f31384d);
+            jSONObject.put("total_duration", this.f67321a);
+            jSONObject.put("buffers_time", this.f67322b);
+            jSONObject.put("break_reason", this.f67323c);
+            jSONObject.put("video_backup", this.f67324d);
         } catch (Throwable th) {
             th.printStackTrace();
         }

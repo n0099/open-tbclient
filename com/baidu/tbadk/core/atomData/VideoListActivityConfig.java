@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.alibaba.fastjson.asm.Label;
+import c.a.e.e.p.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,8 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class VideoListActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_FORUM_ID = "KEY_FORUM_ID";
@@ -56,24 +55,24 @@ public class VideoListActivityConfig extends IntentConfig {
                 intent.putExtra(KEY_SOURCE, str3);
             }
             if (!(this.mContext instanceof Activity)) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             return this;
         }
         return (VideoListActivityConfig) invokeLLL.objValue;
     }
 
-    public VideoListActivityConfig createNormalCfg(long j, String str) {
+    public VideoListActivityConfig createNormalCfg(long j2, String str) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, str)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, str)) == null) {
             Intent intent = getIntent();
-            intent.putExtra("user_id", j);
+            intent.putExtra("user_id", j2);
             if (!k.isEmpty(str)) {
                 intent.putExtra(KEY_SOURCE, str);
             }
             if (!(this.mContext instanceof Activity)) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             return this;
         }

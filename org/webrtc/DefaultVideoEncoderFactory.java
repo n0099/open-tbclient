@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class DefaultVideoEncoderFactory implements VideoEncoderFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

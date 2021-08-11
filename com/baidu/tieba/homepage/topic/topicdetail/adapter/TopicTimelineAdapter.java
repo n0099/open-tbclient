@@ -3,6 +3,7 @@ package com.baidu.tieba.homepage.topic.topicdetail.adapter;
 import android.content.Context;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
+import c.a.p0.f1.k.a.c.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.homepage.topic.topicdetail.holder.TopicTimelineHolder;
@@ -12,18 +13,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.e1.k.a.c.e;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f16953a;
+    public Context f52186a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<e> f16954b;
+    public List<e> f52187b;
 
     public TopicTimelineAdapter(Context context) {
         Interceptable interceptable = $ic;
@@ -40,37 +40,14 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
                 return;
             }
         }
-        this.f16953a = context;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: d */
-    public void onBindViewHolder(TopicTimelineHolder topicTimelineHolder, int i2) {
-        e eVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, topicTimelineHolder, i2) == null) || (eVar = (e) ListUtils.getItem(this.f16954b, i2)) == null) {
-            return;
-        }
-        TopicTimelineCellCardView topicTimelineCellCardView = (TopicTimelineCellCardView) topicTimelineHolder.a();
-        topicTimelineCellCardView.setData(eVar);
-        topicTimelineCellCardView.b();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: e */
-    public TopicTimelineHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i2)) == null) ? new TopicTimelineHolder(new TopicTimelineCellCardView(this.f16953a)) : (TopicTimelineHolder) invokeLI.objValue;
+        this.f52186a = context;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ListUtils.getCount(this.f16954b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f52187b) : invokeV.intValue;
     }
 
     public void setData(List<e> list) {
@@ -78,6 +55,27 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
         if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f16954b = list;
+        this.f52187b = list;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public void onBindViewHolder(TopicTimelineHolder topicTimelineHolder, int i2) {
+        e eVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, topicTimelineHolder, i2) == null) || (eVar = (e) ListUtils.getItem(this.f52187b, i2)) == null) {
+            return;
+        }
+        TopicTimelineCellCardView topicTimelineCellCardView = (TopicTimelineCellCardView) topicTimelineHolder.getCellView();
+        topicTimelineCellCardView.setData(eVar);
+        topicTimelineCellCardView.onChangeSkinType();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public TopicTimelineHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i2)) == null) ? new TopicTimelineHolder(new TopicTimelineCellCardView(this.f52186a)) : (TopicTimelineHolder) invokeLI.objValue;
     }
 }

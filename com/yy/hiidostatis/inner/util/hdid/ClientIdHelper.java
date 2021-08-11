@@ -3,7 +3,6 @@ package com.yy.hiidostatis.inner.util.hdid;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ClientIdHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BI_CLIENT_ID_FILE_NAME = "hdcltid.ini";
@@ -81,13 +80,13 @@ public class ClientIdHelper {
         checkConfig();
         initClientId();
         if (this.mConfig.logEnable()) {
-            Log.d(TAG, "boardDigit = " + this.boardDigit);
-            Log.d(TAG, "brandDigit = " + this.brandDigit);
-            Log.d(TAG, "cpuAbiDigit = " + this.cpuAbiDigit);
-            Log.d(TAG, "deviceDigit = " + this.deviceDigit);
-            Log.d(TAG, "manufacturerDigit = " + this.manufacturerDigit);
-            Log.d(TAG, "modelDigit = " + this.modelDigit);
-            Log.d(TAG, "productDigit = " + this.productDigit);
+            String str = "boardDigit = " + this.boardDigit;
+            String str2 = "brandDigit = " + this.brandDigit;
+            String str3 = "cpuAbiDigit = " + this.cpuAbiDigit;
+            String str4 = "deviceDigit = " + this.deviceDigit;
+            String str5 = "manufacturerDigit = " + this.manufacturerDigit;
+            String str6 = "modelDigit = " + this.modelDigit;
+            String str7 = "productDigit = " + this.productDigit;
         }
     }
 
@@ -150,10 +149,10 @@ public class ClientIdHelper {
         if (r3.isEmpty() != false) goto L10;
      */
     /* JADX WARN: Removed duplicated region for block: B:28:0x0056  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x0092  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00f3  */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x0118  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x015e  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x0088  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00e9  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x010e  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0154  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -200,8 +199,8 @@ public class ClientIdHelper {
                 str = "";
             }
             if (this.mConfig.logEnable()) {
-                Log.e(TAG, "serial = " + str2);
-                Log.e(TAG, "buildParamOk = " + checkBuild);
+                String str5 = "serial = " + str2;
+                String str6 = "buildParamOk = " + checkBuild;
             }
             if (!TextUtils.isEmpty(str2) && !str2.equalsIgnoreCase("unKnown")) {
                 z = true;
@@ -321,9 +320,7 @@ public class ClientIdHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
-            if (this.mConfig.logEnable()) {
-                Log.d(TAG, "readFromSp");
-            }
+            this.mConfig.logEnable();
             return sharedPref().getString("hdcltid", null);
         }
         return (String) invokeV.objValue;
@@ -355,7 +352,7 @@ public class ClientIdHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) {
             if (this.mConfig.logEnable()) {
-                Log.d(TAG, "writeIntoSp" + mClientID);
+                String str = "writeIntoSp" + mClientID;
             }
             return sharedPref().edit().putString("hdcltid", mClientID).commit();
         }

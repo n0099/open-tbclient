@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.webkit.WebView;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.router.RouterCallback;
 import com.baidu.mobads.container.XAdRemoteCommonUtils;
@@ -36,7 +35,7 @@ import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiver.InstallListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_DOWNLOAD = "com.baidu.channel.aladdin.downloadapk";
@@ -99,7 +98,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
     public String mProd;
     public WebView mWebView;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class DownloadAppInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -469,7 +468,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, this, str)) == null) {
             try {
                 Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
                 return this.mContext.getPackageManager().queryIntentActivities(intent, 65536).size() > 0;
             } catch (Throwable unused) {
                 return false;
@@ -520,7 +519,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
             try {
                 if (!TextUtils.isEmpty(str2)) {
                     Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str2));
-                    intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                    intent.addFlags(268435456);
                     if (this.mContext.getPackageManager().resolveActivity(intent, 65536) != null) {
                         this.mContext.startActivity(intent);
                         return getCallbackParams("0", "success");

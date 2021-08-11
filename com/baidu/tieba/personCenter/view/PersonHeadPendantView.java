@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PersonHeadPendantView extends HeadPendantView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int q;
-    public View r;
+    public int r;
+    public View s;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonHeadPendantView(Context context, AttributeSet attributeSet, int i2) {
@@ -39,20 +39,20 @@ public class PersonHeadPendantView extends HeadPendantView {
                 return;
             }
         }
-        this.q = 0;
+        this.r = 0;
     }
 
     @Override // com.baidu.tbadk.core.view.HeadPendantView
-    public void d() {
+    public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.d();
-            this.q = getResources().getDimensionPixelSize(R.dimen.ds4);
-            this.r = new View(getContext());
+            super.init();
+            this.r = getResources().getDimensionPixelSize(R.dimen.ds4);
+            this.s = new View(getContext());
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             layoutParams.addRule(14, -1);
             layoutParams.addRule(15, -1);
-            addView(this.r, 0, layoutParams);
+            addView(this.s, 0, layoutParams);
         }
     }
 
@@ -61,27 +61,27 @@ public class PersonHeadPendantView extends HeadPendantView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.r.getLayoutParams();
-            int measuredWidth = ((int) (getMeasuredWidth() * 0.13f)) - this.q;
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.s.getLayoutParams();
+            int measuredWidth = ((int) (getMeasuredWidth() * 0.13f)) - this.r;
             layoutParams.leftMargin = measuredWidth;
             layoutParams.topMargin = measuredWidth;
             layoutParams.rightMargin = measuredWidth;
             layoutParams.bottomMargin = measuredWidth;
-            this.r.setLayoutParams(layoutParams);
+            this.s.setLayoutParams(layoutParams);
         }
     }
 
     public void setBackgroundViewDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) {
-            this.r.setBackgroundDrawable(drawable);
+            this.s.setBackgroundDrawable(drawable);
         }
     }
 
     public void setBorderColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            TBSelector.makeDrawableSelector().setShape(1).defaultColor(i2).into(this.r);
+            TBSelector.makeDrawableSelector().setShape(1).defaultColor(i2).into(this.s);
         }
     }
 
@@ -89,7 +89,7 @@ public class PersonHeadPendantView extends HeadPendantView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             getHeadView().setBorderWidth(0);
-            this.q = i2;
+            this.r = i2;
         }
     }
 
@@ -112,7 +112,7 @@ public class PersonHeadPendantView extends HeadPendantView {
                 return;
             }
         }
-        this.q = 0;
+        this.r = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -133,6 +133,6 @@ public class PersonHeadPendantView extends HeadPendantView {
                 return;
             }
         }
-        this.q = 0;
+        this.r = 0;
     }
 }

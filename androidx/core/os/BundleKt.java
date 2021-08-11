@@ -14,7 +14,6 @@ import kotlin.Metadata;
 import kotlin.Pair;
 import kotlin.TypeCastException;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.Typography;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001a\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\u001a=\u0010\u0006\u001a\u00020\u00052.\u0010\u0004\u001a\u0018\u0012\u0014\b\u0001\u0012\u0010\u0012\u0004\u0012\u00020\u0002\u0012\u0006\u0012\u0004\u0018\u00010\u00030\u00010\u0000\"\u0010\u0012\u0004\u0012\u00020\u0002\u0012\u0006\u0012\u0004\u0018\u00010\u00030\u0001¢\u0006\u0004\b\u0006\u0010\u0007¨\u0006\b"}, d2 = {"", "Lkotlin/Pair;", "", "", "pairs", "Landroid/os/Bundle;", "bundleOf", "([Lkotlin/Pair;)Landroid/os/Bundle;", "core-ktx_release"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
 public final class BundleKt {
@@ -93,7 +92,7 @@ public final class BundleKt {
                     } else if (Serializable.class.isAssignableFrom(componentType)) {
                         bundle.putSerializable(component1, (Serializable) component2);
                     } else {
-                        throw new IllegalArgumentException("Illegal value array type " + componentType.getCanonicalName() + " for key \"" + component1 + Typography.quote);
+                        throw new IllegalArgumentException("Illegal value array type " + componentType.getCanonicalName() + " for key \"" + component1 + '\"');
                     }
                 } else if (component2 instanceof Serializable) {
                     bundle.putSerializable(component1, (Serializable) component2);
@@ -104,7 +103,7 @@ public final class BundleKt {
                 } else if (Build.VERSION.SDK_INT >= 21 && (component2 instanceof SizeF)) {
                     bundle.putSizeF(component1, (SizeF) component2);
                 } else {
-                    throw new IllegalArgumentException("Illegal value type " + component2.getClass().getCanonicalName() + " for key \"" + component1 + Typography.quote);
+                    throw new IllegalArgumentException("Illegal value type " + component2.getClass().getCanonicalName() + " for key \"" + component1 + '\"');
                 }
             }
             return bundle;

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import c.a.e.k.e.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.ala.utils.AlaStringHelper;
@@ -25,45 +26,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.k.e.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaEnterEffectAdapter extends a<AlaEnterEffectData, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context m;
     public int n;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public TbImageView f14370a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public TextView f14371b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public TextView f14372c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public TextView f14373d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public ImageView f14374e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public ProgressBar f14375f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public View f14376g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public View f14377h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public TextView f14378i;
+        public TextView mDescriptionView;
+        public ImageView mDownloadImage;
+        public TbImageView mEffectImage;
+        public TextView mEffectNameView;
+        public View mHeaderCover;
+        public View mHeaderLayout;
+        public ProgressBar mLoadingView;
+        public TextView mTimeLimitView;
+        public TextView mUseStatusView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(View view) {
@@ -83,23 +65,23 @@ public class AlaEnterEffectAdapter extends a<AlaEnterEffectData, ViewHolder> {
                     return;
                 }
             }
-            b();
+            a();
         }
 
-        public final void b() {
+        public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                TbImageView tbImageView = (TbImageView) a().findViewById(R.id.ala_enter_effect_img);
-                this.f14370a = tbImageView;
+                TbImageView tbImageView = (TbImageView) getView().findViewById(R.id.ala_enter_effect_img);
+                this.mEffectImage = tbImageView;
                 tbImageView.setAutoChangeStyle(false);
-                this.f14371b = (TextView) a().findViewById(R.id.ala_enter_effect_name);
-                this.f14372c = (TextView) a().findViewById(R.id.ala_enter_effect_status);
-                this.f14373d = (TextView) a().findViewById(R.id.ala_enter_effect_time_limit);
-                this.f14374e = (ImageView) a().findViewById(R.id.ala_enter_effect_download_img);
-                this.f14375f = (ProgressBar) a().findViewById(R.id.ala_enter_effect_loading);
-                this.f14376g = a().findViewById(R.id.ala_header_cover);
-                this.f14377h = a().findViewById(R.id.ala_enter_effect_img_layout);
-                this.f14378i = (TextView) a().findViewById(R.id.ala_enter_effect_description);
+                this.mEffectNameView = (TextView) getView().findViewById(R.id.ala_enter_effect_name);
+                this.mUseStatusView = (TextView) getView().findViewById(R.id.ala_enter_effect_status);
+                this.mTimeLimitView = (TextView) getView().findViewById(R.id.ala_enter_effect_time_limit);
+                this.mDownloadImage = (ImageView) getView().findViewById(R.id.ala_enter_effect_download_img);
+                this.mLoadingView = (ProgressBar) getView().findViewById(R.id.ala_enter_effect_loading);
+                this.mHeaderCover = getView().findViewById(R.id.ala_header_cover);
+                this.mHeaderLayout = getView().findViewById(R.id.ala_enter_effect_img_layout);
+                this.mDescriptionView = (TextView) getView().findViewById(R.id.ala_enter_effect_description);
             }
         }
     }
@@ -127,83 +109,83 @@ public class AlaEnterEffectAdapter extends a<AlaEnterEffectData, ViewHolder> {
         this.n = TbadkCoreApplication.getInst().getSkinType();
     }
 
-    public final void e0(ViewHolder viewHolder) {
+    public final void h0(ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewHolder) == null) || viewHolder == null) {
             return;
         }
-        SkinManager.setBackgroundResource(viewHolder.a(), R.color.CAM_X0201);
-        SkinManager.setViewTextColor(viewHolder.f14373d, R.color.CAM_X0109, 1, this.n);
-        SkinManager.setViewTextColor(viewHolder.f14371b, R.color.CAM_X0105, 1, this.n);
+        SkinManager.setBackgroundResource(viewHolder.getView(), R.color.CAM_X0201);
+        SkinManager.setViewTextColor(viewHolder.mTimeLimitView, R.color.CAM_X0109, 1, this.n);
+        SkinManager.setViewTextColor(viewHolder.mEffectNameView, R.color.CAM_X0105, 1, this.n);
         if (this.n == 1) {
-            viewHolder.f14376g.setVisibility(0);
+            viewHolder.mHeaderCover.setVisibility(0);
         } else {
-            viewHolder.f14376g.setVisibility(8);
+            viewHolder.mHeaderCover.setVisibility(8);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.d.k.e.a
-    /* renamed from: f0 */
-    public ViewHolder Q(ViewGroup viewGroup) {
+    @Override // c.a.e.k.e.a
+    /* renamed from: i0 */
+    public ViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ViewHolder(LayoutInflater.from(this.m).inflate(R.layout.ala_enter_effect_item_layout, (ViewGroup) null)) : (ViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.d.k.e.a
-    /* renamed from: g0 */
-    public View X(int i2, View view, ViewGroup viewGroup, AlaEnterEffectData alaEnterEffectData, ViewHolder viewHolder) {
+    @Override // c.a.e.k.e.a
+    /* renamed from: j0 */
+    public View a0(int i2, View view, ViewGroup viewGroup, AlaEnterEffectData alaEnterEffectData, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, alaEnterEffectData, viewHolder})) == null) {
-            viewHolder.f14370a.M(alaEnterEffectData.thumbnail_url, 10, false);
-            viewHolder.f14371b.setText(alaEnterEffectData.name);
+            viewHolder.mEffectImage.startLoad(alaEnterEffectData.thumbnail_url, 10, false);
+            viewHolder.mEffectNameView.setText(alaEnterEffectData.name);
             if (alaEnterEffectData.isUsing()) {
-                SkinManager.setViewTextColor(viewHolder.f14372c, R.color.live_cp_other_b, 1, this.n);
-                SkinManager.setBackgroundResource(viewHolder.f14372c, R.drawable.ala_enter_effect_use_bg, this.n);
-                viewHolder.f14372c.setText(this.m.getString(R.string.ala_enter_effect_use));
-                viewHolder.f14370a.setAlpha(1.0f);
+                SkinManager.setViewTextColor(viewHolder.mUseStatusView, R.color.live_cp_other_b, 1, this.n);
+                SkinManager.setBackgroundResource(viewHolder.mUseStatusView, R.drawable.ala_enter_effect_use_bg, this.n);
+                viewHolder.mUseStatusView.setText(this.m.getString(R.string.ala_enter_effect_use));
+                viewHolder.mEffectImage.setAlpha(1.0f);
             } else if (alaEnterEffectData.isOwn) {
-                SkinManager.setViewTextColor(viewHolder.f14372c, R.color.CAM_X0302, 1, this.n);
-                SkinManager.setBackgroundResource(viewHolder.f14372c, R.drawable.ala_enter_effect_own_bg, this.n);
-                viewHolder.f14372c.setText(this.m.getString(R.string.ala_enter_effect_own));
-                viewHolder.f14370a.setAlpha(1.0f);
+                SkinManager.setViewTextColor(viewHolder.mUseStatusView, R.color.CAM_X0302, 1, this.n);
+                SkinManager.setBackgroundResource(viewHolder.mUseStatusView, R.drawable.ala_enter_effect_own_bg, this.n);
+                viewHolder.mUseStatusView.setText(this.m.getString(R.string.ala_enter_effect_own));
+                viewHolder.mEffectImage.setAlpha(1.0f);
             } else {
-                SkinManager.setViewTextColor(viewHolder.f14372c, R.color.CAM_X0109, 1, this.n);
-                SkinManager.setBackgroundResource(viewHolder.f14372c, R.drawable.ala_enter_effect_not_own_bg, this.n);
-                viewHolder.f14372c.setText(this.m.getString(R.string.ala_enter_effect_not_own));
-                viewHolder.f14370a.setAlpha(0.7f);
+                SkinManager.setViewTextColor(viewHolder.mUseStatusView, R.color.CAM_X0109, 1, this.n);
+                SkinManager.setBackgroundResource(viewHolder.mUseStatusView, R.drawable.ala_enter_effect_not_own_bg, this.n);
+                viewHolder.mUseStatusView.setText(this.m.getString(R.string.ala_enter_effect_not_own));
+                viewHolder.mEffectImage.setAlpha(0.7f);
             }
-            viewHolder.f14373d.setText(this.m.getResources().getString(R.string.ala_left_time, StringHelper.formatDayTime((alaEnterEffectData.end_time * 1000) - System.currentTimeMillis())));
+            viewHolder.mTimeLimitView.setText(this.m.getResources().getString(R.string.ala_left_time, StringHelper.formatDayTime((alaEnterEffectData.end_time * 1000) - System.currentTimeMillis())));
             int i3 = alaEnterEffectData.downLoadStatus;
             if (i3 == 100) {
-                viewHolder.f14374e.setVisibility(0);
-                viewHolder.f14375f.setVisibility(8);
+                viewHolder.mDownloadImage.setVisibility(0);
+                viewHolder.mLoadingView.setVisibility(8);
             } else if (i3 == 102) {
-                viewHolder.f14374e.setVisibility(8);
-                viewHolder.f14375f.setVisibility(0);
+                viewHolder.mDownloadImage.setVisibility(8);
+                viewHolder.mLoadingView.setVisibility(0);
             } else {
-                viewHolder.f14374e.setVisibility(8);
-                viewHolder.f14375f.setVisibility(8);
+                viewHolder.mDownloadImage.setVisibility(8);
+                viewHolder.mLoadingView.setVisibility(8);
             }
-            viewHolder.f14377h.setBackgroundColor(Color.parseColor(alaEnterEffectData.color));
-            SkinManager.setViewTextColor(viewHolder.f14378i, R.color.CAM_X0109, 1, this.n);
+            viewHolder.mHeaderLayout.setBackgroundColor(Color.parseColor(alaEnterEffectData.color));
+            SkinManager.setViewTextColor(viewHolder.mDescriptionView, R.color.CAM_X0109, 1, this.n);
             if (2 == alaEnterEffectData.categoryType) {
-                SkinManager.setViewTextColor(viewHolder.f14378i, R.color.CAM_X0305, 1, this.n);
-                viewHolder.f14378i.setText(this.m.getString(R.string.ala_enter_effect_tdou_des, AlaStringHelper.formatLowercasekDou((float) alaEnterEffectData.price), alaEnterEffectData.time));
+                SkinManager.setViewTextColor(viewHolder.mDescriptionView, R.color.CAM_X0305, 1, this.n);
+                viewHolder.mDescriptionView.setText(this.m.getString(R.string.ala_enter_effect_tdou_des, AlaStringHelper.formatLowercasekDou((float) alaEnterEffectData.price), alaEnterEffectData.time));
                 Drawable moneyIcon = CurrencySwitchUtil.getMoneyIcon();
                 int dimensionPixelSize = this.m.getResources().getDimensionPixelSize(R.dimen.ds24);
                 moneyIcon.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
-                viewHolder.f14378i.setCompoundDrawablePadding(this.m.getResources().getDimensionPixelSize(R.dimen.ds4));
-                viewHolder.f14378i.setCompoundDrawables(moneyIcon, null, null, null);
+                viewHolder.mDescriptionView.setCompoundDrawablePadding(this.m.getResources().getDimensionPixelSize(R.dimen.ds4));
+                viewHolder.mDescriptionView.setCompoundDrawables(moneyIcon, null, null, null);
             } else {
-                viewHolder.f14378i.setText(alaEnterEffectData.obtain_way);
-                viewHolder.f14378i.setCompoundDrawables(null, null, null, null);
+                viewHolder.mDescriptionView.setText(alaEnterEffectData.obtain_way);
+                viewHolder.mDescriptionView.setCompoundDrawables(null, null, null, null);
             }
-            e0(viewHolder);
-            return viewHolder.a();
+            h0(viewHolder);
+            return viewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }

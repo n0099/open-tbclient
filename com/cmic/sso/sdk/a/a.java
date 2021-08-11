@@ -12,18 +12,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
 @SuppressLint({"NewApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.cmic.sso.sdk.a.a$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f32682a;
+        public static final /* synthetic */ int[] f68649a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -39,14 +39,14 @@ public class a {
                     return;
                 }
             }
-            int[] iArr = new int[EnumC0372a.values().length];
-            f32682a = iArr;
+            int[] iArr = new int[EnumC1932a.values().length];
+            f68649a = iArr;
             try {
-                iArr[EnumC0372a.f32685c.ordinal()] = 1;
+                iArr[EnumC1932a.f68652c.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f32682a[EnumC0372a.f32684b.ordinal()] = 2;
+                f68649a[EnumC1932a.f68651b.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -54,21 +54,21 @@ public class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.cmic.sso.sdk.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class EnumC0372a {
+    /* loaded from: classes9.dex */
+    public static final class EnumC1932a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final EnumC0372a f32683a;
+        public static final EnumC1932a f68650a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final EnumC0372a f32684b;
+        public static final EnumC1932a f68651b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final EnumC0372a f32685c;
+        public static final EnumC1932a f68652c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final /* synthetic */ EnumC0372a[] f32686d;
+        public static final /* synthetic */ EnumC1932a[] f68653d;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -84,14 +84,14 @@ public class a {
                     return;
                 }
             }
-            f32683a = new EnumC0372a(RomUtils.UNKNOWN, 0);
-            f32684b = new EnumC0372a("SAMSUNG", 1);
-            EnumC0372a enumC0372a = new EnumC0372a("HUAWEI", 2);
-            f32685c = enumC0372a;
-            f32686d = new EnumC0372a[]{f32683a, f32684b, enumC0372a};
+            f68650a = new EnumC1932a(RomUtils.UNKNOWN, 0);
+            f68651b = new EnumC1932a("SAMSUNG", 1);
+            EnumC1932a enumC1932a = new EnumC1932a("HUAWEI", 2);
+            f68652c = enumC1932a;
+            f68653d = new EnumC1932a[]{f68650a, f68651b, enumC1932a};
         }
 
-        public EnumC0372a(String str, int i2) {
+        public EnumC1932a(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,16 +110,16 @@ public class a {
             }
         }
 
-        public static EnumC0372a valueOf(String str) {
+        public static EnumC1932a valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0372a) Enum.valueOf(EnumC0372a.class, str) : (EnumC0372a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC1932a) Enum.valueOf(EnumC1932a.class, str) : (EnumC1932a) invokeL.objValue;
         }
 
-        public static EnumC0372a[] values() {
+        public static EnumC1932a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0372a[]) f32686d.clone() : (EnumC0372a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC1932a[]) f68653d.clone() : (EnumC1932a[]) invokeV.objValue;
         }
     }
 
@@ -129,27 +129,27 @@ public class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a(b()) : invokeV.intValue;
     }
 
-    public static EnumC0372a b() {
+    public static EnumC1932a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             String str = Build.BRAND;
             if (str.equalsIgnoreCase(ManufacturerUtils.SAMSUNG)) {
-                return EnumC0372a.f32684b;
+                return EnumC1932a.f68651b;
             }
             if (str.equalsIgnoreCase("Huawei")) {
-                return EnumC0372a.f32685c;
+                return EnumC1932a.f68652c;
             }
-            return EnumC0372a.f32683a;
+            return EnumC1932a.f68650a;
         }
-        return (EnumC0372a) invokeV.objValue;
+        return (EnumC1932a) invokeV.objValue;
     }
 
-    public static int a(EnumC0372a enumC0372a) {
+    public static int a(EnumC1932a enumC1932a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, enumC0372a)) == null) {
-            int i2 = AnonymousClass1.f32682a[enumC0372a.ordinal()];
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, enumC1932a)) == null) {
+            int i2 = AnonymousClass1.f68649a[enumC1932a.ordinal()];
             if (i2 != 1) {
                 return i2 != 2 ? -1 : 1;
             }

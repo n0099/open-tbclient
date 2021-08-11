@@ -10,8 +10,9 @@ import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(tags = {6})
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class SLConfigDescriptor extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +98,7 @@ public class SLConfigDescriptor extends BaseDescriptor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "SLConfigDescriptor{predefined=" + this.predefined + '}';
+            return "SLConfigDescriptor{predefined=" + this.predefined + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

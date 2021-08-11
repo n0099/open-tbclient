@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.util;
 
 import android.text.TextUtils;
+import c.a.e.e.p.l;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
@@ -9,9 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
 import java.net.URL;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ImageLoggerHelper {
     public static /* synthetic */ Interceptable $ic;
     public static ImageLoggerHelper mInstance;

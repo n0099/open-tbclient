@@ -4,7 +4,6 @@ import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +18,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.zip.ZipFile;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class CommentUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +37,7 @@ public class CommentUtils {
         }
     }
 
-    /* JADX WARN: Not initialized variable reg: 1, insn: 0x005c: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:34:0x005c */
+    /* JADX WARN: Not initialized variable reg: 1, insn: 0x005d: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:34:0x005d */
     public static String readApk(File file) {
         InterceptResult invokeL;
         RandomAccessFile randomAccessFile;
@@ -55,7 +54,7 @@ public class CommentUtils {
         }
         try {
             try {
-                randomAccessFile2 = new RandomAccessFile(file, r.f7788a);
+                randomAccessFile2 = new RandomAccessFile(file, r.f42062a);
             } catch (IOException e2) {
                 e2.printStackTrace();
                 return null;
@@ -256,7 +255,7 @@ public class CommentUtils {
                     } catch (Exception e4) {
                         e4.printStackTrace();
                     }
-                    return FrsActivityConfig.GOOD;
+                    return "good";
                 } catch (IOException e5) {
                     e = e5;
                     zipFile = zipFile2;

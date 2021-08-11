@@ -3,6 +3,7 @@ package com.baidu.swan.ubc;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.n0.r.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
 import com.baidu.swan.ubc.IRemoteUBCService;
@@ -11,10 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.r.e;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class OpenStatisticIPCManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,12 +50,12 @@ public class OpenStatisticIPCManager {
                 }
 
                 @Override // com.baidu.swan.ubc.IRemoteUBCService
-                public void flowAddEventWithTime(Flow flow, String str, String str2, long j) {
+                public void flowAddEventWithTime(Flow flow, String str, String str2, long j2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{flow, str, str2, Long.valueOf(j)}) == null) || flow == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{flow, str, str2, Long.valueOf(j2)}) == null) || flow == null) {
                         return;
                     }
-                    flow.addEvent(str, str2, j);
+                    flow.addEvent(str, str2, j2);
                 }
 
                 @Override // com.baidu.swan.ubc.IRemoteUBCService

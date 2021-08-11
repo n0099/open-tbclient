@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.adnet.core.i;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class VAdError extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHE_DISPATCH_FAIL_CODE = 607;
@@ -26,10 +26,10 @@ public class VAdError extends Exception {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28157a;
+    public int f64000a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f28158b;
+    public long f64001b;
     public final i networkResponse;
 
     public VAdError(i iVar) {
@@ -53,26 +53,26 @@ public class VAdError extends Exception {
     public int getErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28157a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64000a : invokeV.intValue;
     }
 
     public long getNetworkTimeMs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28158b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64001b : invokeV.longValue;
     }
 
     public void setErrorCode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f28157a = i2;
+            this.f64000a = i2;
         }
     }
 
-    public void setNetworkTimeMs(long j) {
+    public void setNetworkTimeMs(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.f28158b = j;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.f64001b = j2;
         }
     }
 
@@ -92,7 +92,7 @@ public class VAdError extends Exception {
             }
         }
         this.networkResponse = null;
-        this.f28157a = i2;
+        this.f64000a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -114,7 +114,7 @@ public class VAdError extends Exception {
             }
         }
         this.networkResponse = null;
-        this.f28157a = i2;
+        this.f64000a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -137,7 +137,7 @@ public class VAdError extends Exception {
             }
         }
         this.networkResponse = null;
-        this.f28157a = i2;
+        this.f64000a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -159,6 +159,6 @@ public class VAdError extends Exception {
             }
         }
         this.networkResponse = null;
-        this.f28157a = i2;
+        this.f64000a = i2;
     }
 }

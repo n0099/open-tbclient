@@ -1,24 +1,24 @@
 package com.ss.android.socialbase.appdownloader.f.a;
 
+import c.p.a.e.a.h.a.f;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.l.a.e.a.h.a.f;
 import java.io.PrintStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class h extends Exception {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Throwable f38550a;
+    public Throwable f75362a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38551b;
+    public int f75363b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38552c;
+    public int f75364c;
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
@@ -61,27 +61,27 @@ public class h extends Exception {
             str4 = "caused by: " + th;
         }
         sb.append(str4);
-        this.f38551b = -1;
-        this.f38552c = -1;
+        this.f75363b = -1;
+        this.f75364c = -1;
         if (fVar != null) {
-            this.f38551b = fVar.c();
-            this.f38552c = fVar.f();
+            this.f75363b = fVar.c();
+            this.f75364c = fVar.f();
         }
-        this.f38550a = th;
+        this.f75362a = th;
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f38550a == null) {
+            if (this.f75362a == null) {
                 super.printStackTrace();
                 return;
             }
             synchronized (System.err) {
                 PrintStream printStream = System.err;
                 printStream.println(super.getMessage() + "; nested exception is:");
-                this.f38550a.printStackTrace();
+                this.f75362a.printStackTrace();
             }
         }
     }

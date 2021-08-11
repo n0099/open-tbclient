@@ -23,8 +23,9 @@ import java.util.HashMap;
 import java.util.Locale;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class HTTPMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HTTPMgr";
@@ -113,7 +114,7 @@ public class HTTPMgr {
                             break;
                         }
                         stringBuffer.append(readLine);
-                        stringBuffer.append("\n");
+                        stringBuffer.append(StringUtils.LF);
                     }
                     bufferedReader.close();
                     String[] strArr = {String.valueOf(responseCode), stringBuffer.toString()};
@@ -249,7 +250,7 @@ public class HTTPMgr {
                                 break;
                             }
                             stringBuffer.append(readLine);
-                            stringBuffer.append("\n");
+                            stringBuffer.append(StringUtils.LF);
                         }
                         bufferedReader.close();
                         String[] strArr = {String.valueOf(responseCode), stringBuffer.toString()};

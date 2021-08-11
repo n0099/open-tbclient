@@ -10,7 +10,7 @@ import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class BaseNCodecInputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -98,20 +98,20 @@ public class BaseNCodecInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public long skip(long j) throws IOException {
+    public long skip(long j2) throws IOException {
         InterceptResult invokeJ;
         int read;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-            if (j < 0) {
-                throw new IllegalArgumentException("Negative skip length: " + j);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
+            if (j2 < 0) {
+                throw new IllegalArgumentException("Negative skip length: " + j2);
             }
             byte[] bArr = new byte[512];
-            long j2 = j;
-            while (j2 > 0 && (read = read(bArr, 0, (int) Math.min(512, j2))) != -1) {
-                j2 -= read;
+            long j3 = j2;
+            while (j3 > 0 && (read = read(bArr, 0, (int) Math.min(512, j3))) != -1) {
+                j3 -= read;
             }
-            return j - j2;
+            return j2 - j3;
         }
         return invokeJ.longValue;
     }

@@ -9,6 +9,7 @@ import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.Domains;
+import com.dxmpay.wallet.core.Domains;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
@@ -27,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class UrlUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -311,11 +312,11 @@ public class UrlUtil {
         return (String) invokeL.objValue;
     }
 
-    public static String getCookieStr(String str, String str2, String str3, long j) {
+    public static String getCookieStr(String str, String str2, String str3, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{str, str2, str3, Long.valueOf(j)})) == null) {
-            return str2 + "=" + str3 + ";domain=" + str + ";path=/;max-age=" + j + ";";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{str, str2, str3, Long.valueOf(j2)})) == null) {
+            return str2 + "=" + str3 + ";domain=" + str + ";path=/;max-age=" + j2 + ";";
         }
         return (String) invokeCommon.objValue;
     }
@@ -331,7 +332,7 @@ public class UrlUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
             String lowerCase = Uri.parse(str).getPath().toLowerCase();
-            return lowerCase.contains(FileHelper.FILE_CACHE_CSS) ? "text/css" : lowerCase.contains(".js") ? "application/x-javascript" : (lowerCase.contains(".jpg") || lowerCase.contains(".gif") || lowerCase.contains(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) || lowerCase.contains(".jpeg")) ? BdUploadHandler.IMAGE_MIME_TYPE : SapiWebView.DATA_MIME_TYPE;
+            return lowerCase.contains(FileHelper.FILE_CACHE_CSS) ? "text/css" : lowerCase.contains(".js") ? "application/x-javascript" : (lowerCase.contains(ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX) || lowerCase.contains(".gif") || lowerCase.contains(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) || lowerCase.contains(".jpeg")) ? BdUploadHandler.IMAGE_MIME_TYPE : SapiWebView.DATA_MIME_TYPE;
         }
         return (String) invokeL.objValue;
     }

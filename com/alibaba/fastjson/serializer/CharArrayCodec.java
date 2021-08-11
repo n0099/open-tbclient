@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class CharArrayCodec implements ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

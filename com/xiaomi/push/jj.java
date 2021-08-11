@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class jj extends jl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40798a;
+    public int f77673a;
 
     /* renamed from: a  reason: collision with other field name */
-    public it f817a;
+    public it f821a;
 
     public jj(int i2) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class jj extends jl {
                 return;
             }
         }
-        this.f817a = new it(i2);
+        this.f821a = new it(i2);
     }
 
     @Override // com.xiaomi.push.jl
@@ -40,13 +40,13 @@ public class jj extends jl {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
-            byte[] m516a = this.f817a.m516a();
-            if (i3 > this.f817a.a() - this.f40798a) {
-                i3 = this.f817a.a() - this.f40798a;
+            byte[] m519a = this.f821a.m519a();
+            if (i3 > this.f821a.a() - this.f77673a) {
+                i3 = this.f821a.a() - this.f77673a;
             }
             if (i3 > 0) {
-                System.arraycopy(m516a, this.f40798a, bArr, i2, i3);
-                this.f40798a += i3;
+                System.arraycopy(m519a, this.f77673a, bArr, i2, i3);
+                this.f77673a += i3;
             }
             return i3;
         }
@@ -57,13 +57,13 @@ public class jj extends jl {
     public void a(byte[] bArr, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2, i3) == null) {
-            this.f817a.write(bArr, i2, i3);
+            this.f821a.write(bArr, i2, i3);
         }
     }
 
     public int a_() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f817a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f821a.size() : invokeV.intValue;
     }
 }

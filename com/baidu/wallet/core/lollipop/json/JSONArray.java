@@ -13,7 +13,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class JSONArray {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -369,12 +369,12 @@ public class JSONArray {
         return invokeII.intValue;
     }
 
-    public long optLong(int i2, long j) {
+    public long optLong(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             Long l = JSON.toLong(opt(i2));
-            return l != null ? l.longValue() : j;
+            return l != null ? l.longValue() : j2;
         }
         return invokeCommon.longValue;
     }
@@ -434,11 +434,11 @@ public class JSONArray {
         return (JSONArray) invokeI.objValue;
     }
 
-    public JSONArray put(long j) {
+    public JSONArray put(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048610, this, j)) == null) {
-            this.values.add(Long.valueOf(j));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048610, this, j2)) == null) {
+            this.values.add(Long.valueOf(j2));
             return this;
         }
         return (JSONArray) invokeJ.objValue;
@@ -506,10 +506,10 @@ public class JSONArray {
         return (interceptable == null || (invokeII = interceptable.invokeII(1048606, this, i2, i3)) == null) ? put(i2, Integer.valueOf(i3)) : (JSONArray) invokeII.objValue;
     }
 
-    public JSONArray put(int i2, long j) throws JSONException {
+    public JSONArray put(int i2, long j2) throws JSONException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) ? put(i2, Long.valueOf(j)) : (JSONArray) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? put(i2, Long.valueOf(j2)) : (JSONArray) invokeCommon.objValue;
     }
 
     public JSONArray put(int i2, Object obj) throws JSONException {

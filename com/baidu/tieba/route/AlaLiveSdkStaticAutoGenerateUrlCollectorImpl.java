@@ -1,7 +1,6 @@
 package com.baidu.tieba.route;
 
 import com.baidu.adp.framework.cmdRouter.ICmdRouter;
-import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class AlaLiveSdkStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +56,7 @@ public final class AlaLiveSdkStaticAutoGenerateUrlCollectorImpl implements ICmdR
             HashMap hashMap = new HashMap();
             ArrayList arrayList = new ArrayList();
             arrayList.add("/ala/share");
-            arrayList.add(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID);
+            arrayList.add("liveid");
             arrayList.add(UrlSchemaHelper.SCHEMA_LIVE_SDK);
             arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_JUMP_LIVE_ROOM);
             hashMap.put("com.baidu.tieba.livesdk.AlaLiveSdkStatic", arrayList);

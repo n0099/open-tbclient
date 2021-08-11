@@ -1,6 +1,7 @@
 package com.yy.gslbsdk.protocol;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.apollon.restnet.http.b;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +17,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class UpdateServerProtocolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UpdateServerProtocolMgr";
@@ -72,7 +73,7 @@ public class UpdateServerProtocolMgr {
                 JSONObject jSONObject = new JSONObject(str);
                 int translateErrCode = translateErrCode(jSONObject.getInt("s"));
                 int i2 = jSONObject.getInt("ver");
-                JSONArray jSONArray = jSONObject.getJSONArray("dns");
+                JSONArray jSONArray = jSONObject.getJSONArray(b.InterfaceC1611b.f37853b);
                 for (int i3 = 0; i3 < jSONArray.length(); i3++) {
                     JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
                     int i4 = jSONObject2.getInt("v");

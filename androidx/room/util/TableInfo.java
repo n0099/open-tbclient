@@ -26,6 +26,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public class TableInfo {
@@ -135,7 +136,7 @@ public class TableInfo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return "Column{name='" + this.name + "', type='" + this.type + "', affinity='" + this.affinity + "', notNull=" + this.notNull + ", primaryKeyPosition=" + this.primaryKeyPosition + '}';
+                return "Column{name='" + this.name + ExtendedMessageFormat.QUOTE + ", type='" + this.type + ExtendedMessageFormat.QUOTE + ", affinity='" + this.affinity + ExtendedMessageFormat.QUOTE + ", notNull=" + this.notNull + ", primaryKeyPosition=" + this.primaryKeyPosition + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -208,7 +209,7 @@ public class TableInfo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return "ForeignKey{referenceTable='" + this.referenceTable + "', onDelete='" + this.onDelete + "', onUpdate='" + this.onUpdate + "', columnNames=" + this.columnNames + ", referenceColumnNames=" + this.referenceColumnNames + '}';
+                return "ForeignKey{referenceTable='" + this.referenceTable + ExtendedMessageFormat.QUOTE + ", onDelete='" + this.onDelete + ExtendedMessageFormat.QUOTE + ", onUpdate='" + this.onUpdate + ExtendedMessageFormat.QUOTE + ", columnNames=" + this.columnNames + ", referenceColumnNames=" + this.referenceColumnNames + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -323,7 +324,7 @@ public class TableInfo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return "Index{name='" + this.name + "', unique=" + this.unique + ", columns=" + this.columns + '}';
+                return "Index{name='" + this.name + ExtendedMessageFormat.QUOTE + ", unique=" + this.unique + ", columns=" + this.columns + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -554,7 +555,7 @@ public class TableInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "TableInfo{name='" + this.name + "', columns=" + this.columns + ", foreignKeys=" + this.foreignKeys + ", indices=" + this.indices + '}';
+            return "TableInfo{name='" + this.name + ExtendedMessageFormat.QUOTE + ", columns=" + this.columns + ", foreignKeys=" + this.foreignKeys + ", indices=" + this.indices + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.model.InsideNotificationItem;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class s extends x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InsideNotificationItem f39316a;
+    public InsideNotificationItem f76148a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39317b;
+    public String f76149b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s() {
@@ -42,8 +42,8 @@ public final class s extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            String b2 = com.vivo.push.util.q.b(this.f39316a);
-            this.f39317b = b2;
+            String b2 = com.vivo.push.util.q.b(this.f76148a);
+            this.f76149b = b2;
             aVar.a("notification_v1", b2);
         }
     }
@@ -51,21 +51,21 @@ public final class s extends x {
     public final InsideNotificationItem d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39316a : (InsideNotificationItem) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76148a : (InsideNotificationItem) invokeV.objValue;
     }
 
     public final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.f39317b)) {
-                InsideNotificationItem insideNotificationItem = this.f39316a;
+            if (TextUtils.isEmpty(this.f76149b)) {
+                InsideNotificationItem insideNotificationItem = this.f76148a;
                 if (insideNotificationItem == null) {
                     return null;
                 }
                 return com.vivo.push.util.q.b(insideNotificationItem);
             }
-            return this.f39317b;
+            return this.f76149b;
         }
         return (String) invokeV.objValue;
     }
@@ -83,12 +83,12 @@ public final class s extends x {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
             String a2 = aVar.a("notification_v1");
-            this.f39317b = a2;
+            this.f76149b = a2;
             if (TextUtils.isEmpty(a2)) {
                 return;
             }
-            InsideNotificationItem a3 = com.vivo.push.util.q.a(this.f39317b);
-            this.f39316a = a3;
+            InsideNotificationItem a3 = com.vivo.push.util.q.a(this.f76149b);
+            this.f76148a = a3;
             if (a3 != null) {
                 a3.setMsgId(f());
             }

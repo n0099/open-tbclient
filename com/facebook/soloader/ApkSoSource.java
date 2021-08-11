@@ -2,7 +2,6 @@ package com.facebook.soloader;
 
 import android.content.Context;
 import android.os.Parcel;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +13,7 @@ import com.facebook.soloader.UnpackingSoSource;
 import java.io.File;
 import java.io.IOException;
 import java.util.zip.ZipEntry;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ApkSoSource extends ExtractFromZipSoSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte APK_SO_SOURCE_SIGNATURE_VERSION = 2;
@@ -26,7 +25,7 @@ public class ApkSoSource extends ExtractFromZipSoSource {
     public transient /* synthetic */ FieldHolder $fh;
     public final int mFlags;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class ApkUnpacker extends ExtractFromZipSoSource.ZipUnpacker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,35 +60,30 @@ public class ApkSoSource extends ExtractFromZipSoSource {
         @Override // com.facebook.soloader.ExtractFromZipSoSource.ZipUnpacker
         public boolean shouldExtract(ZipEntry zipEntry, String str) {
             InterceptResult invokeLL;
-            String str2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, zipEntry, str)) == null) {
                 String name = zipEntry.getName();
-                boolean z = false;
                 if (str.equals(this.this$0.mCorruptedLib)) {
                     this.this$0.mCorruptedLib = null;
-                    str2 = String.format("allowing consideration of corrupted lib %s", str);
+                    String.format("allowing consideration of corrupted lib %s", str);
                 } else if ((this.mFlags & 1) == 0) {
-                    str2 = "allowing consideration of " + name + ": self-extraction preferred";
+                    String str2 = "allowing consideration of " + name + ": self-extraction preferred";
                 } else {
                     File file = new File(this.mLibDir, str);
                     if (!file.isFile()) {
-                        str2 = String.format("allowing considering of %s: %s not in system lib dir", name, str);
+                        String.format("allowing considering of %s: %s not in system lib dir", name, str);
                     } else {
                         long length = file.length();
                         long size = zipEntry.getSize();
                         if (length != size) {
-                            str2 = String.format("allowing consideration of %s: sysdir file length is %s, but the file is %s bytes long in the APK", file, Long.valueOf(length), Long.valueOf(size));
+                            String.format("allowing consideration of %s: sysdir file length is %s, but the file is %s bytes long in the APK", file, Long.valueOf(length), Long.valueOf(size));
                         } else {
-                            str2 = "not allowing consideration of " + name + ": deferring to libdir";
-                            Log.d(ApkSoSource.TAG, str2);
-                            return z;
+                            String str3 = "not allowing consideration of " + name + ": deferring to libdir";
+                            return false;
                         }
                     }
                 }
-                z = true;
-                Log.d(ApkSoSource.TAG, str2);
-                return z;
+                return true;
             }
             return invokeLL.booleanValue;
         }

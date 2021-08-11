@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AlaSDKShareEmptyActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PACKAGE_NAME_QQ = "com.tencent.mobileqq";
@@ -50,7 +50,7 @@ public class AlaSDKShareEmptyActivityConfig extends IntentConfig {
         getIntent().putExtra(SHARE_ALA_SDK_LINKURL_KEY, shareItem.t);
         getIntent().putExtra("channel", i2);
         getIntent().putExtra("action", i3);
-        getIntent().putExtra(SHARE_ALA_SDK_LIVE_ID, shareItem.q);
+        getIntent().putExtra("liveid", shareItem.q);
         getIntent().putExtra(SHARE_ALA_SDK_LIVE_EXT_INFO, shareItem.l0);
         getIntent().putExtra(SHARE_ALA_SDK_YY_ANCHOR_BDUID, shareItem.z);
     }

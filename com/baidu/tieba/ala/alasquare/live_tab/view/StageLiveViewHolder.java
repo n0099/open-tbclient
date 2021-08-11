@@ -1,23 +1,21 @@
 package com.baidu.tieba.ala.alasquare.live_tab.view;
 
 import android.view.View;
+import c.a.p0.v.d.c.h.c;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.v.d.c.h.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class StageLiveViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public c f14091a;
+    public c mView;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public StageLiveViewHolder(c cVar) {
-        super(cVar.k());
+        super(cVar.j());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,6 +31,6 @@ public class StageLiveViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f14091a = cVar;
+        this.mView = cVar;
     }
 }

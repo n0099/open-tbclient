@@ -10,7 +10,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.connect.ConnectManager;
-import com.baidu.apollon.statistics.g;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
@@ -24,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class NetWorkUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -40,7 +39,7 @@ public class NetWorkUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -390,7 +389,7 @@ public class NetWorkUtils {
                         case 12:
                         case 14:
                         case 15:
-                            return g.f4012b;
+                            return "3G";
                         case 13:
                             return "4G";
                         default:

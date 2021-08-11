@@ -1,7 +1,6 @@
 package com.facebook.drawee.controller;
 
 import android.graphics.drawable.Animatable;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ForwardingControllerListener<INFO> implements ControllerListener<INFO> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FdingControllerListener";
@@ -58,7 +57,6 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, th) == null) {
             synchronized (this) {
-                Log.e(TAG, str, th);
             }
         }
     }

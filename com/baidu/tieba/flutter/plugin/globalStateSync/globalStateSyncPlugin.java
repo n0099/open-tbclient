@@ -3,6 +3,14 @@ package com.baidu.tieba.flutter.plugin.globalStateSync;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import c.a.e.e.p.k;
+import c.a.o0.b.d;
+import c.a.o0.b.e;
+import c.a.o0.b.f.z;
+import c.a.o0.b1.r0;
+import c.a.o0.s.d0.b;
+import c.a.o0.t.b.a;
+import c.a.p0.r0.a.b.g;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -26,18 +34,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
-import d.a.p0.b.d;
-import d.a.p0.b.e;
-import d.a.p0.b.f.w;
-import d.a.p0.b1.o0;
-import d.a.p0.s.d0.b;
-import d.a.p0.t.b.a;
-import d.a.q0.q0.a.b.g;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto.HostGlobalStateSync {
     public static /* synthetic */ Interceptable $ic;
     public static boolean updatingLoginUserInfoByFlutter;
@@ -53,7 +53,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
     public CustomMessageListener skinTypeChangeListener;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class GlobalStateSubType {
         public static final /* synthetic */ GlobalStateSubType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -127,7 +127,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class GlobalStateType {
         public static final /* synthetic */ GlobalStateType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -444,11 +444,11 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            e b2 = d.b(w.f52003c);
-            if (b2 == null || k.isEmpty(b2.f51942a)) {
+            e a2 = d.a(z.f12518c);
+            if (a2 == null || k.isEmpty(a2.f12436a)) {
                 return "";
             }
-            String str = b2.f51942a;
+            String str = a2.f12436a;
             char c2 = 65535;
             int hashCode = str.hashCode();
             if (hashCode != 1688589) {
@@ -515,14 +515,15 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             if (from != null && from.length() > 0) {
                 hashMap.put("appFrom", from);
             }
-            hashMap.put("isVideoAutoPlay", Boolean.valueOf(o0.d()));
+            hashMap.put("isVideoAutoPlay", Boolean.valueOf(r0.d()));
             hashMap.put("cuid", TbadkCoreApplication.getInst().getCuid());
             hashMap.put("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
             hashMap.put("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
             hashMap.put(TiebaStatic.Params.CUID_GID, TbadkCoreApplication.getInst().getCuidGid());
             hashMap.put("z_id", TbadkCoreApplication.getInst().getZid());
+            hashMap.put("hdid", TbadkCoreApplication.getInst().getHdid());
             hashMap.put("model", Build.MODEL);
-            hashMap.put("teenMode", Boolean.valueOf(d.a.p0.e1.b.e.d()));
+            hashMap.put("teenMode", Boolean.valueOf(c.a.o0.e1.b.e.d()));
             hashMap.put("sdk_ver", TbadkCoreApplication.getInst().getSdk_ver());
             hashMap.put("framework_ver", TbadkCoreApplication.getInst().getFramework_ver());
             hashMap.put("swan_game_ver", TbadkCoreApplication.getInst().getSwan_game_ver());
@@ -632,7 +633,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             hashMap.put("noticeConfig", hashMap5);
             hashMap.put("adsenseData", hashMap6);
             hashMap.put("switches", readSwitches());
-            hashMap.put("experimentCommonFeedCardID", d.h() ? "12_0_B_brand_level_a" : "12_0_B_brand_level");
+            hashMap.put("experimentCommonFeedCardID", d.g() ? "12_0_B_brand_level_a" : "12_0_B_brand_level");
             hashMap.put("proxyIp", TbadkCoreApplication.getInst().getProxyIp());
             hashMap.put("proxyPort", TbadkCoreApplication.getInst().getProxyPort());
             return hashMap;
@@ -676,12 +677,12 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
 
     /* JADX DEBUG: Multi-variable search result rejected for r7v5, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
-    private boolean writeSyncData(HashMap<String, Object> hashMap, long j) {
+    private boolean writeSyncData(HashMap<String, Object> hashMap, long j2) {
         InterceptResult invokeLJ;
         boolean equals;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65556, this, hashMap, j)) == null) {
-            if (j == GlobalStateSubType.kGlobalStateSubTypeSwitches.ordinal() && hashMap != null && hashMap.size() > 0) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65556, this, hashMap, j2)) == null) {
+            if (j2 == GlobalStateSubType.kGlobalStateSubTypeSwitches.ordinal() && hashMap != null && hashMap.size() > 0) {
                 for (Map.Entry<String, Object> entry : hashMap.entrySet()) {
                     if (entry.getValue() instanceof String) {
                         equals = "false".equals((String) entry.getValue());

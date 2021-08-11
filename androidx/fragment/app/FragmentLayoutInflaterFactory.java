@@ -3,7 +3,6 @@ package androidx.fragment.app;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import androidx.annotation.NonNull;
@@ -82,7 +81,7 @@ public class FragmentLayoutInflaterFactory implements LayoutInflater.Factory2 {
                     findFragmentById = this.mFragmentManager.findFragmentById(id);
                 }
                 if (FragmentManager.isLoggingEnabled(2)) {
-                    Log.v("FragmentManager", "onCreateView: id=0x" + Integer.toHexString(resourceId) + " fname=" + attributeValue + " existing=" + findFragmentById);
+                    String str2 = "onCreateView: id=0x" + Integer.toHexString(resourceId) + " fname=" + attributeValue + " existing=" + findFragmentById;
                 }
                 if (findFragmentById == null) {
                     findFragmentById = this.mFragmentManager.getFragmentFactory().instantiate(context.getClassLoader(), attributeValue);

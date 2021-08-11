@@ -14,16 +14,16 @@ import com.xiaomi.push.bq;
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b implements IPerfProcessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40019a;
+    public Context f76870a;
 
     /* renamed from: a  reason: collision with other field name */
-    public HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f43a;
+    public HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f47a;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class b implements IPerfProcessor {
                 return;
             }
         }
-        this.f40019a = context;
+        this.f76870a = context;
     }
 
     public static String a(com.xiaomi.clientreport.data.a aVar) {
@@ -64,7 +64,7 @@ public class b implements IPerfProcessor {
             } else {
                 str = String.valueOf(i2) + "#" + str2;
             }
-            File externalFilesDir = this.f40019a.getExternalFilesDir(PerformerBox.TYPE);
+            File externalFilesDir = this.f76870a.getExternalFilesDir(PerformerBox.TYPE);
             if (externalFilesDir == null) {
                 com.xiaomi.channel.commonutils.logger.b.d("cannot get folder when to write perf");
                 return null;
@@ -87,7 +87,7 @@ public class b implements IPerfProcessor {
             }
             for (int i2 = 0; i2 < 20; i2++) {
                 String str = b2 + i2;
-                if (bq.m186a(this.f40019a, str)) {
+                if (bq.m189a(this.f76870a, str)) {
                     return str;
                 }
             }
@@ -100,14 +100,14 @@ public class b implements IPerfProcessor {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            bq.a(this.f40019a, PerformerBox.TYPE, "perfUploading");
-            File[] m187a = bq.m187a(this.f40019a, "perfUploading");
-            if (m187a == null || m187a.length <= 0) {
+            bq.a(this.f76870a, PerformerBox.TYPE, "perfUploading");
+            File[] m190a = bq.m190a(this.f76870a, "perfUploading");
+            if (m190a == null || m190a.length <= 0) {
                 return;
             }
-            for (File file : m187a) {
+            for (File file : m190a) {
                 if (file != null) {
-                    List<String> a2 = e.a(this.f40019a, file.getAbsolutePath());
+                    List<String> a2 = e.a(this.f76870a, file.getAbsolutePath());
                     file.delete();
                     a(a2);
                 }
@@ -117,13 +117,13 @@ public class b implements IPerfProcessor {
 
     @Override // com.xiaomi.clientreport.processor.d
     /* renamed from: a */
-    public void mo78a(com.xiaomi.clientreport.data.a aVar) {
+    public void mo81a(com.xiaomi.clientreport.data.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && (aVar instanceof PerfClientReport) && this.f43a != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && (aVar instanceof PerfClientReport) && this.f47a != null) {
             PerfClientReport perfClientReport = (PerfClientReport) aVar;
             String a2 = a((com.xiaomi.clientreport.data.a) perfClientReport);
             String a3 = e.a(perfClientReport);
-            HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f43a.get(a2);
+            HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f47a.get(a2);
             if (hashMap == null) {
                 hashMap = new HashMap<>();
             }
@@ -133,14 +133,14 @@ public class b implements IPerfProcessor {
                 perfClientReport.perfLatencies += perfClientReport2.perfLatencies;
             }
             hashMap.put(a3, perfClientReport);
-            this.f43a.put(a2, hashMap);
+            this.f47a.put(a2, hashMap);
         }
     }
 
     public void a(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            bq.a(this.f40019a, list);
+            bq.a(this.f76870a, list);
         }
     }
 
@@ -159,12 +159,12 @@ public class b implements IPerfProcessor {
     public void b() {
         HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (hashMap = this.f43a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (hashMap = this.f47a) == null) {
             return;
         }
         if (hashMap.size() > 0) {
-            for (String str : this.f43a.keySet()) {
-                HashMap<String, com.xiaomi.clientreport.data.a> hashMap2 = this.f43a.get(str);
+            for (String str : this.f47a.keySet()) {
+                HashMap<String, com.xiaomi.clientreport.data.a> hashMap2 = this.f47a.get(str);
                 if (hashMap2 != null && hashMap2.size() > 0) {
                     com.xiaomi.clientreport.data.a[] aVarArr = new com.xiaomi.clientreport.data.a[hashMap2.size()];
                     hashMap2.values().toArray(aVarArr);
@@ -172,14 +172,14 @@ public class b implements IPerfProcessor {
                 }
             }
         }
-        this.f43a.clear();
+        this.f47a.clear();
     }
 
     @Override // com.xiaomi.clientreport.processor.IPerfProcessor
     public void setPerfMap(HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, hashMap) == null) {
-            this.f43a = hashMap;
+            this.f47a = hashMap;
         }
     }
 }

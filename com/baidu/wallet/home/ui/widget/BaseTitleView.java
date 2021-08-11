@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class BaseTitleView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HomeCfgResponse.ConfigData f25169a;
+    public HomeCfgResponse.ConfigData f60901a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f25170b;
+    public b f60902b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f25171c;
+    public Context f60903c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseTitleView(Context context) {
@@ -45,7 +45,7 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f25171c = context;
+        this.f60903c = context;
         a();
     }
 
@@ -59,15 +59,15 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
     public HomeCfgResponse.ConfigData getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25169a : (HomeCfgResponse.ConfigData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60901a : (HomeCfgResponse.ConfigData) invokeV.objValue;
     }
 
     public String getGroupDesc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HomeCfgResponse.ConfigData configData = this.f25169a;
-            return (configData == null || TextUtils.isEmpty(configData.getGroup_desc())) ? "" : this.f25169a.getGroup_desc();
+            HomeCfgResponse.ConfigData configData = this.f60901a;
+            return (configData == null || TextUtils.isEmpty(configData.getGroup_desc())) ? "" : this.f60901a.getGroup_desc();
         }
         return (String) invokeV.objValue;
     }
@@ -76,8 +76,8 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            HomeCfgResponse.ConfigData configData = this.f25169a;
-            return (configData == null || TextUtils.isEmpty(configData.getGroup_layout())) ? "" : this.f25169a.getGroup_layout();
+            HomeCfgResponse.ConfigData configData = this.f60901a;
+            return (configData == null || TextUtils.isEmpty(configData.getGroup_layout())) ? "" : this.f60901a.getGroup_layout();
         }
         return (String) invokeV.objValue;
     }
@@ -86,8 +86,8 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            HomeCfgResponse.ConfigData configData = this.f25169a;
-            return (configData == null || TextUtils.isEmpty(configData.getGroup_link())) ? "" : this.f25169a.getGroup_link();
+            HomeCfgResponse.ConfigData configData = this.f60901a;
+            return (configData == null || TextUtils.isEmpty(configData.getGroup_link())) ? "" : this.f60901a.getGroup_link();
         }
         return (String) invokeV.objValue;
     }
@@ -96,8 +96,8 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            HomeCfgResponse.ConfigData configData = this.f25169a;
-            return (configData == null || TextUtils.isEmpty(configData.getGroup_name())) ? "" : this.f25169a.getGroup_name();
+            HomeCfgResponse.ConfigData configData = this.f60901a;
+            return (configData == null || TextUtils.isEmpty(configData.getGroup_name())) ? "" : this.f60901a.getGroup_name();
         }
         return (String) invokeV.objValue;
     }
@@ -106,8 +106,8 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            HomeCfgResponse.ConfigData configData = this.f25169a;
-            return (configData == null || TextUtils.isEmpty(configData.getGroup_type())) ? "" : this.f25169a.getGroup_type();
+            HomeCfgResponse.ConfigData configData = this.f60901a;
+            return (configData == null || TextUtils.isEmpty(configData.getGroup_type())) ? "" : this.f60901a.getGroup_type();
         }
         return (String) invokeV.objValue;
     }
@@ -115,7 +115,7 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
     public b getWalletInterface() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f25170b : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f60902b : (b) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -123,7 +123,7 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            HomeCfgResponse.ConfigData configData = this.f25169a;
+            HomeCfgResponse.ConfigData configData = this.f60901a;
             return configData != null && configData.isGroupCanClick();
         }
         return invokeV.booleanValue;
@@ -132,13 +132,13 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) || this.f25169a == null || getWalletInterface() == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) || this.f60901a == null || getWalletInterface() == null) {
             return;
         }
         b walletInterface = getWalletInterface();
-        HomeCfgResponse.ConfigData configData = this.f25169a;
+        HomeCfgResponse.ConfigData configData = this.f60901a;
         HomeCfgResponse.Stat stat = configData.stat;
-        walletInterface.jump(stat != null ? stat.getName() : configData.getGroup_name(), this.f25169a.getGroup_type(), this.f25169a.getGroup_link(), this.f25169a.getGroup_prevlogin());
+        walletInterface.jump(stat != null ? stat.getName() : configData.getGroup_name(), this.f60901a.getGroup_type(), this.f60901a.getGroup_link(), this.f60901a.getGroup_prevlogin());
     }
 
     public void onEyeMaskChanged() {
@@ -150,8 +150,8 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
     public void setData(HomeCfgResponse.ConfigData configData, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, configData, bVar) == null) {
-            this.f25169a = configData;
-            this.f25170b = bVar;
+            this.f60901a = configData;
+            this.f60902b = bVar;
             if (!isClickable()) {
                 setEnabled(false);
             } else {
@@ -179,7 +179,7 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f25171c = context;
+        this.f60903c = context;
         a();
     }
 }

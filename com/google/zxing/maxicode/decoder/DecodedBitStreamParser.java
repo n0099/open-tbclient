@@ -15,7 +15,7 @@ import com.google.zxing.common.DecoderResult;
 import io.flutter.plugin.common.StandardMessageCodec;
 import java.text.DecimalFormat;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class DecodedBitStreamParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char ECI = 65530;

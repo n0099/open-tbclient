@@ -1,5 +1,5 @@
 package com.baidu.searchbox.account;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface ICheckBdussAlertStatusCallback {
     void alertStatus(boolean z);
 }

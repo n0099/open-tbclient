@@ -9,6 +9,12 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import c.a.n0.a.a2.e;
+import c.a.n0.a.g1.f;
+import c.a.n0.a.h0.u.g;
+import c.a.n0.a.k;
+import c.a.n0.a.v2.d0;
+import c.a.n0.a.v2.q0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.info.XDeviceInfo;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -23,55 +29,50 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.lightapp.base.LightappConstants;
-import com.baidu.wallet.router.RouterCallback;
-import d.a.o0.a.a2.e;
-import d.a.o0.a.g1.f;
-import d.a.o0.a.h0.u.g;
-import d.a.o0.a.k;
-import d.a.o0.a.v2.d0;
-import d.a.o0.a.v2.q0;
 import java.io.IOException;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes3.dex */
-public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
+/* loaded from: classes6.dex */
+public class SwanAppAudioPlayer implements c.a.n0.a.i1.a {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11082a;
+    public String f45782a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MediaPlayer f11083b;
+    public MediaPlayer f45783b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.o0.a.i1.c.b f11084c;
+    public c.a.n0.a.i1.c.b f45784c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f11085d;
+    public d f45785d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.o0.a.i1.c.e.a f11086e;
+    public c.a.n0.a.i1.c.e.a f45786e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PlayerStatus f11087f;
+    public PlayerStatus f45787f;
 
     /* renamed from: g  reason: collision with root package name */
-    public UserStatus f11088g;
+    public UserStatus f45788g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AudioManager f11089h;
+    public AudioManager f45789h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f11090i;
-    public b j;
+    public boolean f45790i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public b f45791j;
     public boolean k;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class PlayerStatus {
         public static final /* synthetic */ PlayerStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -135,7 +136,7 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class UserStatus {
         public static final /* synthetic */ UserStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -200,30 +201,30 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class b implements AudioManager.OnAudioFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAudioPlayer f11091a;
+        public final /* synthetic */ SwanAppAudioPlayer f45792a;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes6.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f11092e;
+            public final /* synthetic */ int f45793e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f11093f;
+            public final /* synthetic */ b f45794f;
 
             public a(b bVar, int i2) {
                 Interceptable interceptable = $ic;
@@ -240,30 +241,26 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
                         return;
                     }
                 }
-                this.f11093f = bVar;
-                this.f11092e = i2;
+                this.f45794f = bVar;
+                this.f45793e = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11093f.f11091a.v()) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f45794f.f45792a.v()) {
                     return;
                 }
-                int i2 = this.f11092e;
+                int i2 = this.f45793e;
                 if (i2 == -2) {
-                    if (SwanAppAudioPlayer.l) {
-                        Log.d("SwanAppAudioPlayer", "--focusChange AUDIOFOCUS_LOSS_TRANSIENT");
-                    }
-                    this.f11093f.f11091a.a();
-                    this.f11093f.f11091a.y();
+                    boolean unused = SwanAppAudioPlayer.l;
+                    this.f45794f.f45792a.a();
+                    this.f45794f.f45792a.y();
                 } else if (i2 != -1) {
                 } else {
-                    if (SwanAppAudioPlayer.l) {
-                        Log.d("SwanAppAudioPlayer", "--focusChange AUDIOFOCUS_LOSS");
-                    }
-                    this.f11093f.f11091a.a();
-                    this.f11093f.f11091a.y();
+                    boolean unused2 = SwanAppAudioPlayer.l;
+                    this.f45794f.f45792a.a();
+                    this.f45794f.f45792a.y();
                 }
             }
         }
@@ -283,7 +280,7 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
                     return;
                 }
             }
-            this.f11091a = swanAppAudioPlayer;
+            this.f45792a = swanAppAudioPlayer;
         }
 
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
@@ -299,13 +296,13 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class c implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnInfoListener, MediaPlayer.OnErrorListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnBufferingUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAudioPlayer f11094e;
+        public final /* synthetic */ SwanAppAudioPlayer f45795e;
 
         public c(SwanAppAudioPlayer swanAppAudioPlayer) {
             Interceptable interceptable = $ic;
@@ -322,7 +319,7 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
                     return;
                 }
             }
-            this.f11094e = swanAppAudioPlayer;
+            this.f45795e = swanAppAudioPlayer;
         }
 
         @Override // android.media.MediaPlayer.OnBufferingUpdateListener
@@ -330,12 +327,12 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, mediaPlayer, i2) == null) {
                 if (SwanAppAudioPlayer.l) {
-                    Log.d("SwanAppAudioPlayer", "--onBufferUpdate -> " + i2 + "%");
+                    String str = "--onBufferUpdate -> " + i2 + "%";
                 }
-                if (this.f11094e.f11087f != PlayerStatus.PREPARED || (i2 * this.f11094e.u().getDuration()) / 100 > this.f11094e.u().getCurrentPosition() || this.f11094e.f11086e == null) {
+                if (this.f45795e.f45787f != PlayerStatus.PREPARED || (i2 * this.f45795e.u().getDuration()) / 100 > this.f45795e.u().getCurrentPosition() || this.f45795e.f45786e == null) {
                     return;
                 }
-                this.f11094e.f11086e.a("onWaiting");
+                this.f45795e.f45786e.a("onWaiting");
             }
         }
 
@@ -343,17 +340,15 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
         public void onCompletion(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaPlayer) == null) {
-                if (SwanAppAudioPlayer.l) {
-                    Log.d("SwanAppAudioPlayer", "--onCompletion");
+                boolean unused = SwanAppAudioPlayer.l;
+                if (!this.f45795e.u().isLooping()) {
+                    this.f45795e.f45788g = UserStatus.STOP;
                 }
-                if (!this.f11094e.u().isLooping()) {
-                    this.f11094e.f11088g = UserStatus.STOP;
+                this.f45795e.f45787f = PlayerStatus.PREPARED;
+                if (this.f45795e.f45786e != null) {
+                    this.f45795e.f45786e.a("onEnded");
                 }
-                this.f11094e.f11087f = PlayerStatus.PREPARED;
-                if (this.f11094e.f11086e != null) {
-                    this.f11094e.f11086e.a("onEnded");
-                }
-                this.f11094e.f11085d.removeMessages(0);
+                this.f45795e.f45785d.removeMessages(0);
             }
         }
 
@@ -363,25 +358,25 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, mediaPlayer, i2, i3)) == null) {
                 if (SwanAppAudioPlayer.l) {
-                    Log.d("SwanAppAudioPlayer", "--onError -> what: " + i2 + " extra: " + i3);
+                    String str = "--onError -> what: " + i2 + " extra: " + i3;
                 }
-                String str = "-1";
+                String str2 = "-1";
                 if (i2 != 1 && i2 == 100) {
-                    str = LightappConstants.ERRCODE_INVALID_PARAMETER;
+                    str2 = LightappConstants.ERRCODE_INVALID_PARAMETER;
                 }
                 if (i3 == -1007) {
-                    str = "10004";
+                    str2 = "10004";
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.putOpt(RouterCallback.KEY_ERROR_CODE, str);
+                    jSONObject.putOpt("errCode", str2);
                 } catch (JSONException e2) {
                     if (SwanAppAudioPlayer.l) {
-                        Log.d("SwanAppAudioPlayer", Log.getStackTraceString(e2));
+                        Log.getStackTraceString(e2);
                     }
                 }
-                if (this.f11094e.f11086e != null) {
-                    this.f11094e.f11086e.b("onError", jSONObject);
+                if (this.f45795e.f45786e != null) {
+                    this.f45795e.f45786e.b("onError", jSONObject);
                 }
                 return true;
             }
@@ -394,7 +389,7 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, mediaPlayer, i2, i3)) == null) {
                 if (SwanAppAudioPlayer.l) {
-                    Log.d("SwanAppAudioPlayer", "--oninfo -> what: " + i2 + " ,extra: " + i3);
+                    String str = "--oninfo -> what: " + i2 + " ,extra: " + i3;
                     return false;
                 }
                 return false;
@@ -406,15 +401,13 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, mediaPlayer) == null) {
-                if (SwanAppAudioPlayer.l) {
-                    Log.d("SwanAppAudioPlayer", "--onPrepared");
+                boolean unused = SwanAppAudioPlayer.l;
+                this.f45795e.f45787f = PlayerStatus.PREPARED;
+                if (this.f45795e.f45786e != null) {
+                    this.f45795e.f45786e.a("onCanplay");
                 }
-                this.f11094e.f11087f = PlayerStatus.PREPARED;
-                if (this.f11094e.f11086e != null) {
-                    this.f11094e.f11086e.a("onCanplay");
-                }
-                if (UserStatus.PLAY == this.f11094e.f11088g) {
-                    this.f11094e.H();
+                if (UserStatus.PLAY == this.f45795e.f45788g) {
+                    this.f45795e.H();
                 }
             }
         }
@@ -423,11 +416,9 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
         public void onSeekComplete(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, mediaPlayer) == null) {
-                if (SwanAppAudioPlayer.l) {
-                    Log.d("SwanAppAudioPlayer", "--onSeekComplete");
-                }
-                if (this.f11094e.f11086e != null) {
-                    this.f11094e.f11086e.a("onSeeked");
+                boolean unused = SwanAppAudioPlayer.l;
+                if (this.f45795e.f45786e != null) {
+                    this.f45795e.f45786e.a("onSeeked");
                 }
             }
         }
@@ -438,13 +429,13 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
     }
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class d extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAudioPlayer f11095a;
+        public final /* synthetic */ SwanAppAudioPlayer f45796a;
 
         public d(SwanAppAudioPlayer swanAppAudioPlayer) {
             Interceptable interceptable = $ic;
@@ -461,7 +452,7 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
                     return;
                 }
             }
-            this.f11095a = swanAppAudioPlayer;
+            this.f45796a = swanAppAudioPlayer;
         }
 
         @Override // android.os.Handler
@@ -470,10 +461,10 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.putOpt("currentTime", Long.valueOf(this.f11095a.u().getCurrentPosition() / 1000));
-                    jSONObject.putOpt("duration", Long.valueOf(this.f11095a.u().getDuration() / 1000));
-                    if (this.f11095a.f11086e != null) {
-                        this.f11095a.f11086e.b("onTimeUpdate", jSONObject);
+                    jSONObject.putOpt("currentTime", Long.valueOf(this.f45796a.u().getCurrentPosition() / 1000));
+                    jSONObject.putOpt("duration", Long.valueOf(this.f45796a.u().getDuration() / 1000));
+                    if (this.f45796a.f45786e != null) {
+                        this.f45796a.f45786e.b("onTimeUpdate", jSONObject);
                     }
                 } catch (JSONException e2) {
                     if (SwanAppAudioPlayer.l) {
@@ -502,7 +493,7 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
                 return;
             }
         }
-        l = k.f46335a;
+        l = k.f6803a;
     }
 
     public SwanAppAudioPlayer(String str) {
@@ -520,13 +511,13 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
                 return;
             }
         }
-        this.f11082a = "";
-        this.f11084c = new d.a.o0.a.i1.c.b();
-        this.f11087f = PlayerStatus.NONE;
-        this.f11088g = UserStatus.OPEN;
+        this.f45782a = "";
+        this.f45784c = new c.a.n0.a.i1.c.b();
+        this.f45787f = PlayerStatus.NONE;
+        this.f45788g = UserStatus.OPEN;
         this.k = false;
-        this.f11082a = str;
-        d.a.o0.a.i1.b.a(this);
+        this.f45782a = str;
+        c.a.n0.a.i1.b.a(this);
     }
 
     public final void A() {
@@ -534,63 +525,59 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.k) {
                 u().reset();
-                E(this.f11084c.f45857c);
+                E(this.f45784c.f6311c);
                 this.k = false;
             }
             u().prepareAsync();
-            this.f11087f = PlayerStatus.PREPARING;
+            this.f45787f = PlayerStatus.PREPARING;
         }
     }
 
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (l) {
-                Log.d("SwanAppAudioPlayer", "===release");
-            }
-            this.f11088g = UserStatus.DESTROY;
+            boolean z = l;
+            this.f45788g = UserStatus.DESTROY;
             a();
             u().release();
-            this.f11087f = PlayerStatus.NONE;
-            this.f11083b = null;
-            d dVar = this.f11085d;
+            this.f45787f = PlayerStatus.NONE;
+            this.f45783b = null;
+            d dVar = this.f45785d;
             if (dVar != null) {
                 dVar.removeMessages(0);
-                this.f11085d = null;
+                this.f45785d = null;
             }
-            d.a.o0.a.i1.b.j(this);
+            c.a.n0.a.i1.b.j(this);
         }
     }
 
     public final void C() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || v() || this.f11090i) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || v() || this.f45790i) {
             return;
         }
-        if (this.f11089h == null) {
+        if (this.f45789h == null) {
             AudioManager audioManager = (AudioManager) AppRuntime.getAppContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
-            this.f11089h = audioManager;
+            this.f45789h = audioManager;
             if (audioManager == null) {
                 return;
             }
         }
-        if (this.j == null) {
-            this.j = new b(this, null);
+        if (this.f45791j == null) {
+            this.f45791j = new b(this, null);
         }
-        this.f11090i = this.f11089h.requestAudioFocus(this.j, 3, 1) == 1;
-        if (l) {
-            Log.d("SwanAppAudioPlayer", "   requestAudioFocus");
-        }
+        this.f45790i = this.f45789h.requestAudioFocus(this.f45791j, 3, 1) == 1;
+        boolean z = l;
     }
 
     public void D(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i2) == null) && this.f11087f == PlayerStatus.PREPARED) {
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i2) == null) && this.f45787f == PlayerStatus.PREPARED) {
             if (l) {
-                Log.d("SwanAppAudioPlayer", "===seekTo ->" + i2);
+                String str = "===seekTo ->" + i2;
             }
             u().seekTo((int) (i2 * 1000));
-            d.a.o0.a.i1.c.e.a aVar = this.f11086e;
+            c.a.n0.a.i1.c.e.a aVar = this.f45786e;
             if (aVar != null) {
                 aVar.a("onSeeking");
             }
@@ -609,7 +596,7 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
                 String b2 = d0.b();
                 if (!TextUtils.isEmpty(b2) && d0.c(a2)) {
                     if (l) {
-                        Log.d("SwanAppAudioPlayer", "set referer for AudioPlayer; referer is" + b2);
+                        String str2 = "set referer for AudioPlayer; referer is" + b2;
                     }
                     hashMap.put("Referer", b2);
                 }
@@ -617,27 +604,25 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
                 if (!TextUtils.isEmpty(Y)) {
                     hashMap.put("User-Agent", Y);
                 }
-                String j = d.a.o0.a.l2.b.l().j(a2);
-                if (!TextUtils.isEmpty(j)) {
-                    hashMap.put("Cookie", j);
+                String j2 = c.a.n0.a.l2.b.l().j(a2);
+                if (!TextUtils.isEmpty(j2)) {
+                    hashMap.put("Cookie", j2);
                     if (l) {
-                        Log.d("SwanAppAudioPlayer", "addCookiesToHeader cookie: " + j);
+                        String str3 = "addCookiesToHeader cookie: " + j2;
                     }
                 }
                 u().setDataSource(AppRuntime.getAppContext(), Uri.parse(a2), hashMap);
-                this.f11087f = PlayerStatus.IDLE;
+                this.f45787f = PlayerStatus.IDLE;
             } catch (IOException unused) {
-                if (l) {
-                    Log.e("SwanAppAudioPlayer", "set data source fail");
-                }
-                if (this.f11086e != null) {
+                boolean z = l;
+                if (this.f45786e != null) {
                     JSONObject jSONObject = new JSONObject();
                     if (SwanAppNetworkUtils.i(null)) {
-                        jSONObject.optString(RouterCallback.KEY_ERROR_CODE, LightappConstants.ERRCODE_NO_PERMISSION);
+                        jSONObject.optString("errCode", LightappConstants.ERRCODE_NO_PERMISSION);
                     } else {
-                        jSONObject.optString(RouterCallback.KEY_ERROR_CODE, LightappConstants.ERRCODE_INNER_ERROR);
+                        jSONObject.optString("errCode", LightappConstants.ERRCODE_INNER_ERROR);
                     }
-                    this.f11086e.a("onError");
+                    this.f45786e.a("onError");
                 }
             }
         }
@@ -665,25 +650,23 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
     public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (l) {
-                Log.d("SwanAppAudioPlayer", "===start");
-            }
+            boolean z = l;
             C();
             u().start();
-            d dVar = this.f11085d;
+            d dVar = this.f45785d;
             if (dVar != null) {
                 dVar.sendEmptyMessage(0);
             }
-            d.a.o0.a.i1.c.e.a aVar = this.f11086e;
+            c.a.n0.a.i1.c.e.a aVar = this.f45786e;
             if (aVar != null) {
                 aVar.a("onPlay");
             }
             K();
-            int i2 = this.f11084c.f45858d;
+            int i2 = this.f45784c.f6312d;
             if (i2 > 0) {
                 D(i2);
             }
-            if (d.a.o0.a.c1.b.f().b()) {
+            if (c.a.n0.a.c1.b.f().b()) {
                 y();
             }
         }
@@ -692,18 +675,16 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
     public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f11088g = UserStatus.STOP;
-            if (this.f11087f == PlayerStatus.PREPARED) {
-                if (l) {
-                    Log.d("SwanAppAudioPlayer", "===stop");
-                }
+            this.f45788g = UserStatus.STOP;
+            if (this.f45787f == PlayerStatus.PREPARED) {
+                boolean z = l;
                 u().stop();
-                this.f11087f = PlayerStatus.IDLE;
-                d dVar = this.f11085d;
+                this.f45787f = PlayerStatus.IDLE;
+                d dVar = this.f45785d;
                 if (dVar != null) {
                     dVar.removeMessages(0);
                 }
-                d.a.o0.a.i1.c.e.a aVar = this.f11086e;
+                c.a.n0.a.i1.c.e.a aVar = this.f45786e;
                 if (aVar != null) {
                     aVar.a(MissionEvent.MESSAGE_STOP);
                 }
@@ -711,24 +692,24 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
         }
     }
 
-    public void J(d.a.o0.a.i1.c.b bVar) {
+    public void J(c.a.n0.a.i1.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
             if (l) {
-                Log.d("SwanAppAudioPlayer", "===update -> " + bVar);
+                String str = "===update -> " + bVar;
             }
-            String str = this.f11084c.f45857c;
-            this.f11084c = bVar;
-            d.a.o0.a.i1.c.e.a aVar = this.f11086e;
+            String str2 = this.f45784c.f6311c;
+            this.f45784c = bVar;
+            c.a.n0.a.i1.c.e.a aVar = this.f45786e;
             if (aVar != null) {
-                aVar.d(bVar.j);
+                aVar.d(bVar.f6318j);
             }
             K();
-            if (TextUtils.equals(bVar.f45857c, str)) {
+            if (TextUtils.equals(bVar.f6311c, str2)) {
                 return;
             }
             if (l) {
-                Log.d("SwanAppAudioPlayer", "update src: " + bVar.f45857c);
+                String str3 = "update src: " + bVar.f6311c;
             }
             this.k = true;
             A();
@@ -738,43 +719,41 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
     public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            F(this.f11084c.f45860f);
-            G(this.f11084c.f45863i);
+            F(this.f45784c.f6314f);
+            G(this.f45784c.f6317i);
         }
     }
 
     public final void a() {
         b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.f11090i) {
-            AudioManager audioManager = this.f11089h;
-            if (audioManager != null && (bVar = this.j) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.f45790i) {
+            AudioManager audioManager = this.f45789h;
+            if (audioManager != null && (bVar = this.f45791j) != null) {
                 audioManager.abandonAudioFocus(bVar);
-                this.f11089h = null;
-                this.j = null;
+                this.f45789h = null;
+                this.f45791j = null;
             }
-            this.f11090i = false;
-            if (l) {
-                Log.d("SwanAppAudioPlayer", "   abandonAudioFocus");
-            }
+            this.f45790i = false;
+            boolean z = l;
         }
     }
 
-    @Override // d.a.o0.a.i1.a
+    @Override // c.a.n0.a.i1.a
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f11084c.f45856b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f45784c.f6310b : (String) invokeV.objValue;
     }
 
-    @Override // d.a.o0.a.i1.a
+    @Override // c.a.n0.a.i1.a
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f11082a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f45782a : (String) invokeV.objValue;
     }
 
-    @Override // d.a.o0.a.i1.a
+    @Override // c.a.n0.a.i1.a
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -784,19 +763,19 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
         return (String) invokeV.objValue;
     }
 
-    @Override // d.a.o0.a.i1.a
+    @Override // c.a.n0.a.i1.a
     public Object i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this : invokeV.objValue;
     }
 
-    @Override // d.a.o0.a.i1.a
+    @Override // c.a.n0.a.i1.a
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
             if (l) {
-                Log.d("SwanAppAudioPlayer", "--onAppForegroundChanged -> " + z);
+                String str = "--onAppForegroundChanged -> " + z;
             }
             if (z) {
                 return;
@@ -805,12 +784,12 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
         }
     }
 
-    @Override // d.a.o0.a.i1.a
+    @Override // c.a.n0.a.i1.a
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             if (l) {
-                Log.d("SwanAppAudioPlayer", "--onForegroundChanged -> " + z);
+                String str = "--onForegroundChanged -> " + z;
             }
             e i2 = e.i();
             if (i2 == null || !i2.m0()) {
@@ -818,13 +797,13 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
             }
             if (!z) {
                 y();
-            } else if (this.f11088g == UserStatus.PLAY) {
+            } else if (this.f45788g == UserStatus.PLAY) {
                 z();
             }
         }
     }
 
-    @Override // d.a.o0.a.i1.a
+    @Override // c.a.n0.a.i1.a
     public boolean onBackPressed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -834,13 +813,11 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
         return invokeV.booleanValue;
     }
 
-    @Override // d.a.o0.a.i1.a
+    @Override // c.a.n0.a.i1.a
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            if (l) {
-                Log.d("SwanAppAudioPlayer", "--onDestroy");
-            }
+            boolean z = l;
             e i2 = e.i();
             if (i2 == null || !i2.m0()) {
                 return;
@@ -849,28 +826,28 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
         }
     }
 
-    public d.a.o0.a.i1.c.b t() {
+    public c.a.n0.a.i1.c.b t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f11084c : (d.a.o0.a.i1.c.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f45784c : (c.a.n0.a.i1.c.b) invokeV.objValue;
     }
 
     public final MediaPlayer u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            if (this.f11083b == null) {
-                this.f11083b = new MediaPlayer();
+            if (this.f45783b == null) {
+                this.f45783b = new MediaPlayer();
                 c cVar = new c(this, null);
-                this.f11083b.setOnPreparedListener(cVar);
-                this.f11083b.setOnCompletionListener(cVar);
-                this.f11083b.setOnInfoListener(cVar);
-                this.f11083b.setOnErrorListener(cVar);
-                this.f11083b.setOnSeekCompleteListener(cVar);
-                this.f11083b.setOnBufferingUpdateListener(cVar);
-                this.f11085d = new d(this, null);
+                this.f45783b.setOnPreparedListener(cVar);
+                this.f45783b.setOnCompletionListener(cVar);
+                this.f45783b.setOnInfoListener(cVar);
+                this.f45783b.setOnErrorListener(cVar);
+                this.f45783b.setOnSeekCompleteListener(cVar);
+                this.f45783b.setOnBufferingUpdateListener(cVar);
+                this.f45785d = new d(this, null);
             }
-            return this.f11083b;
+            return this.f45783b;
         }
         return (MediaPlayer) invokeV.objValue;
     }
@@ -882,32 +859,28 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
             e i2 = e.i();
             boolean booleanValue = i2 == null ? false : i2.J().c("key_audio_is_mix_with_other", Boolean.FALSE).booleanValue();
             if (l) {
-                Log.d("SwanAppAudioPlayer", "   isMixWithOther -> " + booleanValue);
+                String str = "   isMixWithOther -> " + booleanValue;
             }
             return booleanValue;
         }
         return invokeV.booleanValue;
     }
 
-    public void w(d.a.o0.a.i1.c.b bVar, CallbackHandler callbackHandler) {
+    public void w(c.a.n0.a.i1.c.b bVar, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048599, this, bVar, callbackHandler) == null) {
-            if (l) {
-                Log.d("SwanAppAudioPlayer", "===openPlayer");
-            }
-            this.f11088g = UserStatus.OPEN;
-            this.f11084c = bVar;
-            if (bVar.j != null) {
+            boolean z = l;
+            this.f45788g = UserStatus.OPEN;
+            this.f45784c = bVar;
+            if (bVar.f6318j != null) {
                 try {
-                    this.f11086e = new d.a.o0.a.i1.c.e.a(callbackHandler, new JSONObject(this.f11084c.j));
+                    this.f45786e = new c.a.n0.a.i1.c.e.a(callbackHandler, new JSONObject(this.f45784c.f6318j));
                 } catch (JSONException unused) {
-                    if (l) {
-                        Log.e("SwanAppAudioPlayer", "Audio callback is not jsonObject");
-                    }
+                    boolean z2 = l;
                 }
             }
             u().reset();
-            E(this.f11084c.f45857c);
+            E(this.f45784c.f6311c);
             A();
         }
     }
@@ -915,10 +888,8 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            if (l) {
-                Log.d("SwanAppAudioPlayer", "===pause");
-            }
-            this.f11088g = UserStatus.PAUSE;
+            boolean z = l;
+            this.f45788g = UserStatus.PAUSE;
             y();
         }
     }
@@ -927,11 +898,11 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048601, this) == null) && u().isPlaying()) {
             u().pause();
-            d.a.o0.a.i1.c.e.a aVar = this.f11086e;
+            c.a.n0.a.i1.c.e.a aVar = this.f45786e;
             if (aVar != null) {
                 aVar.a(MissionEvent.MESSAGE_PAUSE);
             }
-            d dVar = this.f11085d;
+            d dVar = this.f45785d;
             if (dVar != null) {
                 dVar.removeMessages(0);
             }
@@ -941,28 +912,26 @@ public class SwanAppAudioPlayer implements d.a.o0.a.i1.a {
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            this.f11088g = UserStatus.PLAY;
-            if (d.a.o0.a.c1.b.f().b()) {
+            this.f45788g = UserStatus.PLAY;
+            if (c.a.n0.a.c1.b.f().b()) {
                 return;
             }
-            if (l) {
-                Log.d("SwanAppAudioPlayer", "===play");
-            }
+            boolean z = l;
             C();
-            PlayerStatus playerStatus = this.f11087f;
+            PlayerStatus playerStatus = this.f45787f;
             if (playerStatus == PlayerStatus.PREPARED) {
                 u().start();
-                d dVar = this.f11085d;
+                d dVar = this.f45785d;
                 if (dVar != null) {
                     dVar.sendEmptyMessage(0);
                 }
-                d.a.o0.a.i1.c.e.a aVar = this.f11086e;
+                c.a.n0.a.i1.c.e.a aVar = this.f45786e;
                 if (aVar != null) {
                     aVar.a("onPlay");
                 }
             } else if (playerStatus == PlayerStatus.IDLE) {
                 u().prepareAsync();
-                this.f11087f = PlayerStatus.PREPARING;
+                this.f45787f = PlayerStatus.PREPARING;
             }
         }
     }

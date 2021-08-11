@@ -1,9 +1,9 @@
 package com.baidu.searchbox.aperf.bosuploader;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import c.a.n.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.config.AppConfig;
@@ -25,14 +25,13 @@ import com.baidubce.services.bos.model.InitiateMultipartUploadRequest;
 import com.baidubce.services.bos.model.InitiateMultipartUploadResponse;
 import com.baidubce.services.bos.model.UploadPartRequest;
 import com.baidubce.services.bos.model.UploadPartResponse;
-import d.a.n.b.a;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.json.JSONException;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BOSUploader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -104,12 +103,13 @@ public class BOSUploader {
         return (BOSUploader) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:64:0x0134 A[Catch: Exception -> 0x015d, JSONException -> 0x015f, BceClientException -> 0x0161, BceServiceException -> 0x0163, TryCatch #6 {BceServiceException -> 0x0163, BceClientException -> 0x0161, JSONException -> 0x015f, Exception -> 0x015d, blocks: (B:21:0x004a, B:23:0x0056, B:25:0x0064, B:27:0x007c, B:28:0x007e, B:67:0x0159, B:68:0x015c, B:61:0x0120, B:62:0x0123, B:64:0x0134, B:65:0x014e, B:53:0x0112), top: B:112:0x004a }] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x012c A[Catch: Exception -> 0x014f, JSONException -> 0x0151, BceClientException -> 0x0153, BceServiceException -> 0x0155, TryCatch #7 {BceServiceException -> 0x0155, BceClientException -> 0x0153, JSONException -> 0x0151, Exception -> 0x014f, blocks: (B:21:0x0049, B:23:0x0055, B:25:0x0063, B:27:0x007b, B:28:0x007d, B:67:0x014b, B:68:0x014e, B:61:0x0118, B:62:0x011b, B:64:0x012c, B:65:0x0140, B:53:0x010a), top: B:111:0x0049 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private BOSResponseEntity uploadFileSyncPart(STSInfo sTSInfo, @NonNull String str, @NonNull String str2, @NonNull File file) {
         InterceptResult invokeLLLL;
+        UploadPartResponse uploadPart;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, sTSInfo, str, str2, file)) != null) {
             return (BOSResponseEntity) invokeLLLL.objValue;
@@ -133,7 +133,7 @@ public class BOSUploader {
             }
             try {
                 String createObjectKey = createObjectKey(str, str2);
-                long j = 5242880;
+                long j2 = 5242880;
                 if (length <= 5242880) {
                     return new BOSResponseEntity(true, createBosClient.putObject(str3, createObjectKey, file).getETag());
                 }
@@ -149,9 +149,9 @@ public class BOSUploader {
                         FileInputStream fileInputStream2 = new FileInputStream(file);
                         int i3 = 0;
                         while (i3 < length2) {
-                            long j2 = i3 * j;
+                            long j3 = i3 * j2;
                             try {
-                                long length3 = j < file.length() - j2 ? j : file.length() - j2;
+                                long length3 = j2 < file.length() - j3 ? j2 : file.length() - j3;
                                 int i4 = (int) length3;
                                 byte[] bArr = new byte[i4];
                                 while (true) {
@@ -175,14 +175,12 @@ public class BOSUploader {
                                 uploadPartRequest.setPartSize(length3);
                                 i3++;
                                 uploadPartRequest.setPartNumber(i3);
-                                UploadPartResponse uploadPart = createBosClient.uploadPart(uploadPartRequest);
-                                arrayList.add(uploadPart.getPartETag());
+                                arrayList.add(createBosClient.uploadPart(uploadPartRequest).getPartETag());
                                 if (DEBUG) {
-                                    String str4 = TAG;
-                                    Log.d(str4, "partETags etag " + uploadPart.getPartETag());
+                                    String str4 = "partETags etag " + uploadPart.getPartETag();
                                 }
                                 i2 = 0;
-                                j = 5242880;
+                                j2 = 5242880;
                             } catch (IOException e2) {
                                 e = e2;
                                 fileInputStream = fileInputStream2;
@@ -207,8 +205,7 @@ public class BOSUploader {
                     }
                     CompleteMultipartUploadResponse completeMultipartUpload2 = createBosClient.completeMultipartUpload(new CompleteMultipartUploadRequest(str3, createObjectKey, initiateMultipartUpload.getUploadId(), arrayList));
                     if (DEBUG) {
-                        String str5 = TAG;
-                        Log.d(str5, "PutObjectResponse etag " + completeMultipartUpload2.getETag());
+                        String str5 = "PutObjectResponse etag " + completeMultipartUpload2.getETag();
                     }
                     return new BOSResponseEntity(true, completeMultipartUpload2.getETag());
                 } catch (Throwable th2) {
@@ -217,22 +214,19 @@ public class BOSUploader {
             } catch (BceServiceException e4) {
                 e = e4;
                 if (DEBUG) {
-                    String str6 = TAG;
-                    Log.e(str6, "Error Message: " + e.getMessage());
+                    String str6 = "Error Message: " + e.getMessage();
                 }
                 return new BOSResponseEntity(false, e.getMessage(), e.getStatusCode());
             } catch (BceClientException e5) {
                 e = e5;
                 if (DEBUG) {
-                    String str7 = TAG;
-                    Log.e(str7, "BceClientException Error Message:" + e.getMessage());
+                    String str7 = "BceClientException Error Message:" + e.getMessage();
                 }
                 return new BOSResponseEntity(false, e.getMessage());
             } catch (JSONException e6) {
                 e = e6;
                 if (DEBUG) {
-                    String str8 = TAG;
-                    Log.e(str8, "JSONException Message: " + e.getMessage());
+                    String str8 = "JSONException Message: " + e.getMessage();
                 }
                 return new BOSResponseEntity(false, e.getMessage());
             } catch (Exception e7) {

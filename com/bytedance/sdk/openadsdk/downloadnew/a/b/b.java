@@ -5,6 +5,10 @@ import android.os.Environment;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import c.p.a.b.a.a.a;
+import c.p.a.b.a.a.b;
+import c.p.a.b.a.a.c;
+import c.p.a.e.b.f.w;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,13 +18,9 @@ import com.bytedance.sdk.openadsdk.TTCustomController;
 import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.core.h;
 import com.bytedance.sdk.openadsdk.core.o;
-import d.l.a.b.a.a.a;
-import d.l.a.b.a.a.b;
-import d.l.a.b.a.a.c;
-import d.l.a.e.b.f.w;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class b {
                     }
                 }
 
-                @Override // d.l.a.e.b.f.w
+                @Override // c.p.a.e.b.f.w
                 public Uri a(String str3, String str4) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
@@ -86,7 +86,7 @@ public class b {
                 }
             }
             if (mVar.an() != null) {
-                d.l.a.a.a.f.b bVar = new d.l.a.a.a.f.b();
+                c.p.a.a.a.f.b bVar = new c.p.a.a.a.f.b();
                 bVar.b(Long.valueOf(mVar.ak()).longValue());
                 bVar.e(mVar.an().a());
                 bVar.f(mVar.ah());
@@ -142,7 +142,7 @@ public class b {
                     }
                 }
 
-                @Override // d.l.a.e.b.f.w
+                @Override // c.p.a.e.b.f.w
                 public Uri a(String str2, String str3) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
@@ -167,7 +167,7 @@ public class b {
                 }
             }
             if (mVar.an() != null) {
-                d.l.a.a.a.f.b bVar = new d.l.a.a.a.f.b();
+                c.p.a.a.a.f.b bVar = new c.p.a.a.a.f.b();
                 bVar.b(Long.valueOf(mVar.ak()).longValue());
                 bVar.e(mVar.an().a());
                 bVar.f(mVar.ah());
@@ -185,7 +185,7 @@ public class b {
         return (c.a) invokeLLL.objValue;
     }
 
-    public static a.C2012a a(m mVar) {
+    public static a.C1516a a(m mVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, mVar)) == null) {
@@ -194,19 +194,19 @@ public class b {
             if (mVar != null && !TextUtils.isEmpty(mVar.ax())) {
                 z = 2;
             }
-            a.C2012a c2012a = new a.C2012a();
-            c2012a.a(y);
-            c2012a.e(z);
-            c2012a.c(true);
-            c2012a.f(false);
-            c2012a.b(mVar);
+            a.C1516a c1516a = new a.C1516a();
+            c1516a.a(y);
+            c1516a.e(z);
+            c1516a.c(true);
+            c1516a.f(false);
+            c1516a.b(mVar);
             if (mVar != null && mVar.am() != null) {
-                c2012a.j(mVar.am().a());
-                c2012a.k(mVar.am().b());
+                c1516a.j(mVar.am().a());
+                c1516a.k(mVar.am().b());
             }
-            return c2012a;
+            return c1516a;
         }
-        return (a.C2012a) invokeL.objValue;
+        return (a.C1516a) invokeL.objValue;
     }
 
     public static b.a a(m mVar, String str) {

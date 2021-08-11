@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.widget.Toast;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,13 +21,13 @@ import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
 import com.tencent.tauth.IUiListener;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class QQEmotion extends BaseApi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IUiListener f39013a;
+    public IUiListener f75836a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QQEmotion(QQToken qQToken) {
@@ -61,21 +60,21 @@ public class QQEmotion extends BaseApi {
                 SLog.i("QQEMOTION", "isLegality -->illegal, file count > 9, count = " + arrayList.size());
                 return false;
             }
-            long j = 0;
+            long j2 = 0;
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
                 String a2 = l.a(context, arrayList.get(i2));
-                long j2 = l.j(a2);
-                if (j2 > 1048576) {
-                    SLog.i("QQEMOTION", "isLegality -->illegal, fileSize: " + j2 + "， path =" + a2);
+                long j3 = l.j(a2);
+                if (j3 > 1048576) {
+                    SLog.i("QQEMOTION", "isLegality -->illegal, fileSize: " + j3 + "， path =" + a2);
                     return false;
                 }
-                j += j2;
+                j2 += j3;
             }
-            if (j > 3145728) {
-                SLog.i("QQEMOTION", "isLegality -->illegal, totalSize: " + j);
+            if (j2 > 3145728) {
+                SLog.i("QQEMOTION", "isLegality -->illegal, totalSize: " + j2);
                 return false;
             }
-            SLog.i("QQEMOTION", "isLegality -->legal, totalSize: " + j);
+            SLog.i("QQEMOTION", "isLegality -->legal, totalSize: " + j2);
             return true;
         }
         return invokeLL.booleanValue;
@@ -84,11 +83,11 @@ public class QQEmotion extends BaseApi {
     public void setEmotions(Activity activity, ArrayList<Uri> arrayList, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, arrayList, iUiListener) == null) {
-            IUiListener iUiListener2 = this.f39013a;
+            IUiListener iUiListener2 = this.f75836a;
             if (iUiListener2 != null) {
                 iUiListener2.onCancel();
             }
-            this.f39013a = iUiListener;
+            this.f75836a = iUiListener;
             if (!i.b(activity)) {
                 Toast.makeText(activity.getApplicationContext(), "当前手机未安装QQ，请安装最新版QQ后再试。", 1).show();
             } else if (i.c(activity, "8.0.0") < 0) {
@@ -100,12 +99,12 @@ public class QQEmotion extends BaseApi {
                 StringBuffer stringBuffer = new StringBuffer("mqqapi://profile/sdk_face_collection?");
                 if (!TextUtils.isEmpty(a2)) {
                     if (a2.length() > 20) {
-                        a2 = a2.substring(0, 20) + StringHelper.STRING_MORE;
+                        a2 = a2.substring(0, 20) + "...";
                     }
                     stringBuffer.append("&app_name=" + Base64.encodeToString(l.i(a2), 2));
                 }
-                String appId = this.f39004c.getAppId();
-                String openId = this.f39004c.getOpenId();
+                String appId = this.f75827c.getAppId();
+                String openId = this.f75827c.getOpenId();
                 if (!TextUtils.isEmpty(appId)) {
                     stringBuffer.append("&share_id=" + appId);
                 }

@@ -28,7 +28,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import kotlin.UShort;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class DTSTrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -834,7 +834,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r22.bitrate = 640;
      */
     /* JADX WARN: Code restructure failed: missing block: B:264:0x0378, code lost:
-        r22.bitrate = com.baidu.wallet.paysdk.beans.PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE;
+        r22.bitrate = 576;
      */
     /* JADX WARN: Code restructure failed: missing block: B:265:0x037d, code lost:
         r22.bitrate = 512;

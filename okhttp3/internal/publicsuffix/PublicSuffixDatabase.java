@@ -1,7 +1,6 @@
 package okhttp3.internal.publicsuffix;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
@@ -23,7 +22,7 @@ import okhttp3.internal.platform.Platform;
 import okio.BufferedSource;
 import okio.GzipSource;
 import okio.Okio;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class PublicSuffixDatabase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] EMPTY_RULE;
@@ -324,7 +323,7 @@ public final class PublicSuffixDatabase {
                     String[] split2 = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                     for (int i2 = length - length2; i2 < split2.length; i2++) {
                         sb.append(split2[i2]);
-                        sb.append(IStringUtil.EXTENSION_SEPARATOR);
+                        sb.append('.');
                     }
                     sb.deleteCharAt(sb.length() - 1);
                     return sb.toString();

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.io.HttpTransportMetrics;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class HttpTransportMetricsImpl implements HttpTransportMetrics {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,9 +39,9 @@ public class HttpTransportMetricsImpl implements HttpTransportMetrics {
         return invokeV.longValue;
     }
 
-    public void incrementBytesTransferred(long j) {
+    public void incrementBytesTransferred(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -54,9 +54,9 @@ public class HttpTransportMetricsImpl implements HttpTransportMetrics {
         }
     }
 
-    public void setBytesTransferred(long j) {
+    public void setBytesTransferred(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
             throw new RuntimeException("Stub!");
         }
     }

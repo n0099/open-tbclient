@@ -6,7 +6,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class ReportData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +72,7 @@ public class ReportData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "ReportData{interName='" + this.interName + "', desc='" + this.desc + "', code=" + this.code + '}';
+            return "ReportData{interName='" + this.interName + ExtendedMessageFormat.QUOTE + ", desc='" + this.desc + ExtendedMessageFormat.QUOTE + ", code=" + this.code + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

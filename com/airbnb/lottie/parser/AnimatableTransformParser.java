@@ -15,7 +15,6 @@ import com.airbnb.lottie.value.Keyframe;
 import com.airbnb.lottie.value.ScaleXY;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AnimatableTransformParser {
     public static /* synthetic */ Interceptable $ic;
     public static JsonReader.Options ANIMATABLE_NAMES;
@@ -45,8 +44,8 @@ public class AnimatableTransformParser {
                 return;
             }
         }
-        NAMES = JsonReader.Options.of("a", "p", "s", "rz", r.f7788a, Config.OS, "so", "eo", ContentUtil.RESULT_KEY_SK, "sa");
-        ANIMATABLE_NAMES = JsonReader.Options.of(Config.APP_KEY);
+        NAMES = JsonReader.Options.of("a", "p", "s", "rz", r.f42062a, "o", "so", "eo", ContentUtil.RESULT_KEY_SK, "sa");
+        ANIMATABLE_NAMES = JsonReader.Options.of("k");
     }
 
     public AnimatableTransformParser() {

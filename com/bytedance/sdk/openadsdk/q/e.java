@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.sdk.component.utils.u;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -104,10 +104,10 @@ public class e {
         }
     }
 
-    public static void a(long j, String str) {
+    public static void a(long j2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65539, null, j, str) == null) {
-            a("last_load_splash_ad_time" + str, j);
+        if (interceptable == null || interceptable.invokeJL(65539, null, j2, str) == null) {
+            a("last_load_splash_ad_time" + str, j2);
         }
     }
 
@@ -117,17 +117,17 @@ public class e {
         return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? b("save_dpl_success_time", 0L) : invokeV.longValue;
     }
 
-    public static void c(long j) {
+    public static void c(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65553, null, j) == null) {
-            a("sdk_first_init_timestamp", j);
+        if (interceptable == null || interceptable.invokeJ(65553, null, j2) == null) {
+            a("sdk_first_init_timestamp", j2);
         }
     }
 
-    public static void b(long j) {
+    public static void b(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65550, null, j) == null) {
-            a("sdk_first_init_timestamp", j);
+        if (interceptable == null || interceptable.invokeJ(65550, null, j2) == null) {
+            a("sdk_first_init_timestamp", j2);
         }
     }
 
@@ -154,10 +154,10 @@ public class e {
         return invokeLZ.booleanValue;
     }
 
-    public static void a(long j) {
+    public static void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
-            a("save_dpl_success_time", j);
+        if (interceptable == null || interceptable.invokeJ(65538, null, j2) == null) {
+            a("save_dpl_success_time", j2);
         }
     }
 
@@ -183,17 +183,17 @@ public class e {
         }
     }
 
-    public static long b(String str, long j) {
+    public static long b(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65548, null, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65548, null, str, j2)) == null) {
             try {
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                    return com.bytedance.sdk.openadsdk.multipro.d.a.a(str, j);
+                    return com.bytedance.sdk.openadsdk.multipro.d.a.a(str, j2);
                 }
-                return u.a("", com.bytedance.sdk.openadsdk.core.o.a()).b(str, j);
+                return u.a("", com.bytedance.sdk.openadsdk.core.o.a()).b(str, j2);
             } catch (Throwable unused) {
-                return j;
+                return j2;
             }
         }
         return invokeLJ.longValue;
@@ -233,16 +233,16 @@ public class e {
         }
     }
 
-    public static void a(String str, long j) {
+    public static void a(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(AdIconUtil.BAIDU_LOGO_ID, null, str, j) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLJ(AdIconUtil.BAIDU_LOGO_ID, null, str, j2) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         try {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                com.bytedance.sdk.openadsdk.multipro.d.a.a(str, Long.valueOf(j));
+                com.bytedance.sdk.openadsdk.multipro.d.a.a(str, Long.valueOf(j2));
             } else {
-                u.a("", com.bytedance.sdk.openadsdk.core.o.a()).a(str, j);
+                u.a("", com.bytedance.sdk.openadsdk.core.o.a()).a(str, j2);
             }
         } catch (Throwable unused) {
         }

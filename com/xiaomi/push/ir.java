@@ -2,7 +2,6 @@ package com.xiaomi.push;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,15 +17,15 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class ir {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Comparator f40767a;
+    public static final Comparator f77642a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a implements Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +81,7 @@ public final class ir {
                 return;
             }
         }
-        f40767a = new a(null);
+        f77642a = new a(null);
     }
 
     public static int a(byte b2, byte b3) {
@@ -109,14 +108,14 @@ public final class ir {
         return invokeII.intValue;
     }
 
-    public static int a(long j, long j2) {
+    public static int a(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (j < j2) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            if (j2 < j3) {
                 return -1;
             }
-            return j2 < j ? 1 : 0;
+            return j3 < j2 ? 1 : 0;
         }
         return invokeCommon.intValue;
     }
@@ -153,7 +152,7 @@ public final class ir {
                 return a2;
             }
             for (int i2 = 0; i2 < list.size(); i2++) {
-                int compare = f40767a.compare(list.get(i2), list2.get(i2));
+                int compare = f77642a.compare(list.get(i2), list2.get(i2));
                 if (compare != 0) {
                     return compare;
                 }
@@ -171,20 +170,20 @@ public final class ir {
             if (a2 != 0) {
                 return a2;
             }
-            TreeMap treeMap = new TreeMap(f40767a);
+            TreeMap treeMap = new TreeMap(f77642a);
             treeMap.putAll(map);
             Iterator it = treeMap.entrySet().iterator();
-            TreeMap treeMap2 = new TreeMap(f40767a);
+            TreeMap treeMap2 = new TreeMap(f77642a);
             treeMap2.putAll(map2);
             Iterator it2 = treeMap2.entrySet().iterator();
             while (it.hasNext() && it2.hasNext()) {
                 Map.Entry entry = (Map.Entry) it.next();
                 Map.Entry entry2 = (Map.Entry) it2.next();
-                int compare = f40767a.compare(entry.getKey(), entry2.getKey());
+                int compare = f77642a.compare(entry.getKey(), entry2.getKey());
                 if (compare != 0) {
                     return compare;
                 }
-                int compare2 = f40767a.compare(entry.getValue(), entry2.getValue());
+                int compare2 = f77642a.compare(entry.getValue(), entry2.getValue());
                 if (compare2 != 0) {
                     return compare2;
                 }
@@ -202,14 +201,14 @@ public final class ir {
             if (a2 != 0) {
                 return a2;
             }
-            TreeSet treeSet = new TreeSet(f40767a);
+            TreeSet treeSet = new TreeSet(f77642a);
             treeSet.addAll(set);
-            TreeSet treeSet2 = new TreeSet(f40767a);
+            TreeSet treeSet2 = new TreeSet(f77642a);
             treeSet2.addAll(set2);
             Iterator it = treeSet.iterator();
             Iterator it2 = treeSet2.iterator();
             while (it.hasNext() && it2.hasNext()) {
-                int compare = f40767a.compare(it.next(), it2.next());
+                int compare = f77642a.compare(it.next(), it2.next());
                 if (compare != 0) {
                     return compare;
                 }
@@ -265,7 +264,7 @@ public final class ir {
     public static ByteBuffer a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, byteBuffer)) == null) ? m514a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m515a(byteBuffer)) : (ByteBuffer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, byteBuffer)) == null) ? m517a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m518a(byteBuffer)) : (ByteBuffer) invokeL.objValue;
     }
 
     public static void a(ByteBuffer byteBuffer, StringBuilder sb) {
@@ -282,24 +281,24 @@ public final class ir {
                 sb.append(a(array[i3]));
             }
             if (limit != i2) {
-                sb.append(StringHelper.STRING_MORE);
+                sb.append("...");
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m514a(ByteBuffer byteBuffer) {
+    public static boolean m517a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, byteBuffer)) == null) ? byteBuffer.hasArray() && byteBuffer.position() == 0 && byteBuffer.arrayOffset() == 0 && byteBuffer.remaining() == byteBuffer.capacity() : invokeL.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m515a(ByteBuffer byteBuffer) {
+    public static byte[] m518a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, byteBuffer)) == null) {
-            if (m514a(byteBuffer)) {
+            if (m517a(byteBuffer)) {
                 return byteBuffer.array();
             }
             byte[] bArr = new byte[byteBuffer.remaining()];

@@ -29,7 +29,7 @@ import org.webrtc.ThreadUtils;
 import org.webrtc.VideoEncoder;
 import org.webrtc.VideoFrame;
 @TargetApi(19)
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class HardwareVideoEncoder implements VideoEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEQUEUE_OUTPUT_BUFFER_TIMEOUT_US = 100000;
@@ -80,7 +80,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
     public final YuvFormat yuvFormat;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static abstract class YuvFormat {
         public static final /* synthetic */ YuvFormat[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -447,15 +447,15 @@ public class HardwareVideoEncoder implements VideoEncoder {
         }
     }
 
-    private void requestKeyFrame(long j) {
+    private void requestKeyFrame(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65545, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65545, this, j2) == null) {
             this.encodeThreadChecker.checkIsOnValidThread();
             try {
                 Bundle bundle = new Bundle();
                 bundle.putInt("request-sync", 0);
                 this.codec.setParameters(bundle);
-                this.lastKeyFrameNs = j;
+                this.lastKeyFrameNs = j2;
             } catch (IllegalStateException e2) {
                 Logging.e(TAG, "requestKeyFrame failed", e2);
             }
@@ -479,13 +479,13 @@ public class HardwareVideoEncoder implements VideoEncoder {
         return (VideoCodecStatus) invokeCommon.objValue;
     }
 
-    private boolean shouldForceKeyFrame(long j) {
+    private boolean shouldForceKeyFrame(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65547, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65547, this, j2)) == null) {
             this.encodeThreadChecker.checkIsOnValidThread();
-            long j2 = this.forcedKeyFrameNs;
-            return j2 > 0 && j > this.lastKeyFrameNs + j2;
+            long j3 = this.forcedKeyFrameNs;
+            return j3 > 0 && j2 > this.lastKeyFrameNs + j3;
         }
         return invokeJ.booleanValue;
     }

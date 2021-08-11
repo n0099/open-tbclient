@@ -13,18 +13,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.CalledByNative;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ThreadUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f23189a;
+    public static final Object f58908a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f23190b;
+    public static boolean f58909b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f23191c;
+    public static Handler f58910c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class ThreadUtils {
                 return;
             }
         }
-        f23189a = new Object();
+        f58908a = new Object();
     }
 
     public ThreadUtils() {
@@ -62,15 +62,15 @@ public class ThreadUtils {
         Handler handler;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (f23189a) {
-                if (f23191c == null) {
-                    if (!f23190b) {
-                        f23191c = new Handler(Looper.getMainLooper());
+            synchronized (f58908a) {
+                if (f58910c == null) {
+                    if (!f58909b) {
+                        f58910c = new Handler(Looper.getMainLooper());
                     } else {
                         throw new RuntimeException("Did not yet override the UI thread");
                     }
                 }
-                handler = f23191c;
+                handler = f58910c;
             }
             return handler;
         }

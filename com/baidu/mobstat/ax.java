@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ax {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ax f8816c;
+    public static final ax f43122c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f8817a;
+    public boolean f43123a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f8818b;
+    public volatile boolean f43124b;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class ax {
                 return;
             }
         }
-        f8816c = new ax();
+        f43122c = new ax();
     }
 
     public ax() {
@@ -54,19 +54,19 @@ public class ax {
                 return;
             }
         }
-        this.f8817a = false;
+        this.f43123a = false;
     }
 
     public static ax a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f8816c : (ax) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f43122c : (ax) invokeV.objValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8817a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43123a : invokeV.booleanValue;
     }
 
     public void a(String str) {
@@ -76,9 +76,9 @@ public class ax {
         }
         try {
             JSONObject jSONObject = (JSONObject) new JSONObject(str).opt("full");
-            this.f8817a = (jSONObject != null ? jSONObject.optInt(IntentConfig.CLOSE) : 0) != 0;
+            this.f43123a = (jSONObject != null ? jSONObject.optInt(IntentConfig.CLOSE) : 0) != 0;
         } catch (Exception unused) {
         }
-        this.f8818b = true;
+        this.f43124b = true;
     }
 }

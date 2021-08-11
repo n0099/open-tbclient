@@ -1,7 +1,7 @@
 package com.baidu.pass.ecommerce.common.mvp;
 
 import com.baidu.pass.ecommerce.common.mvp.IBaseView;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface IPresenter<V extends IBaseView> {
     void attachView(V v);
 

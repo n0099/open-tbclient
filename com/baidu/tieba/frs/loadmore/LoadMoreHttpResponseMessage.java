@@ -1,6 +1,10 @@
 package com.baidu.tieba.frs.loadmore;
 
 import android.text.TextUtils;
+import c.a.e.k.e.n;
+import c.a.o0.s.q.c2;
+import c.a.o0.s.q.p0;
+import c.a.p0.x2.l0.b;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,10 +18,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.d.k.e.n;
-import d.a.p0.s.q.b2;
-import d.a.p0.s.q.o0;
-import d.a.q0.w2.i0.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,7 +27,7 @@ import tbclient.ThreadInfo;
 import tbclient.ThreadList.DataRes;
 import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                         }
                     }
                 }
-                long j = 0;
+                long j2 = 0;
                 Message<?> orginalMessage2 = getOrginalMessage();
                 if (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) {
                     z = false;
@@ -106,7 +106,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                     boolean isBrandForum = loadMoreRequestMessage.isBrandForum();
                     long forumId = loadMoreRequestMessage.getForumId();
                     z = isBrandForum;
-                    j = forumId;
+                    j2 = forumId;
                 }
                 if (ListUtils.getCount(threadListResIdl.data.thread_list) > 0) {
                     this.threadList = new ArrayList<>();
@@ -115,18 +115,18 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                         ArrayList arrayList = new ArrayList();
                         for (int i4 = 0; i4 < list2.size(); i4++) {
                             ThreadInfo threadInfo = list2.get(i4);
-                            b2 b2Var = new b2();
-                            SpecHotTopicHelper.setSpecTopicIcon(j, b2Var);
-                            b2Var.l4(this.userMap);
-                            b2Var.K2(threadInfo);
-                            b2Var.O2();
-                            b2Var.G1 = z;
-                            if (!TextUtils.isEmpty(b2Var.u0())) {
-                                o0 o0Var = new o0();
-                                o0Var.e(b2Var.u0());
-                                this.threadList.add(o0Var);
+                            c2 c2Var = new c2();
+                            SpecHotTopicHelper.setSpecTopicIcon(j2, c2Var);
+                            c2Var.u4(this.userMap);
+                            c2Var.S2(threadInfo);
+                            c2Var.W2();
+                            c2Var.H1 = z;
+                            if (!TextUtils.isEmpty(c2Var.w0())) {
+                                p0 p0Var = new p0();
+                                p0Var.k(c2Var.w0());
+                                this.threadList.add(p0Var);
                             } else {
-                                this.threadList.add(b2Var);
+                                this.threadList.add(c2Var);
                                 JSONObject b2 = b.b(threadInfo);
                                 if (b2 != null) {
                                     arrayList.add(b2);

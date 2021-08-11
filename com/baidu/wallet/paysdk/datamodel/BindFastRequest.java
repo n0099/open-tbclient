@@ -3,7 +3,6 @@ package com.baidu.wallet.paysdk.datamodel;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.beans.BeanResponseBase;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,16 +12,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.CardData;
-import com.baidu.wallet.core.beans.BeanRequestBase;
-import com.baidu.wallet.core.beans.NetworkBean;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.datamodel.GetCardInfoResponse;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
+import com.dxmpay.apollon.beans.BeanResponseBase;
+import com.dxmpay.wallet.core.beans.BeanRequestBase;
+import com.dxmpay.wallet.core.beans.NetworkBean;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class BindFastRequest extends BeanRequestBase implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BIND_FROM_BIND = 1;
@@ -176,7 +176,7 @@ public class BindFastRequest extends BeanRequestBase implements Serializable {
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanRequestBase
+    @Override // com.dxmpay.wallet.core.beans.BeanRequestBase
     public boolean checkRequestValidity() {
         InterceptResult invokeV;
         GetCardInfoResponse getCardInfoResponse;
@@ -299,7 +299,7 @@ public class BindFastRequest extends BeanRequestBase implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.regEx : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanRequestBase
+    @Override // com.dxmpay.wallet.core.beans.BeanRequestBase
     public String getRequestId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

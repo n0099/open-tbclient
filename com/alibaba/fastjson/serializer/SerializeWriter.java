@@ -24,7 +24,8 @@ import java.math.BigDecimal;
 import java.nio.charset.Charset;
 import java.util.List;
 import kotlin.text.Typography;
-/* loaded from: classes.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes4.dex */
 public final class SerializeWriter extends Writer {
     public static /* synthetic */ Interceptable $ic;
     public static int BUFFER_THRESHOLD;
@@ -213,10 +214,10 @@ public final class SerializeWriter extends Writer {
                 int i6 = this.count;
                 int i7 = i6 + 1;
                 this.count = i7;
-                cArr[i6] = '\'';
+                cArr[i6] = ExtendedMessageFormat.QUOTE;
                 int i8 = i7 + 1;
                 this.count = i8;
-                cArr[i7] = '\'';
+                cArr[i7] = ExtendedMessageFormat.QUOTE;
                 this.count = i8 + 1;
                 cArr[i8] = ':';
                 return;
@@ -243,12 +244,12 @@ public final class SerializeWriter extends Writer {
                         char[] cArr4 = this.buf;
                         System.arraycopy(cArr4, i3, cArr4, 1, i11);
                         char[] cArr5 = this.buf;
-                        cArr5[i9] = '\'';
+                        cArr5[i9] = ExtendedMessageFormat.QUOTE;
                         cArr5[i12] = '\\';
                         int i13 = i12 + 1;
                         cArr5[i13] = IOUtils.replaceChars[c2];
                         i10 += 2;
-                        cArr5[this.count - 2] = '\'';
+                        cArr5[this.count - 2] = ExtendedMessageFormat.QUOTE;
                         i11 = i13;
                         z2 = true;
                     } else {
@@ -290,7 +291,7 @@ public final class SerializeWriter extends Writer {
     }
 
     public void computeFeatures() {
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.quoteFieldNames = (this.features & SerializerFeature.QuoteFieldNames.mask) != 0;
@@ -303,15 +304,15 @@ public final class SerializeWriter extends Writer {
             this.writeEnumUsingName = (this.features & SerializerFeature.WriteEnumUsingName.mask) != 0;
             this.writeEnumUsingToString = (this.features & SerializerFeature.WriteEnumUsingToString.mask) != 0;
             this.writeDirect = this.quoteFieldNames && (this.features & nonDirectFeatures) == 0 && (this.beanToArray || this.writeEnumUsingName);
-            this.keySeperator = this.useSingleQuotes ? '\'' : Typography.quote;
+            this.keySeperator = this.useSingleQuotes ? ExtendedMessageFormat.QUOTE : '\"';
             boolean z = (this.features & SerializerFeature.BrowserSecure.mask) != 0;
             this.browserSecure = z;
             if (z) {
-                j = 5764610843043954687L;
+                j2 = 5764610843043954687L;
             } else {
-                j = (this.features & SerializerFeature.WriteSlashAsSpecial.mask) != 0 ? 140758963191807L : 21474836479L;
+                j2 = (this.features & SerializerFeature.WriteSlashAsSpecial.mask) != 0 ? 140758963191807L : 21474836479L;
             }
-            this.sepcialBits = j;
+            this.sepcialBits = j2;
         }
     }
 
@@ -505,7 +506,7 @@ public final class SerializeWriter extends Writer {
                 return;
             }
             int length = bArr.length;
-            char c2 = this.useSingleQuotes ? '\'' : Typography.quote;
+            char c2 = this.useSingleQuotes ? ExtendedMessageFormat.QUOTE : '\"';
             if (length == 0) {
                 write(this.useSingleQuotes ? "''" : "\"\"");
                 return;
@@ -534,7 +535,7 @@ public final class SerializeWriter extends Writer {
                         int i11 = ((bArr[i2] & 255) << 10) | (i10 == 2 ? (bArr[i3] & 255) << 2 : 0);
                         write(cArr[i11 >> 12]);
                         write(cArr[(i11 >>> 6) & 63]);
-                        write(i10 == 2 ? cArr[i11 & 63] : a.f1923h);
+                        write(i10 == 2 ? cArr[i11 & 63] : a.f35773h);
                         write(61);
                     }
                     write(c2);
@@ -569,8 +570,8 @@ public final class SerializeWriter extends Writer {
                 char[] cArr3 = this.buf;
                 cArr3[i5 - 5] = cArr[i23 >> 12];
                 cArr3[i5 - 4] = cArr[(i23 >>> 6) & 63];
-                cArr3[i5 - 3] = i22 == 2 ? cArr[i23 & 63] : a.f1923h;
-                this.buf[i5 - 2] = a.f1923h;
+                cArr3[i5 - 3] = i22 == 2 ? cArr[i23 & 63] : a.f35773h;
+                this.buf[i5 - 2] = a.f35773h;
             }
             this.buf[i5 - 1] = c2;
         }
@@ -646,11 +647,11 @@ public final class SerializeWriter extends Writer {
             }
             int i3 = this.count;
             char[] cArr = this.buf;
-            cArr[i3] = Typography.quote;
+            cArr[i3] = '\"';
             str.getChars(0, length, cArr, i3 + 1);
             this.count = i2;
             char[] cArr2 = this.buf;
-            cArr2[i2 - 2] = Typography.quote;
+            cArr2[i2 - 2] = '\"';
             cArr2[i2 - 1] = ':';
         }
     }
@@ -689,17 +690,17 @@ public final class SerializeWriter extends Writer {
             cArr[i4] = c2;
             int i5 = i4 + 2;
             int i6 = i5 + length;
-            cArr[i4 + 1] = Typography.quote;
+            cArr[i4 + 1] = '\"';
             str.getChars(0, length, cArr, i5);
             this.count = i3;
             char[] cArr2 = this.buf;
-            cArr2[i6] = Typography.quote;
+            cArr2[i6] = '\"';
             int i7 = i6 + 1;
             int i8 = i7 + 1;
             cArr2[i7] = ':';
-            cArr2[i8] = Typography.quote;
+            cArr2[i8] = '\"';
             str2.getChars(0, length2, cArr2, i8 + 1);
-            this.buf[this.count - 1] = Typography.quote;
+            this.buf[this.count - 1] = '\"';
         }
     }
 
@@ -741,11 +742,11 @@ public final class SerializeWriter extends Writer {
             cArr[i4] = c2;
             int i5 = i4 + 2;
             int i6 = i5 + length2;
-            cArr[i4 + 1] = Typography.quote;
+            cArr[i4 + 1] = '\"';
             str.getChars(0, length2, cArr, i5);
             this.count = i2;
             char[] cArr2 = this.buf;
-            cArr2[i6] = Typography.quote;
+            cArr2[i6] = '\"';
             int i7 = i6 + 1;
             int i8 = i7 + 1;
             cArr2[i7] = ':';
@@ -759,7 +760,7 @@ public final class SerializeWriter extends Writer {
                 return;
             }
             int i11 = i8 + 1;
-            cArr2[i8] = Typography.quote;
+            cArr2[i8] = '\"';
             int i12 = i11 + length;
             str2.getChars(0, length, cArr2, i11);
             int i13 = -1;
@@ -943,7 +944,7 @@ public final class SerializeWriter extends Writer {
                     }
                 }
             }
-            this.buf[this.count - 1] = Typography.quote;
+            this.buf[this.count - 1] = '\"';
         }
     }
 
@@ -989,7 +990,7 @@ public final class SerializeWriter extends Writer {
             this.count = i3;
             cArr[i2] = 'x';
             this.count = i3 + 1;
-            cArr[i3] = '\'';
+            cArr[i3] = ExtendedMessageFormat.QUOTE;
             for (byte b2 : bArr) {
                 int i4 = b2 & 255;
                 int i5 = i4 >> 4;
@@ -1010,7 +1011,7 @@ public final class SerializeWriter extends Writer {
             char[] cArr4 = this.buf;
             int i10 = this.count;
             this.count = i10 + 1;
-            cArr4[i10] = '\'';
+            cArr4[i10] = ExtendedMessageFormat.QUOTE;
         }
     }
 
@@ -1038,11 +1039,11 @@ public final class SerializeWriter extends Writer {
         }
     }
 
-    public void writeLong(long j) {
+    public void writeLong(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048630, this, j) == null) {
-            boolean z = isEnabled(SerializerFeature.BrowserCompatible) && !isEnabled(SerializerFeature.WriteClassName) && (j > 9007199254740991L || j < -9007199254740991L);
-            if (j == Long.MIN_VALUE) {
+        if (interceptable == null || interceptable.invokeJ(1048630, this, j2) == null) {
+            boolean z = isEnabled(SerializerFeature.BrowserCompatible) && !isEnabled(SerializerFeature.WriteClassName) && (j2 > 9007199254740991L || j2 < -9007199254740991L);
+            if (j2 == Long.MIN_VALUE) {
                 if (z) {
                     write("\"-9223372036854775808\"");
                     return;
@@ -1051,7 +1052,7 @@ public final class SerializeWriter extends Writer {
                     return;
                 }
             }
-            int stringSize = j < 0 ? IOUtils.stringSize(-j) + 1 : IOUtils.stringSize(j);
+            int stringSize = j2 < 0 ? IOUtils.stringSize(-j2) + 1 : IOUtils.stringSize(j2);
             int i2 = this.count + stringSize;
             if (z) {
                 i2 += 2;
@@ -1061,7 +1062,7 @@ public final class SerializeWriter extends Writer {
                     expandCapacity(i2);
                 } else {
                     char[] cArr = new char[stringSize];
-                    IOUtils.getChars(j, stringSize, cArr);
+                    IOUtils.getChars(j2, stringSize, cArr);
                     if (z) {
                         write(34);
                         write(cArr, 0, stringSize);
@@ -1074,21 +1075,21 @@ public final class SerializeWriter extends Writer {
             }
             if (z) {
                 char[] cArr2 = this.buf;
-                cArr2[this.count] = Typography.quote;
+                cArr2[this.count] = '\"';
                 int i3 = i2 - 1;
-                IOUtils.getChars(j, i3, cArr2);
-                this.buf[i3] = Typography.quote;
+                IOUtils.getChars(j2, i3, cArr2);
+                this.buf[i3] = '\"';
             } else {
-                IOUtils.getChars(j, i2, this.buf);
+                IOUtils.getChars(j2, i2, this.buf);
             }
             this.count = i2;
         }
     }
 
-    public void writeLongAndChar(long j, char c2) throws IOException {
+    public void writeLongAndChar(long j2, char c2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Long.valueOf(j), Character.valueOf(c2)}) == null) {
-            writeLong(j);
+        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Long.valueOf(j2), Character.valueOf(c2)}) == null) {
+            writeLong(j2);
             write(c2);
         }
     }
@@ -1206,7 +1207,7 @@ public final class SerializeWriter extends Writer {
             int i6 = i5 + 1;
             int i7 = i6 + length;
             char[] cArr = this.buf;
-            cArr[i5] = Typography.quote;
+            cArr[i5] = '\"';
             str.getChars(0, length, cArr, i6);
             this.count = i2;
             int i8 = -1;
@@ -1277,11 +1278,11 @@ public final class SerializeWriter extends Writer {
                 if (c2 != 0) {
                     char[] cArr11 = this.buf;
                     int i15 = this.count;
-                    cArr11[i15 - 2] = Typography.quote;
+                    cArr11[i15 - 2] = '\"';
                     cArr11[i15 - 1] = c2;
                     return;
                 }
-                this.buf[this.count - 1] = Typography.quote;
+                this.buf[this.count - 1] = '\"';
                 return;
             }
             int i16 = -1;
@@ -1468,11 +1469,11 @@ public final class SerializeWriter extends Writer {
             if (c2 != 0) {
                 char[] cArr30 = this.buf;
                 int i54 = this.count;
-                cArr30[i54 - 2] = Typography.quote;
+                cArr30[i54 - 2] = '\"';
                 cArr30[i54 - 1] = c2;
                 return;
             }
-            this.buf[this.count - 1] = Typography.quote;
+            this.buf[this.count - 1] = '\"';
         }
     }
 
@@ -1513,7 +1514,7 @@ public final class SerializeWriter extends Writer {
             int i6 = i5 + 1;
             int i7 = i6 + length;
             char[] cArr = this.buf;
-            cArr[i5] = '\'';
+            cArr[i5] = ExtendedMessageFormat.QUOTE;
             str.getChars(0, length, cArr, i6);
             this.count = i4;
             int i8 = -1;
@@ -1559,7 +1560,7 @@ public final class SerializeWriter extends Writer {
                     }
                 }
             }
-            this.buf[this.count - 1] = '\'';
+            this.buf[this.count - 1] = ExtendedMessageFormat.QUOTE;
         }
     }
 
@@ -2115,10 +2116,10 @@ public final class SerializeWriter extends Writer {
                     this.buf[i4] = ',';
                 }
                 int i8 = i2 + 1;
-                this.buf[i2] = Typography.quote;
+                this.buf[i2] = '\"';
                 str.getChars(0, str.length(), this.buf, i8);
                 int length3 = i8 + str.length();
-                this.buf[length3] = Typography.quote;
+                this.buf[length3] = '\"';
                 i5++;
                 i4 = length3 + 1;
             }
@@ -2164,7 +2165,7 @@ public final class SerializeWriter extends Writer {
             int i6 = i5 + 1;
             int i7 = length + i6;
             char[] cArr2 = this.buf;
-            cArr2[i5] = '\'';
+            cArr2[i5] = ExtendedMessageFormat.QUOTE;
             System.arraycopy(cArr, 0, cArr2, i6, cArr.length);
             this.count = i4;
             int i8 = -1;
@@ -2210,22 +2211,22 @@ public final class SerializeWriter extends Writer {
                     }
                 }
             }
-            this.buf[this.count - 1] = '\'';
+            this.buf[this.count - 1] = ExtendedMessageFormat.QUOTE;
         }
     }
 
-    public void writeFieldValue(char c2, String str, long j) {
+    public void writeFieldValue(char c2, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Character.valueOf(c2), str, Long.valueOf(j)}) == null) {
-            if (j != Long.MIN_VALUE && this.quoteFieldNames && !isEnabled(SerializerFeature.BrowserCompatible.mask)) {
-                int stringSize = j < 0 ? IOUtils.stringSize(-j) + 1 : IOUtils.stringSize(j);
+        if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Character.valueOf(c2), str, Long.valueOf(j2)}) == null) {
+            if (j2 != Long.MIN_VALUE && this.quoteFieldNames && !isEnabled(SerializerFeature.BrowserCompatible.mask)) {
+                int stringSize = j2 < 0 ? IOUtils.stringSize(-j2) + 1 : IOUtils.stringSize(j2);
                 int length = str.length();
                 int i2 = this.count + length + 4 + stringSize;
                 if (i2 > this.buf.length) {
                     if (this.writer != null) {
                         write(c2);
                         writeFieldName(str);
-                        writeLong(j);
+                        writeLong(j2);
                         return;
                     }
                     expandCapacity(i2);
@@ -2240,12 +2241,12 @@ public final class SerializeWriter extends Writer {
                 char[] cArr2 = this.buf;
                 cArr2[i4 + 1] = this.keySeperator;
                 cArr2[i4 + 2] = ':';
-                IOUtils.getChars(j, this.count, cArr2);
+                IOUtils.getChars(j2, this.count, cArr2);
                 return;
             }
             write(c2);
             writeFieldName(str);
-            writeLong(j);
+            writeLong(j2);
         }
     }
 
@@ -2445,7 +2446,7 @@ public final class SerializeWriter extends Writer {
             int i7 = i6 + 1;
             int i8 = length + i7;
             char[] cArr2 = this.buf;
-            cArr2[i6] = Typography.quote;
+            cArr2[i6] = '\"';
             System.arraycopy(cArr, 0, cArr2, i7, cArr.length);
             this.count = i3;
             int i9 = -1;
@@ -2516,11 +2517,11 @@ public final class SerializeWriter extends Writer {
                 if (c2 != 0) {
                     char[] cArr12 = this.buf;
                     int i16 = this.count;
-                    cArr12[i16 - 2] = Typography.quote;
+                    cArr12[i16 - 2] = '\"';
                     cArr12[i16 - 1] = c2;
                     return;
                 }
-                this.buf[this.count - 1] = Typography.quote;
+                this.buf[this.count - 1] = '\"';
                 return;
             }
             int i17 = i7;
@@ -2724,11 +2725,11 @@ public final class SerializeWriter extends Writer {
             if (c2 != 0) {
                 char[] cArr31 = this.buf;
                 int i57 = this.count;
-                cArr31[i57 - 2] = Typography.quote;
+                cArr31[i57 - 2] = '\"';
                 cArr31[i57 - 1] = c2;
                 return;
             }
-            this.buf[this.count - 1] = Typography.quote;
+            this.buf[this.count - 1] = '\"';
         }
     }
 }

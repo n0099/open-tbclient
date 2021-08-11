@@ -12,7 +12,6 @@ import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.armor.SafePay;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.BussinessUtils;
 import com.baidu.apollon.utils.GlobalUtils;
 import com.baidu.apollon.utils.ResUtils;
@@ -24,7 +23,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.base.widget.BdActionBar;
 import com.baidu.wallet.core.BaseActivity;
 import com.baidu.wallet.core.domain.DomainConfig;
@@ -33,9 +31,8 @@ import com.baidu.wallet.core.utils.NFCUtil;
 import com.baidu.wallet.core.utils.WalletGlobalUtils;
 import com.baidu.wallet.paysdk.PayUtils;
 import java.net.URLEncoder;
-import java.util.Arrays;
 @SuppressLint({"SetJavaScriptEnabled"})
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class WebViewActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHANNEL_DISCOUNT_PARAMS = "channel_discount_params";
@@ -47,13 +44,13 @@ public class WebViewActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public SafeWebView mWebView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class a extends SafeWebView.SafeChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WebViewActivity f26947a;
+        public final /* synthetic */ WebViewActivity f62781a;
 
         public a(WebViewActivity webViewActivity) {
             Interceptable interceptable = $ic;
@@ -70,7 +67,7 @@ public class WebViewActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f26947a = webViewActivity;
+            this.f62781a = webViewActivity;
         }
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
@@ -78,22 +75,22 @@ public class WebViewActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onReceivedTitle(webView, str);
-                WebViewActivity webViewActivity = this.f26947a;
+                WebViewActivity webViewActivity = this.f62781a;
                 if (TextUtils.isEmpty(str)) {
-                    str = ResUtils.getString(this.f26947a.getActivity(), "ebpay_bd_wallet");
+                    str = ResUtils.getString(this.f62781a.getActivity(), "ebpay_bd_wallet");
                 }
                 webViewActivity.initActionBar(str);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class b extends SafeWebView.SafeWebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WebViewActivity f26948a;
+        public final /* synthetic */ WebViewActivity f62782a;
 
         public b(WebViewActivity webViewActivity) {
             Interceptable interceptable = $ic;
@@ -110,7 +107,7 @@ public class WebViewActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f26948a = webViewActivity;
+            this.f62782a = webViewActivity;
         }
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
@@ -118,7 +115,7 @@ public class WebViewActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                WalletGlobalUtils.safeDismissDialog(this.f26948a, -1);
+                WalletGlobalUtils.safeDismissDialog(this.f62782a, -1);
             }
         }
 
@@ -126,9 +123,12 @@ public class WebViewActivity extends BaseActivity {
         public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, sslErrorHandler, sslError) == null) {
-                int primaryError = sslError == null ? 5000 : sslError.getPrimaryError();
-                String url = sslError == null ? null : sslError.getUrl();
-                PayStatisticsUtil.onEventWithValues(StatServiceEvent.WEB_VIEW_SSL_ERROR, Arrays.asList(primaryError + "", url));
+                if (sslError != null) {
+                    sslError.getPrimaryError();
+                }
+                if (sslError != null) {
+                    sslError.getUrl();
+                }
                 if (HttpsCertVerifyUtil.isWhiteListVerificationPassed(sslError)) {
                     sslErrorHandler.proceed();
                 } else {
@@ -144,7 +144,7 @@ public class WebViewActivity extends BaseActivity {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
                 if (str.startsWith("tel:")) {
                     try {
-                        this.f26948a.startActivity(new Intent("android.intent.action.DIAL", Uri.parse(str)));
+                        this.f62782a.startActivity(new Intent("android.intent.action.DIAL", Uri.parse(str)));
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -153,10 +153,10 @@ public class WebViewActivity extends BaseActivity {
                     try {
                         Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse(str.substring(0, str.indexOf("?"))));
                         intent.putExtra("android.intent.extra.SUBJECT", Uri.parse(str.replace(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO, "mailto://")).getQueryParameter("subject"));
-                        this.f26948a.startActivity(intent);
+                        this.f62782a.startActivity(intent);
                     } catch (Exception e3) {
                         e3.printStackTrace();
-                        GlobalUtils.toast(this.f26948a.getActivity(), "请先配置邮箱");
+                        GlobalUtils.toast(this.f62782a.getActivity(), "请先配置邮箱");
                     }
                     return true;
                 } else {
@@ -210,7 +210,7 @@ public class WebViewActivity extends BaseActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ WebViewActivity f26946a;
+            public final /* synthetic */ WebViewActivity f62780a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -227,15 +227,15 @@ public class WebViewActivity extends BaseActivity {
                         return;
                     }
                 }
-                this.f26946a = this;
+                this.f62780a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    GlobalUtils.hideKeyboard(this.f26946a.getActivity());
-                    this.f26946a.onBackPressed();
+                    GlobalUtils.hideKeyboard(this.f62780a.getActivity());
+                    this.f62780a.onBackPressed();
                 }
             }
         });

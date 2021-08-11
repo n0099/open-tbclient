@@ -15,7 +15,6 @@ import android.os.Handler;
 import android.os.LocaleList;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -64,7 +63,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FlutterView extends SurfaceView implements BinaryMessenger, TextureRegistry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterView";
@@ -93,17 +92,17 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     public final SettingsChannel settingsChannel;
     public final SystemChannel systemChannel;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface FirstFrameListener {
         void onFirstFrame();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface Provider {
         FlutterView getFlutterView();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final class SurfaceTextureRegistryEntry implements TextureRegistry.SurfaceTextureEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,12 +112,12 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
         public final SurfaceTexture surfaceTexture;
         public final /* synthetic */ FlutterView this$0;
 
-        public SurfaceTextureRegistryEntry(FlutterView flutterView, long j, SurfaceTexture surfaceTexture) {
+        public SurfaceTextureRegistryEntry(FlutterView flutterView, long j2, SurfaceTexture surfaceTexture) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {flutterView, Long.valueOf(j), surfaceTexture};
+                Object[] objArr = {flutterView, Long.valueOf(j2), surfaceTexture};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -162,7 +161,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
                 }
             };
             this.onFrameListener = onFrameAvailableListener;
-            this.id = j;
+            this.id = j2;
             this.surfaceTexture = surfaceTexture;
             if (Build.VERSION.SDK_INT >= 21) {
                 surfaceTexture.setOnFrameAvailableListener(onFrameAvailableListener, new Handler());
@@ -198,7 +197,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ViewportMetrics {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -250,7 +249,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ZeroSides {
         public static final /* synthetic */ ZeroSides[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -539,7 +538,6 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     public void enableTransparentBackground() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            Log.w("FlutterView", "FlutterView in the v1 embedding is always a SurfaceView and will cover accessibility highlights when transparent. Consider migrating to the v2 Android embedding. https://github.com/flutter/flutter/wiki/Upgrading-pre-1.12-Android-projects");
             setZOrderOnTop(true);
             getHolder().setFormat(-2);
         }
@@ -661,10 +659,11 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
             this.mMetrics.physicalViewInsetLeft = 0;
             if (Build.VERSION.SDK_INT >= 29) {
                 Insets systemGestureInsets = windowInsets.getSystemGestureInsets();
-                this.mMetrics.systemGestureInsetTop = systemGestureInsets.top;
-                this.mMetrics.systemGestureInsetRight = systemGestureInsets.right;
-                this.mMetrics.systemGestureInsetBottom = systemGestureInsets.bottom;
-                this.mMetrics.systemGestureInsetLeft = systemGestureInsets.left;
+                ViewportMetrics viewportMetrics3 = this.mMetrics;
+                viewportMetrics3.systemGestureInsetTop = systemGestureInsets.top;
+                viewportMetrics3.systemGestureInsetRight = systemGestureInsets.right;
+                viewportMetrics3.systemGestureInsetBottom = systemGestureInsets.bottom;
+                viewportMetrics3.systemGestureInsetLeft = systemGestureInsets.left;
             }
             updateViewportMetrics();
             return super.onApplyWindowInsets(windowInsets);
@@ -939,7 +938,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048620, this, str, byteBuffer, binaryReply) == null) {
             if (!isAttached()) {
-                Log.d("FlutterView", "FlutterView.send called on a detached view, channel=" + str);
+                String str2 = "FlutterView.send called on a detached view, channel=" + str;
                 return;
             }
             this.mNativeView.send(str, byteBuffer, binaryReply);

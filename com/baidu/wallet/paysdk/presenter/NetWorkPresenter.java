@@ -3,14 +3,14 @@ package com.baidu.wallet.paysdk.presenter;
 import android.content.Context;
 import android.os.Handler;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.beans.IBeanResponseCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public abstract class NetWorkPresenter implements IBeanResponseCallback, BasePresenter {
+import com.dxmpay.apollon.beans.IBeanResponseCallback;
+/* loaded from: classes8.dex */
+public abstract class NetWorkPresenter implements BasePresenter, IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
@@ -51,7 +51,7 @@ public abstract class NetWorkPresenter implements IBeanResponseCallback, BasePre
 
     public abstract void handleResponse(int i2, Object obj, String str);
 
-    @Override // com.baidu.apollon.beans.IBeanResponseCallback
+    @Override // com.dxmpay.apollon.beans.IBeanResponseCallback
     public void onBeanExecFailure(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, str) == null) {
@@ -60,16 +60,16 @@ public abstract class NetWorkPresenter implements IBeanResponseCallback, BasePre
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f26370a;
+                public final /* synthetic */ int f62272a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f26371b;
+                public final /* synthetic */ int f62273b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f26372c;
+                public final /* synthetic */ String f62274c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ NetWorkPresenter f26373d;
+                public final /* synthetic */ NetWorkPresenter f62275d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -86,24 +86,24 @@ public abstract class NetWorkPresenter implements IBeanResponseCallback, BasePre
                             return;
                         }
                     }
-                    this.f26373d = this;
-                    this.f26370a = i2;
-                    this.f26371b = i3;
-                    this.f26372c = str;
+                    this.f62275d = this;
+                    this.f62272a = i2;
+                    this.f62273b = i3;
+                    this.f62274c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f26373d.handleFailure(this.f26370a, this.f26371b, this.f26372c);
+                        this.f62275d.handleFailure(this.f62272a, this.f62273b, this.f62274c);
                     }
                 }
             });
         }
     }
 
-    @Override // com.baidu.apollon.beans.IBeanResponseCallback
+    @Override // com.dxmpay.apollon.beans.IBeanResponseCallback
     public void onBeanExecSuccess(int i2, Object obj, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i2, obj, str) == null) {
@@ -112,16 +112,16 @@ public abstract class NetWorkPresenter implements IBeanResponseCallback, BasePre
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f26366a;
+                public final /* synthetic */ int f62268a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f26367b;
+                public final /* synthetic */ Object f62269b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f26368c;
+                public final /* synthetic */ String f62270c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ NetWorkPresenter f26369d;
+                public final /* synthetic */ NetWorkPresenter f62271d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -138,17 +138,17 @@ public abstract class NetWorkPresenter implements IBeanResponseCallback, BasePre
                             return;
                         }
                     }
-                    this.f26369d = this;
-                    this.f26366a = i2;
-                    this.f26367b = obj;
-                    this.f26368c = str;
+                    this.f62271d = this;
+                    this.f62268a = i2;
+                    this.f62269b = obj;
+                    this.f62270c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f26369d.handleResponse(this.f26366a, this.f26367b, this.f26368c);
+                        this.f62271d.handleResponse(this.f62268a, this.f62269b, this.f62270c);
                     }
                 }
             });

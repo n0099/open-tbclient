@@ -15,7 +15,7 @@ import java.lang.Thread;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public final class StatisticApiImpl implements g, l.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -136,23 +136,23 @@ public final class StatisticApiImpl implements g, l.a {
     }
 
     @Override // com.baidu.ar.statistic.g
-    public void onEventDebounce(String str, long j, String str2) {
+    public void onEventDebounce(String str, long j2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j2), str2}) == null) {
             a az = a.az(str);
-            az.b("_db_period", Long.valueOf(j));
+            az.b("_db_period", Long.valueOf(j2));
             az.b("event_param", str2);
             this.wX.a(6, az);
         }
     }
 
     @Override // com.baidu.ar.statistic.g
-    public void onEventDebounce(String str, long j, Map<String, String> map) {
+    public void onEventDebounce(String str, long j2, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j), map}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j2), map}) == null) {
             a az = a.az(str);
             az.a(map);
-            az.b("_db_period", Long.valueOf(j));
+            az.b("_db_period", Long.valueOf(j2));
             this.wX.a(6, az);
         }
     }

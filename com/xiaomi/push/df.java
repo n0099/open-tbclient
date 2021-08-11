@@ -27,31 +27,32 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes10.dex */
 public class df implements LoggerInterface {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40245a;
+    public static String f77097a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final SimpleDateFormat f231a;
+    public static final SimpleDateFormat f235a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static List<Pair<String, Throwable>> f232a;
+    public static List<Pair<String, Throwable>> f236a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f233a;
+    public Context f237a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Handler f234a;
+    public Handler f238a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40246b;
+    public String f77098b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f40247c;
+    public String f77099c;
 
     static {
         InterceptResult invokeClinit;
@@ -66,9 +67,9 @@ public class df implements LoggerInterface {
                 return;
             }
         }
-        f231a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
-        f40245a = "/MiPushLog";
-        f232a = Collections.synchronizedList(new ArrayList());
+        f235a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aaa");
+        f77097a = "/MiPushLog";
+        f236a = Collections.synchronizedList(new ArrayList());
     }
 
     public df(Context context) {
@@ -86,155 +87,139 @@ public class df implements LoggerInterface {
                 return;
             }
         }
-        this.f40247c = "";
-        this.f233a = context;
+        this.f77099c = "";
+        this.f237a = context;
         if (context.getApplicationContext() != null) {
-            this.f233a = context.getApplicationContext();
+            this.f237a = context.getApplicationContext();
         }
-        this.f40246b = this.f233a.getPackageName();
+        this.f77098b = this.f237a.getPackageName();
         HandlerThread handlerThread = new HandlerThread("Log2FileHandlerThread");
         handlerThread.start();
-        this.f234a = new Handler(handlerThread.getLooper());
+        this.f238a = new Handler(handlerThread.getLooper());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:87:0x017e -> B:128:0x0183). Please submit an issue!!! */
     /* renamed from: a  reason: collision with other method in class */
-    public void m244a() {
+    public void m247a() {
         FileLock fileLock;
         RandomAccessFile randomAccessFile;
         File file;
         File externalFilesDir;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            BufferedWriter bufferedWriter = null;
+        if (interceptable != null && interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) != null) {
+            return;
+        }
+        BufferedWriter bufferedWriter = null;
+        try {
+            if (TextUtils.isEmpty(this.f77099c) && (externalFilesDir = this.f237a.getExternalFilesDir(null)) != null) {
+                this.f77099c = externalFilesDir.getAbsolutePath() + "";
+            }
+            file = new File(this.f77099c + f77097a);
+        } catch (Exception unused) {
+            fileLock = null;
+            randomAccessFile = null;
+        } catch (Throwable th) {
+            th = th;
+            fileLock = null;
+            randomAccessFile = null;
+        }
+        if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
+            return;
+        }
+        File file2 = new File(file, "log.lock");
+        if (!file2.exists() || file2.isDirectory()) {
+            file2.createNewFile();
+        }
+        randomAccessFile = new RandomAccessFile(file2, "rw");
+        try {
+            fileLock = randomAccessFile.getChannel().lock();
             try {
-                try {
+                BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(file, "log1.txt"), true)));
+                while (!f236a.isEmpty()) {
                     try {
-                        if (TextUtils.isEmpty(this.f40247c) && (externalFilesDir = this.f233a.getExternalFilesDir(null)) != null) {
-                            this.f40247c = externalFilesDir.getAbsolutePath() + "";
+                        Pair<String, Throwable> remove = f236a.remove(0);
+                        String str = (String) remove.first;
+                        if (remove.second != null) {
+                            str = (str + StringUtils.LF) + Log.getStackTraceString((Throwable) remove.second);
                         }
-                        file = new File(this.f40247c + f40245a);
-                    } catch (Throwable th) {
-                        th = th;
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    fileLock = null;
-                    randomAccessFile = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileLock = null;
-                    randomAccessFile = null;
-                }
-            } catch (IOException e3) {
-                Log.e(this.f40246b, "", e3);
-            }
-            if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
-                Log.w(this.f40246b, "Create mipushlog directory fail.");
-                return;
-            }
-            File file2 = new File(file, "log.lock");
-            if (!file2.exists() || file2.isDirectory()) {
-                file2.createNewFile();
-            }
-            randomAccessFile = new RandomAccessFile(file2, "rw");
-            try {
-                fileLock = randomAccessFile.getChannel().lock();
-                try {
-                    BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(file, "log1.txt"), true)));
-                    while (!f232a.isEmpty()) {
-                        try {
-                            Pair<String, Throwable> remove = f232a.remove(0);
-                            String str = (String) remove.first;
-                            if (remove.second != null) {
-                                str = (str + "\n") + Log.getStackTraceString((Throwable) remove.second);
+                        bufferedWriter2.write(str + StringUtils.LF);
+                    } catch (Exception unused2) {
+                        bufferedWriter = bufferedWriter2;
+                        if (bufferedWriter != null) {
+                            try {
+                                bufferedWriter.close();
+                            } catch (IOException unused3) {
                             }
-                            bufferedWriter2.write(str + "\n");
-                        } catch (Exception e4) {
-                            e = e4;
-                            bufferedWriter = bufferedWriter2;
-                            Log.e(this.f40246b, "", e);
-                            if (bufferedWriter != null) {
-                                try {
-                                    bufferedWriter.close();
-                                } catch (IOException e5) {
-                                    Log.e(this.f40246b, "", e5);
-                                }
+                        }
+                        if (fileLock != null && fileLock.isValid()) {
+                            try {
+                                fileLock.release();
+                            } catch (IOException unused4) {
                             }
-                            if (fileLock != null && fileLock.isValid()) {
-                                try {
-                                    fileLock.release();
-                                } catch (IOException e6) {
-                                    Log.e(this.f40246b, "", e6);
-                                }
-                            }
-                            if (randomAccessFile != null) {
-                                randomAccessFile.close();
-                            }
+                        }
+                        if (randomAccessFile == null) {
                             return;
-                        } catch (Throwable th3) {
-                            th = th3;
-                            bufferedWriter = bufferedWriter2;
-                            if (bufferedWriter != null) {
-                                try {
-                                    bufferedWriter.close();
-                                } catch (IOException e7) {
-                                    Log.e(this.f40246b, "", e7);
-                                }
+                        }
+                        randomAccessFile.close();
+                    } catch (Throwable th2) {
+                        th = th2;
+                        bufferedWriter = bufferedWriter2;
+                        if (bufferedWriter != null) {
+                            try {
+                                bufferedWriter.close();
+                            } catch (IOException unused5) {
                             }
-                            if (fileLock != null && fileLock.isValid()) {
-                                try {
-                                    fileLock.release();
-                                } catch (IOException e8) {
-                                    Log.e(this.f40246b, "", e8);
-                                }
+                        }
+                        if (fileLock != null && fileLock.isValid()) {
+                            try {
+                                fileLock.release();
+                            } catch (IOException unused6) {
                             }
-                            if (randomAccessFile != null) {
-                                try {
-                                    randomAccessFile.close();
-                                } catch (IOException e9) {
-                                    Log.e(this.f40246b, "", e9);
-                                }
+                        }
+                        if (randomAccessFile != null) {
+                            try {
+                                randomAccessFile.close();
+                            } catch (IOException unused7) {
                             }
-                            throw th;
                         }
+                        throw th;
                     }
-                    bufferedWriter2.flush();
-                    bufferedWriter2.close();
-                    File file3 = new File(file, "log1.txt");
-                    if (file3.length() >= 1048576) {
-                        File file4 = new File(file, "log0.txt");
-                        if (file4.exists() && file4.isFile()) {
-                            file4.delete();
-                        }
-                        file3.renameTo(file4);
-                    }
-                    if (0 != 0) {
-                        try {
-                            bufferedWriter.close();
-                        } catch (IOException e10) {
-                            Log.e(this.f40246b, "", e10);
-                        }
-                    }
-                    if (fileLock != null && fileLock.isValid()) {
-                        try {
-                            fileLock.release();
-                        } catch (IOException e11) {
-                            Log.e(this.f40246b, "", e11);
-                        }
-                    }
-                    randomAccessFile.close();
-                } catch (Exception e12) {
-                    e = e12;
                 }
-            } catch (Exception e13) {
-                e = e13;
-                fileLock = null;
-            } catch (Throwable th4) {
-                th = th4;
-                fileLock = null;
+                bufferedWriter2.flush();
+                bufferedWriter2.close();
+                File file3 = new File(file, "log1.txt");
+                if (file3.length() >= 1048576) {
+                    File file4 = new File(file, "log0.txt");
+                    if (file4.exists() && file4.isFile()) {
+                        file4.delete();
+                    }
+                    file3.renameTo(file4);
+                }
+                if (0 != 0) {
+                    try {
+                        bufferedWriter.close();
+                    } catch (IOException unused8) {
+                    }
+                }
+                if (fileLock != null && fileLock.isValid()) {
+                    try {
+                        fileLock.release();
+                    } catch (IOException unused9) {
+                    }
+                }
+            } catch (Exception unused10) {
+            } catch (Throwable th3) {
+                th = th3;
             }
+        } catch (Exception unused11) {
+            fileLock = null;
+        } catch (Throwable th4) {
+            th = th4;
+            fileLock = null;
+        }
+        try {
+            randomAccessFile.close();
+        } catch (IOException unused12) {
         }
     }
 
@@ -250,7 +235,7 @@ public class df implements LoggerInterface {
     public final void log(String str, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, th) == null) {
-            this.f234a.post(new dg(this, str, th));
+            this.f238a.post(new dg(this, str, th));
         }
     }
 
@@ -258,7 +243,7 @@ public class df implements LoggerInterface {
     public final void setTag(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f40246b = str;
+            this.f77098b = str;
         }
     }
 }

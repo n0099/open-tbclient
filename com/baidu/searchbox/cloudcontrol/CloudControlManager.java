@@ -1,7 +1,6 @@
 package com.baidu.searchbox.cloudcontrol;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.sp.SharedPrefsWrapper;
@@ -25,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class CloudControlManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SP_CLOUDCONTROL = "cloudControlCCS117";
@@ -125,7 +124,7 @@ public class CloudControlManager {
                 return parseConnectResponse != null;
             } catch (JSONException e2) {
                 if (AppConfig.isDebug()) {
-                    Log.d(TAG, "connect response parse is error" + e2.toString());
+                    String str2 = "connect response parse is error" + e2.toString();
                 }
                 return false;
             }
@@ -144,7 +143,7 @@ public class CloudControlManager {
                 jSONObject = new JSONObject(this.mSharedPrefsWrapper.getString(CloudControlConstant.SP_KEY_DEGRADE_LIST, ""));
             } catch (JSONException e2) {
                 if (AppConfig.isDebug()) {
-                    Log.d(TAG, "drage is not json  " + e2.toString());
+                    String str2 = "drage is not json  " + e2.toString();
                 }
                 jSONObject = null;
             }
@@ -300,7 +299,7 @@ public class CloudControlManager {
                     jSONObject = new JSONObject(this.mSharedPrefsWrapper.getString(CloudControlConstant.SP_KEY_DEGRADE_LIST, ""));
                 } catch (JSONException e2) {
                     if (AppConfig.isDebug()) {
-                        Log.d(TAG, "drage is not json  " + e2.toString());
+                        String str4 = "drage is not json  " + e2.toString();
                     }
                     jSONObject = null;
                 }

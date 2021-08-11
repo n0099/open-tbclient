@@ -26,7 +26,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class TaskDataSqLiteCacheManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_CACHE_DAY;

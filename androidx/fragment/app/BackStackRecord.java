@@ -1,6 +1,5 @@
 package androidx.fragment.app;
 
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.util.LogWriter;
@@ -70,7 +69,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && this.mAddToBackStack) {
             if (FragmentManager.isLoggingEnabled(2)) {
-                Log.v("FragmentManager", "Bump nesting in " + this + " by " + i2);
+                String str = "Bump nesting in " + this + " by " + i2;
             }
             int size = this.mOps.size();
             for (int i3 = 0; i3 < size; i3++) {
@@ -78,7 +77,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                 if (fragment != null) {
                     fragment.mBackStackNesting += i2;
                     if (FragmentManager.isLoggingEnabled(2)) {
-                        Log.v("FragmentManager", "Bump nesting of " + op.mFragment + " to " + op.mFragment.mBackStackNesting);
+                        String str2 = "Bump nesting of " + op.mFragment + " to " + op.mFragment.mBackStackNesting;
                     }
                 }
             }
@@ -105,7 +104,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
             if (!this.mCommitted) {
                 if (FragmentManager.isLoggingEnabled(2)) {
-                    Log.v("FragmentManager", "Commit: " + this);
+                    String str = "Commit: " + this;
                     PrintWriter printWriter = new PrintWriter(new LogWriter("FragmentManager"));
                     dump(GlideException.IndentedAppendable.INDENT, printWriter);
                     printWriter.close();
@@ -372,7 +371,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, arrayList, arrayList2)) == null) {
             if (FragmentManager.isLoggingEnabled(2)) {
-                Log.v("FragmentManager", "Run: " + this);
+                String str = "Run: " + this;
             }
             arrayList.add(this);
             arrayList2.add(Boolean.FALSE);

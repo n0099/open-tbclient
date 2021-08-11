@@ -16,7 +16,7 @@ import java.io.FileFilter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class DeviceInfoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -156,15 +156,15 @@ public final class DeviceInfoUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             SharedPreferences sharedPreferences = context.getSharedPreferences(SF_FILENAME, 0);
-            long j = sharedPreferences.getLong(SF_KEY_CPU_FREQ, -1L);
-            if (j == -1) {
+            long j2 = sharedPreferences.getLong(SF_KEY_CPU_FREQ, -1L);
+            if (j2 == -1) {
                 long cpuFreq = getCpuFreq();
                 SharedPreferences.Editor edit = sharedPreferences.edit();
                 edit.putLong(SF_KEY_CPU_FREQ, cpuFreq);
                 edit.commit();
                 return cpuFreq;
             }
-            return j;
+            return j2;
         }
         return invokeL.longValue;
     }

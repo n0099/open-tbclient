@@ -9,14 +9,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.statusbar.ImmersiveStatusBarManager;
-import com.baidu.apollon.statusbar.StatusBarUtils;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+import com.dxmpay.apollon.statusbar.ImmersiveStatusBarManager;
+import com.dxmpay.apollon.statusbar.StatusBarUtils;
+import com.dxmpay.apollon.utils.ResUtils;
+/* loaded from: classes4.dex */
 public class TitleBar extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

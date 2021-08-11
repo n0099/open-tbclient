@@ -1,5 +1,6 @@
 package com.baidu.tieba.videoplay.data;
 
+import c.a.o0.s.q.c2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tieba.video.VideoItemData;
@@ -8,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.q.b2;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class VideoAttentionPersonListData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,9 +73,9 @@ public class VideoAttentionPersonListData implements Serializable {
         }
         for (int i2 = 0; i2 < list.size(); i2++) {
             VideoItemData videoItemData = new VideoItemData();
-            b2 b2Var = new b2();
-            b2Var.K2(list.get(i2));
-            videoItemData.parseProto(b2Var);
+            c2 c2Var = new c2();
+            c2Var.S2(list.get(i2));
+            videoItemData.parseProto(c2Var);
             this.mVideoItemDatas.add(videoItemData);
         }
         this.mUserData.parserProtobuf(user);

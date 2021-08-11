@@ -22,7 +22,7 @@ import com.huawei.hms.support.hwid.request.HuaweiIdAuthParams;
 import com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper;
 import com.huawei.hms.support.hwid.result.AuthHuaweiId;
 import com.huawei.hms.support.hwid.service.HuaweiIdAuthService;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class GlorySSOLoginActivity extends BaseSSOLoginActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String p;
@@ -65,15 +65,15 @@ public class GlorySSOLoginActivity extends BaseSSOLoginActivity {
     private void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65538, this, i2, str) == null) {
-            if (((BaseSSOLoginActivity) this).f9926g == 2001) {
+            if (((BaseSSOLoginActivity) this).f44588g == 2001) {
                 Intent intent = new Intent();
                 intent.putExtra("result_code", i2);
                 intent.putExtra(AbstractThirdPartyService.EXTRA_RESULT_MSG, str);
                 setResult(1002, intent);
             } else if (CoreViewRouter.getInstance().getWebAuthListener() != null) {
-                ((BaseSSOLoginActivity) this).f9927h.setResultCode(i2);
-                ((BaseSSOLoginActivity) this).f9927h.setResultMsg(str);
-                CoreViewRouter.getInstance().getWebAuthListener().onFailure(((BaseSSOLoginActivity) this).f9927h);
+                ((BaseSSOLoginActivity) this).f44589h.setResultCode(i2);
+                ((BaseSSOLoginActivity) this).f44589h.setResultMsg(str);
+                CoreViewRouter.getInstance().getWebAuthListener().onFailure(((BaseSSOLoginActivity) this).f44589h);
                 CoreViewRouter.getInstance().release();
             }
             finish();
@@ -84,7 +84,7 @@ public class GlorySSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                a(-204, getString(d.a.c0.a.j.a.sapi_sdk_third_error_glory));
+                a(-204, getString(c.a.b0.a.j.a.sapi_sdk_third_error_glory));
                 return;
             }
             SapiWebView sapiWebView = this.sapiWebView;
@@ -122,12 +122,12 @@ public class GlorySSOLoginActivity extends BaseSSOLoginActivity {
                         b(authHuaweiId.getAuthorizationCode());
                         return;
                     }
-                    a(-202, getString(d.a.c0.a.j.a.sapi_sdk_glory_login_fail));
+                    a(-202, getString(c.a.b0.a.j.a.sapi_sdk_glory_login_fail));
                     String str2 = p;
                     Log.i(str2, "signIn get code failed: " + parseAuthResultFromIntent.getException().getStatusCode());
                     return;
                 }
-                a(-202, getString(d.a.c0.a.j.a.sapi_sdk_third_error_glory));
+                a(-202, getString(c.a.b0.a.j.a.sapi_sdk_third_error_glory));
                 return;
             }
             Task parseAuthResultFromIntent2 = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
@@ -140,7 +140,7 @@ public class GlorySSOLoginActivity extends BaseSSOLoginActivity {
                 b(authHuaweiId2.getAccessToken());
                 return;
             }
-            a(-202, getString(d.a.c0.a.j.a.sapi_sdk_glory_login_fail));
+            a(-202, getString(c.a.b0.a.j.a.sapi_sdk_glory_login_fail));
             String str5 = p;
             Log.i(str5, "signIn failed: " + parseAuthResultFromIntent2.getException().getStatusCode());
         }
@@ -160,7 +160,7 @@ public class GlorySSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(d.a.c0.a.j.a.sapi_sdk_title_login_glory);
+            setTitleText(c.a.b0.a.j.a.sapi_sdk_title_login_glory);
             d();
         }
     }

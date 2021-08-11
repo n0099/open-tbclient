@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.al;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class am extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ al f40115a;
+    public final /* synthetic */ al f76966a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public am(al alVar, Looper looper) {
@@ -34,7 +34,7 @@ public class am extends Handler {
                 return;
             }
         }
-        this.f40115a = alVar;
+        this.f76966a = alVar;
     }
 
     @Override // android.os.Handler
@@ -46,7 +46,7 @@ public class am extends Handler {
             if (i2 == 0) {
                 bVar.a();
             } else if (i2 == 1) {
-                bVar.mo242c();
+                bVar.mo245c();
             }
             super.handleMessage(message);
         }

@@ -5,6 +5,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import c.a.o0.s.q.c2;
+import c.a.o0.s.u.c;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
@@ -17,24 +20,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.q.b2;
-import d.a.p0.s.u.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FakeVideoContainer extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f20430e;
+    public TbImageView f55805e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f20431f;
+    public View f55806f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f20432g;
+    public ImageView f55807g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EMTextView f20433h;
+    public EMTextView f55808h;
+    public View.OnClickListener mAfterClickListener;
+    public Context mContext;
+    public View.OnClickListener mJumpToPbListener;
+    public BdUniqueId mUniqueId;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FakeVideoContainer(Context context) {
@@ -54,24 +59,26 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
                 return;
             }
         }
-        a();
+        this.mAfterClickListener = null;
+        this.mJumpToPbListener = null;
+        init();
     }
 
-    public void a() {
+    public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             RelativeLayout.inflate(getContext(), R.layout.fake_video_container, this);
-            this.f20430e = (TbImageView) findViewById(R.id.video_thumbnail);
-            this.f20431f = findViewById(R.id.black_mask);
-            this.f20432g = (ImageView) findViewById(R.id.video_play);
-            this.f20433h = (EMTextView) findViewById(R.id.fake_video_info);
-            this.f20432g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
-            c d2 = c.d(this.f20433h);
+            this.f55805e = (TbImageView) findViewById(R.id.video_thumbnail);
+            this.f55806f = findViewById(R.id.black_mask);
+            this.f55807g = (ImageView) findViewById(R.id.video_play);
+            this.f55808h = (EMTextView) findViewById(R.id.fake_video_info);
+            this.f55807g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
+            c d2 = c.d(this.f55808h);
             d2.t(R.color.CAM_X0101);
             d2.y(R.string.F_X01);
-            this.f20430e.s();
-            this.f20430e.setDrawCorner(false);
-            this.f20430e.setPlaceHolder(3);
+            this.f55805e.clearCornerFlag();
+            this.f55805e.setDrawCorner(false);
+            this.f55805e.setPlaceHolder(3);
             setOnClickListener(this);
         }
     }
@@ -84,17 +91,17 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
         }
     }
 
-    public void setData(b2 b2Var) {
+    public void setData(c2 c2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b2Var) == null) || b2Var == null || b2Var.m1() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c2Var) == null) || c2Var == null || c2Var.o1() == null) {
             return;
         }
-        b2Var.m1().is_vertical.intValue();
-        this.f20430e.setPlaceHolder(3);
-        if (!b2Var.m1().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !b2Var.m1().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
-            this.f20430e.M(b2Var.m1().thumbnail_url, 32, false);
+        c2Var.o1().is_vertical.intValue();
+        this.f55805e.setPlaceHolder(3);
+        if (!c2Var.o1().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !c2Var.o1().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
+            this.f55805e.startLoad(c2Var.o1().thumbnail_url, 32, false);
         } else {
-            this.f20430e.M(b2Var.m1().thumbnail_url, 10, false);
+            this.f55805e.startLoad(c2Var.o1().thumbnail_url, 10, false);
         }
     }
 
@@ -117,7 +124,9 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
                 return;
             }
         }
-        a();
+        this.mAfterClickListener = null;
+        this.mJumpToPbListener = null;
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -139,6 +148,32 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
                 return;
             }
         }
-        a();
+        this.mAfterClickListener = null;
+        this.mJumpToPbListener = null;
+        init();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public FakeVideoContainer(Context context, AttributeSet attributeSet, int i2, int i3) {
+        super(context, attributeSet, i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.mAfterClickListener = null;
+        this.mJumpToPbListener = null;
+        init();
     }
 }

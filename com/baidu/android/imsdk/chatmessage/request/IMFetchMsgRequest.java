@@ -36,7 +36,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMFetchMsgRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMFetchMsgRequest";
@@ -51,12 +51,12 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
     public String mKey;
     public long mUk;
 
-    public IMFetchMsgRequest(Context context, String str, long j, long j2, long j3, int i2, int i3, long j4, long j5, boolean z) {
+    public IMFetchMsgRequest(Context context, String str, long j2, long j3, long j4, int i2, int i3, long j5, long j6, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r4;
-            Object[] objArr = {context, str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j4), Long.valueOf(j5), Boolean.valueOf(z)};
+            Object[] objArr = {context, str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j5), Long.valueOf(j6), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -67,13 +67,13 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mAppid = Long.valueOf(j);
-        this.mUk = j2;
-        this.mContacter = j3;
+        this.mAppid = Long.valueOf(j2);
+        this.mUk = j3;
+        this.mContacter = j4;
         this.mCategory = i2;
         this.mCount = i3;
-        this.mBeginid = j4;
-        this.mEndid = j5;
+        this.mBeginid = j5;
+        this.mEndid = j6;
         this.mKey = str;
         this.mIsReliable = z;
     }
@@ -181,8 +181,8 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00f8  */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x011d  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00f9  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x011e  */
     /* JADX WARN: Type inference failed for: r6v1, types: [T, java.lang.Long] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*

@@ -51,7 +51,7 @@ import java.util.Properties;
 import java.util.TimeZone;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class JSON implements JSONStreamAware, JSONAware {
     public static /* synthetic */ Interceptable $ic = null;
     public static int DEFAULT_GENERATE_FEATURE = 0;

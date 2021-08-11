@@ -10,18 +10,18 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f10289a = -1;
+    public static int f44967a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ThreadLocal<StringBuilder> f10290b;
+    public static ThreadLocal<StringBuilder> f44968b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f10291c;
+    public static int f44969c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public final class b {
                 return;
             }
         }
-        f10290b = new ThreadLocal<>();
+        f44968b = new ThreadLocal<>();
     }
 
     public static String a(Throwable th) {

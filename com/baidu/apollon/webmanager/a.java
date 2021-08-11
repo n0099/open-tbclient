@@ -1,11 +1,11 @@
 package com.baidu.apollon.webmanager;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebBackForwardList;
@@ -18,6 +18,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.ApollonConstants;
 import com.baidu.apollon.base.ApollonBaseActivity;
 import com.baidu.apollon.eventbus.EventBus;
+import com.baidu.apollon.utils.DxmApplicationContextImpl;
 import com.baidu.apollon.utils.NetworkUtils;
 import com.baidu.apollon.webmanager.SafeWebView;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -29,38 +30,40 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f4197a = "AbstractWebViewPage";
+    public static final String f38127a = "AbstractWebViewPage";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f4198b;
+    public static final boolean f38128b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f4199c = "appcache";
+    public static final String f38129c = "appcache";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f4200d = "databases";
+    public static final String f38130d = "databases";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f4201e = "geolocation";
+    public static final String f38131e = "geolocation";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f4202f = "page load success";
+    public static final String f38132f = "page load success";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f4203g = "page load failure";
+    public static final String f38133g = "page load failure";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final View f4204h;
+    public final View f38134h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final View f4205i;
-    public ViewGroup j;
+    public final View f38135i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public ViewGroup f38136j;
     public SafeWebView k;
     public boolean l;
     public int m;
@@ -82,7 +85,7 @@ public class a {
                 return;
             }
         }
-        f4198b = ApollonConstants.DEBUG & false;
+        f38128b = ApollonConstants.DEBUG & false;
     }
 
     public a(ApollonBaseActivity apollonBaseActivity, ViewGroup viewGroup, View view, View view2, int i2) {
@@ -100,19 +103,19 @@ public class a {
                 return;
             }
         }
-        this.j = null;
+        this.f38136j = null;
         this.l = false;
         this.m = 0;
         this.n = "";
         this.o = null;
         this.p = false;
         this.o = apollonBaseActivity;
-        this.j = viewGroup;
-        this.f4204h = view;
-        this.f4205i = view2;
+        this.f38136j = viewGroup;
+        this.f38134h = view;
+        this.f38135i = view2;
         this.l = false;
         this.m = i2;
-        String[] strArr = {f4202f, f4203g};
+        String[] strArr = {f38132f, f38133g};
         EventBus eventBus = EventBus.getInstance();
         this.q = eventBus;
         eventBus.register(this, strArr, 0, EventBus.ThreadMode.MainThread);
@@ -123,17 +126,17 @@ public class a {
         View view;
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65554, this) == null) || (view = this.f4204h) == null || (viewGroup = (ViewGroup) view.getParent()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65554, this) == null) || (view = this.f38134h) == null || (viewGroup = (ViewGroup) view.getParent()) == null) {
             return;
         }
-        viewGroup.removeView(this.f4204h);
+        viewGroup.removeView(this.f38134h);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65555, this) == null) || (view = this.f4205i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65555, this) == null) || (view = this.f38135i) == null) {
             return;
         }
         view.setVisibility(8);
@@ -144,16 +147,16 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
             j();
-            View view = this.f4205i;
+            View view = this.f38135i;
             if (view != null) {
                 ViewGroup viewGroup = (ViewGroup) view.getParent();
                 if (viewGroup != null) {
-                    viewGroup.removeView(this.f4205i);
+                    viewGroup.removeView(this.f38135i);
                 }
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                 layoutParams.addRule(13);
-                this.j.addView(this.f4205i, layoutParams);
-                this.f4205i.setVisibility(0);
+                this.f38136j.addView(this.f38135i, layoutParams);
+                this.f38135i.setVisibility(0);
             }
         }
     }
@@ -164,180 +167,182 @@ public class a {
         if (interceptable == null || interceptable.invokeV(65557, this) == null) {
             EventBus eventBus = this.q;
             eventBus.getClass();
-            eventBus.post(new EventBus.Event(eventBus, f4202f, null));
+            eventBus.post(new EventBus.Event(eventBus, f38132f, null));
         }
     }
 
     private void n() {
+        Context applicationContext;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65558, this) == null) {
-            this.k = new SafeWebView(this.o.getApplicationContext());
-            if (this.l) {
-                File file = new File(this.o.getApplicationContext().getCacheDir(), "webviewCacheChromium");
-                if (!file.exists()) {
-                    file = new File(this.o.getApplicationContext().getCacheDir(), "webviewCache");
-                }
-                if (file.exists()) {
-                    if (NetworkUtils.isNetworkConnected(this.o.getApplicationContext())) {
-                        this.k.getSettings().setCacheMode(-1);
-                    } else {
-                        this.k.getSettings().setCacheMode(1);
-                    }
+        if (!(interceptable == null || interceptable.invokeV(65558, this) == null) || (applicationContext = DxmApplicationContextImpl.getApplicationContext(this.o)) == null) {
+            return;
+        }
+        this.k = new SafeWebView(applicationContext);
+        if (this.l) {
+            File file = new File(applicationContext.getCacheDir(), "webviewCacheChromium");
+            if (!file.exists()) {
+                file = new File(applicationContext.getCacheDir(), "webviewCache");
+            }
+            if (file.exists()) {
+                if (NetworkUtils.isNetworkConnected(applicationContext)) {
+                    this.k.getSettings().setCacheMode(-1);
                 } else {
                     this.k.getSettings().setCacheMode(1);
                 }
+            } else {
+                this.k.getSettings().setCacheMode(1);
             }
-            this.k.setScrollBarStyle(0);
-            this.k.getSettings().setBlockNetworkImage(true);
-            this.k.setLongClickable(true);
-            a(this.k);
-            this.k.setWebViewClient(new SafeWebView.SafeWebViewClient(this) { // from class: com.baidu.apollon.webmanager.a.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f4206a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f4206a = this;
-                }
-
-                @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
-                public void onLoadResource(WebView webView, String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
-                        super.onLoadResource(webView, str);
-                        if (a.f4198b) {
-                            Log.d(a.f4197a, "onLoadResource is called, url is " + str);
-                        }
-                    }
-                }
-
-                @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
-                public void onPageFinished(WebView webView, String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
-                        if (a.f4198b) {
-                            Log.d(a.f4197a, "onPageFinished, url is " + str + " original url is " + webView.getOriginalUrl());
-                        }
-                        super.onPageFinished(webView, str);
-                        Object tag = webView.getTag(this.f4206a.m);
-                        int intValue = tag == null ? 0 : ((Integer) tag).intValue();
-                        if (a.f4198b) {
-                            Log.d(a.f4197a, "onPageFinished errorTagCode is " + intValue);
-                        }
-                        if (TextUtils.equals(str, this.f4206a.n) || TextUtils.equals(webView.getOriginalUrl(), this.f4206a.n) || (str != null && str.contains(this.f4206a.n))) {
-                            if (intValue == 0) {
-                                this.f4206a.m();
-                            } else {
-                                this.f4206a.b(intValue);
-                            }
-                        }
-                        this.f4206a.k();
-                        this.f4206a.k.getSettings().setBlockNetworkImage(false);
-                    }
-                }
-
-                @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
-                public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
-                        super.onPageStarted(webView, str, bitmap);
-                        if (a.f4198b) {
-                            Log.d(a.f4197a, "onPageStarted is called, url is " + str);
-                        }
-                        if (this.f4206a.p) {
-                            this.f4206a.k.getSettings().setBlockNetworkImage(true);
-                            if (Build.VERSION.SDK_INT >= 16) {
-                                this.f4206a.k.clearView();
-                            }
-                        }
-                        this.f4206a.p = false;
-                        this.f4206a.n = str;
-                        WebBackForwardList copyBackForwardList = webView.copyBackForwardList();
-                        if (this.f4206a.f4204h == null || this.f4206a.f4204h.getVisibility() != 0) {
-                            if (copyBackForwardList == null || copyBackForwardList.getCurrentIndex() == copyBackForwardList.getSize() - 1) {
-                                this.f4206a.l();
-                            }
-                        }
-                    }
-                }
-
-                @Override // android.webkit.WebViewClient
-                public void onReceivedError(WebView webView, int i2, String str, String str2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLILL(1048579, this, webView, i2, str, str2) == null) {
-                        if (a.f4198b) {
-                            Log.d(a.f4197a, "onReceivedError is called, errorCode is  " + i2 + " failingUrl is " + str2);
-                        }
-                        webView.setTag(this.f4206a.m, Integer.valueOf(i2));
-                    }
-                }
-
-                @Override // android.webkit.WebViewClient
-                public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-                    InterceptResult invokeLL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048580, this, webView, str)) == null) {
-                        if (a.f4198b) {
-                            Log.d(a.f4197a, "shouldOverrideUrlLoading, url is " + str);
-                        }
-                        this.f4206a.p = true;
-                        this.f4206a.n = str;
-                        this.f4206a.l();
-                        return false;
-                    }
-                    return invokeLL.booleanValue;
-                }
-            });
-            this.k.setWebChromeClient(new SafeWebView.SafeChromeClient(this) { // from class: com.baidu.apollon.webmanager.a.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f4207a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f4207a = this;
-                }
-
-                @Override // android.webkit.WebChromeClient
-                public void onReachedMaxAppCacheSize(long j, long j2, WebStorage.QuotaUpdater quotaUpdater) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), quotaUpdater}) == null) {
-                        quotaUpdater.updateQuota(j * 2);
-                    }
-                }
-            });
         }
+        this.k.setScrollBarStyle(0);
+        this.k.getSettings().setBlockNetworkImage(true);
+        this.k.setLongClickable(true);
+        a(this.k);
+        this.k.setWebViewClient(new SafeWebView.SafeWebViewClient(this) { // from class: com.baidu.apollon.webmanager.a.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ a f38137a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f38137a = this;
+            }
+
+            @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
+            public void onLoadResource(WebView webView, String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
+                    super.onLoadResource(webView, str);
+                    if (a.f38128b) {
+                        String str2 = "onLoadResource is called, url is " + str;
+                    }
+                }
+            }
+
+            @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
+            public void onPageFinished(WebView webView, String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
+                    if (a.f38128b) {
+                        String str2 = "onPageFinished, url is " + str + " original url is " + webView.getOriginalUrl();
+                    }
+                    super.onPageFinished(webView, str);
+                    Object tag = webView.getTag(this.f38137a.m);
+                    int intValue = tag == null ? 0 : ((Integer) tag).intValue();
+                    if (a.f38128b) {
+                        String str3 = "onPageFinished errorTagCode is " + intValue;
+                    }
+                    if (TextUtils.equals(str, this.f38137a.n) || TextUtils.equals(webView.getOriginalUrl(), this.f38137a.n) || (str != null && str.contains(this.f38137a.n))) {
+                        if (intValue == 0) {
+                            this.f38137a.m();
+                        } else {
+                            this.f38137a.b(intValue);
+                        }
+                    }
+                    this.f38137a.k();
+                    this.f38137a.k.getSettings().setBlockNetworkImage(false);
+                }
+            }
+
+            @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
+            public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
+                    super.onPageStarted(webView, str, bitmap);
+                    if (a.f38128b) {
+                        String str2 = "onPageStarted is called, url is " + str;
+                    }
+                    if (this.f38137a.p) {
+                        this.f38137a.k.getSettings().setBlockNetworkImage(true);
+                        if (Build.VERSION.SDK_INT >= 16) {
+                            this.f38137a.k.clearView();
+                        }
+                    }
+                    this.f38137a.p = false;
+                    this.f38137a.n = str;
+                    WebBackForwardList copyBackForwardList = webView.copyBackForwardList();
+                    if (this.f38137a.f38134h == null || this.f38137a.f38134h.getVisibility() != 0) {
+                        if (copyBackForwardList == null || copyBackForwardList.getCurrentIndex() == copyBackForwardList.getSize() - 1) {
+                            this.f38137a.l();
+                        }
+                    }
+                }
+            }
+
+            @Override // android.webkit.WebViewClient
+            public void onReceivedError(WebView webView, int i2, String str, String str2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLILL(1048579, this, webView, i2, str, str2) == null) {
+                    if (a.f38128b) {
+                        String str3 = "onReceivedError is called, errorCode is  " + i2 + " failingUrl is " + str2;
+                    }
+                    webView.setTag(this.f38137a.m, Integer.valueOf(i2));
+                }
+            }
+
+            @Override // android.webkit.WebViewClient
+            public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+                InterceptResult invokeLL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048580, this, webView, str)) == null) {
+                    if (a.f38128b) {
+                        String str2 = "shouldOverrideUrlLoading, url is " + str;
+                    }
+                    this.f38137a.p = true;
+                    this.f38137a.n = str;
+                    this.f38137a.l();
+                    return false;
+                }
+                return invokeLL.booleanValue;
+            }
+        });
+        this.k.setWebChromeClient(new SafeWebView.SafeChromeClient(this) { // from class: com.baidu.apollon.webmanager.a.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ a f38138a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f38138a = this;
+            }
+
+            @Override // android.webkit.WebChromeClient
+            public void onReachedMaxAppCacheSize(long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+                    quotaUpdater.updateQuota(j2 * 2);
+                }
+            }
+        });
     }
 
     public void b() {
@@ -398,8 +403,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             String str = Uri.parse(this.n).getScheme() + "://" + Uri.parse(this.n).getHost();
-            if (f4198b) {
-                Log.d(f4197a, "delOrigin is " + str);
+            if (f38128b) {
+                String str2 = "delOrigin is " + str;
             }
             if (TextUtils.isEmpty(str)) {
                 return;
@@ -413,8 +418,8 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        if (f4198b) {
-            Log.d(f4197a, "delOrigin is " + str);
+        if (f38128b) {
+            String str2 = "delOrigin is " + str;
         }
         WebStorage.getInstance().deleteOrigin(str);
     }
@@ -441,18 +446,18 @@ public class a {
         if (interceptable == null || interceptable.invokeI(65545, this, i2) == null) {
             EventBus eventBus = this.q;
             eventBus.getClass();
-            eventBus.post(new EventBus.Event(eventBus, f4203g, Integer.valueOf(i2)));
+            eventBus.post(new EventBus.Event(eventBus, f38133g, Integer.valueOf(i2)));
         }
     }
 
     public void a(EventBus.Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
-            if (event.mEventKey.equals(f4202f)) {
+            if (event.mEventKey.equals(f38132f)) {
                 j();
                 k();
                 this.k.setVisibility(0);
-            } else if (event.mEventKey.equals(f4203g)) {
+            } else if (event.mEventKey.equals(f38133g)) {
                 a(((Integer) event.mEventObj).intValue());
                 this.k.setVisibility(8);
             }
@@ -474,16 +479,16 @@ public class a {
                 return;
             }
         }
-        this.j = null;
+        this.f38136j = null;
         this.l = false;
         this.m = 0;
         this.n = "";
         this.o = null;
         this.p = false;
         this.o = apollonBaseActivity;
-        this.j = viewGroup;
-        this.f4204h = view;
-        this.f4205i = view2;
+        this.f38136j = viewGroup;
+        this.f38134h = view;
+        this.f38135i = view2;
         this.l = z;
         this.m = i2;
         n();
@@ -497,39 +502,41 @@ public class a {
                 return;
             }
             k();
-            View view = this.f4204h;
+            View view = this.f38134h;
             if (view != null) {
                 ViewGroup viewGroup = (ViewGroup) view.getParent();
                 if (viewGroup != null) {
-                    viewGroup.removeView(this.f4204h);
+                    viewGroup.removeView(this.f38134h);
                 }
-                this.j.addView(this.f4204h, this.j.getLayoutParams());
-                this.f4204h.setVisibility(0);
+                this.f38136j.addView(this.f38134h, this.f38136j.getLayoutParams());
+                this.f38134h.setVisibility(0);
             }
         }
     }
 
     private void a(SafeWebView safeWebView) {
+        Context applicationContext;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, safeWebView) == null) {
-            WebSettings settings = safeWebView.getSettings();
-            if (this.l) {
-                settings.setDomStorageEnabled(true);
-                settings.setDatabaseEnabled(true);
-                settings.setDomStorageEnabled(true);
-                settings.setGeolocationEnabled(true);
-                settings.setDatabasePath(this.o.getApplicationContext().getDir("databases", 0).getPath());
-                if (this.l) {
-                    settings.setAppCacheEnabled(true);
-                    settings.setAppCachePath(this.o.getApplicationContext().getDir("appcache", 0).getPath());
-                }
-            }
-            settings.setGeolocationDatabasePath(this.o.getApplicationContext().getDir("geolocation", 0).getPath());
-            settings.setNeedInitialFocus(false);
-            settings.setBuiltInZoomControls(true);
-            settings.setSupportZoom(true);
-            settings.setLoadWithOverviewMode(true);
-            settings.setUseWideViewPort(true);
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, safeWebView) == null) || (applicationContext = DxmApplicationContextImpl.getApplicationContext(this.o)) == null) {
+            return;
         }
+        WebSettings settings = safeWebView.getSettings();
+        if (this.l) {
+            settings.setDomStorageEnabled(true);
+            settings.setDatabaseEnabled(true);
+            settings.setDomStorageEnabled(true);
+            settings.setGeolocationEnabled(true);
+            settings.setDatabasePath(applicationContext.getDir("databases", 0).getPath());
+            if (this.l) {
+                settings.setAppCacheEnabled(true);
+                settings.setAppCachePath(applicationContext.getDir("appcache", 0).getPath());
+            }
+        }
+        settings.setGeolocationDatabasePath(applicationContext.getDir("geolocation", 0).getPath());
+        settings.setNeedInitialFocus(false);
+        settings.setBuiltInZoomControls(true);
+        settings.setSupportZoom(true);
+        settings.setLoadWithOverviewMode(true);
+        settings.setUseWideViewPort(true);
     }
 }

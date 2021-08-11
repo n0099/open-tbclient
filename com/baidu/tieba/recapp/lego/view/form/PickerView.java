@@ -27,30 +27,42 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PickerView extends FormItemBaseView implements View.OnClickListener, DatePickerDialog.OnDateSetListener, TimePicker.OnTimeChangedListener, DialogInterface.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int A;
-    public int B;
-    public int C;
-    public int D;
-    public int E;
-    public String[] F;
-    public String G;
-    public String H;
-    public DialogInterface.OnClickListener I;
-    public TextView x;
-    public ImageView y;
-    public int z;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f56118e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ImageView f56119f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f56120g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f56121h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f56122i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f56123j;
+    public int k;
+    public int l;
+    public String[] m;
+    public String n;
+    public String o;
+    public DialogInterface.OnClickListener p;
+
+    /* loaded from: classes7.dex */
     public class a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PickerView f20704e;
+        public final /* synthetic */ PickerView f56124e;
 
         public a(PickerView pickerView) {
             Interceptable interceptable = $ic;
@@ -67,27 +79,27 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
                     return;
                 }
             }
-            this.f20704e = pickerView;
+            this.f56124e = pickerView;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                PickerView pickerView = this.f20704e;
-                pickerView.H = pickerView.F[i2];
-                this.f20704e.x.setText(this.f20704e.H);
+                PickerView pickerView = this.f56124e;
+                pickerView.o = pickerView.m[i2];
+                this.f56124e.f56118e.setText(this.f56124e.o);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PickerView f20705e;
+        public final /* synthetic */ PickerView f56125e;
 
         public b(PickerView pickerView) {
             Interceptable interceptable = $ic;
@@ -104,20 +116,20 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
                     return;
                 }
             }
-            this.f20705e = pickerView;
+            this.f56125e = pickerView;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                if (!this.f20705e.a()) {
-                    PickerView pickerView = this.f20705e;
-                    pickerView.c(pickerView, FormItemBaseView.DrawableType.ERROR_FRAME);
+                if (!this.f56125e.isPrepareToCommit()) {
+                    PickerView pickerView = this.f56125e;
+                    pickerView.drawBackgroundFrame(pickerView, FormItemBaseView.DrawableType.ERROR_FRAME);
                     return;
                 }
-                PickerView pickerView2 = this.f20705e;
-                pickerView2.c(pickerView2, FormItemBaseView.DrawableType.ORDINARY_FRAME);
+                PickerView pickerView2 = this.f56125e;
+                pickerView2.drawBackgroundFrame(pickerView2, FormItemBaseView.DrawableType.ORDINARY_FRAME);
             }
         }
     }
@@ -140,183 +152,95 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
                 return;
             }
         }
-        this.x = null;
-        this.y = null;
-        this.z = -1;
-        this.A = 0;
-        this.B = 0;
-        this.C = 0;
-        this.D = 0;
-        this.E = 0;
-        this.F = null;
-        this.G = "";
-        this.H = "";
-        this.I = new a(this);
-        l();
-    }
-
-    @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.d
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.H) : invokeV.booleanValue;
+        this.f56118e = null;
+        this.f56119f = null;
+        this.f56120g = -1;
+        this.f56121h = 0;
+        this.f56122i = 0;
+        this.f56123j = 0;
+        this.k = 0;
+        this.l = 0;
+        this.m = null;
+        this.n = "";
+        this.o = "";
+        this.p = new a(this);
+        f();
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
-    public int b() {
+    public int compoundHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mSize80 : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
-    public void e() {
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            h();
+            g();
+            setOnClickListener(this);
+            drawBackgroundFrame(this, FormItemBaseView.DrawableType.ORDINARY_FRAME);
+        }
+    }
+
+    public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.H = "";
+            Drawable drawable = this.mResources.getDrawable(R.drawable.form_picker_arrow);
+            ImageView imageView = new ImageView(this.mContext);
+            this.f56119f = imageView;
+            imageView.setBackgroundDrawable(drawable);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams.addRule(11);
+            layoutParams.addRule(15);
+            addView(this.f56119f, layoutParams);
         }
-    }
-
-    @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
-    public boolean g(FormCard.b bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
-            if (super.g(bVar)) {
-                FormCard.e eVar = (FormCard.e) bVar;
-                this.z = eVar.f20619a;
-                String str = eVar.f20620b;
-                this.G = str;
-                this.x.setText(str);
-                this.x.setTextSize(0, this.n);
-                ((ViewGroup.MarginLayoutParams) this.x.getLayoutParams()).leftMargin = this.f20700g;
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.y.getLayoutParams();
-                int i2 = this.f20700g;
-                marginLayoutParams.width = i2;
-                marginLayoutParams.rightMargin = i2;
-                int i3 = this.z;
-                if (i3 == 6) {
-                    String[] strArr = eVar.f20626d;
-                    if (strArr == null || strArr.length <= 0) {
-                        return false;
-                    }
-                    this.F = strArr;
-                } else if (i3 == 7) {
-                    Calendar calendar = Calendar.getInstance();
-                    this.A = calendar.get(1);
-                    this.B = calendar.get(2);
-                    this.C = calendar.get(5);
-                } else if (i3 != 8) {
-                    this.A = 0;
-                    this.B = 0;
-                    this.C = 0;
-                    this.E = 0;
-                    this.D = 0;
-                    return false;
-                } else {
-                    Calendar calendar2 = Calendar.getInstance();
-                    this.E = calendar2.get(10);
-                    this.D = calendar2.get(12);
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
     public String getResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.H : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.o : (String) invokeV.objValue;
     }
 
-    public final void l() {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            n();
-            m();
-            setOnClickListener(this);
-            c(this, FormItemBaseView.DrawableType.ORDINARY_FRAME);
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            Drawable drawable = this.f20699f.getDrawable(R.drawable.form_picker_arrow);
-            ImageView imageView = new ImageView(this.f20698e);
-            this.y = imageView;
-            imageView.setBackgroundDrawable(drawable);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.addRule(11);
-            layoutParams.addRule(15);
-            addView(this.y, layoutParams);
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            TextView textView = new TextView(this.f20698e);
-            this.x = textView;
-            textView.setTextSize(0, this.n);
-            this.x.setTextColor(this.m);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            TextView textView = new TextView(this.mContext);
+            this.f56118e = textView;
+            textView.setTextSize(0, this.mFontSize);
+            this.f56118e.setTextColor(this.mHintFontColor);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(15);
             layoutParams.addRule(9);
-            addView(this.x, layoutParams);
+            addView(this.f56118e, layoutParams);
         }
     }
 
-    public final void o(Dialog dialog) {
+    public final void i(Dialog dialog) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dialog) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, dialog) == null) {
             dialog.setOnDismissListener(new b(this));
         }
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i2) {
+    @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView, com.baidu.tieba.recapp.lego.view.form.FormCardView.d
+    public boolean isPrepareToCommit() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048585, this, dialogInterface, i2) == null) && i2 == -1) {
-            if (TextUtils.isEmpty(this.H)) {
-                this.H = p(this.E, this.D);
-            }
-            this.x.setText(this.H);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !TextUtils.isEmpty(this.o) : invokeV.booleanValue;
     }
 
-    @Override // android.app.DatePickerDialog.OnDateSetListener
-    public void onDateSet(DatePicker datePicker, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048587, this, datePicker, i2, i3, i4) == null) {
-            this.A = datePicker.getYear();
-            this.B = datePicker.getMonth();
-            this.C = datePicker.getDayOfMonth();
-            String str = this.A + "-" + (this.B + 1) + "-" + this.C;
-            this.H = str;
-            this.x.setText(str);
-        }
-    }
-
-    @Override // android.widget.TimePicker.OnTimeChangedListener
-    public void onTimeChanged(TimePicker timePicker, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048588, this, timePicker, i2, i3) == null) {
-            this.H = p(i2, i3);
-        }
-    }
-
-    public final String p(int i2, int i3) {
+    public final String j(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048589, this, i2, i3)) == null) {
-            this.E = i2;
-            this.D = i3;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048583, this, i2, i3)) == null) {
+            this.l = i2;
+            this.k = i3;
             String num = Integer.toString(i3);
-            String num2 = Integer.toString(this.E);
+            String num2 = Integer.toString(this.l);
             if (Pattern.matches("\\d", num2)) {
                 num2 = "0" + num2;
             }
@@ -328,31 +252,119 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
         return (String) invokeII.objValue;
     }
 
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, dialogInterface, i2) == null) && i2 == -1) {
+            if (TextUtils.isEmpty(this.o)) {
+                this.o = j(this.l, this.k);
+            }
+            this.f56118e.setText(this.o);
+        }
+    }
+
+    @Override // android.app.DatePickerDialog.OnDateSetListener
+    public void onDateSet(DatePicker datePicker, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048586, this, datePicker, i2, i3, i4) == null) {
+            this.f56121h = datePicker.getYear();
+            this.f56122i = datePicker.getMonth();
+            this.f56123j = datePicker.getDayOfMonth();
+            String str = this.f56121h + "-" + (this.f56122i + 1) + "-" + this.f56123j;
+            this.o = str;
+            this.f56118e.setText(str);
+        }
+    }
+
+    @Override // android.widget.TimePicker.OnTimeChangedListener
+    public void onTimeChanged(TimePicker timePicker, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048587, this, timePicker, i2, i3) == null) {
+            this.o = j(i2, i3);
+        }
+    }
+
+    @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.o = "";
+        }
+    }
+
+    @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
+    public boolean updateView(FormCard.b bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, bVar)) == null) {
+            if (super.updateView(bVar)) {
+                FormCard.e eVar = (FormCard.e) bVar;
+                this.f56120g = eVar.f56008a;
+                String str = eVar.f56009b;
+                this.n = str;
+                this.f56118e.setText(str);
+                this.f56118e.setTextSize(0, this.mFontSize);
+                ((ViewGroup.MarginLayoutParams) this.f56118e.getLayoutParams()).leftMargin = this.mSize20;
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f56119f.getLayoutParams();
+                int i2 = this.mSize20;
+                marginLayoutParams.width = i2;
+                marginLayoutParams.rightMargin = i2;
+                int i3 = this.f56120g;
+                if (i3 == 6) {
+                    String[] strArr = eVar.f56015d;
+                    if (strArr == null || strArr.length <= 0) {
+                        return false;
+                    }
+                    this.m = strArr;
+                } else if (i3 == 7) {
+                    Calendar calendar = Calendar.getInstance();
+                    this.f56121h = calendar.get(1);
+                    this.f56122i = calendar.get(2);
+                    this.f56123j = calendar.get(5);
+                } else if (i3 != 8) {
+                    this.f56121h = 0;
+                    this.f56122i = 0;
+                    this.f56123j = 0;
+                    this.l = 0;
+                    this.k = 0;
+                    return false;
+                } else {
+                    Calendar calendar2 = Calendar.getInstance();
+                    this.l = calendar2.get(10);
+                    this.k = calendar2.get(12);
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, view) == null) {
-            int i2 = this.z;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
+            int i2 = this.f56120g;
             if (i2 == 6) {
-                String[] strArr = this.F;
+                String[] strArr = this.m;
                 if (strArr == null || strArr.length <= 0) {
                     return;
                 }
-                o(new AlertDialog.Builder(this.f20698e).setTitle(this.G).setItems(this.F, this.I).show());
+                i(new AlertDialog.Builder(this.mContext).setTitle(this.n).setItems(this.m, this.p).show());
             } else if (i2 == 7) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(this.f20698e, this, this.A, this.B, this.C);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(this.mContext, this, this.f56121h, this.f56122i, this.f56123j);
                 datePickerDialog.getDatePicker().setDescendantFocusability(393216);
                 datePickerDialog.show();
-                o(datePickerDialog);
+                i(datePickerDialog);
             } else if (i2 != 8) {
             } else {
-                TimePicker timePicker = new TimePicker(this.f20698e);
-                timePicker.setCurrentHour(Integer.valueOf(this.E));
-                timePicker.setCurrentMinute(Integer.valueOf(this.D));
+                TimePicker timePicker = new TimePicker(this.mContext);
+                timePicker.setCurrentHour(Integer.valueOf(this.l));
+                timePicker.setCurrentMinute(Integer.valueOf(this.k));
                 timePicker.setDescendantFocusability(393216);
                 timePicker.setOnTimeChangedListener(this);
                 timePicker.setIs24HourView(Boolean.TRUE);
-                o(new AlertDialog.Builder(this.f20698e).setView(timePicker).setPositiveButton(R.string.dialog_ok, this).setNegativeButton(R.string.dialog_cancel, this).show());
+                i(new AlertDialog.Builder(this.mContext).setView(timePicker).setPositiveButton(R.string.dialog_ok, this).setNegativeButton(R.string.dialog_cancel, this).show());
             }
         }
     }
@@ -376,19 +388,19 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
                 return;
             }
         }
-        this.x = null;
-        this.y = null;
-        this.z = -1;
-        this.A = 0;
-        this.B = 0;
-        this.C = 0;
-        this.D = 0;
-        this.E = 0;
-        this.F = null;
-        this.G = "";
-        this.H = "";
-        this.I = new a(this);
-        l();
+        this.f56118e = null;
+        this.f56119f = null;
+        this.f56120g = -1;
+        this.f56121h = 0;
+        this.f56122i = 0;
+        this.f56123j = 0;
+        this.k = 0;
+        this.l = 0;
+        this.m = null;
+        this.n = "";
+        this.o = "";
+        this.p = new a(this);
+        f();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -410,18 +422,18 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
                 return;
             }
         }
-        this.x = null;
-        this.y = null;
-        this.z = -1;
-        this.A = 0;
-        this.B = 0;
-        this.C = 0;
-        this.D = 0;
-        this.E = 0;
-        this.F = null;
-        this.G = "";
-        this.H = "";
-        this.I = new a(this);
-        l();
+        this.f56118e = null;
+        this.f56119f = null;
+        this.f56120g = -1;
+        this.f56121h = 0;
+        this.f56122i = 0;
+        this.f56123j = 0;
+        this.k = 0;
+        this.l = 0;
+        this.m = null;
+        this.n = "";
+        this.o = "";
+        this.p = new a(this);
+        f();
     }
 }

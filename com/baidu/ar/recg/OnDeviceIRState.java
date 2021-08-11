@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public final class OnDeviceIRState {
     public static final /* synthetic */ OnDeviceIRState[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +37,7 @@ public final class OnDeviceIRState {
         START = new OnDeviceIRState("START", 0);
         DB_DOWNLOADED = new OnDeviceIRState("DB_DOWNLOADED", 1);
         DB_INIT = new OnDeviceIRState("DB_INIT", 2);
-        SUCCESS = new OnDeviceIRState(c.f2136g, 3);
+        SUCCESS = new OnDeviceIRState(c.f35984g, 3);
         NO_NETWORK = new OnDeviceIRState("NO_NETWORK", 4);
         OnDeviceIRState onDeviceIRState = new OnDeviceIRState("ERROR", 5);
         ERROR = onDeviceIRState;

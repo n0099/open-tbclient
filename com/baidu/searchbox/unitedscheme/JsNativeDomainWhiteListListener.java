@@ -3,7 +3,6 @@ package com.baidu.searchbox.unitedscheme;
 import android.content.Context;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.net.update.CommandPostData;
@@ -24,7 +23,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = JsNativeDomainWhiteListListener.JSNATIVE_DOMAIN_WLIST_ACTION, module = "scheme")
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class JsNativeDomainWhiteListListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -128,8 +127,7 @@ public class JsNativeDomainWhiteListListener extends JSONObjectCommandListener {
             }
             if (!TextUtils.equals(actionData.version, getLocalVersion(context, str, str2)) && actionData.data != null) {
                 if (DEBUG) {
-                    String str3 = TAG;
-                    Log.d(str3, "value.data " + actionData.data);
+                    String str3 = "value.data " + actionData.data;
                 }
                 setDomainWhiteList(actionData.data.optJSONArray(WHITELIST));
                 whiteListEnable = actionData.data.optBoolean(WHITELIST_ENABLE, true);

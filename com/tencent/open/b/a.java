@@ -13,26 +13,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39136a;
+    public static final String f75963a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Rect f39137b;
+    public Rect f75964b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f39138c;
+    public boolean f75965c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InterfaceC0528a f39139d;
+    public InterfaceC2088a f75966d;
 
     /* renamed from: com.tencent.open.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public interface InterfaceC0528a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC2088a {
         void a();
 
         void a(int i2);
@@ -51,7 +51,7 @@ public class a extends RelativeLayout {
                 return;
             }
         }
-        f39136a = a.class.getName();
+        f75963a = a.class.getName();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -72,18 +72,18 @@ public class a extends RelativeLayout {
                 return;
             }
         }
-        this.f39137b = null;
-        this.f39138c = false;
-        this.f39139d = null;
+        this.f75964b = null;
+        this.f75965c = false;
+        this.f75966d = null;
         if (0 == 0) {
-            this.f39137b = new Rect();
+            this.f75964b = new Rect();
         }
     }
 
-    public void a(InterfaceC0528a interfaceC0528a) {
+    public void a(InterfaceC2088a interfaceC2088a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0528a) == null) {
-            this.f39139d = interfaceC0528a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC2088a) == null) {
+            this.f75966d = interfaceC2088a;
         }
     }
 
@@ -93,14 +93,14 @@ public class a extends RelativeLayout {
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             int size = View.MeasureSpec.getSize(i3);
             Activity activity = (Activity) getContext();
-            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f39137b);
-            int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f39137b.top) - size;
-            InterfaceC0528a interfaceC0528a = this.f39139d;
-            if (interfaceC0528a != null && size != 0) {
+            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f75964b);
+            int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f75964b.top) - size;
+            InterfaceC2088a interfaceC2088a = this.f75966d;
+            if (interfaceC2088a != null && size != 0) {
                 if (height > 100) {
-                    interfaceC0528a.a((Math.abs(this.f39137b.height()) - getPaddingBottom()) - getPaddingTop());
+                    interfaceC2088a.a((Math.abs(this.f75964b.height()) - getPaddingBottom()) - getPaddingTop());
                 } else {
-                    interfaceC0528a.a();
+                    interfaceC2088a.a();
                 }
             }
             super.onMeasure(i2, i3);

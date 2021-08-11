@@ -8,7 +8,6 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -41,7 +40,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BDSplashIconView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BDSplashIconView";
@@ -122,7 +121,7 @@ public class BDSplashIconView {
             try {
                 SendLogUtil.Builder.create(this.mViewContext.getApplicationContext()).appendType(802).appendApId(this.mAdContainer.getAdContainerContext().getAdPlacementId()).appendAdInfo(this.mInfo).append("reason", str).append("materialtype", this.mInfo.getMaterialType()).sendWithVd();
             } catch (Throwable th) {
-                Log.e(TAG, th.getMessage());
+                th.getMessage();
             }
         }
     }
@@ -340,8 +339,7 @@ public class BDSplashIconView {
                     this.mViewContainer.addView(this.mDownLoadDesc, layoutParams3);
                 }
                 setViewVisible(4);
-            } catch (Throwable th) {
-                Log.e(TAG, "initView: ", th);
+            } catch (Throwable unused) {
             }
         }
     }

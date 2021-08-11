@@ -7,19 +7,18 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import c.a.n0.n.c;
+import c.a.n0.n.g.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.n.c;
-import d.a.o0.n.g.e.b;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PMSDBProviderProxy extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PMSDBProviderProxy";
@@ -40,7 +39,6 @@ public class PMSDBProviderProxy extends ContentProvider {
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE, SGET]}, finally: {[INVOKE, SGET, INVOKE, IF] complete} */
     @Override // android.content.ContentProvider
     @NonNull
     public ContentProviderResult[] applyBatch(@NonNull ArrayList<ContentProviderOperation> arrayList) {
@@ -50,42 +48,27 @@ public class PMSDBProviderProxy extends ContentProvider {
             SQLiteDatabase writableDatabase = getProvider().b().getWritableDatabase();
             try {
                 try {
-                    if (c.f51112a) {
-                        Log.e(TAG, "applyBatch beginTransaction");
-                    }
+                    boolean z = c.f11582a;
                     writableDatabase.beginTransaction();
                     ContentProviderResult[] applyBatch = super.applyBatch(arrayList);
                     for (ContentProviderResult contentProviderResult : applyBatch) {
                         if (contentProviderResult == null || (contentProviderResult.uri == null && contentProviderResult.count == null)) {
-                            writableDatabase.endTransaction();
-                            if (c.f51112a) {
-                                Log.e(TAG, "applyBatch endTransaction");
-                            }
                             return applyBatch;
                         }
                     }
                     writableDatabase.setTransactionSuccessful();
-                    writableDatabase.endTransaction();
-                    if (c.f51112a) {
-                        Log.e(TAG, "applyBatch endTransaction");
-                    }
                     return applyBatch;
                 } catch (Exception e2) {
-                    if (c.f51112a) {
-                        Log.e(TAG, "applyBatch Exception:" + e2.getMessage());
+                    if (c.f11582a) {
+                        String str = "applyBatch Exception:" + e2.getMessage();
                     }
                     writableDatabase.endTransaction();
-                    if (c.f51112a) {
-                        Log.e(TAG, "applyBatch endTransaction");
-                    }
+                    boolean z2 = c.f11582a;
                     return new ContentProviderResult[0];
                 }
-            } catch (Throwable th) {
+            } finally {
                 writableDatabase.endTransaction();
-                if (c.f51112a) {
-                    Log.e(TAG, "applyBatch endTransaction");
-                }
-                throw th;
+                boolean z3 = c.f11582a;
             }
         }
         return (ContentProviderResult[]) invokeL.objValue;

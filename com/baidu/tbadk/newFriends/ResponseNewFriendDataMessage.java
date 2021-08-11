@@ -1,12 +1,12 @@
 package com.baidu.tbadk.newFriends;
 
+import c.a.p0.j1.g.a;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.i1.g.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ResponseNewFriendDataMessage extends CustomResponsedMessage<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

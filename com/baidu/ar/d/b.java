@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public abstract class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,17 +70,17 @@ public abstract class b {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mTimestamp : invokeV.longValue;
     }
 
-    public void n(long j) {
+    public void n(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.mA = j;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            this.mA = j2;
         }
     }
 
-    public void setTimestamp(long j) {
+    public void setTimestamp(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.mTimestamp = j;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+            this.mTimestamp = j2;
         }
     }
 }

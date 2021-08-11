@@ -1,7 +1,6 @@
 package androidx.documentfile.provider;
 
 import android.net.Uri;
-import android.util.Log;
 import android.webkit.MimeTypeMap;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
@@ -53,7 +52,7 @@ public class RawDocumentFile extends DocumentFile {
                         z &= deleteContents(file2);
                     }
                     if (!file2.delete()) {
-                        Log.w("DocumentFile", "Failed to delete " + file2);
+                        String str = "Failed to delete " + file2;
                         z = false;
                     }
                 }
@@ -121,7 +120,7 @@ public class RawDocumentFile extends DocumentFile {
                 file.createNewFile();
                 return new RawDocumentFile(this, file);
             } catch (IOException e2) {
-                Log.w("DocumentFile", "Failed to createFile: " + e2);
+                String str3 = "Failed to createFile: " + e2;
                 return null;
             }
         }

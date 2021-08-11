@@ -22,7 +22,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class AsyncTaskAssistant {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CORE_POOL_SIZE;
@@ -37,7 +37,7 @@ public final class AsyncTaskAssistant {
     public static final ThreadFactory sThreadFactory;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public final class AsyncTaskAssistant {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class WorkerAsyncTask extends AsyncTask<Task, Object, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -186,9 +186,9 @@ public final class AsyncTaskAssistant {
         }
     }
 
-    public static void execute(Runnable runnable, String str, long j) {
+    public static void execute(Runnable runnable, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{runnable, str, Long.valueOf(j2)}) == null) {
             sHandler.postDelayed(new Runnable(runnable, str) { // from class: com.baidu.android.util.concurrent.AsyncTaskAssistant.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -221,13 +221,13 @@ public final class AsyncTaskAssistant {
                         AsyncTaskAssistant.execute(this.val$runnable, this.val$name);
                     }
                 }
-            }, j);
+            }, j2);
         }
     }
 
-    public static void executeOnThreadPool(Runnable runnable, String str, long j) {
+    public static void executeOnThreadPool(Runnable runnable, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{runnable, str, Long.valueOf(j2)}) == null) {
             sHandler.postDelayed(new Runnable(runnable, str) { // from class: com.baidu.android.util.concurrent.AsyncTaskAssistant.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -260,7 +260,7 @@ public final class AsyncTaskAssistant {
                         AsyncTaskAssistant.executeOnThreadPool(this.val$runnable, this.val$name);
                     }
                 }
-            }, j);
+            }, j2);
         }
     }
 }

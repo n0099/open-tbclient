@@ -12,7 +12,8 @@ import com.baidu.titan.sdk.pm.IPatchManager;
 import com.baidu.titan.sdk.pm.PatchManagerService;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes4.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes7.dex */
 public class WorkerService extends JobIntentService {
     public static final String ACTION_CLEAN_PATCH = "action_clean_patch";
     public static final String ACTION_INSTALL_PATCH = "action_install_patch";
@@ -55,7 +56,7 @@ public class WorkerService extends JobIntentService {
         }
     };
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class InstallParameter {
         public Bundle extra;
         public int flages;
@@ -66,7 +67,7 @@ public class WorkerService extends JobIntentService {
         }
 
         public String toString() {
-            return "InstallParameter{uri=" + this.uri + ", flages=" + this.flages + ", observer=" + this.observer + ", extra=" + this.extra + '}';
+            return "InstallParameter{uri=" + this.uri + ", flages=" + this.flages + ", observer=" + this.observer + ", extra=" + this.extra + ExtendedMessageFormat.END_FE;
         }
     }
 

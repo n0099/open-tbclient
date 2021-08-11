@@ -1,6 +1,7 @@
 package com.google.common.primitives;
 
 import androidx.core.view.InputDeviceCompat;
+import c.i.d.a.n;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,14 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.d.a.n;
 import java.io.Serializable;
 import java.util.AbstractList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class ImmutableDoubleArray implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final ImmutableDoubleArray EMPTY;
@@ -26,7 +26,7 @@ public final class ImmutableDoubleArray implements Serializable {
     public final int end;
     public final transient int start;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class AsList extends AbstractList<Double> implements RandomAccess, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,22 +154,22 @@ public final class ImmutableDoubleArray implements Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public double[] f33718a;
+        public double[] f70448a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f33719b;
+        public int f70449b;
 
         public b(int i2) {
             Interceptable interceptable = $ic;
@@ -186,8 +186,8 @@ public final class ImmutableDoubleArray implements Serializable {
                     return;
                 }
             }
-            this.f33719b = 0;
-            this.f33718a = new double[i2];
+            this.f70449b = 0;
+            this.f70448a = new double[i2];
         }
 
         public static int f(int i2, int i3) {
@@ -214,10 +214,10 @@ public final class ImmutableDoubleArray implements Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2)})) == null) {
                 e(1);
-                double[] dArr = this.f33718a;
-                int i2 = this.f33719b;
+                double[] dArr = this.f70448a;
+                int i2 = this.f70449b;
                 dArr[i2] = d2;
-                this.f33719b = i2 + 1;
+                this.f70449b = i2 + 1;
                 return this;
             }
             return (b) invokeCommon.objValue;
@@ -245,9 +245,9 @@ public final class ImmutableDoubleArray implements Serializable {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) {
                 e(collection.size());
                 for (Double d2 : collection) {
-                    double[] dArr = this.f33718a;
-                    int i2 = this.f33719b;
-                    this.f33719b = i2 + 1;
+                    double[] dArr = this.f70448a;
+                    int i2 = this.f70449b;
+                    this.f70449b = i2 + 1;
                     dArr[i2] = d2.doubleValue();
                 }
                 return this;
@@ -258,18 +258,18 @@ public final class ImmutableDoubleArray implements Serializable {
         public ImmutableDoubleArray d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33719b == 0 ? ImmutableDoubleArray.EMPTY : new ImmutableDoubleArray(this.f33718a, 0, this.f33719b, null) : (ImmutableDoubleArray) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f70449b == 0 ? ImmutableDoubleArray.EMPTY : new ImmutableDoubleArray(this.f70448a, 0, this.f70449b, null) : (ImmutableDoubleArray) invokeV.objValue;
         }
 
         public final void e(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                int i3 = this.f33719b + i2;
-                double[] dArr = this.f33718a;
+                int i3 = this.f70449b + i2;
+                double[] dArr = this.f70448a;
                 if (i3 > dArr.length) {
                     double[] dArr2 = new double[f(dArr.length, i3)];
-                    System.arraycopy(this.f33718a, 0, dArr2, 0, this.f33719b);
-                    this.f33718a = dArr2;
+                    System.arraycopy(this.f70448a, 0, dArr2, 0, this.f70449b);
+                    this.f70448a = dArr2;
                 }
             }
         }

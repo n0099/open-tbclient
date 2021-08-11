@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AlaPersonCardActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PERSON_APP_ID = "PERSON_APP_ID";
@@ -51,13 +51,13 @@ public class AlaPersonCardActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaPersonCardActivityConfig(Context context, String str, String str2, String str3, int i2, int i3, String str4, String str5, long j, long j2, long j3, int i4, String str6, String str7, boolean z, String str8, String str9) {
+    public AlaPersonCardActivityConfig(Context context, String str, String str2, String str3, int i2, int i3, String str4, String str5, long j2, long j3, long j4, int i4, String str6, String str7, boolean z, String str8, String str9) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r4;
-            Object[] objArr = {context, str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), str4, str5, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i4), str6, str7, Boolean.valueOf(z), str8, str9};
+            Object[] objArr = {context, str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), str4, str5, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i4), str6, str7, Boolean.valueOf(z), str8, str9};
             interceptable.invokeUnInit(65538, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -75,9 +75,9 @@ public class AlaPersonCardActivityConfig extends IntentConfig {
         getIntent().putExtra(PERSON_LEVEL, i3);
         getIntent().putExtra(PERSON_LOCATION, str4);
         getIntent().putExtra(PERSON_DESCRIPTION, str5);
-        getIntent().putExtra(PERSON_SEND_COUNT, j);
-        getIntent().putExtra(PERSON_FANS_COUNT, j2);
-        getIntent().putExtra(PERSON_FOLLOWS_COUNT, j3);
+        getIntent().putExtra(PERSON_SEND_COUNT, j2);
+        getIntent().putExtra(PERSON_FANS_COUNT, j3);
+        getIntent().putExtra(PERSON_FOLLOWS_COUNT, j4);
         getIntent().putExtra(PERSON_FOLLOW_STATUS, i4);
         getIntent().putExtra(PERSON_GROUP_ID, str6);
         getIntent().putExtra(PERSON_LIVE_ID, str7);
@@ -89,13 +89,13 @@ public class AlaPersonCardActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaPersonCardActivityConfig(Context context, String str, String str2, String str3, int i2, int i3, String str4, String str5, long j, long j2, long j3, int i4, String str6) {
+    public AlaPersonCardActivityConfig(Context context, String str, String str2, String str3, int i2, int i3, String str4, String str5, long j2, long j3, long j4, int i4, String str6) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r4;
-            Object[] objArr = {context, str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), str4, str5, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i4), str6};
+            Object[] objArr = {context, str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), str4, str5, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i4), str6};
             interceptable.invokeUnInit(65537, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -113,9 +113,9 @@ public class AlaPersonCardActivityConfig extends IntentConfig {
         getIntent().putExtra(PERSON_LEVEL, i3);
         getIntent().putExtra(PERSON_LOCATION, str4);
         getIntent().putExtra(PERSON_DESCRIPTION, str5);
-        getIntent().putExtra(PERSON_SEND_COUNT, j);
-        getIntent().putExtra(PERSON_FANS_COUNT, j2);
-        getIntent().putExtra(PERSON_FOLLOWS_COUNT, j3);
+        getIntent().putExtra(PERSON_SEND_COUNT, j2);
+        getIntent().putExtra(PERSON_FANS_COUNT, j3);
+        getIntent().putExtra(PERSON_FOLLOWS_COUNT, j4);
         getIntent().putExtra(PERSON_FOLLOW_STATUS, i4);
         getIntent().putExtra(PERSON_APP_ID, str6);
         setRequestCode(25014);

@@ -15,7 +15,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes8.dex */
 public class JSONStringer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +25,7 @@ public class JSONStringer {
     public final List<Scope> stack;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static final class Scope {
         public static final /* synthetic */ Scope[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -148,7 +149,7 @@ public class JSONStringer {
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.indent == null) {
             return;
         }
-        this.out.append("\n");
+        this.out.append(StringUtils.LF);
         for (int i2 = 0; i2 < this.stack.size(); i2++) {
             this.out.append(this.indent);
         }
@@ -380,13 +381,13 @@ public class JSONStringer {
         return (JSONStringer) invokeCommon.objValue;
     }
 
-    public JSONStringer value(long j) throws JSONException {
+    public JSONStringer value(long j2) throws JSONException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j2)) == null) {
             if (!this.stack.isEmpty()) {
                 beforeValue();
-                this.out.append(j);
+                this.out.append(j2);
                 return this;
             }
             throw new JSONException("Nesting problem");

@@ -1,30 +1,29 @@
 package com.baidu.tieba.ala.alasquare.live_tab.my_concern.data;
 
+import c.a.o0.s.q.c2;
+import c.a.p0.v.d.c.f.b.b;
 import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.q.b2;
-import d.a.q0.v.d.c.f.b.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<b> followCloseList;
     public int followCloseNum;
-    public List<b2> followList;
+    public List<c2> followList;
     public int followStatus;
     public boolean hasMore;
     public int pn;
-    public List<b2> recommendList;
+    public List<c2> recommendList;
     public int totalFollowCount;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,16 +60,16 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
             this.hasMore = optJSONObject.optInt("has_more") == 1;
             this.followStatus = optJSONObject.optInt(DI.FOLLOW_STATUS);
             this.followCloseNum = optJSONObject.optInt("follow_close_num");
-            this.pn = optJSONObject.optInt(Config.PACKAGE_NAME);
+            this.pn = optJSONObject.optInt("pn");
             this.totalFollowCount = optJSONObject.optInt("total_follow_num");
             JSONArray optJSONArray = optJSONObject.optJSONArray("follow_list");
             if (optJSONArray != null) {
                 for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
                     if (optJSONObject2 != null) {
-                        b2 b2Var = new b2();
-                        b2Var.J2(optJSONObject2);
-                        this.followList.add(b2Var);
+                        c2 c2Var = new c2();
+                        c2Var.R2(optJSONObject2);
+                        this.followList.add(c2Var);
                     }
                 }
             }
@@ -80,7 +79,7 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                     JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i4);
                     if (optJSONObject3 != null) {
                         b bVar = new b();
-                        bVar.c(optJSONObject3);
+                        bVar.g(optJSONObject3);
                         this.followCloseList.add(bVar);
                     }
                 }
@@ -91,9 +90,9 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                 for (int i5 = 0; i5 < optJSONArray3.length(); i5++) {
                     JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i5);
                     if (optJSONObject4 != null) {
-                        b2 b2Var2 = new b2();
-                        b2Var2.J2(optJSONObject4);
-                        this.recommendList.add(b2Var2);
+                        c2 c2Var2 = new c2();
+                        c2Var2.R2(optJSONObject4);
+                        this.recommendList.add(c2Var2);
                     }
                 }
             }

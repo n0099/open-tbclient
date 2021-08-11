@@ -7,8 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ReportPurchaseResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +59,7 @@ public class ReportPurchaseResult {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "ReportPurchaseResult{purchaseData=" + this.purchaseData + ", purchaseSign='" + this.purchaseSign + "', orderId='" + this.orderId + "'}";
+            return "ReportPurchaseResult{purchaseData=" + this.purchaseData + ", purchaseSign='" + this.purchaseSign + ExtendedMessageFormat.QUOTE + ", orderId='" + this.orderId + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class PluginNetConfigInfos extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2500429455834004772L;
@@ -19,7 +19,7 @@ public class PluginNetConfigInfos extends OrmObject implements Serializable {
     public String config_version;
     public List<PluginConfig> plugin_config;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class Newest extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8713611233991534353L;
@@ -59,7 +59,7 @@ public class PluginNetConfigInfos extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class PluginConfig extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5184076118455114028L;

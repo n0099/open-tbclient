@@ -2,7 +2,6 @@ package com.baidu.searchbox.unitedscheme;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -20,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispatcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_KEY = "action";
@@ -30,7 +29,7 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, UnitedSchemeBaseAction> schemeActionMap;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface ConfirmDialogCallback {
         void onCancel();
 
@@ -140,14 +139,7 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
             if (unitedSchemeEntity == null || unitedSchemeEntity.getUri() == null) {
                 return false;
             }
-            if (TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) || TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE)) {
-                return true;
-            }
-            if (DEBUG) {
-                Log.d(TAG, "invoke from outside");
-                return true;
-            }
-            return false;
+            return TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) || TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE) || DEBUG;
         }
         return invokeLL.booleanValue;
     }

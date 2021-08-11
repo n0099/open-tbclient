@@ -27,12 +27,12 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f23495a;
+    public static SimpleDateFormat f59224a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static int a() {
@@ -105,14 +105,14 @@ public final class i {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, context, i2)) == null) ? context.getResources().getDrawable(i2) : (Drawable) invokeLI.objValue;
     }
 
-    public static String a(long j) {
+    public static String a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) {
-            if (f23495a == null) {
-                f23495a = new SimpleDateFormat("MM-dd HH:mm");
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j2)) == null) {
+            if (f59224a == null) {
+                f59224a = new SimpleDateFormat("MM-dd HH:mm");
             }
-            return f23495a.format(new Date(j));
+            return f59224a.format(new Date(j2));
         }
         return (String) invokeJ.objValue;
     }
@@ -200,7 +200,7 @@ public final class i {
             rotateAnimation.setRepeatCount(-1);
             rotateAnimation.setInterpolator(linearInterpolator);
             progressBar.startAnimation(rotateAnimation);
-            progressBar.setId(R.drawable.res_0x7f080033_ic_pic_mask_newuser_background_svg__10);
+            progressBar.setId(R.drawable.res_0x7f080033_ic_pic_mask_newuser_background_svg__12);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(a(context, 17.0f), a(context, 17.0f));
             layoutParams.addRule(15);
             layoutParams.setMargins(a(context, 3.0f), 0, 0, 0);
@@ -222,14 +222,14 @@ public final class i {
         return (View) invokeLL.objValue;
     }
 
-    public static String b(long j) {
+    public static String b(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j)) == null) {
-            if (f23495a == null) {
-                f23495a = new SimpleDateFormat("yy-MM-dd");
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j2)) == null) {
+            if (f59224a == null) {
+                f59224a = new SimpleDateFormat("yy-MM-dd");
             }
-            return f23495a.format(new Date(j));
+            return f59224a.format(new Date(j2));
         }
         return (String) invokeJ.objValue;
     }
@@ -246,14 +246,14 @@ public final class i {
         return invokeL.booleanValue;
     }
 
-    public static String c(long j) {
+    public static String c(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, null, j2)) == null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm");
-            f23495a = simpleDateFormat;
-            String format = simpleDateFormat.format(new Date(j));
-            f23495a = null;
+            f59224a = simpleDateFormat;
+            String format = simpleDateFormat.format(new Date(j2));
+            f59224a = null;
             return format.split(" ")[1];
         }
         return (String) invokeJ.objValue;
@@ -271,27 +271,27 @@ public final class i {
         return invokeL.booleanValue;
     }
 
-    public static String d(long j) {
+    public static String d(long j2) {
         InterceptResult invokeJ;
         StringBuilder sb;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65553, null, j)) == null) {
-            if (j / 1000000000 > 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65553, null, j2)) == null) {
+            if (j2 / 1000000000 > 0) {
                 sb = new StringBuilder();
-                sb.append(((float) (j / 100000000)) / 10.0f);
+                sb.append(((float) (j2 / 100000000)) / 10.0f);
                 str = "G";
-            } else if (j / 1000000 > 0) {
+            } else if (j2 / 1000000 > 0) {
                 sb = new StringBuilder();
-                sb.append(((float) (j / 100000)) / 10.0f);
+                sb.append(((float) (j2 / 100000)) / 10.0f);
                 str = "M";
-            } else if (j / 1000 > 0) {
+            } else if (j2 / 1000 > 0) {
                 sb = new StringBuilder();
-                sb.append(((float) (j / 100)) / 10.0f);
+                sb.append(((float) (j2 / 100)) / 10.0f);
                 str = "K";
             } else {
                 sb = new StringBuilder();
-                sb.append(j);
+                sb.append(j2);
                 str = "B";
             }
             sb.append(str);

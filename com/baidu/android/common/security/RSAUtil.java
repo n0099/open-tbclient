@@ -27,7 +27,7 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.HashMap;
 import java.util.Map;
 import javax.crypto.Cipher;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class RSAUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALGORITHM_RSA = "RSA";

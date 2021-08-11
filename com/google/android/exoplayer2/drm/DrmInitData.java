@@ -4,6 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import c.i.b.a.b;
+import c.i.b.a.i0.v;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,13 +15,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.b.a.b;
-import d.f.b.a.i0.v;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<DrmInitData> CREATOR;
@@ -30,7 +30,7 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
     @Nullable
     public final String schemeType;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class SchemeData implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SchemeData> CREATOR;
@@ -41,7 +41,7 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
         public final boolean requiresSecureDecryption;
         public final UUID uuid;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes9.dex */
         public static class a implements Parcelable.Creator<SchemeData> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -169,7 +169,7 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
         public boolean matches(UUID uuid) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uuid)) == null) ? b.f70158b.equals(this.uuid) || uuid.equals(this.uuid) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uuid)) == null) ? b.f32755b.equals(this.uuid) || uuid.equals(this.uuid) : invokeL.booleanValue;
         }
 
         @Override // android.os.Parcelable
@@ -199,9 +199,9 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
                     return;
                 }
             }
-            d.f.b.a.i0.a.e(uuid);
+            c.i.b.a.i0.a.e(uuid);
             this.uuid = uuid;
-            d.f.b.a.i0.a.e(str);
+            c.i.b.a.i0.a.e(str);
             this.mimeType = str;
             this.data = bArr;
             this.requiresSecureDecryption = z;
@@ -229,7 +229,7 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a implements Parcelable.Creator<DrmInitData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -402,8 +402,8 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, schemeData, schemeData2)) == null) {
-            if (b.f70158b.equals(schemeData.uuid)) {
-                return b.f70158b.equals(schemeData2.uuid) ? 0 : 1;
+            if (b.f32755b.equals(schemeData.uuid)) {
+                return b.f32755b.equals(schemeData2.uuid) ? 0 : 1;
             }
             return schemeData.uuid.compareTo(schemeData2.uuid);
         }

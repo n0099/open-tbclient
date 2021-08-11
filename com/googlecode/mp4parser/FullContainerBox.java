@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.logging.Logger;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class FullContainerBox extends AbstractContainerBox implements FullBox {
     public static /* synthetic */ Interceptable $ic;
     public static Logger LOG;
@@ -118,13 +118,13 @@ public abstract class FullContainerBox extends AbstractContainerBox implements F
     }
 
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(4);
             dataSource.read(allocate);
             parseVersionAndFlags((ByteBuffer) allocate.rewind());
-            super.parse(dataSource, byteBuffer, j, boxParser);
+            super.parse(dataSource, byteBuffer, j2, boxParser);
         }
     }
 

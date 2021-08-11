@@ -18,7 +18,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class FreeBox implements Box {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -137,11 +137,11 @@ public class FreeBox implements Box {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            long j = 8;
+            long j2 = 8;
             for (Box box : this.replacers) {
-                j += box.getSize();
+                j2 += box.getSize();
             }
-            return j + this.data.limit();
+            return j2 + this.data.limit();
         }
         return invokeV.longValue;
     }
@@ -167,16 +167,16 @@ public class FreeBox implements Box {
     }
 
     @Override // com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
             this.offset = dataSource.position() - byteBuffer.remaining();
-            if (j > 1048576) {
-                this.data = dataSource.map(dataSource.position(), j);
-                dataSource.position(dataSource.position() + j);
+            if (j2 > 1048576) {
+                this.data = dataSource.map(dataSource.position(), j2);
+                dataSource.position(dataSource.position() + j2);
                 return;
             }
-            ByteBuffer allocate = ByteBuffer.allocate(CastUtils.l2i(j));
+            ByteBuffer allocate = ByteBuffer.allocate(CastUtils.l2i(j2));
             this.data = allocate;
             dataSource.read(allocate);
         }

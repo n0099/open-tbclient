@@ -1,6 +1,7 @@
 package com.baidu.lcp.sdk.pb;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.u.a.e.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,11 +22,10 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
-import d.a.v.a.e.e;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class RpcMetaPb$RpcNotifyMeta extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOG_ID_FIELD_NUMBER = 3;
@@ -42,7 +42,7 @@ public final class RpcMetaPb$RpcNotifyMeta extends GeneratedMessageLite implemen
     public long methodId_;
     public long serviceId_;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class a extends AbstractParser<RpcMetaPb$RpcNotifyMeta> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,22 +71,22 @@ public final class RpcMetaPb$RpcNotifyMeta extends GeneratedMessageLite implemen
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$RpcNotifyMeta, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6473e;
+        public int f40463e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f6474f;
+        public long f40464f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f6475g;
+        public long f40465g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f6476h;
+        public long f40466h;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -162,17 +162,17 @@ public final class RpcMetaPb$RpcNotifyMeta extends GeneratedMessageLite implemen
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
                 RpcMetaPb$RpcNotifyMeta rpcMetaPb$RpcNotifyMeta = new RpcMetaPb$RpcNotifyMeta(this, (e) null);
-                int i2 = this.f6473e;
+                int i2 = this.f40463e;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                rpcMetaPb$RpcNotifyMeta.serviceId_ = this.f6474f;
+                rpcMetaPb$RpcNotifyMeta.serviceId_ = this.f40464f;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                rpcMetaPb$RpcNotifyMeta.methodId_ = this.f6475g;
+                rpcMetaPb$RpcNotifyMeta.methodId_ = this.f40465g;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                rpcMetaPb$RpcNotifyMeta.logId_ = this.f6476h;
+                rpcMetaPb$RpcNotifyMeta.logId_ = this.f40466h;
                 rpcMetaPb$RpcNotifyMeta.bitField0_ = i3;
                 return rpcMetaPb$RpcNotifyMeta;
             }
@@ -184,14 +184,14 @@ public final class RpcMetaPb$RpcNotifyMeta extends GeneratedMessageLite implemen
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 super.clear();
-                this.f6474f = 0L;
-                int i2 = this.f6473e & (-2);
-                this.f6473e = i2;
-                this.f6475g = 0L;
+                this.f40464f = 0L;
+                int i2 = this.f40463e & (-2);
+                this.f40463e = i2;
+                this.f40465g = 0L;
                 int i3 = i2 & (-3);
-                this.f6473e = i3;
-                this.f6476h = 0L;
-                this.f6473e = i3 & (-5);
+                this.f40463e = i3;
+                this.f40466h = 0L;
+                this.f40463e = i3 & (-5);
                 return this;
             }
             return (b) invokeV.objValue;
@@ -280,34 +280,34 @@ public final class RpcMetaPb$RpcNotifyMeta extends GeneratedMessageLite implemen
             return (b) invokeLL.objValue;
         }
 
-        public b u(long j) {
+        public b u(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048598, this, j)) == null) {
-                this.f6473e |= 4;
-                this.f6476h = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048598, this, j2)) == null) {
+                this.f40463e |= 4;
+                this.f40466h = j2;
                 return this;
             }
             return (b) invokeJ.objValue;
         }
 
-        public b v(long j) {
+        public b v(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048599, this, j)) == null) {
-                this.f6473e |= 2;
-                this.f6475g = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048599, this, j2)) == null) {
+                this.f40463e |= 2;
+                this.f40465g = j2;
                 return this;
             }
             return (b) invokeJ.objValue;
         }
 
-        public b w(long j) {
+        public b w(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048600, this, j)) == null) {
-                this.f6473e |= 1;
-                this.f6474f = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048600, this, j2)) == null) {
+                this.f40463e |= 1;
+                this.f40464f = j2;
                 return this;
             }
             return (b) invokeJ.objValue;

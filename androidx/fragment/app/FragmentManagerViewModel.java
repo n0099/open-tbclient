@@ -1,6 +1,5 @@
 package androidx.fragment.app;
 
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
@@ -122,7 +121,7 @@ public final class FragmentManagerViewModel extends ViewModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragment) == null) {
             if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "Clearing non-config state for " + fragment);
+                String str = "Clearing non-config state for " + fragment;
             }
             FragmentManagerViewModel fragmentManagerViewModel = this.mChildNonConfigs.get(fragment.mWho);
             if (fragmentManagerViewModel != null) {
@@ -241,7 +240,7 @@ public final class FragmentManagerViewModel extends ViewModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "onCleared called for " + this);
+                String str = "onCleared called for " + this;
             }
             this.mHasBeenCleared = true;
         }

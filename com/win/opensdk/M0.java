@@ -1,18 +1,17 @@
 package com.win.opensdk;
 
-import android.util.Log;
 import android.view.ViewTreeObserver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class M0 implements ViewTreeObserver.OnGlobalLayoutListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ViewTreeObserver f39603a;
+    public final /* synthetic */ ViewTreeObserver f76439a;
 
     public M0(O0 o0, ViewTreeObserver viewTreeObserver) {
         Interceptable interceptable = $ic;
@@ -29,14 +28,14 @@ public class M0 implements ViewTreeObserver.OnGlobalLayoutListener {
                 return;
             }
         }
-        this.f39603a = viewTreeObserver;
+        this.f76439a = viewTreeObserver;
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
     public void onGlobalLayout() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Log.e("register", "onGlobalLayout:" + this.f39603a.isAlive());
+            String str = "onGlobalLayout:" + this.f76439a.isAlive();
         }
     }
 }

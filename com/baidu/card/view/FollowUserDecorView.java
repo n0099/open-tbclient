@@ -3,6 +3,9 @@ package com.baidu.card.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
+import c.a.o0.s.f0.n.b;
+import c.a.o0.s.f0.t.c;
+import c.a.o0.s.q.c2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -15,16 +18,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.f0.n.b;
-import d.a.p0.s.f0.t.c;
-import d.a.p0.s.q.b2;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class FollowUserDecorView extends FollowUserButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId v;
-    public c w;
-    public boolean x;
+    public BdUniqueId u;
+    public c v;
+    public boolean w;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FollowUserDecorView(Context context) {
@@ -46,60 +46,10 @@ public class FollowUserDecorView extends FollowUserButton {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.FollowUserButton
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            super.s(z);
-            if (!this.x || z) {
-                return;
-            }
-            b bVar = new b();
-            bVar.q(R.color.CAM_X0304);
-            setConfig(bVar);
-        }
-    }
-
-    public void setData(b2 b2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b2Var) == null) {
-            if (b2Var != null && b2Var.H() != null) {
-                if (this.w == null) {
-                    c cVar = new c(t(getContext()), this);
-                    this.w = cVar;
-                    cVar.l(this.v);
-                }
-                setVisibility(0);
-                this.w.p(true);
-                this.w.n(b2Var.H());
-                return;
-            }
-            setVisibility(8);
-        }
-    }
-
-    public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.v = bdUniqueId;
-            c cVar = this.w;
-            if (cVar != null) {
-                cVar.l(bdUniqueId);
-            }
-        }
-    }
-
-    public void setUseNewStyle(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.x = z;
-        }
-    }
-
-    public final TbPageContext t(Context context) {
+    public final TbPageContext k(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             if (context instanceof BaseActivity) {
                 return ((BaseActivity) context).getPageContext();
             }
@@ -109,6 +59,56 @@ public class FollowUserDecorView extends FollowUserButton {
             return null;
         }
         return (TbPageContext) invokeL.objValue;
+    }
+
+    public void setData(c2 c2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c2Var) == null) {
+            if (c2Var != null && c2Var.J() != null) {
+                if (this.v == null) {
+                    c cVar = new c(k(getContext()), this);
+                    this.v = cVar;
+                    cVar.l(this.u);
+                }
+                setVisibility(0);
+                this.v.p(true);
+                this.v.n(c2Var.J());
+                return;
+            }
+            setVisibility(8);
+        }
+    }
+
+    public void setPageUniqueId(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+            this.u = bdUniqueId;
+            c cVar = this.v;
+            if (cVar != null) {
+                cVar.l(bdUniqueId);
+            }
+        }
+    }
+
+    public void setUseNewStyle(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.w = z;
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.FollowUserButton
+    public void updateLikeStatus(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            super.updateLikeStatus(z);
+            if (!this.w || z) {
+                return;
+            }
+            b bVar = new b();
+            bVar.q(R.color.CAM_X0304);
+            setConfig(bVar);
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

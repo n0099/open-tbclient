@@ -7,24 +7,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LoadHistoryResponsedMessage extends CustomResponsedMessage<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17659a;
+        public String f52882a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<ChatMessage> f17660b;
+        public List<ChatMessage> f52883b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f17661c;
+        public boolean f52884c;
 
         public a() {
             Interceptable interceptable = $ic;

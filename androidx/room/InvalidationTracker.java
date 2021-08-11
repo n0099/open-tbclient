@@ -2,7 +2,6 @@ package androidx.room;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
@@ -145,9 +144,9 @@ public class InvalidationTracker {
                 synchronized (this) {
                     z = false;
                     for (int i2 : iArr) {
-                        long j = this.mTableObservers[i2];
-                        this.mTableObservers[i2] = 1 + j;
-                        if (j == 0) {
+                        long j2 = this.mTableObservers[i2];
+                        this.mTableObservers[i2] = 1 + j2;
+                        if (j2 == 0) {
                             this.mNeedsSync = true;
                             z = true;
                         }
@@ -166,9 +165,9 @@ public class InvalidationTracker {
                 synchronized (this) {
                     z = false;
                     for (int i2 : iArr) {
-                        long j = this.mTableObservers[i2];
-                        this.mTableObservers[i2] = j - 1;
-                        if (j == 1) {
+                        long j2 = this.mTableObservers[i2];
+                        this.mTableObservers[i2] = j2 - 1;
+                        if (j2 == 1) {
                             this.mNeedsSync = true;
                             z = true;
                         }
@@ -233,10 +232,10 @@ public class InvalidationTracker {
                 int length = this.mTableIds.length;
                 Set<String> set = null;
                 for (int i2 = 0; i2 < length; i2++) {
-                    long j = jArr[this.mTableIds[i2]];
+                    long j2 = jArr[this.mTableIds[i2]];
                     long[] jArr2 = this.mVersions;
-                    if (jArr2[i2] < j) {
-                        jArr2[i2] = j;
+                    if (jArr2[i2] < j2) {
+                        jArr2[i2] = j2;
                         if (length == 1) {
                             set = this.mSingleTableSet;
                         } else {
@@ -366,9 +365,9 @@ public class InvalidationTracker {
                     boolean z = false;
                     while (query.moveToNext()) {
                         try {
-                            long j = query.getLong(0);
-                            this.this$0.mTableVersions[query.getInt(1)] = j;
-                            this.this$0.mMaxVersion = j;
+                            long j2 = query.getLong(0);
+                            this.this$0.mTableVersions[query.getInt(1)] = j2;
+                            this.this$0.mMaxVersion = j2;
                             z = true;
                         } finally {
                             query.close();
@@ -386,41 +385,41 @@ public class InvalidationTracker {
                     Lock closeLock = this.this$0.mDatabase.getCloseLock();
                     boolean z = false;
                     try {
-                        try {
-                            closeLock.lock();
-                        } finally {
-                            closeLock.unlock();
-                        }
-                    } catch (SQLiteException | IllegalStateException e2) {
-                        Log.e(Room.LOG_TAG, "Cannot run invalidation tracker. Is the db closed?", e2);
+                        closeLock.lock();
+                    } catch (SQLiteException | IllegalStateException unused) {
+                    } catch (Throwable th) {
+                        closeLock.unlock();
+                        throw th;
                     }
-                    if (this.this$0.ensureInitialization()) {
-                        if (this.this$0.mPendingRefresh.compareAndSet(true, false)) {
-                            if (this.this$0.mDatabase.inTransaction()) {
-                                return;
-                            }
-                            this.this$0.mCleanupStatement.executeUpdateDelete();
-                            this.this$0.mQueryArgs[0] = Long.valueOf(this.this$0.mMaxVersion);
-                            if (this.this$0.mDatabase.mWriteAheadLoggingEnabled) {
-                                SupportSQLiteDatabase writableDatabase = this.this$0.mDatabase.getOpenHelper().getWritableDatabase();
-                                try {
-                                    writableDatabase.beginTransaction();
-                                    z = checkUpdatedTable();
-                                    writableDatabase.setTransactionSuccessful();
-                                    writableDatabase.endTransaction();
-                                } catch (Throwable th) {
-                                    writableDatabase.endTransaction();
-                                    throw th;
-                                }
-                            } else {
+                    if (!this.this$0.ensureInitialization()) {
+                        closeLock.unlock();
+                    } else if (!this.this$0.mPendingRefresh.compareAndSet(true, false)) {
+                        closeLock.unlock();
+                    } else if (this.this$0.mDatabase.inTransaction()) {
+                        closeLock.unlock();
+                    } else {
+                        this.this$0.mCleanupStatement.executeUpdateDelete();
+                        this.this$0.mQueryArgs[0] = Long.valueOf(this.this$0.mMaxVersion);
+                        if (this.this$0.mDatabase.mWriteAheadLoggingEnabled) {
+                            SupportSQLiteDatabase writableDatabase = this.this$0.mDatabase.getOpenHelper().getWritableDatabase();
+                            try {
+                                writableDatabase.beginTransaction();
                                 z = checkUpdatedTable();
+                                writableDatabase.setTransactionSuccessful();
+                                writableDatabase.endTransaction();
+                            } catch (Throwable th2) {
+                                writableDatabase.endTransaction();
+                                throw th2;
                             }
-                            if (z) {
-                                synchronized (this.this$0.mObserverMap) {
-                                    Iterator<Map.Entry<Observer, ObserverWrapper>> it = this.this$0.mObserverMap.iterator();
-                                    while (it.hasNext()) {
-                                        it.next().getValue().checkForInvalidation(this.this$0.mTableVersions);
-                                    }
+                        } else {
+                            z = checkUpdatedTable();
+                        }
+                        closeLock.unlock();
+                        if (z) {
+                            synchronized (this.this$0.mObserverMap) {
+                                Iterator<Map.Entry<Observer, ObserverWrapper>> it = this.this$0.mObserverMap.iterator();
+                                while (it.hasNext()) {
+                                    it.next().getValue().checkForInvalidation(this.this$0.mTableVersions);
                                 }
                             }
                         }
@@ -538,11 +537,7 @@ public class InvalidationTracker {
                 if (!this.mInitialized) {
                     this.mDatabase.getOpenHelper().getWritableDatabase();
                 }
-                if (this.mInitialized) {
-                    return true;
-                }
-                Log.e(Room.LOG_TAG, "database is not initialized even though it is open");
-                return false;
+                return this.mInitialized;
             }
             return false;
         }
@@ -554,7 +549,6 @@ public class InvalidationTracker {
         if (interceptable == null || interceptable.invokeL(1048579, this, supportSQLiteDatabase) == null) {
             synchronized (this) {
                 if (this.mInitialized) {
-                    Log.e(Room.LOG_TAG, "Invalidation tracker is initialized twice :/.");
                     return;
                 }
                 supportSQLiteDatabase.beginTransaction();
@@ -630,8 +624,7 @@ public class InvalidationTracker {
                 supportSQLiteDatabase.endTransaction();
                 this.mObservedTableTracker.onSyncCompleted();
                 closeLock.unlock();
-            } catch (SQLiteException | IllegalStateException e2) {
-                Log.e(Room.LOG_TAG, "Cannot run invalidation tracker. Is the db closed?", e2);
+            } catch (SQLiteException | IllegalStateException unused) {
                 return;
             }
         }

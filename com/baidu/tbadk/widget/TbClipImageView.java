@@ -8,11 +8,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TbClipImageView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean x0;
+    public boolean O;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TbClipImageView(Context context) {
@@ -35,7 +35,7 @@ public class TbClipImageView extends TbImageView {
         }
     }
 
-    public final void S(Context context, AttributeSet attributeSet, int i2) {
+    public final void s(Context context, AttributeSet attributeSet, int i2) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
@@ -73,9 +73,9 @@ public class TbClipImageView extends TbImageView {
                 z2 = false;
             }
             if (!z2 && !z) {
-                this.x0 = true;
+                this.O = true;
             } else {
-                this.x0 = false;
+                this.O = false;
             }
         }
     }
@@ -87,7 +87,7 @@ public class TbClipImageView extends TbImageView {
             if (i2 == 0) {
                 super.setDrawerType(i2);
             } else if (i2 == 1) {
-                super.setDrawerType(this.x0 ? 4 : 5);
+                super.setDrawerType(this.O ? 4 : 5);
             } else {
                 super.setDrawerType(i2);
             }
@@ -113,8 +113,8 @@ public class TbClipImageView extends TbImageView {
                 return;
             }
         }
-        this.x0 = false;
-        S(context, attributeSet, i2);
+        this.O = false;
+        s(context, attributeSet, i2);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

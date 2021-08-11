@@ -46,7 +46,7 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implements w.a {
     public static /* synthetic */ Interceptable $ic;
     public static final e.a G;
@@ -65,7 +65,7 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
     public final AtomicBoolean y;
     public final w z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(WebView webView, int i2);
 
@@ -154,7 +154,7 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f29486a;
+            public final /* synthetic */ c f65367a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -171,53 +171,53 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                         return;
                     }
                 }
-                this.f29486a = this;
+                this.f65367a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.component.reward.a.c.a
             public void a(WebView webView, String str3) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str3) == null) || this.f29486a.x.getAndSet(true)) {
+                if (!(interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str3) == null) || this.f65367a.x.getAndSet(true)) {
                     return;
                 }
-                if (this.f29486a.E != null) {
-                    this.f29486a.E.a();
+                if (this.f65367a.E != null) {
+                    this.f65367a.E.a();
                 }
-                if (this.f29486a.D != null) {
-                    this.f29486a.D.b();
+                if (this.f65367a.D != null) {
+                    this.f65367a.D.b();
                 }
-                c cVar = this.f29486a;
-                com.bytedance.sdk.openadsdk.e.d.d(cVar.f29471a, cVar.f29472b, cVar.f29473c, "py_loading_success", (JSONObject) null);
+                c cVar = this.f65367a;
+                com.bytedance.sdk.openadsdk.e.d.d(cVar.f65351a, cVar.f65352b, cVar.f65353c, "py_loading_success", (JSONObject) null);
             }
 
             @Override // com.bytedance.sdk.openadsdk.component.reward.a.c.a
             public void a(WebView webView, String str3, Bitmap bitmap) {
                 HashMap hashMap;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str3, bitmap) == null) && o.j(this.f29486a.f29472b) && !this.f29486a.y.getAndSet(true)) {
-                    int d2 = q.d(this.f29486a.f29472b.ao());
-                    this.f29486a.t = com.bytedance.sdk.openadsdk.core.o.h().n(String.valueOf(d2));
-                    this.f29486a.u = com.bytedance.sdk.openadsdk.core.o.h().a(String.valueOf(d2), this.f29486a.f29474d);
-                    if (this.f29486a.E != null) {
-                        this.f29486a.E.a(this.f29486a.t * 1000);
+                if ((interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str3, bitmap) == null) && o.j(this.f65367a.f65352b) && !this.f65367a.y.getAndSet(true)) {
+                    int d2 = q.d(this.f65367a.f65352b.ao());
+                    this.f65367a.t = com.bytedance.sdk.openadsdk.core.o.h().n(String.valueOf(d2));
+                    this.f65367a.u = com.bytedance.sdk.openadsdk.core.o.h().a(String.valueOf(d2), this.f65367a.f65354d);
+                    if (this.f65367a.E != null) {
+                        this.f65367a.E.a(this.f65367a.t * 1000);
                     }
                     Message obtain = Message.obtain();
                     obtain.what = 10;
-                    c cVar = this.f29486a;
+                    c cVar = this.f65367a;
                     obtain.arg1 = cVar.t;
                     cVar.z.sendMessage(obtain);
-                    this.f29486a.v = System.currentTimeMillis();
-                    if (TextUtils.isEmpty(this.f29486a.f29475e)) {
+                    this.f65367a.v = System.currentTimeMillis();
+                    if (TextUtils.isEmpty(this.f65367a.f65355e)) {
                         hashMap = null;
                     } else {
                         hashMap = new HashMap();
-                        hashMap.put("rit_scene", this.f29486a.f29475e);
+                        hashMap.put("rit_scene", this.f65367a.f65355e);
                     }
-                    c cVar2 = this.f29486a;
-                    com.bytedance.sdk.openadsdk.e.d.a(cVar2.f29471a, cVar2.f29472b, cVar2.f29473c, hashMap);
-                    k.e("AdEvent", "pangolin ad show " + q.a(this.f29486a.f29472b, (View) null));
-                    if (this.f29486a.E != null) {
-                        this.f29486a.E.b();
+                    c cVar2 = this.f65367a;
+                    com.bytedance.sdk.openadsdk.e.d.a(cVar2.f65351a, cVar2.f65352b, cVar2.f65353c, hashMap);
+                    k.e("AdEvent", "pangolin ad show " + q.a(this.f65367a.f65352b, (View) null));
+                    if (this.f65367a.E != null) {
+                        this.f65367a.E.b();
                     }
                 }
             }
@@ -225,22 +225,22 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
             @Override // com.bytedance.sdk.openadsdk.component.reward.a.c.a
             public void a(WebView webView, int i7) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, webView, i7) == null) || this.f29486a.D == null) {
+                if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, webView, i7) == null) || this.f65367a.D == null) {
                     return;
                 }
-                this.f29486a.D.a(i7);
+                this.f65367a.D.a(i7);
             }
         };
-        Activity activity2 = this.f29471a;
-        this.f29476f = (SSWebView) activity2.findViewById(t.e(activity2, "tt_reward_browser_webview_playable"));
+        Activity activity2 = this.f65351a;
+        this.f65356f = (SSWebView) activity2.findViewById(t.e(activity2, "tt_reward_browser_webview_playable"));
         a();
     }
 
     private void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.B = o.e(this.f29472b);
-            float aJ = this.f29472b.aJ();
+            this.B = o.e(this.f65352b);
+            float aJ = this.f65352b.aJ();
             if (TextUtils.isEmpty(this.B)) {
                 return;
             }
@@ -286,7 +286,7 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29477g.f() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f65357g.f() : invokeV.booleanValue;
     }
 
     public void e(boolean z) {
@@ -304,7 +304,7 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
             f fVar = this.A;
             if (fVar != null) {
                 fVar.q();
-                if (s.d((View) this.f29476f)) {
+                if (s.d((View) this.f65356f)) {
                     this.A.b(true);
                 }
             }
@@ -345,7 +345,7 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
     public void v() {
         SSWebView sSWebView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (sSWebView = this.f29476f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (sSWebView = this.f65356f) == null) {
             return;
         }
         sSWebView.loadUrl(this.B);
@@ -365,8 +365,8 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             try {
-                if (this.C && !TextUtils.isEmpty(this.B) && this.j != 0) {
-                    com.bytedance.sdk.openadsdk.j.a.a().a(this.B, this.j, this.k);
+                if (this.C && !TextUtils.isEmpty(this.B) && this.f65360j != 0) {
+                    com.bytedance.sdk.openadsdk.j.a.a().a(this.B, this.f65360j, this.k);
                 }
             } catch (Throwable unused) {
             }
@@ -384,10 +384,10 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
         m mVar;
         Bitmap b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (mVar = this.f29472b) == null || this.f29476f == null || !o.a(mVar) || (b2 = s.b((WebView) this.f29476f)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (mVar = this.f65352b) == null || this.f65356f == null || !o.a(mVar) || (b2 = s.b((WebView) this.f65356f)) == null) {
             return;
         }
-        s.a(com.bytedance.sdk.openadsdk.core.o.a(), this.f29472b, this.f29473c, "playable_show_status", b2, false, 1);
+        s.a(com.bytedance.sdk.openadsdk.core.o.a(), this.f65352b, this.f65353c, "playable_show_status", b2, false, 1);
     }
 
     public long z() {
@@ -399,20 +399,20 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
     public void a(boolean z, Map<String, Object> map, View view, com.bytedance.sdk.openadsdk.i.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), map, view, eVar}) == null) {
-            this.f29478h = new com.bytedance.sdk.openadsdk.e.q(3, this.f29473c, this.f29472b);
-            j b2 = new j(this.f29471a, this.f29472b, this.f29476f).b(true);
-            this.f29479i = b2;
+            this.f65358h = new com.bytedance.sdk.openadsdk.e.q(3, this.f65353c, this.f65352b);
+            j b2 = new j(this.f65351a, this.f65352b, this.f65356f).b(true);
+            this.f65359i = b2;
             b2.a(true);
-            this.f29479i.a(z ? "reward_endcard" : "fullscreen_endcard");
-            com.bytedance.sdk.openadsdk.core.w wVar = new com.bytedance.sdk.openadsdk.core.w(this.f29471a);
-            this.f29477g = wVar;
-            wVar.b(this.f29476f).a(this.f29472b).b(this.f29472b.ak()).c(this.f29472b.ao()).a(z ? 7 : 5).a(this.r).d(q.i(this.f29472b)).a(this.f29476f).a(this.f29478h).a(this.f29473c).a(map).a(this.s).a(this.C).a(view).a(eVar);
-            this.f29477g.a(new com.bytedance.sdk.openadsdk.i.b(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.a.c.3
+            this.f65359i.a(z ? "reward_endcard" : "fullscreen_endcard");
+            com.bytedance.sdk.openadsdk.core.w wVar = new com.bytedance.sdk.openadsdk.core.w(this.f65351a);
+            this.f65357g = wVar;
+            wVar.b(this.f65356f).a(this.f65352b).b(this.f65352b.ak()).c(this.f65352b.ao()).a(z ? 7 : 5).a(this.r).d(q.i(this.f65352b)).a(this.f65356f).a(this.f65358h).a(this.f65353c).a(map).a(this.s).a(this.C).a(view).a(eVar);
+            this.f65357g.a(new com.bytedance.sdk.openadsdk.i.b(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.a.c.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f29487a;
+                public final /* synthetic */ c f65368a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -429,7 +429,7 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                             return;
                         }
                     }
-                    this.f29487a = this;
+                    this.f65368a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.i.b
@@ -438,7 +438,7 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z2), Integer.valueOf(i2), str}) == null) {
                         k.b("end card load finish: ", "code=" + i2 + " msg=" + str + " isRenderSuc=" + z2);
                         if (z2) {
-                            this.f29487a.l = true;
+                            this.f65368a.l = true;
                         }
                     }
                 }
@@ -471,12 +471,12 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
     public void a(DownloadListener downloadListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, downloadListener) == null) {
-            this.f29476f.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.e(this, this.f29471a, this.f29477g, this.f29472b.ak(), this.f29479i) { // from class: com.bytedance.sdk.openadsdk.component.reward.a.c.4
+            this.f65356f.setWebViewClient(new com.bytedance.sdk.openadsdk.core.widget.webview.e(this, this.f65351a, this.f65357g, this.f65352b.ak(), this.f65359i) { // from class: com.bytedance.sdk.openadsdk.component.reward.a.c.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f29488a;
+                public final /* synthetic */ c f65369a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -497,23 +497,23 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                             return;
                         }
                     }
-                    this.f29488a = this;
+                    this.f65369a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.widget.webview.e, android.webkit.WebViewClient
                 public void onPageFinished(WebView webView, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
-                        com.bytedance.sdk.openadsdk.e.q qVar = this.f29488a.f29478h;
+                        com.bytedance.sdk.openadsdk.e.q qVar = this.f65369a.f65358h;
                         if (qVar != null) {
                             qVar.k();
                         }
-                        f fVar = this.f29488a.A;
+                        f fVar = this.f65369a.A;
                         if (fVar != null) {
                             fVar.h(str);
                         }
                         super.onPageFinished(webView, str);
-                        this.f29488a.F.a(webView, str);
+                        this.f65369a.F.a(webView, str);
                     }
                 }
 
@@ -521,16 +521,16 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                 public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
-                        com.bytedance.sdk.openadsdk.e.q qVar = this.f29488a.f29478h;
+                        com.bytedance.sdk.openadsdk.e.q qVar = this.f65369a.f65358h;
                         if (qVar != null) {
                             qVar.j();
                         }
-                        f fVar = this.f29488a.A;
+                        f fVar = this.f65369a.A;
                         if (fVar != null) {
                             fVar.g(str);
                         }
                         super.onPageStarted(webView, str, bitmap);
-                        this.f29488a.F.a(webView, str, bitmap);
+                        this.f65369a.F.a(webView, str, bitmap);
                     }
                 }
 
@@ -538,22 +538,22 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                 public void onReceivedError(WebView webView, int i2, String str, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) {
-                        this.f29488a.m.set(false);
-                        c cVar = this.f29488a;
-                        cVar.j = i2;
+                        this.f65369a.m.set(false);
+                        c cVar = this.f65369a;
+                        cVar.f65360j = i2;
                         cVar.k = str;
                         f fVar = cVar.A;
                         if (fVar != null) {
                             fVar.a(i2, str, str2);
                         }
-                        if (this.f29488a.f29478h != null) {
+                        if (this.f65369a.f65358h != null) {
                             try {
                                 JSONObject jSONObject = new JSONObject();
                                 if (Build.VERSION.SDK_INT >= 23) {
                                     jSONObject.put("code", i2);
                                     jSONObject.put("msg", str);
                                 }
-                                this.f29488a.f29478h.a(jSONObject);
+                                this.f65369a.f65358h.a(jSONObject);
                             } catch (JSONException unused) {
                             }
                         }
@@ -566,29 +566,29 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                 public void onReceivedHttpError(WebView webView, WebResourceRequest webResourceRequest, WebResourceResponse webResourceResponse) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048580, this, webView, webResourceRequest, webResourceResponse) == null) {
-                        f fVar = this.f29488a.A;
+                        f fVar = this.f65369a.A;
                         if (fVar != null) {
                             try {
                                 fVar.a(webResourceRequest.getUrl().toString(), webResourceResponse.getStatusCode());
                             } catch (Throwable unused) {
                             }
                         }
-                        if (this.f29488a.f29478h != null) {
+                        if (this.f65369a.f65358h != null) {
                             try {
                                 JSONObject jSONObject = new JSONObject();
                                 if (Build.VERSION.SDK_INT >= 21) {
                                     jSONObject.put("code", webResourceResponse.getStatusCode());
                                     jSONObject.put("msg", webResourceResponse.getReasonPhrase());
                                 }
-                                this.f29488a.f29478h.a(jSONObject);
+                                this.f65369a.f65358h.a(jSONObject);
                             } catch (JSONException unused2) {
                             }
                         }
-                        if (this.f29488a.B.equals(String.valueOf(webResourceRequest.getUrl()))) {
-                            this.f29488a.m.set(false);
+                        if (this.f65369a.B.equals(String.valueOf(webResourceRequest.getUrl()))) {
+                            this.f65369a.m.set(false);
                             if (webResourceResponse != null) {
-                                this.f29488a.j = webResourceResponse.getStatusCode();
-                                this.f29488a.k = "onReceivedHttpError";
+                                this.f65369a.f65360j = webResourceResponse.getStatusCode();
+                                this.f65369a.k = "onReceivedHttpError";
                             }
                         }
                         super.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
@@ -600,17 +600,17 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048582, this, webView, str)) == null) {
-                        if (o.a(this.f29488a.f29472b)) {
+                        if (o.a(this.f65369a.f65352b)) {
                             long currentTimeMillis = System.currentTimeMillis();
-                            WebResourceResponse a2 = com.bytedance.sdk.openadsdk.core.h.a.a().a(this.f29488a.f29472b.V().k(), this.f29488a.f29472b.V().j(), str);
+                            WebResourceResponse a2 = com.bytedance.sdk.openadsdk.core.h.a.a().a(this.f65369a.f65352b.V().k(), this.f65369a.f65352b.V().j(), str);
                             long currentTimeMillis2 = System.currentTimeMillis();
-                            if (this.f29488a.f29478h != null) {
+                            if (this.f65369a.f65358h != null) {
                                 e.a a3 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str);
                                 int i2 = a2 != null ? 1 : 2;
-                                if (a3 == e.a.f31127a) {
-                                    this.f29488a.f29478h.a(str, currentTimeMillis, currentTimeMillis2, i2);
-                                } else if (a3 == e.a.f31129c) {
-                                    this.f29488a.f29478h.b(str, currentTimeMillis, currentTimeMillis2, i2);
+                                if (a3 == e.a.f67065a) {
+                                    this.f65369a.f65358h.a(str, currentTimeMillis, currentTimeMillis2, i2);
+                                } else if (a3 == e.a.f67067c) {
+                                    this.f65369a.f65358h.b(str, currentTimeMillis, currentTimeMillis2, i2);
                                 }
                             }
                             return a2;
@@ -625,20 +625,20 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                 public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048579, this, webView, webResourceRequest, webResourceError) == null) {
-                        this.f29488a.m.set(false);
-                        if (this.f29488a.f29478h != null) {
+                        this.f65369a.m.set(false);
+                        if (this.f65369a.f65358h != null) {
                             try {
                                 JSONObject jSONObject = new JSONObject();
                                 if (Build.VERSION.SDK_INT >= 23) {
                                     jSONObject.put("code", webResourceError.getErrorCode());
                                     jSONObject.put("msg", webResourceError.getDescription());
                                 }
-                                this.f29488a.f29478h.a(jSONObject);
+                                this.f65369a.f65358h.a(jSONObject);
                             } catch (JSONException unused) {
                             }
                         }
-                        this.f29488a.j = webResourceError.getErrorCode();
-                        this.f29488a.k = String.valueOf(webResourceError.getDescription());
+                        this.f65369a.f65360j = webResourceError.getErrorCode();
+                        this.f65369a.k = String.valueOf(webResourceError.getDescription());
                         super.onReceivedError(webView, webResourceRequest, webResourceError);
                     }
                 }
@@ -659,15 +659,15 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                     return (WebResourceResponse) invokeLL.objValue;
                 }
             });
-            a(this.f29476f);
-            this.f29476f.setBackgroundColor(-16777216);
-            this.f29476f.getSettings().setDisplayZoomControls(false);
-            this.f29476f.setWebChromeClient(new com.bytedance.sdk.openadsdk.core.widget.webview.d(this, this.f29477g, this.f29479i) { // from class: com.bytedance.sdk.openadsdk.component.reward.a.c.5
+            a(this.f65356f);
+            this.f65356f.setBackgroundColor(-16777216);
+            this.f65356f.getSettings().setDisplayZoomControls(false);
+            this.f65356f.setWebChromeClient(new com.bytedance.sdk.openadsdk.core.widget.webview.d(this, this.f65357g, this.f65359i) { // from class: com.bytedance.sdk.openadsdk.component.reward.a.c.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f29489a;
+                public final /* synthetic */ c f65370a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -688,7 +688,7 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                             return;
                         }
                     }
-                    this.f29489a = this;
+                    this.f65370a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.widget.webview.d, android.webkit.WebChromeClient
@@ -696,11 +696,11 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLI(1048576, this, webView, i2) == null) {
                         super.onProgressChanged(webView, i2);
-                        this.f29489a.F.a(webView, i2);
+                        this.f65370a.F.a(webView, i2);
                     }
                 }
             });
-            this.f29476f.setDownloadListener(downloadListener);
+            this.f65356f.setDownloadListener(downloadListener);
             E();
         }
     }
@@ -709,7 +709,7 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
             this.D = dVar;
-            this.f29477g.a(dVar);
+            this.f65357g.a(dVar);
         }
     }
 
@@ -737,10 +737,10 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.i.e f29490a;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.i.e f65371a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ c f29491b;
+                public final /* synthetic */ c f65372b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -757,8 +757,8 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                             return;
                         }
                     }
-                    this.f29491b = this;
-                    this.f29490a = eVar;
+                    this.f65372b = this;
+                    this.f65371a = eVar;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.a
@@ -800,17 +800,17 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                                 if (c2 != 2) {
                                     if (c2 != 3) {
                                         if (c2 != 4) {
-                                            return com.bytedance.sdk.openadsdk.l.c.f31662f;
+                                            return com.bytedance.sdk.openadsdk.l.c.f67606f;
                                         }
-                                        return com.bytedance.sdk.openadsdk.l.c.f31661e;
+                                        return com.bytedance.sdk.openadsdk.l.c.f67605e;
                                     }
-                                    return com.bytedance.sdk.openadsdk.l.c.f31660d;
+                                    return com.bytedance.sdk.openadsdk.l.c.f67604d;
                                 }
-                                return com.bytedance.sdk.openadsdk.l.c.f31659c;
+                                return com.bytedance.sdk.openadsdk.l.c.f67603c;
                             }
-                            return com.bytedance.sdk.openadsdk.l.c.f31658b;
+                            return com.bytedance.sdk.openadsdk.l.c.f67602b;
                         }
-                        return com.bytedance.sdk.openadsdk.l.c.f31657a;
+                        return com.bytedance.sdk.openadsdk.l.c.f67601a;
                     }
                     return (com.bytedance.sdk.openadsdk.l.c) invokeV.objValue;
                 }
@@ -826,8 +826,8 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                 public void b() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                        this.f29491b.f29477g.d(true);
-                        com.bytedance.sdk.openadsdk.i.e eVar2 = this.f29490a;
+                        this.f65372b.f65357g.d(true);
+                        com.bytedance.sdk.openadsdk.i.e eVar2 = this.f65371a;
                         if (eVar2 != null) {
                             eVar2.a();
                         }
@@ -846,8 +846,8 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048580, this, jSONObject) == null) {
                         Context a2 = com.bytedance.sdk.openadsdk.core.o.a();
-                        c cVar = this.f29491b;
-                        com.bytedance.sdk.openadsdk.e.d.b(a2, cVar.f29472b, cVar.f29473c, "playable_track", jSONObject);
+                        c cVar = this.f65372b;
+                        com.bytedance.sdk.openadsdk.e.d.b(a2, cVar.f65352b, cVar.f65353c, "playable_track", jSONObject);
                     }
                 }
             };
@@ -856,7 +856,7 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f29492a;
+                public final /* synthetic */ c f65373a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -873,40 +873,40 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                             return;
                         }
                     }
-                    this.f29492a = this;
+                    this.f65373a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.b
                 public void a(String str, JSONObject jSONObject) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str, jSONObject) == null) {
-                        this.f29492a.f29477g.a(str, jSONObject);
+                        this.f65373a.f65357g.a(str, jSONObject);
                     }
                 }
             };
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(IAdRequestParam.CELL_ID, this.f29472b.ak());
-                jSONObject.put("log_extra", this.f29472b.ao());
+                jSONObject.put(IAdRequestParam.CELL_ID, this.f65352b.ak());
+                jSONObject.put("log_extra", this.f65352b.ao());
             } catch (Throwable unused) {
             }
-            this.A = f.a(com.bytedance.sdk.openadsdk.core.o.a(), this.f29476f, bVar, aVar).f(this.B).e(com.bytedance.sdk.openadsdk.c.a.a(com.bytedance.sdk.openadsdk.core.o.a())).a(com.bytedance.sdk.openadsdk.c.a.a()).a(jSONObject).a("sdkEdition", com.bytedance.sdk.openadsdk.c.a.c()).b(com.bytedance.sdk.openadsdk.c.a.e()).d(com.bytedance.sdk.openadsdk.c.a.d()).c(false).a(false);
-            if (!TextUtils.isEmpty(o.c(this.f29472b))) {
-                this.A.c(o.c(this.f29472b));
+            this.A = f.a(com.bytedance.sdk.openadsdk.core.o.a(), this.f65356f, bVar, aVar).f(this.B).e(com.bytedance.sdk.openadsdk.c.a.a(com.bytedance.sdk.openadsdk.core.o.a())).a(com.bytedance.sdk.openadsdk.c.a.a()).a(jSONObject).a("sdkEdition", com.bytedance.sdk.openadsdk.c.a.c()).b(com.bytedance.sdk.openadsdk.c.a.e()).d(com.bytedance.sdk.openadsdk.c.a.d()).c(false).a(false);
+            if (!TextUtils.isEmpty(o.c(this.f65352b))) {
+                this.A.c(o.c(this.f65352b));
             }
-            Set<String> j = this.A.j();
+            Set<String> j2 = this.A.j();
             WeakReference weakReference = new WeakReference(this.A);
-            for (String str : j) {
+            for (String str : j2) {
                 if (!"subscribe_app_ad".equals(str) && !"adInfo".equals(str) && !"webview_time_track".equals(str) && !"download_app_ad".equals(str)) {
-                    this.f29477g.b().a(str, (com.bytedance.sdk.component.a.e<?, ?>) new com.bytedance.sdk.component.a.e<JSONObject, JSONObject>(this, weakReference) { // from class: com.bytedance.sdk.openadsdk.component.reward.a.c.8
+                    this.f65357g.b().a(str, (com.bytedance.sdk.component.a.e<?, ?>) new com.bytedance.sdk.component.a.e<JSONObject, JSONObject>(this, weakReference) { // from class: com.bytedance.sdk.openadsdk.component.reward.a.c.8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ WeakReference f29493a;
+                        public final /* synthetic */ WeakReference f65374a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ c f29494b;
+                        public final /* synthetic */ c f65375b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -923,8 +923,8 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                                     return;
                                 }
                             }
-                            this.f29494b = this;
-                            this.f29493a = weakReference;
+                            this.f65375b = this;
+                            this.f65374a = weakReference;
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
@@ -934,7 +934,7 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject2, fVar)) == null) {
                                 try {
-                                    f fVar2 = (f) this.f29493a.get();
+                                    f fVar2 = (f) this.f65374a.get();
                                     if (fVar2 == null) {
                                         return null;
                                     }
@@ -956,7 +956,7 @@ public class c extends com.bytedance.sdk.openadsdk.component.reward.a.a implemen
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && message.what == 10) {
             com.bytedance.sdk.openadsdk.component.reward.b.c e2 = this.E.e();
-            if (o.j(this.f29472b)) {
+            if (o.j(this.f65352b)) {
                 int i2 = message.arg1;
                 if (i2 > 0) {
                     e2.d(true);

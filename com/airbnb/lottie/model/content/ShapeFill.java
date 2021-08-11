@@ -14,7 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes4.dex */
 public class ShapeFill implements ContentModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +94,7 @@ public class ShapeFill implements ContentModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "ShapeFill{color=, fillEnabled=" + this.fillEnabled + '}';
+            return "ShapeFill{color=, fillEnabled=" + this.fillEnabled + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

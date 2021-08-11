@@ -19,6 +19,13 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.l;
+import c.a.o0.x.m;
+import c.a.o0.x.n;
+import c.a.p0.i2.k.e.r;
+import c.a.p0.i2.k.e.u0;
+import c.a.p0.i2.k.e.v;
+import c.a.p0.i2.k.e.w;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
@@ -56,22 +63,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.a.d.e.p.l;
-import d.a.p0.x.m;
-import d.a.p0.x.n;
-import d.a.q0.h2.k.e.r;
-import d.a.q0.h2.k.e.v;
-import d.a.q0.h2.k.e.v0;
-import d.a.q0.h2.k.e.w;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
-public class PbFullScreenEditorActivity extends BaseActivity implements r.c, VoiceManager.j, d.a.p0.x.b {
+/* loaded from: classes7.dex */
+public class PbFullScreenEditorActivity extends BaseActivity implements r.c, VoiceManager.j, c.a.o0.x.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REPLY_MAX_SIZE = 140;
     public transient /* synthetic */ FieldHolder $fh;
     public View mBackBtn;
-    public v0 mContentProcessController;
+    public u0 mContentProcessController;
     public Context mContext;
     public PbFullScreenEditorInputView mEditContent;
     public SpanGroupManager mEditContentSpanGroupManager;
@@ -99,13 +98,13 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
     public PlayVoiceBntNew mVoicePlayButton;
     public WriteImagesInfo mWriteImagesInfo;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements ViewTreeObserver.OnScrollChangedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenEditorActivity f19453a;
+        public final /* synthetic */ PbFullScreenEditorActivity f54804a;
 
         public a(PbFullScreenEditorActivity pbFullScreenEditorActivity) {
             Interceptable interceptable = $ic;
@@ -122,29 +121,29 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                     return;
                 }
             }
-            this.f19453a = pbFullScreenEditorActivity;
+            this.f54804a = pbFullScreenEditorActivity;
         }
 
         @Override // android.view.ViewTreeObserver.OnScrollChangedListener
         public void onScrollChanged() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f19453a.mEditorTools != null) {
-                    this.f19453a.mEditorTools.q();
-                    this.f19453a.mEditorTools.y();
+                if (this.f54804a.mEditorTools != null) {
+                    this.f54804a.mEditorTools.hideTools();
+                    this.f54804a.mEditorTools.resetChangeToLauncher();
                 }
-                l.x(this.f19453a.mContext, this.f19453a.mEditContent);
+                l.x(this.f54804a.mContext, this.f54804a.mEditContent);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenEditorActivity f19454e;
+        public final /* synthetic */ PbFullScreenEditorActivity f54805e;
 
         public b(PbFullScreenEditorActivity pbFullScreenEditorActivity) {
             Interceptable interceptable = $ic;
@@ -161,27 +160,27 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                     return;
                 }
             }
-            this.f19454e = pbFullScreenEditorActivity;
+            this.f54805e = pbFullScreenEditorActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f19454e.mEditorTools == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f54805e.mEditorTools == null) {
                 return;
             }
-            this.f19454e.mEditorTools.q();
-            this.f19454e.mEditorTools.y();
+            this.f54805e.mEditorTools.hideTools();
+            this.f54805e.mEditorTools.resetChangeToLauncher();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class c implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenEditorActivity f19455e;
+        public final /* synthetic */ PbFullScreenEditorActivity f54806e;
 
         public c(PbFullScreenEditorActivity pbFullScreenEditorActivity) {
             Interceptable interceptable = $ic;
@@ -198,22 +197,22 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                     return;
                 }
             }
-            this.f19455e = pbFullScreenEditorActivity;
+            this.f54806e = pbFullScreenEditorActivity;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                this.f19455e.checkPostBtnEnabled();
-                v0 v0Var = this.f19455e.mContentProcessController;
-                if (v0Var == null || v0Var.e() == null) {
+                this.f54806e.checkPostBtnEnabled();
+                u0 u0Var = this.f54806e.mContentProcessController;
+                if (u0Var == null || u0Var.e() == null) {
                     return;
                 }
-                if (!this.f19455e.mContentProcessController.e().e()) {
-                    this.f19455e.mContentProcessController.a(false);
+                if (!this.f54806e.mContentProcessController.e().e()) {
+                    this.f54806e.mContentProcessController.a(false);
                 }
-                this.f19455e.mContentProcessController.e().l(false);
+                this.f54806e.mContentProcessController.e().l(false);
             }
         }
 
@@ -232,13 +231,13 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenEditorActivity f19456e;
+        public final /* synthetic */ PbFullScreenEditorActivity f54807e;
 
         public d(PbFullScreenEditorActivity pbFullScreenEditorActivity) {
             Interceptable interceptable = $ic;
@@ -255,28 +254,28 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                     return;
                 }
             }
-            this.f19456e = pbFullScreenEditorActivity;
+            this.f54807e = pbFullScreenEditorActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f19456e.deleteVoice();
+                this.f54807e.deleteVoice();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class e extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int[] f19457e;
+        public int[] f54808e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenEditorActivity f19458f;
+        public final /* synthetic */ PbFullScreenEditorActivity f54809f;
 
         public e(PbFullScreenEditorActivity pbFullScreenEditorActivity) {
             Interceptable interceptable = $ic;
@@ -293,8 +292,8 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                     return;
                 }
             }
-            this.f19458f = pbFullScreenEditorActivity;
-            this.f19457e = new int[2];
+            this.f54809f = pbFullScreenEditorActivity;
+            this.f54808e = new int[2];
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -302,7 +301,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                l.x(TbadkCoreApplication.getInst(), this.f19458f.getCurrentFocus());
+                l.x(TbadkCoreApplication.getInst(), this.f54809f.getCurrentFocus());
                 return super.onFling(motionEvent, motionEvent2, f2, f3);
             }
             return invokeCommon.booleanValue;
@@ -314,14 +313,14 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
             WholeDisplayGridView wholeDisplayGridView;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-                if (motionEvent != null && (wholeDisplayGridView = this.f19458f.mImgsGridView) != null) {
-                    wholeDisplayGridView.getLocationInWindow(this.f19457e);
-                    int x = ((int) motionEvent.getX()) - this.f19457e[0];
-                    int y = ((int) motionEvent.getY()) - this.f19457e[1];
+                if (motionEvent != null && (wholeDisplayGridView = this.f54809f.mImgsGridView) != null) {
+                    wholeDisplayGridView.getLocationInWindow(this.f54808e);
+                    int x = ((int) motionEvent.getX()) - this.f54808e[0];
+                    int y = ((int) motionEvent.getY()) - this.f54808e[1];
                     if (x >= 0 && x < wholeDisplayGridView.getWidth() && y >= 0 && y < wholeDisplayGridView.getHeight() && wholeDisplayGridView.pointToPosition(x, y) == -1) {
-                        this.f19458f.mEditorTools.q();
-                        this.f19458f.mEditorTools.y();
-                        l.K(TbadkCoreApplication.getInst(), this.f19458f.mEditContent);
+                        this.f54809f.mEditorTools.hideTools();
+                        this.f54809f.mEditorTools.resetChangeToLauncher();
+                        l.K(TbadkCoreApplication.getInst(), this.f54809f.mEditContent);
                     }
                 }
                 return super.onSingleTapUp(motionEvent);
@@ -330,13 +329,13 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenEditorActivity f19459e;
+        public final /* synthetic */ PbFullScreenEditorActivity f54810e;
 
         public f(PbFullScreenEditorActivity pbFullScreenEditorActivity) {
             Interceptable interceptable = $ic;
@@ -353,29 +352,29 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                     return;
                 }
             }
-            this.f19459e = pbFullScreenEditorActivity;
+            this.f54810e = pbFullScreenEditorActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f19459e.mEditorTools != null) {
-                    this.f19459e.mEditorTools.q();
-                    this.f19459e.mEditorTools.y();
+                if (this.f54810e.mEditorTools != null) {
+                    this.f54810e.mEditorTools.hideTools();
+                    this.f54810e.mEditorTools.resetChangeToLauncher();
                 }
-                l.K(TbadkCoreApplication.getInst(), this.f19459e.mEditContent);
+                l.K(TbadkCoreApplication.getInst(), this.f54810e.mEditContent);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class g implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenEditorActivity f19460e;
+        public final /* synthetic */ PbFullScreenEditorActivity f54811e;
 
         public g(PbFullScreenEditorActivity pbFullScreenEditorActivity) {
             Interceptable interceptable = $ic;
@@ -392,25 +391,25 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                     return;
                 }
             }
-            this.f19460e = pbFullScreenEditorActivity;
+            this.f54811e = pbFullScreenEditorActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f19460e.onBackPressed();
+                this.f54811e.onBackPressed();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class h implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenEditorActivity f19461e;
+        public final /* synthetic */ PbFullScreenEditorActivity f54812e;
 
         public h(PbFullScreenEditorActivity pbFullScreenEditorActivity) {
             Interceptable interceptable = $ic;
@@ -427,28 +426,28 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                     return;
                 }
             }
-            this.f19461e = pbFullScreenEditorActivity;
+            this.f54812e = pbFullScreenEditorActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f19461e.onBack(true);
+                this.f54812e.onBack(true);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class i implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f19462e;
+        public final /* synthetic */ String f54813e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenEditorActivity f19463f;
+        public final /* synthetic */ PbFullScreenEditorActivity f54814f;
 
         public i(PbFullScreenEditorActivity pbFullScreenEditorActivity, String str) {
             Interceptable interceptable = $ic;
@@ -465,15 +464,15 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                     return;
                 }
             }
-            this.f19463f = pbFullScreenEditorActivity;
-            this.f19462e = str;
+            this.f54814f = pbFullScreenEditorActivity;
+            this.f54813e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f19463f.showToast(this.f19462e);
+                this.f54814f.showToast(this.f54813e);
             }
         }
     }
@@ -542,14 +541,14 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             if (this.mFullScreenEditor.h() != null) {
-                d.a.p0.s.g0.a.a(d.a.p0.s.g0.a.b(this.mFullScreenEditor.h().voiceId));
+                c.a.o0.s.g0.a.a(c.a.o0.s.g0.a.b(this.mFullScreenEditor.h().voiceId));
             }
             this.mFullScreenEditor.r(null);
             this.mLayoutVoicePlay.setVisibility(8);
             this.mVoicePlayButton.setVoiceModel(null);
-            m n = this.mEditorTools.n(6);
-            if (n != null && (nVar = n.k) != null) {
-                nVar.onAction(new d.a.p0.x.a(52, 0, null));
+            m findToolById = this.mEditorTools.findToolById(6);
+            if (findToolById != null && (nVar = findToolById.k) != null) {
+                nVar.onAction(new c.a.o0.x.a(52, 0, null));
             }
             checkPostBtnEnabled();
         }
@@ -632,9 +631,9 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                 initEditTools(pbEditorData.getEditorType() == 1);
                 String disableVoiceMessage = this.mPbEditorData.getDisableVoiceMessage();
                 if (!TextUtils.isEmpty(disableVoiceMessage) && (editorTools = this.mEditorTools) != null) {
-                    d.a.p0.x.h m = editorTools.m(6);
-                    if (m instanceof View) {
-                        ((View) m).setOnClickListener(new i(this, disableVoiceMessage));
+                    c.a.o0.x.h findLauncherById = editorTools.findLauncherById(6);
+                    if (findLauncherById instanceof View) {
+                        ((View) findLauncherById).setOnClickListener(new i(this, disableVoiceMessage));
                     }
                 }
                 PbEditorData.ThreadData threadData = this.mPbEditorData.getThreadData();
@@ -651,9 +650,9 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                 if (this.mPbEditorData.getEditorType() == 1) {
                     String subPbReplyPrefix = this.mPbEditorData.getSubPbReplyPrefix();
                     this.mSubPbReplyPrefix = subPbReplyPrefix;
-                    this.mEditContent.k(subPbReplyPrefix, content);
+                    this.mEditContent.loadDataFromSubPb(subPbReplyPrefix, content);
                 } else {
-                    this.mEditContent.j(content);
+                    this.mEditContent.loadData(content);
                 }
                 WriteImagesInfo writeImagesInfo = this.mPbEditorData.getWriteImagesInfo();
                 if (writeImagesInfo != null) {
@@ -666,12 +665,12 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                     this.mLayoutVoicePlay.setVisibility(0);
                     this.mVoicePlayButton.setVoiceModel(voiceModel);
                     this.mFullScreenEditor.r(voiceModel);
-                    m n = this.mEditorTools.n(6);
-                    if (n != null && (nVar = n.k) != null) {
-                        nVar.onAction(new d.a.p0.x.a(52, 0, voiceModel));
+                    m findToolById = this.mEditorTools.findToolById(6);
+                    if (findToolById != null && (nVar = findToolById.k) != null) {
+                        nVar.onAction(new c.a.o0.x.a(52, 0, voiceModel));
                     }
                     EditorTools editorTools2 = this.mEditorTools;
-                    editorTools2.x((View) editorTools2.m(6));
+                    editorTools2.performLauncherClick((View) editorTools2.findLauncherById(6));
                 }
             }
             if (intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData) {
@@ -698,9 +697,9 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
             this.mFullScreenEditor.p(this);
             this.mEditorBuilder.k(this);
             this.mEditorContainer.addView(this.mEditorTools, new LinearLayout.LayoutParams(-1, -2));
-            this.mEditorTools.w(TbadkCoreApplication.getInst().getSkinType());
+            this.mEditorTools.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             this.mFullScreenEditor.j(this);
-            this.mEditorTools.j();
+            this.mEditorTools.display();
         }
     }
 
@@ -822,15 +821,15 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mVoiceManager : (VoiceManager) invokeV.objValue;
     }
 
-    @Override // d.a.p0.x.b
-    public void onAction(d.a.p0.x.a aVar) {
+    @Override // c.a.o0.x.b
+    public void onAction(c.a.o0.x.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || aVar == null) {
             return;
         }
-        int i2 = aVar.f54158a;
+        int i2 = aVar.f14775a;
         if (i2 == 3) {
-            d.a.q0.o0.b.a(this.mEditContent);
+            c.a.p0.p0.b.a(this.mEditContent);
         } else if (i2 == 14) {
             ensureWriteImagesInfo();
             AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.mContext, this.mWriteImagesInfo.toJsonString(), true, true);
@@ -840,7 +839,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                 albumFloatActivityConfig.getIntent().putExtra("forum_id", this.mThreadData.getForumId());
             }
             albumFloatActivityConfig.setRequestCode(12002);
-            if (d.a.p0.x.w.a.a().b() == 1) {
+            if (c.a.o0.x.w.a.a().b() == 1) {
                 albumFloatActivityConfig.setRequestFrom(2);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
@@ -852,23 +851,23 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                 deleteVoice();
                 return;
             }
-            Object obj = aVar.f54160c;
+            Object obj = aVar.f14777c;
             if (obj instanceof VoiceData$VoiceModel) {
                 addVoice((VoiceData$VoiceModel) obj);
             }
         } else {
-            Object obj2 = aVar.f54160c;
-            if (obj2 instanceof d.a.p0.t.c.v) {
-                d.a.p0.t.c.v vVar = (d.a.p0.t.c.v) obj2;
+            Object obj2 = aVar.f14777c;
+            if (obj2 instanceof c.a.o0.t.c.v) {
+                c.a.o0.t.c.v vVar = (c.a.o0.t.c.v) obj2;
                 if (vVar.f() != EmotionGroupType.BIG_EMOTION && vVar.f() != EmotionGroupType.USER_COLLECT) {
-                    this.mEditContent.l(vVar);
+                    this.mEditContent.onAddLocalEmotion(vVar);
                     return;
                 }
                 if (this.mCurrentPermissionJudgePolicy == null) {
                     this.mCurrentPermissionJudgePolicy = new PermissionJudgePolicy();
                 }
                 this.mCurrentPermissionJudgePolicy.clearRequestPermissionList();
-                this.mCurrentPermissionJudgePolicy.appendRequestPermission(this, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+                this.mCurrentPermissionJudgePolicy.appendRequestPermission(this, "android.permission.WRITE_EXTERNAL_STORAGE");
                 if (this.mCurrentPermissionJudgePolicy.startRequestPermission(this)) {
                     return;
                 }
@@ -919,10 +918,10 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                     if (intent == null || (stringArrayListExtra = intent.getStringArrayListExtra("name_show")) == null) {
                         return;
                     }
-                    this.mEditContent.g(stringArrayListExtra);
+                    this.mEditContent.addAtName(stringArrayListExtra);
                 } else if (i2 != 12012) {
                     if (i2 == 25004 && intent != null) {
-                        this.mEditContent.h(intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING));
+                        this.mEditContent.addHotTopic(intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING));
                     }
                 } else {
                     ensureWriteImagesInfo();
@@ -955,8 +954,8 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
             this.mPbEditorData.setVoiceModel(this.mFullScreenEditor.h());
             intent.putExtra(PbFullScreenEditorActivityConfig.EDITOR_DATA, this.mPbEditorData);
             if (z) {
-                v0 v0Var = this.mContentProcessController;
-                if (v0Var != null && v0Var.e() != null && this.mContentProcessController.e().d()) {
+                u0 u0Var = this.mContentProcessController;
+                if (u0Var != null && u0Var.e() != null && this.mContentProcessController.e().d()) {
                     showToast(this.mContentProcessController.e().c());
                     this.mContentProcessController.a(true);
                     return;
@@ -991,18 +990,18 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
             }
             SkinManager.setViewTextColor(this.mTvName, R.color.CAM_X0105);
             checkPostBtnEnabled();
-            v0 v0Var = this.mContentProcessController;
-            if (v0Var != null) {
-                v0Var.i();
+            u0 u0Var = this.mContentProcessController;
+            if (u0Var != null) {
+                u0Var.i();
             }
             EditorTools editorTools = this.mEditorTools;
             if (editorTools != null) {
-                editorTools.w(i2);
+                editorTools.onChangeSkinType(i2);
             }
         }
     }
 
-    @Override // d.a.q0.h2.k.e.r.c
+    @Override // c.a.p0.i2.k.e.r.c
     public void onClickImage(int i2) {
         ImageFileInfo imageInfoAt;
         Interceptable interceptable = $ic;
@@ -1030,11 +1029,11 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
             if (pbEditorData != null && pbEditorData.getEditorType() == 1 && (pbFullScreenEditorInputView = this.mEditContent) != null) {
                 pbFullScreenEditorInputView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(REPLY_MAX_SIZE)});
             }
-            v0 v0Var = new v0();
-            this.mContentProcessController = v0Var;
+            u0 u0Var = new u0();
+            this.mContentProcessController = u0Var;
             PbFullScreenEditorInputView pbFullScreenEditorInputView2 = this.mEditContent;
             if (pbFullScreenEditorInputView2 != null) {
-                v0Var.m(pbFullScreenEditorInputView2);
+                u0Var.m(pbFullScreenEditorInputView2);
             }
             PostWriteCallBackData postWriteCallBackData = this.mPostWriteCallBackData;
             if (postWriteCallBackData != null) {
@@ -1044,7 +1043,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
         }
     }
 
-    @Override // d.a.q0.h2.k.e.r.c
+    @Override // c.a.p0.i2.k.e.r.c
     public void onDeleteImage(int i2) {
         WriteImagesInfo writeImagesInfo;
         Interceptable interceptable = $ic;
@@ -1054,7 +1053,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
         if (i2 >= 0 && i2 < this.mWriteImagesInfo.size()) {
             ImageFileInfo remove = this.mWriteImagesInfo.getChosedFiles().remove(i2);
             if (remove.isTempFile()) {
-                d.a.d.e.a.d.g().a(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
+                c.a.e.e.a.d.g().a(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
             }
             this.mImgsAdapter.notifyDataSetChanged();
         }
@@ -1066,9 +1065,9 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onDestroy();
-            v0 v0Var = this.mContentProcessController;
-            if (v0Var != null) {
-                v0Var.j();
+            u0 u0Var = this.mContentProcessController;
+            if (u0Var != null) {
+                u0Var.j();
             }
             VoiceManager voiceManager = this.mVoiceManager;
             if (voiceManager != null) {

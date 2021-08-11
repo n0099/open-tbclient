@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class x implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f40095a;
+    public final /* synthetic */ Context f76946a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Intent f99a;
+    public final /* synthetic */ Intent f103a;
 
     public x(Context context, Intent intent) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public final class x implements Runnable {
                 return;
             }
         }
-        this.f40095a = context;
-        this.f99a = intent;
+        this.f76946a = context;
+        this.f103a = intent;
     }
 
     @Override // java.lang.Runnable
@@ -41,9 +41,9 @@ public final class x implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                this.f40095a.startService(this.f99a);
+                this.f76946a.startService(this.f103a);
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m70a(e2.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m73a(e2.getMessage());
             }
         }
     }

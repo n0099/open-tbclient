@@ -3,23 +3,22 @@ package com.huawei.android.hms.pps.a;
 import android.content.ComponentName;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class a implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f33776a;
+    public boolean f70497a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f33777b;
+    public final LinkedBlockingQueue<IBinder> f70498b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -34,19 +33,20 @@ public final class a implements ServiceConnection {
                 return;
             }
         }
-        this.f33776a = false;
-        this.f33777b = new LinkedBlockingQueue<>(1);
+        this.f70497a = false;
+        this.f70498b = new LinkedBlockingQueue<>(1);
     }
 
     @Override // android.content.ServiceConnection
     public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             try {
-                Log.d("PPSSerivceConnection", "onServiceConnected " + System.currentTimeMillis());
-                this.f33777b.put(iBinder);
+                r0 = "onServiceConnected " + System.currentTimeMillis();
+                this.f70498b.put(iBinder);
             } catch (InterruptedException unused) {
-                Log.w("PPSSerivceConnection", "onServiceConnected InterruptedException " + System.currentTimeMillis());
+                str = "onServiceConnected InterruptedException " + System.currentTimeMillis();
             }
         }
     }
@@ -55,7 +55,7 @@ public final class a implements ServiceConnection {
     public final void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            Log.d("PPSSerivceConnection", "onServiceDisconnected " + System.currentTimeMillis());
+            String str = "onServiceDisconnected " + System.currentTimeMillis();
         }
     }
 }

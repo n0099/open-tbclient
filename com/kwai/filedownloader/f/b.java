@@ -13,27 +13,27 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final AtomicInteger f37029a;
+        public static final AtomicInteger f73859a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f37030b;
+        public final String f73860b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final ThreadGroup f37031c;
+        public final ThreadGroup f73861c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final AtomicInteger f37032d;
+        public final AtomicInteger f73862d;
 
         static {
             InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public class b {
                     return;
                 }
             }
-            f37029a = new AtomicInteger(1);
+            f73859a = new AtomicInteger(1);
         }
 
         public a(String str) {
@@ -66,9 +66,9 @@ public class b {
                     return;
                 }
             }
-            this.f37032d = new AtomicInteger(1);
-            this.f37031c = Thread.currentThread().getThreadGroup();
-            this.f37030b = f.i(str);
+            this.f73862d = new AtomicInteger(1);
+            this.f73861c = Thread.currentThread().getThreadGroup();
+            this.f73860b = f.i(str);
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -76,8 +76,8 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                ThreadGroup threadGroup = this.f37031c;
-                Thread thread = new Thread(threadGroup, runnable, "ksad-" + this.f37030b + this.f37032d.getAndIncrement(), 0L);
+                ThreadGroup threadGroup = this.f73861c;
+                Thread thread = new Thread(threadGroup, runnable, "ksad-" + this.f73860b + this.f73862d.getAndIncrement(), 0L);
                 if (thread.isDaemon()) {
                     thread.setDaemon(false);
                 }

@@ -36,10 +36,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.apollon.statistics.g;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.sapi2.NoProguard;
@@ -55,7 +53,6 @@ import com.baidu.sapi2.share.ShareUtils;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -94,7 +91,7 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SapiUtils implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COOKIE_EXPIRES_DATE_FORMAT = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
@@ -485,7 +482,7 @@ public class SapiUtils implements NoProguard {
     public static String getCookieBduss() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? getCookie(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL), HttpRequest.BDUSS) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? getCookie(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL), "BDUSS") : (String) invokeV.objValue;
     }
 
     public static String getCookiePtoken() {
@@ -763,7 +760,7 @@ public class SapiUtils implements NoProguard {
                             case 12:
                             case 14:
                             case 15:
-                                return g.f4012b;
+                                return "3G";
                             case 13:
                                 return "4G";
                             default:
@@ -1426,7 +1423,7 @@ public class SapiUtils implements NoProguard {
                 intent.setPackage(defaultSmsPackage);
             }
             if (!(context instanceof Activity)) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             try {
                 context.startActivity(intent);
@@ -1600,6 +1597,6 @@ public class SapiUtils implements NoProguard {
     public static String buildBDUSSCookie(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? buildBDUSSCookie(str, HttpRequest.BDUSS, str2) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? buildBDUSSCookie(str, "BDUSS", str2) : (String) invokeLL.objValue;
     }
 }

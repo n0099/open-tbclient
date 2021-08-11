@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.util.Log;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -23,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IntentUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -122,7 +121,7 @@ public class IntentUtils {
                 return intent.getBooleanExtra(str, z);
             } catch (Throwable unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "getBooleanExtra failed on intent " + intent);
+                    String str2 = "getBooleanExtra failed on intent " + intent;
                 }
                 return z;
             }
@@ -138,7 +137,7 @@ public class IntentUtils {
                 return bundle.getBundle(str);
             } catch (Throwable unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "getBundle failed on bundle " + bundle);
+                    String str2 = "getBundle failed on bundle " + bundle;
                     return null;
                 }
                 return null;
@@ -155,7 +154,7 @@ public class IntentUtils {
                 return intent.getBundleExtra(str);
             } catch (Throwable unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "getBundleExtra failed on intent " + intent);
+                    String str2 = "getBundleExtra failed on intent " + intent;
                     return null;
                 }
                 return null;
@@ -172,7 +171,7 @@ public class IntentUtils {
                 return intent.getByteArrayExtra(str);
             } catch (Throwable unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "getByteArrayExtra failed on intent " + intent);
+                    String str2 = "getByteArrayExtra failed on intent " + intent;
                     return null;
                 }
                 return null;
@@ -189,7 +188,7 @@ public class IntentUtils {
                 return intent.getIntExtra(str, i2);
             } catch (Throwable unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "getIntExtra failed on intent " + intent);
+                    String str2 = "getIntExtra failed on intent " + intent;
                 }
                 return i2;
             }
@@ -197,17 +196,17 @@ public class IntentUtils {
         return invokeLLI.intValue;
     }
 
-    public static long safeGetLongExtra(Intent intent, String str, long j) {
+    public static long safeGetLongExtra(Intent intent, String str, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{intent, str, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{intent, str, Long.valueOf(j2)})) == null) {
             try {
-                return intent.getLongExtra(str, j);
+                return intent.getLongExtra(str, j2);
             } catch (Throwable unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "getLongExtra failed on intent " + intent);
+                    String str2 = "getLongExtra failed on intent " + intent;
                 }
-                return j;
+                return j2;
             }
         }
         return invokeCommon.longValue;
@@ -221,7 +220,7 @@ public class IntentUtils {
                 return (T) intent.getParcelableExtra(str);
             } catch (Throwable unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "getByteArrayExtra failed on intent " + intent);
+                    String str2 = "getByteArrayExtra failed on intent " + intent;
                     return null;
                 }
                 return null;
@@ -238,7 +237,7 @@ public class IntentUtils {
                 return bundle.getString(str);
             } catch (Throwable unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "getString failed on bundle " + bundle);
+                    String str2 = "getString failed on bundle " + bundle;
                     return null;
                 }
                 return null;
@@ -255,7 +254,7 @@ public class IntentUtils {
                 return intent.getStringArrayListExtra(str);
             } catch (Throwable unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "getStringArrayListExtra failed on intent " + intent);
+                    String str2 = "getStringArrayListExtra failed on intent " + intent;
                     return null;
                 }
                 return null;
@@ -272,7 +271,7 @@ public class IntentUtils {
                 return intent.getStringExtra(str);
             } catch (Throwable unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "getStringExtra failed on intent " + intent);
+                    String str2 = "getStringExtra failed on intent " + intent;
                     return null;
                 }
                 return null;

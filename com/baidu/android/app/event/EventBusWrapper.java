@@ -14,15 +14,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.d;
-import h.g;
-import h.l.b.a;
-import h.n.b;
+import i.d;
+import i.g;
+import i.l.b.a;
+import i.n.b;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import rx.schedulers.Schedulers;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class EventBusWrapper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -36,7 +36,7 @@ public final class EventBusWrapper {
     public static ConcurrentHashMap<Object, ConcurrentLinkedQueue<LazySubscriber>> sLazySubscribers;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class LazySubscriber {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -315,7 +315,7 @@ public final class EventBusWrapper {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // h.n.b
+            @Override // i.n.b
             public void call(Throwable th) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -372,7 +372,7 @@ public final class EventBusWrapper {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // h.n.b
+            @Override // i.n.b
             public void call(Throwable th) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {

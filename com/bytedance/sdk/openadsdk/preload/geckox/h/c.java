@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface c {
     void a(String str, String str2, Throwable th);
 

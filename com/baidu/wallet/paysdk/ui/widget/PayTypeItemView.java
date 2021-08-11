@@ -14,9 +14,6 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.base.widget.NetImageView;
-import com.baidu.apollon.utils.ResUtils;
-import com.baidu.apollon.utils.support.ViewHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,34 +22,37 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.CardData;
-import com.baidu.wallet.base.widget.BorderTipTextView;
-import com.baidu.wallet.base.widget.LinkNoScrollMovementMethod;
+import com.dxmpay.apollon.base.widget.NetImageView;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.apollon.utils.support.ViewHelper;
+import com.dxmpay.wallet.base.widget.BorderTipTextView;
+import com.dxmpay.wallet.base.widget.LinkNoScrollMovementMethod;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class PayTypeItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f27079a;
+    public NetImageView f62916a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f27080b;
+    public TextView f62917b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BorderTipTextView f27081c;
+    public BorderTipTextView f62918c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f27082d;
+    public TextView f62919d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f27083e;
+    public ImageView f62920e;
     public Context mContext;
     public PayTypeItemViewData mData;
     public ProgressBar mProgress;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static final class ItemViewType implements Serializable {
         public static final /* synthetic */ ItemViewType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -115,7 +115,7 @@ public class PayTypeItemView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class PayTypeItemViewData implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String MASK_FLAG = "^";
@@ -230,11 +230,11 @@ public class PayTypeItemView extends RelativeLayout {
             ProgressBar progressBar = (ProgressBar) inflate.findViewById(ResUtils.id(getContext(), "ebpay_mini_progress_bar"));
             this.mProgress = progressBar;
             progressBar.setVisibility(8);
-            this.f27083e = (ImageView) inflate.findViewById(ResUtils.id(getContext(), "paytype_select"));
-            this.f27079a = (NetImageView) findViewById(ResUtils.id(this.mContext, "ebpay_paytype_logo"));
-            this.f27080b = (TextView) findViewById(ResUtils.id(this.mContext, "paytype_name"));
+            this.f62920e = (ImageView) inflate.findViewById(ResUtils.id(getContext(), "paytype_select"));
+            this.f62916a = (NetImageView) findViewById(ResUtils.id(this.mContext, "ebpay_paytype_logo"));
+            this.f62917b = (TextView) findViewById(ResUtils.id(this.mContext, "paytype_name"));
             if (!TextUtils.isEmpty(payTypeItemViewData.name)) {
-                this.f27080b.setText(payTypeItemViewData.name);
+                this.f62917b.setText(payTypeItemViewData.name);
             }
             TextView textView = (TextView) inflate.findViewById(ResUtils.id(getContext(), "paytype_free_amount"));
             if (ItemViewType.BANKCARD == payTypeItemViewData.type) {
@@ -248,64 +248,64 @@ public class PayTypeItemView extends RelativeLayout {
                 z = false;
             }
             inflate.findViewById(ResUtils.id(getContext(), "paytype_recommended")).setVisibility(payTypeItemViewData.isRecommended ? 0 : 4);
-            this.f27081c = (BorderTipTextView) findViewById(ResUtils.id(this.mContext, "paytype_tip"));
+            this.f62918c = (BorderTipTextView) findViewById(ResUtils.id(this.mContext, "paytype_tip"));
             if (!TextUtils.isEmpty(payTypeItemViewData.tips) && (!z || !payTypeItemViewData.tips.equals(textView.getText()))) {
-                this.f27081c.setVisibility(0);
+                this.f62918c.setVisibility(0);
                 if (payTypeItemViewData.isNeedToColored()) {
                     a(payTypeItemViewData, onClickListener);
                 } else {
-                    this.f27081c.setText(payTypeItemViewData.tips, payTypeItemViewData.highlight);
+                    this.f62918c.setText(payTypeItemViewData.tips, payTypeItemViewData.highlight);
                 }
             } else {
-                this.f27081c.setVisibility(8);
+                this.f62918c.setVisibility(8);
             }
-            this.f27082d = (TextView) findViewById(ResUtils.id(this.mContext, "paytype_hint"));
+            this.f62919d = (TextView) findViewById(ResUtils.id(this.mContext, "paytype_hint"));
             if (!TextUtils.isEmpty(payTypeItemViewData.hintMsg)) {
-                this.f27082d.setVisibility(0);
-                this.f27082d.setText(payTypeItemViewData.hintMsg);
-                LinearLayout linearLayout = (LinearLayout) this.f27082d.getParent();
+                this.f62919d.setVisibility(0);
+                this.f62919d.setText(payTypeItemViewData.hintMsg);
+                LinearLayout linearLayout = (LinearLayout) this.f62919d.getParent();
                 linearLayout.setPadding(linearLayout.getPaddingLeft(), linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), 0);
                 if (onClickListener2 != null) {
-                    this.f27082d.setOnClickListener(onClickListener2);
+                    this.f62919d.setOnClickListener(onClickListener2);
                 }
             } else {
-                this.f27082d.setVisibility(8);
+                this.f62919d.setVisibility(8);
             }
             ItemViewType itemViewType = payTypeItemViewData.type;
             if (itemViewType == ItemViewType.ADD_NEWCARD) {
-                this.f27083e.setImageDrawable(ResUtils.getDrawable(this.mContext, "wallet_base_paytype_item_right_arrow"));
-                this.f27083e.setVisibility(0);
-                this.f27079a.setImageDrawable(ResUtils.getDrawable(this.mContext, "wallet_base_paytype_add_newcard"));
-                this.f27081c.setVisibility(8);
+                this.f62920e.setImageDrawable(ResUtils.getDrawable(this.mContext, "dxm_wallet_base_paytype_item_right_arrow"));
+                this.f62920e.setVisibility(0);
+                this.f62916a.setImageDrawable(ResUtils.getDrawable(this.mContext, "wallet_base_paytype_add_newcard"));
+                this.f62918c.setVisibility(8);
             } else if (itemViewType == ItemViewType.BALANCE) {
-                this.f27079a.setImageDrawable(ResUtils.getDrawable(this.mContext, "wallet_base_paytype_balance"));
+                this.f62916a.setImageDrawable(ResUtils.getDrawable(this.mContext, "dxm_wallet_base_paytype_balance"));
             } else if (itemViewType == ItemViewType.CREDIT) {
-                this.f27079a.setImageDrawable(ResUtils.getDrawable(this.mContext, "wallet_base_paytype_credit"));
+                this.f62916a.setImageDrawable(ResUtils.getDrawable(this.mContext, "dxm_wallet_base_paytype_credit"));
             } else if (itemViewType == ItemViewType.BANKCARD && !TextUtils.isEmpty(payTypeItemViewData.logoUrl)) {
-                this.f27079a.setImageUrl(payTypeItemViewData.logoUrl);
+                this.f62916a.setImageUrl(payTypeItemViewData.logoUrl);
             }
             if (payTypeItemViewData.isAvaible) {
                 ViewHelper.setAlpha(inflate, 1.0f);
                 if (payTypeItemViewData.type == ItemViewType.ADD_NEWCARD) {
-                    this.f27083e.setVisibility(0);
+                    this.f62920e.setVisibility(0);
                     return;
                 } else if (payTypeItemViewData.isChecked) {
-                    this.f27083e.setVisibility(0);
-                    this.f27083e.setSelected(true);
+                    this.f62920e.setVisibility(0);
+                    this.f62920e.setSelected(true);
                     return;
                 } else {
-                    this.f27083e.setSelected(false);
-                    this.f27083e.setVisibility(4);
+                    this.f62920e.setSelected(false);
+                    this.f62920e.setVisibility(4);
                     return;
                 }
             }
-            ViewHelper.setAlphaPartly(inflate, 0.4f, this.f27081c);
+            ViewHelper.setAlphaPartly(inflate, 0.4f, this.f62918c);
             if (payTypeItemViewData.isNeedToColored()) {
                 inflate.setEnabled(false);
             } else {
                 inflate.setEnabled(true);
             }
-            this.f27083e.setVisibility(8);
+            this.f62920e.setVisibility(8);
         }
     }
 
@@ -326,7 +326,7 @@ public class PayTypeItemView extends RelativeLayout {
     public void setItemState(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f27083e.setVisibility(8);
+            this.f62920e.setVisibility(8);
             if (z) {
                 this.mProgress.setVisibility(0);
             } else {
@@ -349,10 +349,10 @@ public class PayTypeItemView extends RelativeLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ View.OnClickListener f27084a;
+            public final /* synthetic */ View.OnClickListener f62921a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ PayTypeItemView f27085b;
+            public final /* synthetic */ PayTypeItemView f62922b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -369,15 +369,15 @@ public class PayTypeItemView extends RelativeLayout {
                         return;
                     }
                 }
-                this.f27085b = this;
-                this.f27084a = onClickListener;
+                this.f62922b = this;
+                this.f62921a = onClickListener;
             }
 
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    this.f27084a.onClick(view);
+                    this.f62921a.onClick(view);
                 }
             }
 
@@ -390,15 +390,15 @@ public class PayTypeItemView extends RelativeLayout {
                 }
             }
         }, startIndex, i2, 18);
-        spannableString.setSpan(new ForegroundColorSpan(ResUtils.getColor(this.mContext, "wallet_base_mainColor")), startIndex, i2, 18);
+        spannableString.setSpan(new ForegroundColorSpan(ResUtils.getColor(this.mContext, "dxm_wallet_base_mainColor")), startIndex, i2, 18);
         if (!TextUtils.isEmpty(payTypeItemViewData.jump_url)) {
-            this.f27081c.setClickable(true);
-            this.f27081c.setEnabled(true);
+            this.f62918c.setClickable(true);
+            this.f62918c.setEnabled(true);
         } else {
-            this.f27081c.setClickable(false);
-            this.f27081c.setEnabled(false);
+            this.f62918c.setClickable(false);
+            this.f62918c.setEnabled(false);
         }
-        this.f27081c.setMovementMethod(new LinkNoScrollMovementMethod());
-        this.f27081c.setText(spannableString);
+        this.f62918c.setMovementMethod(new LinkNoScrollMovementMethod());
+        this.f62918c.setText(spannableString);
     }
 }

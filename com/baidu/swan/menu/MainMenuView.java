@@ -11,29 +11,35 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import c.a.n0.k.g;
+import c.a.n0.k.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.k.g;
-import d.a.o0.k.o;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class MainMenuView extends BaseMenuView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout j;
-    public View k;
-    public View l;
+
+    /* renamed from: h  reason: collision with root package name */
+    public LinearLayout f46957h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public View f46958i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public View f46959j;
+    public RecyclerView k;
+    public MenuContentAdapter l;
     public RecyclerView m;
     public MenuContentAdapter n;
-    public RecyclerView o;
-    public MenuContentAdapter p;
-    public List<List<o>> q;
-    public View r;
-    public boolean s;
+    public List<List<o>> o;
+    public View p;
+    public boolean q;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MainMenuView(@NonNull Context context) {
@@ -59,84 +65,86 @@ public class MainMenuView extends BaseMenuView {
     private void setMenuHeader(View view) {
         View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, view) == null) || view == null || view == (view2 = this.k)) {
+        if (!(interceptable == null || interceptable.invokeL(65539, this, view) == null) || view == null || view == (view2 = this.f46958i)) {
             return;
         }
         if (view2 != null) {
-            this.j.removeView(view2);
+            this.f46957h.removeView(view2);
         }
-        this.k = view;
-        this.j.addView(view, 0);
+        this.f46958i = view;
+        this.f46957h.addView(view, 0);
     }
 
-    @Override // com.baidu.swan.menu.BaseMenuView
-    public boolean b() {
-        InterceptResult invokeV;
+    public final void a(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<List<o>> list = this.q;
-            return list != null && list.size() > 1;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            this.f46959j.setVisibility(0);
+            this.m.setVisibility(0);
+            if (this.l == null) {
+                MenuContentAdapter menuContentAdapter = new MenuContentAdapter(getContext());
+                this.l = menuContentAdapter;
+                this.k.setAdapter(menuContentAdapter);
+            }
+            this.l.updateData(this.o.subList(0, 1), this.q, i2);
+            if (this.n == null) {
+                MenuContentAdapter menuContentAdapter2 = new MenuContentAdapter(getContext());
+                this.n = menuContentAdapter2;
+                this.m.setAdapter(menuContentAdapter2);
+            }
+            this.n.updateData(this.o.subList(1, 2), this.q, i2);
         }
-        return invokeV.booleanValue;
     }
 
-    public final void d(int i2) {
+    public final void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.l.setVisibility(0);
-            this.o.setVisibility(0);
-            if (this.n == null) {
+            this.f46959j.setVisibility(8);
+            this.m.setVisibility(8);
+            if (this.l == null) {
                 MenuContentAdapter menuContentAdapter = new MenuContentAdapter(getContext());
-                this.n = menuContentAdapter;
-                this.m.setAdapter(menuContentAdapter);
+                this.l = menuContentAdapter;
+                this.k.setAdapter(menuContentAdapter);
             }
-            this.n.g(this.q.subList(0, 1), this.s, i2);
-            if (this.p == null) {
-                MenuContentAdapter menuContentAdapter2 = new MenuContentAdapter(getContext());
-                this.p = menuContentAdapter2;
-                this.o.setAdapter(menuContentAdapter2);
-            }
-            this.p.g(this.q.subList(1, 2), this.s, i2);
+            this.l.updateData(this.o, this.q, i2);
         }
     }
 
-    public final void e(int i2) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.l.setVisibility(8);
-            this.o.setVisibility(8);
-            if (this.n == null) {
-                MenuContentAdapter menuContentAdapter = new MenuContentAdapter(getContext());
-                this.n = menuContentAdapter;
-                this.m.setAdapter(menuContentAdapter);
-            }
-            this.n.g(this.q, this.s, i2);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MenuContentAdapter menuContentAdapter = this.n;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MenuContentAdapter menuContentAdapter = this.l;
             if (menuContentAdapter != null) {
                 menuContentAdapter.notifyDataSetChanged();
             }
-            MenuContentAdapter menuContentAdapter2 = this.p;
+            MenuContentAdapter menuContentAdapter2 = this.n;
             if (menuContentAdapter2 != null) {
                 menuContentAdapter2.notifyDataSetChanged();
             }
         }
     }
 
-    public void g() {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            RecyclerView recyclerView = this.m;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            RecyclerView recyclerView = this.k;
             if (recyclerView != null) {
                 recyclerView.scrollToPosition(0);
             }
-            if (this.o != null) {
-                this.m.scrollToPosition(0);
+            if (this.m != null) {
+                this.k.scrollToPosition(0);
+            }
+        }
+    }
+
+    public final void e(List<List<o>> list, boolean z, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{list, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            this.o = list;
+            this.q = z;
+            if (z && list.size() > 1) {
+                a(i2);
+            } else {
+                b(i2);
             }
         }
     }
@@ -145,35 +153,33 @@ public class MainMenuView extends BaseMenuView {
     public View getCoverView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.r : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.p : (View) invokeV.objValue;
     }
 
-    public void h(List<List<o>> list, View view, boolean z, int i2) {
+    @Override // com.baidu.swan.menu.BaseMenuView
+    public boolean isHighMenu() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{list, view, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            setMode();
-            setMenuHeader(view);
-            i(list, z, i2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            List<List<o>> list = this.o;
+            return list != null && list.size() > 1;
         }
-    }
-
-    public final void i(List<List<o>> list, boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{list, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            this.q = list;
-            this.s = z;
-            if (z && list.size() > 1) {
-                d(i2);
-            } else {
-                e(i2);
-            }
-        }
+        return invokeV.booleanValue;
     }
 
     public void setCoverView(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
-            this.r = view;
+        if (interceptable == null || interceptable.invokeL(1048583, this, view) == null) {
+            this.p = view;
+        }
+    }
+
+    public void update(List<List<o>> list, View view, boolean z, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{list, view, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            setMode();
+            setMenuHeader(view);
+            e(list, z, i2);
         }
     }
 
@@ -218,27 +224,27 @@ public class MainMenuView extends BaseMenuView {
             }
         }
         LinearLayout linearLayout = new LinearLayout(context, attributeSet, i2);
-        this.j = linearLayout;
+        this.f46957h = linearLayout;
         linearLayout.setOrientation(1);
         RecyclerView recyclerView = new RecyclerView(context, attributeSet, i2);
-        this.m = recyclerView;
+        this.k = recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.m.setPadding(0, (int) this.f12048e.getResources().getDimension(g.aiapp_menu_gridview_padding_top), 0, 0);
-        this.j.addView(this.m, layoutParams);
+        this.k.setPadding(0, (int) this.mContext.getResources().getDimension(g.aiapp_menu_gridview_padding_top), 0, 0);
+        this.f46957h.addView(this.k, layoutParams);
         View view = new View(context);
-        this.l = view;
+        this.f46959j = view;
         view.setVisibility(8);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, 1);
         int dimensionPixelSize = getResources().getDimensionPixelSize(g.main_menu_divider_margin);
         layoutParams2.leftMargin = dimensionPixelSize;
         layoutParams2.rightMargin = dimensionPixelSize;
-        this.j.addView(this.l, layoutParams2);
+        this.f46957h.addView(this.f46959j, layoutParams2);
         RecyclerView recyclerView2 = new RecyclerView(context, attributeSet, i2);
-        this.o = recyclerView2;
+        this.m = recyclerView2;
         recyclerView2.setVisibility(8);
-        this.o.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-        this.j.addView(this.o, new LinearLayout.LayoutParams(-1, -2));
-        c(this.j, new FrameLayout.LayoutParams(-1, -2));
+        this.m.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
+        this.f46957h.addView(this.m, new LinearLayout.LayoutParams(-1, -2));
+        setContentView(this.f46957h, new FrameLayout.LayoutParams(-1, -2));
     }
 }

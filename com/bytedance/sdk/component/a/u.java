@@ -15,25 +15,25 @@ import com.bytedance.sdk.component.a.v;
 import com.bytedance.sdk.component.a.w;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Set<String> f27952a;
+    public final Set<String> f63789a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<String> f27953b;
+    public final Set<String> f63790b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final w f27954c;
+    public final w f63791c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final v f27955d;
+    public final v f63792d;
 
     /* renamed from: e  reason: collision with root package name */
-    public k.b f27956e;
+    public k.b f63793e;
 
     public u(@Nullable v vVar, @NonNull Set<String> set, @NonNull Set<String> set2) {
         Interceptable interceptable = $ic;
@@ -50,10 +50,10 @@ public class u {
                 return;
             }
         }
-        this.f27954c = r.f27940a;
-        this.f27955d = vVar;
-        this.f27952a = new LinkedHashSet(set);
-        this.f27953b = new LinkedHashSet(set2);
+        this.f63791c = r.f63777a;
+        this.f63792d = vVar;
+        this.f63789a = new LinkedHashSet(set);
+        this.f63790b = new LinkedHashSet(set2);
     }
 
     @MainThread
@@ -68,19 +68,19 @@ public class u {
                 if (host == null) {
                     return null;
                 }
-                x xVar = this.f27953b.contains(bVar.a()) ? x.f27975a : null;
-                for (String str2 : this.f27952a) {
+                x xVar = this.f63790b.contains(bVar.a()) ? x.f63812a : null;
+                for (String str2 : this.f63789a) {
                     if (!parse.getHost().equals(str2)) {
                         if (host.endsWith("." + str2)) {
                         }
                     }
-                    xVar = x.f27977c;
+                    xVar = x.f63814c;
                 }
-                if (xVar == null && this.f27956e != null && this.f27956e.a(str)) {
-                    if (this.f27956e.a(str, bVar.a())) {
+                if (xVar == null && this.f63793e != null && this.f63793e.a(str)) {
+                    if (this.f63793e.a(str, bVar.a())) {
                         return null;
                     }
-                    xVar = x.f27977c;
+                    xVar = x.f63814c;
                 }
                 if (z) {
                     b2 = a(str, bVar);
@@ -109,7 +109,7 @@ public class u {
     public void b(w.a aVar) {
         w wVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || (wVar = this.f27954c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || (wVar = this.f63791c) == null) {
             return;
         }
         wVar.b(aVar);
@@ -132,14 +132,14 @@ public class u {
     public void a(@Nullable k.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f27956e = bVar;
+            this.f63793e = bVar;
         }
     }
 
     public void a(w.a aVar) {
         w wVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || (wVar = this.f27954c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || (wVar = this.f63791c) == null) {
             return;
         }
         wVar.a(aVar);
@@ -150,20 +150,20 @@ public class u {
         v vVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, this, str, bVar, z)) == null) {
-            if (!z || (vVar = this.f27955d) == null) {
+            if (!z || (vVar = this.f63792d) == null) {
                 return null;
             }
-            v.c a2 = vVar.a(str, this.f27952a);
-            if (a2.f27970c.contains(bVar.a())) {
+            v.c a2 = vVar.a(str, this.f63789a);
+            if (a2.f63807c.contains(bVar.a())) {
                 return null;
             }
-            if (a2.f27969b.contains(bVar.a())) {
-                return x.f27977c;
+            if (a2.f63806b.contains(bVar.a())) {
+                return x.f63814c;
             }
-            if (a2.f27968a.compareTo(bVar.b()) < 0) {
+            if (a2.f63805a.compareTo(bVar.b()) < 0) {
                 return null;
             }
-            return a2.f27968a;
+            return a2.f63805a;
         }
         return (x) invokeLLZ.objValue;
     }

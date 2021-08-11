@@ -50,7 +50,9 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes5.dex */
 public class Utility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Utility";
@@ -87,32 +89,32 @@ public class Utility {
                 z = false;
             }
             if (LLog.sDebug) {
-                Log.d("Utility", "createNewEmptyFile() = " + z + ", file = " + file.getAbsolutePath());
+                String str = "createNewEmptyFile() = " + z + ", file = " + file.getAbsolutePath();
             }
             return z;
         }
         return invokeL.booleanValue;
     }
 
-    public static String formatTimeDuration(long j) {
+    public static String formatTimeDuration(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            if (j <= 0) {
-                return String.valueOf(j);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) {
+            if (j2 <= 0) {
+                return String.valueOf(j2);
             }
-            long j2 = 86400000;
-            long j3 = j / j2;
-            long j4 = j - (j2 * j3);
-            long j5 = 3600000;
-            long j6 = j4 / j5;
-            long j7 = j4 - (j5 * j6);
-            long j8 = 60000;
-            long j9 = j7 / j8;
-            long j10 = j7 - (j8 * j9);
-            long j11 = 1000;
-            long j12 = j10 / j11;
-            return j3 + " " + j6 + ":" + j9 + ":" + j12 + ":" + (j10 - (j11 * j12));
+            long j3 = 86400000;
+            long j4 = j2 / j3;
+            long j5 = j2 - (j3 * j4);
+            long j6 = 3600000;
+            long j7 = j5 / j6;
+            long j8 = j5 - (j6 * j7);
+            long j9 = 60000;
+            long j10 = j8 / j9;
+            long j11 = j8 - (j9 * j10);
+            long j12 = 1000;
+            long j13 = j11 / j12;
+            return j4 + " " + j7 + ":" + j10 + ":" + j13 + ":" + (j11 - (j12 * j13));
         }
         return (String) invokeJ.objValue;
     }
@@ -147,14 +149,14 @@ public class Utility {
             return StringUtil.EMPTY_ARRAY;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append('{');
+        sb.append(ExtendedMessageFormat.START_FE);
         while (true) {
             Map.Entry<String, String> next = it.next();
             sb.append(next.getKey());
-            sb.append(a.f1923h);
+            sb.append(a.f35773h);
             sb.append(next.getValue());
             if (!it.hasNext()) {
-                sb.append('}');
+                sb.append(ExtendedMessageFormat.END_FE);
                 return sb.toString();
             }
             sb.append(',');
@@ -307,7 +309,7 @@ public class Utility {
                 if (file2.exists() && (parentFile2 = file2.getParentFile()) != null && parentFile2.exists()) {
                     fileWriter.write(parentFile2.getAbsolutePath());
                     if (LLog.sDebug) {
-                        Log.d("Utility", parentFile2.getAbsolutePath() + "\n");
+                        String str = parentFile2.getAbsolutePath() + StringUtils.LF;
                     }
                     printFilePathInfo(fileWriter, parentFile2, "");
                 }
@@ -319,7 +321,7 @@ public class Utility {
                     if (file3.exists()) {
                         fileWriter.write(file3.getAbsolutePath());
                         if (LLog.sDebug) {
-                            Log.d("Utility", file3.getAbsolutePath() + "\n");
+                            String str2 = file3.getAbsolutePath() + StringUtils.LF;
                         }
                         printFilePathInfo(fileWriter, file3, "");
                     }
@@ -330,7 +332,7 @@ public class Utility {
                 if (releaseSoFilePath != null && releaseSoFilePath.exists()) {
                     fileWriter.write(releaseSoFilePath.getAbsolutePath());
                     if (LLog.sDebug) {
-                        Log.d("Utility", releaseSoFilePath.getAbsolutePath() + "\n");
+                        String str3 = releaseSoFilePath.getAbsolutePath() + StringUtils.LF;
                     }
                     printFilePathInfo(fileWriter, releaseSoFilePath, "");
                 }
@@ -397,7 +399,7 @@ public class Utility {
                                     break;
                                 }
                                 r1.write(readLine.getBytes());
-                                r1.write("\n".getBytes());
+                                r1.write(StringUtils.LF.getBytes());
                             } catch (Exception e2) {
                                 e = e2;
                                 bufferedReader = bufferedReader2;
@@ -490,7 +492,7 @@ public class Utility {
                 th = th;
                 fileWriter = fileWriter2;
                 try {
-                    Log.d("Utility", Log.getStackTraceString(th));
+                    Log.getStackTraceString(th);
                 } finally {
                     Closeables.closeSafely(fileWriter);
                 }
@@ -587,7 +589,7 @@ public class Utility {
                 th = th;
                 fileWriter = fileWriter2;
                 try {
-                    Log.d("Utility", Log.getStackTraceString(th));
+                    Log.getStackTraceString(th);
                 } finally {
                     Closeables.closeSafely(fileWriter);
                 }
@@ -636,7 +638,7 @@ public class Utility {
                 th = th;
             }
             try {
-                fileWriter.write("threads count:" + keySet.size() + "\n");
+                fileWriter.write("threads count:" + keySet.size() + StringUtils.LF);
                 int i2 = 0;
                 for (Thread thread : keySet) {
                     if (thread != null) {
@@ -644,17 +646,17 @@ public class Utility {
                         sb.append(i2);
                         sb.append(":");
                         sb.append(thread.getName());
-                        sb.append("\n");
+                        sb.append(StringUtils.LF);
                         StackTraceElement[] stackTrace = thread.getStackTrace();
                         if (stackTrace != null) {
                             for (StackTraceElement stackTraceElement : stackTrace) {
                                 if (stackTraceElement != null) {
                                     sb.append(stackTraceElement.toString());
-                                    sb.append("\n");
+                                    sb.append(StringUtils.LF);
                                 }
                             }
                         }
-                        sb.append("\n");
+                        sb.append(StringUtils.LF);
                         fileWriter.write(sb.toString());
                         i2++;
                     }
@@ -683,21 +685,21 @@ public class Utility {
                 if (file.isFile()) {
                     fileWriter.write("\tlength=" + file.length() + ",lastModified=" + file.lastModified());
                 }
-                fileWriter.write("\n");
+                fileWriter.write(StringUtils.LF);
                 if (LLog.sDebug) {
-                    Log.d("Utility", str + file.getAbsolutePath() + "\n");
+                    String str2 = str + file.getAbsolutePath() + StringUtils.LF;
                 }
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
             if (file.isDirectory()) {
                 File[] listFiles = file.listFiles();
-                String str2 = str + " ";
+                String str3 = str + " ";
                 if (listFiles == null || listFiles.length <= 0) {
                     return;
                 }
                 for (File file2 : listFiles) {
-                    printFilePathInfo(fileWriter, file2, str2);
+                    printFilePathInfo(fileWriter, file2, str3);
                 }
             }
         }
@@ -816,7 +818,7 @@ public class Utility {
             String absolutePath = file.getAbsolutePath();
             if (absolutePath.endsWith(".db")) {
                 try {
-                    fileWriter.write("\n" + absolutePath + "=" + file.length());
+                    fileWriter.write(StringUtils.LF + absolutePath + "=" + file.length());
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }

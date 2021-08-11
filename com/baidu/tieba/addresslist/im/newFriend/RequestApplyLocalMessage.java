@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RequestApplyLocalMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,17 +87,17 @@ public class RequestApplyLocalMessage extends CustomResponsedMessage<Object> {
         }
     }
 
-    public void setFriendId(long j) {
+    public void setFriendId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.friendId = j;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            this.friendId = j2;
         }
     }
 
-    public void setId(long j) {
+    public void setId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.id = j;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+            this.id = j2;
         }
     }
 
@@ -122,10 +122,10 @@ public class RequestApplyLocalMessage extends CustomResponsedMessage<Object> {
         }
     }
 
-    public void setUid(long j) {
+    public void setUid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.uid = j;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+            this.uid = j2;
         }
     }
 }

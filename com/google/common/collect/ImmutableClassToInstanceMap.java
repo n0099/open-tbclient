@@ -1,6 +1,8 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
+import c.i.d.a.n;
+import c.i.d.c.d0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,30 +13,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ImmutableMap;
-import d.f.d.a.n;
-import d.f.d.c.d0;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class ImmutableClassToInstanceMap<B> extends d0<Class<? extends B>, B> implements Object<B>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final ImmutableClassToInstanceMap<Object> EMPTY;
     public transient /* synthetic */ FieldHolder $fh;
     public final ImmutableMap<Class<? extends B>, B> delegate;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class b<B> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final ImmutableMap.b<Class<? extends B>, B> f33388a;
+        public final ImmutableMap.b<Class<? extends B>, B> f70105a;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -49,20 +49,20 @@ public final class ImmutableClassToInstanceMap<B> extends d0<Class<? extends B>,
                     return;
                 }
             }
-            this.f33388a = ImmutableMap.builder();
+            this.f70105a = ImmutableMap.builder();
         }
 
         public static <B, T extends B> T b(Class<T> cls, B b2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, b2)) == null) ? (T) d.f.d.g.a.d(cls).cast(b2) : (T) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, b2)) == null) ? (T) c.i.d.g.a.d(cls).cast(b2) : (T) invokeLL.objValue;
         }
 
         public ImmutableClassToInstanceMap<B> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ImmutableMap<Class<? extends B>, B> a2 = this.f33388a.a();
+                ImmutableMap<Class<? extends B>, B> a2 = this.f70105a.a();
                 if (a2.isEmpty()) {
                     return ImmutableClassToInstanceMap.of();
                 }
@@ -79,7 +79,7 @@ public final class ImmutableClassToInstanceMap<B> extends d0<Class<? extends B>,
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
                 for (Map.Entry<? extends Class<? extends T>, ? extends T> entry : map.entrySet()) {
                     Class<? extends T> key = entry.getKey();
-                    this.f33388a.c(key, b(key, entry.getValue()));
+                    this.f70105a.c(key, b(key, entry.getValue()));
                 }
                 return this;
             }
@@ -186,7 +186,7 @@ public final class ImmutableClassToInstanceMap<B> extends d0<Class<? extends B>,
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.f.d.c.d0, d.f.d.c.h0
+    @Override // c.i.d.c.d0, c.i.d.c.h0
     public Map<Class<? extends B>, B> delegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

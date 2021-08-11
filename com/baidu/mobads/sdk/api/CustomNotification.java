@@ -9,15 +9,15 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
 import androidx.core.app.NotificationCompat;
+import c.a.k0.a;
+import c.a.k0.b;
+import c.a.k0.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.l0.a;
-import d.a.l0.b;
-import d.a.l0.c;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class CustomNotification {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

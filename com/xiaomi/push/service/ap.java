@@ -14,15 +14,15 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ap {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40867a;
+    public static String f77742a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String[] f897a;
+    public static final String[] f901a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class ap {
                 return;
             }
         }
-        f897a = new String[]{"com.mi.globalbrowser", "com.android.browser"};
+        f901a = new String[]{"com.mi.globalbrowser", "com.android.browser"};
     }
 
     public static int a(ContentResolver contentResolver) {
@@ -49,7 +49,7 @@ public class ap {
                 try {
                     return Settings.Global.getInt(contentResolver, "user_aggregate", 0);
                 } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.m70a("get user aggregate failed, " + e2);
+                    com.xiaomi.channel.commonutils.logger.b.m73a("get user aggregate failed, " + e2);
                 }
             }
             return 0;
@@ -103,7 +103,7 @@ public class ap {
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, intent) == null) {
             int i2 = -1;
             while (true) {
-                str = i2 < 0 ? f40867a : f897a[i2];
+                str = i2 < 0 ? f77742a : f901a[i2];
                 if (!TextUtils.isEmpty(str)) {
                     intent.setPackage(str);
                     try {
@@ -111,17 +111,17 @@ public class ap {
                             break;
                         }
                     } catch (Exception e2) {
-                        com.xiaomi.channel.commonutils.logger.b.m70a("not found xm browser:" + e2);
+                        com.xiaomi.channel.commonutils.logger.b.m73a("not found xm browser:" + e2);
                     }
                 }
                 i2++;
-                if (i2 >= f897a.length) {
+                if (i2 >= f901a.length) {
                     str = null;
                     break;
                 }
             }
             intent.setPackage(str);
-            f40867a = str;
+            f77742a = str;
         }
     }
 
@@ -140,7 +140,7 @@ public class ap {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m598a(ContentResolver contentResolver) {
+    public static boolean m601a(ContentResolver contentResolver) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, contentResolver)) == null) {

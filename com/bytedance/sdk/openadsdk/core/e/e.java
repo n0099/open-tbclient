@@ -5,28 +5,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes9.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f30120a;
+    public boolean f66023a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f30121b;
+    public boolean f66024b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f30122c;
+    public boolean f66025c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f30123d;
+    public boolean f66026d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f30124e;
+    public boolean f66027e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f30125f;
+    public boolean f66028f;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -41,19 +42,19 @@ public class e {
                 return;
             }
         }
-        this.f30120a = true;
-        this.f30121b = true;
-        this.f30122c = true;
-        this.f30123d = true;
-        this.f30124e = true;
-        this.f30125f = true;
+        this.f66023a = true;
+        this.f66024b = true;
+        this.f66025c = true;
+        this.f66026d = true;
+        this.f66027e = true;
+        this.f66028f = true;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "ClickArea{clickUpperContentArea=" + this.f30120a + ", clickUpperNonContentArea=" + this.f30121b + ", clickLowerContentArea=" + this.f30122c + ", clickLowerNonContentArea=" + this.f30123d + ", clickButtonArea=" + this.f30124e + ", clickVideoArea=" + this.f30125f + '}';
+            return "ClickArea{clickUpperContentArea=" + this.f66023a + ", clickUpperNonContentArea=" + this.f66024b + ", clickLowerContentArea=" + this.f66025c + ", clickLowerNonContentArea=" + this.f66026d + ", clickButtonArea=" + this.f66027e + ", clickVideoArea=" + this.f66028f + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

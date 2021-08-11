@@ -18,14 +18,16 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-import com.alibaba.fastjson.asm.Label;
+import c.a.e.e.p.k;
+import c.a.e.e.p.l;
+import c.a.o0.s.f0.f;
+import c.a.p0.i3.w;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.ProxyAdkBaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -42,71 +44,80 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
-import d.a.d.e.p.l;
-import d.a.p0.s.f0.f;
-import d.a.q0.h3.w;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> implements ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
-    public static boolean L = false;
-    public static String M = "";
-    public static String N = "";
-    public static String O = "";
-    public static String P = "";
+    public static final int HOT_LIST = 1;
+    public static String I = "";
+    public static final int INITIAL_ITEM_COUNT = 200;
+    public static String J = "";
+    public static String K = "";
+    public static final String KEY_LEVEL_2_MENU_NAME = "level_2_menu_name";
+    public static final String KEY_MENU_ID = "menu_id";
+    public static final String KEY_MENU_NAME = "menu_name";
+    public static final String KEY_MENU_TYPE = "menu_type";
+    public static final String KEY_PARENT_MENU_ID = "parent_menu_id";
+    public static final String KEY_PARENT_MENU_NAME = "parent_menu_name";
+    public static String L = "";
+    public static final int LOAD_MORE_COUNT = 50;
+    public static final int RECOMMEND_LIST = 0;
+    public static final int TYPE_FROM_FRS_int = 2;
+    public static boolean isNeedRefreshOnBackFromBarDetail;
     public transient /* synthetic */ FieldHolder $fh;
-    public ForumListModel.RequestParams A;
-    public boolean B;
-    public boolean C;
-    public d.a.q0.e3.h.b D;
-    public d.a.q0.e3.h.b E;
-    public DirMenuModel F;
-    public ForumListDetailModel G;
-    public final ForumListDetailModel.b H;
-    public final DirMenuModel.c I;
-    public final AdapterView.OnItemClickListener J;
-    public final f.g K;
+    public c.a.p0.f3.h.b A;
+    public c.a.p0.f3.h.b B;
+    public DirMenuModel C;
+    public ForumListDetailModel D;
+    public final ForumListDetailModel.b E;
+    public final DirMenuModel.c F;
+    public final AdapterView.OnItemClickListener G;
+    public final f.g H;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21086e;
+    public int f56566e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21087f;
+    public int f56567f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f21088g;
+    public Drawable f56568g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Drawable f21089h;
+    public Drawable f56569h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Drawable f21090i;
-    public Drawable j;
+    public Drawable f56570i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public Drawable f56571j;
     public Drawable k;
     public Drawable l;
     public int m;
+    public c.a.p0.f3.h.c mViewHolder;
     public int n;
-    public ForumListModel.List o;
-    public ForumListModel.List p;
-    public int q;
-    public final LikeModel r;
+    public int o;
+    public final LikeModel p;
+    public boolean q;
+    public int r;
+    public ForumListModel.List recommend_list_left;
+    public ForumListModel.List recommend_list_right;
     public boolean s;
     public int t;
-    public boolean u;
-    public int v;
-    public int w;
-    public boolean x;
+    public int u;
+    public boolean v;
+    public boolean w;
+    public ForumListModel.RequestParams x;
     public boolean y;
-    public d.a.q0.e3.h.c z;
+    public boolean z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements ForumListDetailModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumListActivity f21091a;
+        public final /* synthetic */ ForumListActivity f56572a;
 
         public a(ForumListActivity forumListActivity) {
             Interceptable interceptable = $ic;
@@ -123,95 +134,95 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
                     return;
                 }
             }
-            this.f21091a = forumListActivity;
+            this.f56572a = forumListActivity;
         }
 
         @Override // com.baidu.tieba.square.flist.ForumListDetailModel.b
         public void a(boolean z, int i2, ForumListModel forumListModel, String str, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), forumListModel, str, Boolean.valueOf(z2)}) == null) {
-                if (!z && this.f21091a.D.a() == null) {
-                    this.f21091a.showToast(str);
-                    this.f21091a.z.e();
-                    this.f21091a.z.d();
-                    if (this.f21091a.A.menu_type == 2 && !z2) {
-                        this.f21091a.finish();
+                if (!z && this.f56572a.A.a() == null) {
+                    this.f56572a.showToast(str);
+                    this.f56572a.mViewHolder.e();
+                    this.f56572a.mViewHolder.d();
+                    if (this.f56572a.x.menu_type == 2 && !z2) {
+                        this.f56572a.finish();
                     }
-                    this.f21091a.z.A.setVisibility(8);
+                    this.f56572a.mViewHolder.A.setVisibility(8);
                 } else if (forumListModel == null || forumListModel.recommend_list_left == null || forumListModel.recommend_list_right == null || forumListModel.editor_recommend == null || forumListModel.forum_class == null) {
-                    if (this.f21091a.A.menu_type == 2 && !z2) {
-                        ForumListActivity forumListActivity = this.f21091a;
+                    if (this.f56572a.x.menu_type == 2 && !z2) {
+                        ForumListActivity forumListActivity = this.f56572a;
                         forumListActivity.showToast(forumListActivity.getPageContext().getString(R.string.no_forum_data));
-                        this.f21091a.finish();
+                        this.f56572a.finish();
                     } else {
-                        this.f21091a.showToast(str);
-                        this.f21091a.z.d();
-                        this.f21091a.A.recommend_type = this.f21091a.v;
-                        this.f21091a.A.rn = this.f21091a.w;
+                        this.f56572a.showToast(str);
+                        this.f56572a.mViewHolder.d();
+                        this.f56572a.x.recommend_type = this.f56572a.t;
+                        this.f56572a.x.rn = this.f56572a.u;
                     }
-                    this.f21091a.z.A.setVisibility(8);
+                    this.f56572a.mViewHolder.A.setVisibility(8);
                 } else {
-                    this.f21091a.z.A.setVisibility(8);
-                    if (this.f21091a.u) {
-                        ForumListActivity forumListActivity2 = this.f21091a;
-                        forumListActivity2.z.n.setText(forumListActivity2.getPageContext().getString(R.string.flist_expand_list));
-                        ForumListActivity forumListActivity3 = this.f21091a;
-                        forumListActivity3.z.o.setImageDrawable(forumListActivity3.k);
-                        ForumListActivity forumListActivity4 = this.f21091a;
-                        forumListActivity4.z.q.setText(forumListActivity4.getPageContext().getString(R.string.flist_expand_list));
-                        ForumListActivity forumListActivity5 = this.f21091a;
-                        forumListActivity5.z.r.setImageDrawable(forumListActivity5.k);
-                        this.f21091a.u = false;
+                    this.f56572a.mViewHolder.A.setVisibility(8);
+                    if (this.f56572a.s) {
+                        ForumListActivity forumListActivity2 = this.f56572a;
+                        forumListActivity2.mViewHolder.n.setText(forumListActivity2.getPageContext().getString(R.string.flist_expand_list));
+                        ForumListActivity forumListActivity3 = this.f56572a;
+                        forumListActivity3.mViewHolder.o.setImageDrawable(forumListActivity3.k);
+                        ForumListActivity forumListActivity4 = this.f56572a;
+                        forumListActivity4.mViewHolder.q.setText(forumListActivity4.getPageContext().getString(R.string.flist_expand_list));
+                        ForumListActivity forumListActivity5 = this.f56572a;
+                        forumListActivity5.mViewHolder.r.setImageDrawable(forumListActivity5.k);
+                        this.f56572a.s = false;
                     }
-                    ForumListActivity forumListActivity6 = this.f21091a;
-                    forumListActivity6.z.f56526g.setText(forumListActivity6.A.menu_name);
-                    ForumListActivity forumListActivity7 = this.f21091a;
-                    forumListActivity7.z.f56525f.onChangeSkinType(forumListActivity7.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-                    ForumListActivity forumListActivity8 = this.f21091a;
-                    forumListActivity8.z.y.d(forumListActivity8.t);
-                    int min = Math.min(forumListModel.recommend_list_left.forum_list.length, this.f21091a.o.forum_list.length);
-                    int min2 = Math.min(forumListModel.recommend_list_right.forum_list.length, this.f21091a.p.forum_list.length);
-                    System.arraycopy(forumListModel.recommend_list_left.forum_list, 0, this.f21091a.o.forum_list, 0, min);
-                    System.arraycopy(forumListModel.recommend_list_right.forum_list, 0, this.f21091a.p.forum_list, 0, min2);
-                    this.f21091a.D.e(min);
-                    this.f21091a.D.j(this.f21091a.r);
-                    this.f21091a.D.f(this.f21091a.o.forum_list);
-                    this.f21091a.z.f56528i.setSelection(0);
+                    ForumListActivity forumListActivity6 = this.f56572a;
+                    forumListActivity6.mViewHolder.f17844g.setText(forumListActivity6.x.menu_name);
+                    ForumListActivity forumListActivity7 = this.f56572a;
+                    forumListActivity7.mViewHolder.f17843f.onChangeSkinType(forumListActivity7.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+                    ForumListActivity forumListActivity8 = this.f56572a;
+                    forumListActivity8.mViewHolder.y.d(forumListActivity8.r);
+                    int min = Math.min(forumListModel.recommend_list_left.forum_list.length, this.f56572a.recommend_list_left.forum_list.length);
+                    int min2 = Math.min(forumListModel.recommend_list_right.forum_list.length, this.f56572a.recommend_list_right.forum_list.length);
+                    System.arraycopy(forumListModel.recommend_list_left.forum_list, 0, this.f56572a.recommend_list_left.forum_list, 0, min);
+                    System.arraycopy(forumListModel.recommend_list_right.forum_list, 0, this.f56572a.recommend_list_right.forum_list, 0, min2);
+                    this.f56572a.A.e(min);
+                    this.f56572a.A.j(this.f56572a.p);
+                    this.f56572a.A.f(this.f56572a.recommend_list_left.forum_list);
+                    this.f56572a.mViewHolder.f17846i.setSelection(0);
                     if (forumListModel.recommend_list_left.has_more == 1) {
-                        this.f21091a.z.f56521b.setVisibility(0);
+                        this.f56572a.mViewHolder.f17839b.setVisibility(0);
                     } else {
-                        this.f21091a.z.f56521b.setVisibility(8);
+                        this.f56572a.mViewHolder.f17839b.setVisibility(8);
                     }
-                    this.f21091a.z.k.setText(forumListModel.forum_class[0]);
-                    this.f21091a.E.e(min2);
-                    this.f21091a.E.j(this.f21091a.r);
-                    this.f21091a.E.f(this.f21091a.p.forum_list);
-                    this.f21091a.z.j.setSelection(0);
+                    this.f56572a.mViewHolder.k.setText(forumListModel.forum_class[0]);
+                    this.f56572a.B.e(min2);
+                    this.f56572a.B.j(this.f56572a.p);
+                    this.f56572a.B.f(this.f56572a.recommend_list_right.forum_list);
+                    this.f56572a.mViewHolder.f17847j.setSelection(0);
                     if (forumListModel.recommend_list_right.has_more == 1) {
-                        this.f21091a.z.f56522c.setVisibility(0);
+                        this.f56572a.mViewHolder.f17840c.setVisibility(0);
                     } else {
-                        this.f21091a.z.f56522c.setVisibility(8);
+                        this.f56572a.mViewHolder.f17840c.setVisibility(8);
                     }
-                    this.f21091a.z.l.setText(forumListModel.forum_class[1]);
-                    this.f21091a.findViewById(R.id.item_root).setVisibility(0);
-                    this.f21091a.z.d();
-                    if (this.f21091a.z.y.getCount() > 0) {
-                        this.f21091a.z.z.setClickable(true);
-                        ForumListActivity forumListActivity9 = this.f21091a;
-                        forumListActivity9.z.z.setOnClickListener(forumListActivity9);
+                    this.f56572a.mViewHolder.l.setText(forumListModel.forum_class[1]);
+                    this.f56572a.findViewById(R.id.item_root).setVisibility(0);
+                    this.f56572a.mViewHolder.d();
+                    if (this.f56572a.mViewHolder.y.getCount() > 0) {
+                        this.f56572a.mViewHolder.z.setClickable(true);
+                        ForumListActivity forumListActivity9 = this.f56572a;
+                        forumListActivity9.mViewHolder.z.setOnClickListener(forumListActivity9);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements DirMenuModel.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumListActivity f21092a;
+        public final /* synthetic */ ForumListActivity f56573a;
 
         public b(ForumListActivity forumListActivity) {
             Interceptable interceptable = $ic;
@@ -228,44 +239,44 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
                     return;
                 }
             }
-            this.f21092a = forumListActivity;
+            this.f56573a = forumListActivity;
         }
 
         @Override // com.baidu.tieba.square.flist.DirMenuModel.c
-        public void a(boolean z, int i2, d.a.q0.e3.j.d dVar, String str, boolean z2) {
+        public void a(boolean z, int i2, c.a.p0.f3.j.d dVar, String str, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), dVar, str, Boolean.valueOf(z2)}) == null) {
                 if (!z || i2 != 0) {
                     if (z2) {
                         return;
                     }
-                    this.f21092a.z.e();
+                    this.f56573a.mViewHolder.e();
                     return;
                 }
-                dVar.f56559e.add(0, dVar);
-                d.a.q0.e3.h.a aVar = this.f21092a.z.y;
+                dVar.f17879e.add(0, dVar);
+                c.a.p0.f3.h.a aVar = this.f56573a.mViewHolder.y;
                 if (aVar != null) {
                     aVar.e(dVar);
-                    ForumListActivity forumListActivity = this.f21092a;
-                    forumListActivity.T(String.valueOf(forumListActivity.z.f56526g.getText()));
-                    ForumListActivity forumListActivity2 = this.f21092a;
-                    forumListActivity2.z.f56525f.onChangeSkinType(forumListActivity2.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-                    this.f21092a.z.y.notifyDataSetChanged();
+                    ForumListActivity forumListActivity = this.f56573a;
+                    forumListActivity.W(String.valueOf(forumListActivity.mViewHolder.f17844g.getText()));
+                    ForumListActivity forumListActivity2 = this.f56573a;
+                    forumListActivity2.mViewHolder.f17843f.onChangeSkinType(forumListActivity2.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+                    this.f56573a.mViewHolder.y.notifyDataSetChanged();
                 }
-                this.f21092a.z.z.setClickable(true);
-                ForumListActivity forumListActivity3 = this.f21092a;
-                forumListActivity3.z.z.setOnClickListener(forumListActivity3);
+                this.f56573a.mViewHolder.z.setClickable(true);
+                ForumListActivity forumListActivity3 = this.f56573a;
+                forumListActivity3.mViewHolder.z.setOnClickListener(forumListActivity3);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class c implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumListActivity f21093e;
+        public final /* synthetic */ ForumListActivity f56574e;
 
         public c(ForumListActivity forumListActivity) {
             Interceptable interceptable = $ic;
@@ -282,32 +293,32 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
                     return;
                 }
             }
-            this.f21093e = forumListActivity;
+            this.f56574e = forumListActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                TiebaStatic.eventStat(this.f21093e.getPageContext().getPageActivity(), "forumlist_catalog", "catalogclick", 1, new Object[0]);
-                ForumListActivity forumListActivity = this.f21093e;
-                d.a.d.e.m.g.d(forumListActivity.z.u, forumListActivity.getPageContext().getPageActivity());
-                this.f21093e.t = i2;
-                this.f21093e.z.e();
-                this.f21093e.z.h();
-                ArrayList<d.a.q0.e3.j.d> arrayList = this.f21093e.z.y.c().f56559e;
-                this.f21093e.P(arrayList.get(i2).f56556b, arrayList.get(i2).f56557c, arrayList.get(i2).f56555a);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+                TiebaStatic.eventStat(this.f56574e.getPageContext().getPageActivity(), "forumlist_catalog", "catalogclick", 1, new Object[0]);
+                ForumListActivity forumListActivity = this.f56574e;
+                c.a.e.e.m.g.d(forumListActivity.mViewHolder.u, forumListActivity.getPageContext().getPageActivity());
+                this.f56574e.r = i2;
+                this.f56574e.mViewHolder.e();
+                this.f56574e.mViewHolder.h();
+                ArrayList<c.a.p0.f3.j.d> arrayList = this.f56574e.mViewHolder.y.c().f17879e;
+                this.f56574e.T(arrayList.get(i2).f17876b, arrayList.get(i2).f17877c, arrayList.get(i2).f17875a);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class d implements f.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumListActivity f21094e;
+        public final /* synthetic */ ForumListActivity f56575e;
 
         public d(ForumListActivity forumListActivity) {
             Interceptable interceptable = $ic;
@@ -324,46 +335,46 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
                     return;
                 }
             }
-            this.f21094e = forumListActivity;
+            this.f56575e = forumListActivity;
         }
 
-        @Override // d.a.p0.s.f0.f.g
+        @Override // c.a.o0.s.f0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f21094e.D.c() || this.f21094e.E.c()) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f56575e.A.c() || this.f56575e.B.c()) {
                 return;
             }
-            if (this.f21094e.x) {
-                this.f21094e.A.recommend_type = 0;
-                this.f21094e.A.rn = 200;
-                this.f21094e.G.E(this.f21094e.A);
-                this.f21094e.G.LoadData();
-                this.f21094e.x = false;
-            } else if (this.f21094e.z.f56523d.getCurrentItem() == 0) {
-                if (this.f21094e.B) {
-                    this.f21094e.m = 50;
+            if (this.f56575e.v) {
+                this.f56575e.x.recommend_type = 0;
+                this.f56575e.x.rn = 200;
+                this.f56575e.D.E(this.f56575e.x);
+                this.f56575e.D.LoadData();
+                this.f56575e.v = false;
+            } else if (this.f56575e.mViewHolder.f17841d.getCurrentItem() == 0) {
+                if (this.f56575e.y) {
+                    this.f56575e.m = 50;
                 } else {
-                    this.f21094e.m = 200;
+                    this.f56575e.m = 200;
                 }
-                new j(this.f21094e, null).execute(new Void[0]);
-            } else if (this.f21094e.z.f56523d.getCurrentItem() == 1) {
-                if (this.f21094e.C) {
-                    this.f21094e.n = 50;
+                new j(this.f56575e, null).execute(new Void[0]);
+            } else if (this.f56575e.mViewHolder.f17841d.getCurrentItem() == 1) {
+                if (this.f56575e.z) {
+                    this.f56575e.n = 50;
                 } else {
-                    this.f21094e.n = 200;
+                    this.f56575e.n = 200;
                 }
-                new i(this.f21094e, null).execute(new Void[0]);
+                new i(this.f56575e, null).execute(new Void[0]);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumListActivity f21095e;
+        public final /* synthetic */ ForumListActivity f56576e;
 
         public e(ForumListActivity forumListActivity) {
             Interceptable interceptable = $ic;
@@ -380,25 +391,25 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
                     return;
                 }
             }
-            this.f21095e = forumListActivity;
+            this.f56576e = forumListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f21095e.g();
+                this.f56576e.g();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumListActivity f21096e;
+        public final /* synthetic */ ForumListActivity f56577e;
 
         public f(ForumListActivity forumListActivity) {
             Interceptable interceptable = $ic;
@@ -415,28 +426,28 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
                     return;
                 }
             }
-            this.f21096e = forumListActivity;
+            this.f56577e = forumListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f21096e.f();
+                this.f56577e.f();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class g extends d.a.d.a.e {
+    /* loaded from: classes7.dex */
+    public class g extends c.a.e.a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumInfoData[] f21097a;
+        public final /* synthetic */ ForumInfoData[] f56578a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ForumListActivity f21098b;
+        public final /* synthetic */ ForumListActivity f56579b;
 
         public g(ForumListActivity forumListActivity, ForumInfoData[] forumInfoDataArr) {
             Interceptable interceptable = $ic;
@@ -453,31 +464,31 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
                     return;
                 }
             }
-            this.f21098b = forumListActivity;
-            this.f21097a = forumInfoDataArr;
+            this.f56579b = forumListActivity;
+            this.f56578a = forumInfoDataArr;
         }
 
-        @Override // d.a.d.a.e
+        @Override // c.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (this.f21098b.r.getErrorCode() == 22) {
-                    ForumListActivity forumListActivity = this.f21098b;
+                if (this.f56579b.p.getErrorCode() == 22) {
+                    ForumListActivity forumListActivity = this.f56579b;
                     forumListActivity.showToast(forumListActivity.getPageContext().getString(R.string.had_liked_forum));
                 } else if (obj == null) {
                 } else {
-                    if (this.f21098b.r.getErrorCode() != 0) {
-                        ForumListActivity forumListActivity2 = this.f21098b;
-                        forumListActivity2.showToast(forumListActivity2.r.getErrorString());
+                    if (this.f56579b.p.getErrorCode() != 0) {
+                        ForumListActivity forumListActivity2 = this.f56579b;
+                        forumListActivity2.showToast(forumListActivity2.p.getErrorString());
                     } else if (((w) obj).l() == 1) {
-                        ForumListActivity forumListActivity3 = this.f21098b;
+                        ForumListActivity forumListActivity3 = this.f56579b;
                         forumListActivity3.showToast(forumListActivity3.getPageContext().getString(R.string.attention_success));
-                        if (this.f21098b.q == 0) {
-                            this.f21098b.D.notifyDataSetChanged();
-                            TbadkCoreApplication.getInst().addLikeForum(this.f21097a[this.f21098b.D.f56508f].forum_name);
-                        } else if (this.f21098b.q == 1) {
-                            this.f21098b.E.notifyDataSetChanged();
-                            TbadkCoreApplication.getInst().addLikeForum(this.f21097a[this.f21098b.E.f56508f].forum_name);
+                        if (this.f56579b.o == 0) {
+                            this.f56579b.A.notifyDataSetChanged();
+                            TbadkCoreApplication.getInst().addLikeForum(this.f56578a[this.f56579b.A.f17825f].forum_name);
+                        } else if (this.f56579b.o == 1) {
+                            this.f56579b.B.notifyDataSetChanged();
+                            TbadkCoreApplication.getInst().addLikeForum(this.f56578a[this.f56579b.B.f17825f].forum_name);
                         }
                     }
                 }
@@ -485,13 +496,13 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class h extends PagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumListActivity f21099a;
+        public final /* synthetic */ ForumListActivity f56580a;
 
         public h(ForumListActivity forumListActivity) {
             Interceptable interceptable = $ic;
@@ -508,7 +519,7 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
                     return;
                 }
             }
-            this.f21099a = forumListActivity;
+            this.f56580a = forumListActivity;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -523,7 +534,7 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21099a.s ? 1 : 2 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56580a.q ? 1 : 2 : invokeV.intValue;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -532,13 +543,13 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i2)) == null) {
                 if (i2 == 0) {
-                    viewGroup.addView(this.f21099a.z.f56528i);
-                    return this.f21099a.z.f56528i;
+                    viewGroup.addView(this.f56580a.mViewHolder.f17846i);
+                    return this.f56580a.mViewHolder.f17846i;
                 } else if (i2 != 1) {
                     return null;
                 } else {
-                    viewGroup.addView(this.f21099a.z.j);
-                    return this.f21099a.z.j;
+                    viewGroup.addView(this.f56580a.mViewHolder.f17847j);
+                    return this.f56580a.mViewHolder.f17847j;
                 }
             }
             return invokeLI.objValue;
@@ -582,39 +593,49 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
         }
         this.m = 200;
         this.n = 200;
-        this.q = 0;
-        this.r = new LikeModel(getPageContext());
+        this.o = 0;
+        this.p = new LikeModel(getPageContext());
+        this.q = false;
+        this.r = 0;
         this.s = false;
         this.t = 0;
-        this.u = false;
-        this.v = 0;
-        this.w = 200;
-        this.x = true;
-        this.y = true;
-        this.B = false;
-        this.C = false;
-        this.H = new a(this);
-        this.I = new b(this);
-        this.J = new c(this);
-        this.K = new d(this);
+        this.u = 200;
+        this.v = true;
+        this.w = true;
+        this.y = false;
+        this.z = false;
+        this.E = new a(this);
+        this.F = new b(this);
+        this.G = new c(this);
+        this.H = new d(this);
     }
 
-    public static void S(Context context, String str, String str2, String str3, String str4) {
+    public static void startLevel2ForumListActivity(Context context, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65548, null, context, str, str2, str3, str4) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(65560, null, context, str, str2, str3, str4) == null) {
             Intent intent = new Intent(context, ForumListActivity.class);
-            intent.putExtra(ForumListActivityConfig.KEY_PARENT_MENU_NAME, str);
-            intent.putExtra(ForumListActivityConfig.KEY_MENU_TYPE, str2);
-            intent.putExtra(ForumListActivityConfig.KEY_PARENT_MENU_ID, str3);
-            intent.putExtra("level_2_menu_name", str4);
+            intent.putExtra("parent_menu_name", str);
+            intent.putExtra("menu_type", str2);
+            intent.putExtra("parent_menu_id", str3);
+            intent.putExtra(KEY_LEVEL_2_MENU_NAME, str4);
             if (!(context instanceof Activity)) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             context.startActivity(intent);
         }
     }
 
-    public final BdListView N() {
+    public static void updateForumInfo(String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65563, null, str, str2, str3, str4) == null) {
+            I = str;
+            J = str2;
+            K = str3;
+            L = str4;
+        }
+    }
+
+    public final BdListView R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -633,116 +654,116 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
         return (BdListView) invokeV.objValue;
     }
 
-    public final void O(String str, String str2, String str3, String str4) {
+    public final void S(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4) == null) {
             if (k.isEmpty(str4)) {
                 str4 = str;
             }
-            this.z.f56526g.setText(str4);
-            this.z.f56525f.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            this.mViewHolder.f17844g.setText(str4);
+            this.mViewHolder.f17843f.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             ForumListModel.RequestParams requestParams = new ForumListModel.RequestParams();
-            this.A = requestParams;
-            requestParams.menu_id = d.a.d.e.m.b.d(str2, 0);
-            ForumListModel.RequestParams requestParams2 = this.A;
+            this.x = requestParams;
+            requestParams.menu_id = c.a.e.e.m.b.d(str2, 0);
+            ForumListModel.RequestParams requestParams2 = this.x;
             requestParams2.menu_name = str4;
-            requestParams2.menu_type = d.a.d.e.m.b.d(str3, 0);
-            this.A.parent_menu_id = d.a.d.e.m.b.d(str2, 0);
-            ForumListModel.RequestParams requestParams3 = this.A;
+            requestParams2.menu_type = c.a.e.e.m.b.d(str3, 0);
+            this.x.parent_menu_id = c.a.e.e.m.b.d(str2, 0);
+            ForumListModel.RequestParams requestParams3 = this.x;
             requestParams3.parent_menu_name = str;
             requestParams3.offset = 0;
             requestParams3.rn = 10;
             if (requestParams3.menu_id != 0) {
-                this.z.c();
-                this.s = true;
-                this.y = false;
-                this.D.h(false);
-                this.z.f56523d.getAdapter().notifyDataSetChanged();
+                this.mViewHolder.c();
+                this.q = true;
+                this.w = false;
+                this.A.h(false);
+                this.mViewHolder.f17841d.getAdapter().notifyDataSetChanged();
             } else {
-                this.y = true;
-                this.D.h(true);
-                this.z.g();
+                this.w = true;
+                this.A.h(true);
+                this.mViewHolder.g();
             }
-            this.o = new ForumListModel.List();
+            this.recommend_list_left = new ForumListModel.List();
             ForumListModel.List list = new ForumListModel.List();
-            this.p = list;
-            this.o.forum_list = new ForumInfoData[50];
+            this.recommend_list_right = list;
+            this.recommend_list_left.forum_list = new ForumInfoData[50];
             list.forum_list = new ForumInfoData[50];
-            this.z.s.a(this.K);
-            this.z.t.a(this.K);
-            this.D.notifyDataSetChanged();
-            this.E.notifyDataSetChanged();
+            this.mViewHolder.s.a(this.H);
+            this.mViewHolder.t.a(this.H);
+            this.A.notifyDataSetChanged();
+            this.B.notifyDataSetChanged();
             if (str3.equals("2")) {
-                this.z.e();
+                this.mViewHolder.e();
             } else {
                 DirMenuModel dirMenuModel = new DirMenuModel(getPageContext(), str, str3, str2);
-                this.F = dirMenuModel;
-                dirMenuModel.E(this.I);
-                this.F.LoadData();
+                this.C = dirMenuModel;
+                dirMenuModel.E(this.F);
+                this.C.LoadData();
             }
-            ForumListDetailModel forumListDetailModel = new ForumListDetailModel(getPageContext(), this.A);
-            this.G = forumListDetailModel;
-            forumListDetailModel.D(this.H);
-            this.z.f56528i.F();
+            ForumListDetailModel forumListDetailModel = new ForumListDetailModel(getPageContext(), this.x);
+            this.D = forumListDetailModel;
+            forumListDetailModel.D(this.E);
+            this.mViewHolder.f17846i.startPullRefresh();
         }
     }
 
-    public final void P(String str, String str2, String str3) {
+    public final void T(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
-            this.A.menu_id = d.a.d.e.m.b.d(str2, 0);
-            ForumListModel.RequestParams requestParams = this.A;
+            this.x.menu_id = c.a.e.e.m.b.d(str2, 0);
+            ForumListModel.RequestParams requestParams = this.x;
             requestParams.menu_name = str;
-            requestParams.menu_type = d.a.d.e.m.b.d(str3, 0);
-            this.A.parent_menu_id = d.a.d.e.m.b.d(getIntent().getStringExtra(ForumListActivityConfig.KEY_PARENT_MENU_ID), 0);
-            this.A.parent_menu_name = getIntent().getStringExtra(ForumListActivityConfig.KEY_PARENT_MENU_NAME);
-            ForumListModel.RequestParams requestParams2 = this.A;
+            requestParams.menu_type = c.a.e.e.m.b.d(str3, 0);
+            this.x.parent_menu_id = c.a.e.e.m.b.d(getIntent().getStringExtra("parent_menu_id"), 0);
+            this.x.parent_menu_name = getIntent().getStringExtra("parent_menu_name");
+            ForumListModel.RequestParams requestParams2 = this.x;
             requestParams2.offset = 0;
             requestParams2.rn = 10;
-            this.v = requestParams2.recommend_type;
-            this.w = 10;
+            this.t = requestParams2.recommend_type;
+            this.u = 10;
             requestParams2.recommend_type = 0;
             requestParams2.rn = 200;
-            this.u = true;
-            this.G.E(requestParams2);
-            this.G.LoadData();
+            this.s = true;
+            this.D.E(requestParams2);
+            this.D.LoadData();
         }
     }
 
-    public final View Q() {
+    public final View U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.z.j = N();
-            this.z.p.setOnClickListener(new f(this));
-            return this.z.j;
+            this.mViewHolder.f17847j = R();
+            this.mViewHolder.p.setOnClickListener(new f(this));
+            return this.mViewHolder.f17847j;
         }
         return (View) invokeV.objValue;
     }
 
-    public final View R() {
+    public final View V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.z.f56528i = N();
-            this.z.m.setOnClickListener(new e(this));
-            return this.z.f56528i;
+            this.mViewHolder.f17846i = R();
+            this.mViewHolder.m.setOnClickListener(new e(this));
+            return this.mViewHolder.f17846i;
         }
         return (View) invokeV.objValue;
     }
 
-    public final void T(String str) {
-        d.a.q0.e3.j.d c2;
+    public final void W(String str) {
+        c.a.p0.f3.j.d c2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (c2 = this.z.y.c()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (c2 = this.mViewHolder.y.c()) == null) {
             return;
         }
-        ArrayList<d.a.q0.e3.j.d> arrayList = c2.f56559e;
+        ArrayList<c.a.p0.f3.j.d> arrayList = c2.f17879e;
         int size = arrayList.size();
         for (int i2 = 0; i2 < size; i2++) {
-            if (arrayList.get(i2).f56556b.equals(str)) {
-                this.t = i2;
-                this.z.y.d(i2);
+            if (arrayList.get(i2).f17876b.equals(str)) {
+                this.r = i2;
+                this.mViewHolder.y.d(i2);
                 return;
             }
         }
@@ -751,16 +772,16 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.C) {
-                int min = Math.min(this.E.getCount(), 200);
+            if (this.z) {
+                int min = Math.min(this.B.getCount(), 200);
                 this.n = 200;
                 ForumInfoData[] forumInfoDataArr = new ForumInfoData[min];
-                System.arraycopy(this.E.a(), 0, forumInfoDataArr, 0, min);
-                this.E.e(min);
-                this.E.f(forumInfoDataArr);
-                this.C = false;
-                this.z.q.setText(getPageContext().getString(R.string.flist_expand_list));
-                this.z.r.setImageDrawable(this.k);
+                System.arraycopy(this.B.a(), 0, forumInfoDataArr, 0, min);
+                this.B.e(min);
+                this.B.f(forumInfoDataArr);
+                this.z = false;
+                this.mViewHolder.q.setText(getPageContext().getString(R.string.flist_expand_list));
+                this.mViewHolder.r.setImageDrawable(this.k);
                 return;
             }
             this.n = 50;
@@ -773,16 +794,16 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.B) {
-                int min = Math.min(this.D.getCount(), 200);
+            if (this.y) {
+                int min = Math.min(this.A.getCount(), 200);
                 this.m = 200;
                 ForumInfoData[] forumInfoDataArr = new ForumInfoData[min];
-                System.arraycopy(this.D.a(), 0, forumInfoDataArr, 0, min);
-                this.D.e(min);
-                this.D.f(forumInfoDataArr);
-                this.B = false;
-                this.z.n.setText(getPageContext().getString(R.string.flist_expand_list));
-                this.z.o.setImageDrawable(this.k);
+                System.arraycopy(this.A.a(), 0, forumInfoDataArr, 0, min);
+                this.A.e(min);
+                this.A.f(forumInfoDataArr);
+                this.y = false;
+                this.mViewHolder.n.setText(getPageContext().getString(R.string.flist_expand_list));
+                this.mViewHolder.o.setImageDrawable(this.k);
                 return;
             }
             this.m = 50;
@@ -797,21 +818,21 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
         ForumInfoData[] a2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, intent) == null) && i2 == 11002 && i3 == -1) {
-            this.G.LoadData();
-            if (this.q == 0) {
-                a2 = this.D.a();
+            this.D.LoadData();
+            if (this.o == 0) {
+                a2 = this.A.a();
             } else {
-                a2 = this.E.a();
+                a2 = this.B.a();
             }
-            this.r.setLoadDataCallBack(new g(this, a2));
-            if (this.q == 0) {
-                LikeModel likeModel = this.r;
-                int i4 = this.D.f56508f;
+            this.p.setLoadDataCallBack(new g(this, a2));
+            if (this.o == 0) {
+                LikeModel likeModel = this.p;
+                int i4 = this.A.f17825f;
                 likeModel.L(a2[i4].forum_name, String.valueOf(a2[i4].forum_id));
                 return;
             }
-            LikeModel likeModel2 = this.r;
-            int i5 = this.E.f56508f;
+            LikeModel likeModel2 = this.p;
+            int i5 = this.B.f17825f;
             likeModel2.L(a2[i5].forum_name, String.valueOf(a2[i5].forum_id));
         }
     }
@@ -822,57 +843,57 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             getLayoutMode().k(i2 == 1);
-            getLayoutMode().j(this.z.f56520a);
-            this.z.f56525f.onChangeSkinType(getPageContext(), i2);
+            getLayoutMode().j(this.mViewHolder.f17838a);
+            this.mViewHolder.f17843f.onChangeSkinType(getPageContext(), i2);
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                this.D.d(true);
-                this.E.d(true);
+                this.A.d(true);
+                this.B.d(true);
             } else {
-                this.D.d(false);
-                this.E.d(false);
+                this.A.d(false);
+                this.B.d(false);
             }
-            this.D.notifyDataSetChanged();
-            this.E.notifyDataSetChanged();
-            PopupWindow popupWindow = this.z.u;
+            this.A.notifyDataSetChanged();
+            this.B.notifyDataSetChanged();
+            PopupWindow popupWindow = this.mViewHolder.u;
             if (popupWindow != null) {
                 popupWindow.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.bg_allsproutpop_dropdown));
             }
-            SkinManager.setBackgroundResource(this.z.f56524e, R.drawable.bg_pop_most);
-            this.f21086e = SkinManager.getColor(R.color.common_color_10243);
-            this.f21087f = SkinManager.getColor(R.color.CAM_X0101);
-            this.f21088g = SkinManager.getDrawable(R.drawable.btn_pop_most_left_n);
-            this.f21089h = SkinManager.getDrawable(R.drawable.btn_pop_most_right_n);
-            this.f21090i = SkinManager.getDrawable(R.drawable.btn_pop_most_left_s);
-            this.j = SkinManager.getDrawable(R.drawable.btn_pop_most_right_s);
+            SkinManager.setBackgroundResource(this.mViewHolder.f17842e, R.drawable.bg_pop_most);
+            this.f56566e = SkinManager.getColor(R.color.common_color_10243);
+            this.f56567f = SkinManager.getColor(R.color.CAM_X0101);
+            this.f56568g = SkinManager.getDrawable(R.drawable.btn_pop_most_left_n);
+            this.f56569h = SkinManager.getDrawable(R.drawable.btn_pop_most_right_n);
+            this.f56570i = SkinManager.getDrawable(R.drawable.btn_pop_most_left_s);
+            this.f56571j = SkinManager.getDrawable(R.drawable.btn_pop_most_right_s);
             this.k = SkinManager.getDrawable(R.drawable.ico_downward);
             this.l = SkinManager.getDrawable(R.drawable.ico_upward);
-            this.D.i(R.drawable.btn_add_end, R.drawable.btn_add);
-            this.E.i(R.drawable.btn_add_end, R.drawable.btn_add);
-            SkinManager.setBackgroundResource(this.z.f56522c, R.drawable.bg_black_banner_down);
-            SkinManager.setViewTextColor(this.z.q, R.color.common_color_10243, 1);
-            SkinManager.setBackgroundResource(this.z.f56521b, R.drawable.bg_black_banner_down);
-            SkinManager.setViewTextColor(this.z.n, R.color.common_color_10243, 1);
-            if (this.B) {
-                SkinManager.setImageResource(this.z.o, R.drawable.ico_upward);
+            this.A.i(R.drawable.btn_add_end, R.drawable.btn_add);
+            this.B.i(R.drawable.btn_add_end, R.drawable.btn_add);
+            SkinManager.setBackgroundResource(this.mViewHolder.f17840c, R.drawable.bg_black_banner_down);
+            SkinManager.setViewTextColor(this.mViewHolder.q, R.color.common_color_10243, 1);
+            SkinManager.setBackgroundResource(this.mViewHolder.f17839b, R.drawable.bg_black_banner_down);
+            SkinManager.setViewTextColor(this.mViewHolder.n, R.color.common_color_10243, 1);
+            if (this.y) {
+                SkinManager.setImageResource(this.mViewHolder.o, R.drawable.ico_upward);
             } else {
-                SkinManager.setImageResource(this.z.o, R.drawable.ico_downward);
+                SkinManager.setImageResource(this.mViewHolder.o, R.drawable.ico_downward);
             }
-            if (this.C) {
-                SkinManager.setImageResource(this.z.r, R.drawable.ico_upward);
+            if (this.z) {
+                SkinManager.setImageResource(this.mViewHolder.r, R.drawable.ico_upward);
             } else {
-                SkinManager.setImageResource(this.z.r, R.drawable.ico_downward);
+                SkinManager.setImageResource(this.mViewHolder.r, R.drawable.ico_downward);
             }
-            if (this.z.f56523d.getCurrentItem() == 0) {
-                this.z.k.setTextColor(this.f21087f);
-                this.z.k.setBackgroundDrawable(this.f21090i);
-                this.z.l.setBackgroundDrawable(this.f21089h);
-                this.z.l.setTextColor(this.f21086e);
+            if (this.mViewHolder.f17841d.getCurrentItem() == 0) {
+                this.mViewHolder.k.setTextColor(this.f56567f);
+                this.mViewHolder.k.setBackgroundDrawable(this.f56570i);
+                this.mViewHolder.l.setBackgroundDrawable(this.f56569h);
+                this.mViewHolder.l.setTextColor(this.f56566e);
                 return;
             }
-            this.z.l.setTextColor(this.f21087f);
-            this.z.l.setBackgroundDrawable(this.j);
-            this.z.k.setBackgroundDrawable(this.f21088g);
-            this.z.k.setTextColor(this.f21086e);
+            this.mViewHolder.l.setTextColor(this.f56567f);
+            this.mViewHolder.l.setBackgroundDrawable(this.f56571j);
+            this.mViewHolder.k.setBackgroundDrawable(this.f56568g);
+            this.mViewHolder.k.setTextColor(this.f56566e);
         }
     }
 
@@ -882,15 +903,15 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
         if (interceptable == null || interceptable.invokeL(1048586, this, view) == null) {
             int id = view.getId();
             if (id == R.id.tab_recommends) {
-                this.z.f56523d.setCurrentItem(0);
-                this.q = 0;
+                this.mViewHolder.f17841d.setCurrentItem(0);
+                this.o = 0;
                 TiebaStatic.eventStat(view.getContext(), "recommend_list_click", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
             } else if (id == R.id.tab_hot) {
-                this.z.f56523d.setCurrentItem(1);
-                this.q = 1;
+                this.mViewHolder.f17841d.setCurrentItem(1);
+                this.o = 1;
                 TiebaStatic.eventStat(view.getContext(), "hot_list_click", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
             } else if (id == R.id.title_menu) {
-                this.z.f(this.J);
+                this.mViewHolder.f(this.G);
             }
         }
     }
@@ -902,40 +923,40 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
         if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.forum_list_activity);
-            String stringExtra = getIntent().getStringExtra(ForumListActivityConfig.KEY_PARENT_MENU_NAME);
-            String stringExtra2 = getIntent().getStringExtra("level_2_menu_name");
-            String stringExtra3 = getIntent().getStringExtra(ForumListActivityConfig.KEY_PARENT_MENU_ID);
-            String stringExtra4 = getIntent().getStringExtra(ForumListActivityConfig.KEY_MENU_TYPE);
-            d.a.q0.e3.h.c cVar = new d.a.q0.e3.h.c(this);
-            this.z = cVar;
-            cVar.f56528i = (BdListView) R();
-            this.z.j = (BdListView) Q();
-            this.z.A.setVisibility(0);
-            this.z.z.setOnClickListener(null);
-            this.z.z.setClickable(false);
-            this.z.f56523d.setAdapter(new h(this));
-            d.a.q0.e3.h.c cVar2 = this.z;
-            cVar2.f56528i.setPullRefresh(cVar2.s);
-            d.a.q0.e3.h.c cVar3 = this.z;
-            cVar3.j.setPullRefresh(cVar3.t);
-            if (d.a.d.e.m.b.d(stringExtra3, 0) != 0) {
+            String stringExtra = getIntent().getStringExtra("parent_menu_name");
+            String stringExtra2 = getIntent().getStringExtra(KEY_LEVEL_2_MENU_NAME);
+            String stringExtra3 = getIntent().getStringExtra("parent_menu_id");
+            String stringExtra4 = getIntent().getStringExtra("menu_type");
+            c.a.p0.f3.h.c cVar = new c.a.p0.f3.h.c(this);
+            this.mViewHolder = cVar;
+            cVar.f17846i = (BdListView) V();
+            this.mViewHolder.f17847j = (BdListView) U();
+            this.mViewHolder.A.setVisibility(0);
+            this.mViewHolder.z.setOnClickListener(null);
+            this.mViewHolder.z.setClickable(false);
+            this.mViewHolder.f17841d.setAdapter(new h(this));
+            c.a.p0.f3.h.c cVar2 = this.mViewHolder;
+            cVar2.f17846i.setPullRefresh(cVar2.s);
+            c.a.p0.f3.h.c cVar3 = this.mViewHolder;
+            cVar3.f17847j.setPullRefresh(cVar3.t);
+            if (c.a.e.e.m.b.d(stringExtra3, 0) != 0) {
                 g2 = l.g(getActivity(), R.dimen.ds98);
             } else {
                 g2 = l.g(getActivity(), R.dimen.ds176);
             }
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + g2));
-            this.z.f56528i.x(textView, 0);
+            this.mViewHolder.f17846i.addHeaderView(textView, 0);
             TextView textView2 = new TextView(getActivity());
             textView2.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + g2));
-            this.z.j.x(textView2, 0);
-            d.a.q0.e3.h.b bVar = new d.a.q0.e3.h.b(getPageContext(), 0);
-            this.D = bVar;
-            this.z.f56528i.setAdapter((ListAdapter) bVar);
-            d.a.q0.e3.h.b bVar2 = new d.a.q0.e3.h.b(getPageContext(), 1);
-            this.E = bVar2;
-            this.z.j.setAdapter((ListAdapter) bVar2);
-            O(stringExtra, stringExtra3, stringExtra4, stringExtra2);
+            this.mViewHolder.f17847j.addHeaderView(textView2, 0);
+            c.a.p0.f3.h.b bVar = new c.a.p0.f3.h.b(getPageContext(), 0);
+            this.A = bVar;
+            this.mViewHolder.f17846i.setAdapter((ListAdapter) bVar);
+            c.a.p0.f3.h.b bVar2 = new c.a.p0.f3.h.b(getPageContext(), 1);
+            this.B = bVar2;
+            this.mViewHolder.f17847j.setAdapter((ListAdapter) bVar2);
+            S(stringExtra, stringExtra3, stringExtra4, stringExtra2);
         }
     }
 
@@ -944,22 +965,22 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDestroy();
-            LikeModel likeModel = this.r;
+            LikeModel likeModel = this.p;
             if (likeModel != null) {
                 likeModel.I();
             }
-            this.z.f56523d.setAdapter(null);
-            this.z.j.setAdapter((ListAdapter) null);
-            this.z.f56528i.setAdapter((ListAdapter) null);
-            ListView listView = this.z.x;
+            this.mViewHolder.f17841d.setAdapter(null);
+            this.mViewHolder.f17847j.setAdapter((ListAdapter) null);
+            this.mViewHolder.f17846i.setAdapter((ListAdapter) null);
+            ListView listView = this.mViewHolder.x;
             if (listView != null) {
                 listView.setAdapter((ListAdapter) null);
             }
-            DirMenuModel dirMenuModel = this.F;
+            DirMenuModel dirMenuModel = this.C;
             if (dirMenuModel != null) {
                 dirMenuModel.cancelLoadData();
             }
-            ForumListDetailModel forumListDetailModel = this.G;
+            ForumListDetailModel forumListDetailModel = this.D;
             if (forumListDetailModel != null) {
                 forumListDetailModel.cancelLoadData();
             }
@@ -983,23 +1004,23 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageSelected(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048591, this, i2) == null) || this.s) {
+        if (!(interceptable == null || interceptable.invokeI(1048591, this, i2) == null) || this.q) {
             return;
         }
         if (i2 == 0) {
-            this.D.k();
-            this.D.notifyDataSetChanged();
-            this.z.k.setBackgroundDrawable(this.f21090i);
-            this.z.k.setTextColor(this.f21087f);
-            this.z.l.setBackgroundDrawable(this.f21089h);
-            this.z.l.setTextColor(this.f21086e);
+            this.A.k();
+            this.A.notifyDataSetChanged();
+            this.mViewHolder.k.setBackgroundDrawable(this.f56570i);
+            this.mViewHolder.k.setTextColor(this.f56567f);
+            this.mViewHolder.l.setBackgroundDrawable(this.f56569h);
+            this.mViewHolder.l.setTextColor(this.f56566e);
         } else if (i2 == 1) {
-            this.E.k();
-            this.E.notifyDataSetChanged();
-            this.z.l.setBackgroundDrawable(this.j);
-            this.z.l.setTextColor(this.f21087f);
-            this.z.k.setBackgroundDrawable(this.f21088g);
-            this.z.k.setTextColor(this.f21086e);
+            this.B.k();
+            this.B.notifyDataSetChanged();
+            this.mViewHolder.l.setBackgroundDrawable(this.f56571j);
+            this.mViewHolder.l.setTextColor(this.f56567f);
+            this.mViewHolder.k.setBackgroundDrawable(this.f56568g);
+            this.mViewHolder.k.setTextColor(this.f56566e);
         }
     }
 
@@ -1008,39 +1029,39 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onResume();
-            if (L) {
-                L = false;
+            if (isNeedRefreshOnBackFromBarDetail) {
+                isNeedRefreshOnBackFromBarDetail = false;
                 finish();
-                S(getPageContext().getPageActivity(), M, O, N, P);
+                startLevel2ForumListActivity(getPageContext().getPageActivity(), I, K, J, L);
                 return;
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount == null || currentAccount.length() <= 0) {
                 return;
             }
-            d.a.q0.e3.h.b bVar = this.D;
+            c.a.p0.f3.h.b bVar = this.A;
             if (bVar != null) {
                 bVar.k();
-                this.D.notifyDataSetChanged();
+                this.A.notifyDataSetChanged();
             }
-            d.a.q0.e3.h.b bVar2 = this.E;
+            c.a.p0.f3.h.b bVar2 = this.B;
             if (bVar2 != null) {
                 bVar2.k();
-                this.E.notifyDataSetChanged();
+                this.B.notifyDataSetChanged();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class i extends BdAsyncTask<Void, Void, ForumListModel> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f21100a;
+        public boolean f56581a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ForumListActivity f21101b;
+        public final /* synthetic */ ForumListActivity f56582b;
 
         public i(ForumListActivity forumListActivity) {
             Interceptable interceptable = $ic;
@@ -1057,8 +1078,8 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
                     return;
                 }
             }
-            this.f21101b = forumListActivity;
-            this.f21100a = false;
+            this.f56582b = forumListActivity;
+            this.f56581a = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1069,10 +1090,10 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 try {
-                    this.f21101b.A.recommend_type = 2;
-                    this.f21101b.A.offset = 0;
-                    this.f21101b.A.rn = this.f21101b.n;
-                    return ForumListModel.new_fetch(this.f21101b.A);
+                    this.f56582b.x.recommend_type = 2;
+                    this.f56582b.x.offset = 0;
+                    this.f56582b.x.rn = this.f56582b.n;
+                    return ForumListModel.new_fetch(this.f56582b.x);
                 } catch (Exception unused) {
                     return null;
                 }
@@ -1088,55 +1109,55 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumListModel) == null) {
                 if (forumListModel != null && (list = forumListModel.recommend_list_right) != null) {
-                    int min = Math.min(list.forum_list.length, this.f21101b.p.forum_list.length);
-                    System.arraycopy(forumListModel.recommend_list_right.forum_list, 0, this.f21101b.p.forum_list, 0, min);
-                    this.f21101b.E.e(min);
-                    this.f21101b.E.f(this.f21101b.p.forum_list);
-                    if (this.f21101b.n == 200) {
-                        ForumListActivity forumListActivity = this.f21101b;
-                        forumListActivity.z.q.setText(forumListActivity.getPageContext().getString(R.string.flist_expand_list));
-                        ForumListActivity forumListActivity2 = this.f21101b;
-                        forumListActivity2.z.r.setImageDrawable(forumListActivity2.k);
+                    int min = Math.min(list.forum_list.length, this.f56582b.recommend_list_right.forum_list.length);
+                    System.arraycopy(forumListModel.recommend_list_right.forum_list, 0, this.f56582b.recommend_list_right.forum_list, 0, min);
+                    this.f56582b.B.e(min);
+                    this.f56582b.B.f(this.f56582b.recommend_list_right.forum_list);
+                    if (this.f56582b.n == 200) {
+                        ForumListActivity forumListActivity = this.f56582b;
+                        forumListActivity.mViewHolder.q.setText(forumListActivity.getPageContext().getString(R.string.flist_expand_list));
+                        ForumListActivity forumListActivity2 = this.f56582b;
+                        forumListActivity2.mViewHolder.r.setImageDrawable(forumListActivity2.k);
                     } else {
-                        ForumListActivity forumListActivity3 = this.f21101b;
-                        forumListActivity3.z.q.setText(forumListActivity3.getPageContext().getString(R.string.flist_collapse_list));
-                        ForumListActivity forumListActivity4 = this.f21101b;
-                        forumListActivity4.z.r.setImageDrawable(forumListActivity4.l);
-                        this.f21101b.C = true;
+                        ForumListActivity forumListActivity3 = this.f56582b;
+                        forumListActivity3.mViewHolder.q.setText(forumListActivity3.getPageContext().getString(R.string.flist_collapse_list));
+                        ForumListActivity forumListActivity4 = this.f56582b;
+                        forumListActivity4.mViewHolder.r.setImageDrawable(forumListActivity4.l);
+                        this.f56582b.z = true;
                     }
                 } else {
-                    ForumListActivity forumListActivity5 = this.f21101b;
+                    ForumListActivity forumListActivity5 = this.f56582b;
                     forumListActivity5.showToast(forumListActivity5.getPageContext().getString(R.string.neterror));
-                    if (!this.f21100a) {
-                        if (this.f21101b.n == 200) {
-                            ForumListActivity forumListActivity6 = this.f21101b;
-                            forumListActivity6.z.q.setText(forumListActivity6.getPageContext().getString(R.string.flist_expand_list));
-                            ForumListActivity forumListActivity7 = this.f21101b;
-                            forumListActivity7.z.r.setImageDrawable(forumListActivity7.k);
+                    if (!this.f56581a) {
+                        if (this.f56582b.n == 200) {
+                            ForumListActivity forumListActivity6 = this.f56582b;
+                            forumListActivity6.mViewHolder.q.setText(forumListActivity6.getPageContext().getString(R.string.flist_expand_list));
+                            ForumListActivity forumListActivity7 = this.f56582b;
+                            forumListActivity7.mViewHolder.r.setImageDrawable(forumListActivity7.k);
                         } else {
-                            ForumListActivity forumListActivity8 = this.f21101b;
-                            forumListActivity8.z.q.setText(forumListActivity8.getPageContext().getString(R.string.flist_collapse_list));
-                            ForumListActivity forumListActivity9 = this.f21101b;
-                            forumListActivity9.z.r.setImageDrawable(forumListActivity9.l);
+                            ForumListActivity forumListActivity8 = this.f56582b;
+                            forumListActivity8.mViewHolder.q.setText(forumListActivity8.getPageContext().getString(R.string.flist_collapse_list));
+                            ForumListActivity forumListActivity9 = this.f56582b;
+                            forumListActivity9.mViewHolder.r.setImageDrawable(forumListActivity9.l);
                         }
                     } else {
-                        ForumListActivity forumListActivity10 = this.f21101b;
-                        forumListActivity10.z.q.setText(forumListActivity10.getPageContext().getString(R.string.flist_expand_list));
-                        ForumListActivity forumListActivity11 = this.f21101b;
-                        forumListActivity11.z.r.setImageDrawable(forumListActivity11.k);
-                        this.f21101b.A.rn = 200;
-                        this.f21101b.n = 200;
+                        ForumListActivity forumListActivity10 = this.f56582b;
+                        forumListActivity10.mViewHolder.q.setText(forumListActivity10.getPageContext().getString(R.string.flist_expand_list));
+                        ForumListActivity forumListActivity11 = this.f56582b;
+                        forumListActivity11.mViewHolder.r.setImageDrawable(forumListActivity11.k);
+                        this.f56582b.x.rn = 200;
+                        this.f56582b.n = 200;
                     }
                 }
-                this.f21101b.z.p.setEnabled(true);
-                this.f21101b.z.d();
+                this.f56582b.mViewHolder.p.setEnabled(true);
+                this.f56582b.mViewHolder.d();
             }
         }
 
         public void d(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                this.f21100a = z;
+                this.f56581a = z;
             }
         }
 
@@ -1144,9 +1165,9 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f21101b.z.p.setEnabled(false);
-                ForumListActivity forumListActivity = this.f21101b;
-                forumListActivity.z.q.setText(forumListActivity.getPageContext().getString(R.string.flist_loading));
+                this.f56582b.mViewHolder.p.setEnabled(false);
+                ForumListActivity forumListActivity = this.f56582b;
+                forumListActivity.mViewHolder.q.setText(forumListActivity.getPageContext().getString(R.string.flist_loading));
             }
         }
 
@@ -1155,16 +1176,16 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class j extends BdAsyncTask<Void, Void, ForumListModel> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f21102a;
+        public boolean f56583a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ForumListActivity f21103b;
+        public final /* synthetic */ ForumListActivity f56584b;
 
         public j(ForumListActivity forumListActivity) {
             Interceptable interceptable = $ic;
@@ -1181,8 +1202,8 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
                     return;
                 }
             }
-            this.f21103b = forumListActivity;
-            this.f21102a = false;
+            this.f56584b = forumListActivity;
+            this.f56583a = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1193,10 +1214,10 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 try {
-                    this.f21103b.A.recommend_type = 1;
-                    this.f21103b.A.offset = 0;
-                    this.f21103b.A.rn = this.f21103b.m;
-                    return ForumListModel.new_fetch(this.f21103b.A);
+                    this.f56584b.x.recommend_type = 1;
+                    this.f56584b.x.offset = 0;
+                    this.f56584b.x.rn = this.f56584b.m;
+                    return ForumListModel.new_fetch(this.f56584b.x);
                 } catch (Exception unused) {
                     return null;
                 }
@@ -1212,55 +1233,55 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumListModel) == null) {
                 if (forumListModel != null && (list = forumListModel.recommend_list_left) != null) {
-                    int min = Math.min(list.forum_list.length, this.f21103b.o.forum_list.length);
-                    System.arraycopy(forumListModel.recommend_list_left.forum_list, 0, this.f21103b.o.forum_list, 0, min);
-                    this.f21103b.D.e(min);
-                    this.f21103b.D.f(this.f21103b.o.forum_list);
-                    if (this.f21103b.m == 200) {
-                        ForumListActivity forumListActivity = this.f21103b;
-                        forumListActivity.z.n.setText(forumListActivity.getPageContext().getString(R.string.flist_expand_list));
-                        ForumListActivity forumListActivity2 = this.f21103b;
-                        forumListActivity2.z.o.setImageDrawable(forumListActivity2.k);
+                    int min = Math.min(list.forum_list.length, this.f56584b.recommend_list_left.forum_list.length);
+                    System.arraycopy(forumListModel.recommend_list_left.forum_list, 0, this.f56584b.recommend_list_left.forum_list, 0, min);
+                    this.f56584b.A.e(min);
+                    this.f56584b.A.f(this.f56584b.recommend_list_left.forum_list);
+                    if (this.f56584b.m == 200) {
+                        ForumListActivity forumListActivity = this.f56584b;
+                        forumListActivity.mViewHolder.n.setText(forumListActivity.getPageContext().getString(R.string.flist_expand_list));
+                        ForumListActivity forumListActivity2 = this.f56584b;
+                        forumListActivity2.mViewHolder.o.setImageDrawable(forumListActivity2.k);
                     } else {
-                        ForumListActivity forumListActivity3 = this.f21103b;
-                        forumListActivity3.z.n.setText(forumListActivity3.getPageContext().getString(R.string.flist_collapse_list));
-                        ForumListActivity forumListActivity4 = this.f21103b;
-                        forumListActivity4.z.o.setImageDrawable(forumListActivity4.l);
-                        this.f21103b.B = true;
+                        ForumListActivity forumListActivity3 = this.f56584b;
+                        forumListActivity3.mViewHolder.n.setText(forumListActivity3.getPageContext().getString(R.string.flist_collapse_list));
+                        ForumListActivity forumListActivity4 = this.f56584b;
+                        forumListActivity4.mViewHolder.o.setImageDrawable(forumListActivity4.l);
+                        this.f56584b.y = true;
                     }
                 } else {
-                    ForumListActivity forumListActivity5 = this.f21103b;
+                    ForumListActivity forumListActivity5 = this.f56584b;
                     forumListActivity5.showToast(forumListActivity5.getPageContext().getString(R.string.neterror));
-                    if (!this.f21102a) {
-                        if (this.f21103b.m == 200) {
-                            ForumListActivity forumListActivity6 = this.f21103b;
-                            forumListActivity6.z.n.setText(forumListActivity6.getPageContext().getString(R.string.flist_expand_list));
-                            ForumListActivity forumListActivity7 = this.f21103b;
-                            forumListActivity7.z.o.setImageDrawable(forumListActivity7.k);
+                    if (!this.f56583a) {
+                        if (this.f56584b.m == 200) {
+                            ForumListActivity forumListActivity6 = this.f56584b;
+                            forumListActivity6.mViewHolder.n.setText(forumListActivity6.getPageContext().getString(R.string.flist_expand_list));
+                            ForumListActivity forumListActivity7 = this.f56584b;
+                            forumListActivity7.mViewHolder.o.setImageDrawable(forumListActivity7.k);
                         } else {
-                            ForumListActivity forumListActivity8 = this.f21103b;
-                            forumListActivity8.z.n.setText(forumListActivity8.getPageContext().getString(R.string.flist_collapse_list));
-                            ForumListActivity forumListActivity9 = this.f21103b;
-                            forumListActivity9.z.o.setImageDrawable(forumListActivity9.l);
+                            ForumListActivity forumListActivity8 = this.f56584b;
+                            forumListActivity8.mViewHolder.n.setText(forumListActivity8.getPageContext().getString(R.string.flist_collapse_list));
+                            ForumListActivity forumListActivity9 = this.f56584b;
+                            forumListActivity9.mViewHolder.o.setImageDrawable(forumListActivity9.l);
                         }
                     } else {
-                        ForumListActivity forumListActivity10 = this.f21103b;
-                        forumListActivity10.z.n.setText(forumListActivity10.getPageContext().getString(R.string.flist_expand_list));
-                        ForumListActivity forumListActivity11 = this.f21103b;
-                        forumListActivity11.z.o.setImageDrawable(forumListActivity11.k);
-                        this.f21103b.A.rn = 200;
-                        this.f21103b.m = 200;
+                        ForumListActivity forumListActivity10 = this.f56584b;
+                        forumListActivity10.mViewHolder.n.setText(forumListActivity10.getPageContext().getString(R.string.flist_expand_list));
+                        ForumListActivity forumListActivity11 = this.f56584b;
+                        forumListActivity11.mViewHolder.o.setImageDrawable(forumListActivity11.k);
+                        this.f56584b.x.rn = 200;
+                        this.f56584b.m = 200;
                     }
                 }
-                this.f21103b.z.m.setEnabled(true);
-                this.f21103b.z.d();
+                this.f56584b.mViewHolder.m.setEnabled(true);
+                this.f56584b.mViewHolder.d();
             }
         }
 
         public void d(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                this.f21102a = z;
+                this.f56583a = z;
             }
         }
 
@@ -1268,9 +1289,9 @@ public class ForumListActivity extends ProxyAdkBaseActivity<ForumListActivity> i
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f21103b.z.m.setEnabled(false);
-                ForumListActivity forumListActivity = this.f21103b;
-                forumListActivity.z.n.setText(forumListActivity.getPageContext().getString(R.string.flist_loading));
+                this.f56584b.mViewHolder.m.setEnabled(false);
+                ForumListActivity forumListActivity = this.f56584b;
+                forumListActivity.mViewHolder.n.setText(forumListActivity.getPageContext().getString(R.string.flist_loading));
             }
         }
 

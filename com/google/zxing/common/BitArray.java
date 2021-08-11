@@ -1,7 +1,6 @@
 package com.google.zxing.common;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class BitArray implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -244,12 +243,12 @@ public final class BitArray implements Cloneable {
             int i2 = (this.size - 1) / 32;
             int i3 = i2 + 1;
             for (int i4 = 0; i4 < i3; i4++) {
-                long j = this.bits[i4];
-                long j2 = ((j & 1431655765) << 1) | ((j >> 1) & 1431655765);
-                long j3 = ((j2 & 858993459) << 2) | ((j2 >> 2) & 858993459);
-                long j4 = ((j3 & 252645135) << 4) | ((j3 >> 4) & 252645135);
-                long j5 = ((j4 & 16711935) << 8) | ((j4 >> 8) & 16711935);
-                iArr[i2 - i4] = (int) (((j5 & WebSocketProtocol.PAYLOAD_SHORT_MAX) << 16) | ((j5 >> 16) & WebSocketProtocol.PAYLOAD_SHORT_MAX));
+                long j2 = this.bits[i4];
+                long j3 = ((j2 & 1431655765) << 1) | ((j2 >> 1) & 1431655765);
+                long j4 = ((j3 & 858993459) << 2) | ((j3 >> 2) & 858993459);
+                long j5 = ((j4 & 252645135) << 4) | ((j4 >> 4) & 252645135);
+                long j6 = ((j5 & 16711935) << 8) | ((j5 >> 8) & 16711935);
+                iArr[i2 - i4] = (int) (((j6 & WebSocketProtocol.PAYLOAD_SHORT_MAX) << 16) | ((j6 >> 16) & WebSocketProtocol.PAYLOAD_SHORT_MAX));
             }
             int i5 = this.size;
             int i6 = i3 << 5;
@@ -335,7 +334,7 @@ public final class BitArray implements Cloneable {
                 if ((i2 & 7) == 0) {
                     sb.append(' ');
                 }
-                sb.append(get(i2) ? 'X' : IStringUtil.EXTENSION_SEPARATOR);
+                sb.append(get(i2) ? 'X' : '.');
             }
             return sb.toString();
         }
@@ -363,7 +362,7 @@ public final class BitArray implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BitArray m55clone() {
+    public BitArray m60clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new BitArray((int[]) this.bits.clone(), this.size) : (BitArray) invokeV.objValue;

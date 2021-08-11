@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.gz;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class ah implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ List f40856a;
+    public final /* synthetic */ List f77731a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ boolean f887a;
+    public final /* synthetic */ boolean f891a;
 
     public ah(List list, boolean z) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public final class ah implements Runnable {
                 return;
             }
         }
-        this.f40856a = list;
-        this.f887a = z;
+        this.f77731a = list;
+        this.f891a = z;
     }
 
     @Override // java.lang.Runnable
@@ -44,7 +44,7 @@ public final class ah implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             b2 = ag.b("www.baidu.com:80");
-            Iterator it = this.f40856a.iterator();
+            Iterator it = this.f77731a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -54,7 +54,7 @@ public final class ah implements Runnable {
                     b3 = ag.b(str);
                     if (!b3) {
                         b2 = false;
-                        if (!b2 && !this.f887a) {
+                        if (!b2 && !this.f891a) {
                             break;
                         }
                     }

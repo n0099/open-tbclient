@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class MangaDownloadControlActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CARTOON_ID = "cartoon_id";
@@ -14,13 +14,13 @@ public class MangaDownloadControlActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MangaDownloadControlActivityConfig(Context context, long j, String str) {
+    public MangaDownloadControlActivityConfig(Context context, long j2, String str) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), str};
+            Object[] objArr = {context, Long.valueOf(j2), str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -31,7 +31,7 @@ public class MangaDownloadControlActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("cartoon_id", j);
+        getIntent().putExtra("cartoon_id", j2);
         getIntent().putExtra(CARTOON_NAME, str);
     }
 }

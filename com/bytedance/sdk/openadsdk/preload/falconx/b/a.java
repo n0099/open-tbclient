@@ -2,16 +2,16 @@ package com.bytedance.sdk.openadsdk.preload.falconx.b;
 
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 import android.webkit.WebResourceResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.dxmpay.wallet.utils.StatHelper;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,8 +24,7 @@ public class a {
                 if (map == null) {
                     try {
                         map = new HashMap<>();
-                    } catch (Throwable th) {
-                        Log.e("WebResourceUtils", "getResponseWithHeaders error", th);
+                    } catch (Throwable unused) {
                     }
                 }
                 Map<String, String> map2 = map;
@@ -35,7 +34,7 @@ public class a {
                 }
                 boolean contains = str != null ? str.contains("font/ttf") : false;
                 if (Build.VERSION.SDK_INT >= 21 && contains) {
-                    return new WebResourceResponse(null, null, 200, "OK", map2, inputStream);
+                    return new WebResourceResponse(null, null, 200, StatHelper.SENSOR_OK, map2, inputStream);
                 }
                 WebResourceResponse webResourceResponse = new WebResourceResponse(null, null, inputStream);
                 if (Build.VERSION.SDK_INT >= 21) {

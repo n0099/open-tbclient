@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.Registry;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface RegistersComponents {
     void registerComponents(@NonNull Context context, @NonNull Glide glide, @NonNull Registry registry);
 }

@@ -2,6 +2,9 @@ package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.m.b;
+import c.a.e.e.p.k;
+import c.a.p0.j1.w.c;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -11,11 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.m.b;
-import d.a.d.e.p.k;
-import d.a.q0.i1.w.c;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ImMessageCenterPojo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DELETEED = 1;
@@ -448,17 +448,17 @@ public class ImMessageCenterPojo implements Serializable {
         }
     }
 
-    public void setLast_content_time(long j) {
+    public void setLast_content_time(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048623, this, j) == null) {
-            this.last_content_time = j;
+        if (interceptable == null || interceptable.invokeJ(1048623, this, j2) == null) {
+            this.last_content_time = j2;
         }
     }
 
-    public void setLast_rid(long j) {
+    public void setLast_rid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048624, this, j) == null) {
-            this.last_rid = j;
+        if (interceptable == null || interceptable.invokeJ(1048624, this, j2) == null) {
+            this.last_rid = j2;
         }
     }
 
@@ -476,17 +476,17 @@ public class ImMessageCenterPojo implements Serializable {
         }
     }
 
-    public void setOrderCol(long j) {
+    public void setOrderCol(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048627, this, j) == null) {
-            this.orderCol = j;
+        if (interceptable == null || interceptable.invokeJ(1048627, this, j2) == null) {
+            this.orderCol = j2;
         }
     }
 
-    public void setPulled_msgId(long j) {
+    public void setPulled_msgId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048628, this, j) == null) {
-            this.pulled_msgId = j;
+        if (interceptable == null || interceptable.invokeJ(1048628, this, j2) == null) {
+            this.pulled_msgId = j2;
         }
     }
 
@@ -497,10 +497,10 @@ public class ImMessageCenterPojo implements Serializable {
         }
     }
 
-    public void setRead_msgId(long j) {
+    public void setRead_msgId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048630, this, j) == null) {
-            this.read_msgId = j;
+        if (interceptable == null || interceptable.invokeJ(1048630, this, j2) == null) {
+            this.read_msgId = j2;
         }
     }
 
@@ -518,10 +518,10 @@ public class ImMessageCenterPojo implements Serializable {
         }
     }
 
-    public void setSent_msgId(long j) {
+    public void setSent_msgId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048633, this, j) == null) {
-            this.sent_msgId = j;
+        if (interceptable == null || interceptable.invokeJ(1048633, this, j2) == null) {
+            this.sent_msgId = j2;
         }
     }
 
@@ -532,10 +532,10 @@ public class ImMessageCenterPojo implements Serializable {
         }
     }
 
-    public void setSid(long j) {
+    public void setSid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048635, this, j) == null) {
-            this.sid = j;
+        if (interceptable == null || interceptable.invokeJ(1048635, this, j2) == null) {
+            this.sid = j2;
         }
     }
 

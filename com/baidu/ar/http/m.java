@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +18,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class m implements k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +124,7 @@ public class m implements k {
                 int i2 = 1;
                 String str3 = str;
                 for (Map.Entry<String, byte[]> entry2 : this.ro.entrySet()) {
-                    arrayList.add(a(str3, entry2.getKey(), valueOf + i2 + ".jpg", "application/octet-stream", true));
+                    arrayList.add(a(str3, entry2.getKey(), valueOf + i2 + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX, "application/octet-stream", true));
                     arrayList.add(new ByteArrayInputStream(entry2.getValue()));
                     str3 = Part.CRLF;
                     i2++;

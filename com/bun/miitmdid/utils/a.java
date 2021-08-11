@@ -1,6 +1,5 @@
 package com.bun.miitmdid.utils;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f27823a;
+    public static a f63656a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27824b;
+    public int f63657b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -32,63 +31,63 @@ public class a {
                 return;
             }
         }
-        this.f27824b = -1;
+        this.f63657b = -1;
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f27823a == null) {
+            if (f63656a == null) {
                 synchronized (a.class) {
-                    if (f27823a == null) {
-                        f27823a = new a();
+                    if (f63656a == null) {
+                        f63656a = new a();
                     }
                 }
             }
-            return f27823a;
+            return f63656a;
         }
         return (a) invokeV.objValue;
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && b()) {
-            Log.i(str, str2);
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            b();
         }
     }
 
     public static void a(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) && b()) {
-            Log.d(str, str2, th);
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) {
+            b();
         }
     }
 
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
-            a().f27824b = z ? 1 : 0;
+            a().f63657b = z ? 1 : 0;
         }
     }
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) && b()) {
-            Log.d(str, str2);
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) {
+            b();
         }
     }
 
     public static void b(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, th) == null) && b()) {
-            Log.e(str, str2, th);
+        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, th) == null) {
+            b();
         }
     }
 
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a().f27824b == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a().f63657b == 1 : invokeV.booleanValue;
     }
 }

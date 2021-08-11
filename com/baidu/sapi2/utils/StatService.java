@@ -12,6 +12,7 @@ import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.httpwrap.HttpClientWrap;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
+import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.performance.speed.launcher.NetworkRequestScheduler;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,7 +26,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class StatService implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTO_STATISTIC = "auto_statistic";
@@ -51,7 +52,7 @@ public final class StatService implements NoProguard {
         HashMap hashMap = new HashMap();
         commonParams = hashMap;
         hashMap.put("pid", "111");
-        commonParams.put("type", "1023");
+        commonParams.put("type", SmartLaunchStats.UBC_START_LAUNCH_ID);
         commonParams.put("device", Build.MODEL);
         ArrayList arrayList = new ArrayList();
         delayRequestName = arrayList;

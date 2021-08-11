@@ -9,6 +9,10 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
+import c.a.e.e.m.h;
+import c.a.e.e.p.m;
+import c.a.e.e.p.q;
+import c.a.o0.s.d0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,10 +23,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.m.h;
-import d.a.d.e.p.m;
-import d.a.d.e.p.q;
-import d.a.p0.s.d0.b;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -32,7 +32,7 @@ import java.util.zip.ZipInputStream;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PullViewHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CLOSE_PULLVIEW_DELAYED_TIME = 0;
@@ -55,12 +55,12 @@ public class PullViewHelper {
     public int pullview_backgroundColor_day;
     public int pullview_backgroundColor_night;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface CallBack {
         void result(boolean z);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class PullViewDrawable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -744,7 +744,7 @@ public class PullViewHelper {
             b.j().t("pullview_should_show_3d_loading", false);
             setShouldShowLoadingView(false);
             String p = b.j().p("pull_image_url", "");
-            int d2 = d.a.d.e.m.b.d(str3, 0);
+            int d2 = c.a.e.e.m.b.d(str3, 0);
             if (str.equals(p)) {
                 if (isImagesExist(d2)) {
                     buildDrawablesAsync();
@@ -802,7 +802,7 @@ public class PullViewHelper {
                     return;
                 }
             }
-            startDownloadAsync(str, str2, d.a.d.e.m.b.d(str3, 0));
+            startDownloadAsync(str, str2, c.a.e.e.m.b.d(str3, 0));
         }
     }
 

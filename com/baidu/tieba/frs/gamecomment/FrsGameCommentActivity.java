@@ -7,13 +7,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import c.a.e.e.p.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.gesture.GestureAR;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -26,8 +26,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PUBLISH_COMMENT_URL = "game/forum/addComment";
@@ -47,13 +46,13 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
     public int mScore;
     public TextView mTitle;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsGameCommentActivity f15764e;
+        public final /* synthetic */ FrsGameCommentActivity f50932e;
 
         public a(FrsGameCommentActivity frsGameCommentActivity) {
             Interceptable interceptable = $ic;
@@ -70,7 +69,7 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
                     return;
                 }
             }
-            this.f15764e = frsGameCommentActivity;
+            this.f50932e = frsGameCommentActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -78,24 +77,24 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (!j.z()) {
-                    this.f15764e.showToast(R.string.frs_head_video_slide_no_network);
+                    this.f50932e.showToast(R.string.frs_head_video_slide_no_network);
                     return;
                 }
-                this.f15764e.closeLoadingDialog();
-                FrsGameCommentActivity frsGameCommentActivity = this.f15764e;
+                this.f50932e.closeLoadingDialog();
+                FrsGameCommentActivity frsGameCommentActivity = this.f50932e;
                 frsGameCommentActivity.showLoadingDialog(frsGameCommentActivity.getPageContext().getPageActivity().getString(R.string.frs_game_comment_loading_tip));
-                this.f15764e.publishComment();
+                this.f50932e.publishComment();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsGameCommentActivity f15765e;
+        public final /* synthetic */ FrsGameCommentActivity f50933e;
 
         public b(FrsGameCommentActivity frsGameCommentActivity) {
             Interceptable interceptable = $ic;
@@ -112,55 +111,55 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
                     return;
                 }
             }
-            this.f15765e = frsGameCommentActivity;
+            this.f50933e = frsGameCommentActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f15765e.mGrade1) {
-                    this.f15765e.mGrade2.setChecked(false);
-                    this.f15765e.mGrade3.setChecked(false);
-                    this.f15765e.mGrade4.setChecked(false);
-                    this.f15765e.mGrade5.setChecked(false);
-                    this.f15765e.mScore = 2;
-                } else if (view == this.f15765e.mGrade2) {
-                    this.f15765e.mGrade1.setChecked(true);
-                    this.f15765e.mGrade3.setChecked(false);
-                    this.f15765e.mGrade4.setChecked(false);
-                    this.f15765e.mGrade5.setChecked(false);
-                    this.f15765e.mScore = 4;
-                } else if (view == this.f15765e.mGrade3) {
-                    this.f15765e.mGrade1.setChecked(true);
-                    this.f15765e.mGrade2.setChecked(true);
-                    this.f15765e.mGrade4.setChecked(false);
-                    this.f15765e.mGrade5.setChecked(false);
-                    this.f15765e.mScore = 6;
-                } else if (view == this.f15765e.mGrade4) {
-                    this.f15765e.mGrade1.setChecked(true);
-                    this.f15765e.mGrade2.setChecked(true);
-                    this.f15765e.mGrade3.setChecked(true);
-                    this.f15765e.mGrade5.setChecked(false);
-                    this.f15765e.mScore = 8;
-                } else if (view == this.f15765e.mGrade5) {
-                    this.f15765e.mGrade1.setChecked(true);
-                    this.f15765e.mGrade2.setChecked(true);
-                    this.f15765e.mGrade3.setChecked(true);
-                    this.f15765e.mGrade4.setChecked(true);
-                    this.f15765e.mScore = 10;
+                if (view == this.f50933e.mGrade1) {
+                    this.f50933e.mGrade2.setChecked(false);
+                    this.f50933e.mGrade3.setChecked(false);
+                    this.f50933e.mGrade4.setChecked(false);
+                    this.f50933e.mGrade5.setChecked(false);
+                    this.f50933e.mScore = 2;
+                } else if (view == this.f50933e.mGrade2) {
+                    this.f50933e.mGrade1.setChecked(true);
+                    this.f50933e.mGrade3.setChecked(false);
+                    this.f50933e.mGrade4.setChecked(false);
+                    this.f50933e.mGrade5.setChecked(false);
+                    this.f50933e.mScore = 4;
+                } else if (view == this.f50933e.mGrade3) {
+                    this.f50933e.mGrade1.setChecked(true);
+                    this.f50933e.mGrade2.setChecked(true);
+                    this.f50933e.mGrade4.setChecked(false);
+                    this.f50933e.mGrade5.setChecked(false);
+                    this.f50933e.mScore = 6;
+                } else if (view == this.f50933e.mGrade4) {
+                    this.f50933e.mGrade1.setChecked(true);
+                    this.f50933e.mGrade2.setChecked(true);
+                    this.f50933e.mGrade3.setChecked(true);
+                    this.f50933e.mGrade5.setChecked(false);
+                    this.f50933e.mScore = 8;
+                } else if (view == this.f50933e.mGrade5) {
+                    this.f50933e.mGrade1.setChecked(true);
+                    this.f50933e.mGrade2.setChecked(true);
+                    this.f50933e.mGrade3.setChecked(true);
+                    this.f50933e.mGrade4.setChecked(true);
+                    this.f50933e.mScore = 10;
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class c implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsGameCommentActivity f15766e;
+        public final /* synthetic */ FrsGameCommentActivity f50934e;
 
         public c(FrsGameCommentActivity frsGameCommentActivity) {
             Interceptable interceptable = $ic;
@@ -177,20 +176,20 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
                     return;
                 }
             }
-            this.f15766e = frsGameCommentActivity;
+            this.f50934e = frsGameCommentActivity;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                if (this.f15766e.mCommentEdit.getText().length() > 0) {
-                    this.f15766e.mPublish.setEnabled(true);
-                    SkinManager.setViewTextColor(this.f15766e.mPublish, R.color.cp_link_tip_g);
+                if (this.f50934e.mCommentEdit.getText().length() > 0) {
+                    this.f50934e.mPublish.setEnabled(true);
+                    SkinManager.setViewTextColor(this.f50934e.mPublish, R.color.cp_link_tip_g);
                     return;
                 }
-                this.f15766e.mPublish.setEnabled(false);
-                SkinManager.setViewTextColor(this.f15766e.mPublish, R.color.CAM_X0110);
+                this.f50934e.mPublish.setEnabled(false);
+                SkinManager.setViewTextColor(this.f50934e.mPublish, R.color.CAM_X0110);
             }
         }
 
@@ -209,13 +208,13 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class d extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsGameCommentActivity f15767a;
+        public final /* synthetic */ FrsGameCommentActivity f50935a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(FrsGameCommentActivity frsGameCommentActivity, int i2) {
@@ -235,7 +234,7 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
                     return;
                 }
             }
-            this.f15767a = frsGameCommentActivity;
+            this.f50935a = frsGameCommentActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -243,17 +242,17 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.f15767a.closeLoadingDialog();
+                this.f50935a.closeLoadingDialog();
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof FrsGameCommentResponseMessage)) {
                     return;
                 }
                 FrsGameCommentResponseMessage frsGameCommentResponseMessage = (FrsGameCommentResponseMessage) httpResponsedMessage;
                 if (frsGameCommentResponseMessage.getError() == 0) {
-                    this.f15767a.setResult(-1);
-                    this.f15767a.finish();
+                    this.f50935a.setResult(-1);
+                    this.f50935a.finish();
                 } else if (StringUtils.isNull(frsGameCommentResponseMessage.getErrorString())) {
                 } else {
-                    this.f15767a.showToast(frsGameCommentResponseMessage.getErrorString());
+                    this.f50935a.showToast(frsGameCommentResponseMessage.getErrorString());
                 }
             }
         }
@@ -350,7 +349,7 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.FRS_GAME_INFO_GAME_COMMENT);
-            httpMessage.addParam(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE, this.mScore);
+            httpMessage.addParam("score", this.mScore);
             httpMessage.addParam("forum_id", this.mForum_id);
             httpMessage.addParam("content", this.mCommentEdit.getText().toString().trim());
             MessageManager.getInstance().sendMessage(httpMessage);
@@ -401,7 +400,7 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mScore = getIntent().getIntExtra(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE, 0);
+            this.mScore = getIntent().getIntExtra("score", 0);
             this.mForum_id = getIntent().getIntExtra("forum_id", -1);
             initView();
             registerTask();

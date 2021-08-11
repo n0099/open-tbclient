@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
+import c.a.o0.s.q.c2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,8 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.q.b2;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PbVideoActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIVITY_RESULT_DELETE = 1;
@@ -200,7 +199,7 @@ public class PbVideoActivityConfig extends IntentConfig {
             intent.putExtra("request_code", i2);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (!(this.mContext instanceof Activity)) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();
@@ -224,7 +223,7 @@ public class PbVideoActivityConfig extends IntentConfig {
             intent.putExtra("is_from_interview_live_config", true);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (!(this.mContext instanceof Activity) || "from_searchbox".equals(str2)) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             addMoreIntentExtraParam();
             return this;
@@ -232,18 +231,18 @@ public class PbVideoActivityConfig extends IntentConfig {
         return (PbVideoActivityConfig) invokeLLII.objValue;
     }
 
-    public PbVideoActivityConfig createFromThreadCfg(b2 b2Var, String str, String str2, int i2, boolean z, boolean z2, boolean z3) {
+    public PbVideoActivityConfig createFromThreadCfg(c2 c2Var, String str, String str2, int i2, boolean z, boolean z2, boolean z3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{b2Var, str, str2, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            if (b2Var == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{c2Var, str, str2, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            if (c2Var == null) {
                 return this;
             }
             Intent intent = getIntent();
-            intent.putExtra("thread_id", b2Var.o1());
-            intent.putExtra("is_good", b2Var.m0());
-            intent.putExtra("is_top", b2Var.n0());
-            intent.putExtra("thread_time", b2Var.r0());
+            intent.putExtra("thread_id", c2Var.q1());
+            intent.putExtra("is_good", c2Var.o0());
+            intent.putExtra("is_top", c2Var.p0());
+            intent.putExtra("thread_time", c2Var.t0());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -253,11 +252,11 @@ public class PbVideoActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra("request_code", i2);
             intent.putExtra("is_from_thread_config", true);
-            long num = b2Var.H0() == null ? 0L : b2Var.H0().getNum();
+            long num = c2Var.J0() == null ? 0L : c2Var.J0().getNum();
             intent.putExtra("extra_pb_cache_key", "zan=" + num);
-            if (b2Var.H() != null && b2Var.H().getGodUserData().getId() != null) {
-                intent.putExtra("extra_pb_funs_count_key", b2Var.H().getFansNum());
-                intent.putExtra("extra_pb_is_attention_key", b2Var.H().getGodUserData().getIsLike());
+            if (c2Var.J() != null && c2Var.J().getGodUserData().getId() != null) {
+                intent.putExtra("extra_pb_funs_count_key", c2Var.J().getFansNum());
+                intent.putExtra("extra_pb_is_attention_key", c2Var.J().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();
@@ -309,7 +308,7 @@ public class PbVideoActivityConfig extends IntentConfig {
                 intent.putExtra("st_type", str3);
                 intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
                 if (!(this.mContext instanceof Activity)) {
-                    intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                    intent.addFlags(268435456);
                 }
                 intent.putExtra("key_manga_title", str4);
                 intent.putExtra("key_manga_prev_chapter", i2);
@@ -345,10 +344,10 @@ public class PbVideoActivityConfig extends IntentConfig {
         return (PbVideoActivityConfig) invokeCommon.objValue;
     }
 
-    public PbVideoActivityConfig createMessageCfg(String str, String str2, String str3, long j, String str4, String str5, String str6) {
+    public PbVideoActivityConfig createMessageCfg(String str, String str2, String str3, long j2, String str4, String str5, String str6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, Long.valueOf(j), str4, str5, str6})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, Long.valueOf(j2), str4, str5, str6})) == null) {
             if (str == null) {
                 return this;
             }
@@ -357,7 +356,7 @@ public class PbVideoActivityConfig extends IntentConfig {
             intent.putExtra("post_id", str2);
             intent.putExtra("st_type", str3);
             intent.putExtra("is_pv", true);
-            intent.putExtra("msg_id", j);
+            intent.putExtra("msg_id", j2);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (str4 != null) {
                 intent.putExtra("op_url", str4);
@@ -369,7 +368,7 @@ public class PbVideoActivityConfig extends IntentConfig {
                 intent.putExtra("op_type", str6);
             }
             if (!(this.mContext instanceof Activity)) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();
@@ -391,7 +390,7 @@ public class PbVideoActivityConfig extends IntentConfig {
             intent.putExtra("st_type", str3);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (!(this.mContext instanceof Activity)) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();
@@ -414,7 +413,7 @@ public class PbVideoActivityConfig extends IntentConfig {
             intent.putExtra("is_sub_pb", true);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (!(this.mContext instanceof Activity)) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();
@@ -437,7 +436,7 @@ public class PbVideoActivityConfig extends IntentConfig {
             intent.putExtra("squence", z2);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (!(this.mContext instanceof Activity)) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();
@@ -587,7 +586,7 @@ public class PbVideoActivityConfig extends IntentConfig {
             intent.putExtra("st_type", str3);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (!(this.mContext instanceof Activity)) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();
@@ -610,7 +609,7 @@ public class PbVideoActivityConfig extends IntentConfig {
             intent.putExtra("from", str4);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (!(this.mContext instanceof Activity) || "from_searchbox".equals(str4)) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();
@@ -634,7 +633,7 @@ public class PbVideoActivityConfig extends IntentConfig {
             intent.putExtra("query_word", str5);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (!(this.mContext instanceof Activity) || "from_baidu_searchbox".equals(str4)) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();

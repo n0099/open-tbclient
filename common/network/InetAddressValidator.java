@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class InetAddressValidator implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BASE_16 = 16;

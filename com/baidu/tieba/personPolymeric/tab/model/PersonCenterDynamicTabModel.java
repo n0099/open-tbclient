@@ -1,6 +1,7 @@
 package com.baidu.tieba.personPolymeric.tab.model;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.s.q.c2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -18,41 +19,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.q.b2;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.User;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PersonCenterDynamicTabModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f20348e;
+    public long f55716e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20349f;
+    public boolean f55717f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f20350g;
+    public b f55718g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<b2> f20351h;
+    public final List<c2> f55719h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f20352i;
-    public User j;
+    public long f55720i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public User f55721j;
     public MetaData k;
     public BdUniqueId l;
-    public final d.a.d.c.g.a m;
+    public final c.a.e.c.g.a m;
 
-    /* loaded from: classes4.dex */
-    public class a extends d.a.d.c.g.a {
+    /* loaded from: classes7.dex */
+    public class a extends c.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonCenterDynamicTabModel f20353a;
+        public final /* synthetic */ PersonCenterDynamicTabModel f55722a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PersonCenterDynamicTabModel personCenterDynamicTabModel, int i2, int i3) {
@@ -73,64 +75,64 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f20353a = personCenterDynamicTabModel;
+            this.f55722a = personCenterDynamicTabModel;
         }
 
-        @Override // d.a.d.c.g.a
+        @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            long j;
+            long j2;
             boolean z;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != this.f20353a.l) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != this.f55722a.l) {
                 return;
             }
-            List<b2> list = null;
+            List<c2> list = null;
             if (responsedMessage instanceof PersonCenterDynamicTabHttpResMessage) {
                 PersonCenterDynamicTabHttpResMessage personCenterDynamicTabHttpResMessage = (PersonCenterDynamicTabHttpResMessage) responsedMessage;
-                j = personCenterDynamicTabHttpResMessage.mCursor;
+                j2 = personCenterDynamicTabHttpResMessage.mCursor;
                 z = personCenterDynamicTabHttpResMessage.mHasMore;
                 list = personCenterDynamicTabHttpResMessage.mThreadDataList;
             } else if (responsedMessage instanceof PersonCenterDynamicTabSocketResMessage) {
                 PersonCenterDynamicTabSocketResMessage personCenterDynamicTabSocketResMessage = (PersonCenterDynamicTabSocketResMessage) responsedMessage;
-                j = personCenterDynamicTabSocketResMessage.mCursor;
+                j2 = personCenterDynamicTabSocketResMessage.mCursor;
                 z = personCenterDynamicTabSocketResMessage.mHasMore;
                 list = personCenterDynamicTabSocketResMessage.mThreadDataList;
             } else {
-                j = 0;
+                j2 = 0;
                 z = false;
             }
             if (responsedMessage.getError() != 0) {
-                if (this.f20353a.f20350g != null) {
-                    this.f20353a.f20350g.b(this.f20353a.f20348e == 0);
+                if (this.f55722a.f55718g != null) {
+                    this.f55722a.f55718g.b(this.f55722a.f55716e == 0);
                     return;
                 }
                 return;
             }
             if (!ListUtils.isEmpty(list)) {
-                this.f20353a.H(list);
-                this.f20353a.f20351h.addAll(list);
+                this.f55722a.H(list);
+                this.f55722a.f55719h.addAll(list);
             }
-            this.f20353a.f20349f = z;
-            if (this.f20353a.f20350g != null) {
-                this.f20353a.f20350g.a(this.f20353a.f20351h, this.f20353a.f20349f, this.f20353a.f20348e == 0);
+            this.f55722a.f55717f = z;
+            if (this.f55722a.f55718g != null) {
+                this.f55722a.f55718g.a(this.f55722a.f55719h, this.f55722a.f55717f, this.f55722a.f55716e == 0);
             }
-            this.f20353a.f20348e = j;
+            this.f55722a.f55716e = j2;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface b {
-        void a(List<b2> list, boolean z, boolean z2);
+        void a(List<c2> list, boolean z, boolean z2);
 
         void b(boolean z);
     }
 
-    public PersonCenterDynamicTabModel(TbPageContext tbPageContext, long j) {
+    public PersonCenterDynamicTabModel(TbPageContext tbPageContext, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Long.valueOf(j)};
+            Object[] objArr = {tbPageContext, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -140,13 +142,13 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
                 return;
             }
         }
-        this.f20348e = 0L;
-        this.f20349f = false;
-        this.f20351h = new ArrayList();
+        this.f55716e = 0L;
+        this.f55717f = false;
+        this.f55719h = new ArrayList();
         this.l = BdUniqueId.gen();
         a aVar = new a(this, CmdConfigHttp.CMD_PERSON_CENTER_DYNAMIC_TAB, 309647);
         this.m = aVar;
-        this.f20352i = j;
+        this.f55720i = j2;
         aVar.setTag(this.l);
         MessageManager.getInstance().registerListener(this.m);
     }
@@ -154,13 +156,13 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20349f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55717f : invokeV.booleanValue;
     }
 
-    public final void F(long j) {
+    public final void F(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            PersonCenterDynamicTabRequestMessage personCenterDynamicTabRequestMessage = new PersonCenterDynamicTabRequestMessage(this.f20352i, j, 10);
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            PersonCenterDynamicTabRequestMessage personCenterDynamicTabRequestMessage = new PersonCenterDynamicTabRequestMessage(this.f55720i, j2, 10);
             personCenterDynamicTabRequestMessage.setTag(this.l);
             MessageManager.getInstance().sendMessage(personCenterDynamicTabRequestMessage);
         }
@@ -169,24 +171,24 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            F(this.f20348e);
+            F(this.f55716e);
         }
     }
 
-    public final void H(List<b2> list) {
+    public final void H(List<c2> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || this.j == null || ListUtils.isEmpty(list)) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || this.f55721j == null || ListUtils.isEmpty(list)) {
             return;
         }
-        for (b2 b2Var : list) {
-            if (b2Var.H() != null) {
-                b2Var.H().getNewGodData().parserProtobuf(this.j.new_god_data);
-                b2Var.H().getBazhuGradeData().parserProtobuf(this.j.bazhu_grade);
-                b2Var.H().setBaijiahaoInfo(this.j.baijiahao_info);
+        for (c2 c2Var : list) {
+            if (c2Var.J() != null) {
+                c2Var.J().getNewGodData().parserProtobuf(this.f55721j.new_god_data);
+                c2Var.J().getBazhuGradeData().parserProtobuf(this.f55721j.bazhu_grade);
+                c2Var.J().setBaijiahaoInfo(this.f55721j.baijiahao_info);
                 if (this.k != null) {
-                    b2Var.H().setPrivSetsData(this.k.getPrivSetsData());
+                    c2Var.J().setPrivSetsData(this.k.getPrivSetsData());
                 }
-                b2Var.Q2();
+                c2Var.Y2();
             }
         }
     }
@@ -194,9 +196,9 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f20348e = 0L;
-            this.f20351h.clear();
-            F(this.f20348e);
+            this.f55716e = 0L;
+            this.f55719h.clear();
+            F(this.f55716e);
         }
     }
 
@@ -210,14 +212,14 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     public void K(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f20350g = bVar;
+            this.f55718g = bVar;
         }
     }
 
     public void L(User user) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, user) == null) {
-            this.j = user;
+            this.f55721j = user;
             I();
         }
     }
@@ -245,9 +247,9 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f20348e = 0L;
-            this.f20349f = false;
-            this.f20351h.clear();
+            this.f55716e = 0L;
+            this.f55717f = false;
+            this.f55719h.clear();
             if (this.m != null) {
                 MessageManager.getInstance().unRegisterListener(this.m);
             }

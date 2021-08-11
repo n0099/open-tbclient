@@ -22,7 +22,7 @@ import io.flutter.Log;
 import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class FlutterSplashView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "FlutterSplashView";
@@ -47,7 +47,7 @@ public final class FlutterSplashView extends FrameLayout {
     public String transitioningIsolateId;
 
     @Keep
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class SavedState extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static Parcelable.Creator<SavedState> CREATOR;

@@ -1,5 +1,5 @@
 package com.baidu.wallet.api;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface IPrecashierCallback {
     void onResult(String str);
 }

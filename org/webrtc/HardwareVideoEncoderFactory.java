@@ -19,7 +19,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 import org.webrtc.EglBase14;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final List<String> H264_HW_EXCEPTION_MODELS;
@@ -34,7 +34,7 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
     public final EglBase14.Context sharedContext;
 
     /* renamed from: org.webrtc.HardwareVideoEncoderFactory$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$VideoCodecType;
         public static /* synthetic */ Interceptable $ic;

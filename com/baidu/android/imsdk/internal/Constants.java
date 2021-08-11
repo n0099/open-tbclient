@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.util.Random;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class Constants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACK_MAX_SIZE = 20;
@@ -340,10 +340,10 @@ public final class Constants {
         }
     }
 
-    public static boolean dispatchToPimc2(long j) {
+    public static boolean dispatchToPimc2(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? j == APPID_HAOKAN || j == APPID_HAOKAN_JISU || j == APPID_QUANMIN || j == APPID_YIMEI || j == APPID_TIEBA : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) ? j2 == APPID_HAOKAN || j2 == APPID_HAOKAN_JISU || j2 == APPID_QUANMIN || j2 == APPID_YIMEI || j2 == APPID_TIEBA : invokeJ.booleanValue;
     }
 
     public static int getEnv(Context context) {

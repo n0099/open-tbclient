@@ -3,6 +3,7 @@ package com.yy.hiidostatis.message.hiidoapi;
 import android.content.Context;
 import android.net.wifi.WifiInfo;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.dxmpay.Config;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,7 +37,7 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class MessagePacker implements Packer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_MAGIC = "HiidoData";
@@ -151,7 +152,7 @@ public class MessagePacker implements Packer {
             statisContent.put("oaid", OaidController.INSTANCE.oaid());
             statisContent.put(BaseStatisContent.BDCUID, this.config.getBdCuid());
             if (this.config.isGaidEnable()) {
-                statisContent.put("gaid", GAIDClient.getGAID(this.config.getApplicationContext()));
+                statisContent.put(Config.GAID, GAIDClient.getGAID(this.config.getApplicationContext()));
             }
         }
     }

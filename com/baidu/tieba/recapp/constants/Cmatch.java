@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class Cmatch {
     public static final /* synthetic */ Cmatch[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -17,6 +17,7 @@ public final class Cmatch {
     public static final Cmatch PB_BANNER;
     public static final Cmatch PB_COMMENT;
     public static final Cmatch PIC_PAGE;
+    public static final Cmatch VIDEO_FLOW;
     public static final Cmatch VIDEO_LIST;
     public static final Cmatch VIDEO_PASTER;
     public static final Cmatch VIDEO_PB_COMMENT;
@@ -45,9 +46,10 @@ public final class Cmatch {
         VIDEO_PB_COMMENT = new Cmatch("VIDEO_PB_COMMENT", 5, "1383");
         VIDEO_PB_RECOMMEND = new Cmatch("VIDEO_PB_RECOMMEND", 6, "1382");
         VIDEO_LIST = new Cmatch("VIDEO_LIST", 7, "714");
-        Cmatch cmatch = new Cmatch("VIDEO_PASTER", 8, "946");
-        VIDEO_PASTER = cmatch;
-        $VALUES = new Cmatch[]{HOMEPAGE, FRS, PB_BANNER, PB_COMMENT, PIC_PAGE, VIDEO_PB_COMMENT, VIDEO_PB_RECOMMEND, VIDEO_LIST, cmatch};
+        VIDEO_PASTER = new Cmatch("VIDEO_PASTER", 8, "946");
+        Cmatch cmatch = new Cmatch("VIDEO_FLOW", 9, "1675");
+        VIDEO_FLOW = cmatch;
+        $VALUES = new Cmatch[]{HOMEPAGE, FRS, PB_BANNER, PB_COMMENT, PIC_PAGE, VIDEO_PB_COMMENT, VIDEO_PB_RECOMMEND, VIDEO_LIST, VIDEO_PASTER, cmatch};
     }
 
     public Cmatch(String str, int i2, String str2) {

@@ -1,5 +1,8 @@
 package com.baidu.ala.downloader;
 
+import c.a.e.e.p.j;
+import c.a.o0.w.e;
+import c.a.o0.w.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -17,12 +20,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
-import d.a.p0.w.e;
-import d.a.p0.w.f;
 import java.io.File;
 import java.util.Vector;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ResourceDownloader {
     public static /* synthetic */ Interceptable $ic;
     public static Vector<String> sResDownloadingTaskList;
@@ -201,7 +201,7 @@ public class ResourceDownloader {
                         this.val$fileMd5ListKey = r8;
                     }
 
-                    @Override // d.a.p0.w.e
+                    @Override // c.a.o0.w.e
                     public void onFileDownloadFailed(DownloadData downloadData2, int i2, String str7) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, downloadData2, i2, str7) == null) {
@@ -211,7 +211,7 @@ public class ResourceDownloader {
                         }
                     }
 
-                    @Override // d.a.p0.w.e
+                    @Override // c.a.o0.w.e
                     public void onFileDownloadSucceed(DownloadData downloadData2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData2) == null) {
@@ -292,7 +292,7 @@ public class ResourceDownloader {
                         }
                     }
 
-                    @Override // d.a.p0.w.e
+                    @Override // c.a.o0.w.e
                     public boolean onFileDownloaded(DownloadData downloadData2) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
@@ -303,7 +303,7 @@ public class ResourceDownloader {
                         return invokeL.booleanValue;
                     }
 
-                    @Override // d.a.p0.w.e
+                    @Override // c.a.o0.w.e
                     public void onFileUpdateProgress(DownloadData downloadData2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048579, this, downloadData2) == null) {
@@ -311,7 +311,7 @@ public class ResourceDownloader {
                         }
                     }
 
-                    @Override // d.a.p0.w.e
+                    @Override // c.a.o0.w.e
                     public boolean onPreDownload(DownloadData downloadData2) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
@@ -372,7 +372,7 @@ public class ResourceDownloader {
                                 ResourceDownloader.addDownloadingResId(this.val$resId);
                                 DownloaderHelper.cleanDir(new File(this.val$targetResDir));
                                 this.val$downloadData.setPath(this.val$targetResPath);
-                                f.j().k(this.val$downloadData);
+                                f.k().l(this.val$downloadData);
                                 return Boolean.TRUE;
                             }
                             return Boolean.FALSE;

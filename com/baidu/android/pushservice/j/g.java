@@ -18,15 +18,15 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ConnectivityManager f3512a;
+    public static ConnectivityManager f37414a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static TelephonyManager f3513b;
+    public static TelephonyManager f37415b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -72,9 +72,9 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                ConnectivityManager j = j(context.getApplicationContext());
-                if (j != null) {
-                    return j.getActiveNetworkInfo();
+                ConnectivityManager j2 = j(context.getApplicationContext());
+                if (j2 != null) {
+                    return j2.getActiveNetworkInfo();
                 }
                 return null;
             } catch (Exception e2) {
@@ -153,7 +153,7 @@ public class g {
                     case 14:
                     case 15:
                     case 17:
-                        str = com.baidu.apollon.statistics.g.f4012b;
+                        str = "3G";
                         break;
                     case 13:
                     case 18:
@@ -232,12 +232,12 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             if (context == null) {
-                return f3512a;
+                return f37414a;
             }
-            if (f3512a == null) {
-                f3512a = (ConnectivityManager) context.getSystemService("connectivity");
+            if (f37414a == null) {
+                f37414a = (ConnectivityManager) context.getSystemService("connectivity");
             }
-            return f3512a;
+            return f37414a;
         }
         return (ConnectivityManager) invokeL.objValue;
     }
@@ -248,13 +248,13 @@ public class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
             if (context.checkCallingOrSelfPermission("android.permission.READ_PHONE_STATE") == 0) {
                 if (context == null) {
-                    return f3513b;
+                    return f37415b;
                 }
-                if (f3513b == null) {
-                    f3513b = (TelephonyManager) context.getSystemService("phone");
+                if (f37415b == null) {
+                    f37415b = (TelephonyManager) context.getSystemService("phone");
                 }
             }
-            return f3513b;
+            return f37415b;
         }
         return (TelephonyManager) invokeL.objValue;
     }

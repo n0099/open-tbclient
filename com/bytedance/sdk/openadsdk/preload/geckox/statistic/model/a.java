@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.StatisticModel;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,32 +19,34 @@ public class a {
     public String F;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f32455a;
+    public String f68416a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32456b;
+    public String f68417b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32457c;
+    public String f68418c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f32458d;
+    public String f68419d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<StatisticModel.PackageStatisticModel.DownloadFailRecords> f32459e;
+    public List<StatisticModel.PackageStatisticModel.DownloadFailRecords> f68420e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f32460f;
+    public long f68421f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f32461g;
+    public long f68422g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f32462h;
+    public boolean f68423h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f32463i;
-    public boolean j;
+    public boolean f68424i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f68425j;
     public boolean k;
     public long l;
     public long m;
@@ -75,7 +77,7 @@ public class a {
                 return;
             }
         }
-        this.f32459e = new CopyOnWriteArrayList();
+        this.f68420e = new CopyOnWriteArrayList();
         this.w = new CopyOnWriteArrayList();
     }
 }

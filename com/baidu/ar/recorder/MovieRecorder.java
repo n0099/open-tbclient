@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class MovieRecorder implements b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_ON_START = 4001;
@@ -53,7 +53,7 @@ public class MovieRecorder implements b {
     public c uu;
     public volatile boolean uv;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -603,15 +603,15 @@ public class MovieRecorder implements b {
         }
     }
 
-    private void s(long j) {
+    private void s(long j2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65577, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65577, this, j2) == null) {
             if (!this.um.fI()) {
-                this.um.t(j);
+                this.um.t(j2);
                 return;
             }
-            int u = this.um.u(j);
+            int u = this.um.u(j2);
             if (u <= 0 || (aVar = this.ul) == null) {
                 return;
             }
@@ -620,11 +620,11 @@ public class MovieRecorder implements b {
     }
 
     @Override // com.baidu.ar.record.b
-    public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i2, long j) {
+    public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i2, long j2) {
         com.baidu.ar.recorder.a.a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j)}) == null) && this.us && (aVar = this.uq) != null && aVar.isRunning()) {
-            this.uq.a(byteBuffer, i2, j);
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && this.us && (aVar = this.uq) != null && aVar.isRunning()) {
+            this.uq.a(byteBuffer, i2, j2);
         }
     }
 
@@ -651,12 +651,12 @@ public class MovieRecorder implements b {
     }
 
     @Override // com.baidu.ar.record.b
-    public void onVideoFrameAvailable(long j) {
+    public void onVideoFrameAvailable(long j2) {
         com.baidu.ar.recorder.a.b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && (bVar = this.ut) != null && bVar.isRunning() && this.uv && up) {
-            this.ut.v(j);
-            s(j / 1000000);
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) && (bVar = this.ut) != null && bVar.isRunning() && this.uv && up) {
+            this.ut.v(j2);
+            s(j2 / 1000000);
         }
     }
 

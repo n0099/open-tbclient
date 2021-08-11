@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class fg extends fa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,10 +32,10 @@ public final class fg extends fa {
 
     @Override // com.xiaomi.push.fa
     /* renamed from: a */
-    public ByteBuffer mo303a(ByteBuffer byteBuffer) {
+    public ByteBuffer mo306a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byteBuffer)) == null) ? m306a().length == 0 ? byteBuffer : super.mo303a(byteBuffer) : (ByteBuffer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byteBuffer)) == null) ? m309a().length == 0 ? byteBuffer : super.mo306a(byteBuffer) : (ByteBuffer) invokeL.objValue;
     }
 
     @Override // com.xiaomi.push.fa
@@ -43,7 +43,7 @@ public final class fg extends fa {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (m306a().length == 0) {
+            if (m309a().length == 0) {
                 return 0;
             }
             return super.c();

@@ -12,22 +12,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RotateProgressBar extends ProgressBar {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int ANIMATION_RESOLUTION = 200;
+    public static final int INCREMENT = 30;
+    public static final int MAX_DEGREE = 360;
+    public static final int MAX_LEVEL = 10000;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f11361e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Drawable f11362f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public long f11363g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f11364h;
+    public Drawable mCurrentDrawable;
+    public int mDegree;
+    public int mFrameDuration;
+    public long mLastDrawTime;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RotateProgressBar(Context context, AttributeSet attributeSet, int i2) {
@@ -48,19 +44,19 @@ public class RotateProgressBar extends ProgressBar {
                 return;
             }
         }
-        this.f11361e = 0;
+        this.mDegree = 0;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f11364h = 200;
+            this.mFrameDuration = 200;
             try {
                 Field declaredField = ProgressBar.class.getDeclaredField("mDuration");
                 if (declaredField != null) {
                     declaredField.setAccessible(true);
-                    this.f11364h = (int) ((declaredField.getInt(this) / 12.0f) + 0.5f);
+                    this.mFrameDuration = (int) ((declaredField.getInt(this) / 12.0f) + 0.5f);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -80,21 +76,21 @@ public class RotateProgressBar extends ProgressBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             synchronized (this) {
-                Drawable drawable = this.f11362f;
+                Drawable drawable = this.mCurrentDrawable;
                 if (drawable != null) {
                     drawable.draw(canvas);
-                    long uptimeMillis = SystemClock.uptimeMillis() - this.f11363g;
-                    if (uptimeMillis < this.f11364h) {
-                        postInvalidateDelayed(this.f11364h - uptimeMillis);
+                    long uptimeMillis = SystemClock.uptimeMillis() - this.mLastDrawTime;
+                    if (uptimeMillis < this.mFrameDuration) {
+                        postInvalidateDelayed(this.mFrameDuration - uptimeMillis);
                     } else {
-                        this.f11363g = SystemClock.uptimeMillis();
-                        int i2 = this.f11361e + 30;
-                        this.f11361e = i2;
+                        this.mLastDrawTime = SystemClock.uptimeMillis();
+                        int i2 = this.mDegree + 30;
+                        this.mDegree = i2;
                         if (i2 >= 360) {
-                            this.f11361e = 0;
+                            this.mDegree = 0;
                         }
-                        drawable.setLevel((int) ((this.f11361e * 10000) / 360.0f));
-                        postInvalidateDelayed(this.f11364h);
+                        drawable.setLevel((int) ((this.mDegree * 10000) / 360.0f));
+                        postInvalidateDelayed(this.mFrameDuration);
                     }
                 }
             }
@@ -108,7 +104,7 @@ public class RotateProgressBar extends ProgressBar {
             synchronized (this) {
                 super.setIndeterminate(z);
                 if (z) {
-                    this.f11362f = getIndeterminateDrawable();
+                    this.mCurrentDrawable = getIndeterminateDrawable();
                 }
             }
         }
@@ -121,7 +117,7 @@ public class RotateProgressBar extends ProgressBar {
             synchronized (this) {
                 super.setIndeterminateDrawable(drawable);
                 if (isIndeterminate()) {
-                    this.f11362f = drawable;
+                    this.mCurrentDrawable = drawable;
                 }
             }
         }
@@ -146,7 +142,7 @@ public class RotateProgressBar extends ProgressBar {
                 return;
             }
         }
-        this.f11361e = 0;
+        this.mDegree = 0;
         a();
     }
 
@@ -168,7 +164,7 @@ public class RotateProgressBar extends ProgressBar {
                 return;
             }
         }
-        this.f11361e = 0;
+        this.mDegree = 0;
         a();
     }
 }

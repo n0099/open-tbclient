@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveMarkData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_ANCHOR_USER_ID = "0";

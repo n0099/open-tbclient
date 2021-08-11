@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class StuLogEx {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG_ENABLE;
@@ -50,42 +50,42 @@ public class StuLogEx {
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && DEBUG_ENABLE) {
-            Log.d(TAG, str + str2);
+            String str3 = str + str2;
         }
     }
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            Log.e(TAG, str + str2);
+            String str3 = str + str2;
         }
     }
 
     public static void i(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) && DEBUG_ENABLE) {
-            Log.i(TAG, str + str2);
+            String str3 = str + str2;
         }
     }
 
     public static void v(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) && DEBUG_ENABLE) {
-            Log.v(TAG, str + str2);
+            String str3 = str + str2;
         }
     }
 
     public static void w(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) && DEBUG_ENABLE) {
-            Log.w(TAG, str + str2);
+            String str3 = str + str2;
         }
     }
 
     public static void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) {
-            Log.e(TAG, str + str2, th);
+            String str3 = str + str2;
         }
     }
 }

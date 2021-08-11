@@ -4,26 +4,25 @@ import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class y implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f39373a;
+    public final /* synthetic */ Context f76205a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Map f39374b;
+    public final /* synthetic */ Map f76206b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ t f39375c;
+    public final /* synthetic */ t f76207c;
 
     public y(t tVar, Context context, Map map) {
         Interceptable interceptable = $ic;
@@ -40,18 +39,18 @@ public final class y implements Runnable {
                 return;
             }
         }
-        this.f39375c = tVar;
-        this.f39373a = context;
-        this.f39374b = map;
+        this.f76207c = tVar;
+        this.f76205a = context;
+        this.f76206b = map;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String packageName = this.f39373a.getPackageName();
+            String packageName = this.f76205a.getPackageName();
             try {
-                List<ActivityManager.RunningTaskInfo> runningTasks = ((ActivityManager) this.f39373a.getSystemService("activity")).getRunningTasks(100);
+                List<ActivityManager.RunningTaskInfo> runningTasks = ((ActivityManager) this.f76205a.getSystemService("activity")).getRunningTasks(100);
                 if (runningTasks != null) {
                     for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
                         ComponentName componentName = runningTaskInfo.topActivity;
@@ -60,8 +59,8 @@ public final class y implements Runnable {
                             Intent intent = new Intent();
                             intent.setComponent(componentName);
                             intent.setFlags(270532608);
-                            t.b(intent, this.f39374b);
-                            this.f39373a.startActivity(intent);
+                            t.b(intent, this.f76206b);
+                            this.f76205a.startActivity(intent);
                             return;
                         }
                     }
@@ -69,11 +68,11 @@ public final class y implements Runnable {
             } catch (Exception e2) {
                 com.vivo.push.util.p.a("OnNotificationClickTask", "start recentIntent is error", e2);
             }
-            Intent launchIntentForPackage = this.f39373a.getPackageManager().getLaunchIntentForPackage(this.f39373a.getPackageName());
+            Intent launchIntentForPackage = this.f76205a.getPackageManager().getLaunchIntentForPackage(this.f76205a.getPackageName());
             if (launchIntentForPackage != null) {
-                launchIntentForPackage.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-                t.b(launchIntentForPackage, this.f39374b);
-                this.f39373a.startActivity(launchIntentForPackage);
+                launchIntentForPackage.setFlags(268435456);
+                t.b(launchIntentForPackage, this.f76206b);
+                this.f76205a.startActivity(launchIntentForPackage);
                 return;
             }
             com.vivo.push.util.p.a("OnNotificationClickTask", "LaunchIntent is null");

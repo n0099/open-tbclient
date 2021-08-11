@@ -6,10 +6,10 @@ import com.baidu.ugc.editvideo.player.VideoPlayData;
 import com.baidu.ugc.editvideo.record.IMediaLifeCycle;
 import com.baidu.ugc.editvideo.record.source.IDataSourceView;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface IMediaDataSource extends IMediaLifeCycle {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface IPlayerDataSource extends IMediaDataSource, IMediaLifeCycle {
         void addIPlayerDataSourceView(IDataSourceView.IPlayerDataSourceView iPlayerDataSourceView);
 
@@ -37,9 +37,9 @@ public interface IMediaDataSource extends IMediaLifeCycle {
 
         void reset();
 
-        void seekTo(long j);
+        void seekTo(long j2);
 
-        void seekToForce(long j);
+        void seekToForce(long j2);
 
         void setLooping(boolean z);
 

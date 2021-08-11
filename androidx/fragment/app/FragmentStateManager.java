@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
@@ -129,7 +128,7 @@ public class FragmentStateManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "moveto ACTIVITY_CREATED: " + this.mFragment);
+                String str = "moveto ACTIVITY_CREATED: " + this.mFragment;
             }
             Fragment fragment = this.mFragment;
             fragment.performActivityCreated(fragment.mSavedFragmentState);
@@ -206,7 +205,7 @@ public class FragmentStateManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "moveto CREATED: " + this.mFragment);
+                String str = "moveto CREATED: " + this.mFragment;
             }
             Fragment fragment = this.mFragment;
             if (!fragment.mIsCreated) {
@@ -230,7 +229,7 @@ public class FragmentStateManager {
             return;
         }
         if (FragmentManager.isLoggingEnabled(3)) {
-            Log.d("FragmentManager", "moveto CREATE_VIEW: " + this.mFragment);
+            String str2 = "moveto CREATE_VIEW: " + this.mFragment;
         }
         ViewGroup viewGroup = null;
         Fragment fragment = this.mFragment;
@@ -292,7 +291,7 @@ public class FragmentStateManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, fragmentHostCallback, fragmentManagerViewModel) == null) {
             if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "movefrom CREATED: " + this.mFragment);
+                String str = "movefrom CREATED: " + this.mFragment;
             }
             Fragment fragment = this.mFragment;
             boolean z = true;
@@ -318,7 +317,7 @@ public class FragmentStateManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, fragmentManagerViewModel) == null) {
             if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "movefrom ATTACHED: " + this.mFragment);
+                String str = "movefrom ATTACHED: " + this.mFragment;
             }
             this.mFragment.performDetach();
             boolean z = false;
@@ -333,7 +332,7 @@ public class FragmentStateManager {
             }
             if (z || fragmentManagerViewModel.shouldDestroy(this.mFragment)) {
                 if (FragmentManager.isLoggingEnabled(3)) {
-                    Log.d("FragmentManager", "initState called for fragment: " + this.mFragment);
+                    String str2 = "initState called for fragment: " + this.mFragment;
                 }
                 this.mFragment.initState();
             }
@@ -346,7 +345,7 @@ public class FragmentStateManager {
             Fragment fragment = this.mFragment;
             if (fragment.mFromLayout && fragment.mInLayout && !fragment.mPerformedCreateView) {
                 if (FragmentManager.isLoggingEnabled(3)) {
-                    Log.d("FragmentManager", "moveto CREATE_VIEW: " + this.mFragment);
+                    String str = "moveto CREATE_VIEW: " + this.mFragment;
                 }
                 Fragment fragment2 = this.mFragment;
                 fragment2.performCreateView(fragment2.performGetLayoutInflater(fragment2.mSavedFragmentState), null, this.mFragment.mSavedFragmentState);
@@ -378,7 +377,7 @@ public class FragmentStateManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "movefrom RESUMED: " + this.mFragment);
+                String str = "movefrom RESUMED: " + this.mFragment;
             }
             this.mFragment.performPause();
             this.mDispatcher.dispatchOnFragmentPaused(this.mFragment, false);
@@ -419,7 +418,7 @@ public class FragmentStateManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "moveto RESTORE_VIEW_STATE: " + this.mFragment);
+                String str = "moveto RESTORE_VIEW_STATE: " + this.mFragment;
             }
             Fragment fragment = this.mFragment;
             if (fragment.mView != null) {
@@ -433,7 +432,7 @@ public class FragmentStateManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "moveto RESUMED: " + this.mFragment);
+                String str = "moveto RESUMED: " + this.mFragment;
             }
             this.mFragment.performResume();
             this.mDispatcher.dispatchOnFragmentResumed(this.mFragment, false);
@@ -507,7 +506,7 @@ public class FragmentStateManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "moveto STARTED: " + this.mFragment);
+                String str = "moveto STARTED: " + this.mFragment;
             }
             this.mFragment.performStart();
             this.mDispatcher.dispatchOnFragmentStarted(this.mFragment, false);
@@ -518,7 +517,7 @@ public class FragmentStateManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             if (FragmentManager.isLoggingEnabled(3)) {
-                Log.d("FragmentManager", "movefrom STARTED: " + this.mFragment);
+                String str = "movefrom STARTED: " + this.mFragment;
             }
             this.mFragment.performStop();
             this.mDispatcher.dispatchOnFragmentStopped(this.mFragment, false);
@@ -567,7 +566,7 @@ public class FragmentStateManager {
             this.mFragment.mSavedFragmentState = new Bundle();
         }
         if (FragmentManager.isLoggingEnabled(2)) {
-            Log.v("FragmentManager", "Instantiated fragment " + this.mFragment);
+            String str = "Instantiated fragment " + this.mFragment;
         }
     }
 

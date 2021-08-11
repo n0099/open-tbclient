@@ -8,7 +8,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.BceCredentials;
 import com.baidubce.model.AbstractBceRequest;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes9.dex */
 public class GetMediaResourceRequest extends VodBceRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +53,7 @@ public class GetMediaResourceRequest extends VodBceRequest {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "GetMediaResourceRequest { \n  mediaId = " + this.mediaId + "\n}\n";
+            return "GetMediaResourceRequest { \n  mediaId = " + this.mediaId + StringUtils.LF + "}\n";
         }
         return (String) invokeV.objValue;
     }

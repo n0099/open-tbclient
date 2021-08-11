@@ -39,7 +39,7 @@ public class WebViewCompat {
 
     /* loaded from: classes.dex */
     public interface VisualStateCallback {
-        void onComplete(long j);
+        void onComplete(long j2);
     }
 
     static {
@@ -202,12 +202,12 @@ public class WebViewCompat {
         return (Uri) invokeV.objValue;
     }
 
-    public static void postVisualStateCallback(@NonNull WebView webView, long j, @NonNull VisualStateCallback visualStateCallback) {
+    public static void postVisualStateCallback(@NonNull WebView webView, long j2, @NonNull VisualStateCallback visualStateCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{webView, Long.valueOf(j), visualStateCallback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{webView, Long.valueOf(j2), visualStateCallback}) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("VISUAL_STATE_CALLBACK");
             if (feature.isSupportedByFramework()) {
-                webView.postVisualStateCallback(j, new WebView.VisualStateCallback(visualStateCallback) { // from class: androidx.webkit.WebViewCompat.1
+                webView.postVisualStateCallback(j2, new WebView.VisualStateCallback(visualStateCallback) { // from class: androidx.webkit.WebViewCompat.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ VisualStateCallback val$callback;
@@ -231,16 +231,16 @@ public class WebViewCompat {
                     }
 
                     @Override // android.webkit.WebView.VisualStateCallback
-                    public void onComplete(long j2) {
+                    public void onComplete(long j3) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeJ(1048576, this, j2) == null) {
-                            this.val$callback.onComplete(j2);
+                        if (interceptable2 == null || interceptable2.invokeJ(1048576, this, j3) == null) {
+                            this.val$callback.onComplete(j3);
                         }
                     }
                 });
             } else if (feature.isSupportedByWebView()) {
                 checkThread(webView);
-                getProvider(webView).insertVisualStateCallback(j, visualStateCallback);
+                getProvider(webView).insertVisualStateCallback(j2, visualStateCallback);
             } else {
                 throw WebViewFeatureInternal.getUnsupportedOperationException();
             }

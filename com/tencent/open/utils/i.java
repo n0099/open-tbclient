@@ -25,7 +25,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.security.MessageDigest;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -369,15 +369,15 @@ public class i {
             return invokeLL.longValue;
         }
         byte[] bArr = new byte[8192];
-        long j = 0;
+        long j2 = 0;
         while (true) {
             int read = inputStream.read(bArr, 0, 8192);
             if (read != -1) {
                 outputStream.write(bArr, 0, read);
-                j += read;
+                j2 += read;
             } else {
-                SLog.i("openSDK_LOG.SystemUtils", "-->copy, copyed size is: " + j);
-                return j;
+                SLog.i("openSDK_LOG.SystemUtils", "-->copy, copyed size is: " + j2);
+                return j2;
             }
         }
     }

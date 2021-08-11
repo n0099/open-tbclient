@@ -1,7 +1,7 @@
 package com.baidu.searchbox.perfframe.ubc;
 
 import android.content.Context;
-import android.util.Log;
+import c.a.g0.b.a.a;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aperf.param.CommonUtils;
@@ -17,13 +17,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
-import d.a.h0.b.a.a;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class UbcPerfFrameRegister implements IPerfFrameRegister {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UbcPerfFrameRegister";
@@ -49,10 +48,7 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
         LinkedList<TrackUI> trackUIs;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, perfExpInfo) == null) {
-            if (AppConfig.isDebug()) {
-                Log.d("PerfFrame", "onException  at UbcPerfFrameRegister");
-            }
-            Log.d("PerfFrame", "onException  at UbcPerfFrameRegister");
+            AppConfig.isDebug();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(Constant.KEY_PERFTYPE, perfExpInfo.getType());
@@ -124,18 +120,18 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
                 if (perfExpInfo.isNeedMainStackTrace()) {
                     String mainThreadStackTrace = ThreadCollector.getMainThreadStackTrace();
                     if (AppConfig.isDebug()) {
-                        Log.d(TAG, "stack : " + mainThreadStackTrace);
+                        String str = "stack : " + mainThreadStackTrace;
                     }
                     jSONObject2.put("stacktrace", mainThreadStackTrace);
                 }
                 jSONObject.put("ext", jSONObject2);
                 if (AppConfig.isDebug()) {
-                    Log.d(TAG, jSONObject.toString());
+                    jSONObject.toString();
                 }
                 UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
                 if (uBCManager != null) {
-                    Log.d(TAG, "ubc isDebug: " + uBCManager.isUBCDebug());
-                    Log.d(TAG, "content: " + jSONObject.toString());
+                    String str2 = "ubc isDebug: " + uBCManager.isUBCDebug();
+                    String str3 = "content: " + jSONObject.toString();
                     uBCManager.onEvent(perfExpInfo.getUbcId(), jSONObject);
                 }
             } catch (JSONException e2) {

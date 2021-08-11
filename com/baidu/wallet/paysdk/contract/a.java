@@ -3,15 +3,15 @@ package com.baidu.wallet.paysdk.contract;
 import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.wallet.base.widget.SafeKeyBoardEditText;
-/* loaded from: classes5.dex */
+import com.dxmpay.wallet.base.widget.SafeKeyBoardEditText;
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.paysdk.contract.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0285a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC1846a {
         boolean a(String str);
 
         boolean b(String str);
@@ -19,7 +19,7 @@ public class a {
         void c(String str);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         View a();
 

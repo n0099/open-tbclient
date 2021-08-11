@@ -33,7 +33,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;
@@ -42,7 +41,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.beans.BeanConstants;
 import com.qq.e.comm.constants.Constants;
 import com.qq.e.comm.constants.ErrorCode;
 import com.tencent.connect.auth.b;
@@ -60,38 +58,40 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38920a;
+    public String f75740a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f38921b;
+    public b f75741b;
 
     /* renamed from: c  reason: collision with root package name */
-    public IUiListener f38922c;
+    public IUiListener f75742c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f38923d;
+    public Handler f75743d;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f38924e;
+    public FrameLayout f75744e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f38925f;
+    public LinearLayout f75745f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f38926g;
+    public FrameLayout f75746g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ProgressBar f38927h;
+    public ProgressBar f75747h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Button f38928i;
-    public String j;
+    public Button f75748i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public String f75749j;
     public com.tencent.open.b.c k;
     public Context l;
     public com.tencent.open.web.security.b m;
@@ -104,15 +104,15 @@ public class a extends Dialog {
     public HashMap<String, Runnable> t;
 
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C0519a extends WebViewClient {
+    /* loaded from: classes10.dex */
+    public class C2079a extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f38933a;
+        public final /* synthetic */ a f75754a;
 
-        public C0519a(a aVar) {
+        public C2079a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,7 +127,7 @@ public class a extends Dialog {
                     return;
                 }
             }
-            this.f38933a = aVar;
+            this.f75754a = aVar;
         }
 
         @Override // android.webkit.WebViewClient
@@ -136,14 +136,14 @@ public class a extends Dialog {
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
                 SLog.v("openSDK_LOG.AuthDialog", "-->onPageFinished, url: " + str);
-                this.f38933a.f38926g.setVisibility(8);
-                if (this.f38933a.k != null) {
-                    this.f38933a.k.setVisibility(0);
+                this.f75754a.f75746g.setVisibility(8);
+                if (this.f75754a.k != null) {
+                    this.f75754a.k.setVisibility(0);
                 }
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                this.f38933a.f38923d.removeCallbacks((Runnable) this.f38933a.t.remove(str));
+                this.f75754a.f75743d.removeCallbacks((Runnable) this.f75754a.t.remove(str));
             }
         }
 
@@ -153,16 +153,16 @@ public class a extends Dialog {
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
                 SLog.v("openSDK_LOG.AuthDialog", "-->onPageStarted, url: " + str);
                 super.onPageStarted(webView, str, bitmap);
-                this.f38933a.f38926g.setVisibility(0);
-                this.f38933a.r = SystemClock.elapsedRealtime();
-                if (!TextUtils.isEmpty(this.f38933a.p)) {
-                    this.f38933a.f38923d.removeCallbacks((Runnable) this.f38933a.t.remove(this.f38933a.p));
+                this.f75754a.f75746g.setVisibility(0);
+                this.f75754a.r = SystemClock.elapsedRealtime();
+                if (!TextUtils.isEmpty(this.f75754a.p)) {
+                    this.f75754a.f75743d.removeCallbacks((Runnable) this.f75754a.t.remove(this.f75754a.p));
                 }
-                this.f38933a.p = str;
-                a aVar = this.f38933a;
+                this.f75754a.p = str;
+                a aVar = this.f75754a;
                 d dVar = new d(aVar, aVar.p);
-                this.f38933a.t.put(str, dVar);
-                this.f38933a.f38923d.postDelayed(dVar, AppConfig.TIMESTAMP_AVAILABLE_DURATION);
+                this.f75754a.t.put(str, dVar);
+                this.f75754a.f75743d.postDelayed(dVar, AppConfig.TIMESTAMP_AVAILABLE_DURATION);
             }
         }
 
@@ -172,22 +172,22 @@ public class a extends Dialog {
             if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) {
                 super.onReceivedError(webView, i2, str, str2);
                 SLog.i("openSDK_LOG.AuthDialog", "-->onReceivedError, errorCode: " + i2 + " | description: " + str);
-                if (!l.b(this.f38933a.l)) {
-                    this.f38933a.f38921b.onError(new UiError(9001, "当前网络不可用，请稍后重试！", str2));
-                    this.f38933a.dismiss();
-                } else if (!this.f38933a.p.startsWith("https://login.imgcache.qq.com/ptlogin/static/qzsjump.html?")) {
-                    long elapsedRealtime = SystemClock.elapsedRealtime() - this.f38933a.r;
-                    if (this.f38933a.o >= 1 || elapsedRealtime >= this.f38933a.s) {
-                        this.f38933a.k.loadUrl(this.f38933a.a());
+                if (!l.b(this.f75754a.l)) {
+                    this.f75754a.f75741b.onError(new UiError(9001, "当前网络不可用，请稍后重试！", str2));
+                    this.f75754a.dismiss();
+                } else if (!this.f75754a.p.startsWith("https://login.imgcache.qq.com/ptlogin/static/qzsjump.html?")) {
+                    long elapsedRealtime = SystemClock.elapsedRealtime() - this.f75754a.r;
+                    if (this.f75754a.o >= 1 || elapsedRealtime >= this.f75754a.s) {
+                        this.f75754a.k.loadUrl(this.f75754a.a());
                         return;
                     }
-                    a.m(this.f38933a);
-                    this.f38933a.f38923d.postDelayed(new Runnable(this) { // from class: com.tencent.connect.auth.a.a.1
+                    a.m(this.f75754a);
+                    this.f75754a.f75743d.postDelayed(new Runnable(this) { // from class: com.tencent.connect.auth.a.a.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ C0519a f38934a;
+                        public final /* synthetic */ C2079a f75755a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -204,20 +204,20 @@ public class a extends Dialog {
                                     return;
                                 }
                             }
-                            this.f38934a = this;
+                            this.f75755a = this;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.f38934a.f38933a.k.loadUrl(this.f38934a.f38933a.p);
+                                this.f75755a.f75754a.k.loadUrl(this.f75755a.f75754a.p);
                             }
                         }
                     }, 500L);
                 } else {
-                    this.f38933a.f38921b.onError(new UiError(i2, str, str2));
-                    this.f38933a.dismiss();
+                    this.f75754a.f75741b.onError(new UiError(i2, str, str2));
+                    this.f75754a.dismiss();
                 }
             }
         }
@@ -240,17 +240,17 @@ public class a extends Dialog {
                     str2 = "yes";
                     str3 = "no";
                 }
-                AlertDialog.Builder builder = new AlertDialog.Builder(this.f38933a.l);
+                AlertDialog.Builder builder = new AlertDialog.Builder(this.f75754a.l);
                 builder.setMessage(str);
                 builder.setPositiveButton(str2, new DialogInterface.OnClickListener(this, sslErrorHandler) { // from class: com.tencent.connect.auth.a.a.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ SslErrorHandler f38935a;
+                    public final /* synthetic */ SslErrorHandler f75756a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ C0519a f38936b;
+                    public final /* synthetic */ C2079a f75757b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -267,15 +267,15 @@ public class a extends Dialog {
                                 return;
                             }
                         }
-                        this.f38936b = this;
-                        this.f38935a = sslErrorHandler;
+                        this.f75757b = this;
+                        this.f75756a = sslErrorHandler;
                     }
 
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                            this.f38935a.proceed();
+                            this.f75756a.proceed();
                         }
                     }
                 });
@@ -284,10 +284,10 @@ public class a extends Dialog {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ SslErrorHandler f38937a;
+                    public final /* synthetic */ SslErrorHandler f75758a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ C0519a f38938b;
+                    public final /* synthetic */ C2079a f75759b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -304,16 +304,16 @@ public class a extends Dialog {
                                 return;
                             }
                         }
-                        this.f38938b = this;
-                        this.f38937a = sslErrorHandler;
+                        this.f75759b = this;
+                        this.f75758a = sslErrorHandler;
                     }
 
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                            this.f38937a.cancel();
-                            this.f38938b.f38933a.dismiss();
+                            this.f75758a.cancel();
+                            this.f75759b.f75754a.dismiss();
                         }
                     }
                 });
@@ -331,38 +331,38 @@ public class a extends Dialog {
                 SLog.v("openSDK_LOG.AuthDialog", "-->Redirect URL: " + str);
                 if (str.startsWith("auth://browser")) {
                     JSONObject c2 = l.c(str);
-                    a aVar = this.f38933a;
+                    a aVar = this.f75754a;
                     aVar.n = aVar.f();
-                    if (!this.f38933a.n) {
+                    if (!this.f75754a.n) {
                         if (c2.optString("fail_cb", null) != null) {
-                            this.f38933a.a(c2.optString("fail_cb"), "");
+                            this.f75754a.a(c2.optString("fail_cb"), "");
                         } else if (c2.optInt("fall_to_wv") == 1) {
-                            a aVar2 = this.f38933a;
+                            a aVar2 = this.f75754a;
                             StringBuilder sb = new StringBuilder();
-                            sb.append(this.f38933a.f38920a);
-                            sb.append(this.f38933a.f38920a.indexOf("?") > -1 ? "&" : "?");
-                            aVar2.f38920a = sb.toString();
-                            a aVar3 = this.f38933a;
-                            aVar3.f38920a = this.f38933a.f38920a + "browser_error=1";
-                            this.f38933a.k.loadUrl(this.f38933a.f38920a);
+                            sb.append(this.f75754a.f75740a);
+                            sb.append(this.f75754a.f75740a.indexOf("?") > -1 ? "&" : "?");
+                            aVar2.f75740a = sb.toString();
+                            a aVar3 = this.f75754a;
+                            aVar3.f75740a = this.f75754a.f75740a + "browser_error=1";
+                            this.f75754a.k.loadUrl(this.f75754a.f75740a);
                         } else {
                             String optString = c2.optString("redir", null);
                             if (optString != null) {
-                                this.f38933a.k.loadUrl(optString);
+                                this.f75754a.k.loadUrl(optString);
                             }
                         }
                     }
                     return true;
                 } else if (str.startsWith("auth://tauth.qq.com/")) {
-                    this.f38933a.f38921b.onComplete(l.c(str));
-                    this.f38933a.dismiss();
+                    this.f75754a.f75741b.onComplete(l.c(str));
+                    this.f75754a.dismiss();
                     return true;
                 } else if (str.startsWith(com.tencent.connect.common.Constants.CANCEL_URI)) {
-                    this.f38933a.f38921b.onCancel();
-                    this.f38933a.dismiss();
+                    this.f75754a.f75741b.onCancel();
+                    this.f75754a.dismiss();
                     return true;
                 } else if (str.startsWith(com.tencent.connect.common.Constants.CLOSE_URI)) {
-                    this.f38933a.dismiss();
+                    this.f75754a.dismiss();
                     return true;
                 } else if (!str.startsWith(com.tencent.connect.common.Constants.DOWNLOAD_URI) && !str.endsWith(".apk")) {
                     if (str.startsWith("auth://progress")) {
@@ -375,14 +375,14 @@ public class a extends Dialog {
                         }
                         int intValue = Integer.valueOf(pathSegments.get(0)).intValue();
                         if (intValue == 0) {
-                            this.f38933a.f38926g.setVisibility(8);
-                            this.f38933a.k.setVisibility(0);
+                            this.f75754a.f75746g.setVisibility(8);
+                            this.f75754a.k.setVisibility(0);
                         } else if (intValue == 1) {
-                            this.f38933a.f38926g.setVisibility(0);
+                            this.f75754a.f75746g.setVisibility(0);
                         }
                         return true;
                     } else if (!str.startsWith("auth://onLoginSubmit")) {
-                        if (this.f38933a.m.a(this.f38933a.k, str)) {
+                        if (this.f75754a.m.a(this.f75754a.k, str)) {
                             return true;
                         }
                         SLog.i("openSDK_LOG.AuthDialog", "-->Redirect URL: return false");
@@ -391,7 +391,7 @@ public class a extends Dialog {
                         try {
                             List<String> pathSegments2 = Uri.parse(str).getPathSegments();
                             if (!pathSegments2.isEmpty()) {
-                                this.f38933a.q = pathSegments2.get(0);
+                                this.f75754a.q = pathSegments2.get(0);
                             }
                         } catch (Exception unused2) {
                         }
@@ -405,8 +405,8 @@ public class a extends Dialog {
                             parse = Uri.parse(Uri.decode(str));
                         }
                         Intent intent = new Intent("android.intent.action.VIEW", parse);
-                        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-                        this.f38933a.l.startActivity(intent);
+                        intent.addFlags(268435456);
+                        this.f75754a.l.startActivity(intent);
                     } catch (Exception e2) {
                         SLog.e("openSDK_LOG.AuthDialog", "-->start download activity exception, e: ", e2);
                     }
@@ -417,25 +417,25 @@ public class a extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class b extends DefaultUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f38939a;
+        public String f75760a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f38940b;
+        public String f75761b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f38941c;
+        public final /* synthetic */ a f75762c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f38942d;
+        public String f75763d;
 
         /* renamed from: e  reason: collision with root package name */
-        public IUiListener f38943e;
+        public IUiListener f75764e;
 
         public b(a aVar, String str, String str2, String str3, IUiListener iUiListener) {
             Interceptable interceptable = $ic;
@@ -452,22 +452,22 @@ public class a extends Dialog {
                     return;
                 }
             }
-            this.f38941c = aVar;
-            this.f38942d = str;
-            this.f38939a = str2;
-            this.f38940b = str3;
-            this.f38943e = iUiListener;
+            this.f75762c = aVar;
+            this.f75763d = str;
+            this.f75760a = str2;
+            this.f75761b = str3;
+            this.f75764e = iUiListener;
         }
 
         @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
         public void onCancel() {
             IUiListener iUiListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iUiListener = this.f38943e) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iUiListener = this.f75764e) == null) {
                 return;
             }
             iUiListener.onCancel();
-            this.f38943e = null;
+            this.f75764e = null;
         }
 
         @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
@@ -476,11 +476,11 @@ public class a extends Dialog {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
                 JSONObject jSONObject = (JSONObject) obj;
                 g a2 = g.a();
-                a2.a(this.f38942d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(Constants.KEYS.RET, -6), this.f38939a, false);
-                IUiListener iUiListener = this.f38943e;
+                a2.a(this.f75763d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(Constants.KEYS.RET, -6), this.f75760a, false);
+                IUiListener iUiListener = this.f75764e;
                 if (iUiListener != null) {
                     iUiListener.onComplete(jSONObject);
-                    this.f38943e = null;
+                    this.f75764e = null;
                 }
             }
         }
@@ -491,16 +491,16 @@ public class a extends Dialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, uiError) == null) {
                 if (uiError.errorMessage != null) {
-                    str = uiError.errorMessage + this.f38939a;
+                    str = uiError.errorMessage + this.f75760a;
                 } else {
-                    str = this.f38939a;
+                    str = this.f75760a;
                 }
-                g.a().a(this.f38942d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, uiError.errorCode, str, false);
-                this.f38941c.a(str);
-                IUiListener iUiListener = this.f38943e;
+                g.a().a(this.f75763d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, uiError.errorCode, str, false);
+                this.f75762c.a(str);
+                IUiListener iUiListener = this.f75764e;
                 if (iUiListener != null) {
                     iUiListener.onError(uiError);
-                    this.f38943e = null;
+                    this.f75764e = null;
                 }
             }
         }
@@ -519,16 +519,16 @@ public class a extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class c extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f38944a;
+        public final /* synthetic */ a f75765a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b f38945b;
+        public b f75766b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(a aVar, b bVar, Looper looper) {
@@ -548,8 +548,8 @@ public class a extends Dialog {
                     return;
                 }
             }
-            this.f38944a = aVar;
-            this.f38945b = bVar;
+            this.f75765a = aVar;
+            this.f75766b = bVar;
         }
 
         @Override // android.os.Handler
@@ -558,27 +558,27 @@ public class a extends Dialog {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i2 = message.what;
                 if (i2 == 1) {
-                    this.f38945b.a((String) message.obj);
+                    this.f75766b.a((String) message.obj);
                 } else if (i2 == 2) {
-                    this.f38945b.onCancel();
+                    this.f75766b.onCancel();
                 } else if (i2 != 3) {
                 } else {
-                    a.b(this.f38944a.l, (String) message.obj);
+                    a.b(this.f75765a.l, (String) message.obj);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f38946a;
+        public String f75767a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f38947b;
+        public final /* synthetic */ a f75768b;
 
         public d(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -595,19 +595,19 @@ public class a extends Dialog {
                     return;
                 }
             }
-            this.f38947b = aVar;
-            this.f38946a = "";
-            this.f38946a = str;
+            this.f75768b = aVar;
+            this.f75767a = "";
+            this.f75767a = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SLog.v("openSDK_LOG.AuthDialog", "-->timeoutUrl: " + this.f38946a + " | mRetryUrl: " + this.f38947b.p);
-                if (this.f38946a.equals(this.f38947b.p)) {
-                    this.f38947b.f38921b.onError(new UiError(ErrorCode.PrivateError.PARAM_ERROR, "请求页面超时，请稍后重试！", this.f38947b.p));
-                    this.f38947b.dismiss();
+                SLog.v("openSDK_LOG.AuthDialog", "-->timeoutUrl: " + this.f75767a + " | mRetryUrl: " + this.f75768b.p);
+                if (this.f75767a.equals(this.f75768b.p)) {
+                    this.f75768b.f75741b.onError(new UiError(ErrorCode.PrivateError.PARAM_ERROR, "请求页面超时，请稍后重试！", this.f75768b.p));
+                    this.f75768b.dismiss();
                 }
             }
         }
@@ -636,11 +636,11 @@ public class a extends Dialog {
         this.r = 0L;
         this.s = 30000L;
         this.l = context;
-        this.f38920a = str2;
-        this.f38921b = new b(this, str, str2, qQToken.getAppId(), iUiListener);
-        this.f38923d = new c(this, this.f38921b, context.getMainLooper());
-        this.f38922c = iUiListener;
-        this.j = str;
+        this.f75740a = str2;
+        this.f75741b = new b(this, str, str2, qQToken.getAppId(), iUiListener);
+        this.f75743d = new c(this, this.f75741b, context.getMainLooper());
+        this.f75742c = iUiListener;
+        this.f75749j = str;
         this.m = new com.tencent.open.web.security.b();
         getWindow().setSoftInputMode(32);
     }
@@ -656,7 +656,7 @@ public class a extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.t.clear();
-            this.f38923d.removeCallbacksAndMessages(null);
+            this.f75743d.removeCallbacksAndMessages(null);
             try {
                 if ((this.l instanceof Activity) && !((Activity) this.l).isFinishing() && isShowing()) {
                     super.dismiss();
@@ -678,7 +678,7 @@ public class a extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (!this.n) {
-                this.f38921b.onCancel();
+                this.f75741b.onCancel();
             }
             super.onBackPressed();
         }
@@ -720,7 +720,7 @@ public class a extends Dialog {
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
             this.k.setVerticalScrollBarEnabled(false);
             this.k.setHorizontalScrollBarEnabled(false);
-            this.k.setWebViewClient(new C0519a());
+            this.k.setWebViewClient(new C2079a());
             this.k.setWebChromeClient(new WebChromeClient());
             this.k.clearFormData();
             this.k.clearSslPreferences();
@@ -729,7 +729,7 @@ public class a extends Dialog {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f38930a;
+                public final /* synthetic */ a f75751a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -746,7 +746,7 @@ public class a extends Dialog {
                             return;
                         }
                     }
-                    this.f38930a = this;
+                    this.f75751a = this;
                 }
 
                 @Override // android.view.View.OnLongClickListener
@@ -764,7 +764,7 @@ public class a extends Dialog {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f38931a;
+                public final /* synthetic */ a f75752a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -781,7 +781,7 @@ public class a extends Dialog {
                             return;
                         }
                     }
-                    this.f38931a = this;
+                    this.f75752a = this;
                 }
 
                 @Override // android.view.View.OnTouchListener
@@ -811,8 +811,8 @@ public class a extends Dialog {
             settings.setDatabaseEnabled(true);
             settings.setDatabasePath(this.l.getDir("databases", 0).getPath());
             settings.setDomStorageEnabled(true);
-            SLog.v("openSDK_LOG.AuthDialog", "-->mUrl : " + this.f38920a);
-            String str = this.f38920a;
+            SLog.v("openSDK_LOG.AuthDialog", "-->mUrl : " + this.f75740a);
+            String str = this.f75740a;
             this.p = str;
             this.k.loadUrl(str);
             this.k.setVisibility(4);
@@ -824,7 +824,7 @@ public class a extends Dialog {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f38932a;
+                public final /* synthetic */ a f75753a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -841,7 +841,7 @@ public class a extends Dialog {
                             return;
                         }
                     }
-                    this.f38932a = this;
+                    this.f75753a = this;
                 }
 
                 @Override // android.content.DialogInterface.OnDismissListener
@@ -868,18 +868,18 @@ public class a extends Dialog {
             com.tencent.connect.auth.b a2 = com.tencent.connect.auth.b.a();
             String c2 = a2.c();
             b.a aVar = new b.a();
-            aVar.f38953a = this.f38922c;
-            aVar.f38954b = this;
-            aVar.f38955c = c2;
+            aVar.f75774a = this.f75742c;
+            aVar.f75775b = this;
+            aVar.f75776c = c2;
             String a3 = a2.a(aVar);
-            String str = this.f38920a;
+            String str = this.f75740a;
             String substring = str.substring(0, str.indexOf("?"));
-            Bundle b2 = l.b(this.f38920a);
+            Bundle b2 = l.b(this.f75740a);
             b2.putString("token_key", c2);
             b2.putString("serial", a3);
-            b2.putString(BeanConstants.CHANNEL_ID_BROWSER, "1");
+            b2.putString("browser", "1");
             String str2 = substring + "?" + HttpUtils.encodeUrl(b2);
-            this.f38920a = str2;
+            this.f75740a = str2;
             return l.a(this.l, str2);
         }
         return invokeV.booleanValue;
@@ -898,16 +898,16 @@ public class a extends Dialog {
             }
             this.k.setLayoutParams(layoutParams);
             FrameLayout frameLayout = new FrameLayout(this.l);
-            this.f38924e = frameLayout;
+            this.f75744e = frameLayout;
             layoutParams.gravity = 17;
             frameLayout.setLayoutParams(layoutParams);
-            this.f38924e.addView(this.k);
-            this.f38924e.addView(this.f38926g);
-            String string = l.b(this.f38920a).getString("style");
+            this.f75744e.addView(this.k);
+            this.f75744e.addView(this.f75746g);
+            String string = l.b(this.f75740a).getString("style");
             if (string != null && "qr".equals(string)) {
-                this.f38924e.addView(this.f38928i);
+                this.f75744e.addView(this.f75748i);
             }
-            setContentView(this.f38924e);
+            setContentView(this.f75744e);
         }
     }
 
@@ -915,18 +915,18 @@ public class a extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             Button button = new Button(this.l);
-            this.f38928i = button;
+            this.f75748i = button;
             button.setBackgroundDrawable(l.a("h5_qr_back.png", this.l));
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.leftMargin = com.tencent.connect.avatar.a.a(this.l, 20.0f);
             layoutParams.topMargin = com.tencent.connect.avatar.a.a(this.l, 10.0f);
-            this.f38928i.setLayoutParams(layoutParams);
-            this.f38928i.setOnClickListener(new View.OnClickListener(this) { // from class: com.tencent.connect.auth.a.1
+            this.f75748i.setLayoutParams(layoutParams);
+            this.f75748i.setOnClickListener(new View.OnClickListener(this) { // from class: com.tencent.connect.auth.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f38929a;
+                public final /* synthetic */ a f75750a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -943,18 +943,18 @@ public class a extends Dialog {
                             return;
                         }
                     }
-                    this.f38929a = this;
+                    this.f75750a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f38929a.dismiss();
-                        if (this.f38929a.n || this.f38929a.f38921b == null) {
+                        this.f75750a.dismiss();
+                        if (this.f75750a.n || this.f75750a.f75741b == null) {
                             return;
                         }
-                        this.f38929a.f38921b.onCancel();
+                        this.f75750a.f75741b.onCancel();
                     }
                 }
             });
@@ -965,10 +965,10 @@ public class a extends Dialog {
         TextView textView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            this.f38927h = new ProgressBar(this.l);
-            this.f38927h.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            this.f38925f = new LinearLayout(this.l);
-            if (this.j.equals("action_login")) {
+            this.f75747h = new ProgressBar(this.l);
+            this.f75747h.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            this.f75745f = new LinearLayout(this.l);
+            if (this.f75749j.equals("action_login")) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 16;
                 layoutParams.leftMargin = 5;
@@ -986,17 +986,17 @@ public class a extends Dialog {
             }
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
             layoutParams2.gravity = 17;
-            this.f38925f.setLayoutParams(layoutParams2);
-            this.f38925f.addView(this.f38927h);
+            this.f75745f.setLayoutParams(layoutParams2);
+            this.f75745f.addView(this.f75747h);
             if (textView != null) {
-                this.f38925f.addView(textView);
+                this.f75745f.addView(textView);
             }
-            this.f38926g = new FrameLayout(this.l);
+            this.f75746g = new FrameLayout(this.l);
             FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, -1);
             layoutParams3.gravity = 17;
-            this.f38926g.setLayoutParams(layoutParams3);
-            this.f38926g.setBackgroundColor(Color.parseColor("#B3000000"));
-            this.f38926g.addView(this.f38925f);
+            this.f75746g.setLayoutParams(layoutParams3);
+            this.f75746g.setBackgroundColor(Color.parseColor("#B3000000"));
+            this.f75746g.addView(this.f75745f);
         }
     }
 
@@ -1022,7 +1022,7 @@ public class a extends Dialog {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            String str = this.f38920a;
+            String str = this.f75740a;
             String str2 = "https://login.imgcache.qq.com/ptlogin/static/qzsjump.html?" + str.substring(str.indexOf("?") + 1);
             SLog.i("openSDK_LOG.AuthDialog", "-->generateDownloadUrl, url: https://login.imgcache.qq.com/ptlogin/static/qzsjump.html?");
             return str2;

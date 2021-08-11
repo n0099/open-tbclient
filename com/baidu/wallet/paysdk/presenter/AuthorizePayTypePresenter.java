@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.eventbus.EventBus;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +13,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.BaiduPayDelegate;
 import com.baidu.wallet.base.datamodel.CardData;
 import com.baidu.wallet.base.statistics.PayStatServiceEvent;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.paysdk.api.BaiduPay;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.contract.PayTypeContract;
@@ -25,10 +22,12 @@ import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.PayTypeActivity;
 import com.baidu.wallet.paysdk.ui.PwdPayActivity;
 import com.baidu.wallet.paysdk.ui.widget.PayTypeItemView;
-import com.baidu.wallet.statistics.api.StatisticManager;
-import com.baidu.wallet.util.StatHelper;
+import com.dxmpay.apollon.eventbus.EventBus;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
+import com.dxmpay.wallet.utils.StatHelper;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class AuthorizePayTypePresenter extends PayTypeContract.Presenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AuthorizePayTypePresenter";
@@ -57,9 +56,10 @@ public class AuthorizePayTypePresenter extends PayTypeContract.Presenter {
     private void gotoNewCardAuth() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            StatisticManager.onEventWithValue(PayStatServiceEvent.PAY_BIND_CARD_ENTER, StatHelper.getOrderNo());
             StatHelper.cachePayType(0);
             StatHelper.cachePayWay(4);
+            StatHelper.statServiceEvent(PayStatServiceEvent.PAY_BIND_CARD_ENTER);
+            StatisticManager.onEventStart(PayStatServiceEvent.PAY_BIND_CARD_DURATION);
             if (PayDataCache.getInstance().hasMobilePwd()) {
                 Intent intent = new Intent();
                 intent.setClass(this.mActivity, PwdPayActivity.class);
@@ -238,7 +238,7 @@ public class AuthorizePayTypePresenter extends PayTypeContract.Presenter {
     public void reOrderPay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            StatisticManager.onEvent(StatServiceEvent.AUTHORIZE_RECREATE_ORDER);
+            StatisticManager.onEvent("authorizePayReorder");
             BaiduPayDelegate.getInstance().reOrderPay(this.mActivity);
         }
     }

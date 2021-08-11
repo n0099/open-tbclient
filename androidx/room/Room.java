@@ -3,7 +3,6 @@ package androidx.room;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.room.RoomDatabase;
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +55,7 @@ public class Room {
             if (!name.isEmpty()) {
                 canonicalName = canonicalName.substring(name.length() + 1);
             }
-            String str3 = canonicalName.replace(IStringUtil.EXTENSION_SEPARATOR, '_') + str;
+            String str3 = canonicalName.replace('.', '_') + str;
             try {
                 if (name.isEmpty()) {
                     str2 = str3;

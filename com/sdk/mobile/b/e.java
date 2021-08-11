@@ -8,26 +8,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.a.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class e implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f38467a;
+    public Handler f75253a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f38468b;
+    public long f75254b;
 
     /* renamed from: c  reason: collision with root package name */
-    public /* synthetic */ a f38469c;
+    public /* synthetic */ a f75255c;
 
-    public e(a aVar, long j) {
+    public e(a aVar, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, Long.valueOf(j)};
+            Object[] objArr = {aVar, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -37,22 +37,22 @@ public final class e implements Runnable {
                 return;
             }
         }
-        this.f38469c = aVar;
-        this.f38467a = new Handler(Looper.getMainLooper());
-        this.f38468b = j;
+        this.f75255c = aVar;
+        this.f75253a = new Handler(Looper.getMainLooper());
+        this.f75254b = j2;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f38467a.postDelayed(this, this.f38468b);
+            this.f75253a.postDelayed(this, this.f75254b);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f38467a.removeCallbacks(this);
+            this.f75253a.removeCallbacks(this);
         }
     }
 
@@ -64,15 +64,15 @@ public final class e implements Runnable {
         f fVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            fVar = this.f38469c.f38447f;
+            fVar = this.f75255c.f75233f;
             if (fVar != null) {
-                str = a.f38442a;
-                bool = a.f38443b;
+                str = a.f75228a;
+                bool = a.f75229b;
                 com.sdk.base.framework.a.a.c.c(str, "超时，已取消请求", bool);
-                fVar2 = this.f38469c.f38447f;
+                fVar2 = this.f75255c.f75233f;
                 fVar2.a();
             }
-            this.f38469c.a(1, "超时", 101005, null, com.sdk.base.framework.f.f.a.b().a());
+            this.f75255c.a(1, "超时", 101005, null, com.sdk.base.framework.f.f.a.b().a());
         }
     }
 }

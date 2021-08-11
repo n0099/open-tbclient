@@ -3,14 +3,13 @@ package com.baidu.apollon.statusbar;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class ImmersiveOSUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FLYME = "flyme";
@@ -102,7 +101,7 @@ public class ImmersiveOSUtils {
     public static boolean isFlymeOS() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? getFlymeOSFlag().toLowerCase().contains(FLYME) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? getFlymeOSFlag().toLowerCase().contains("flyme") : invokeV.booleanValue;
     }
 
     public static boolean isFlymeOS4Plus() {
@@ -115,7 +114,7 @@ public class ImmersiveOSUtils {
                 return false;
             }
             try {
-                if (flymeOSVersion.toLowerCase().contains(IAdRequestParam.OS)) {
+                if (flymeOSVersion.toLowerCase().contains("os")) {
                     intValue = Integer.valueOf(flymeOSVersion.substring(9, 10)).intValue();
                 } else {
                     intValue = Integer.valueOf(flymeOSVersion.substring(6, 7)).intValue();
@@ -138,7 +137,7 @@ public class ImmersiveOSUtils {
                 return false;
             }
             try {
-                if (flymeOSVersion.toLowerCase().contains(IAdRequestParam.OS)) {
+                if (flymeOSVersion.toLowerCase().contains("os")) {
                     intValue = Integer.valueOf(flymeOSVersion.substring(9, 10)).intValue();
                 } else {
                     intValue = Integer.valueOf(flymeOSVersion.substring(6, 7)).intValue();
@@ -158,7 +157,7 @@ public class ImmersiveOSUtils {
             String str = Build.BRAND;
             if (str != null) {
                 String lowerCase = str.toLowerCase();
-                return lowerCase.contains(LETV) || lowerCase.contains(LEECO);
+                return lowerCase.contains("letv") || lowerCase.contains("leeco");
             }
             return false;
         }
@@ -215,7 +214,7 @@ public class ImmersiveOSUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
             String str = Build.MODEL;
-            return str != null && str.toLowerCase().contains(ZTEC2016);
+            return str != null && str.toLowerCase().contains("zte c2016");
         }
         return invokeV.booleanValue;
     }
@@ -225,7 +224,7 @@ public class ImmersiveOSUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
             String str = Build.MODEL;
-            return str != null && str.toLowerCase().contains(ZUKZ1);
+            return str != null && str.toLowerCase().contains("zuk z1");
         }
         return invokeV.booleanValue;
     }

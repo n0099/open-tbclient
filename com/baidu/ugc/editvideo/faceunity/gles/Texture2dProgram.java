@@ -3,6 +3,7 @@ package com.baidu.ugc.editvideo.faceunity.gles;
 import android.opengl.GLES20;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.v0.t.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,11 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.StatusCode;
-import d.a.w0.t.c;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class Texture2dProgram {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENT_SHADER_2D = "precision mediump float;\nvarying vec2 vTextureCoord;\nuniform sampler2D sTexture;\nuniform float alpha;\nvoid main() {\n    vec4 color = texture2D(sTexture, vTextureCoord);\n    gl_FragColor = color * alpha;\n}\n";
@@ -25,6 +24,7 @@ public class Texture2dProgram {
     public static final String FRAGMENT_SHADER_2D_HUMAN_SEGMENTATION = "precision mediump float;\nvarying vec2 vTextureCoord;\nvarying vec2 vTextureCoord2;\nuniform sampler2D sTexture;\nuniform sampler2D sTexture2;\nuniform int maskMode;\nuniform vec4 maskColor;\nvoid main() {\n    vec4 textureColor =texture2D(sTexture, vTextureCoord);\n    vec4 textureColor2 =texture2D(sTexture2, vTextureCoord2);\n    if (textureColor2.r == 0.0 && textureColor2.g == 0.0 && textureColor2.b ==0.0){\n       textureColor2.a = 0.0;\n       gl_FragColor = textureColor2;\n       // discard;\n    } else {\n       if (maskMode == 1) {\n           gl_FragColor = vec4(maskColor.rgb, 1.0)*maskColor.a;\n           //0.5为透明度为50%的蒙层的颜色，maskMode=1为生成自动抠图蒙版的模式\n       } else {\n           //maskMode==0为根据蒙版生成抠图结果的模式，alpha为0.5是抠图画笔颜色的透明度，textureColor2.a*1.0/maskColor.a是为了还原蒙层没有做透明时原图的透明度\n           gl_FragColor = textureColor*(textureColor2.a*(1.0/maskColor.a));\n       }    }\n}\n";
     public static final String FRAGMENT_SHADER_2D_SLIDE = "precision mediump float;\nvarying vec2 vTextureCoord;\nvarying vec2 vTextureCoord2;\nuniform sampler2D sTexture;\nuniform sampler2D sTexture2;\nuniform float distance;\nvoid main() {\n    vec2 vector;\n    vec4 color;\n    if(vTextureCoord.x < distance){\n       vector[0]=vTextureCoord.x+(1.0-distance);\n       vector[1]=vTextureCoord.y;\n       color = texture2D(sTexture, vector);\n       gl_FragColor = color * 0.2;\n       for (int i = 1; i<5;i++) {\n           gl_FragColor+=texture2D(sTexture,vec2(vector.x-0.02*float(i)*(1.0-distance),vector.y))*0.1;\n       }\n       for (int i = 1; i<5;i++) {\n           gl_FragColor+=texture2D(sTexture,vec2(vector.x+0.02*(1.0-distance)*float(i),vector.y))*0.1;\n       }\n    } else {\n       vector[0]=vTextureCoord2.x-distance;\n       vector[1]=vTextureCoord2.y;\n       color = texture2D(sTexture2, vector);\n       gl_FragColor = color * 0.2;\n       for (int i = 1; i<5;i++) {\n           gl_FragColor+=texture2D(sTexture2,vec2(vector.x-0.02*float(i)*(distance),vector.y))*0.1;\n       }\n       for (int i = 1; i<5;i++) {\n           gl_FragColor+=texture2D(sTexture2,vec2(vector.x+0.02*float(i)*(distance),vector.y))*0.1;\n       }\n    }\n}\n";
     public static final String FRAGMENT_SHADER_2D_X_BLUR = "precision mediump float;\nvarying vec2 vTextureCoord;\nuniform sampler2D sTexture;\nuniform float distance;\nvoid main() {\n    vec2 vector;\n    vec4 color;\n    float tranAlpha = 1.0;\n    if(vTextureCoord.x < distance){\n           tranAlpha=(1.0-distance);\n    } else { \n           tranAlpha=distance;\n    }\n    vector[0]=vTextureCoord.x;\n    vector[1]=vTextureCoord.y;\n    color = texture2D(sTexture, vector);\n    gl_FragColor = color * 0.2;\n    for (int i = 1; i<5;i++) {\n        gl_FragColor+=texture2D(sTexture,vec2(vector.x-0.05*float(i)*tranAlpha,vector.y))*0.1;\n    }\n    for (int i = 1; i<5;i++) {\n         gl_FragColor+=texture2D(sTexture,vec2(vector.x+0.05*tranAlpha*float(i),vector.y))*0.1;\n    }\n}\n";
+    public static final String FRAGMENT_SHADER_AR_ALPHA = "precision mediump float;\nvarying vec2 vTextureCoord;\nvarying vec2 vTextureCoord2;\nuniform sampler2D sTexture;\nuniform sampler2D sTexture2;\nvoid main() {\n    vec4 textureColor =texture2D(sTexture, vTextureCoord);\n    vec4 textureColor2 =texture2D(sTexture2, vTextureCoord2);\n    gl_FragColor = vec4(textureColor2.r, textureColor2.g, textureColor2.b, textureColor.a);\n}\n";
     public static final String FRAGMENT_SHADER_EXT = "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nuniform float alpha;\nvoid main() {\n    vec4 color = texture2D(sTexture, vTextureCoord);\n    gl_FragColor = color * alpha;\n}\n";
     public static final String FRAGMENT_SHADER_EXT_BW = "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    vec4 tc = texture2D(sTexture, vTextureCoord);\n    float color = tc.r * 0.3 + tc.g * 0.59 + tc.b * 0.11;\n    gl_FragColor = vec4(color, color, color, 1.0);\n}\n";
     public static final String FRAGMENT_SHADER_EXT_FILT = "#extension GL_OES_EGL_image_external : require\n#define KERNEL_SIZE 9\nprecision highp float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nuniform float uKernel[KERNEL_SIZE];\nuniform vec2 uTexOffset[KERNEL_SIZE];\nuniform float uColorAdjust;\nvoid main() {\n    int i = 0;\n    vec4 sum = vec4(0.0);\n    if (vTextureCoord.x < vTextureCoord.y - 0.005) {\n        for (i = 0; i < KERNEL_SIZE; i++) {\n            vec4 texc = texture2D(sTexture, vTextureCoord + uTexOffset[i]);\n            sum += texc * uKernel[i];\n        }\n    sum += uColorAdjust;\n    } else if (vTextureCoord.x > vTextureCoord.y + 0.005) {\n        sum = texture2D(sTexture, vTextureCoord);\n    } else {\n        sum.r = 1.0;\n    }\n    gl_FragColor = sum;\n}\n";
@@ -63,7 +63,7 @@ public class Texture2dProgram {
     public int muTexOffsetLoc;
 
     /* renamed from: com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ugc$editvideo$faceunity$gles$Texture2dProgram$ProgramType;
         public static /* synthetic */ Interceptable $ic;
@@ -132,16 +132,21 @@ public class Texture2dProgram {
                 $SwitchMap$com$baidu$ugc$editvideo$faceunity$gles$Texture2dProgram$ProgramType[ProgramType.TEXTURE_2D_LINE.ordinal()] = 12;
             } catch (NoSuchFieldError unused12) {
             }
+            try {
+                $SwitchMap$com$baidu$ugc$editvideo$faceunity$gles$Texture2dProgram$ProgramType[ProgramType.TEXTURE_2D_AR_ALPHA.ordinal()] = 13;
+            } catch (NoSuchFieldError unused13) {
+            }
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static final class ProgramType {
         public static final /* synthetic */ ProgramType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ProgramType TEXTURE_2D;
         public static final ProgramType TEXTURE_2D_AR;
+        public static final ProgramType TEXTURE_2D_AR_ALPHA;
         public static final ProgramType TEXTURE_2D_BLEND;
         public static final ProgramType TEXTURE_2D_FILTER;
         public static final ProgramType TEXTURE_2D_FOLLOW;
@@ -178,9 +183,10 @@ public class Texture2dProgram {
             TEXTURE_2D_FOLLOW = new ProgramType("TEXTURE_2D_FOLLOW", 8);
             TEXTURE_2D_AR = new ProgramType("TEXTURE_2D_AR", 9);
             TEXTURE_2D_FILTER = new ProgramType("TEXTURE_2D_FILTER", 10);
-            ProgramType programType = new ProgramType("TEXTURE_2D_LINE", 11);
-            TEXTURE_2D_LINE = programType;
-            $VALUES = new ProgramType[]{TEXTURE_2D, TEXTURE_EXT, TEXTURE_EXT_BW, TEXTURE_EXT_FILT, TEXTURE_2D_BLEND, TEXTURE_2D_HUMAN_SEGMENTATION, TEXTURE_2D_SLIDE, TEXTURE_2D_X_BLUR, TEXTURE_2D_FOLLOW, TEXTURE_2D_AR, TEXTURE_2D_FILTER, programType};
+            TEXTURE_2D_LINE = new ProgramType("TEXTURE_2D_LINE", 11);
+            ProgramType programType = new ProgramType("TEXTURE_2D_AR_ALPHA", 12);
+            TEXTURE_2D_AR_ALPHA = programType;
+            $VALUES = new ProgramType[]{TEXTURE_2D, TEXTURE_EXT, TEXTURE_EXT_BW, TEXTURE_EXT_FILT, TEXTURE_2D_BLEND, TEXTURE_2D_HUMAN_SEGMENTATION, TEXTURE_2D_SLIDE, TEXTURE_2D_X_BLUR, TEXTURE_2D_FOLLOW, TEXTURE_2D_AR, TEXTURE_2D_FILTER, TEXTURE_2D_LINE, programType};
         }
 
         public ProgramType(String str, int i2) {
@@ -287,6 +293,10 @@ public class Texture2dProgram {
                 this.mTextureTarget = 3553;
                 this.mProgramHandle = GlUtil.createProgram(VERTEX_SHADER_LINE, FRAGMENT_SHADER_LINE);
                 break;
+            case 13:
+                this.mTextureTarget = 3553;
+                this.mProgramHandle = GlUtil.createProgram(VERTEX_SHADER_BLEND, FRAGMENT_SHADER_AR_ALPHA);
+                break;
             default:
                 throw new RuntimeException("Unhandled type " + programType);
         }
@@ -305,7 +315,7 @@ public class Texture2dProgram {
                 GlUtil.checkLocation(glGetUniformLocation, "uTexMatrix");
             }
             ProgramType programType2 = this.mProgramType;
-            if (programType2 == ProgramType.TEXTURE_2D_BLEND || programType2 == ProgramType.TEXTURE_2D_HUMAN_SEGMENTATION || programType2 == ProgramType.TEXTURE_2D_SLIDE) {
+            if (programType2 == ProgramType.TEXTURE_2D_BLEND || programType2 == ProgramType.TEXTURE_2D_HUMAN_SEGMENTATION || programType2 == ProgramType.TEXTURE_2D_SLIDE || programType2 == ProgramType.TEXTURE_2D_AR_ALPHA) {
                 this.mFilterInputTextureUniform2 = GLES20.glGetUniformLocation(this.mProgramHandle, "sTexture2");
                 int glGetAttribLocation3 = GLES20.glGetAttribLocation(this.mProgramHandle, "aTextureCoord2");
                 this.maTextureCoordLoc2 = glGetAttribLocation3;
@@ -318,7 +328,7 @@ public class Texture2dProgram {
             this.muMVPMatrixLoc = glGetUniformLocation2;
             GlUtil.checkLocation(glGetUniformLocation2, "uMVPMatrix");
             ProgramType programType3 = this.mProgramType;
-            if (programType3 == ProgramType.TEXTURE_2D_BLEND || programType3 == ProgramType.TEXTURE_2D_HUMAN_SEGMENTATION || programType3 == ProgramType.TEXTURE_2D_SLIDE) {
+            if (programType3 == ProgramType.TEXTURE_2D_BLEND || programType3 == ProgramType.TEXTURE_2D_HUMAN_SEGMENTATION || programType3 == ProgramType.TEXTURE_2D_SLIDE || programType3 == ProgramType.TEXTURE_2D_AR_ALPHA) {
                 int glGetUniformLocation3 = GLES20.glGetUniformLocation(this.mProgramHandle, "uTexMatrix2");
                 this.muTexMatrixLoc2 = glGetUniformLocation3;
                 GlUtil.checkLocation(glGetUniformLocation3, "uTexMatrix2");
@@ -402,11 +412,11 @@ public class Texture2dProgram {
             GlUtil.checkGlError("glUniformMatrix4fv");
             GLES20.glEnableVertexAttribArray(this.maPositionLoc);
             GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maPositionLoc, i4, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, i5, (Buffer) floatBuffer);
+            GLES20.glVertexAttribPointer(this.maPositionLoc, i4, 5126, false, i5, (Buffer) floatBuffer);
             GlUtil.checkGlError("glVertexAttribPointer");
             GLES20.glEnableVertexAttribArray(this.maTextureCoordLoc);
             GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maTextureCoordLoc, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, i7, (Buffer) floatBuffer2);
+            GLES20.glVertexAttribPointer(this.maTextureCoordLoc, 2, 5126, false, i7, (Buffer) floatBuffer2);
             GlUtil.checkGlError("glVertexAttribPointer");
             int i8 = this.muKernelLoc;
             if (i8 >= 0) {
@@ -595,11 +605,11 @@ public class Texture2dProgram {
             GlUtil.checkGlError("glUniformMatrix4fv");
             GLES20.glEnableVertexAttribArray(this.maPositionLoc);
             GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maPositionLoc, i4, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, i5, (Buffer) floatBuffer);
+            GLES20.glVertexAttribPointer(this.maPositionLoc, i4, 5126, false, i5, (Buffer) floatBuffer);
             GlUtil.checkGlError("glVertexAttribPointer");
             GLES20.glEnableVertexAttribArray(this.maTextureCoordLoc);
             GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maTextureCoordLoc, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, i7, (Buffer) floatBuffer2);
+            GLES20.glVertexAttribPointer(this.maTextureCoordLoc, 2, 5126, false, i7, (Buffer) floatBuffer2);
             GlUtil.checkGlError("glVertexAttribPointer");
             GLES20.glActiveTexture(33985);
             GLES20.glBindTexture(this.mTextureTarget, i8);
@@ -609,7 +619,7 @@ public class Texture2dProgram {
                 GlUtil.checkGlError("glUniformMatrix4fv");
                 GLES20.glEnableVertexAttribArray(this.maTextureCoordLoc2);
                 GlUtil.checkGlError("glEnableVertexAttribArray");
-                GLES20.glVertexAttribPointer(this.maTextureCoordLoc2, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, i7, (Buffer) floatBuffer3);
+                GLES20.glVertexAttribPointer(this.maTextureCoordLoc2, 2, 5126, false, i7, (Buffer) floatBuffer3);
                 GlUtil.checkGlError("glVertexAttribPointer");
             }
             int i9 = this.muKernelLoc;
@@ -641,7 +651,7 @@ public class Texture2dProgram {
             GlUtil.checkGlError("glUniformMatrix4fv");
             GLES20.glEnableVertexAttribArray(this.maPositionLoc);
             GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maPositionLoc, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 0, (Buffer) floatBuffer);
+            GLES20.glVertexAttribPointer(this.maPositionLoc, 2, 5126, false, 0, (Buffer) floatBuffer);
             GlUtil.checkGlError("glVertexAttribPointer");
             GLES20.glUniform4f(this.muColorLocation, 1.0f, 1.0f, 1.0f, 1.0f);
             GLES20.glLineWidth(2.0f);

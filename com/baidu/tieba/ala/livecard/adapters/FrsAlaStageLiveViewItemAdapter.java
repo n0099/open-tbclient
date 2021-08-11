@@ -3,6 +3,9 @@ package com.baidu.tieba.ala.livecard.adapters;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
+import c.a.o0.s.q.c2;
+import c.a.p0.v.i.b.a;
+import c.a.p0.v.i.d.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -12,30 +15,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.q.b2;
-import d.a.q0.v.i.b.a;
-import d.a.q0.v.i.d.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f14307a;
+    public TbPageContext<?> f49446a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<a> f14308b;
+    public ArrayList<a> f49447b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<b2> f14309c;
+    public List<c2> f49448c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f14310d;
+    public String f49449d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f14311e;
+    public BdUniqueId f49450e;
 
     public FrsAlaStageLiveViewItemAdapter(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
@@ -52,70 +52,23 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
                 return;
             }
         }
-        this.f14308b = new ArrayList<>();
-        this.f14309c = new ArrayList();
-        this.f14307a = tbPageContext;
-        this.f14311e = bdUniqueId;
+        this.f49447b = new ArrayList<>();
+        this.f49448c = new ArrayList();
+        this.f49446a = tbPageContext;
+        this.f49450e = bdUniqueId;
     }
 
-    public final a b() {
+    public final a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this.f14307a, this.f14311e) : (a) invokeV.objValue;
-    }
-
-    public void c(List<b2> list, c cVar) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, cVar) == null) || list == null || list.isEmpty()) {
-            return;
-        }
-        this.f14309c.clear();
-        this.f14309c.addAll(list);
-        int size = this.f14308b.size();
-        int size2 = this.f14309c.size();
-        if (size > size2) {
-            ArrayList arrayList = new ArrayList();
-            for (int i2 = size2; i2 < size; i2++) {
-                arrayList.add(this.f14308b.get(i2));
-            }
-            for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                a aVar2 = (a) arrayList.get(i3);
-                if (aVar2.c() != null && aVar2.c().getParent() != null) {
-                    ((ViewGroup) aVar2.c().getParent()).removeView(aVar2.c());
-                }
-                this.f14308b.remove(aVar2);
-            }
-            arrayList.clear();
-        }
-        for (int i4 = 0; i4 < size2; i4++) {
-            if (i4 >= size) {
-                aVar = b();
-                aVar.g(this.f14307a.getUniqueId());
-                aVar.h(cVar);
-                this.f14308b.add(aVar);
-            } else {
-                aVar = this.f14308b.get(i4);
-            }
-            if (this.f14309c.get(i4) != null && aVar != null) {
-                aVar.f(this.f14309c.get(i4), this.f14310d);
-            }
-        }
-        notifyDataSetChanged();
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f14310d = str;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this.f49446a, this.f49450e) : (a) invokeV.objValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, viewGroup, i2, obj) == null) {
-            viewGroup.removeView(this.f14308b.get(i2).c());
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i2, obj) == null) {
+            viewGroup.removeView(this.f49447b.get(i2).c());
         }
     }
 
@@ -123,15 +76,15 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.f14308b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ListUtils.getCount(this.f49447b) : invokeV.intValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i2)) == null) {
-            ArrayList<a> arrayList = this.f14308b;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i2)) == null) {
+            ArrayList<a> arrayList = this.f49447b;
             if (arrayList == null) {
                 return super.instantiateItem(viewGroup, i2);
             }
@@ -153,6 +106,53 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
     public boolean isViewFromObject(View view, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, view, obj)) == null) ? view == obj : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, view, obj)) == null) ? view == obj : invokeLL.booleanValue;
+    }
+
+    public void setData(List<c2> list, c cVar) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, list, cVar) == null) || list == null || list.isEmpty()) {
+            return;
+        }
+        this.f49448c.clear();
+        this.f49448c.addAll(list);
+        int size = this.f49447b.size();
+        int size2 = this.f49448c.size();
+        if (size > size2) {
+            ArrayList arrayList = new ArrayList();
+            for (int i2 = size2; i2 < size; i2++) {
+                arrayList.add(this.f49447b.get(i2));
+            }
+            for (int i3 = 0; i3 < arrayList.size(); i3++) {
+                a aVar2 = (a) arrayList.get(i3);
+                if (aVar2.c() != null && aVar2.c().getParent() != null) {
+                    ((ViewGroup) aVar2.c().getParent()).removeView(aVar2.c());
+                }
+                this.f49447b.remove(aVar2);
+            }
+            arrayList.clear();
+        }
+        for (int i4 = 0; i4 < size2; i4++) {
+            if (i4 >= size) {
+                aVar = a();
+                aVar.g(this.f49446a.getUniqueId());
+                aVar.h(cVar);
+                this.f49447b.add(aVar);
+            } else {
+                aVar = this.f49447b.get(i4);
+            }
+            if (this.f49448c.get(i4) != null && aVar != null) {
+                aVar.f(this.f49448c.get(i4), this.f49449d);
+            }
+        }
+        notifyDataSetChanged();
+    }
+
+    public void setForumName(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.f49449d = str;
+        }
     }
 }

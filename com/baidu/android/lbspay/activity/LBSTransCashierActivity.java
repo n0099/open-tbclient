@@ -16,24 +16,24 @@ import com.baidu.android.lbspay.beans.LbsPayBeanFactory;
 import com.baidu.android.lbspay.beans.NewCashierBean;
 import com.baidu.android.lbspay.channelpay.baidu.ChannelBaiduPayForTransCashier;
 import com.baidu.android.lbspay.network.NewCashierContent;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
-import com.baidu.apollon.statusbar.StatusBarUtils;
-import com.baidu.apollon.utils.GlobalUtils;
-import com.baidu.apollon.utils.NetworkUtils;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
-import com.baidu.wallet.core.beans.BeanManager;
+import com.dxmpay.apollon.statusbar.StatusBarUtils;
+import com.dxmpay.apollon.utils.GlobalUtils;
+import com.dxmpay.apollon.utils.NetworkUtils;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.base.statistics.StatServiceEvent;
+import com.dxmpay.wallet.core.beans.BeanManager;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class LBSTransCashierActivity extends LBSBaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BEAN_TAG = "LBSTransCashierActivity";
@@ -70,7 +70,7 @@ public class LBSTransCashierActivity extends LBSBaseActivity {
         if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.mCashierData == null) {
             return;
         }
-        PayStatisticsUtil.onEventStart(StatServiceEvent.LBS_API_GET_CASHIER);
+        StatisticManager.onEventStart(StatServiceEvent.LBS_API_GET_CASHIER);
         NewCashierBean newCashierBean = (NewCashierBean) LbsPayBeanFactory.getInstance().getBean((Context) this, 1, BEAN_TAG);
         this.mNewcashierBean = newCashierBean;
         newCashierBean.setmCashierData(this.mCashierData);
@@ -133,7 +133,7 @@ public class LBSTransCashierActivity extends LBSBaseActivity {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            setContentView(ResUtils.layout(getActivity(), "wallet_base_layout_loading"));
+            setContentView(ResUtils.layout(getActivity(), "dxm_wallet_base_layout_loading"));
             AnimationDrawable animationDrawable = (AnimationDrawable) ((ImageView) findViewById(ResUtils.id(getActivity(), "img_anim"))).getDrawable();
             animationDrawable.stop();
             animationDrawable.start();
@@ -145,25 +145,23 @@ public class LBSTransCashierActivity extends LBSBaseActivity {
     public void handleFailure(int i2, int i3, String str) {
         String str2;
         String str3;
-        String str4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
             if (!TextUtils.isEmpty(str)) {
                 GlobalUtils.toast(this.mAct, str);
             }
             CashierDataNew cashierDataNew = this.mCashierData;
-            String str5 = "";
+            String str4 = "";
             if (cashierDataNew != null) {
-                str5 = cashierDataNew.getUid();
-                str2 = this.mCashierData.getOrderNo();
+                String orderNo = cashierDataNew.getOrderNo();
                 str3 = NetworkUtils.getNetName(this.mAct);
+                str2 = orderNo;
                 str4 = this.mCashierData.getCustomId();
             } else {
                 str2 = "";
                 str3 = str2;
-                str4 = str3;
             }
-            PayStatisticsUtil.onEventEndWithValue(StatServiceEvent.LBS_API_GET_CASHIER, i3, getGroupStr(String.valueOf(i3), str5, str4, str2, str3));
+            StatisticManager.onEventEndWithValue(StatServiceEvent.LBS_API_GET_CASHIER, i3, getGroupStr(String.valueOf(i3), str4, str2, str3));
             ChannelBaiduPayForTransCashier.getInstance().payCancel(this.mAct);
             finishWithoutAnim();
         }
@@ -173,7 +171,7 @@ public class LBSTransCashierActivity extends LBSBaseActivity {
     public void handleResponse(int i2, Object obj, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) {
-            PayStatisticsUtil.onEventEnd(StatServiceEvent.LBS_API_GET_CASHIER, 0);
+            StatisticManager.onEventEnd(StatServiceEvent.LBS_API_GET_CASHIER, 0);
             NewCashierContent newCashierContent = obj instanceof NewCashierContent ? (NewCashierContent) obj : null;
             if (newCashierContent != null) {
                 String orderInfo = newCashierContent.getOrderInfo();
@@ -183,7 +181,7 @@ public class LBSTransCashierActivity extends LBSBaseActivity {
                     return;
                 }
                 this.mCashierData.setShowAllPayType(1 == newCashierContent.bfb_only);
-                PayStatisticsUtil.onEventWithValues(StatServiceEvent.LBS_PAY_AMOUNT, getChannelDesc(newCashierContent));
+                StatisticManager.onEventWithValues(StatServiceEvent.LBS_PAY_AMOUNT, getChannelDesc(newCashierContent));
                 Intent intent = new Intent(this.mAct, LbSCashierActivity.class);
                 intent.setFlags(536870912);
                 intent.putExtra(CashierDataNew.DELIVERY_CASHIER_DATA, this.mCashierData);
@@ -197,7 +195,7 @@ public class LBSTransCashierActivity extends LBSBaseActivity {
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
+    @Override // com.dxmpay.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -206,7 +204,7 @@ public class LBSTransCashierActivity extends LBSBaseActivity {
         }
     }
 
-    @Override // com.baidu.android.lbspay.activity.LBSBaseActivity, com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.android.lbspay.activity.LBSBaseActivity, com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
@@ -230,7 +228,7 @@ public class LBSTransCashierActivity extends LBSBaseActivity {
         }
     }
 
-    @Override // com.baidu.android.lbspay.activity.LBSBaseActivity, com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.android.lbspay.activity.LBSBaseActivity, com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -239,7 +237,7 @@ public class LBSTransCashierActivity extends LBSBaseActivity {
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {

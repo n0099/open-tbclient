@@ -3,6 +3,9 @@ package com.sina.weibo.sdk.sso;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.q.a.a;
+import c.q.a.b;
+import c.q.a.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,17 +16,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.weibo.ssosdk.WeiboSsoSdk;
-import d.m.a.a;
-import d.m.a.b;
-import d.m.a.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class WeiboSsoManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "WeiboSsoManager";
     public transient /* synthetic */ FieldHolder $fh;
     public String aid;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class Instance {
         public static /* synthetic */ Interceptable $ic;
         public static final WeiboSsoManager instance;
@@ -100,7 +100,7 @@ public final class WeiboSsoManager {
                         this.this$0 = this;
                     }
 
-                    @Override // d.m.a.b
+                    @Override // c.q.a.b
                     public void handler(WeiboSsoSdk.d dVar) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, dVar) == null) {

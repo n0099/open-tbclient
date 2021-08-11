@@ -7,12 +7,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ao {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Class f36696a;
+    public static Class f73517a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static Object a(String str, Class<?>[] clsArr, Object[] objArr) {
@@ -20,10 +20,10 @@ public class ao {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, clsArr, objArr)) == null) {
             try {
-                if (f36696a == null) {
-                    f36696a = Class.forName("android.os.SystemProperties");
+                if (f73517a == null) {
+                    f73517a = Class.forName("android.os.SystemProperties");
                 }
-                Method declaredMethod = f36696a.getDeclaredMethod(str, clsArr);
+                Method declaredMethod = f73517a.getDeclaredMethod(str, clsArr);
                 declaredMethod.setAccessible(true);
                 return declaredMethod.invoke(null, objArr);
             } catch (Throwable th) {

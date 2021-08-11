@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMGetPaidByAppidRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,12 +26,12 @@ public class IMGetPaidByAppidRequest extends BaseHttpRequest {
     public String mBduss;
     public String mKey;
 
-    public IMGetPaidByAppidRequest(Context context, long j, String str, String str2) {
+    public IMGetPaidByAppidRequest(Context context, long j2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), str, str2};
+            Object[] objArr = {context, Long.valueOf(j2), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -43,7 +43,7 @@ public class IMGetPaidByAppidRequest extends BaseHttpRequest {
         }
         this.mContext = context;
         this.mKey = str2;
-        this.mAppid = j;
+        this.mAppid = j2;
         this.mBduss = str;
     }
 
@@ -121,7 +121,7 @@ public class IMGetPaidByAppidRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i2, byte[] bArr) {
         String str;
-        long j;
+        long j2;
         int i3;
         int i4;
         String string;
@@ -142,15 +142,15 @@ public class IMGetPaidByAppidRequest extends BaseHttpRequest {
                 }
                 str = string;
                 i3 = i4;
-                j = r1;
+                j2 = r1;
             } catch (JSONException e2) {
                 LogUtils.e("IMGetPaidByAppidRequest", e2.getMessage(), e2);
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                j = -1;
+                j2 = -1;
                 i3 = 1010;
             }
-            AccountManagerImpl.getInstance(this.mContext).onSetZhidaAppidResult(this.mKey, i3, str, this.mAppid, j);
+            AccountManagerImpl.getInstance(this.mContext).onSetZhidaAppidResult(this.mKey, i3, str, this.mAppid, j2);
         }
     }
 

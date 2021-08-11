@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.PushStatus;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PushStatusData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_ALREADY_PUSH = 2;

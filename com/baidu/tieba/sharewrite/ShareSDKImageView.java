@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ShareSDKImageView extends TbClipImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int y0;
-    public int z0;
+    public int P;
+    public int Q;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ShareSDKImageView(Context context) {
@@ -36,15 +36,15 @@ public class ShareSDKImageView extends TbClipImageView {
         }
     }
 
-    public final void v() {
+    public final void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setDrawerType(1);
             setGifIconSupport(false);
             setDrawBorder(false);
             setIsRound(false);
-            setDefaultResource(this.y0);
-            setDefaultBgResource(this.z0);
+            setDefaultResource(this.P);
+            setDefaultBgResource(this.Q);
         }
     }
 
@@ -88,8 +88,8 @@ public class ShareSDKImageView extends TbClipImageView {
                 return;
             }
         }
-        this.y0 = R.drawable.pic_share_link;
-        this.z0 = R.color.CAM_X0110;
-        v();
+        this.P = R.drawable.pic_share_link;
+        this.Q = R.color.CAM_X0110;
+        init();
     }
 }

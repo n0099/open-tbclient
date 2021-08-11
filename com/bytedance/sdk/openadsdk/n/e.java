@@ -2,7 +2,6 @@ package com.bytedance.sdk.openadsdk.n;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -15,37 +14,39 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.n.a.c;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.n.a.b f31891a;
+    public static volatile com.bytedance.sdk.openadsdk.n.a.b f67840a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile com.bytedance.sdk.openadsdk.n.a.c f31892b;
+    public static volatile com.bytedance.sdk.openadsdk.n.a.c f67841b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f31893c;
+    public static final boolean f67842c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile boolean f31894d;
+    public static volatile boolean f67843d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile boolean f31895e;
+    public static volatile boolean f67844e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile boolean f31896f;
+    public static volatile boolean f67845f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile int f31897g;
+    public static volatile int f67846g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile int f31898h;
+    public static volatile int f67847h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile Integer f31899i;
-    public static volatile com.bytedance.sdk.openadsdk.n.b.c j;
+    public static volatile Integer f67848i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static volatile com.bytedance.sdk.openadsdk.n.b.c f67849j;
     @SuppressLint({"StaticFieldLeak"})
     public static volatile Context k;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,10 +64,10 @@ public class e {
                 return;
             }
         }
-        f31893c = com.bytedance.sdk.component.utils.k.c();
-        f31895e = true;
-        f31897g = 0;
-        f31898h = 3;
+        f67842c = com.bytedance.sdk.component.utils.k.c();
+        f67844e = true;
+        f67846g = 0;
+        f67847h = 3;
     }
 
     public static Context a() {
@@ -78,33 +79,33 @@ public class e {
     public static void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z) == null) {
-            f31896f = z;
+            f67845f = z;
         }
     }
 
     public static com.bytedance.sdk.openadsdk.n.a.b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f31891a : (com.bytedance.sdk.openadsdk.n.a.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f67840a : (com.bytedance.sdk.openadsdk.n.a.b) invokeV.objValue;
     }
 
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
-            f31895e = z;
+            f67844e = z;
         }
     }
 
     public static com.bytedance.sdk.openadsdk.n.a.c b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f31892b : (com.bytedance.sdk.openadsdk.n.a.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f67841b : (com.bytedance.sdk.openadsdk.n.a.c) invokeV.objValue;
     }
 
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, null, i2) == null) {
-            f31897g = i2;
+            f67846g = i2;
         }
     }
 
@@ -113,16 +114,16 @@ public class e {
         if (interceptable == null || interceptable.invokeLL(65539, null, cVar, context) == null) {
             if (cVar != null && context != null) {
                 k = context.getApplicationContext();
-                if (f31892b != null) {
+                if (f67841b != null) {
                     return;
                 }
-                com.bytedance.sdk.openadsdk.n.a.b bVar = f31891a;
-                if (bVar != null && bVar.f31821a.getAbsolutePath().equals(cVar.f31823a.getAbsolutePath())) {
+                com.bytedance.sdk.openadsdk.n.a.b bVar = f67840a;
+                if (bVar != null && bVar.f67767a.getAbsolutePath().equals(cVar.f67769a.getAbsolutePath())) {
                     throw new IllegalArgumentException("DiskLruCache 和 DiskCache 不能使用相同的目录");
                 }
-                f31892b = cVar;
-                j = com.bytedance.sdk.openadsdk.n.b.c.a(context);
-                f31892b.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.n.e.1
+                f67841b = cVar;
+                f67849j = com.bytedance.sdk.openadsdk.n.b.c.a(context);
+                f67841b.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.n.e.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -143,8 +144,8 @@ public class e {
                     @Override // com.bytedance.sdk.openadsdk.n.a.c.a
                     public void a(String str) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) && e.f31893c) {
-                            Log.i("TAG_PROXY_DiskLruCache", "new cache created: " + str);
+                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) && e.f67842c) {
+                            String str2 = "new cache created: " + str;
                         }
                     }
 
@@ -152,19 +153,19 @@ public class e {
                     public void a(Set<String> set) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, set) == null) {
-                            e.j.a(set, 0);
-                            if (e.f31893c) {
-                                Log.i("TAG_PROXY_DiskLruCache", "cache file removed, " + set);
+                            e.f67849j.a(set, 0);
+                            if (e.f67842c) {
+                                String str = "cache file removed, " + set;
                             }
                         }
                     }
                 });
                 f a2 = f.a();
                 a2.a(cVar);
-                a2.a(j);
+                a2.a(f67849j);
                 d c2 = d.c();
                 c2.a(cVar);
-                c2.a(j);
+                c2.a(f67849j);
                 return;
             }
             throw new IllegalArgumentException("DiskLruCache and Context can't be null !!!");

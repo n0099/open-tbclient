@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class ad {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final a f28606a;
+    public final a f64462a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Proxy f28607b;
+    public final Proxy f64463b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final InetSocketAddress f28608c;
+    public final InetSocketAddress f64464c;
 
     public ad(a aVar, Proxy proxy, InetSocketAddress inetSocketAddress) {
         Interceptable interceptable = $ic;
@@ -44,9 +44,9 @@ public final class ad {
             throw new NullPointerException("proxy == null");
         }
         if (inetSocketAddress != null) {
-            this.f28606a = aVar;
-            this.f28607b = proxy;
-            this.f28608c = inetSocketAddress;
+            this.f64462a = aVar;
+            this.f64463b = proxy;
+            this.f64464c = inetSocketAddress;
             return;
         }
         throw new NullPointerException("inetSocketAddress == null");
@@ -55,25 +55,25 @@ public final class ad {
     public a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28606a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64462a : (a) invokeV.objValue;
     }
 
     public Proxy b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28607b : (Proxy) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64463b : (Proxy) invokeV.objValue;
     }
 
     public InetSocketAddress c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28608c : (InetSocketAddress) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64464c : (InetSocketAddress) invokeV.objValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28606a.f28239i != null && this.f28607b.type() == Proxy.Type.HTTP : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64462a.f64082i != null && this.f64463b.type() == Proxy.Type.HTTP : invokeV.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -82,7 +82,7 @@ public final class ad {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
             if (obj instanceof ad) {
                 ad adVar = (ad) obj;
-                if (adVar.f28606a.equals(this.f28606a) && adVar.f28607b.equals(this.f28607b) && adVar.f28608c.equals(this.f28608c)) {
+                if (adVar.f64462a.equals(this.f64462a) && adVar.f64463b.equals(this.f64463b) && adVar.f64464c.equals(this.f64464c)) {
                     return true;
                 }
             }
@@ -94,14 +94,14 @@ public final class ad {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ((((527 + this.f28606a.hashCode()) * 31) + this.f28607b.hashCode()) * 31) + this.f28608c.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ((((527 + this.f64462a.hashCode()) * 31) + this.f64463b.hashCode()) * 31) + this.f64464c.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "Route{" + this.f28608c + "}";
+            return "Route{" + this.f64464c + "}";
         }
         return (String) invokeV.objValue;
     }

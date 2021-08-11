@@ -1,6 +1,12 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
+import c.i.d.a.g;
+import c.i.d.a.k;
+import c.i.d.a.n;
+import c.i.d.c.c1;
+import c.i.d.c.k1;
+import c.i.d.c.m0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,12 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.d.a.g;
-import d.f.d.a.k;
-import d.f.d.a.n;
-import d.f.d.c.c1;
-import d.f.d.c.k1;
-import d.f.d.c.m0;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
@@ -22,15 +22,15 @@ import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class Tables {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g<? extends Map<?, ?>, ? extends Map<?, ?>> f33639a;
+    public static final g<? extends Map<?, ?>, ? extends Map<?, ?>> f70365a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class ImmutableCell<R, C, V> extends b<R, C, V> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -59,21 +59,21 @@ public final class Tables {
             this.value = v;
         }
 
-        @Override // d.f.d.c.k1.a
+        @Override // c.i.d.c.k1.a
         public C getColumnKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.columnKey : (C) invokeV.objValue;
         }
 
-        @Override // d.f.d.c.k1.a
+        @Override // c.i.d.c.k1.a
         public R getRowKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.rowKey : (R) invokeV.objValue;
         }
 
-        @Override // d.f.d.c.k1.a
+        @Override // c.i.d.c.k1.a
         public V getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public final class Tables {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class UnmodifiableRowSortedMap<R, C, V> extends UnmodifiableTable<R, C, V> implements c1<R, C, V> {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -108,7 +108,7 @@ public final class Tables {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.common.collect.Tables.UnmodifiableTable, d.f.d.c.m0, d.f.d.c.k1
+        @Override // com.google.common.collect.Tables.UnmodifiableTable, c.i.d.c.m0, c.i.d.c.k1
         public SortedSet<R> rowKeySet() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -116,7 +116,7 @@ public final class Tables {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.common.collect.Tables.UnmodifiableTable, d.f.d.c.m0, d.f.d.c.k1
+        @Override // com.google.common.collect.Tables.UnmodifiableTable, c.i.d.c.m0, c.i.d.c.k1
         public SortedMap<R, Map<C, V>> rowMap() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -124,7 +124,7 @@ public final class Tables {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.common.collect.Tables.UnmodifiableTable, d.f.d.c.m0, d.f.d.c.h0
+        @Override // com.google.common.collect.Tables.UnmodifiableTable, c.i.d.c.m0, c.i.d.c.h0
         public c1<R, C, V> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -132,7 +132,7 @@ public final class Tables {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class UnmodifiableTable<R, C, V> extends m0<R, C, V> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -158,14 +158,14 @@ public final class Tables {
             this.delegate = k1Var;
         }
 
-        @Override // d.f.d.c.m0, d.f.d.c.k1
+        @Override // c.i.d.c.m0, c.i.d.c.k1
         public Set<k1.a<R, C, V>> cellSet() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Collections.unmodifiableSet(super.cellSet()) : (Set) invokeV.objValue;
         }
 
-        @Override // d.f.d.c.m0, d.f.d.c.k1
+        @Override // c.i.d.c.m0, c.i.d.c.k1
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -173,28 +173,28 @@ public final class Tables {
             }
         }
 
-        @Override // d.f.d.c.m0, d.f.d.c.k1
+        @Override // c.i.d.c.m0, c.i.d.c.k1
         public Map<R, V> column(C c2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c2)) == null) ? Collections.unmodifiableMap(super.column(c2)) : (Map) invokeL.objValue;
         }
 
-        @Override // d.f.d.c.m0, d.f.d.c.k1
+        @Override // c.i.d.c.m0, c.i.d.c.k1
         public Set<C> columnKeySet() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Collections.unmodifiableSet(super.columnKeySet()) : (Set) invokeV.objValue;
         }
 
-        @Override // d.f.d.c.m0, d.f.d.c.k1
+        @Override // c.i.d.c.m0, c.i.d.c.k1
         public Map<C, Map<R, V>> columnMap() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Collections.unmodifiableMap(Maps.G(super.columnMap(), Tables.d())) : (Map) invokeV.objValue;
         }
 
-        @Override // d.f.d.c.m0, d.f.d.c.k1
+        @Override // c.i.d.c.m0, c.i.d.c.k1
         public V put(R r, C c2, V v) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
@@ -204,7 +204,7 @@ public final class Tables {
             return (V) invokeLLL.objValue;
         }
 
-        @Override // d.f.d.c.m0, d.f.d.c.k1
+        @Override // c.i.d.c.m0, c.i.d.c.k1
         public void putAll(k1<? extends R, ? extends C, ? extends V> k1Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k1Var) == null) {
@@ -212,7 +212,7 @@ public final class Tables {
             }
         }
 
-        @Override // d.f.d.c.m0, d.f.d.c.k1
+        @Override // c.i.d.c.m0, c.i.d.c.k1
         public V remove(Object obj, Object obj2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -222,28 +222,28 @@ public final class Tables {
             return (V) invokeLL.objValue;
         }
 
-        @Override // d.f.d.c.m0, d.f.d.c.k1
+        @Override // c.i.d.c.m0, c.i.d.c.k1
         public Map<C, V> row(R r) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, r)) == null) ? Collections.unmodifiableMap(super.row(r)) : (Map) invokeL.objValue;
         }
 
-        @Override // d.f.d.c.m0, d.f.d.c.k1
+        @Override // c.i.d.c.m0, c.i.d.c.k1
         public Set<R> rowKeySet() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? Collections.unmodifiableSet(super.rowKeySet()) : (Set) invokeV.objValue;
         }
 
-        @Override // d.f.d.c.m0, d.f.d.c.k1
+        @Override // c.i.d.c.m0, c.i.d.c.k1
         public Map<R, Map<C, V>> rowMap() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? Collections.unmodifiableMap(Maps.G(super.rowMap(), Tables.d())) : (Map) invokeV.objValue;
         }
 
-        @Override // d.f.d.c.m0, d.f.d.c.k1
+        @Override // c.i.d.c.m0, c.i.d.c.k1
         public Collection<V> values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -251,8 +251,8 @@ public final class Tables {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: d.f.d.c.k1<? extends R, ? extends C, ? extends V>, d.f.d.c.k1<R, C, V> */
-        @Override // d.f.d.c.m0, d.f.d.c.h0
+        /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: c.i.d.c.k1<? extends R, ? extends C, ? extends V>, c.i.d.c.k1<R, C, V> */
+        @Override // c.i.d.c.m0, c.i.d.c.h0
         public k1<R, C, V> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -260,7 +260,7 @@ public final class Tables {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a implements g<Map<Object, Object>, Map<Object, Object>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -280,7 +280,7 @@ public final class Tables {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.f.d.a.g
+        @Override // c.i.d.a.g
         /* renamed from: a */
         public Map<Object, Object> apply(Map<Object, Object> map) {
             InterceptResult invokeL;
@@ -289,7 +289,7 @@ public final class Tables {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static abstract class b<R, C, V> implements k1.a<R, C, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -353,7 +353,7 @@ public final class Tables {
                 return;
             }
         }
-        f33639a = new a();
+        f70365a = new a();
     }
 
     public static boolean b(k1<?, ?, ?> k1Var, Object obj) {
@@ -380,6 +380,6 @@ public final class Tables {
     public static <K, V> g<Map<K, V>, Map<K, V>> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (g<Map<K, V>, Map<K, V>>) f33639a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (g<Map<K, V>, Map<K, V>>) f70365a : (g) invokeV.objValue;
     }
 }

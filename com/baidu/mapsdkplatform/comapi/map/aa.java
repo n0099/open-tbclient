@@ -8,22 +8,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class aa {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final aa f7683a;
+    public static final aa f41952a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final aa f7684b;
+    public static final aa f41953b;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ aa[] f7685d;
+    public static final /* synthetic */ aa[] f41954d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f7686c;
+    public final int f41955c;
 
     static {
         InterceptResult invokeClinit;
@@ -38,10 +38,10 @@ public final class aa {
                 return;
             }
         }
-        f7683a = new aa("GLSurfaceView", 0, 1);
+        f41952a = new aa("GLSurfaceView", 0, 1);
         aa aaVar = new aa("TextureView", 1, 2);
-        f7684b = aaVar;
-        f7685d = new aa[]{f7683a, aaVar};
+        f41953b = aaVar;
+        f41954d = new aa[]{f41952a, aaVar};
     }
 
     public aa(String str, int i2, int i3) {
@@ -62,7 +62,7 @@ public final class aa {
                 return;
             }
         }
-        this.f7686c = i3;
+        this.f41955c = i3;
     }
 
     public static aa valueOf(String str) {
@@ -74,6 +74,6 @@ public final class aa {
     public static aa[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (aa[]) f7685d.clone() : (aa[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (aa[]) f41954d.clone() : (aa[]) invokeV.objValue;
     }
 }

@@ -22,7 +22,8 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.Thread;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes10.dex */
 public class CrashHandler implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
     public static Context mContext;
@@ -32,7 +33,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     public static IStatisAPI mStatisAPI;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface OnHandlerListener {
         void handler(int i2, String str, String str2);
     }
@@ -98,7 +99,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
                 if (readLine != null) {
                     if (!readLine.contains(L.getTag())) {
                         stringBuffer.append(readLine);
-                        stringBuffer.append("\n");
+                        stringBuffer.append(StringUtils.LF);
                     }
                 } else {
                     bufferedReader.close();
@@ -118,7 +119,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
             StringBuilder sb = new StringBuilder();
             for (StackTraceElement stackTraceElement : new Throwable("").getStackTrace()) {
                 sb.append(stackTraceElement.toString());
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             }
             return sb.toString();
         }

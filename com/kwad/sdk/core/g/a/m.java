@@ -12,16 +12,16 @@ import com.kwad.sdk.export.proxy.AdRequestExtentParamsProxy;
 import com.kwad.sdk.utils.q;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class m implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f34687a;
+    public String f71430a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34688b;
+    public String f71431b;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class m implements com.kwad.sdk.core.b {
             m mVar = new m();
             AdRequestExtentParamsProxy requestExtentParamsProxy = KsAdSDKImpl.get().getRequestExtentParamsProxy();
             if (requestExtentParamsProxy != null && (extentParams = requestExtentParamsProxy.getExtentParams()) != null) {
-                mVar.f34687a = extentParams.get("user_id");
+                mVar.f71430a = extentParams.get("user_id");
             }
             return mVar;
         }
@@ -55,7 +55,7 @@ public class m implements com.kwad.sdk.core.b {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f34688b = str;
+            this.f71431b = str;
         }
     }
 
@@ -72,8 +72,8 @@ public class m implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "user_id", this.f34687a);
-            q.a(jSONObject, "thirdUserId", this.f34688b);
+            q.a(jSONObject, "user_id", this.f71430a);
+            q.a(jSONObject, "thirdUserId", this.f71431b);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

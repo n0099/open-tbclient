@@ -6,7 +6,8 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.app.NotificationCompatJellybean;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.adp.widget.HorizontalTranslateLayout;
+import com.baidu.adp.widget.VerticalTranslateLayout;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.services.bos.BosClient;
-import com.kwad.sdk.core.config.item.TipsConfigItem;
 import io.flutter.Log;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.plugin.common.JSONMethodCodec;
@@ -27,7 +27,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PlatformChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PlatformChannel";
@@ -41,7 +41,7 @@ public class PlatformChannel {
     public PlatformMessageHandler platformMessageHandler;
 
     /* renamed from: io.flutter.embedding.engine.systemchannels.PlatformChannel$2  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$DeviceOrientation;
         public static final /* synthetic */ int[] $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$SystemUiOverlay;
@@ -92,7 +92,7 @@ public class PlatformChannel {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class AppSwitcherDescription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +121,7 @@ public class PlatformChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Brightness {
         public static final /* synthetic */ Brightness[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -201,7 +201,7 @@ public class PlatformChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ClipboardContentFormat {
         public static final /* synthetic */ ClipboardContentFormat[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -279,7 +279,7 @@ public class PlatformChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class DeviceOrientation {
         public static final /* synthetic */ DeviceOrientation[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -363,7 +363,7 @@ public class PlatformChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class HapticFeedbackType {
         public static final /* synthetic */ HapticFeedbackType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -449,7 +449,7 @@ public class PlatformChannel {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface PlatformMessageHandler {
         @Nullable
         CharSequence getClipboardData(@Nullable ClipboardContentFormat clipboardContentFormat);
@@ -478,7 +478,7 @@ public class PlatformChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class SoundType {
         public static final /* synthetic */ SoundType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -555,7 +555,7 @@ public class PlatformChannel {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class SystemChromeStyle {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -594,7 +594,7 @@ public class PlatformChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class SystemUiOverlay {
         public static final /* synthetic */ SystemUiOverlay[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -950,7 +950,7 @@ public class PlatformChannel {
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                 JSONObject jSONObject = jSONArray.getJSONObject(i2);
                 try {
-                    arrayList.add(new Rect(jSONObject.getInt(CustomDialogData.POS_LEFT), jSONObject.getInt("top"), jSONObject.getInt("right"), jSONObject.getInt(TipsConfigItem.TipConfigData.BOTTOM)));
+                    arrayList.add(new Rect(jSONObject.getInt("left"), jSONObject.getInt(VerticalTranslateLayout.TOP), jSONObject.getInt(HorizontalTranslateLayout.RIGHT), jSONObject.getInt("bottom")));
                 } catch (JSONException unused) {
                     throw new JSONException("Incorrect JSON data shape. To set system gesture exclusion rects, \na JSONObject with top, right, bottom and left values need to be set to int values.");
                 }
@@ -1064,10 +1064,10 @@ public class PlatformChannel {
             ArrayList<HashMap<String, Integer>> arrayList = new ArrayList<>();
             for (Rect rect : list) {
                 HashMap<String, Integer> hashMap = new HashMap<>();
-                hashMap.put("top", Integer.valueOf(rect.top));
-                hashMap.put("right", Integer.valueOf(rect.right));
-                hashMap.put(TipsConfigItem.TipConfigData.BOTTOM, Integer.valueOf(rect.bottom));
-                hashMap.put(CustomDialogData.POS_LEFT, Integer.valueOf(rect.left));
+                hashMap.put(VerticalTranslateLayout.TOP, Integer.valueOf(rect.top));
+                hashMap.put(HorizontalTranslateLayout.RIGHT, Integer.valueOf(rect.right));
+                hashMap.put("bottom", Integer.valueOf(rect.bottom));
+                hashMap.put("left", Integer.valueOf(rect.left));
                 arrayList.add(hashMap);
             }
             return arrayList;

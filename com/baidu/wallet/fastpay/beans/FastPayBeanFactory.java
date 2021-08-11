@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.BaseBean;
 import com.baidu.wallet.core.beans.BeanManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class FastPayBeanFactory implements IBeanFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BEAN_ID_BIND_INFO = 45316;
@@ -23,18 +23,18 @@ public final class FastPayBeanFactory implements IBeanFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.fastpay.beans.FastPayBeanFactory$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static FastPayBeanFactory f24966a;
+        public static FastPayBeanFactory f60679a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,7 +50,7 @@ public final class FastPayBeanFactory implements IBeanFactory {
                     return;
                 }
             }
-            f24966a = new FastPayBeanFactory(null);
+            f60679a = new FastPayBeanFactory(null);
         }
     }
 
@@ -61,7 +61,7 @@ public final class FastPayBeanFactory implements IBeanFactory {
     public static FastPayBeanFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f24966a : (FastPayBeanFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60679a : (FastPayBeanFactory) invokeV.objValue;
     }
 
     public FastPayBeanFactory() {
@@ -82,30 +82,33 @@ public final class FastPayBeanFactory implements IBeanFactory {
     @Override // com.baidu.apollon.beans.IBeanFactory
     public BaseBean<?> getBean(Context context, int i2, String str) {
         InterceptResult invokeLIL;
-        BaseBean<?> dVar;
+        BaseBean<?> eVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i2, str)) == null) {
             switch (i2) {
                 case BEAN_ID_QUERY_LOCATION /* 45313 */:
-                    dVar = new d(context);
+                    eVar = new e(context);
                     break;
                 case BEAN_ID_GET_ORDER /* 45314 */:
-                    dVar = new b(context);
+                    eVar = new c(context);
                     break;
                 case BEAN_ID_PROMOTION_INFO /* 45315 */:
-                    dVar = new c(context);
+                    eVar = new d(context);
                     break;
                 case BEAN_ID_BIND_INFO /* 45316 */:
-                    dVar = new com.baidu.wallet.fastpay.beans.a(context);
+                    eVar = new com.baidu.wallet.fastpay.beans.a(context);
+                    break;
+                case BEAN_ID_CHARGE_RESULT_BANNER /* 45317 */:
+                    eVar = new b(context);
                     break;
                 default:
-                    dVar = null;
+                    eVar = null;
                     break;
             }
-            if (dVar != null) {
-                BeanManager.getInstance().addBean(str, dVar);
+            if (eVar != null) {
+                BeanManager.getInstance().addBean(str, eVar);
             }
-            return dVar;
+            return eVar;
         }
         return (BaseBean) invokeLIL.objValue;
     }

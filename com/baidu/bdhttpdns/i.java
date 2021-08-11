@@ -1,6 +1,8 @@
 package com.baidu.bdhttpdns;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.j.k;
+import c.a.j.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,8 +13,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.db.ResultTB;
-import d.a.i.k;
-import d.a.i.l;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -37,7 +37,7 @@ import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic = null;
     public static volatile i n = null;
@@ -46,61 +46,65 @@ public final class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4323a;
+    public String f38263a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4324b;
+    public String f38264b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f4325c;
+    public boolean f38265c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f4326d;
+    public long f38266d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HashSet<String> f4327e;
+    public final HashSet<String> f38267e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f4328f;
+    public final Object f38268f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Object f4329g;
+    public final Object f38269g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<String> f4330h;
+    public ArrayList<String> f38270h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f4331i;
-    public String j;
+    public String f38271i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public String f38272j;
     public boolean k;
     public int l;
     public int m;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(int i2, d dVar, Map<String, e> map, String str);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f4332e;
+        public String f38273e;
 
         /* renamed from: f  reason: collision with root package name */
-        public d f4333f;
+        public d f38274f;
 
         /* renamed from: g  reason: collision with root package name */
-        public a f4334g;
+        public a f38275g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f4335h;
+        public boolean f38276h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f4336i;
-        public final /* synthetic */ i j;
+        public boolean f38277i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public final /* synthetic */ i f38278j;
 
         public b(i iVar, String str, d dVar, a aVar) {
             Interceptable interceptable = $ic;
@@ -117,12 +121,12 @@ public final class i {
                     return;
                 }
             }
-            this.j = iVar;
-            this.f4332e = str;
-            this.f4333f = dVar;
-            this.f4334g = aVar;
-            this.f4335h = false;
-            this.f4336i = false;
+            this.f38278j = iVar;
+            this.f38273e = str;
+            this.f38274f = dVar;
+            this.f38275g = aVar;
+            this.f38276h = false;
+            this.f38277i = false;
         }
 
         public final String a(String str, d dVar) {
@@ -130,22 +134,22 @@ public final class i {
             String str2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, dVar)) == null) {
-                long currentTimeMillis = (System.currentTimeMillis() / 1000) + 300 + this.j.f4326d;
-                String g2 = this.j.g(str, currentTimeMillis);
+                long currentTimeMillis = (System.currentTimeMillis() / 1000) + 300 + this.f38278j.f38266d;
+                String g2 = this.f38278j.g(str, currentTimeMillis);
                 if (g2 == null) {
                     return null;
                 }
-                if (this.j.f4324b == null || this.j.l >= 3) {
-                    str2 = this.j.f4323a;
-                    this.f4336i = false;
-                    k.a("Using BGPServerIp(%s)", this.j.f4323a);
+                if (this.f38278j.f38264b == null || this.f38278j.l >= 3) {
+                    str2 = this.f38278j.f38263a;
+                    this.f38277i = false;
+                    k.a("Using BGPServerIp(%s)", this.f38278j.f38263a);
                 } else {
-                    str2 = this.j.f4324b;
-                    this.f4336i = true;
-                    k.a("Using IDCServerIP(%s)", this.j.f4324b);
+                    str2 = this.f38278j.f38264b;
+                    this.f38277i = true;
+                    k.a("Using IDCServerIP(%s)", this.f38278j.f38264b);
                 }
-                String format = dVar.equals(d.f4338b) ? String.format("%s/v4/resolve?account_id=%s&tag=%s&sign=%s&t=%d&sdk_ver=%s&os_type=%s&alt_server_ip=true", str2, this.j.f4331i, str, g2, Long.valueOf(currentTimeMillis), "1.3", "android") : String.format("%s/v4/resolve?account_id=%s&dn=%s&sign=%s&t=%d&sdk_ver=%s&os_type=%s&alt_server_ip=true", str2, this.j.f4331i, str, g2, Long.valueOf(currentTimeMillis), "1.3", "android");
-                return this.j.f4325c ? String.format("https://%s", format) : String.format("http://%s", format);
+                String format = dVar.equals(d.f38280b) ? String.format("%s/v4/resolve?account_id=%s&tag=%s&sign=%s&t=%d&sdk_ver=%s&os_type=%s&alt_server_ip=true", str2, this.f38278j.f38271i, str, g2, Long.valueOf(currentTimeMillis), "1.3", "android") : String.format("%s/v4/resolve?account_id=%s&dn=%s&sign=%s&t=%d&sdk_ver=%s&os_type=%s&alt_server_ip=true", str2, this.f38278j.f38271i, str, g2, Long.valueOf(currentTimeMillis), "1.3", "android");
+                return this.f38278j.f38265c ? String.format("https://%s", format) : String.format("http://%s", format);
             }
             return (String) invokeLL.objValue;
         }
@@ -153,13 +157,13 @@ public final class i {
         public final void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                String a2 = a(this.f4332e, this.f4333f);
+                String a2 = a(this.f38273e, this.f38274f);
                 if (a2 != null) {
                     c(a2);
                     return;
                 }
-                this.f4334g.a(-1, this.f4333f, null, this.f4332e);
-                k.a("Httpdns request failed for  %s(%s), get url error", this.f4333f.toString(), this.f4332e);
+                this.f38275g.a(-1, this.f38274f, null, this.f38273e);
+                k.a("Httpdns request failed for  %s(%s), get url error", this.f38274f.toString(), this.f38273e);
             }
         }
 
@@ -224,7 +228,7 @@ public final class i {
                 try {
                     try {
                         URL url = new URL(str);
-                        if (this.j.f4325c) {
+                        if (this.f38278j.f38265c) {
                             HttpsURLConnection httpsURLConnection2 = (HttpsURLConnection) url.openConnection();
                             httpsURLConnection2.setRequestProperty("Host", "httpdns.baidubce.com");
                             httpsURLConnection2.setHostnameVerifier(i.p);
@@ -251,11 +255,11 @@ public final class i {
                         e = e2;
                         e.printStackTrace();
                         ?? r14 = Boolean.FALSE;
-                        this.j.l(Boolean.valueOf(this.f4336i));
-                        k.a("Httpdns request failed for %s(%s), caught network IOException", this.f4333f.toString(), this.f4332e);
-                        a aVar2 = this.f4334g;
-                        d dVar2 = this.f4333f;
-                        str2 = this.f4332e;
+                        this.f38278j.l(Boolean.valueOf(this.f38277i));
+                        k.a("Httpdns request failed for %s(%s), caught network IOException", this.f38274f.toString(), this.f38273e);
+                        a aVar2 = this.f38275g;
+                        d dVar2 = this.f38274f;
+                        str2 = this.f38273e;
                         aVar2.a(-1, dVar2, null, str2);
                         httpURLConnection3 = httpURLConnection2;
                         str3 = r14;
@@ -266,11 +270,11 @@ public final class i {
                         e = e3;
                         e.printStackTrace();
                         ?? r142 = Boolean.FALSE;
-                        this.j.l(Boolean.valueOf(this.f4336i));
-                        k.a("Httpdns request failed for %s(%s), caught ArrayIndexOutOfBoundsException", this.f4333f.toString(), this.f4332e);
-                        a aVar3 = this.f4334g;
-                        d dVar3 = this.f4333f;
-                        str2 = this.f4332e;
+                        this.f38278j.l(Boolean.valueOf(this.f38277i));
+                        k.a("Httpdns request failed for %s(%s), caught ArrayIndexOutOfBoundsException", this.f38274f.toString(), this.f38273e);
+                        a aVar3 = this.f38275g;
+                        d dVar3 = this.f38274f;
+                        str2 = this.f38273e;
                         aVar3.a(-1, dVar3, null, str2);
                         httpURLConnection3 = httpURLConnection;
                         str3 = r142;
@@ -284,8 +288,8 @@ public final class i {
                         if (httpURLConnection4 != null) {
                             httpURLConnection4.disconnect();
                         }
-                        if (bool3.booleanValue() && this.f4336i) {
-                            this.j.l = 0;
+                        if (bool3.booleanValue() && this.f38277i) {
+                            this.f38278j.l = 0;
                         }
                         throw th;
                     }
@@ -300,62 +304,62 @@ public final class i {
                     if (httpURLConnection4 != null) {
                     }
                     if (bool3.booleanValue()) {
-                        this.j.l = 0;
+                        this.f38278j.l = 0;
                     }
                     throw th;
                 }
                 if (errorStream != null) {
-                    String f2 = this.j.f(errorStream, httpsURLConnection);
+                    String f2 = this.f38278j.f(errorStream, httpsURLConnection);
                     if (f2 == null) {
                         Boolean bool4 = Boolean.FALSE;
-                        this.j.l(Boolean.valueOf(this.f4336i));
-                        k.a("Httpdns request failed for %s(%s), get empty response data", this.f4333f.toString(), this.f4332e);
-                        this.f4334g.a(-1, this.f4333f, null, this.f4332e);
+                        this.f38278j.l(Boolean.valueOf(this.f38277i));
+                        k.a("Httpdns request failed for %s(%s), get empty response data", this.f38274f.toString(), this.f38273e);
+                        this.f38275g.a(-1, this.f38274f, null, this.f38273e);
                         if (httpsURLConnection != null) {
                             httpsURLConnection.disconnect();
                             return;
                         }
                         return;
                     }
-                    Map j = this.j.j(f2, this.f4332e, this.f4333f);
-                    if (j.get("isSignExpired").equals(Boolean.TRUE)) {
-                        this.f4335h = true;
+                    Map j2 = this.f38278j.j(f2, this.f38273e, this.f38274f);
+                    if (j2.get("isSignExpired").equals(Boolean.TRUE)) {
+                        this.f38276h = true;
                         if (httpsURLConnection != null) {
                             httpsURLConnection.disconnect();
                         }
-                        if (this.f4336i) {
-                            this.j.l = 0;
+                        if (this.f38277i) {
+                            this.f38278j.l = 0;
                             return;
                         }
                         return;
-                    } else if (j.get("isMsgOK").equals(Boolean.TRUE) && responseCode == 200) {
-                        hashMap = this.j.i(f2, this.f4332e);
+                    } else if (j2.get("isMsgOK").equals(Boolean.TRUE) && responseCode == 200) {
+                        hashMap = this.f38278j.i(f2, this.f38273e);
                         bool2 = bool3;
                         if (httpsURLConnection != null) {
                             httpsURLConnection.disconnect();
                         }
-                        if (bool2.booleanValue() && this.f4336i) {
-                            this.j.l = 0;
+                        if (bool2.booleanValue() && this.f38277i) {
+                            this.f38278j.l = 0;
                         }
                         if (hashMap != null || hashMap.isEmpty()) {
-                            this.f4334g.a(-1, this.f4333f, null, this.f4332e);
+                            this.f38275g.a(-1, this.f38274f, null, this.f38273e);
                         } else {
-                            this.f4334g.a(0, this.f4333f, hashMap, this.f4332e);
+                            this.f38275g.a(0, this.f38274f, hashMap, this.f38273e);
                             return;
                         }
                     } else {
-                        aVar = this.f4334g;
-                        dVar = this.f4333f;
-                        str4 = this.f4332e;
+                        aVar = this.f38275g;
+                        dVar = this.f38274f;
+                        str4 = this.f38273e;
                         bool = bool3;
                     }
                 } else {
                     Boolean bool5 = Boolean.FALSE;
-                    this.j.l(Boolean.valueOf(this.f4336i));
-                    k.a("Httpdns request failed for %s(%s), get null response stream", this.f4333f.toString(), this.f4332e);
-                    aVar = this.f4334g;
-                    dVar = this.f4333f;
-                    str4 = this.f4332e;
+                    this.f38278j.l(Boolean.valueOf(this.f38277i));
+                    k.a("Httpdns request failed for %s(%s), get null response stream", this.f38274f.toString(), this.f38273e);
+                    aVar = this.f38275g;
+                    dVar = this.f38274f;
+                    str4 = this.f38273e;
                     bool = bool5;
                 }
                 aVar.a(-1, dVar, null, str4);
@@ -363,11 +367,11 @@ public final class i {
                 if (httpsURLConnection != null) {
                 }
                 if (bool2.booleanValue()) {
-                    this.j.l = 0;
+                    this.f38278j.l = 0;
                 }
                 if (hashMap != null) {
                 }
-                this.f4334g.a(-1, this.f4333f, null, this.f4332e);
+                this.f38275g.a(-1, this.f38274f, null, this.f38273e);
             }
         }
 
@@ -376,21 +380,21 @@ public final class i {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 b();
-                if (this.f4335h) {
-                    k.a("Retry for %s(%s).", this.f4333f.toString(), this.f4332e);
+                if (this.f38276h) {
+                    k.a("Retry for %s(%s).", this.f38274f.toString(), this.f38273e);
                     b();
                 }
-                synchronized (this.j.f4328f) {
-                    if (!this.f4333f.equals(d.f4338b)) {
-                        for (String str : this.f4332e.split(",")) {
-                            this.j.f4327e.remove(str);
+                synchronized (this.f38278j.f38268f) {
+                    if (!this.f38274f.equals(d.f38280b)) {
+                        for (String str : this.f38273e.split(",")) {
+                            this.f38278j.f38267e.remove(str);
                         }
                     }
                 }
-                synchronized (this.j.f4329g) {
-                    if (this.f4333f.equals(d.f4337a)) {
-                        for (String str2 : this.f4332e.split(",")) {
-                            this.j.f4330h.remove(str2);
+                synchronized (this.f38278j.f38269g) {
+                    if (this.f38274f.equals(d.f38279a)) {
+                        for (String str2 : this.f38273e.split(",")) {
+                            this.f38278j.f38270h.remove(str2);
                         }
                     }
                 }
@@ -398,7 +402,7 @@ public final class i {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public class c implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -419,7 +423,7 @@ public final class i {
             }
         }
 
-        public /* synthetic */ c(i iVar, d.a.i.i iVar2) {
+        public /* synthetic */ c(i iVar, c.a.j.i iVar2) {
             this(iVar);
         }
 
@@ -432,18 +436,18 @@ public final class i {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public static final class d {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d f4337a;
+        public static final d f38279a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final d f4338b;
+        public static final d f38280b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ d[] f4339c;
+        public static final /* synthetic */ d[] f38281c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -459,10 +463,10 @@ public final class i {
                     return;
                 }
             }
-            f4337a = new d("DNLIST_HOSTS", 0);
+            f38279a = new d("DNLIST_HOSTS", 0);
             d dVar = new d("TAG_OF_HOSTS", 1);
-            f4338b = dVar;
-            f4339c = new d[]{f4337a, dVar};
+            f38280b = dVar;
+            f38281c = new d[]{f38279a, dVar};
         }
 
         public d(String str, int i2) {
@@ -493,27 +497,27 @@ public final class i {
         public static d[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (d[]) f4339c.clone() : (d[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (d[]) f38281c.clone() : (d[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final ArrayList<String> f4340a;
+        public final ArrayList<String> f38282a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f4341b;
+        public final long f38283b;
 
-        public e(i iVar, ArrayList<String> arrayList, long j) {
+        public e(i iVar, ArrayList<String> arrayList, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {iVar, arrayList, Long.valueOf(j)};
+                Object[] objArr = {iVar, arrayList, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -523,20 +527,20 @@ public final class i {
                     return;
                 }
             }
-            this.f4340a = arrayList;
-            this.f4341b = j;
+            this.f38282a = arrayList;
+            this.f38283b = j2;
         }
 
         public ArrayList<String> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4340a : (ArrayList) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38282a : (ArrayList) invokeV.objValue;
         }
 
         public long b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4341b : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38283b : invokeV.longValue;
         }
     }
 
@@ -568,17 +572,17 @@ public final class i {
                 return;
             }
         }
-        this.f4323a = "180.76.76.200";
-        this.f4325c = true;
-        this.f4326d = 0L;
-        this.f4329g = new Object();
-        this.f4330h = new ArrayList<>();
-        this.f4331i = "";
-        this.j = "";
+        this.f38263a = "180.76.76.200";
+        this.f38265c = true;
+        this.f38266d = 0L;
+        this.f38269g = new Object();
+        this.f38270h = new ArrayList<>();
+        this.f38271i = "";
+        this.f38272j = "";
         this.k = false;
         this.m = 10;
-        this.f4328f = new Object();
-        this.f4327e = new HashSet<>();
+        this.f38268f = new Object();
+        this.f38267e = new HashSet<>();
         p = new c(this, null);
     }
 
@@ -615,7 +619,7 @@ public final class i {
     public String A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !o ? this.j : d.a.i.e.l(this.j) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !o ? this.f38272j : c.a.j.e.l(this.f38272j) : (String) invokeV.objValue;
     }
 
     public boolean C() {
@@ -675,10 +679,10 @@ public final class i {
         }
     }
 
-    public final String g(String str, long j) {
+    public final String g(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) ? d.a.i.e.j(String.format("%s-%s-%d", str, A(), Long.valueOf(j))) : (String) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j2)) == null) ? c.a.j.e.j(String.format("%s-%s-%d", str, A(), Long.valueOf(j2))) : (String) invokeLJ.objValue;
     }
 
     public final String h(byte[] bArr, int i2) {
@@ -716,7 +720,7 @@ public final class i {
                 if (jSONObject.has("serverip")) {
                     JSONArray optJSONArray = jSONObject.optJSONObject("serverip").optJSONArray("ipv4");
                     if (optJSONArray.length() > 0) {
-                        this.f4324b = optJSONArray.optString(0);
+                        this.f38264b = optJSONArray.optString(0);
                     }
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
@@ -738,7 +742,7 @@ public final class i {
                             String optString = optJSONArray2.optString(i3);
                             if (optString == null || optString.isEmpty()) {
                                 k.a("Httpdns request warning, host(%s), response get ip error", next);
-                            } else if (d.a.i.e.e(optString)) {
+                            } else if (c.a.j.e.e(optString)) {
                                 arrayList.add(optString);
                             } else {
                                 k.a("Httpdns request warning, host(%s), response get invalid ip(%s)", next, optString);
@@ -748,11 +752,11 @@ public final class i {
                             k.a("Httpdns request failed, host(%s), response has no valid ip", next);
                         } else {
                             try {
-                                long j = optJSONObject2.getLong(ResultTB.TTL);
-                                if (j < 0) {
-                                    k.a("Httpdns request failed, host(%s), response has invalid ttl(%s)", next, Long.valueOf(j));
+                                long j2 = optJSONObject2.getLong(ResultTB.TTL);
+                                if (j2 < 0) {
+                                    k.a("Httpdns request failed, host(%s), response has invalid ttl(%s)", next, Long.valueOf(j2));
                                 } else {
-                                    hashMap.put(next, new e(this, arrayList, j));
+                                    hashMap.put(next, new e(this, arrayList, j2));
                                     i2++;
                                 }
                             } catch (JSONException e2) {
@@ -802,7 +806,7 @@ public final class i {
                     if (optInt == 0) {
                         k.a("Httpdns request failed for %s(%s), response get invalid timestamp", dVar.toString(), str2);
                     } else {
-                        this.f4326d = optInt - (System.currentTimeMillis() / 1000);
+                        this.f38266d = optInt - (System.currentTimeMillis() / 1000);
                         hashMap.put("isSignExpired", Boolean.TRUE);
                     }
                     return hashMap;
@@ -832,9 +836,9 @@ public final class i {
     public void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            synchronized (this.f4329g) {
-                if (!this.f4330h.contains(str)) {
-                    this.f4330h.add(str);
+            synchronized (this.f38269g) {
+                if (!this.f38270h.contains(str)) {
+                    this.f38270h.add(str);
                 }
             }
         }
@@ -845,18 +849,18 @@ public final class i {
         if (!(interceptable == null || interceptable.invokeLLL(1048585, this, str, dVar, aVar) == null) || str == null || str.isEmpty()) {
             return;
         }
-        synchronized (this.f4328f) {
-            if (dVar.equals(d.f4337a)) {
+        synchronized (this.f38268f) {
+            if (dVar.equals(d.f38279a)) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.addAll(Arrays.asList(str.split(",")));
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
                     String str2 = (String) it.next();
-                    if (this.f4327e.contains(str2)) {
+                    if (this.f38267e.contains(str2)) {
                         k.a("Httpdns request request for host(%s) is in processing，will exclude it.", str2);
                         it.remove();
                     } else {
-                        this.f4327e.add(str2);
+                        this.f38267e.add(str2);
                     }
                 }
                 StringBuilder sb = new StringBuilder();
@@ -898,7 +902,7 @@ public final class i {
                 if (str != null && !str.isEmpty()) {
                     String substring = str.substring(0, str.length() - 1);
                     k.a("Hosts for httpdns request is (%s) ", substring);
-                    n(substring, d.f4337a, aVar);
+                    n(substring, d.f38279a, aVar);
                 }
             }
         }
@@ -907,7 +911,7 @@ public final class i {
     public void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f4325c = z;
+            this.f38265c = z;
         }
     }
 
@@ -915,7 +919,7 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             this.l = 0;
-            this.f4324b = null;
+            this.f38264b = null;
         }
     }
 
@@ -929,23 +933,23 @@ public final class i {
     public ArrayList v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f4330h : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f38270h : (ArrayList) invokeV.objValue;
     }
 
     public void w(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f4331i = str;
+            this.f38271i = str;
         }
     }
 
     public void y(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            String k = d.a.i.e.k(str);
-            this.j = k;
+            String k = c.a.j.e.k(str);
+            this.f38272j = k;
             if (k == null) {
-                this.j = str;
+                this.f38272j = str;
                 o = false;
             }
         }

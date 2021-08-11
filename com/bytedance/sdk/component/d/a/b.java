@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.d.e;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28795a;
+    public int f64657a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28796b;
+    public int f64658b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28797c;
+    public String f64659c;
 
     public b(int i2, String str) {
         Interceptable interceptable = $ic;
@@ -37,11 +37,11 @@ public class b {
                 return;
             }
         }
-        this.f28795a = e.f28812a;
-        this.f28796b = 0;
-        this.f28797c = "";
-        this.f28796b = i2;
-        this.f28797c = str;
+        this.f64657a = e.f64674a;
+        this.f64658b = 0;
+        this.f64659c = "";
+        this.f64658b = i2;
+        this.f64659c = str;
     }
 
     public JSONObject a() {
@@ -50,9 +50,9 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("cupCount", this.f28795a);
-                jSONObject.put("sdkThreadCount", this.f28796b);
-                jSONObject.put("sdkThreadNames", this.f28797c);
+                jSONObject.put("cupCount", this.f64657a);
+                jSONObject.put("sdkThreadCount", this.f64658b);
+                jSONObject.put("sdkThreadNames", this.f64659c);
                 return jSONObject;
             } catch (JSONException e2) {
                 e2.printStackTrace();

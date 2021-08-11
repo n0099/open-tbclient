@@ -12,8 +12,8 @@ import com.google.zxing.Result;
 import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
 import com.tencent.connect.common.Constants;
 import java.util.HashMap;
-import kotlin.text.Typography;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.CharUtils;
+/* loaded from: classes10.dex */
 public final class ExpandedProductResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -195,7 +195,7 @@ public final class ExpandedProductResultParser extends ResultParser {
                                 break;
                             case 1567972:
                                 if (findAIvalue.equals("3106")) {
-                                    c2 = '\r';
+                                    c2 = CharUtils.CR;
                                     break;
                                 }
                                 c2 = 65535;
@@ -348,7 +348,7 @@ public final class ExpandedProductResultParser extends ResultParser {
                                                         break;
                                                     case 1575750:
                                                         if (findAIvalue.equals("3933")) {
-                                                            c2 = Typography.quote;
+                                                            c2 = '\"';
                                                             break;
                                                         }
                                                         c2 = 65535;

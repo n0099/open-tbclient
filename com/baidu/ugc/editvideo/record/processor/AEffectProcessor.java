@@ -2,6 +2,10 @@ package com.baidu.ugc.editvideo.record.processor;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.v0.b;
+import c.a.v0.t.h;
+import c.a.z.b.a.e;
+import c.a.z.b.a.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -12,15 +16,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.a0.b.a.e;
-import d.a.a0.b.a.j;
-import d.a.w0.b;
-import d.a.w0.t.h;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class AEffectProcessor extends BaseEffectProcessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +128,7 @@ public class AEffectProcessor extends BaseEffectProcessor {
             runPendingOnDrawTasks();
             HashMap hashMap = new HashMap();
             if (this.isCamera) {
-                c2 = this.mVlogEditCore.l(i2, null, fArr, this.mInputTextureMode, this.mPreviewWidth, this.mPreviewHeight, hashMap);
+                c2 = this.mVlogEditCore.m(i2, null, fArr, this.mInputTextureMode, this.mPreviewWidth, this.mPreviewHeight, hashMap);
             } else {
                 c2 = this.mVlogEditCore.c(this.mPreviewWidth, this.mPreviewHeight, hashMap);
             }
@@ -161,10 +161,10 @@ public class AEffectProcessor extends BaseEffectProcessor {
         }
     }
 
-    public void startRecordAnim(int i2, long j) {
+    public void startRecordAnim(int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            this.runOnDraw.add(new Runnable(this, i2, j) { // from class: com.baidu.ugc.editvideo.record.processor.AEffectProcessor.3
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            this.runOnDraw.add(new Runnable(this, i2, j2) { // from class: com.baidu.ugc.editvideo.record.processor.AEffectProcessor.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AEffectProcessor this$0;
@@ -176,7 +176,7 @@ public class AEffectProcessor extends BaseEffectProcessor {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2), Long.valueOf(j)};
+                        Object[] objArr = {this, Integer.valueOf(i2), Long.valueOf(j2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i3 = newInitContext.flag;
                         if ((i3 & 1) != 0) {
@@ -188,7 +188,7 @@ public class AEffectProcessor extends BaseEffectProcessor {
                     }
                     this.this$0 = this;
                     this.val$currentIndex = i2;
-                    this.val$playTime = j;
+                    this.val$playTime = j2;
                 }
 
                 @Override // java.lang.Runnable
@@ -236,7 +236,7 @@ public class AEffectProcessor extends BaseEffectProcessor {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         this.this$0.checkCamera();
-                        this.this$0.mVlogEditCore.m(this.val$updateMediaTracks);
+                        this.this$0.mVlogEditCore.n(this.val$updateMediaTracks);
                     }
                 }
             });
@@ -252,7 +252,7 @@ public class AEffectProcessor extends BaseEffectProcessor {
             runPendingOnDrawTasks();
             HashMap hashMap = new HashMap();
             if (this.isCamera) {
-                c2 = this.mVlogEditCore.l(i2, null, fArr, this.mInputTextureMode, this.mPreviewWidth, this.mPreviewHeight, hashMap);
+                c2 = this.mVlogEditCore.m(i2, null, fArr, this.mInputTextureMode, this.mPreviewWidth, this.mPreviewHeight, hashMap);
             } else {
                 c2 = this.mVlogEditCore.c(this.mPreviewWidth, this.mPreviewHeight, hashMap);
             }

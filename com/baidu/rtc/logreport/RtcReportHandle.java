@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,7 +31,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.Logging;
 import org.webrtc.StatsReport;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class RtcReportHandle {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMMUNICATION_REPORT_INTERVAL = 2000;
@@ -62,7 +61,7 @@ public class RtcReportHandle {
     public long mUserId;
     public Runnable reportDeviceInfoRun;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class AudioStuckEvent implements SLIReportInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,19 +86,19 @@ public class RtcReportHandle {
         }
 
         @Override // com.baidu.rtc.logreport.SLIReportInterface
-        public void onStuckData(long j, long j2) {
+        public void onStuckData(long j2, long j3) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && RtcReportHandle.mIsEnablePullQualityMonitor) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) && RtcReportHandle.mIsEnablePullQualityMonitor) {
                 for (Map.Entry entry : this.this$0.mHUDStatisticsMap.entrySet()) {
                     if (entry.getKey() != this.this$0.mPublisherHandle && entry.getValue() != null) {
-                        ((HUDStatistics) entry.getValue()).addAudioStuckData(j, j2);
+                        ((HUDStatistics) entry.getValue()).addAudioStuckData(j2, j3);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class VideoStuckEvent implements SLIReportInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,13 +125,13 @@ public class RtcReportHandle {
         }
 
         @Override // com.baidu.rtc.logreport.SLIReportInterface
-        public void onStuckData(long j, long j2) {
+        public void onStuckData(long j2, long j3) {
             HUDStatistics hUDStatistics;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || !RtcReportHandle.mIsEnablePullQualityMonitor || this.handleId == null || (hUDStatistics = (HUDStatistics) this.this$0.mHUDStatisticsMap.get(this.handleId)) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || !RtcReportHandle.mIsEnablePullQualityMonitor || this.handleId == null || (hUDStatistics = (HUDStatistics) this.this$0.mHUDStatisticsMap.get(this.handleId)) == null) {
                 return;
             }
-            hUDStatistics.addVideoStuckData(j, j2);
+            hUDStatistics.addVideoStuckData(j2, j3);
         }
     }
 
@@ -313,7 +312,7 @@ public class RtcReportHandle {
                 jSONObject.put("userId", this.mUserId);
                 jSONObject.put("message", jSONObject6);
             } catch (JSONException e2) {
-                Log.e(TAG, "Caught error on reportCommunicationQualityInfo: " + e2);
+                String str = "Caught error on reportCommunicationQualityInfo: " + e2;
             }
             reportData(jSONObject.toString(), 2);
         }
@@ -347,7 +346,7 @@ public class RtcReportHandle {
                 jSONObject.put("userId", this.mUserId);
                 jSONObject.put("message", jSONObject3);
             } catch (JSONException e2) {
-                Log.e(TAG, "Caught error on reportDeviceInfo: " + e2);
+                String str = "Caught error on reportDeviceInfo: " + e2;
             }
             reportData(jSONObject.toString(), 0);
         }
@@ -404,7 +403,7 @@ public class RtcReportHandle {
                         jSONObject.put("userId", this.mUserId);
                         jSONObject.put("message", jSONObject2);
                     } catch (JSONException e2) {
-                        Log.e(TAG, "Caught error on reportDeviceInfo: " + e2);
+                        String str = "Caught error on reportDeviceInfo: " + e2;
                     }
                     reportData(jSONObject.toString(), 3);
                 }
@@ -482,16 +481,16 @@ public class RtcReportHandle {
         }
     }
 
-    public void reportSLIFfDelay(long j, long j2) {
+    public void reportSLIFfDelay(long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 JSONObject jSONObject3 = new JSONObject();
                 JSONObject jSONObject4 = new JSONObject();
-                jSONObject2.put("feedId", j);
-                jSONObject4.put("duration", j2);
+                jSONObject2.put("feedId", j2);
+                jSONObject4.put("duration", j3);
                 jSONObject2.put("ffDelay", jSONObject4);
                 jSONObject3.put("sli", jSONObject2);
                 jSONObject.put("env", this.mQualityMonitorEnv);
@@ -501,7 +500,7 @@ public class RtcReportHandle {
                 jSONObject.put("userId", this.mUserId);
                 jSONObject.put("message", jSONObject3);
             } catch (JSONException e2) {
-                Log.e(TAG, "Caught error on reportDeviceInfo: " + e2);
+                String str = "Caught error on reportDeviceInfo: " + e2;
             }
             reportData(jSONObject.toString(), 3);
         }

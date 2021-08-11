@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ZwCrashpad {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ZwCrashpad CRASHPAD";
@@ -110,20 +109,8 @@ public class ZwCrashpad {
         }
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(19:8|(3:80|81|(22:85|(1:87)|(1:78)(1:17)|18|(1:24)|25|(1:77)|31|32|33|35|36|37|(1:177)(1:41)|42|(1:44)|45|18b|52|(1:59)|56|57))|10|(1:12)(1:79)|(0)|78|18|(3:20|22|24)|25|(1:27)|77|31|32|33|35|36|37|(1:39)|177) */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x0127, code lost:
-        r2 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x0128, code lost:
-        android.util.Log.e(com.baidu.crashpad.ZwCrashpad.TAG, "", r2);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x0136, code lost:
-        r2 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x0137, code lost:
-        android.util.Log.e(com.baidu.crashpad.ZwCrashpad.TAG, "", r2);
-     */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x0178 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Can't wrap try/catch for region: R(19:8|(3:78|79|(22:83|(1:85)|(1:76)(1:17)|18|(1:24)|25|(1:75)|31|32|33|34|35|36|(1:153)(1:40)|41|(1:43)|44|167|51|(1:58)|55|56))|10|(1:12)(1:77)|(0)|76|18|(3:20|22|24)|25|(1:27)|75|31|32|33|34|35|36|(1:38)|153) */
+    /* JADX WARN: Removed duplicated region for block: B:93:0x0154 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @SuppressLint({"UnsafeDynamicallyLoadedCode"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -141,10 +128,6 @@ public class ZwCrashpad {
         String str3 = "0";
         boolean z = false;
         if (str2 != null) {
-            try {
-            } catch (Throwable unused) {
-                Log.e(TAG, "failed to load crashpad_client library ");
-            }
             if (!str2.isEmpty() && !mClientDir.equals("0")) {
                 String str4 = mClientDir + "/libcrashpad_client.so";
                 exists = new File(str4).exists();
@@ -154,11 +137,9 @@ public class ZwCrashpad {
                 if (!exists && str3 != null && !str3.equals("0")) {
                     System.load(str3);
                     mNativeIsInitialized = true;
-                    Log.i(TAG, "load crashpad_client from custom path sucess");
                 } else {
                     System.loadLibrary("crashpad_client");
                     mNativeIsInitialized = true;
-                    Log.i(TAG, "loadlibrary crashpad_client sucess");
                 }
                 ZwDebugExtra.init(context);
                 mCyberVersion = strArr[0];
@@ -209,7 +190,6 @@ public class ZwCrashpad {
                 ZeusLogUploader.setUploadCrashLogFailedEncrypt((strArr[7] == null || Boolean.valueOf(strArr[7]).booleanValue()) ? true : true);
                 ZeusLogUploader.setEncryptKey(getEncryptKey());
                 ZeusLogUploader.UploadLogDirectory(context.getFilesDir().getAbsolutePath() + "/zeuslogs/", "crashlog", true, null);
-                Log.i(TAG, "zwbreakpd.doinit  end");
                 return;
             }
         }
@@ -224,7 +204,6 @@ public class ZwCrashpad {
         }
         System.loadLibrary("crashpad_client");
         mNativeIsInitialized = true;
-        Log.i(TAG, "loadlibrary crashpad_client sucess");
         ZwDebugExtra.init(context);
         mCyberVersion = strArr[0];
         mCyberVersionIsReady = true;
@@ -335,9 +314,7 @@ public class ZwCrashpad {
         if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
             try {
                 return new String[]{mAppPackageName, mAppVersion, Integer.toString(mAppVersionCode), mZeusVersion, mCyberVersion, mLocation, mIMEI, Build.MODEL.replace(' ', '_').replace(SignatureImpl.SEP, '_'), Build.VERSION.RELEASE, mCPU, mCuid, mStatisticParam, mEmulator, mCallback, " ", " ", mChannel, mBaseBand, Build.DISPLAY, mProcessType, mWebviewNumber, mUploadCrashLogFailedEncrypt, mHandlerDir, String.valueOf(Build.VERSION.SDK_INT), Build.FINGERPRINT.substring(0, Math.min(Build.FINGERPRINT.length(), 128)), mDumpCopyDir};
-            } catch (Exception e2) {
-                Log.e(TAG, "newInfos error maybe BUILD get errors");
-                Log.e(TAG, "", e2);
+            } catch (Exception unused) {
                 return new String[0];
             }
         }

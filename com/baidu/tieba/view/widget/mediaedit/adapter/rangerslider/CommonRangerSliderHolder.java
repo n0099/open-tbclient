@@ -11,16 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CommonRangerSliderHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f22600a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final View f22601b;
+    public final View f58227a;
+    public ImageView mItemView;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CommonRangerSliderHolder(View view) {
@@ -40,21 +38,21 @@ public class CommonRangerSliderHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.f22601b = view;
-        this.f22600a = (ImageView) view.findViewById(R.id.video_range_slider_image);
+        this.f58227a = view;
+        this.mItemView = (ImageView) view.findViewById(R.id.video_range_slider_image);
     }
 
-    public void a(Bitmap bitmap) {
+    public void bind(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) || bitmap == null || bitmap.isRecycled()) {
             return;
         }
-        this.f22600a.setImageBitmap(bitmap);
+        this.mItemView.setImageBitmap(bitmap);
     }
 
-    public View b() {
+    public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22601b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58227a : (View) invokeV.objValue;
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CmdConfigHttp {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AGREE_ME_HTTP_CMD = 1002211;
@@ -157,6 +157,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_RECOMMEND_GOD_LIST = 1003475;
     public static final int CMD_GET_REPOST_RECOMMEND_FORUM = 1003323;
     public static final int CMD_GET_RN_SYNC = 1003409;
+    public static final int CMD_GET_SELECT_CLASS = 1003506;
     public static final int CMD_GET_SPLASH_INFO = 1003192;
     public static final int CMD_GET_STICKERS = 1003368;
     public static final int CMD_GET_STICKET_LIST = 1003341;
@@ -192,6 +193,7 @@ public class CmdConfigHttp {
     public static final int CMD_HTTP_GET_BIG_TBEAN_URL = 1003410;
     public static final int CMD_HTTP_GET_HOTFORUM = 1001534;
     public static final int CMD_HTTP_GET_HOTTOPIC_SELECT = 1003186;
+    public static final int CMD_HTTP_GET_MSG_REC_FORUM_LIST = 1003510;
     public static final int CMD_HTTP_GET_YINJI = 1001533;
     public static final int CMD_HTTP_SMART_APP = 1003420;
     public static final int CMD_HTTP_TIEBA_UID_CHECK = 1003493;

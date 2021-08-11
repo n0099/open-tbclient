@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,29 +36,20 @@ public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
-    /* renamed from: N */
-    public ScrollView j(Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, attributeSet)) == null) ? new ScrollView(context) : (ScrollView) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
-    public boolean t() {
+    public boolean isReadyForPullDown() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((ScrollView) this.t).getScrollY() == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((ScrollView) this.mRefreshableView).getScrollY() == 0 : invokeV.booleanValue;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
-    public boolean u() {
+    public boolean isReadyForPullUp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            View childAt = ((ScrollView) this.t).getChildAt(0);
-            return childAt != null && ((ScrollView) this.t).getScrollY() >= childAt.getHeight() - getHeight();
+            View childAt = ((ScrollView) this.mRefreshableView).getChildAt(0);
+            return childAt != null && ((ScrollView) this.mRefreshableView).getScrollY() >= childAt.getHeight() - getHeight();
         }
         return invokeV.booleanValue;
     }
@@ -82,5 +73,13 @@ public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
                 return;
             }
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
+    public ScrollView createRefreshableView(Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet)) == null) ? new ScrollView(context) : (ScrollView) invokeLL.objValue;
     }
 }

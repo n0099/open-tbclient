@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class MangaBrowserActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BROWSER_FROM_BOOK_COVER = 1;
@@ -20,13 +20,13 @@ public class MangaBrowserActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MangaBrowserActivityConfig(Context context, long j, int i2, int i3) {
+    public MangaBrowserActivityConfig(Context context, long j2, int i2, int i3) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -37,7 +37,7 @@ public class MangaBrowserActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("cartoon_id", j);
+        getIntent().putExtra("cartoon_id", j2);
         getIntent().putExtra(CHAPTER_ID, i2);
         getIntent().putExtra("from", i3);
     }

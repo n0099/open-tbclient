@@ -7,6 +7,10 @@ import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import c.a.e.e.p.l;
+import c.a.o0.b.d;
+import c.a.o0.b1.n0;
+import c.a.p0.a0.d0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.PbGoodsData;
@@ -25,32 +29,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.p0.b.d;
-import d.a.p0.b1.l0;
-import d.a.q0.a0.e0.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class MultiLinkCardView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f12501e;
+    public TextView f47467e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12502f;
+    public TextView f47468f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12503g;
+    public TextView f47469g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f12504h;
+    public RelativeLayout f47470h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f12505i;
-    public RelativeLayout j;
+    public RelativeLayout f47471i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public RelativeLayout f47472j;
     public TbImageView k;
     public TbImageView l;
     public TbImageView m;
@@ -99,22 +101,22 @@ public class MultiLinkCardView extends RelativeLayout {
         }
     }
 
-    public void a(List<PbLinkData> list, List<PbGoodsData> list2) {
+    public void bindData(List<PbLinkData> list, List<PbGoodsData> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, list, list2) == null) {
             new ArrayList();
-            l0 l0Var = new l0();
-            List<c> a2 = l0Var.a(list, list2);
-            boolean b2 = l0Var.b();
+            n0 n0Var = new n0();
+            List<c> a2 = n0Var.a(list, list2);
+            boolean b2 = n0Var.b();
             if (ListUtils.isEmpty(a2)) {
                 return;
             }
-            if (d.o0()) {
+            if (d.r0()) {
                 TBSelector.makeDrawableSelector().gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606).radius(l.g(getContext(), R.dimen.tbds10)).into(this.n);
             }
-            this.f12504h.setVisibility(8);
-            this.f12505i.setVisibility(8);
-            this.j.setVisibility(8);
+            this.f47470h.setVisibility(8);
+            this.f47471i.setVisibility(8);
+            this.f47472j.setVisibility(8);
             this.n.setVisibility(8);
             int size = a2.size() > 3 ? 3 : a2.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -122,7 +124,7 @@ public class MultiLinkCardView extends RelativeLayout {
                     PbLinkData pbLinkData = (PbLinkData) a2.get(i2);
                     if (i2 < a2.size() && pbLinkData != null) {
                         this.q.get(i2).setVisibility(0);
-                        this.r.get(i2).M(pbLinkData.picUrl, 10, false);
+                        this.r.get(i2).startLoad(pbLinkData.picUrl, 10, false);
                         if (pbLinkData.urlType == 2 && !TextUtils.isEmpty(pbLinkData.linkFrom)) {
                             this.s.get(i2).setText(pbLinkData.linkFrom);
                             this.s.get(i2).setVisibility(0);
@@ -132,7 +134,7 @@ public class MultiLinkCardView extends RelativeLayout {
                     PbGoodsData pbGoodsData = (PbGoodsData) a2.get(i2);
                     if (i2 < a2.size() && pbGoodsData != null) {
                         this.q.get(i2).setVisibility(0);
-                        this.r.get(i2).M(pbGoodsData.picUrl, 10, false);
+                        this.r.get(i2).startLoad(pbGoodsData.picUrl, 10, false);
                     }
                 }
                 if (a2.size() > 3 && i2 == 2) {
@@ -144,7 +146,7 @@ public class MultiLinkCardView extends RelativeLayout {
         }
     }
 
-    public void b() {
+    public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setBackgroundResource(this, R.drawable.bg_link_card);
@@ -198,12 +200,12 @@ public class MultiLinkCardView extends RelativeLayout {
             }
         }
         LayoutInflater.from(context).inflate(R.layout.multi_link_card_layout, this);
-        this.f12504h = (RelativeLayout) findViewById(R.id.rl_multi_link_first);
-        this.f12505i = (RelativeLayout) findViewById(R.id.rl_multi_link_second);
-        this.j = (RelativeLayout) findViewById(R.id.rl_multi_link_third);
-        this.f12501e = (TextView) findViewById(R.id.goods_from_tag_first);
-        this.f12502f = (TextView) findViewById(R.id.goods_from_tag_second);
-        this.f12503g = (TextView) findViewById(R.id.goods_from_tag_third);
+        this.f47470h = (RelativeLayout) findViewById(R.id.rl_multi_link_first);
+        this.f47471i = (RelativeLayout) findViewById(R.id.rl_multi_link_second);
+        this.f47472j = (RelativeLayout) findViewById(R.id.rl_multi_link_third);
+        this.f47467e = (TextView) findViewById(R.id.goods_from_tag_first);
+        this.f47468f = (TextView) findViewById(R.id.goods_from_tag_second);
+        this.f47469g = (TextView) findViewById(R.id.goods_from_tag_third);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.iv_multi_link_first_icon);
         this.k = tbImageView;
         tbImageView.setDrawCorner(true);
@@ -230,22 +232,22 @@ public class MultiLinkCardView extends RelativeLayout {
         this.m.setRadius(l.g(getContext(), R.dimen.tbds10));
         TextView textView = (TextView) findViewById(R.id.tv_multi_link_more_link_count);
         this.n = textView;
-        d.a.p0.s.u.c.d(textView).w(R.array.S_O_X001);
+        c.a.o0.s.u.c.d(textView).w(R.array.S_O_X001);
         this.o = (TextView) findViewById(R.id.tv_multi_link_count);
         this.p = (ImageView) findViewById(R.id.iv_multi_link_right_arrow);
         this.s = new ArrayList();
         this.r = new ArrayList();
         ArrayList arrayList = new ArrayList();
         this.q = arrayList;
-        arrayList.add(this.f12504h);
-        this.q.add(this.f12505i);
-        this.q.add(this.j);
+        arrayList.add(this.f47470h);
+        this.q.add(this.f47471i);
+        this.q.add(this.f47472j);
         this.r.add(this.k);
         this.r.add(this.l);
         this.r.add(this.m);
-        this.s.add(this.f12501e);
-        this.s.add(this.f12502f);
-        this.s.add(this.f12503g);
-        b();
+        this.s.add(this.f47467e);
+        this.s.add(this.f47468f);
+        this.s.add(this.f47469g);
+        onChangeSkinType();
     }
 }

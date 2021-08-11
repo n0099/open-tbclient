@@ -2,7 +2,7 @@ package io.reactivex;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface MaybeObserver<T> {
     void onComplete();
 

@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Handler;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
+import c.a.t.a;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.u.a;
-/* loaded from: classes.dex */
+import com.dxmpay.wallet.utils.StatHelper;
+/* loaded from: classes4.dex */
 public class Heartbeat {
     public static /* synthetic */ Interceptable $ic = null;
     public static int ALARM_TIMEOUT = 60000;
@@ -30,7 +30,7 @@ public class Heartbeat {
     public Handler mHandler;
     public HeartbeatOpearation mOperator;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class BoxHeartbeat implements HeartbeatOpearation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class Heartbeat {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         Intent intent = new Intent(this.this$2.this$1.this$0.mContext, a.class);
-                                        intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
+                                        intent.putExtra(Constants.EXTRA_ALARM_ALERT, StatHelper.SENSOR_OK);
                                         intent.setPackage(this.this$2.this$1.this$0.mContext.getPackageName());
                                         a.g(this.this$2.this$1.this$0.mContext).f(this.this$2.this$1.this$0.mContext, intent);
                                         this.this$2.this$1.this$0.mHandler.postDelayed(this.this$2.this$1.startIMServiceTask, Heartbeat.ALARM_TIMEOUT);
@@ -152,7 +152,7 @@ public class Heartbeat {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class NormalHeartbeat implements HeartbeatOpearation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -181,10 +181,10 @@ public class Heartbeat {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Intent intent = new Intent();
-                intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
+                intent.putExtra(Constants.EXTRA_ALARM_ALERT, StatHelper.SENSOR_OK);
                 intent.setClass(this.this$0.mContext, a.class);
                 intent.setAction(Constants.ACTION_SERVICE);
-                ((AlarmManager) this.this$0.mContext.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(PendingIntent.getService(this.this$0.mContext, 0, intent, Label.FORWARD_REFERENCE_TYPE_SHORT));
+                ((AlarmManager) this.this$0.mContext.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(PendingIntent.getService(this.this$0.mContext, 0, intent, 268435456));
             }
         }
 
@@ -194,10 +194,10 @@ public class Heartbeat {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 cancelHearbeat();
                 Intent intent = new Intent();
-                intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
+                intent.putExtra(Constants.EXTRA_ALARM_ALERT, StatHelper.SENSOR_OK);
                 intent.setClass(this.this$0.mContext, a.class);
                 intent.setAction(Constants.ACTION_SERVICE);
-                PendingIntent service = PendingIntent.getService(this.this$0.mContext.getApplicationContext(), 0, intent, Label.FORWARD_REFERENCE_TYPE_SHORT);
+                PendingIntent service = PendingIntent.getService(this.this$0.mContext.getApplicationContext(), 0, intent, 268435456);
                 ((AlarmManager) this.this$0.mContext.getSystemService(NotificationCompat.CATEGORY_ALARM)).setRepeating(0, System.currentTimeMillis() + Heartbeat.ALARM_TIMEOUT, Heartbeat.ALARM_TIMEOUT, service);
             }
         }

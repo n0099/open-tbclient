@@ -25,7 +25,7 @@ import org.webrtc.GlRectDrawer;
 import org.webrtc.VideoFrame;
 import org.webrtc.VideoFrameDrawer;
 import org.webrtc.VideoSink;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemoteSamplesReadyCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRE_PREIOD_AUDIO_BUFFER_SIZE = 3840;
@@ -144,12 +144,11 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
             }
             if (dequeueOutputBuffer == -3) {
                 this.audioOutputBuffers = this.audioEncoder.getOutputBuffers();
-                Log.w(TAG, "encoder output buffers changed");
             } else {
                 boolean z = true;
                 if (dequeueOutputBuffer == -2) {
                     MediaFormat outputFormat = this.audioEncoder.getOutputFormat();
-                    Log.w(TAG, "audio encoder output format changed: " + outputFormat);
+                    String str = "audio encoder output format changed: " + outputFormat;
                     this.audioTrackIndex = this.mediaMuxer.addTrack(outputFormat);
                     if (this.trackIndex != -1 && !this.muxerStarted) {
                         this.mediaMuxer.start();
@@ -159,12 +158,12 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                         return;
                     }
                 } else if (dequeueOutputBuffer < 0) {
-                    Log.e(TAG, "unexpected on audio encoder dequeueOutputBuffer: " + dequeueOutputBuffer);
+                    String str2 = "unexpected on audio encoder dequeueOutputBuffer: " + dequeueOutputBuffer;
                 } else {
                     try {
                         ByteBuffer byteBuffer = this.audioOutputBuffers[dequeueOutputBuffer];
                         if (byteBuffer == null) {
-                            Log.e(TAG, "encoderOutputBuffer " + dequeueOutputBuffer + " was null");
+                            String str3 = "encoderOutputBuffer " + dequeueOutputBuffer + " was null";
                             return;
                         }
                         byteBuffer.position(this.audioBufferInfo.offset);
@@ -181,7 +180,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                             return;
                         }
                     } catch (Exception e2) {
-                        Log.e(TAG, e2.getMessage());
+                        e2.getMessage();
                         return;
                     }
                 }
@@ -190,7 +189,6 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
     }
 
     private void drainVideo() {
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeV(65539, this) != null) {
             return;
@@ -208,10 +206,9 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
             }
             if (dequeueOutputBuffer == -3) {
                 this.videoOutputBuffers = this.videoEncoder.getOutputBuffers();
-                str = "video encoder output buffers changed";
             } else if (dequeueOutputBuffer == -2) {
                 MediaFormat outputFormat = this.videoEncoder.getOutputFormat();
-                Log.e(TAG, "video encoder output format changed: " + outputFormat);
+                String str = "video encoder output format changed: " + outputFormat;
                 this.trackIndex = this.mediaMuxer.addTrack(outputFormat);
                 if (this.audioTrackIndex != -1 && !this.muxerStarted) {
                     this.mediaMuxer.start();
@@ -221,12 +218,12 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                     return;
                 }
             } else if (dequeueOutputBuffer < 0) {
-                str = "unexpected on video encoder dequeueOutputBuffer: " + dequeueOutputBuffer;
+                String str2 = "unexpected on video encoder dequeueOutputBuffer: " + dequeueOutputBuffer;
             } else {
                 try {
                     ByteBuffer byteBuffer = this.videoOutputBuffers[dequeueOutputBuffer];
                     if (byteBuffer == null) {
-                        Log.e(TAG, "encoderOutputBuffer " + dequeueOutputBuffer + " was null");
+                        String str3 = "encoderOutputBuffer " + dequeueOutputBuffer + " was null";
                         return;
                     }
                     byteBuffer.position(this.videoBufferInfo.offset);
@@ -248,7 +245,6 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                     return;
                 }
             }
-            Log.e(TAG, str);
         }
     }
 
@@ -270,7 +266,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                 this.audioInputBuffers = this.audioEncoder.getInputBuffers();
                 this.audioOutputBuffers = this.audioEncoder.getOutputBuffers();
             } catch (IOException e2) {
-                Log.e(TAG, e2.getMessage());
+                e2.getMessage();
             }
         }
     }
@@ -331,7 +327,6 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
     }
 
     public static /* synthetic */ void lambda$release$3(RTCVideoFileRenderer rTCVideoFileRenderer) {
-        Log.w(TAG, "stop audio encoder ...");
         MediaCodec mediaCodec = rTCVideoFileRenderer.audioEncoder;
         if (mediaCodec != null) {
             mediaCodec.flush();
@@ -350,7 +345,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                 rTCVideoFileRenderer.mCallback.onRecordCompleted(false, "Record is not started!");
             }
         } catch (IllegalStateException e2) {
-            Log.e(TAG, "Stop media muxer exception : " + e2.getLocalizedMessage());
+            String str = "Stop media muxer exception : " + e2.getLocalizedMessage();
             RecorderCallback recorderCallback = rTCVideoFileRenderer.mCallback;
             if (recorderCallback != null) {
                 recorderCallback.onRecordCompleted(false, e2.getLocalizedMessage());
@@ -360,7 +355,6 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
     }
 
     public static /* synthetic */ void lambda$release$4(RTCVideoFileRenderer rTCVideoFileRenderer) {
-        Log.w(TAG, "stop video encoder ...");
         MediaCodec mediaCodec = rTCVideoFileRenderer.videoEncoder;
         if (mediaCodec != null) {
             mediaCodec.flush();

@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile HandlerThread f28996a;
+    public static volatile HandlerThread f64862a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile Handler f28997b;
+    public static volatile Handler f64863b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,9 +33,9 @@ public class h {
                 return;
             }
         }
-        f28996a = new HandlerThread("tt_pangle_thread_io_handler");
-        f28996a.start();
-        f28997b = new Handler(f28996a.getLooper());
+        f64862a = new HandlerThread("tt_pangle_thread_io_handler");
+        f64862a.start();
+        f64863b = new Handler(f64862a.getLooper());
     }
 
     public h() {
@@ -56,16 +56,16 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f28996a == null || !f28996a.isAlive()) {
+            if (f64862a == null || !f64862a.isAlive()) {
                 synchronized (h.class) {
-                    if (f28996a == null || !f28996a.isAlive()) {
-                        f28996a = new HandlerThread("tt_pangle_thread_io_handler");
-                        f28996a.start();
-                        f28997b = new Handler(f28996a.getLooper());
+                    if (f64862a == null || !f64862a.isAlive()) {
+                        f64862a = new HandlerThread("tt_pangle_thread_io_handler");
+                        f64862a.start();
+                        f64863b = new Handler(f64862a.getLooper());
                     }
                 }
             }
-            return f28997b;
+            return f64863b;
         }
         return (Handler) invokeV.objValue;
     }

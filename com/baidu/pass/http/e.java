@@ -1,6 +1,5 @@
 package com.baidu.pass.http;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,18 +9,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9379a = "e";
+    public static final String f44026a = "e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f9380b;
+    public static final Pattern f44027b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f9381c;
+    public static boolean f44028c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,8 +36,8 @@ public class e {
                 return;
             }
         }
-        f9380b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
-        f9381c = false;
+        f44027b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+        f44028c = false;
     }
 
     public e() {
@@ -57,21 +56,21 @@ public class e {
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f9381c) {
-            Log.e(str, str2);
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            boolean z = f44028c;
         }
     }
 
     public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f9380b.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f44027b.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            a(f9379a, str);
+            a(f44026a, str);
         }
     }
 }

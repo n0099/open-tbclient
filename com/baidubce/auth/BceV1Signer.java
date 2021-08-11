@@ -29,8 +29,9 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import okhttp3.internal.http.HttpMethod;
+import org.apache.commons.lang3.StringUtils;
 @SuppressLint({"NewApi", "DefaultLocale"})
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class BceV1Signer implements Signer {
     public static /* synthetic */ Interceptable $ic;
     public static final Set<String> defaultHeadersToSign;
@@ -90,7 +91,7 @@ public class BceV1Signer implements Signer {
                 }
             }
             Collections.sort(arrayList);
-            return JoinerUtils.on("\n", arrayList);
+            return JoinerUtils.on(StringUtils.LF, arrayList);
         }
         return (String) invokeL.objValue;
     }
@@ -188,9 +189,9 @@ public class BceV1Signer implements Signer {
             SortedMap<String, String> headersToSign = getHeadersToSign(internalRequest.getHeaders(), signOptions.getHeadersToSign());
             String canonicalHeaders = getCanonicalHeaders(headersToSign);
             String lowerCase = signOptions.getHeadersToSign() != null ? JoinerUtils.on(";", headersToSign.keySet()).trim().toLowerCase() : "";
-            String on2 = JoinerUtils.on("\n", internalRequest.getHttpMethod(), canonicalURIPath, canonicalQueryString, canonicalHeaders);
+            String on2 = JoinerUtils.on(StringUtils.LF, internalRequest.getHttpMethod(), canonicalURIPath, canonicalQueryString, canonicalHeaders);
             String on3 = JoinerUtils.on("/", on, lowerCase, HashUtils.sha256Hex(sha256Hex, on2));
-            BLog.debug("CanonicalRequest:{}\tAuthorization:{}", on2.replace("\n", "[\\n]"), on3);
+            BLog.debug("CanonicalRequest:{}\tAuthorization:{}", on2.replace(StringUtils.LF, "[\\n]"), on3);
             internalRequest.addHeader("Authorization", on3);
         }
     }

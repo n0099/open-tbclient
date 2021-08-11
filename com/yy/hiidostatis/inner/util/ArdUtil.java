@@ -30,7 +30,6 @@ import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.network.NetworkInfoUtils;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +56,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.aspectj.runtime.reflect.SignatureImpl;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ArdUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NET_2G = 1;
@@ -903,9 +902,9 @@ public class ArdUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
-            long j = mTotalInternalStorgeSize;
-            if (j != 0) {
-                return j;
+            long j2 = mTotalInternalStorgeSize;
+            if (j2 != 0) {
+                return j2;
             }
             try {
                 StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
@@ -925,9 +924,9 @@ public class ArdUtil {
         if (interceptable != null && (invokeV = interceptable.invokeV(65573, null)) != null) {
             return invokeV.longValue;
         }
-        long j = mTotal;
-        if (j != 0) {
-            return j;
+        long j2 = mTotal;
+        if (j2 != 0) {
+            return j2;
         }
         BufferedReader bufferedReader2 = null;
         try {
@@ -975,7 +974,7 @@ public class ArdUtil {
             return invokeV.longValue;
         }
         try {
-            randomAccessFile = new RandomAccessFile("/proc/meminfo", r.f7788a);
+            randomAccessFile = new RandomAccessFile("/proc/meminfo", r.f42062a);
             try {
                 Matcher matcher = Pattern.compile("(\\d+)").matcher(randomAccessFile.readLine());
                 String str = "";
@@ -1247,7 +1246,7 @@ public class ArdUtil {
     public static boolean isValidMac(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65590, null, str)) == null) ? (TextUtils.isEmpty(str) || str.equalsIgnoreCase(Config.DEF_MAC_ID)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65590, null, str)) == null) ? (TextUtils.isEmpty(str) || str.equalsIgnoreCase("02:00:00:00:00:00")) ? false : true : invokeL.booleanValue;
     }
 
     public static boolean isWifiActive(Context context) {
@@ -1278,9 +1277,9 @@ public class ArdUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, context)) == null) {
-            long j = mTotalMem;
-            if (j != 0) {
-                return j;
+            long j2 = mTotalMem;
+            if (j2 != 0) {
+                return j2;
             }
             if (Build.VERSION.SDK_INT >= 16 && context != null) {
                 try {

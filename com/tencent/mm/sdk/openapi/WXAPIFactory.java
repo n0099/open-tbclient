@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.sdk.b.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class WXAPIFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MicroMsg.PaySdk.WXFactory";

@@ -17,48 +17,48 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ay implements ar {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f40138a;
+    public static boolean f76989a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile int f139a;
+    public volatile int f143a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f140a;
+    public Context f144a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ServiceConnection f141a;
+    public ServiceConnection f145a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile a f142a;
+    public volatile a f146a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Object f143a;
+    public final Object f147a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ay f40139a;
+        public final /* synthetic */ ay f76990a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f144a;
+        public String f148a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f40140b;
+        public String f76991b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f40141c;
+        public String f76992c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f40142d;
+        public String f76993d;
 
         public a(ay ayVar) {
             Interceptable interceptable = $ic;
@@ -75,11 +75,11 @@ public class ay implements ar {
                     return;
                 }
             }
-            this.f40139a = ayVar;
-            this.f144a = null;
-            this.f40140b = null;
-            this.f40141c = null;
-            this.f40142d = null;
+            this.f76990a = ayVar;
+            this.f148a = null;
+            this.f76991b = null;
+            this.f76992c = null;
+            this.f76993d = null;
         }
 
         public /* synthetic */ a(ay ayVar, az azVar) {
@@ -87,13 +87,13 @@ public class ay implements ar {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class b implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ay f40143a;
+        public final /* synthetic */ ay f76994a;
 
         public b(ay ayVar) {
             Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public class ay implements ar {
                     return;
                 }
             }
-            this.f40143a = ayVar;
+            this.f76994a = ayVar;
         }
 
         public /* synthetic */ b(ay ayVar, az azVar) {
@@ -120,7 +120,7 @@ public class ay implements ar {
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) && this.f40143a.f142a == null) {
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) && this.f76994a.f146a == null) {
                 new Thread(new ba(this, iBinder)).start();
             }
         }
@@ -133,7 +133,7 @@ public class ay implements ar {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -176,10 +176,10 @@ public class ay implements ar {
                 return;
             }
         }
-        this.f139a = 0;
-        this.f142a = null;
-        this.f143a = new Object();
-        this.f140a = context;
+        this.f143a = 0;
+        this.f146a = null;
+        this.f147a = new Object();
+        this.f144a = context;
         a();
     }
 
@@ -187,26 +187,26 @@ public class ay implements ar {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.f141a = new b(this, null);
+            this.f145a = new b(this, null);
             Intent intent = new Intent();
             intent.setClassName("com.heytap.openid", "com.heytap.openid.IdentifyService");
             intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
             try {
-                z = this.f140a.bindService(intent, this.f141a, 1);
+                z = this.f144a.bindService(intent, this.f145a, 1);
             } catch (Exception unused) {
                 z = false;
             }
-            this.f139a = z ? 1 : 2;
+            this.f143a = z ? 1 : 2;
         }
     }
 
     private void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, this, str) == null) && this.f139a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
-            synchronized (this.f143a) {
+        if ((interceptable == null || interceptable.invokeL(65545, this, str) == null) && this.f143a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
+            synchronized (this.f147a) {
                 try {
-                    com.xiaomi.channel.commonutils.logger.b.m70a("oppo's " + str + " wait...");
-                    this.f143a.wait(3000L);
+                    com.xiaomi.channel.commonutils.logger.b.m73a("oppo's " + str + " wait...");
+                    this.f147a.wait(3000L);
                 } catch (Exception unused) {
                 }
             }
@@ -222,7 +222,7 @@ public class ay implements ar {
                 if (packageInfo != null) {
                     long longVersionCode = Build.VERSION.SDK_INT >= 28 ? packageInfo.getLongVersionCode() : packageInfo.versionCode;
                     boolean z = (packageInfo.applicationInfo.flags & 1) != 0;
-                    f40138a = longVersionCode >= 1;
+                    f76989a = longVersionCode >= 1;
                     if (z) {
                         return true;
                     }
@@ -238,11 +238,11 @@ public class ay implements ar {
     public void b() {
         ServiceConnection serviceConnection;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || (serviceConnection = this.f141a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || (serviceConnection = this.f145a) == null) {
             return;
         }
         try {
-            this.f140a.unbindService(serviceConnection);
+            this.f144a.unbindService(serviceConnection);
         } catch (Exception unused) {
         }
     }
@@ -253,7 +253,7 @@ public class ay implements ar {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
             try {
-                Signature[] signatureArr = this.f140a.getPackageManager().getPackageInfo(this.f140a.getPackageName(), 64).signatures;
+                Signature[] signatureArr = this.f144a.getPackageManager().getPackageInfo(this.f144a.getPackageName(), 64).signatures;
                 MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
                 StringBuilder sb = new StringBuilder();
                 for (byte b2 : messageDigest.digest(signatureArr[0].toByteArray())) {
@@ -273,10 +273,10 @@ public class ay implements ar {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             a("getUDID");
-            if (this.f142a == null) {
+            if (this.f146a == null) {
                 return null;
             }
-            return this.f142a.f144a;
+            return this.f146a.f148a;
         }
         return (String) invokeV.objValue;
     }
@@ -285,20 +285,20 @@ public class ay implements ar {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f40138a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f76989a : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo149b() {
+    public String mo152b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             a("getOAID");
-            if (this.f142a == null) {
+            if (this.f146a == null) {
                 return null;
             }
-            return this.f142a.f40140b;
+            return this.f146a.f76991b;
         }
         return (String) invokeV.objValue;
     }
@@ -309,10 +309,10 @@ public class ay implements ar {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             a("getVAID");
-            if (this.f142a == null) {
+            if (this.f146a == null) {
                 return null;
             }
-            return this.f142a.f40141c;
+            return this.f146a.f76992c;
         }
         return (String) invokeV.objValue;
     }
@@ -323,10 +323,10 @@ public class ay implements ar {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             a("getAAID");
-            if (this.f142a == null) {
+            if (this.f146a == null) {
                 return null;
             }
-            return this.f142a.f40142d;
+            return this.f146a.f76993d;
         }
         return (String) invokeV.objValue;
     }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class ApollonBean {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BEAN_TASK_MGR_KEY = "BeanTaskManager";
@@ -60,61 +60,6 @@ public abstract class ApollonBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             execBean(responseClass());
-        }
-    }
-
-    public <T, E> void executeAndHandleResponse(Class<T> cls, Class<E> cls2) {
-        RestResponseEntity<T> restResponseEntity;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, cls, cls2) == null) {
-            if (getHttpMethod() == 0) {
-                restResponseEntity = this.mRestTemplate.getForEntity(getUrl(), getRequestParams(), getEncode(), JsonUtils.DataType.isString(cls) ? BeanResponseString.class : BeanResponseBase.class);
-            } else if (getHttpMethod() == 1) {
-                restResponseEntity = this.mRestTemplate.postForEntity(getUrl(), getRequestParams(), getEncode(), JsonUtils.DataType.isString(cls) ? BeanResponseString.class : BeanResponseBase.class);
-            } else {
-                restResponseEntity = null;
-            }
-            handleResponse(cls, cls2, restResponseEntity);
-        }
-    }
-
-    public abstract int getBeanId();
-
-    public String getEncode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "UTF-8" : (String) invokeV.objValue;
-    }
-
-    public int getHttpMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    public abstract List<RestNameValuePair> getRequestParams();
-
-    public abstract String getUrl();
-
-    public abstract <T, E> void handleCommonErrors(Exception exc);
-
-    public abstract void handleNetworkFailureError();
-
-    public abstract <T, E> void handleResponse(Class<T> cls, Class<E> cls2, RestResponseEntity<? extends BeanResponseBase> restResponseEntity);
-
-    public abstract <T> void handleResponseHeaders(RestResponseEntity<T> restResponseEntity);
-
-    public abstract void prepareRestTemplate();
-
-    public abstract Class<?> responseClass();
-
-    public void setResponseCallback(IBeanResponseCallback iBeanResponseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, iBeanResponseCallback) == null) {
-            this.mRspCallback = iBeanResponseCallback;
         }
     }
 
@@ -180,6 +125,61 @@ public abstract class ApollonBean {
             this.mTskKey = "BeanTask_" + getBeanId() + "_" + System.currentTimeMillis();
             a2.getClass();
             a2.a(new a.c(a2, 0L, 0L, false, this.mTskKey, runnable), "ApollonBeanTask");
+        }
+    }
+
+    public <T, E> void executeAndHandleResponse(Class<T> cls, Class<E> cls2) {
+        RestResponseEntity<T> restResponseEntity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, cls, cls2) == null) {
+            if (getHttpMethod() == 0) {
+                restResponseEntity = this.mRestTemplate.getForEntity(getUrl(), getRequestParams(), getEncode(), JsonUtils.DataType.isString(cls) ? BeanResponseString.class : BeanResponseBase.class);
+            } else if (getHttpMethod() == 1) {
+                restResponseEntity = this.mRestTemplate.postForEntity(getUrl(), getRequestParams(), getEncode(), JsonUtils.DataType.isString(cls) ? BeanResponseString.class : BeanResponseBase.class);
+            } else {
+                restResponseEntity = null;
+            }
+            handleResponse(cls, cls2, restResponseEntity);
+        }
+    }
+
+    public abstract int getBeanId();
+
+    public String getEncode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "UTF-8" : (String) invokeV.objValue;
+    }
+
+    public int getHttpMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    public abstract List<RestNameValuePair> getRequestParams();
+
+    public abstract String getUrl();
+
+    public abstract <T, E> void handleCommonErrors(Exception exc);
+
+    public abstract void handleNetworkFailureError();
+
+    public abstract <T, E> void handleResponse(Class<T> cls, Class<E> cls2, RestResponseEntity<? extends BeanResponseBase> restResponseEntity);
+
+    public abstract <T> void handleResponseHeaders(RestResponseEntity<T> restResponseEntity);
+
+    public abstract void prepareRestTemplate();
+
+    public abstract Class<?> responseClass();
+
+    public void setResponseCallback(IBeanResponseCallback iBeanResponseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, iBeanResponseCallback) == null) {
+            this.mRspCallback = iBeanResponseCallback;
         }
     }
 }

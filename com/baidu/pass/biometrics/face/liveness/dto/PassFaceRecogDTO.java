@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class PassFaceRecogDTO extends PassBiometricDto {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMAGE_FLAG_CUT_AND_ORIGIN_IMAGE = 3;
@@ -116,7 +116,7 @@ public class PassFaceRecogDTO extends PassBiometricDto {
     public String getSpno() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.extraParamsMap.get(KEY_EXTRA_PASS_PRODUCT_ID) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.extraParamsMap.get("sp_no") : (String) invokeV.objValue;
     }
 
     public boolean isReturnCutImage() {

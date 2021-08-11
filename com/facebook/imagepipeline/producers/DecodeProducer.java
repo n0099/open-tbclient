@@ -38,7 +38,7 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class DecodeProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCODED_IMAGE_SIZE = "encodedImageSize";
@@ -61,7 +61,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
     public final int mMaxBitmapSize;
     public final ProgressiveJpegConfig mProgressiveJpegConfig;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class LocalImagesProgressiveDecoder extends ProgressiveDecoder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +119,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class NetworkImagesProgressiveDecoder extends ProgressiveDecoder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -194,7 +194,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public abstract class ProgressiveDecoder extends DelegatingConsumer<EncodedImage, CloseableReference<CloseableImage>> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DECODE_EXCEPTION_MESSAGE_NUM_HEADER_BYTES = 10;
@@ -323,13 +323,13 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
 
         /* JADX INFO: Access modifiers changed from: private */
         /* JADX WARN: Can't wrap try/catch for region: R(8:24|25|(9:(13:29|(11:33|34|35|36|38|39|(1:41)|42|43|44|45)|59|34|35|36|38|39|(0)|42|43|44|45)|(11:33|34|35|36|38|39|(0)|42|43|44|45)|38|39|(0)|42|43|44|45)|60|59|34|35|36) */
-        /* JADX WARN: Code restructure failed: missing block: B:50:0x0106, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:50:0x0105, code lost:
             r0 = e;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:51:0x0107, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:51:0x0106, code lost:
             r2 = null;
          */
-        /* JADX WARN: Removed duplicated region for block: B:43:0x00e5  */
+        /* JADX WARN: Removed duplicated region for block: B:43:0x00e4  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -430,12 +430,12 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         }
 
         @Nullable
-        private Map<String, String> getExtraMap(@Nullable CloseableImage closeableImage, long j, QualityInfo qualityInfo, boolean z, String str, String str2, String str3, String str4) {
+        private Map<String, String> getExtraMap(@Nullable CloseableImage closeableImage, long j2, QualityInfo qualityInfo, boolean z, String str, String str2, String str3, String str4) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{closeableImage, Long.valueOf(j), qualityInfo, Boolean.valueOf(z), str, str2, str3, str4})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{closeableImage, Long.valueOf(j2), qualityInfo, Boolean.valueOf(z), str, str2, str3, str4})) == null) {
                 if (this.mProducerListener.requiresExtraMap(this.mProducerContext.getId())) {
-                    String valueOf = String.valueOf(j);
+                    String valueOf = String.valueOf(j2);
                     String valueOf2 = String.valueOf(qualityInfo.isOfGoodEnoughQuality());
                     String valueOf3 = String.valueOf(z);
                     if (closeableImage instanceof CloseableStaticBitmap) {

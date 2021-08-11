@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -23,7 +22,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class PlayerPolicyImplement implements IPlayerPolicy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ADD_OBSERVER_WORK_MSG = 2;
@@ -180,7 +179,6 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
                     public void onFailure(Call call, IOException iOException) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, call, iOException) == null) {
-                            Log.d(PlayerPolicyImplement.TAG, "onFailure: ");
                         }
                     }
 
@@ -196,18 +194,12 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
                                 return;
                             }
                             this.this$0.notify(string);
-                            try {
-                                this.this$0.mUpdateInterval = new JSONObject(string).getJSONObject("bandwidth_config").getLong("update_interval");
-                            } catch (Exception e2) {
-                                Log.e(PlayerPolicyImplement.TAG, "Get json fail => ", e2);
-                            }
-                        } catch (IOException e3) {
-                            Log.e(PlayerPolicyImplement.TAG, "onResponse: ", e3);
+                            this.this$0.mUpdateInterval = new JSONObject(string).getJSONObject("bandwidth_config").getLong("update_interval");
+                        } catch (IOException | Exception unused) {
                         }
                     }
                 });
-            } catch (Exception e2) {
-                Log.e(TAG, "onUpdateConfig: ", e2);
+            } catch (Exception unused) {
             }
         }
     }
@@ -276,11 +268,9 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
             if (this.mFirstUpdateTimeStamp == 0) {
                 this.mFirstUpdateTimeStamp = currentTimeMillis;
             }
-            boolean z = currentTimeMillis - this.mFirstUpdateTimeStamp < this.mUpdateInterval;
-            boolean z2 = currentTimeMillis - this.mLastUpdateTimeStamp > this.mUpdateInterval;
-            Log.e(TAG, "first period : " + z + " second period : " + z2);
-            long j = this.mUpdateInterval;
-            if (currentTimeMillis - this.mFirstUpdateTimeStamp < j || currentTimeMillis - this.mLastUpdateTimeStamp > j) {
+            String str = "first period : " + (currentTimeMillis - this.mFirstUpdateTimeStamp < this.mUpdateInterval) + " second period : " + (currentTimeMillis - this.mLastUpdateTimeStamp > this.mUpdateInterval);
+            long j2 = this.mUpdateInterval;
+            if (currentTimeMillis - this.mFirstUpdateTimeStamp < j2 || currentTimeMillis - this.mLastUpdateTimeStamp > j2) {
                 this.mLastUpdateTimeStamp = currentTimeMillis;
                 this.mWorkHandler.sendEmptyMessage(1);
             }

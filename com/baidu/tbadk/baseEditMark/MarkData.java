@@ -2,6 +2,7 @@ package com.baidu.tbadk.baseEditMark;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.k;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.db.DBTableDefine;
@@ -18,12 +19,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.services.vod.VodClient;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
-import d.a.d.e.p.k;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.BaijiahaoInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class MarkData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2647743141824773827L;
@@ -329,7 +329,7 @@ public class MarkData implements Serializable {
                 if (this.isShareThread) {
                     OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
                     this.originalThreadInfo = originalThreadInfo;
-                    originalThreadInfo.l(optJSONObject);
+                    originalThreadInfo.o(optJSONObject);
                 }
                 this.mIsPhotoLiveThread = EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_FAIL.equals(String.valueOf(jSONObject.optInt("thread_type")));
                 int optInt = jSONObject.optInt("mark_status");
@@ -414,10 +414,10 @@ public class MarkData implements Serializable {
         }
     }
 
-    public void setCartoonId(long j) {
+    public void setCartoonId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048614, this, j) == null) {
-            this.cartoonId = j;
+        if (interceptable == null || interceptable.invokeJ(1048614, this, j2) == null) {
+            this.cartoonId = j2;
         }
     }
 
@@ -554,10 +554,10 @@ public class MarkData implements Serializable {
         }
     }
 
-    public void setTime(long j) {
+    public void setTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048634, this, j) == null) {
-            this.mTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048634, this, j2) == null) {
+            this.mTime = j2;
         }
     }
 

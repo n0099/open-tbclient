@@ -7,6 +7,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
+import c.a.n0.a.c;
+import c.a.n0.a.v2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,21 +17,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.c;
-import d.a.o0.a.v2.n0;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LocationItemDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f12035c;
+    public static final int f46940c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ColorDrawable f12036a;
+    public ColorDrawable f46941a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f12037b;
+    public boolean f46942b;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        f12035c = n0.g(15.0f);
+        f46940c = n0.g(15.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -71,18 +71,18 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
     public final void drawVertical(Canvas canvas, RecyclerView recyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, recyclerView) == null) {
-            int paddingLeft = recyclerView.getPaddingLeft() + f12035c;
-            int width = (recyclerView.getWidth() - recyclerView.getPaddingRight()) - f12035c;
+            int paddingLeft = recyclerView.getPaddingLeft() + f46940c;
+            int width = (recyclerView.getWidth() - recyclerView.getPaddingRight()) - f46940c;
             int childCount = recyclerView.getChildCount();
-            if (!this.f12037b) {
+            if (!this.f46942b) {
                 childCount--;
             }
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = recyclerView.getChildAt(i2);
                 if (childAt != null) {
                     int bottom = childAt.getBottom() + ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) childAt.getLayoutParams())).bottomMargin;
-                    this.f12036a.setBounds(paddingLeft, bottom, width, bottom + 1);
-                    this.f12036a.draw(canvas);
+                    this.f46941a.setBounds(paddingLeft, bottom, width, bottom + 1);
+                    this.f46941a.draw(canvas);
                 }
             }
         }
@@ -119,8 +119,8 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        this.f12037b = true;
-        this.f12036a = new ColorDrawable(context.getResources().getColor(c.aiapps_location_item_bg_pressed));
-        this.f12037b = z;
+        this.f46942b = true;
+        this.f46941a = new ColorDrawable(context.getResources().getColor(c.aiapps_location_item_bg_pressed));
+        this.f46942b = z;
     }
 }

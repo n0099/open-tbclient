@@ -11,7 +11,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import androidx.annotation.AttrRes;
@@ -44,7 +43,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Callable;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class LottieAnimationView extends AppCompatImageView {
     public static /* synthetic */ Interceptable $ic;
     public static final LottieListener<Throwable> DEFAULT_FAILURE_LISTENER;
@@ -75,7 +74,7 @@ public class LottieAnimationView extends AppCompatImageView {
     public final LottieListener<Throwable> wrappedFailureListener;
 
     /* renamed from: com.airbnb.lottie.LottieAnimationView$7  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass7 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$RenderMode;
         public static /* synthetic */ Interceptable $ic;
@@ -111,7 +110,7 @@ public class LottieAnimationView extends AppCompatImageView {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -1031,8 +1030,7 @@ public class LottieAnimationView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048628, this, lottieComposition) == null) {
             if (L.DBG) {
-                String str = TAG;
-                Log.v(str, "Set Composition \n" + lottieComposition);
+                String str = "Set Composition \n" + lottieComposition;
             }
             this.lottieDrawable.setCallback(this);
             this.composition = lottieComposition;

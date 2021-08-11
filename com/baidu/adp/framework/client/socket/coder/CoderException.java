@@ -1,12 +1,12 @@
 package com.baidu.adp.framework.client.socket.coder;
 
+import c.a.e.c.e.c.h;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.c.e.c.h;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class CoderException extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4477017113691535623L;

@@ -3,7 +3,8 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
-import com.alibaba.fastjson.asm.Label;
+import c.a.e.e.p.k;
+import c.a.e.e.p.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -17,9 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
-import d.a.d.e.p.l;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class WebViewActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG_AD_DEEPLINK_URL = "tag_ad_deeplink_url";
@@ -169,7 +168,7 @@ public class WebViewActivityConfig extends IntentConfig {
         getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, true);
         addPageIdParams(context);
         if (!(getContext() instanceof Activity)) {
-            getIntent().addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            getIntent().addFlags(268435456);
         }
         setIntentAction(IntentAction.Activity);
     }
@@ -200,7 +199,7 @@ public class WebViewActivityConfig extends IntentConfig {
         getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, true);
         addPageIdParams(context);
         if (!(getContext() instanceof Activity)) {
-            getIntent().addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            getIntent().addFlags(268435456);
         }
         setIntentAction(IntentAction.Activity);
     }
@@ -231,7 +230,7 @@ public class WebViewActivityConfig extends IntentConfig {
         getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, z4);
         addPageIdParams(context);
         if (!(getContext() instanceof Activity)) {
-            getIntent().addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            getIntent().addFlags(268435456);
         }
         setIntentAction(IntentAction.Activity);
     }

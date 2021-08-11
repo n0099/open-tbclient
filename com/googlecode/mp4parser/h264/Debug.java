@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ShortBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class Debug {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean debug = false;

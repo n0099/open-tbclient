@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import c.a.e.e.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -16,28 +17,29 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ItemHeaderView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f17584e;
+    public Context f52804e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BarImageView f17585f;
+    public BarImageView f52805f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17586g;
+    public TextView f52806g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17587h;
+    public TextView f52807h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f17588i;
-    public TextView j;
+    public TextView f52808i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public TextView f52809j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ItemHeaderView(Context context) {
@@ -57,25 +59,25 @@ public class ItemHeaderView extends RelativeLayout {
                 return;
             }
         }
-        a(context);
+        init(context);
     }
 
-    public void a(Context context) {
+    public void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f17584e = context;
+            this.f52804e = context;
             LayoutInflater.from(context).inflate(R.layout.forum_detail_header, (ViewGroup) this, true);
             setVisibility(8);
-            this.f17585f = (BarImageView) findViewById(R.id.h_forum_portrait);
-            this.f17586g = (TextView) findViewById(R.id.h_forum_name);
-            this.f17587h = (TextView) findViewById(R.id.forum_authen);
-            this.f17588i = (TextView) findViewById(R.id.h_fans_num);
-            this.j = (TextView) findViewById(R.id.h_thread_num);
-            this.f17585f.setPlaceHolder(1);
+            this.f52805f = (BarImageView) findViewById(R.id.h_forum_portrait);
+            this.f52806g = (TextView) findViewById(R.id.h_forum_name);
+            this.f52807h = (TextView) findViewById(R.id.forum_authen);
+            this.f52808i = (TextView) findViewById(R.id.h_fans_num);
+            this.f52809j = (TextView) findViewById(R.id.h_thread_num);
+            this.f52805f.setPlaceHolder(1);
         }
     }
 
-    public void b(ForumDetailActivity forumDetailActivity, int i2) {
+    public void onChangeSkinType(ForumDetailActivity forumDetailActivity, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i2) == null) {
             forumDetailActivity.getLayoutMode().k(i2 == 1);
@@ -89,24 +91,24 @@ public class ItemHeaderView extends RelativeLayout {
             return;
         }
         boolean z = recommendForumInfo.forum_type.intValue() == 1;
-        this.f17586g.setText(recommendForumInfo.forum_name);
+        this.f52806g.setText(recommendForumInfo.forum_name);
         if (z) {
             BitmapDrawable bitmapDrawable = (BitmapDrawable) SkinManager.getDrawable(R.drawable.icon_v);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-            this.f17586g.setCompoundDrawables(null, null, bitmapDrawable, null);
-            TextView textView = this.f17586g;
-            Context context = this.f17584e;
+            this.f52806g.setCompoundDrawables(null, null, bitmapDrawable, null);
+            TextView textView = this.f52806g;
+            Context context = this.f52804e;
             textView.setCompoundDrawablePadding(l.e(context, context.getResources().getDimension(R.dimen.ds4)));
-            this.f17587h.setText(recommendForumInfo.authen);
-            this.f17587h.setVisibility(0);
+            this.f52807h.setText(recommendForumInfo.authen);
+            this.f52807h.setVisibility(0);
         } else {
-            this.f17586g.setCompoundDrawables(null, null, null, null);
-            this.f17587h.setVisibility(8);
+            this.f52806g.setCompoundDrawables(null, null, null, null);
+            this.f52807h.setVisibility(8);
         }
-        this.f17588i.setText(StringHelper.numberUniformFormat(recommendForumInfo.member_count.intValue()));
-        this.j.setText(StringHelper.numberUniformFormat(recommendForumInfo.thread_count.intValue()));
-        int e2 = l.e(this.f17584e, 80.0f);
-        this.f17585f.J(recommendForumInfo.avatar, 10, e2, e2, false);
+        this.f52808i.setText(StringHelper.numberUniformFormat(recommendForumInfo.member_count.intValue()));
+        this.f52809j.setText(StringHelper.numberUniformFormat(recommendForumInfo.thread_count.intValue()));
+        int e2 = l.e(this.f52804e, 80.0f);
+        this.f52805f.startLoad(recommendForumInfo.avatar, 10, e2, e2, false);
         setVisibility(0);
     }
 
@@ -129,7 +131,7 @@ public class ItemHeaderView extends RelativeLayout {
                 return;
             }
         }
-        a(context);
+        init(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -151,6 +153,6 @@ public class ItemHeaderView extends RelativeLayout {
                 return;
             }
         }
-        a(context);
+        init(context);
     }
 }

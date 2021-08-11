@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class CommonUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class CommonUtils {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ float f24870a;
+            public final /* synthetic */ float f60587a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -61,7 +61,7 @@ public class CommonUtils {
                         return;
                     }
                 }
-                this.f24870a = f2;
+                this.f60587a = f2;
             }
 
             @Override // android.view.View.OnTouchListener
@@ -74,7 +74,7 @@ public class CommonUtils {
                         view2.setAlpha(1.0f);
                         return false;
                     }
-                    view2.setAlpha(this.f24870a);
+                    view2.setAlpha(this.f60587a);
                     return false;
                 }
                 return invokeLL.booleanValue;

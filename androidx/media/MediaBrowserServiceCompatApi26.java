@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.service.media.MediaBrowserService;
 import android.support.v4.media.session.MediaSessionCompat;
-import android.util.Log;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.MediaBrowserServiceCompatApi23;
@@ -119,8 +118,7 @@ public class MediaBrowserServiceCompatApi26 {
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, list, i2) == null) {
                 try {
                     MediaBrowserServiceCompatApi26.sResultFlags.setInt(this.mResultObj, i2);
-                } catch (IllegalAccessException e2) {
-                    Log.w(MediaBrowserServiceCompatApi26.TAG, e2);
+                } catch (IllegalAccessException unused) {
                 }
                 this.mResultObj.sendResult(parcelListToItemList(list));
             }
@@ -149,8 +147,7 @@ public class MediaBrowserServiceCompatApi26 {
             Field declaredField = MediaBrowserService.Result.class.getDeclaredField("mFlags");
             sResultFlags = declaredField;
             declaredField.setAccessible(true);
-        } catch (NoSuchFieldException e2) {
-            Log.w(TAG, e2);
+        } catch (NoSuchFieldException unused) {
         }
     }
 

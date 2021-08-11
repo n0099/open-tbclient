@@ -2,6 +2,9 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.b1.w;
+import c.a.p0.x2.j0.a;
+import c.a.p0.x2.l0.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -14,13 +17,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.p0.b1.w;
-import d.a.q0.w2.g0.a;
-import d.a.q0.w2.i0.b;
 import tbclient.PbPage.AdParam;
 import tbclient.PbPage.DataReq;
 import tbclient.PbPage.PbPageReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PbPageRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public static final Wire WIRE;
@@ -291,7 +291,7 @@ public class PbPageRequestMessage extends NetMessage {
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.forumId = Long.valueOf(d.a.d.e.m.b.f(str, 0L));
+            this.forumId = Long.valueOf(c.a.e.e.m.b.f(str, 0L));
         }
     }
 
@@ -386,17 +386,17 @@ public class PbPageRequestMessage extends NetMessage {
         }
     }
 
-    public void setOfficialBarMsgId(long j) {
+    public void setOfficialBarMsgId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
-            this.officialBarMsgId = j;
+        if (interceptable == null || interceptable.invokeJ(1048604, this, j2) == null) {
+            this.officialBarMsgId = j2;
         }
     }
 
-    public void setOpMessageID(long j) {
+    public void setOpMessageID(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048605, this, j) == null) {
-            this.opMessageID = j;
+        if (interceptable == null || interceptable.invokeJ(1048605, this, j2) == null) {
+            this.opMessageID = j2;
         }
     }
 
@@ -498,10 +498,10 @@ public class PbPageRequestMessage extends NetMessage {
         }
     }
 
-    public void set_kz(long j) {
+    public void set_kz(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048620, this, j) == null) {
-            this.kz = j;
+        if (interceptable == null || interceptable.invokeJ(1048620, this, j2) == null) {
+            this.kz = j2;
         }
     }
 
@@ -540,10 +540,10 @@ public class PbPageRequestMessage extends NetMessage {
         }
     }
 
-    public void set_pid(long j) {
+    public void set_pid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048626, this, j) == null) {
-            this.pid = j;
+        if (interceptable == null || interceptable.invokeJ(1048626, this, j2) == null) {
+            this.pid = j2;
         }
     }
 

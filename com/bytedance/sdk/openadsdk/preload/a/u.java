@@ -9,18 +9,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class u {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final u f32266a;
+    public static final u f68225a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final u f32267b;
+    public static final u f68226b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final /* synthetic */ u[] f32268c;
+    public static final /* synthetic */ u[] f68227c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public abstract class u {
                 return;
             }
         }
-        f32266a = new u("DEFAULT", 0) { // from class: com.bytedance.sdk.openadsdk.preload.a.u.1
+        f68225a = new u("DEFAULT", 0) { // from class: com.bytedance.sdk.openadsdk.preload.a.u.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -86,8 +86,8 @@ public abstract class u {
                 }
             }
         };
-        f32267b = uVar;
-        f32268c = new u[]{f32266a, uVar};
+        f68226b = uVar;
+        f68227c = new u[]{f68225a, uVar};
     }
 
     public u(String str, int i2) {
@@ -118,6 +118,6 @@ public abstract class u {
     public static u[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (u[]) f32268c.clone() : (u[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (u[]) f68227c.clone() : (u[]) invokeV.objValue;
     }
 }

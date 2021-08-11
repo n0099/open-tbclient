@@ -21,22 +21,22 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile c f31113a;
+    public static volatile c f67051a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f31114b;
+    public Set<String> f67052b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object f31115c;
+    public Object f67053c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LruCache<String, v> f31116d;
+    public LruCache<String, v> f67054d;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -51,13 +51,13 @@ public class c {
                 return;
             }
         }
-        this.f31115c = new Object();
-        this.f31116d = new LruCache<String, v>(this, 2000) { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.c.1
+        this.f67053c = new Object();
+        this.f67054d = new LruCache<String, v>(this, 2000) { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f31117a;
+            public final /* synthetic */ c f67055a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -77,7 +77,7 @@ public class c {
                         return;
                     }
                 }
-                this.f31117a = this;
+                this.f67055a = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -92,21 +92,21 @@ public class c {
                 return invokeLL.intValue;
             }
         };
-        this.f31114b = Collections.synchronizedSet(new HashSet());
+        this.f67052b = Collections.synchronizedSet(new HashSet());
     }
 
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f31113a == null) {
+            if (f67051a == null) {
                 synchronized (c.class) {
-                    if (f31113a == null) {
-                        f31113a = new c();
+                    if (f67051a == null) {
+                        f67051a = new c();
                     }
                 }
             }
-            return f31113a;
+            return f67051a;
         }
         return (c) invokeV.objValue;
     }
@@ -114,11 +114,11 @@ public class c {
     private void c(String str) {
         LruCache<String, v> lruCache;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, str) == null) || TextUtils.isEmpty(str) || (lruCache = this.f31116d) == null || lruCache.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(65539, this, str) == null) || TextUtils.isEmpty(str) || (lruCache = this.f67054d) == null || lruCache.size() <= 0) {
             return;
         }
-        synchronized (this.f31115c) {
-            this.f31116d.remove(str);
+        synchronized (this.f67053c) {
+            this.f67054d.remove(str);
         }
     }
 
@@ -179,8 +179,8 @@ public class c {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            synchronized (this.f31115c) {
-                vVar = this.f31116d.get(String.valueOf(str));
+            synchronized (this.f67053c) {
+                vVar = this.f67054d.get(String.valueOf(str));
             }
             if (vVar != null) {
                 return vVar;
@@ -194,10 +194,10 @@ public class c {
                         String string3 = a2.getString(a2.getColumnIndex(PackageTable.MD5));
                         String string4 = a2.getString(a2.getColumnIndex("url"));
                         v a3 = new v().a(string).b(string2).c(string3).d(string4).e(a2.getString(a2.getColumnIndex("data"))).f(a2.getString(a2.getColumnIndex("version"))).a(Long.valueOf(a2.getLong(a2.getColumnIndex("update_time"))));
-                        synchronized (this.f31115c) {
-                            this.f31116d.put(string2, a3);
+                        synchronized (this.f67053c) {
+                            this.f67054d.put(string2, a3);
                         }
-                        this.f31114b.add(string2);
+                        this.f67052b.add(string2);
                         return a3;
                     }
                 } catch (Throwable th) {
@@ -240,10 +240,10 @@ public class c {
                         String string4 = a2.getString(a2.getColumnIndex("url"));
                         String string5 = a2.getString(a2.getColumnIndex("data"));
                         arrayList.add(new v().a(string).b(string2).c(string3).d(string4).e(string5).f(a2.getString(a2.getColumnIndex("version"))).a(Long.valueOf(a2.getLong(a2.getColumnIndex("update_time")))));
-                        synchronized (this.f31115c) {
-                            this.f31116d.put(string2, arrayList.get(arrayList.size() - 1));
+                        synchronized (this.f67053c) {
+                            this.f67054d.put(string2, arrayList.get(arrayList.size() - 1));
                         }
-                        this.f31114b.add(string2);
+                        this.f67052b.add(string2);
                     } catch (Throwable th) {
                         try {
                             k.c("TmplDbHelper", "getTemplate error", th);
@@ -286,10 +286,10 @@ public class c {
         } else {
             com.bytedance.sdk.openadsdk.multipro.a.a.a(o.a(), "template_diff_new", contentValues);
         }
-        synchronized (this.f31115c) {
-            this.f31116d.put(vVar.b(), vVar);
+        synchronized (this.f67053c) {
+            this.f67054d.put(vVar.b(), vVar);
         }
-        this.f31114b.add(vVar.b());
+        this.f67052b.add(vVar.b());
     }
 
     public void a(Set<String> set) {

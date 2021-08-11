@@ -17,7 +17,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ConstrainedExecutorService extends AbstractExecutorService {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -31,13 +31,13 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
     public final BlockingQueue<Runnable> mWorkQueue;
 
     /* renamed from: com.facebook.common.executors.ConstrainedExecutorService$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class Worker implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -164,10 +164,10 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public boolean awaitTermination(long j, TimeUnit timeUnit) throws InterruptedException {
+    public boolean awaitTermination(long j2, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, timeUnit)) == null) {
             throw new UnsupportedOperationException();
         }
         return invokeJL.booleanValue;

@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class DBConnection extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DBConnection";
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class Version27And28Handler implements DBVersionManager.VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,12 +64,12 @@ public class DBConnection extends SQLiteOpenHelper {
                     new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
                     LogUtils.e(LogUtils.TAG, "DBConnection onUpgrade:27->28", e2);
                 }
-                Log.d(LogUtils.TAG, "DBConnection onUpgrade:27->28");
+                String str = LogUtils.TAG;
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class Version47And48Handler implements DBVersionManager.VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,12 +111,12 @@ public class DBConnection extends SQLiteOpenHelper {
                     new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
                     LogUtils.e(LogUtils.TAG, "DBConnection onUpgrade:27->28", e2);
                 }
-                Log.d(LogUtils.TAG, "DBConnection onUpgrade:27->28");
+                String str = LogUtils.TAG;
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class Version49And50Handler implements DBVersionManager.VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +162,7 @@ public class DBConnection extends SQLiteOpenHelper {
                     new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
                     LogUtils.e(LogUtils.TAG, "DBConnection onUpgrade:49->50", e2);
                 }
-                Log.d(LogUtils.TAG, "DBConnection onUpgrade:49->50");
+                String str = LogUtils.TAG;
             }
         }
     }

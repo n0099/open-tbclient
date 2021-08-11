@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -47,7 +46,7 @@ import org.webrtc.SessionDescription;
 import org.webrtc.StatsReport;
 import org.webrtc.VideoTrack;
 import org.webrtc.audio.JavaAudioDeviceModule;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConnectionEvents {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_AUDIO_BUFFER_MAINTAINABLE_MS = 50;
@@ -349,10 +348,10 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
         }
     }
 
-    private void prepareSdp(long j, String str) {
+    private void prepareSdp(long j2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65560, this, j, str) == null) {
-            RemoteSdpRequest remoteSdpRequest = new RemoteSdpRequest(str, j, this.mStreamUrl);
+        if (interceptable == null || interceptable.invokeJL(65560, this, j2, str) == null) {
+            RemoteSdpRequest remoteSdpRequest = new RemoteSdpRequest(str, j2, this.mStreamUrl);
             Logging.d(TAG, "Connecting to signaling server: " + this.mPullUrl + "\n offer sdp:" + str);
             AsyncHttpRequest asyncHttpRequest = new AsyncHttpRequest("POST", this.mPullUrl, remoteSdpRequest.toJSONString(), "application/json", new AsyncHttpRequest.AsyncHttpEvents(this) { // from class: com.baidu.rtc.player.BRTCPlayerImpl.6
                 public static /* synthetic */ Interceptable $ic;
@@ -516,7 +515,7 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
             RtcParameterSettings rtcParameterSettings2 = this.mDefaultSettings;
             this.peerConnectionParameters = new PeerConnectionClient.PeerConnectionParameters(false, -1, -1, i2, upperCase, true, 0, "", false, false, rtcParameterSettings2.DisableBuiltInAEC, true, true, rtcParameterSettings2.VideoMaxkbps, rtcParameterSettings2.VideoMinkbps, rtcParameterSettings2.MicPhoneMuted, rtcParameterSettings2.CameraMuted, true, rtcParameterSettings2.EnableFixedResolution, rtcParameterSettings2.EnableRequiredResolutionAligment32, rtcParameterSettings2.EnableHighProfile, rtcParameterSettings2.AudioMaxkbps, rtcParameterSettings2.audioBitrateMode, rtcParameterSettings2.TransportAudioChannel, rtcParameterSettings2.EncodeBitrateMode, rtcParameterSettings2.EnableHisiH264HW, rtcParameterSettings2.EnableMTKH264Decode, 0, rtcParameterSettings2.AudioBufferPackets, rtcParameterSettings2.AudioPlayoutDelay, rtcParameterSettings2.AudioCodecComplex, true, 2);
             this.peerConnectionClient.createPeerConnectionFactory((Context) weakReference.get(), this.peerConnectionParameters, this);
-            Log.d(TAG, "Rtc Sdk Version  " + Constraints.sdkVersion());
+            String str = "Rtc Sdk Version  " + Constraints.sdkVersion();
             return true;
         }
         return invokeV.booleanValue;

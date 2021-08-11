@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Key;
 import java.security.MessageDigest;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class EmptySignature implements Key {
     public static /* synthetic */ Interceptable $ic;
     public static final EmptySignature EMPTY_KEY;

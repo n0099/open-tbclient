@@ -1,5 +1,6 @@
 package com.baidu.tieba.personPolymeric.mode.message;
 
+import c.a.p0.k2.b;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,9 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.q0.j2.b;
 import tbclient.Personal.PersonalResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PersonPolymericSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

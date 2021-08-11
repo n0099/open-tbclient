@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.adnet.core.i;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a extends VAdError {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Intent f28159b;
+    public Intent f64002b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(i iVar) {
@@ -39,6 +39,6 @@ public class a extends VAdError {
     public String getMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28159b != null ? "User needs to (re)enter credentials." : super.getMessage() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64002b != null ? "User needs to (re)enter credentials." : super.getMessage() : (String) invokeV.objValue;
     }
 }

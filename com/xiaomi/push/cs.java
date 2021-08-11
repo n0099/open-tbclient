@@ -21,6 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.utils.StatHelper;
 import com.xiaomi.push.service.module.PushChannelRegion;
 import com.yy.gslbsdk.db.ResultTB;
 import java.io.BufferedReader;
@@ -39,65 +40,66 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class cs {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f40221a;
+    public static Context f77073a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static a f197a;
+    public static a f201a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static cs f198a;
+    public static cs f202a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static boolean f199a;
+    public static boolean f203a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, co> f40222b;
+    public static Map<String, co> f77074b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f40223c;
+    public static String f77075c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f40224d;
+    public static String f77076d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f200a;
+    public long f204a;
 
     /* renamed from: a  reason: collision with other field name */
-    public cr f201a;
+    public cr f205a;
 
     /* renamed from: a  reason: collision with other field name */
-    public b f202a;
+    public b f206a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f203a;
+    public String f207a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, cp> f204a;
+    public Map<String, cp> f208a;
 
     /* renamed from: b  reason: collision with other field name */
-    public final long f205b;
+    public final long f209b;
 
     /* renamed from: b  reason: collision with other field name */
-    public String f206b;
+    public String f210b;
 
     /* renamed from: c  reason: collision with other field name */
-    public long f207c;
+    public long f211c;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         cs a(Context context, cr crVar, b bVar, String str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         String a(String str);
     }
@@ -115,8 +117,8 @@ public class cs {
                 return;
             }
         }
-        f40222b = new HashMap();
-        f199a = false;
+        f77074b = new HashMap();
+        f203a = false;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -155,17 +157,17 @@ public class cs {
                 return;
             }
         }
-        this.f204a = new HashMap();
-        this.f203a = "0";
-        this.f200a = 0L;
-        this.f205b = 15L;
-        this.f207c = 0L;
-        this.f206b = "isp_prov_city_country_ip";
-        this.f202a = bVar;
-        this.f201a = crVar == null ? new ct(this) : crVar;
-        this.f203a = str;
-        f40223c = str2 == null ? context.getPackageName() : str2;
-        f40224d = str3 == null ? f() : str3;
+        this.f208a = new HashMap();
+        this.f207a = "0";
+        this.f204a = 0L;
+        this.f209b = 15L;
+        this.f211c = 0L;
+        this.f210b = "isp_prov_city_country_ip";
+        this.f206a = bVar;
+        this.f205a = crVar == null ? new ct(this) : crVar;
+        this.f207a = str;
+        f77075c = str2 == null ? context.getPackageName() : str2;
+        f77076d = str3 == null ? f() : str3;
     }
 
     public static synchronized cs a() {
@@ -174,10 +176,10 @@ public class cs {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (cs.class) {
-                if (f198a == null) {
+                if (f202a == null) {
                     throw new IllegalStateException("the host manager is not initialized yet.");
                 }
-                csVar = f198a;
+                csVar = f202a;
             }
             return csVar;
         }
@@ -185,13 +187,13 @@ public class cs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m228a() {
+    public static String m231a() {
         InterceptResult invokeV;
         ConnectivityManager connectivityManager;
         NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            Context context = f40221a;
+            Context context = f77073a;
             if (context == null) {
                 return "unknown";
             }
@@ -205,7 +207,7 @@ public class cs {
             if (activeNetworkInfo.getType() != 1) {
                 return activeNetworkInfo.getTypeName() + "-" + activeNetworkInfo.getSubtypeName();
             }
-            WifiManager wifiManager = (WifiManager) f40221a.getSystemService("wifi");
+            WifiManager wifiManager = (WifiManager) f77073a.getSystemService("wifi");
             if (wifiManager != null && wifiManager.getConnectionInfo() != null) {
                 return "WIFI-" + wifiManager.getConnectionInfo().getSSID();
             }
@@ -242,21 +244,21 @@ public class cs {
         JSONObject jSONObject2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, arrayList)) == null) {
-            m237d();
-            synchronized (this.f204a) {
-                m233a();
-                for (String str : this.f204a.keySet()) {
+            m240d();
+            synchronized (this.f208a) {
+                m236a();
+                for (String str : this.f208a.keySet()) {
                     if (!arrayList.contains(str)) {
                         arrayList.add(str);
                     }
                 }
             }
-            boolean isEmpty = f40222b.isEmpty();
-            synchronized (f40222b) {
-                for (Object obj : f40222b.values().toArray()) {
+            boolean isEmpty = f77074b.isEmpty();
+            synchronized (f77074b) {
+                for (Object obj : f77074b.values().toArray()) {
                     co coVar = (co) obj;
                     if (!coVar.b()) {
-                        f40222b.remove(coVar.f194b);
+                        f77074b.remove(coVar.f198b);
                         isEmpty = true;
                     }
                 }
@@ -269,12 +271,12 @@ public class cs {
                 arrayList2.add(null);
             }
             try {
-                String str2 = bg.e(f40221a) ? "wifi" : "wap";
-                String a2 = a(arrayList, str2, this.f203a, isEmpty);
+                String str2 = bg.e(f77073a) ? "wifi" : "wap";
+                String a2 = a(arrayList, str2, this.f207a, isEmpty);
                 if (!TextUtils.isEmpty(a2)) {
                     JSONObject jSONObject3 = new JSONObject(a2);
                     com.xiaomi.channel.commonutils.logger.b.b(a2);
-                    if ("OK".equalsIgnoreCase(jSONObject3.getString("S"))) {
+                    if (StatHelper.SENSOR_OK.equalsIgnoreCase(jSONObject3.getString("S"))) {
                         JSONObject jSONObject4 = jSONObject3.getJSONObject("R");
                         String string = jSONObject4.getString("province");
                         String string2 = jSONObject4.getString("city");
@@ -288,7 +290,7 @@ public class cs {
                             String str3 = arrayList.get(i3);
                             JSONArray optJSONArray = jSONObject5.optJSONArray(str3);
                             if (optJSONArray == null) {
-                                com.xiaomi.channel.commonutils.logger.b.m70a("no bucket found for " + str3);
+                                com.xiaomi.channel.commonutils.logger.b.m73a("no bucket found for " + str3);
                                 jSONObject = jSONObject5;
                             } else {
                                 co coVar2 = new co(str3);
@@ -306,11 +308,11 @@ public class cs {
                                 }
                                 jSONObject = jSONObject5;
                                 arrayList2.set(i3, coVar2);
-                                coVar2.f40216g = string5;
-                                coVar2.f40212c = string;
-                                coVar2.f40214e = string3;
-                                coVar2.f40215f = string4;
-                                coVar2.f40213d = string2;
+                                coVar2.f77067g = string5;
+                                coVar2.f77063c = string;
+                                coVar2.f77065e = string3;
+                                coVar2.f77066f = string4;
+                                coVar2.f77064d = string2;
                                 if (jSONObject4.has("stat-percent")) {
                                     coVar2.a(jSONObject4.getDouble("stat-percent"));
                                 }
@@ -320,32 +322,32 @@ public class cs {
                                 if (jSONObject4.has(ResultTB.TTL)) {
                                     coVar2.a(jSONObject4.getInt(ResultTB.TTL) * 1000);
                                 }
-                                m232a(coVar2.a());
+                                m235a(coVar2.a());
                             }
                             i3++;
                             jSONObject5 = jSONObject;
                         }
                         JSONObject optJSONObject = jSONObject4.optJSONObject(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED);
                         if (optJSONObject != null) {
-                            long j = jSONObject4.has("reserved-ttl") ? jSONObject4.getInt("reserved-ttl") * 1000 : 604800000L;
+                            long j2 = jSONObject4.has("reserved-ttl") ? jSONObject4.getInt("reserved-ttl") * 1000 : 604800000L;
                             Iterator<String> keys = optJSONObject.keys();
                             while (keys.hasNext()) {
                                 String next = keys.next();
                                 JSONArray optJSONArray2 = optJSONObject.optJSONArray(next);
                                 if (optJSONArray2 == null) {
-                                    com.xiaomi.channel.commonutils.logger.b.m70a("no bucket found for " + next);
+                                    com.xiaomi.channel.commonutils.logger.b.m73a("no bucket found for " + next);
                                 } else {
                                     co coVar3 = new co(next);
-                                    coVar3.a(j);
+                                    coVar3.a(j2);
                                     for (int i5 = 0; i5 < optJSONArray2.length(); i5++) {
                                         String string7 = optJSONArray2.getString(i5);
                                         if (!TextUtils.isEmpty(string7)) {
                                             coVar3.a(new cx(string7, optJSONArray2.length() - i5));
                                         }
                                     }
-                                    synchronized (f40222b) {
-                                        if (this.f201a.a(next)) {
-                                            f40222b.put(next, coVar3);
+                                    synchronized (f77074b) {
+                                        if (this.f205a.a(next)) {
+                                            f77074b.put(next, coVar3);
                                         }
                                     }
                                 }
@@ -354,7 +356,7 @@ public class cs {
                     }
                 }
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m70a("failed to get bucket " + e2.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m73a("failed to get bucket " + e2.getMessage());
             }
             for (int i6 = 0; i6 < arrayList.size(); i6++) {
                 co coVar4 = arrayList2.get(i6);
@@ -362,7 +364,7 @@ public class cs {
                     a(arrayList.get(i6), coVar4);
                 }
             }
-            m236c();
+            m239c();
             return arrayList2;
         }
         return (ArrayList) invokeL.objValue;
@@ -373,15 +375,15 @@ public class cs {
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, crVar, bVar, str, str2, str3}) == null) {
             synchronized (cs.class) {
                 Context applicationContext = context.getApplicationContext();
-                f40221a = applicationContext;
+                f77073a = applicationContext;
                 if (applicationContext == null) {
-                    f40221a = context;
+                    f77073a = context;
                 }
-                if (f198a == null) {
-                    if (f197a == null) {
-                        f198a = new cs(context, crVar, bVar, str, str2, str3);
+                if (f202a == null) {
+                    if (f201a == null) {
+                        f202a = new cs(context, crVar, bVar, str, str2, str3);
                     } else {
-                        f198a = f197a.a(context, crVar, bVar, str);
+                        f202a = f201a.a(context, crVar, bVar, str);
                     }
                 }
             }
@@ -392,8 +394,8 @@ public class cs {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, aVar) == null) {
             synchronized (cs.class) {
-                f197a = aVar;
-                f198a = null;
+                f201a = aVar;
+                f202a = null;
             }
         }
     }
@@ -401,15 +403,15 @@ public class cs {
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
-            co coVar = f40222b.get(str);
-            synchronized (f40222b) {
+            co coVar = f77074b.get(str);
+            synchronized (f77074b) {
                 if (coVar == null) {
                     co coVar2 = new co(str);
                     coVar2.a(604800000L);
-                    coVar2.m221a(str2);
-                    f40222b.put(str, coVar2);
+                    coVar2.m224a(str2);
+                    f77074b.put(str, coVar2);
                 } else {
-                    coVar.m221a(str2);
+                    coVar.m224a(str2);
                 }
             }
         }
@@ -420,7 +422,7 @@ public class cs {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             try {
-                PackageInfo packageInfo = f40221a.getPackageManager().getPackageInfo(f40221a.getPackageName(), 16384);
+                PackageInfo packageInfo = f77073a.getPackageManager().getPackageInfo(f77073a.getPackageName(), 16384);
                 return packageInfo != null ? packageInfo.versionName : "0";
             } catch (Exception unused) {
                 return "0";
@@ -430,7 +432,7 @@ public class cs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public co m229a(String str) {
+    public co m232a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -450,9 +452,9 @@ public class cs {
             if (TextUtils.isEmpty(str)) {
                 throw new IllegalArgumentException("the host is empty");
             }
-            if (this.f201a.a(str)) {
+            if (this.f205a.a(str)) {
                 co c2 = c(str);
-                return (c2 == null || !c2.b()) ? (z && bg.b(f40221a) && (d2 = d(str)) != null) ? d2 : new cu(this, str, c2) : c2;
+                return (c2 == null || !c2.b()) ? (z && bg.b(f77073a) && (d2 = d(str)) != null) ? d2 : new cu(this, str, c2) : c2;
             }
             return null;
         }
@@ -467,20 +469,20 @@ public class cs {
             ArrayList<bf> arrayList3 = new ArrayList();
             arrayList3.add(new bd("type", str));
             if (str.equals("wap")) {
-                arrayList3.add(new bd("conpt", a(bg.m172a(f40221a))));
+                arrayList3.add(new bd("conpt", a(bg.m175a(f77073a))));
             }
             if (z) {
                 arrayList3.add(new bd(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED, "1"));
             }
             arrayList3.add(new bd("uuid", str2));
             arrayList3.add(new bd("list", bm.a(arrayList, ",")));
-            arrayList3.add(new bd("countrycode", com.xiaomi.push.service.a.a(f40221a).b()));
+            arrayList3.add(new bd("countrycode", com.xiaomi.push.service.a.a(f77073a).b()));
             co c2 = c(b());
             String format = String.format(Locale.US, "https://%1$s/gslb/?ver=4.0", b());
             if (c2 == null) {
                 arrayList2.add(format);
-                synchronized (f40222b) {
-                    co coVar = f40222b.get("resolver.msg.xiaomi.net");
+                synchronized (f77074b) {
+                    co coVar = f77074b.get("resolver.msg.xiaomi.net");
                     if (coVar != null) {
                         Iterator<String> it = coVar.a(true).iterator();
                         while (it.hasNext()) {
@@ -499,7 +501,7 @@ public class cs {
                     buildUpon.appendQueryParameter(bfVar.a(), bfVar.b());
                 }
                 try {
-                    return this.f202a == null ? bg.a(f40221a, new URL(buildUpon.toString())) : this.f202a.a(buildUpon.toString());
+                    return this.f206a == null ? bg.a(f77073a, new URL(buildUpon.toString())) : this.f206a.a(buildUpon.toString());
                 } catch (IOException e3) {
                     e2 = e3;
                 }
@@ -507,29 +509,29 @@ public class cs {
             if (e2 == null) {
                 return null;
             }
-            com.xiaomi.channel.commonutils.logger.b.m70a("network exception: " + e2.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m73a("network exception: " + e2.getMessage());
             throw e2;
         }
         return (String) invokeCommon.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public JSONObject m230a() {
+    public JSONObject m233a() {
         InterceptResult invokeV;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.f204a) {
+            synchronized (this.f208a) {
                 jSONObject = new JSONObject();
                 jSONObject.put("ver", 2);
                 JSONArray jSONArray = new JSONArray();
-                for (cp cpVar : this.f204a.values()) {
-                    jSONArray.put(cpVar.m225a());
+                for (cp cpVar : this.f208a.values()) {
+                    jSONArray.put(cpVar.m228a());
                 }
                 jSONObject.put("data", jSONArray);
                 JSONArray jSONArray2 = new JSONArray();
-                for (co coVar : f40222b.values()) {
-                    jSONArray2.put(coVar.m220a());
+                for (co coVar : f77074b.values()) {
+                    jSONArray2.put(coVar.m223a());
                 }
                 jSONObject.put(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED, jSONArray2);
             }
@@ -539,20 +541,20 @@ public class cs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m231a() {
+    public void m234a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this.f204a) {
-                this.f204a.clear();
+            synchronized (this.f208a) {
+                this.f208a.clear();
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m232a(String str) {
+    public void m235a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f206b = str;
+            this.f210b = str;
         }
     }
 
@@ -561,15 +563,15 @@ public class cs {
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, coVar) == null) {
             if (TextUtils.isEmpty(str) || coVar == null) {
                 throw new IllegalArgumentException("the argument is invalid " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + coVar);
-            } else if (this.f201a.a(str)) {
-                synchronized (this.f204a) {
-                    m233a();
-                    if (this.f204a.containsKey(str)) {
-                        this.f204a.get(str).a(coVar);
+            } else if (this.f205a.a(str)) {
+                synchronized (this.f208a) {
+                    m236a();
+                    if (this.f208a.containsKey(str)) {
+                        this.f208a.get(str).a(coVar);
                     } else {
                         cp cpVar = new cp(str);
                         cpVar.a(coVar);
-                        this.f204a.put(str, cpVar);
+                        this.f208a.put(str, cpVar);
                     }
                 }
             }
@@ -577,21 +579,21 @@ public class cs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m233a() {
+    public boolean m236a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this.f204a) {
-                if (f199a) {
+            synchronized (this.f208a) {
+                if (f203a) {
                     return true;
                 }
-                f199a = true;
-                this.f204a.clear();
+                f203a = true;
+                this.f208a.clear();
                 String d2 = d();
                 if (TextUtils.isEmpty(d2)) {
                     return false;
                 }
-                m235b(d2);
+                m238b(d2);
                 com.xiaomi.channel.commonutils.logger.b.b("loading the new hosts succeed");
                 return true;
             }
@@ -609,22 +611,22 @@ public class cs {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            String a2 = com.xiaomi.push.service.a.a(f40221a).a();
+            String a2 = com.xiaomi.push.service.a.a(f77073a).a();
             return (TextUtils.isEmpty(a2) || PushChannelRegion.China.name().equals(a2)) ? "resolver.msg.xiaomi.net" : "resolver.msg.global.xiaomi.net";
         }
         return (String) invokeV.objValue;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m234b() {
+    public void m237b() {
         ArrayList<String> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (this.f204a) {
-                m233a();
-                arrayList = new ArrayList<>(this.f204a.keySet());
+            synchronized (this.f208a) {
+                m236a();
+                arrayList = new ArrayList<>(this.f208a.keySet());
                 for (int size = arrayList.size() - 1; size >= 0; size--) {
-                    cp cpVar = this.f204a.get(arrayList.get(size));
+                    cp cpVar = this.f208a.get(arrayList.get(size));
                     if (cpVar != null && cpVar.a() != null) {
                         arrayList.remove(size);
                     }
@@ -640,11 +642,11 @@ public class cs {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m235b(String str) {
+    public void m238b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            synchronized (this.f204a) {
-                this.f204a.clear();
+            synchronized (this.f208a) {
+                this.f208a.clear();
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.optInt("ver") != 2) {
                     throw new JSONException("Bad version");
@@ -652,12 +654,12 @@ public class cs {
                 JSONArray optJSONArray = jSONObject.optJSONArray("data");
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     cp a2 = new cp().a(optJSONArray.getJSONObject(i2));
-                    this.f204a.put(a2.m223a(), a2);
+                    this.f208a.put(a2.m226a(), a2);
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED);
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                     co a3 = new co("").a(optJSONArray2.getJSONObject(i3));
-                    f40222b.put(a3.f194b, a3);
+                    f77074b.put(a3.f198b, a3);
                 }
             }
         }
@@ -669,9 +671,9 @@ public class cs {
         co a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            synchronized (this.f204a) {
-                m233a();
-                cpVar = this.f204a.get(str);
+            synchronized (this.f208a) {
+                m236a();
+                cpVar = this.f208a.get(str);
             }
             if (cpVar == null || (a2 = cpVar.a()) == null) {
                 return null;
@@ -686,12 +688,12 @@ public class cs {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            synchronized (this.f204a) {
-                for (Map.Entry<String, cp> entry : this.f204a.entrySet()) {
+            synchronized (this.f208a) {
+                for (Map.Entry<String, cp> entry : this.f208a.entrySet()) {
                     sb.append(entry.getKey());
                     sb.append(":\n");
                     sb.append(entry.getValue().toString());
-                    sb.append("\n");
+                    sb.append(StringUtils.LF);
                 }
             }
             return sb.toString();
@@ -700,19 +702,19 @@ public class cs {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public void m236c() {
+    public void m239c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            synchronized (this.f204a) {
+            synchronized (this.f208a) {
                 try {
-                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(f40221a.openFileOutput(e(), 0)));
-                    String jSONObject = m230a().toString();
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(f77073a.openFileOutput(e(), 0)));
+                    String jSONObject = m233a().toString();
                     if (!TextUtils.isEmpty(jSONObject)) {
                         bufferedWriter.write(jSONObject);
                     }
                     bufferedWriter.close();
                 } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.m70a("persist bucket failure: " + e2.getMessage());
+                    com.xiaomi.channel.commonutils.logger.b.m73a("persist bucket failure: " + e2.getMessage());
                 }
             }
         }
@@ -722,18 +724,18 @@ public class cs {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            if (System.currentTimeMillis() - this.f207c > this.f200a * 60 * 1000) {
-                this.f207c = System.currentTimeMillis();
+            if (System.currentTimeMillis() - this.f211c > this.f204a * 60 * 1000) {
+                this.f211c = System.currentTimeMillis();
                 ArrayList<String> arrayList = new ArrayList<>();
                 arrayList.add(str);
                 co coVar = a(arrayList).get(0);
                 if (coVar != null) {
-                    this.f200a = 0L;
+                    this.f204a = 0L;
                     return coVar;
                 }
-                long j = this.f200a;
-                if (j < 15) {
-                    this.f200a = j + 1;
+                long j2 = this.f204a;
+                if (j2 < 15) {
+                    this.f204a = j2 + 1;
                     return null;
                 }
                 return null;
@@ -752,7 +754,7 @@ public class cs {
             return (String) invokeV.objValue;
         }
         try {
-            file = new File(f40221a.getFilesDir(), e());
+            file = new File(f77073a.getFilesDir(), e());
         } catch (Throwable th) {
             th = th;
             bufferedReader = null;
@@ -774,7 +776,7 @@ public class cs {
         } catch (Throwable th2) {
             th = th2;
             try {
-                com.xiaomi.channel.commonutils.logger.b.m70a("load host exception " + th.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m73a("load host exception " + th.getMessage());
                 return null;
             } finally {
                 y.a(bufferedReader);
@@ -783,25 +785,25 @@ public class cs {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public void m237d() {
+    public void m240d() {
         String next;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            synchronized (this.f204a) {
-                for (cp cpVar : this.f204a.values()) {
+            synchronized (this.f208a) {
+                for (cp cpVar : this.f208a.values()) {
                     cpVar.a(true);
                 }
                 while (true) {
                     for (boolean z = false; !z; z = true) {
-                        Iterator<String> it = this.f204a.keySet().iterator();
+                        Iterator<String> it = this.f208a.keySet().iterator();
                         while (it.hasNext()) {
                             next = it.next();
-                            if (this.f204a.get(next).m224a().isEmpty()) {
+                            if (this.f208a.get(next).m227a().isEmpty()) {
                                 break;
                             }
                         }
                     }
-                    this.f204a.remove(next);
+                    this.f208a.remove(next);
                 }
             }
         }
@@ -811,7 +813,7 @@ public class cs {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) f40221a.getSystemService("activity")).getRunningAppProcesses();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) f77073a.getSystemService("activity")).getRunningAppProcesses();
             if (runningAppProcesses != null) {
                 for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
                     if (runningAppProcessInfo.pid == Process.myPid()) {

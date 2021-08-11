@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class FaceDetector extends com.baidu.ar.b.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
     public a oy;
     public boolean oz;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -249,14 +249,14 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
         }
     }
 
-    public void a(a.C0079a c0079a, int i2, com.baidu.ar.face.b bVar, a.b bVar2, String str) {
+    public void a(a.C1626a c1626a, int i2, com.baidu.ar.face.b bVar, a.b bVar2, String str) {
         int[] iArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{c0079a, Integer.valueOf(i2), bVar, bVar2, str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{c1626a, Integer.valueOf(i2), bVar, bVar2, str}) == null) {
             this.oA.G(i2);
-            if (c0079a != null) {
-                this.oA.a(Float.parseFloat(c0079a.pR), Float.parseFloat(c0079a.pS));
-                this.oA.d(Float.parseFloat(c0079a.pT));
+            if (c1626a != null) {
+                this.oA.a(Float.parseFloat(c1626a.pR), Float.parseFloat(c1626a.pS));
+                this.oA.d(Float.parseFloat(c1626a.pT));
             }
             this.oA.z(bVar.dy());
             this.oA.B(bVar.dz());
@@ -368,10 +368,10 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
     }
 
     @Override // com.baidu.ar.b.a.a
-    public void b(long j) {
+    public void b(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            this.oA.b(j);
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
+            this.oA.b(j2);
         }
     }
 
@@ -514,10 +514,10 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
         }
     }
 
-    public void q(long j) {
+    public void q(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
-            this.oA.q(j);
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
+            this.oA.q(j2);
         }
     }
 

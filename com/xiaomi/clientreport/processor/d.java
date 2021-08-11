@@ -1,8 +1,8 @@
 package com.xiaomi.clientreport.processor;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface d {
     /* renamed from: a */
-    void mo78a(com.xiaomi.clientreport.data.a aVar);
+    void mo81a(com.xiaomi.clientreport.data.a aVar);
 
     void b();
 }

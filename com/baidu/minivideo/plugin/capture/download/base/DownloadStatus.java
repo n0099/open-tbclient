@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class DownloadStatus {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_CANCELED = 107;
@@ -133,17 +133,17 @@ public class DownloadStatus {
         }
     }
 
-    public void setFinished(long j) {
+    public void setFinished(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            this.finished = j;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
+            this.finished = j2;
         }
     }
 
-    public void setLength(long j) {
+    public void setLength(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.length = j;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
+            this.length = j2;
         }
     }
 
@@ -168,10 +168,10 @@ public class DownloadStatus {
         }
     }
 
-    public void setTime(long j) {
+    public void setTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
-            this.time = j;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j2) == null) {
+            this.time = j2;
         }
     }
 }

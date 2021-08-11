@@ -4,7 +4,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +45,6 @@ public final class HandlerCompat {
                 try {
                     return (Handler) Handler.class.getDeclaredConstructor(Looper.class, Handler.Callback.class, Boolean.TYPE).newInstance(looper, null, Boolean.TRUE);
                 } catch (IllegalAccessException | InstantiationException | NoSuchMethodException unused) {
-                    Log.v(TAG, "Unable to invoke Handler(Looper, Callback, boolean) constructor");
                 } catch (InvocationTargetException e2) {
                     Throwable cause = e2.getCause();
                     if (!(cause instanceof RuntimeException)) {
@@ -63,16 +61,16 @@ public final class HandlerCompat {
         return (Handler) invokeL.objValue;
     }
 
-    public static boolean postDelayed(@NonNull Handler handler, @NonNull Runnable runnable, @Nullable Object obj, long j) {
+    public static boolean postDelayed(@NonNull Handler handler, @NonNull Runnable runnable, @Nullable Object obj, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{handler, runnable, obj, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{handler, runnable, obj, Long.valueOf(j2)})) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
-                return handler.postDelayed(runnable, obj, j);
+                return handler.postDelayed(runnable, obj, j2);
             }
             Message obtain = Message.obtain(handler, runnable);
             obtain.obj = obj;
-            return handler.sendMessageDelayed(obtain, j);
+            return handler.sendMessageDelayed(obtain, j2);
         }
         return invokeCommon.booleanValue;
     }
@@ -90,7 +88,6 @@ public final class HandlerCompat {
                 try {
                     return (Handler) Handler.class.getDeclaredConstructor(Looper.class, Handler.Callback.class, Boolean.TYPE).newInstance(looper, callback, Boolean.TRUE);
                 } catch (IllegalAccessException | InstantiationException | NoSuchMethodException unused) {
-                    Log.v(TAG, "Unable to invoke Handler(Looper, Callback, boolean) constructor");
                 } catch (InvocationTargetException e2) {
                     Throwable cause = e2.getCause();
                     if (!(cause instanceof RuntimeException)) {

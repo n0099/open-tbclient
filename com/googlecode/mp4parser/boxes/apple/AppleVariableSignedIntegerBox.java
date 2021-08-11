@@ -15,7 +15,7 @@ import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
@@ -117,20 +117,20 @@ public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
         }
     }
 
-    public void setValue(long j) {
+    public void setValue(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.longObject(j)));
-            if (j <= 127 && j > -128) {
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.longObject(j2)));
+            if (j2 <= 127 && j2 > -128) {
                 this.intLength = 1;
-            } else if (j <= 32767 && j > -32768 && this.intLength < 2) {
+            } else if (j2 <= 32767 && j2 > -32768 && this.intLength < 2) {
                 this.intLength = 2;
-            } else if (j <= 8388607 && j > -8388608 && this.intLength < 3) {
+            } else if (j2 <= 8388607 && j2 > -8388608 && this.intLength < 3) {
                 this.intLength = 3;
             } else {
                 this.intLength = 4;
             }
-            this.value = j;
+            this.value = j2;
         }
     }
 

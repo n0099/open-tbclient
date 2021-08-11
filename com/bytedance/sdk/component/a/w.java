@@ -11,24 +11,24 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class w {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Collection<String> f27971a;
+    public final Collection<String> f63808a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, v> f27972b;
+    public final Map<String, v> f63809b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final k f27973c;
+    public final k f63810c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Set<a> f27974d;
+    public final Set<a> f63811d;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface a {
     }
 
@@ -36,7 +36,7 @@ public class w {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!this.f27971a.contains(str) && !TextUtils.equals(str, "host")) {
+            if (!this.f63808a.contains(str) && !TextUtils.equals(str, "host")) {
                 throw new IllegalArgumentException("Namespace: " + str + " not registered.");
             }
             return a(str, null);
@@ -47,14 +47,14 @@ public class w {
     public void b(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f27974d.remove(aVar);
+            this.f63811d.remove(aVar);
         }
     }
 
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f27974d.add(aVar);
+            this.f63811d.add(aVar);
         }
     }
 
@@ -62,10 +62,10 @@ public class w {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, this, str, jSONObject)) == null) {
-            v vVar = this.f27972b.get(str);
+            v vVar = this.f63809b.get(str);
             if (vVar == null) {
-                v vVar2 = new v(str, this.f27973c.c(), this.f27973c.a(), this.f27973c.b(), jSONObject);
-                this.f27972b.put(str, vVar2);
+                v vVar2 = new v(str, this.f63810c.c(), this.f63810c.a(), this.f63810c.b(), jSONObject);
+                this.f63809b.put(str, vVar2);
                 return vVar2;
             } else if (jSONObject != null) {
                 vVar.a(jSONObject);

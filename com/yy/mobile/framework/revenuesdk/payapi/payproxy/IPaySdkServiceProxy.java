@@ -1,4 +1,4 @@
 package com.yy.mobile.framework.revenuesdk.payapi.payproxy;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface IPaySdkServiceProxy {
 }

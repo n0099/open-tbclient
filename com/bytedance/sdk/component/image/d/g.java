@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.image.ILoaderListener;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class g extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Throwable f28977a;
+    public Throwable f64843a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28978b;
+    public int f64844b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28979c;
+    public String f64845c;
 
     public g(int i2, String str, Throwable th) {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public class g extends a {
                 return;
             }
         }
-        this.f28978b = i2;
-        this.f28979c = str;
-        this.f28977a = th;
+        this.f64844b = i2;
+        this.f64845c = str;
+        this.f64843a = th;
     }
 
     private void b(com.bytedance.sdk.component.image.c.a aVar) {
@@ -49,14 +49,14 @@ public class g extends a {
         if (!(interceptable == null || interceptable.invokeL(65537, this, aVar) == null) || (c2 = aVar.c()) == null) {
             return;
         }
-        c2.onFailed(this.f28978b, this.f28979c, this.f28977a);
+        c2.onFailed(this.f64844b, this.f64845c, this.f64843a);
     }
 
     @Override // com.bytedance.sdk.component.image.d.h
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.alipay.sdk.util.e.f2000a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.alipay.sdk.util.e.f35855a : (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.image.d.h

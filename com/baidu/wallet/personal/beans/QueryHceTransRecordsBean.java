@@ -3,28 +3,27 @@ package com.baidu.wallet.personal.beans;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.restnet.RestNameValuePair;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.beans.BaseBean;
-import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.personal.datamodel.TransRecordsResponse;
+import com.dxmpay.apollon.restnet.RestNameValuePair;
+import com.dxmpay.wallet.core.beans.BaseBean;
+import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27215a;
+    public String f63053a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27216b;
+    public String f63054b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QueryHceTransRecordsBean(Context context) {
@@ -44,11 +43,11 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
                 return;
             }
         }
-        this.f27215a = "";
-        this.f27216b = "";
+        this.f63053a = "";
+        this.f63054b = "";
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -56,24 +55,24 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.NetworkBean
+    @Override // com.dxmpay.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!TextUtils.isEmpty(this.f27215a)) {
-                arrayList.add(new RestNameValuePair(Config.PACKAGE_NAME, this.f27215a));
+            if (!TextUtils.isEmpty(this.f63053a)) {
+                arrayList.add(new RestNameValuePair("pn", this.f63053a));
             }
-            if (!TextUtils.isEmpty(this.f27216b)) {
-                arrayList.add(new RestNameValuePair("type", this.f27216b));
+            if (!TextUtils.isEmpty(this.f63054b)) {
+                arrayList.add(new RestNameValuePair("type", this.f63054b));
             }
             return arrayList;
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -83,7 +82,7 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public int getHttpMethod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -93,7 +92,7 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -106,14 +105,14 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
     public void setPageNum(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f27215a = str;
+            this.f63053a = str;
         }
     }
 
     public void setType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f27216b = str;
+            this.f63054b = str;
         }
     }
 }

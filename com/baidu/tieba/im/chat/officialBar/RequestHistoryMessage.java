@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.QueryHistoryMsg.DataReq;
 import protobuf.QueryHistoryMsg.QueryHistoryMsgReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RequestHistoryMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,13 +23,13 @@ public class RequestHistoryMessage extends TbSocketMessage {
     public int width;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RequestHistoryMessage(int i2, long j, int i3) {
+    public RequestHistoryMessage(int i2, long j2, int i3) {
         super(208002);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -48,7 +48,7 @@ public class RequestHistoryMessage extends TbSocketMessage {
         this.sWidth = 0;
         this.sHeight = 0;
         this.forum_id = i2;
-        this.user_id = j;
+        this.user_id = j2;
         this.id = i3;
         LocalViewSize.ImageSize msgBPicMaxSize = LocalViewSize.getInstance().getMsgBPicMaxSize();
         this.width = msgBPicMaxSize.width;

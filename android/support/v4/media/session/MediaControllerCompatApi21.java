@@ -296,10 +296,10 @@ public class MediaControllerCompatApi21 {
             }
         }
 
-        public static void seekTo(Object obj, long j) {
+        public static void seekTo(Object obj, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(65543, null, obj, j) == null) {
-                ((MediaController.TransportControls) obj).seekTo(j);
+            if (interceptable == null || interceptable.invokeLJ(65543, null, obj, j2) == null) {
+                ((MediaController.TransportControls) obj).seekTo(j2);
             }
         }
 
@@ -331,10 +331,10 @@ public class MediaControllerCompatApi21 {
             }
         }
 
-        public static void skipToQueueItem(Object obj, long j) {
+        public static void skipToQueueItem(Object obj, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(65548, null, obj, j) == null) {
-                ((MediaController.TransportControls) obj).skipToQueueItem(j);
+            if (interceptable == null || interceptable.invokeLJ(65548, null, obj, j2) == null) {
+                ((MediaController.TransportControls) obj).skipToQueueItem(j2);
             }
         }
 

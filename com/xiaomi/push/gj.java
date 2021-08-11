@@ -14,19 +14,19 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class gj {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static gj f40486a;
+    public static gj f77345a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, Object> f438a;
+    public Map<String, Object> f442a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, Object> f40487b;
+    public Map<String, Object> f77346b;
 
     public gj() {
         Interceptable interceptable = $ic;
@@ -41,9 +41,9 @@ public class gj {
                 return;
             }
         }
-        this.f438a = new ConcurrentHashMap();
-        this.f40487b = new ConcurrentHashMap();
-        m351a();
+        this.f442a = new ConcurrentHashMap();
+        this.f77346b = new ConcurrentHashMap();
+        m354a();
     }
 
     public static synchronized gj a() {
@@ -52,10 +52,10 @@ public class gj {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (gj.class) {
-                if (f40486a == null) {
-                    f40486a = new gj();
+                if (f77345a == null) {
+                    f77345a = new gj();
                 }
-                gjVar = f40486a;
+                gjVar = f77345a;
             }
             return gjVar;
         }
@@ -81,7 +81,7 @@ public class gj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private ClassLoader[] m349a() {
+    private ClassLoader[] m352a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
@@ -99,10 +99,10 @@ public class gj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Object m350a(String str, String str2) {
+    public Object m353a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? this.f438a.get(a(str, str2)) : invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? this.f442a.get(a(str, str2)) : invokeLL.objValue;
     }
 
     /* JADX DEBUG: Null dom frontier in handler: Exception -> 0x0103 */
@@ -111,7 +111,7 @@ public class gj {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void m351a() {
+    public void m354a() {
         Map<String, Object> map;
         Object obj;
         Map<String, Object> map2;
@@ -119,7 +119,7 @@ public class gj {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                for (ClassLoader classLoader : m349a()) {
+                for (ClassLoader classLoader : m352a()) {
                     Enumeration<URL> resources = classLoader.getResources("META-INF/smack.providers");
                     while (resources.hasMoreElements()) {
                         InputStream openStream = resources.nextElement().openStream();
@@ -140,14 +140,14 @@ public class gj {
                                     newPullParser.next();
                                     String nextText3 = newPullParser.nextText();
                                     String a2 = a(nextText, nextText2);
-                                    if (!this.f40487b.containsKey(a2)) {
+                                    if (!this.f77346b.containsKey(a2)) {
                                         try {
                                             Class<?> cls = Class.forName(nextText3);
                                             if (gh.class.isAssignableFrom(cls)) {
-                                                map2 = this.f40487b;
+                                                map2 = this.f77346b;
                                                 obj2 = cls.newInstance();
                                             } else if (ga.class.isAssignableFrom(cls)) {
-                                                map2 = this.f40487b;
+                                                map2 = this.f77346b;
                                                 obj2 = cls;
                                             }
                                             map2.put(a2, obj2);
@@ -170,14 +170,14 @@ public class gj {
                                     newPullParser.next();
                                     String nextText6 = newPullParser.nextText();
                                     String a3 = a(nextText4, nextText5);
-                                    if (!this.f438a.containsKey(a3)) {
+                                    if (!this.f442a.containsKey(a3)) {
                                         try {
                                             Class<?> cls2 = Class.forName(nextText6);
                                             if (gi.class.isAssignableFrom(cls2)) {
-                                                map = this.f438a;
+                                                map = this.f442a;
                                                 obj = cls2.newInstance();
                                             } else if (gd.class.isAssignableFrom(cls2)) {
-                                                map = this.f438a;
+                                                map = this.f442a;
                                                 obj = cls2;
                                             }
                                             map.put(a3, obj);
@@ -212,7 +212,7 @@ public class gj {
             if (!(obj instanceof gi) && !(obj instanceof Class)) {
                 throw new IllegalArgumentException("Provider must be a PacketExtensionProvider or a Class instance.");
             }
-            this.f438a.put(a(str, str2), obj);
+            this.f442a.put(a(str, str2), obj);
         }
     }
 }

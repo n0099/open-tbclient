@@ -1,6 +1,5 @@
 package com.baidu.pass.main.facesdk.utils;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +16,7 @@ import java.io.IOException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ZipUtils {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isSuccess;
@@ -96,10 +95,9 @@ public class ZipUtils {
                 if (nextEntry != null) {
                     String name = nextEntry.getName();
                     if (nextEntry.isDirectory()) {
-                        String substring = name.substring(0, name.length() - 1);
-                        new File(str2 + File.separator + substring).mkdirs();
+                        new File(str2 + File.separator + name.substring(0, name.length() - 1)).mkdirs();
                     } else {
-                        Log.e(com.baidu.android.util.io.ZipUtils.TAG, str2 + File.separator + name);
+                        String str3 = str2 + File.separator + name;
                         File file = new File(str2 + File.separator + name);
                         if (!file.exists()) {
                             file.getParentFile().mkdirs();
@@ -123,7 +121,7 @@ public class ZipUtils {
                 }
             }
         } catch (Exception e2) {
-            Log.e(com.baidu.android.util.io.ZipUtils.TAG, "e = " + e2.getMessage());
+            String str4 = "e = " + e2.getMessage();
             e2.printStackTrace();
             return false;
         }

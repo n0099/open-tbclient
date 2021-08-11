@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CommitVoteReqMsg extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,13 +17,13 @@ public class CommitVoteReqMsg extends HttpMessage {
     public long thread_id;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CommitVoteReqMsg(long j, long j2, long j3, int i2) {
+    public CommitVoteReqMsg(long j2, long j3, long j4, int i2) {
         super(CmdConfigHttp.CMD_BAR_VOTE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)};
+            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -34,13 +34,13 @@ public class CommitVoteReqMsg extends HttpMessage {
                 return;
             }
         }
-        this.candidate_uid = j;
-        this.forum_id = j2;
-        this.thread_id = j3;
+        this.candidate_uid = j2;
+        this.forum_id = j3;
+        this.thread_id = j4;
         this.source = i2;
-        addParam("candidate_uid", j);
-        addParam("forum_id", j2);
-        addParam("thread_id", j3);
+        addParam("candidate_uid", j2);
+        addParam("forum_id", j3);
+        addParam("thread_id", j4);
         addParam("source", i2);
         addHeader("needSig", "1");
         addParam("check_new_sig", "1");

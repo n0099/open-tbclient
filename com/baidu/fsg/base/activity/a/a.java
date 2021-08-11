@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class a extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f5180a;
+    public View f39123a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RotateAnimation f5181b;
+    public RotateAnimation f39124b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -43,24 +43,6 @@ public class a extends Dialog {
         }
     }
 
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            super.onCreate(bundle);
-            setContentView(ResUtils.layout(getContext(), "rim_base_dialog_common_loading_layout"));
-            setCanceledOnTouchOutside(false);
-            setCancelable(false);
-            this.f5180a = findViewById(ResUtils.id(getContext(), "rim_base_dialog_common_loading_view"));
-            RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
-            this.f5181b = rotateAnimation;
-            rotateAnimation.setRepeatCount(-1);
-            this.f5181b.setDuration(1000L);
-            this.f5181b.setInterpolator(new LinearInterpolator());
-            this.f5180a.startAnimation(this.f5181b);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context, int i2) {
         super(context, i2);
@@ -79,6 +61,24 @@ public class a extends Dialog {
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(ResUtils.layout(getContext(), "rim_base_dialog_common_loading_layout"));
+            setCanceledOnTouchOutside(false);
+            setCancelable(false);
+            this.f39123a = findViewById(ResUtils.id(getContext(), "rim_base_dialog_common_loading_view"));
+            RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
+            this.f39124b = rotateAnimation;
+            rotateAnimation.setRepeatCount(-1);
+            this.f39124b.setDuration(1000L);
+            this.f39124b.setInterpolator(new LinearInterpolator());
+            this.f39123a.startAnimation(this.f39124b);
         }
     }
 }

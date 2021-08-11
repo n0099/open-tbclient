@@ -13,7 +13,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
+import c.p.a.a.a.c.k;
+import c.p.a.a.a.c.t;
+import c.p.a.a.a.f.c;
+import c.p.a.d.b.c;
+import c.p.a.d.b.f;
+import c.p.a.d.b.l;
+import c.p.a.d.b.n;
+import c.p.a.d.c;
+import c.p.a.d.e;
+import c.p.a.d.f;
+import c.p.a.d.h;
+import c.p.a.e.a.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,52 +33,40 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
+import com.ss.android.downloadlib.addownload.a.d;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-import d.l.a.a.a.c.k;
-import d.l.a.a.a.c.t;
-import d.l.a.a.a.f.c;
-import d.l.a.d.b.a.d;
-import d.l.a.d.b.c;
-import d.l.a.d.b.f;
-import d.l.a.d.b.l;
-import d.l.a.d.b.n;
-import d.l.a.d.c;
-import d.l.a.d.e;
-import d.l.a.d.f;
-import d.l.a.d.h;
-import d.l.a.e.a.d;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class TTDelegateActivity extends Activity implements ActivityCompat.OnRequestPermissionsResultCallback {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static d.l.a.d.i.a.a f38489d;
+    public static c.p.a.d.i.a.a f75275d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Intent f38490a;
+    public Intent f75276a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f38491b;
+    public boolean f75277b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.l.a.b.a.c.b f38492c;
+    public c.p.a.b.a.c.b f75278c;
 
-    /* loaded from: classes6.dex */
-    public class b implements c.InterfaceC2011c {
+    /* loaded from: classes10.dex */
+    public class b implements c.InterfaceC1515c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.l.a.b.a.c.b f38496a;
+        public final /* synthetic */ c.p.a.b.a.c.b f75282a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TTDelegateActivity f38497b;
+        public final /* synthetic */ TTDelegateActivity f75283b;
 
-        public b(TTDelegateActivity tTDelegateActivity, d.l.a.b.a.c.b bVar) {
+        public b(TTDelegateActivity tTDelegateActivity, c.p.a.b.a.c.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -82,35 +81,35 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                     return;
                 }
             }
-            this.f38497b = tTDelegateActivity;
-            this.f38496a = bVar;
+            this.f75283b = tTDelegateActivity;
+            this.f75282a = bVar;
         }
 
-        @Override // d.l.a.a.a.f.c.InterfaceC2011c
+        @Override // c.p.a.a.a.f.c.InterfaceC1515c
         public void a(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                c.d.j(this.f38496a);
+                c.d.j(this.f75282a);
                 dialogInterface.dismiss();
-                d.q(this.f38497b);
+                d.q(this.f75283b);
             }
         }
 
-        @Override // d.l.a.a.a.f.c.InterfaceC2011c
+        @Override // c.p.a.a.a.f.c.InterfaceC1515c
         public void b(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface) == null) {
-                e.c.a().v("market_openapp_cancel", this.f38496a);
+                e.c.a().v("market_openapp_cancel", this.f75282a);
                 dialogInterface.dismiss();
-                d.q(this.f38497b);
+                d.q(this.f75283b);
             }
         }
 
-        @Override // d.l.a.a.a.f.c.InterfaceC2011c
+        @Override // c.p.a.a.a.f.c.InterfaceC1515c
         public void c(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) {
-                d.q(this.f38497b);
+                d.q(this.f75283b);
             }
         }
     }
@@ -128,14 +127,14 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                 return;
             }
         }
-        this.f38490a = null;
+        this.f75276a = null;
     }
 
     public static void a(String str, String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, str, strArr) == null) {
             Intent intent = new Intent(l.a(), TTDelegateActivity.class);
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            intent.addFlags(268435456);
             intent.putExtra("type", 1);
             intent.putExtra("permission_id_key", str);
             intent.putExtra("permission_content_key", strArr);
@@ -145,11 +144,11 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         }
     }
 
-    public static void b(String str, d.l.a.b.a.c.a aVar) {
+    public static void b(String str, c.p.a.b.a.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65551, null, str, aVar) == null) {
             Intent c2 = c(aVar);
-            c2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            c2.addFlags(268435456);
             c2.putExtra("type", 11);
             c2.putExtra("package_name", str);
             if (l.a() != null) {
@@ -158,16 +157,16 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         }
     }
 
-    public static Intent c(@NonNull d.l.a.b.a.c.a aVar) {
+    public static Intent c(@NonNull c.p.a.b.a.c.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, aVar)) == null) ? new Intent(l.a(), TTDelegateActivity.class) : (Intent) invokeL.objValue;
     }
 
-    private void d(long j) {
+    private void d(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65556, this, j) == null) {
-            new d.l.a.d.b.e.a(this, j).show();
+        if (interceptable == null || interceptable.invokeJ(65556, this, j2) == null) {
+            new com.ss.android.downloadlib.addownload.compliance.a(this, j2).show();
         }
     }
 
@@ -177,7 +176,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             b();
-            this.f38490a = getIntent();
+            this.f75276a = getIntent();
             l.n(this);
             a();
         }
@@ -189,7 +188,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
             super.onNewIntent(intent);
             setIntent(intent);
-            this.f38490a = intent;
+            this.f75276a = intent;
             l.n(this);
             a();
         }
@@ -210,26 +209,26 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onStop();
-            if (!this.f38491b || this.f38492c == null || (d2 = h.b(null).d(this.f38492c.a())) == null || d2.getCurBytes() < d2.getTotalBytes() || isFinishing()) {
+            if (!this.f75277b || this.f75278c == null || (d2 = h.b(null).d(this.f75278c.a())) == null || d2.getCurBytes() < d2.getTotalBytes() || isFinishing()) {
                 return;
             }
             finish();
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class a implements t {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<Activity> f38493a;
+        public WeakReference<Activity> f75279a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f38494b;
+        public final /* synthetic */ String f75280b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ TTDelegateActivity f38495c;
+        public final /* synthetic */ TTDelegateActivity f75281c;
 
         public a(TTDelegateActivity tTDelegateActivity, String str) {
             Interceptable interceptable = $ic;
@@ -246,26 +245,26 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                     return;
                 }
             }
-            this.f38495c = tTDelegateActivity;
-            this.f38494b = str;
-            this.f38493a = new WeakReference<>(this.f38495c);
+            this.f75281c = tTDelegateActivity;
+            this.f75280b = str;
+            this.f75279a = new WeakReference<>(this.f75281c);
         }
 
-        @Override // d.l.a.a.a.c.t
+        @Override // c.p.a.a.a.c.t
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                h.p.a(this.f38494b);
-                d.q(this.f38493a.get());
+                h.p.a(this.f75280b);
+                d.q(this.f75279a.get());
             }
         }
 
-        @Override // d.l.a.a.a.c.t
+        @Override // c.p.a.a.a.c.t
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                h.p.c(this.f38494b, str);
-                d.q(this.f38493a.get());
+                h.p.c(this.f75280b, str);
+                d.q(this.f75279a.get());
             }
         }
     }
@@ -274,12 +273,12 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            long longExtra = this.f38490a.getLongExtra("model_id", 0L);
-            String stringExtra = this.f38490a.getStringExtra("message_text");
-            String stringExtra2 = this.f38490a.getStringExtra("positive_button_text");
-            String stringExtra3 = this.f38490a.getStringExtra("negative_button_text");
-            int intExtra = this.f38490a.getIntExtra("type", 0);
-            d.l.a.b.a.c.b u = c.g.e().u(longExtra);
+            long longExtra = this.f75276a.getLongExtra("model_id", 0L);
+            String stringExtra = this.f75276a.getStringExtra("message_text");
+            String stringExtra2 = this.f75276a.getStringExtra("positive_button_text");
+            String stringExtra3 = this.f75276a.getStringExtra("negative_button_text");
+            int intExtra = this.f75276a.getIntExtra("type", 0);
+            c.p.a.b.a.c.b u = c.g.e().u(longExtra);
             d.c cVar = new d.c(this);
             cVar.c(false);
             cVar.b(stringExtra);
@@ -304,8 +303,8 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f38491b = true;
-            this.f38492c = u;
+            this.f75277b = true;
+            this.f75278c = u;
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("pause_optimise_type", str);
@@ -317,18 +316,18 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         }
     }
 
-    public static void b(@NonNull d.l.a.b.a.c.a aVar) {
+    public static void b(@NonNull c.p.a.b.a.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, aVar) == null) {
             a(aVar, 5, "", "", "");
         }
     }
 
-    public static void a(String str, d.l.a.b.a.c.a aVar) {
+    public static void a(String str, c.p.a.b.a.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, str, aVar) == null) {
             Intent c2 = c(aVar);
-            c2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            c2.addFlags(268435456);
             c2.putExtra("type", 2);
             c2.putExtra("open_url", str);
             if (l.a() != null) {
@@ -337,7 +336,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         }
     }
 
-    public static void b(@NonNull d.l.a.b.a.c.a aVar, String str, String str2, String str3) {
+    public static void b(@NonNull c.p.a.b.a.c.a aVar, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65549, null, aVar, str, str2, str3) == null) {
             a(aVar, 7, str, str2, str3);
@@ -354,14 +353,14 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         }
     }
 
-    private void b(long j) {
+    private void b(long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65547, this, j) == null) || n.a() == null) {
+        if (!(interceptable == null || interceptable.invokeJ(65547, this, j2) == null) || n.a() == null) {
             return;
         }
-        d.l.a.b.a.c.b u = c.g.e().u(j);
+        c.p.a.b.a.c.b u = c.g.e().u(j2);
         if (u != null) {
-            DownloadInfo f2 = d.l.a.e.b.g.a.H(l.a()).f(u.s());
+            DownloadInfo f2 = c.p.a.e.b.g.a.H(l.a()).f(u.s());
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("time_after_click", Long.valueOf(System.currentTimeMillis() - u.Q()));
@@ -380,15 +379,15 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         cVar.c(false);
         cVar.a(n.a());
         cVar.d().show();
-        this.f38491b = true;
-        this.f38492c = u;
+        this.f75277b = true;
+        this.f75278c = u;
     }
 
-    public static void a(d.l.a.b.a.c.a aVar) {
+    public static void a(c.p.a.b.a.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
             Intent c2 = c(aVar);
-            c2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            c2.addFlags(268435456);
             c2.putExtra("type", 4);
             c2.putExtra("model_id", aVar.b());
             if (l.a() != null) {
@@ -397,39 +396,39 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         }
     }
 
-    public static void a(d.l.a.b.a.c.a aVar, d.l.a.d.i.a.a aVar2) {
+    public static void a(c.p.a.b.a.c.a aVar, c.p.a.d.i.a.a aVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar, aVar2) == null) {
             Intent c2 = c(aVar);
-            c2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            c2.addFlags(268435456);
             c2.putExtra("type", 9);
-            f38489d = aVar2;
+            f75275d = aVar2;
             if (l.a() != null) {
                 l.a().startActivity(c2);
             }
         }
     }
 
-    public static void a(long j) {
+    public static void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65537, null, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65537, null, j2) == null) {
             Intent intent = new Intent(l.a(), TTDelegateActivity.class);
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            intent.addFlags(268435456);
             intent.putExtra("type", 10);
-            intent.putExtra("app_info_id", j);
+            intent.putExtra("app_info_id", j2);
             if (l.a() != null) {
                 l.a().startActivity(intent);
             }
         }
     }
 
-    private void c(long j) {
+    private void c(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65555, this, j) == null) {
-            d.l.a.b.a.c.b u = c.g.e().u(j);
+        if (interceptable == null || interceptable.invokeJ(65555, this, j2) == null) {
+            c.p.a.b.a.c.b u = c.g.e().u(j2);
             if (u == null) {
                 f.e.b().d("showOpenAppDialogInner nativeModel null");
-                d.l.a.e.a.d.q(this);
+                c.p.a.e.a.d.q(this);
                 return;
             }
             k p = l.p();
@@ -467,18 +466,18 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                 aVar.a();
                 return;
             }
-            d.l.a.e.a.d.q(this);
+            c.p.a.e.a.d.q(this);
         }
     }
 
-    public static void a(String str, long j, String str2, @NonNull JSONObject jSONObject) {
+    public static void a(String str, long j2, String str2, @NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Long.valueOf(j), str2, jSONObject}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Long.valueOf(j2), str2, jSONObject}) == null) {
             Intent intent = new Intent(l.a(), TTDelegateActivity.class);
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            intent.addFlags(268435456);
             intent.putExtra("type", 12);
             intent.putExtra("package_name", str);
-            intent.putExtra("model_id", j);
+            intent.putExtra("model_id", j2);
             intent.putExtra("param", str2);
             intent.putExtra("ext_json", jSONObject.toString());
             if (l.a() != null) {
@@ -496,30 +495,30 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
             }
             try {
                 try {
-                    I.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                    I.addFlags(268435456);
                     I.putExtra("start_only_for_android", true);
                     startActivity(I);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             } finally {
-                d.l.a.e.a.d.q(this);
+                c.p.a.e.a.d.q(this);
             }
         }
     }
 
-    public static void a(@NonNull d.l.a.b.a.c.a aVar, String str, String str2, String str3) {
+    public static void a(@NonNull c.p.a.b.a.c.a aVar, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(AdIconUtil.AD_TEXT_ID, null, aVar, str, str2, str3) == null) {
             a(aVar, 8, str, str2, str3);
         }
     }
 
-    public static void a(@NonNull d.l.a.b.a.c.a aVar, int i2, String str, String str2, String str3) {
+    public static void a(@NonNull c.p.a.b.a.c.a aVar, int i2, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{aVar, Integer.valueOf(i2), str, str2, str3}) == null) {
             Intent c2 = c(aVar);
-            c2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            c2.addFlags(268435456);
             c2.putExtra("type", i2);
             if (!TextUtils.isEmpty(str2)) {
                 c2.putExtra("positive_button_text", str2);
@@ -540,50 +539,50 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     public void a() {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (intent = this.f38490a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (intent = this.f75276a) == null) {
             return;
         }
         switch (intent.getIntExtra("type", 0)) {
             case 1:
-                b(this.f38490a.getStringExtra("permission_id_key"), this.f38490a.getStringArrayExtra("permission_content_key"));
+                b(this.f75276a.getStringExtra("permission_id_key"), this.f75276a.getStringArrayExtra("permission_content_key"));
                 break;
             case 2:
-                a(this.f38490a.getStringExtra("open_url"));
+                a(this.f75276a.getStringExtra("open_url"));
                 break;
             case 3:
             case 6:
             default:
-                d.l.a.e.a.d.q(this);
+                c.p.a.e.a.d.q(this);
                 break;
             case 4:
-                c(this.f38490a.getLongExtra("model_id", 0L));
+                c(this.f75276a.getLongExtra("model_id", 0L));
                 break;
             case 5:
-                b(this.f38490a.getLongExtra("model_id", 0L));
+                b(this.f75276a.getLongExtra("model_id", 0L));
                 break;
             case 7:
             case 8:
                 c();
                 break;
             case 9:
-                d.l.a.d.i.a.a aVar = f38489d;
+                c.p.a.d.i.a.a aVar = f75275d;
                 if (aVar != null) {
                     aVar.a();
                 }
-                d.l.a.e.a.d.q(this);
+                c.p.a.e.a.d.q(this);
                 break;
             case 10:
-                d(this.f38490a.getLongExtra("app_info_id", 0L));
+                d(this.f75276a.getLongExtra("app_info_id", 0L));
                 break;
             case 11:
-                b(this.f38490a.getStringExtra("package_name"));
+                b(this.f75276a.getStringExtra("package_name"));
                 break;
             case 12:
-                h.n.h(this, this.f38490a.getStringExtra("package_name"), this.f38490a.getLongExtra("model_id", 0L), this.f38490a.getStringExtra("param"), this.f38490a.getStringExtra("ext_json"));
-                d.l.a.e.a.d.q(this);
+                h.n.h(this, this.f75276a.getStringExtra("package_name"), this.f75276a.getLongExtra("model_id", 0L), this.f75276a.getStringExtra("param"), this.f75276a.getStringExtra("ext_json"));
+                c.p.a.e.a.d.q(this);
                 break;
         }
-        this.f38490a = null;
+        this.f75276a = null;
     }
 
     private void a(String str) {
@@ -598,8 +597,8 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                     Intent intent = new Intent("android.intent.action.VIEW");
                     intent.setData(parse);
                     intent.putExtra("open_url", str);
-                    intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-                    if (d.l.a.e.b.j.a.r().l("fix_app_link_flag")) {
+                    intent.addFlags(268435456);
+                    if (c.p.a.e.b.j.a.r().l("fix_app_link_flag")) {
                         intent.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
                     }
                     intent.putExtra("start_only_for_android", true);
@@ -608,7 +607,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                     e2.printStackTrace();
                 }
             } finally {
-                d.l.a.e.a.d.q(this);
+                c.p.a.e.a.d.q(this);
             }
         }
     }

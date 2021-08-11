@@ -19,18 +19,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.api.loader.Reflect;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Resources> f34054a;
+    public static Map<String, Resources> f70782a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f34055b;
+    public static final Object f70783b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class o {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +91,7 @@ public class o {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +129,7 @@ public class o {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -167,7 +167,7 @@ public class o {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -205,7 +205,7 @@ public class o {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -266,8 +266,8 @@ public class o {
                 return;
             }
         }
-        f34054a = new HashMap();
-        f34055b = new Object();
+        f70782a = new HashMap();
+        f70783b = new Object();
     }
 
     public static Resources a(Context context, AssetManager assetManager, DisplayMetrics displayMetrics, Configuration configuration) {
@@ -286,14 +286,14 @@ public class o {
         Resources resources2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, resources, str)) == null) {
-            synchronized (f34055b) {
-                resources2 = f34054a.get(str);
+            synchronized (f70783b) {
+                resources2 = f70782a.get(str);
                 if (resources2 == null) {
                     resources2 = b(context, resources, str);
                     if (resources2 == null) {
                         throw new RuntimeException("Can not createResources for " + str);
                     }
-                    f34054a.put(str, resources);
+                    f70782a.put(str, resources);
                 }
             }
             return resources2;

@@ -1,7 +1,6 @@
 package com.google.gson.internal.bind;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -23,7 +22,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class JsonTreeReader extends JsonReader {
     public static /* synthetic */ Interceptable $ic;
     public static final Object SENTINEL_CLOSED;
@@ -251,7 +250,7 @@ public final class JsonTreeReader extends JsonReader {
                 } else if (objArr[i2] instanceof JsonObject) {
                     i2++;
                     if (objArr[i2] instanceof Iterator) {
-                        sb.append(IStringUtil.EXTENSION_SEPARATOR);
+                        sb.append('.');
                         String[] strArr = this.pathNames;
                         if (strArr[i2] != null) {
                             sb.append(strArr[i2]);

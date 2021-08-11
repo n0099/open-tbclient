@@ -2,7 +2,6 @@ package com.baidu.ufosdk.ui;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,19 +12,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class aa implements TextWatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ EditText f23591a;
+    public final /* synthetic */ EditText f59327a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f23592b;
+    public final /* synthetic */ String f59328b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f23593c;
+    public final /* synthetic */ FeedbackEditActivity f59329c;
 
     public aa(FeedbackEditActivity feedbackEditActivity, EditText editText, String str) {
         Interceptable interceptable = $ic;
@@ -42,12 +41,12 @@ public final class aa implements TextWatcher {
                 return;
             }
         }
-        this.f23593c = feedbackEditActivity;
-        this.f23591a = editText;
-        this.f23592b = str;
+        this.f59329c = feedbackEditActivity;
+        this.f59327a = editText;
+        this.f59328b = str;
     }
 
-    /* JADX WARN: Incorrect condition in loop: B:11:0x004f */
+    /* JADX WARN: Incorrect condition in loop: B:11:0x0049 */
     @Override // android.text.TextWatcher
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -55,41 +54,40 @@ public final class aa implements TextWatcher {
     public final void afterTextChanged(Editable editable) {
         String str;
         String str2;
-        String str3;
         Button button;
-        String str4;
+        String str3;
         List list;
         List list2;
         List list3;
         EditText editText;
         Button button2;
         List list4;
+        String unused;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-            this.f23593c.ad = this.f23591a.getText().toString();
-            str = this.f23593c.ad;
-            Log.d("editcontent", str);
-            FeedbackEditActivity feedbackEditActivity = this.f23593c;
-            Map map = feedbackEditActivity.f23529a;
-            String str5 = this.f23592b;
-            str2 = feedbackEditActivity.ad;
-            map.put(str5, str2);
-            str3 = this.f23593c.ad;
-            if (str3 != null) {
-                str4 = this.f23593c.ad;
-                if (str4.trim().length() != 0) {
+            this.f59329c.ad = this.f59327a.getText().toString();
+            unused = this.f59329c.ad;
+            FeedbackEditActivity feedbackEditActivity = this.f59329c;
+            Map map = feedbackEditActivity.f59259a;
+            String str4 = this.f59328b;
+            str = feedbackEditActivity.ad;
+            map.put(str4, str);
+            str2 = this.f59329c.ad;
+            if (str2 != null) {
+                str3 = this.f59329c.ad;
+                if (str3.trim().length() != 0) {
                     for (int i2 = 0; i2 < list.size(); i2++) {
-                        list2 = this.f23593c.z;
+                        list2 = this.f59329c.z;
                         if (list2.get(i2) != null) {
-                            list4 = this.f23593c.z;
+                            list4 = this.f59329c.z;
                             if (((TextView) list4.get(i2)).getText().toString().trim().length() == 0) {
                             }
                         }
-                        list3 = this.f23593c.z;
+                        list3 = this.f59329c.z;
                         if (i2 == list3.size() - 1) {
-                            editText = this.f23593c.m;
+                            editText = this.f59329c.m;
                             if (editText.getText().toString().trim().length() >= 4) {
-                                button2 = this.f23593c.V;
+                                button2 = this.f59329c.V;
                                 int i3 = com.baidu.ufosdk.b.v;
                                 int i4 = com.baidu.ufosdk.b.y;
                                 int i5 = com.baidu.ufosdk.b.v;
@@ -100,7 +98,7 @@ public final class aa implements TextWatcher {
                     return;
                 }
             }
-            button = this.f23593c.V;
+            button = this.f59329c.V;
             button.setTextColor(com.baidu.ufosdk.b.y);
         }
     }

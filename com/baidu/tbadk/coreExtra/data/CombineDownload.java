@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CombineDownload implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SHOW_COMBINE_DOWNLOAD = 1;

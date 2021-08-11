@@ -11,18 +11,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class m1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f73555a;
+    public static volatile boolean f78854a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, e0> f73556b;
+    public static Map<String, e0> f78855b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(String str);
 
@@ -46,7 +46,7 @@ public class m1 {
                 return;
             }
         }
-        f73556b = new ConcurrentHashMap();
+        f78855b = new ConcurrentHashMap();
     }
 
     public m1() {
@@ -69,12 +69,12 @@ public class m1 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             synchronized (m1.class) {
                 if (str != null) {
-                    if (f73555a) {
+                    if (f78854a) {
                         Object a2 = b.a(67108866, str);
                         if (a2 == null) {
                             return null;
                         }
-                        e0 e0Var = f73556b.get(str);
+                        e0 e0Var = f78855b.get(str);
                         if (e0Var == null) {
                             return null;
                         }
@@ -131,7 +131,7 @@ public class m1 {
                 b.a(16777255, new d1());
                 b.a((int) InputDeviceCompat.SOURCE_HDMI, b0.c() ? new u1() : new s1());
                 g.a();
-                d.b.b.b.a.c.a();
+                c.b.b.b.a.c.a();
                 h.a(16777219, 0, 0L, null, applicationContext);
             }
         }
@@ -144,24 +144,24 @@ public class m1 {
             synchronized (m1.class) {
                 if (context != null) {
                     if (e0Var != null) {
-                        String str2 = e0Var.f73535a;
-                        String str3 = (str2 == null || str2.length() <= 0) ? e0Var.f73541g : e0Var.f73535a;
+                        String str2 = e0Var.f78833a;
+                        String str3 = (str2 == null || str2.length() <= 0) ? e0Var.f78839g : e0Var.f78833a;
                         if (str3 == null || str3.length() <= 0) {
                             throw new NullPointerException("appID must be set");
                         }
-                        if (!f73555a) {
+                        if (!f78854a) {
                             synchronized (m1.class) {
-                                if (!f73555a) {
+                                if (!f78854a) {
                                     b(context, str);
-                                    f73555a = true;
+                                    f78854a = true;
                                 }
                             }
                         }
-                        if (f73556b.containsKey(str3)) {
+                        if (f78855b.containsKey(str3)) {
                             return false;
                         }
                         if (((Boolean) b.a(67108865, e0Var.a())).booleanValue()) {
-                            f73556b.put(str3, e0Var);
+                            f78855b.put(str3, e0Var);
                             return true;
                         }
                         return false;

@@ -3,6 +3,8 @@ package com.baidu.tieba.card;
 import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.TextView;
+import c.a.p0.a0.d0.g;
+import c.a.p0.g1.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -16,27 +18,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a0.e0.g;
-import d.a.q0.f1.b.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CardExtendForumItemHolder extends ItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* renamed from: a  reason: collision with root package name */
+    public g f49697a;
+
     /* renamed from: b  reason: collision with root package name */
-    public BarImageView f14528b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f14529c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public EntelechyUserLikeButton f14530d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public g f14531e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f14532f;
+    public int f49698b;
+    public EntelechyUserLikeButton mAddLoveBtnTextView;
+    public BarImageView mForumAvatarImageView;
+    public TextView mForumNameTextView;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CardExtendForumItemHolder(View view) {
@@ -56,75 +50,76 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
                 return;
             }
         }
-        this.f14528b = null;
-        this.f14529c = null;
-        this.f14530d = null;
-        this.f14532f = 3;
+        this.mForumAvatarImageView = null;
+        this.mForumNameTextView = null;
+        this.mAddLoveBtnTextView = null;
+        this.f49698b = 3;
+    }
+
+    @SuppressLint({"ResourceAsColor"})
+    public final void a(EntelechyUserLikeButton entelechyUserLikeButton, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, entelechyUserLikeButton, z) == null) || entelechyUserLikeButton == null) {
+            return;
+        }
+        entelechyUserLikeButton.setTag(R.id.forum_follow, Boolean.valueOf(z));
+        entelechyUserLikeButton.updateLikeStatus(z);
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void b(c cVar) {
+    public void bindDataToView(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
             if (cVar != null && (cVar instanceof g)) {
                 g gVar = (g) cVar;
-                this.f14531e = gVar;
-                this.f14528b.setTag(gVar.f54348b);
-                this.f14528b.setTag(R.id.tag_forum_name, this.f14531e.f54349c);
-                this.f14528b.M(this.f14531e.f54348b, 15, false);
-                TextView textView = this.f14529c;
-                textView.setText(StringHelper.getFixedText(this.f14531e.f54349c, 4, true) + a().getContext().getResources().getString(R.string.forum));
-                this.f14529c.setTag(R.id.tag_forum_name, this.f14531e.f54349c);
-                this.f14530d.setTag(R.id.tag_forum_id, Long.valueOf(this.f14531e.f54350d));
-                this.f14530d.setTag(R.id.tag_forum_name, this.f14531e.f54349c);
-                a().setTag(R.id.tag_forum_id, Long.valueOf(this.f14531e.f54350d));
-                a().setTag(R.id.tag_forum_name, this.f14531e.f54349c);
-                f(this.f14530d, this.f14531e.f54351e);
-                this.f14528b.setOnClickListener(this.f17108a);
-                this.f14530d.setOnClickListener(this.f17108a);
-                this.f14529c.setOnClickListener(this.f17108a);
-                a().setOnClickListener(this.f17108a);
+                this.f49697a = gVar;
+                this.mForumAvatarImageView.setTag(gVar.f14970b);
+                this.mForumAvatarImageView.setTag(R.id.tag_forum_name, this.f49697a.f14971c);
+                this.mForumAvatarImageView.startLoad(this.f49697a.f14970b, 15, false);
+                TextView textView = this.mForumNameTextView;
+                textView.setText(StringHelper.getFixedText(this.f49697a.f14971c, 4, true) + getView().getContext().getResources().getString(R.string.forum));
+                this.mForumNameTextView.setTag(R.id.tag_forum_name, this.f49697a.f14971c);
+                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_id, Long.valueOf(this.f49697a.f14972d));
+                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_name, this.f49697a.f14971c);
+                getView().setTag(R.id.tag_forum_id, Long.valueOf(this.f49697a.f14972d));
+                getView().setTag(R.id.tag_forum_name, this.f49697a.f14971c);
+                a(this.mAddLoveBtnTextView, this.f49697a.f14973e);
+                this.mForumAvatarImageView.setOnClickListener(this.onClickListener);
+                this.mAddLoveBtnTextView.setOnClickListener(this.onClickListener);
+                this.mForumNameTextView.setOnClickListener(this.onClickListener);
+                getView().setOnClickListener(this.onClickListener);
             }
-            d(TbadkCoreApplication.getInst().getSkinType());
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public ItemViewHolder c(View view) {
+    public ItemViewHolder createItemViewHolder(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view)) == null) {
             CardExtendForumItemHolder cardExtendForumItemHolder = new CardExtendForumItemHolder(view);
             BarImageView barImageView = (BarImageView) view.findViewById(R.id.forum_avatar);
-            cardExtendForumItemHolder.f14528b = barImageView;
+            cardExtendForumItemHolder.mForumAvatarImageView = barImageView;
             barImageView.setGifIconSupport(false);
-            cardExtendForumItemHolder.f14529c = (TextView) view.findViewById(R.id.m_forum_name_textview);
-            cardExtendForumItemHolder.f14530d = (EntelechyUserLikeButton) view.findViewById(R.id.forum_add_love);
+            cardExtendForumItemHolder.mForumNameTextView = (TextView) view.findViewById(R.id.m_forum_name_textview);
+            cardExtendForumItemHolder.mAddLoveBtnTextView = (EntelechyUserLikeButton) view.findViewById(R.id.forum_add_love);
+            cardExtendForumItemHolder.textViewResourceId = 16908308;
             return cardExtendForumItemHolder;
         }
         return (ItemViewHolder) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void d(int i2) {
+    public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f14532f != i2) {
-                SkinManager.setBackgroundColor(a(), R.color.CAM_X0201);
-                SkinManager.setViewTextColor(this.f14529c, R.color.CAM_X0105);
-                f(this.f14530d, this.f14531e.f54351e);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            if (this.f49698b != i2) {
+                SkinManager.setBackgroundColor(getView(), R.color.CAM_X0201);
+                SkinManager.setViewTextColor(this.mForumNameTextView, R.color.CAM_X0105);
+                a(this.mAddLoveBtnTextView, this.f49697a.f14973e);
             }
-            this.f14532f = i2;
+            this.f49698b = i2;
         }
-    }
-
-    @SuppressLint({"ResourceAsColor"})
-    public final void f(EntelechyUserLikeButton entelechyUserLikeButton, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048579, this, entelechyUserLikeButton, z) == null) || entelechyUserLikeButton == null) {
-            return;
-        }
-        entelechyUserLikeButton.setTag(R.id.forum_follow, Boolean.valueOf(z));
-        entelechyUserLikeButton.h(z);
     }
 }

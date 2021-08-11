@@ -2,7 +2,6 @@ package okhttp3.internal.http2;
 
 import android.net.http.Headers;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +36,7 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class Http2Codec implements HttpCodec {
     public static /* synthetic */ Interceptable $ic;
     public static final ByteString CONNECTION;
@@ -57,7 +56,7 @@ public final class Http2Codec implements HttpCodec {
     public Http2Stream stream;
     public final StreamAllocation streamAllocation;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class StreamFinishingSource extends ForwardingSource {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,12 +107,12 @@ public final class Http2Codec implements HttpCodec {
         }
 
         @Override // okio.ForwardingSource, okio.Source
-        public long read(Buffer buffer, long j) throws IOException {
+        public long read(Buffer buffer, long j2) throws IOException {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
                 try {
-                    long read = delegate().read(buffer, j);
+                    long read = delegate().read(buffer, j2);
                     if (read > 0) {
                         this.bytesRead += read;
                     }
@@ -147,7 +146,7 @@ public final class Http2Codec implements HttpCodec {
         TRANSFER_ENCODING = ByteString.encodeUtf8(Headers.TRANSFER_ENCODING);
         TE = ByteString.encodeUtf8("te");
         ENCODING = ByteString.encodeUtf8("encoding");
-        ByteString encodeUtf8 = ByteString.encodeUtf8(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
+        ByteString encodeUtf8 = ByteString.encodeUtf8("upgrade");
         UPGRADE = encodeUtf8;
         HTTP_2_SKIPPED_REQUEST_HEADERS = Util.immutableList(CONNECTION, HOST, KEEP_ALIVE, PROXY_CONNECTION, TE, TRANSFER_ENCODING, ENCODING, encodeUtf8, Header.TARGET_METHOD, Header.TARGET_PATH, Header.TARGET_SCHEME, Header.TARGET_AUTHORITY);
         HTTP_2_SKIPPED_RESPONSE_HEADERS = Util.immutableList(CONNECTION, HOST, KEEP_ALIVE, PROXY_CONNECTION, TE, TRANSFER_ENCODING, ENCODING, UPGRADE);
@@ -248,10 +247,10 @@ public final class Http2Codec implements HttpCodec {
     }
 
     @Override // okhttp3.internal.http.HttpCodec
-    public Sink createRequestBody(Request request, long j) {
+    public Sink createRequestBody(Request request, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, j)) == null) ? this.stream.getSink() : (Sink) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, j2)) == null) ? this.stream.getSink() : (Sink) invokeLJ.objValue;
     }
 
     @Override // okhttp3.internal.http.HttpCodec

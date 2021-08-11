@@ -1,7 +1,6 @@
 package androidx.core.graphics;
 
 import android.graphics.Path;
-import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -683,12 +682,11 @@ public class PathParser {
                 double d17 = (d10 + d13) / 2.0d;
                 double d18 = (d14 * d14) + (d15 * d15);
                 if (d18 == 0.0d) {
-                    Log.w(PathParser.LOGTAG, " Points are coincident");
                     return;
                 }
                 double d19 = (1.0d / d18) - 0.25d;
                 if (d19 < 0.0d) {
-                    Log.w(PathParser.LOGTAG, "Points are too far apart " + d18);
+                    String str = "Points are too far apart " + d18;
                     float sqrt = (float) (Math.sqrt(d18) / 1.99999d);
                     drawArc(path, f2, f3, f4, f5, f6 * sqrt, f7 * sqrt, f8, z, z2);
                     return;

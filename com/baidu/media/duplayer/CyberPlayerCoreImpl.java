@@ -3,6 +3,9 @@ package com.baidu.media.duplayer;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
+import c.a.y.a.c;
+import c.a.y.a.e;
+import c.a.y.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider;
@@ -28,13 +31,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import d.a.z.a.c;
-import d.a.z.a.e;
-import d.a.z.b.a;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,10 +67,10 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
-    public void cleanFilecacheWithTimeExpired(long j) {
+    public void cleanFilecacheWithTimeExpired(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            Utils.d(j);
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            Utils.d(j2);
         }
     }
 
@@ -92,7 +92,7 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
     public ExtractorProvider createCyberExtractor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? d.a.z.c.a.a() : (ExtractorProvider) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? c.a.y.c.a.a() : (ExtractorProvider) invokeV.objValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
@@ -232,10 +232,10 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
-    public int nativeKernelNetInit(long j) {
+    public int nativeKernelNetInit(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048598, this, j)) == null) ? KernelNetApi.nativeKernelNetInit(j) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048598, this, j2)) == null) ? KernelNetApi.nativeKernelNetInit(j2) : invokeJ.intValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
@@ -284,10 +284,10 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
-    public void updateStorageQuota(long j) {
+    public void updateStorageQuota(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
-            Utils.l(j);
+        if (interceptable == null || interceptable.invokeJ(1048604, this, j2) == null) {
+            Utils.l(j2);
         }
     }
 }

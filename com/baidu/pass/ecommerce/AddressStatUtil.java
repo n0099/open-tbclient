@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class AddressStatUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AddressStatUtil";
@@ -61,12 +61,12 @@ public class AddressStatUtil {
         }
     }
 
-    public static void statAddressOption(String str, long j) {
+    public static void statAddressOption(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j2) == null) {
             HashMap<String, String> commonParamsMap = getCommonParamsMap();
-            commonParamsMap.put("time", "" + j);
-            Log.d(TAG, "statAddressOption key=" + str + " time=" + j);
+            commonParamsMap.put("time", "" + j2);
+            Log.d(TAG, "statAddressOption key=" + str + " time=" + j2);
             StatService.onEvent(str, commonParamsMap);
         }
     }

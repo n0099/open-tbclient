@@ -1,6 +1,5 @@
 package com.baidu.down.request.taskmanager;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.Queue;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ByteArrayInfoMng {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -110,9 +109,7 @@ public class ByteArrayInfoMng {
             return;
         }
         synchronized (queue) {
-            if (byteArrayInfo.mRecycled) {
-                Log.w(TAG, "### ByteArrayInfo duplicated recycled!");
-            } else {
+            if (!byteArrayInfo.mRecycled) {
                 byteArrayInfo.mRecycled = true;
                 if (this.mByteArrayRecycleList != null) {
                     this.mByteArrayRecycleList.offer(byteArrayInfo);

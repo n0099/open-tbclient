@@ -3,13 +3,13 @@ package com.baidu.tbadk.plugins.gameCenter;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import c.a.o0.r0.c.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.r0.c.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class GameCenterDownloadReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

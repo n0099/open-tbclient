@@ -25,7 +25,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+import org.apache.commons.lang3.CharUtils;
+/* loaded from: classes10.dex */
 public class FlutterWebView implements PlatformView, MethodChannel.MethodCallHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JS_CHANNEL_NAMES_FIELD = "javascriptChannelNames";
@@ -512,7 +513,7 @@ public class FlutterWebView implements PlatformView, MethodChannel.MethodCallHan
                     break;
                 case -402165208:
                     if (str.equals("scrollTo")) {
-                        c2 = '\r';
+                        c2 = CharUtils.CR;
                         break;
                     }
                     c2 = 65535;

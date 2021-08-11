@@ -28,7 +28,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class d {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f30440a;
+                    public final /* synthetic */ Context f66358a;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -65,14 +65,14 @@ public class d {
                                 return;
                             }
                         }
-                        this.f30440a = context;
+                        this.f66358a = context;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            d.d(this.f30440a);
+                            d.d(this.f66358a);
                         }
                     }
                 }, 1);
@@ -228,24 +228,24 @@ public class d {
         return invokeL.longValue;
     }
 
-    public static long a(File file, long j, int i2) {
+    public static long a(File file, long j2, int i2) {
         InterceptResult invokeCommon;
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{file, Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{file, Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
             if (file != null && file.exists()) {
-                j = Math.max(j, file.lastModified());
+                j2 = Math.max(j2, file.lastModified());
                 int i3 = i2 + 1;
                 if (i3 >= 50) {
-                    return j;
+                    return j2;
                 }
                 if (file.isDirectory() && (listFiles = file.listFiles()) != null) {
                     for (File file2 : listFiles) {
-                        j = Math.max(j, a(file2, j, i3));
+                        j2 = Math.max(j2, a(file2, j2, i3));
                     }
                 }
             }
-            return j;
+            return j2;
         }
         return invokeCommon.longValue;
     }

@@ -13,7 +13,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes9.dex */
 public class VideoFreeFlowConfigManager implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIRECT = "DIRECT";
@@ -33,25 +34,25 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
     public byte[] mListLock;
     public ArrayList<a> mPacRulesList;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f27558a;
+        public String f63386a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f27559b;
+        public String f63387b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f27560c;
+        public String f63388c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f27561d;
+        public int f63389d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f27562e;
+        public String f63390e;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -68,11 +69,11 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
                     return;
                 }
             }
-            this.f27558a = null;
-            this.f27559b = null;
-            this.f27560c = null;
-            this.f27561d = 2;
-            this.f27562e = null;
+            this.f63386a = null;
+            this.f63387b = null;
+            this.f63388c = null;
+            this.f63389d = 2;
+            this.f63390e = null;
             if (TextUtils.isEmpty(str) || !str.contains("#")) {
                 return;
             }
@@ -81,25 +82,25 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
             for (int i4 = 0; i4 < length; i4++) {
                 if (!TextUtils.isEmpty(split[i4])) {
                     if (i4 == 0) {
-                        this.f27558a = split[i4];
+                        this.f63386a = split[i4];
                     } else if (i4 == 1) {
-                        this.f27559b = split[i4];
+                        this.f63387b = split[i4];
                     } else if (i4 == 2) {
                         String str2 = split[i4];
-                        this.f27560c = str2;
+                        this.f63388c = str2;
                         if (!TextUtils.isEmpty(str2)) {
                             String trim = str2.trim();
-                            this.f27560c = trim;
+                            this.f63388c = trim;
                             if (trim.startsWith(VideoFreeFlowConfigManager.DIRECT)) {
-                                this.f27561d = 2;
-                            } else if (this.f27560c.startsWith(VideoFreeFlowConfigManager.PROXY)) {
-                                this.f27561d = 1;
-                                String str3 = this.f27560c;
+                                this.f63389d = 2;
+                            } else if (this.f63388c.startsWith(VideoFreeFlowConfigManager.PROXY)) {
+                                this.f63389d = 1;
+                                String str3 = this.f63388c;
                                 String trim2 = str3.substring(str3.indexOf(VideoFreeFlowConfigManager.PROXY) + 5).trim();
                                 if (!TextUtils.isEmpty(trim2)) {
                                     String[] split2 = trim2.split(";");
                                     if (split2.length > 0 && !TextUtils.isEmpty(split2[0])) {
-                                        this.f27562e = split2[0];
+                                        this.f63390e = split2[0];
                                     }
                                 }
                             }
@@ -165,7 +166,7 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
             Log.w(TAG, "initPacRule:".concat(String.valueOf(str)));
             synchronized (this.mListLock) {
                 this.mPacRulesList.clear();
-                for (String str2 : str.split("\n")) {
+                for (String str2 : str.split(StringUtils.LF)) {
                     this.mPacRulesList.add(new a(str2));
                 }
             }
@@ -173,7 +174,7 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:38:0x00a3, code lost:
-        if (r3.indexOf(r6.f27559b) != (-1)) goto L55;
+        if (r3.indexOf(r6.f63387b) != (-1)) goto L55;
      */
     /* JADX WARN: Removed duplicated region for block: B:52:0x00cf A[Catch: all -> 0x00e4, TryCatch #0 {, blocks: (B:12:0x0016, B:14:0x0028, B:16:0x0037, B:18:0x003f, B:20:0x0047, B:23:0x0051, B:52:0x00cf, B:54:0x00d3, B:55:0x00d5, B:57:0x00d7, B:59:0x00dc, B:61:0x00de, B:26:0x005e, B:28:0x0068, B:30:0x006e, B:32:0x007a, B:35:0x0092, B:37:0x009d, B:40:0x00a6, B:42:0x00b0, B:45:0x00b9, B:47:0x00c3, B:62:0x00e2), top: B:71:0x0016 }] */
     /* JADX WARN: Removed duplicated region for block: B:75:0x00de A[SYNTHETIC] */
@@ -191,23 +192,23 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
                     String host = Uri.parse(str).getHost();
                     for (int i2 = 0; i2 < size; i2++) {
                         a aVar = this.mPacRulesList.get(i2);
-                        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(aVar.f27558a) && !TextUtils.isEmpty(aVar.f27559b) && !TextUtils.isEmpty(aVar.f27560c)) {
-                            if (!aVar.f27559b.equals("*")) {
-                                if (aVar.f27558a.equals(HOST_MATCH)) {
-                                    if (!TextUtils.isEmpty(host) && host.length() >= aVar.f27559b.length() && host.substring(host.length() - aVar.f27559b.length()).equals(aVar.f27559b)) {
+                        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(aVar.f63386a) && !TextUtils.isEmpty(aVar.f63387b) && !TextUtils.isEmpty(aVar.f63388c)) {
+                            if (!aVar.f63387b.equals("*")) {
+                                if (aVar.f63386a.equals(HOST_MATCH)) {
+                                    if (!TextUtils.isEmpty(host) && host.length() >= aVar.f63387b.length() && host.substring(host.length() - aVar.f63387b.length()).equals(aVar.f63387b)) {
                                     }
-                                } else if (!aVar.f27558a.equals(HOST_STR)) {
-                                    if (aVar.f27558a.equals(HOST_STR_MATCH)) {
-                                        if (host.equals(aVar.f27559b)) {
+                                } else if (!aVar.f63386a.equals(HOST_STR)) {
+                                    if (aVar.f63386a.equals(HOST_STR_MATCH)) {
+                                        if (host.equals(aVar.f63387b)) {
                                         }
-                                    } else if (aVar.f27558a.equals(URL_MATCH) && str.indexOf(aVar.f27559b) != -1) {
+                                    } else if (aVar.f63386a.equals(URL_MATCH) && str.indexOf(aVar.f63387b) != -1) {
                                     }
                                 }
                                 if (z) {
-                                    if (aVar.f27561d == 1) {
-                                        return aVar.f27562e;
+                                    if (aVar.f63389d == 1) {
+                                        return aVar.f63390e;
                                     }
-                                    if (aVar.f27561d == 2) {
+                                    if (aVar.f63389d == 2) {
                                         return null;
                                     }
                                 }

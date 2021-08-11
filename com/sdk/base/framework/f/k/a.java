@@ -17,15 +17,15 @@ import com.sdk.base.framework.bean.DataInfo;
 import com.sdk.base.framework.c.f;
 import java.util.TreeMap;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38437a;
+    public static final String f75223a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f38438b;
+    public static Boolean f75224b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,8 +42,8 @@ public class a {
             }
         }
         new TreeMap();
-        f38437a = a.class.getSimpleName();
-        f38438b = Boolean.valueOf(f.f38384b);
+        f75223a = a.class.getSimpleName();
+        f75224b = Boolean.valueOf(f.f75169b);
     }
 
     public a() {
@@ -70,8 +70,8 @@ public class a {
                 return com.sdk.base.framework.f.i.a.b(jSONObject.optString("data"), a2.substring(0, 16), a2.substring(16));
             } catch (Throwable th) {
                 com.sdk.base.framework.f.f.a.a(th.toString());
-                String str2 = f38437a;
-                c.b(str2, "SDK解密异常：" + th.toString(), f38438b);
+                String str2 = f75223a;
+                c.b(str2, "SDK解密异常：" + th.toString(), f75224b);
                 return null;
             }
         }
@@ -91,7 +91,7 @@ public class a {
                     dataInfo.putData("msg", str);
                     dataInfo.putData("obj", a2);
                     dataInfo.putData(IAdRequestParam.SEQ, str2);
-                    aVar.a(aVar.f38394c, "/st/api/v1.0/ses", dataInfo, aVar.a(), 0, j.f38344b);
+                    aVar.a(aVar.f75179c, "/st/api/v1.0/ses", dataInfo, aVar.a(), 0, j.f75128b);
                 } catch (Throwable unused) {
                 }
             }
@@ -105,8 +105,8 @@ public class a {
             try {
                 return new JSONObject(str).optLong("exp") < System.currentTimeMillis();
             } catch (Exception e2) {
-                String str2 = f38437a;
-                c.c(str2, "out data error" + e2, f38438b);
+                String str2 = f75223a;
+                c.c(str2, "out data error" + e2, f75224b);
                 return true;
             }
         }

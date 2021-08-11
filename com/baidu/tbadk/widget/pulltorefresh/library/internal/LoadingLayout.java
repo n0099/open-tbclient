@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.d1.l.a.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -30,44 +31,45 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.d1.l.a.c.b;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes3.dex */
-public abstract class LoadingLayout extends FrameLayout implements d.a.p0.d1.l.a.a {
+/* loaded from: classes6.dex */
+public abstract class LoadingLayout extends FrameLayout implements c.a.o0.d1.l.a.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final Interpolator p;
+    public static final Interpolator l;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f13533e;
+    public FrameLayout f48580e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ImageView f13534f;
+    public boolean f48581f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final ProgressBar f13535g;
+    public final TextView f48582g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13536h;
+    public final TextView f48583h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final TextView f13537i;
-    public final TextView j;
-    public final PullToRefreshBase.Mode k;
-    public final PullToRefreshBase.Orientation l;
-    public CharSequence m;
-    public CharSequence n;
-    public CharSequence o;
+    public CharSequence f48584i;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: j  reason: collision with root package name */
+    public CharSequence f48585j;
+    public CharSequence k;
+    public final ImageView mHeaderImage;
+    public final ProgressBar mHeaderProgress;
+    public final PullToRefreshBase.Mode mMode;
+    public final PullToRefreshBase.Orientation mScrollDirection;
+
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f13538a;
+        public static final /* synthetic */ int[] f48586a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f13539b;
+        public static final /* synthetic */ int[] f48587b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -84,23 +86,23 @@ public abstract class LoadingLayout extends FrameLayout implements d.a.p0.d1.l.a
                 }
             }
             int[] iArr = new int[PullToRefreshBase.Mode.values().length];
-            f13539b = iArr;
+            f48587b = iArr;
             try {
                 iArr[PullToRefreshBase.Mode.PULL_FROM_END.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f13539b[PullToRefreshBase.Mode.PULL_FROM_START.ordinal()] = 2;
+                f48587b[PullToRefreshBase.Mode.PULL_FROM_START.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             int[] iArr2 = new int[PullToRefreshBase.Orientation.values().length];
-            f13538a = iArr2;
+            f48586a = iArr2;
             try {
                 iArr2[PullToRefreshBase.Orientation.HORIZONTAL.ordinal()] = 1;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f13538a[PullToRefreshBase.Orientation.VERTICAL.ordinal()] = 2;
+                f48586a[PullToRefreshBase.Orientation.VERTICAL.ordinal()] = 2;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -119,7 +121,7 @@ public abstract class LoadingLayout extends FrameLayout implements d.a.p0.d1.l.a
                 return;
             }
         }
-        p = new LinearInterpolator();
+        l = new LinearInterpolator();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -143,30 +145,30 @@ public abstract class LoadingLayout extends FrameLayout implements d.a.p0.d1.l.a
                 return;
             }
         }
-        this.k = mode;
-        this.l = orientation;
-        if (a.f13538a[orientation.ordinal()] != 1) {
+        this.mMode = mode;
+        this.mScrollDirection = orientation;
+        if (a.f48586a[orientation.ordinal()] != 1) {
             LayoutInflater.from(context).inflate(R.layout.tbadkcore_pull_to_refresh_header_vertical, this);
         } else {
             LayoutInflater.from(context).inflate(R.layout.tbadkcore_pull_to_refresh_header_horizontal, this);
         }
         FrameLayout frameLayout = (FrameLayout) findViewById(R.id.fl_inner);
-        this.f13533e = frameLayout;
-        this.f13537i = (TextView) frameLayout.findViewById(R.id.pull_to_refresh_text);
-        this.f13535g = (ProgressBar) this.f13533e.findViewById(R.id.pull_to_refresh_progress);
-        this.j = (TextView) this.f13533e.findViewById(R.id.pull_to_refresh_sub_text);
-        this.f13534f = (ImageView) this.f13533e.findViewById(R.id.pull_to_refresh_image);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f13533e.getLayoutParams();
-        if (a.f13539b[mode.ordinal()] != 1) {
+        this.f48580e = frameLayout;
+        this.f48582g = (TextView) frameLayout.findViewById(R.id.pull_to_refresh_text);
+        this.mHeaderProgress = (ProgressBar) this.f48580e.findViewById(R.id.pull_to_refresh_progress);
+        this.f48583h = (TextView) this.f48580e.findViewById(R.id.pull_to_refresh_sub_text);
+        this.mHeaderImage = (ImageView) this.f48580e.findViewById(R.id.pull_to_refresh_image);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f48580e.getLayoutParams();
+        if (a.f48587b[mode.ordinal()] != 1) {
             layoutParams.gravity = orientation == PullToRefreshBase.Orientation.VERTICAL ? 80 : 5;
-            this.m = context.getString(R.string.pull_to_refresh_pull_label);
-            this.n = context.getString(R.string.pull_to_refresh_refreshing_label);
-            this.o = context.getString(R.string.pull_to_refresh_release_label);
+            this.f48584i = context.getString(R.string.pull_to_refresh_pull_label);
+            this.f48585j = context.getString(R.string.pull_to_refresh_refreshing_label);
+            this.k = context.getString(R.string.pull_to_refresh_release_label);
         } else {
             layoutParams.gravity = orientation == PullToRefreshBase.Orientation.VERTICAL ? 48 : 3;
-            this.m = context.getString(R.string.pull_to_refresh_pull_label);
-            this.n = context.getString(R.string.pull_to_refresh_refreshing_label);
-            this.o = context.getString(R.string.pull_to_refresh_release_label);
+            this.f48584i = context.getString(R.string.pull_to_refresh_pull_label);
+            this.f48585j = context.getString(R.string.pull_to_refresh_refreshing_label);
+            this.k = context.getString(R.string.pull_to_refresh_release_label);
         }
         if (typedArray.hasValue(R$styleable.PullToRefresh_tb_ptrHeaderBackground) && (drawable = typedArray.getDrawable(R$styleable.PullToRefresh_tb_ptrHeaderBackground)) != null) {
             b.b(this, drawable);
@@ -188,42 +190,42 @@ public abstract class LoadingLayout extends FrameLayout implements d.a.p0.d1.l.a
             setSubTextColor(colorStateList);
         }
         Drawable drawable2 = typedArray.hasValue(R$styleable.PullToRefresh_tb_ptrDrawable) ? typedArray.getDrawable(R$styleable.PullToRefresh_tb_ptrDrawable) : null;
-        if (a.f13539b[mode.ordinal()] != 1) {
+        if (a.f48587b[mode.ordinal()] != 1) {
             if (typedArray.hasValue(R$styleable.PullToRefresh_tb_ptrDrawableStart)) {
                 drawable2 = typedArray.getDrawable(R$styleable.PullToRefresh_tb_ptrDrawableStart);
             } else if (typedArray.hasValue(R$styleable.PullToRefresh_tb_ptrDrawableTop)) {
-                d.a.p0.d1.l.a.c.a.a("ptrDrawableTop", "ptrDrawableStart");
+                c.a.o0.d1.l.a.d.a.a("ptrDrawableTop", "ptrDrawableStart");
                 drawable2 = typedArray.getDrawable(R$styleable.PullToRefresh_tb_ptrDrawableTop);
             }
         } else if (typedArray.hasValue(R$styleable.PullToRefresh_tb_ptrDrawableEnd)) {
             drawable2 = typedArray.getDrawable(R$styleable.PullToRefresh_tb_ptrDrawableEnd);
         } else if (typedArray.hasValue(R$styleable.PullToRefresh_tb_ptrDrawableBottom)) {
-            d.a.p0.d1.l.a.c.a.a("ptrDrawableBottom", "ptrDrawableEnd");
+            c.a.o0.d1.l.a.d.a.a("ptrDrawableBottom", "ptrDrawableEnd");
             drawable2 = typedArray.getDrawable(R$styleable.PullToRefresh_tb_ptrDrawableBottom);
         }
         setLoadingDrawable(drawable2 == null ? SkinManager.getDrawable(getDefaultDrawableResId()) : drawable2);
-        j();
+        reset();
     }
 
     private void setSubHeaderText(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, this, charSequence) == null) || this.j == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, this, charSequence) == null) || this.f48583h == null) {
             return;
         }
         if (TextUtils.isEmpty(charSequence)) {
-            this.j.setVisibility(8);
+            this.f48583h.setVisibility(8);
             return;
         }
-        this.j.setText(charSequence);
-        if (8 == this.j.getVisibility()) {
-            this.j.setVisibility(0);
+        this.f48583h.setText(charSequence);
+        if (8 == this.f48583h.getVisibility()) {
+            this.f48583h.setVisibility(0);
         }
     }
 
     private void setSubTextAppearance(int i2) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65539, this, i2) == null) || (textView = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65539, this, i2) == null) || (textView = this.f48583h) == null) {
             return;
         }
         textView.setTextAppearance(getContext(), i2);
@@ -232,7 +234,7 @@ public abstract class LoadingLayout extends FrameLayout implements d.a.p0.d1.l.a
     private void setSubTextColor(ColorStateList colorStateList) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, colorStateList) == null) || (textView = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, colorStateList) == null) || (textView = this.f48583h) == null) {
             return;
         }
         textView.setTextColor(colorStateList);
@@ -241,11 +243,11 @@ public abstract class LoadingLayout extends FrameLayout implements d.a.p0.d1.l.a
     private void setTextAppearance(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2) == null) {
-            TextView textView = this.f13537i;
+            TextView textView = this.f48582g;
             if (textView != null) {
                 textView.setTextAppearance(getContext(), i2);
             }
-            TextView textView2 = this.j;
+            TextView textView2 = this.f48583h;
             if (textView2 != null) {
                 textView2.setTextAppearance(getContext(), i2);
             }
@@ -255,170 +257,188 @@ public abstract class LoadingLayout extends FrameLayout implements d.a.p0.d1.l.a
     private void setTextColor(ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, colorStateList) == null) {
-            TextView textView = this.f13537i;
+            TextView textView = this.f48582g;
             if (textView != null) {
                 textView.setTextColor(colorStateList);
             }
-            TextView textView2 = this.j;
+            TextView textView2 = this.f48583h;
             if (textView2 != null) {
                 textView2.setTextColor(colorStateList);
             }
         }
     }
 
-    public abstract void a(Drawable drawable);
-
-    public final void b(float f2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) || this.f13536h) {
-            return;
-        }
-        c(f2);
-    }
-
-    public abstract void c(float f2);
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TextView textView = this.f13537i;
-            if (textView != null) {
-                textView.setText(this.m);
-            }
-            e();
-        }
-    }
-
-    public abstract void e();
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            TextView textView = this.f13537i;
-            if (textView != null) {
-                textView.setText(this.n);
-            }
-            if (this.f13536h) {
-                ((AnimationDrawable) this.f13534f.getDrawable()).start();
-            } else {
-                g();
-            }
-            TextView textView2 = this.j;
-            if (textView2 != null) {
-                textView2.setVisibility(8);
-            }
-        }
-    }
-
-    public abstract void g();
-
     public final int getContentSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (a.f13538a[this.l.ordinal()] != 1) {
-                return this.f13533e.getHeight();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (a.f48586a[this.mScrollDirection.ordinal()] != 1) {
+                return this.f48580e.getHeight();
             }
-            return this.f13533e.getWidth();
+            return this.f48580e.getWidth();
         }
         return invokeV.intValue;
     }
 
     public abstract int getDefaultDrawableResId();
 
-    public final void h() {
+    public final void hideAllViews() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            TextView textView = this.f13537i;
-            if (textView != null) {
-                textView.setText(this.o);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.f48582g.getVisibility() == 0) {
+                this.f48582g.setVisibility(4);
             }
-            i();
+            if (this.mHeaderProgress.getVisibility() == 0) {
+                this.mHeaderProgress.setVisibility(4);
+            }
+            if (this.mHeaderImage.getVisibility() == 0) {
+                this.mHeaderImage.setVisibility(4);
+            }
+            if (this.f48583h.getVisibility() == 0) {
+                this.f48583h.setVisibility(4);
+            }
         }
     }
 
-    public abstract void i();
+    public abstract void onLoadingDrawableSet(Drawable drawable);
 
-    public final void j() {
+    public final void onPull(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            TextView textView = this.f13537i;
+        if (!(interceptable == null || interceptable.invokeF(1048580, this, f2) == null) || this.f48581f) {
+            return;
+        }
+        onPullImpl(f2);
+    }
+
+    public abstract void onPullImpl(float f2);
+
+    public final void pullToRefresh() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            TextView textView = this.f48582g;
             if (textView != null) {
-                textView.setText(this.m);
+                textView.setText(this.f48584i);
             }
-            this.f13534f.setVisibility(0);
-            if (this.f13536h) {
-                ((AnimationDrawable) this.f13534f.getDrawable()).stop();
+            pullToRefreshImpl();
+        }
+    }
+
+    public abstract void pullToRefreshImpl();
+
+    public final void refreshing() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            TextView textView = this.f48582g;
+            if (textView != null) {
+                textView.setText(this.f48585j);
+            }
+            if (this.f48581f) {
+                ((AnimationDrawable) this.mHeaderImage.getDrawable()).start();
             } else {
-                k();
+                refreshingImpl();
             }
-            TextView textView2 = this.j;
+            TextView textView2 = this.f48583h;
+            if (textView2 != null) {
+                textView2.setVisibility(8);
+            }
+        }
+    }
+
+    public abstract void refreshingImpl();
+
+    public final void releaseToRefresh() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            TextView textView = this.f48582g;
+            if (textView != null) {
+                textView.setText(this.k);
+            }
+            releaseToRefreshImpl();
+        }
+    }
+
+    public abstract void releaseToRefreshImpl();
+
+    public final void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            TextView textView = this.f48582g;
+            if (textView != null) {
+                textView.setText(this.f48584i);
+            }
+            this.mHeaderImage.setVisibility(0);
+            if (this.f48581f) {
+                ((AnimationDrawable) this.mHeaderImage.getDrawable()).stop();
+            } else {
+                resetImpl();
+            }
+            TextView textView2 = this.f48583h;
             if (textView2 != null) {
                 if (TextUtils.isEmpty(textView2.getText())) {
-                    this.j.setVisibility(8);
+                    this.f48583h.setVisibility(8);
                 } else {
-                    this.j.setVisibility(0);
+                    this.f48583h.setVisibility(0);
                 }
             }
         }
     }
 
-    public abstract void k();
+    public abstract void resetImpl();
 
     public final void setHeight(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
             getLayoutParams().height = i2;
             requestLayout();
         }
     }
 
-    @Override // d.a.p0.d1.l.a.a
+    @Override // c.a.o0.d1.l.a.a
     public void setLastUpdatedLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, charSequence) == null) {
             setSubHeaderText(charSequence);
         }
     }
 
-    @Override // d.a.p0.d1.l.a.a
+    @Override // c.a.o0.d1.l.a.a
     public final void setLoadingDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, drawable) == null) {
-            this.f13534f.setImageDrawable(drawable);
-            this.f13536h = drawable instanceof AnimationDrawable;
-            a(drawable);
+        if (interceptable == null || interceptable.invokeL(1048592, this, drawable) == null) {
+            this.mHeaderImage.setImageDrawable(drawable);
+            this.f48581f = drawable instanceof AnimationDrawable;
+            onLoadingDrawableSet(drawable);
         }
     }
 
-    @Override // d.a.p0.d1.l.a.a
+    @Override // c.a.o0.d1.l.a.a
     public void setPullLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, charSequence) == null) {
-            this.m = charSequence;
+        if (interceptable == null || interceptable.invokeL(1048593, this, charSequence) == null) {
+            this.f48584i = charSequence;
         }
     }
 
-    @Override // d.a.p0.d1.l.a.a
+    @Override // c.a.o0.d1.l.a.a
     public void setRefreshingLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, charSequence) == null) {
-            this.n = charSequence;
+        if (interceptable == null || interceptable.invokeL(1048594, this, charSequence) == null) {
+            this.f48585j = charSequence;
         }
     }
 
-    @Override // d.a.p0.d1.l.a.a
+    @Override // c.a.o0.d1.l.a.a
     public void setReleaseLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, charSequence) == null) {
-            this.o = charSequence;
+        if (interceptable == null || interceptable.invokeL(1048595, this, charSequence) == null) {
+            this.k = charSequence;
         }
     }
 
     public void setTextSize(int i2) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048596, this, i2) == null) || (textView = this.f13537i) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048597, this, i2) == null) || (textView = this.f48582g) == null) {
             return;
         }
         textView.setTextSize(0, i2);
@@ -426,23 +446,41 @@ public abstract class LoadingLayout extends FrameLayout implements d.a.p0.d1.l.a
 
     public void setTextTypeface(Typeface typeface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, typeface) == null) {
-            this.f13537i.setTypeface(typeface);
+        if (interceptable == null || interceptable.invokeL(1048598, this, typeface) == null) {
+            this.f48582g.setTypeface(typeface);
         }
     }
 
     public final void setWidth(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
             getLayoutParams().width = i2;
             requestLayout();
+        }
+    }
+
+    public final void showInvisibleViews() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            if (4 == this.f48582g.getVisibility()) {
+                this.f48582g.setVisibility(0);
+            }
+            if (4 == this.mHeaderProgress.getVisibility()) {
+                this.mHeaderProgress.setVisibility(0);
+            }
+            if (4 == this.mHeaderImage.getVisibility()) {
+                this.mHeaderImage.setVisibility(0);
+            }
+            if (4 == this.f48583h.getVisibility()) {
+                this.f48583h.setVisibility(0);
+            }
         }
     }
 
     public void setTextColor(int i2) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || (textView = this.f13537i) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048596, this, i2) == null) || (textView = this.f48582g) == null) {
             return;
         }
         textView.setTextColor(i2);

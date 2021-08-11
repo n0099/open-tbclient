@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.l;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -15,8 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PbLandscapeListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,13 +32,13 @@ public class PbLandscapeListView extends BdTypeListView {
     public boolean W;
     public boolean a0;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbLandscapeListView f19474e;
+        public final /* synthetic */ PbLandscapeListView f54825e;
 
         public a(PbLandscapeListView pbLandscapeListView) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class PbLandscapeListView extends BdTypeListView {
                     return;
                 }
             }
-            this.f19474e = pbLandscapeListView;
+            this.f54825e = pbLandscapeListView;
         }
 
         @Override // android.os.Handler.Callback
@@ -69,8 +69,8 @@ public class PbLandscapeListView extends BdTypeListView {
                     if (message.what != 0) {
                         return false;
                     }
-                    if (this.f19474e.S != null) {
-                        this.f19474e.S.a(dVar.f19475a, dVar.f19476b, dVar.f19477c, dVar.f19479e, dVar.f19478d, dVar.f19480f);
+                    if (this.f54825e.S != null) {
+                        this.f54825e.S.a(dVar.f54826a, dVar.f54827b, dVar.f54828c, dVar.f54830e, dVar.f54829d, dVar.f54831f);
                         return true;
                     }
                     return true;
@@ -81,38 +81,38 @@ public class PbLandscapeListView extends BdTypeListView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void onLayout();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface c {
         void a(int i2, int i3, float f2, float f3, float f4, float f5);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f19475a;
+        public int f54826a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f19476b;
+        public int f54827b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f19477c;
+        public float f54828c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f19478d;
+        public float f54829d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f19479e;
+        public float f54830e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f19480f;
+        public float f54831f;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -156,30 +156,15 @@ public class PbLandscapeListView extends BdTypeListView {
         this.a0 = false;
     }
 
-    public boolean J() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.widget.ListView.BdListView
+    public void addPullRefreshView(View view) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a0 : invokeV.booleanValue;
-    }
-
-    public final void K(int i2, int i3, float f2, float f3, float f4, float f5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            this.U.removeMessages(0);
-            if (this.U.hasMessages(0)) {
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (this.V) {
+                getAdapter2().f(view, null, false, 1);
+            } else {
+                getAdapter2().f(view, null, false, 0);
             }
-            Message message = new Message();
-            message.what = 0;
-            d dVar = new d();
-            dVar.f19475a = i2;
-            dVar.f19476b = i3;
-            dVar.f19477c = f2;
-            dVar.f19478d = f3;
-            dVar.f19479e = f4;
-            dVar.f19480f = f5;
-            message.obj = dVar;
-            this.U.sendMessageDelayed(message, 60L);
         }
     }
 
@@ -187,7 +172,7 @@ public class PbLandscapeListView extends BdTypeListView {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
                 this.Q = motionEvent.getRawX();
@@ -202,7 +187,7 @@ public class PbLandscapeListView extends BdTypeListView {
                     int i3 = (int) (rawY - this.R);
                     int abs = Math.abs(i2);
                     if (abs > this.N && abs > Math.abs(i3)) {
-                        K(i2, i3, this.Q, this.R, rawX, rawY);
+                        z(i2, i3, this.Q, this.R, rawX, rawY);
                         this.a0 = true;
                         return false;
                     }
@@ -213,6 +198,12 @@ public class PbLandscapeListView extends BdTypeListView {
             return super.dispatchTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
+    }
+
+    public boolean isDragListenerExecuted() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a0 : invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
@@ -288,15 +279,24 @@ public class PbLandscapeListView extends BdTypeListView {
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdListView
-    public void y(View view) {
+    public final void z(int i2, int i3, float f2, float f3, float f4, float f5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, view) == null) {
-            if (this.V) {
-                getAdapter2().h(view, null, false, 1);
-            } else {
-                getAdapter2().h(view, null, false, 0);
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
+            this.U.removeMessages(0);
+            if (this.U.hasMessages(0)) {
+                return;
             }
+            Message message = new Message();
+            message.what = 0;
+            d dVar = new d();
+            dVar.f54826a = i2;
+            dVar.f54827b = i3;
+            dVar.f54828c = f2;
+            dVar.f54829d = f3;
+            dVar.f54830e = f4;
+            dVar.f54831f = f5;
+            message.obj = dVar;
+            this.U.sendMessageDelayed(message, 60L);
         }
     }
 

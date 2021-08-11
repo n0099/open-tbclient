@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.fe;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class fb {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f40384a;
+    public static final boolean f77241a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public class fb {
                 return;
             }
         }
-        f40384a = Log.isLoggable("BCompressed", 3);
+        f77241a = Log.isLoggable("BCompressed", 3);
     }
 
     public static byte[] a(fa faVar, byte[] bArr) {
@@ -37,15 +37,15 @@ public class fb {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, faVar, bArr)) == null) {
             try {
                 byte[] a2 = fe.a.a(bArr);
-                if (f40384a) {
-                    com.xiaomi.channel.commonutils.logger.b.m71a("BCompressed", "decompress " + bArr.length + " to " + a2.length + " for " + faVar);
-                    if (faVar.f360a == 1) {
-                        com.xiaomi.channel.commonutils.logger.b.m71a("BCompressed", "decompress not support upStream");
+                if (f77241a) {
+                    com.xiaomi.channel.commonutils.logger.b.m74a("BCompressed", "decompress " + bArr.length + " to " + a2.length + " for " + faVar);
+                    if (faVar.f364a == 1) {
+                        com.xiaomi.channel.commonutils.logger.b.m74a("BCompressed", "decompress not support upStream");
                     }
                 }
                 return a2;
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m71a("BCompressed", "decompress error " + e2);
+                com.xiaomi.channel.commonutils.logger.b.m74a("BCompressed", "decompress error " + e2);
                 return bArr;
             }
         }

@@ -3,7 +3,7 @@ package com.fun.ad.sdk;
 import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface FunAdFactory {
     void destroyAd(String str);
 
@@ -16,4 +16,6 @@ public interface FunAdFactory {
     void showAd(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener);
 
     void showAd(Activity activity, String str, FunAdInteractionListener funAdInteractionListener, FunNativeAdInflater funNativeAdInflater);
+
+    FunSplashAd showSplash(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener);
 }

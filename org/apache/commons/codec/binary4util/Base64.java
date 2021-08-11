@@ -17,7 +17,7 @@ import io.flutter.plugin.common.StandardMessageCodec;
 import java.math.BigInteger;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class Base64 extends BaseNCodec {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BITS_PER_ENCODED_BYTE = 6;

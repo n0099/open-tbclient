@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TbadkCoreStatisticKey {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_FOLLOW_LIVE_LIVE_ITEM_CLICK = "c12677";
@@ -56,6 +56,10 @@ public class TbadkCoreStatisticKey {
     public static final String HOT_TOPIC_CLICK_PB = "pb";
     public static final String HOT_TOPIC_CLICK_PB_BOTTOM = "pb_bottom";
     public static final String HOT_TOPIC_CLICK_TOPIC = "1";
+    public static final String IM_REC_FORUM_ATTENTION_CLICK = "c14308";
+    public static final String IM_REC_FORUM_ITEM_CLICK = "c14307";
+    public static final String IM_REC_FORUM_ITEM_SHOW_KEY = "c14306";
+    public static final String IM_TAB_SHOW_KEY = "c14305";
     public static final String INVOKE_AS = "c10007";
     public static final String KEY_AGREE_SUCCESS_CLICK = "c14179";
     public static final String KEY_AIAPPS_CALL_NATIVE = "c13561";
@@ -201,7 +205,7 @@ public class TbadkCoreStatisticKey {
     public static final String YULE_GAME_EAST_EGG_VIEW = "c10852";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class AntiLocateValue {
         public static /* synthetic */ Interceptable $ic = null;
         public static int LOCATE_CHAT = 6;

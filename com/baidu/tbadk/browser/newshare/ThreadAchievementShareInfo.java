@@ -9,7 +9,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes3.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes6.dex */
 public class ThreadAchievementShareInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,7 +20,7 @@ public class ThreadAchievementShareInfo implements Serializable {
     public ParamBean params;
     public String title;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class ContentBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +110,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class ParamBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -356,13 +357,13 @@ public class ThreadAchievementShareInfo implements Serializable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-                return "ParamBean{user=" + this.user + ", rank=" + this.rank + ", title='" + this.title + "', date='" + this.date + "', tid='" + this.tid + "', uid='" + this.uid + "', url='" + this.url + "', pageType='" + this.pageType + "', thread_list=" + this.thread_list + ", thread_type='" + this.thread_type + "', thread_title='" + this.thread_title + "', interact=" + this.interact + ", agree_num=" + this.agree_num + ", post_num=" + this.post_num + ", content=" + this.content + ", video_info=" + this.video_info + '}';
+                return "ParamBean{user=" + this.user + ", rank=" + this.rank + ", title='" + this.title + ExtendedMessageFormat.QUOTE + ", date='" + this.date + ExtendedMessageFormat.QUOTE + ", tid='" + this.tid + ExtendedMessageFormat.QUOTE + ", uid='" + this.uid + ExtendedMessageFormat.QUOTE + ", url='" + this.url + ExtendedMessageFormat.QUOTE + ", pageType='" + this.pageType + ExtendedMessageFormat.QUOTE + ", thread_list=" + this.thread_list + ", thread_type='" + this.thread_type + ExtendedMessageFormat.QUOTE + ", thread_title='" + this.thread_title + ExtendedMessageFormat.QUOTE + ", interact=" + this.interact + ", agree_num=" + this.agree_num + ", post_num=" + this.post_num + ", content=" + this.content + ", video_info=" + this.video_info + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class ThreadListBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -458,10 +459,10 @@ public class ThreadAchievementShareInfo implements Serializable {
             }
         }
 
-        public void setTid(long j) {
+        public void setTid(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-                this.tid = j;
+            if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+                this.tid = j2;
             }
         }
 
@@ -480,7 +481,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class UserBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -542,7 +543,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class VideoDescBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -632,7 +633,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class VideoDescCaeBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -722,7 +723,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class VideoDescH265Bean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -812,7 +813,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class VideoInfoBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1048,10 +1049,10 @@ public class ThreadAchievementShareInfo implements Serializable {
             }
         }
 
-        public void setVideo_log_id(long j) {
+        public void setVideo_log_id(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048607, this, j) == null) {
-                this.video_log_id = j;
+            if (interceptable == null || interceptable.invokeJ(1048607, this, j2) == null) {
+                this.video_log_id = j2;
             }
         }
 

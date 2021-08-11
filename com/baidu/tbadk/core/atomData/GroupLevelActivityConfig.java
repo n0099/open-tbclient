@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class GroupLevelActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GROUP_ID = "group_id";
@@ -15,13 +15,13 @@ public class GroupLevelActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupLevelActivityConfig(Context context, long j, boolean z) {
+    public GroupLevelActivityConfig(Context context, long j2, boolean z) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Boolean.valueOf(z)};
+            Object[] objArr = {context, Long.valueOf(j2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -33,7 +33,7 @@ public class GroupLevelActivityConfig extends IntentConfig {
             }
         }
         Intent intent = getIntent();
-        intent.putExtra("group_id", j);
+        intent.putExtra("group_id", j2);
         intent.putExtra(IS_MEM, z);
     }
 }

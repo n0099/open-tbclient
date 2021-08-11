@@ -3,9 +3,10 @@ package com.meizu.cloud.pushsdk.notification.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class NotifyType implements Parcelable {
     public static final Parcelable.Creator<NotifyType> CREATOR = new Parcelable.Creator<NotifyType>() { // from class: com.meizu.cloud.pushsdk.notification.model.NotifyType.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -46,7 +47,7 @@ public class NotifyType implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                d.h.a.a.a.b("notify_type", "parse json string error " + e2.getMessage());
+                c.l.a.a.a.b("notify_type", "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -78,7 +79,7 @@ public class NotifyType implements Parcelable {
             return notifyType;
         }
         str = "no such tag notify_type";
-        d.h.a.a.a.b("notify_type", str);
+        c.l.a.a.a.b("notify_type", str);
         return notifyType;
     }
 
@@ -112,7 +113,7 @@ public class NotifyType implements Parcelable {
     }
 
     public String toString() {
-        return "NotifyType{vibrate=" + this.vibrate + ", lights=" + this.lights + ", sound=" + this.sound + '}';
+        return "NotifyType{vibrate=" + this.vibrate + ", lights=" + this.lights + ", sound=" + this.sound + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable

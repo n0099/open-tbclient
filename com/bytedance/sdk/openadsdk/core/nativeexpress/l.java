@@ -9,28 +9,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.theme.ThemeStatusBroadcastReceiver;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class l implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.b<BackupView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BackupView f30596a;
+    public BackupView f66518a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f30597b;
+    public View f66519b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ThemeStatusBroadcastReceiver f30598c;
+    public ThemeStatusBroadcastReceiver f66520c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f30599d;
+    public c f66521d;
 
     /* renamed from: e  reason: collision with root package name */
-    public m f30600e;
+    public m f66522e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.nativeexpress.a.g f30601f;
+    public com.bytedance.sdk.openadsdk.core.nativeexpress.a.g f66523f;
 
     public l(View view, ThemeStatusBroadcastReceiver themeStatusBroadcastReceiver, com.bytedance.sdk.openadsdk.core.nativeexpress.a.g gVar) {
         Interceptable interceptable = $ic;
@@ -47,41 +47,41 @@ public class l implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.b<Bac
                 return;
             }
         }
-        this.f30597b = view;
-        this.f30598c = themeStatusBroadcastReceiver;
-        this.f30601f = gVar;
+        this.f66519b = view;
+        this.f66520c = themeStatusBroadcastReceiver;
+        this.f66523f = gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            c cVar = this.f30599d;
+            c cVar = this.f66521d;
             boolean z = false;
-            if (cVar != null && cVar.a((NativeExpressView) this.f30597b, 0)) {
+            if (cVar != null && cVar.a((NativeExpressView) this.f66519b, 0)) {
                 z = true;
             }
             if (!z) {
-                this.f30600e.a(107);
+                this.f66522e.a(107);
                 return;
             }
-            this.f30601f.d().h();
-            BackupView backupView = (BackupView) this.f30597b.findViewWithTag("tt_express_backup_fl_tag_26");
-            this.f30596a = backupView;
+            this.f66523f.d().h();
+            BackupView backupView = (BackupView) this.f66519b.findViewWithTag("tt_express_backup_fl_tag_26");
+            this.f66518a = backupView;
             if (backupView != null) {
-                backupView.setThemeChangeReceiver(this.f30598c);
+                backupView.setThemeChangeReceiver(this.f66520c);
                 com.bytedance.sdk.openadsdk.core.e.p pVar = new com.bytedance.sdk.openadsdk.core.e.p();
-                BackupView backupView2 = this.f30596a;
+                BackupView backupView2 = this.f66518a;
                 float realWidth = backupView2 == null ? 0.0f : backupView2.getRealWidth();
-                BackupView backupView3 = this.f30596a;
+                BackupView backupView3 = this.f66518a;
                 float realHeight = backupView3 != null ? backupView3.getRealHeight() : 0.0f;
                 pVar.a(true);
                 pVar.a(realWidth);
                 pVar.b(realHeight);
-                this.f30600e.a(this.f30596a, pVar);
+                this.f66522e.a(this.f66518a, pVar);
                 return;
             }
-            this.f30600e.a(107);
+            this.f66522e.a(107);
         }
     }
 
@@ -98,7 +98,7 @@ public class l implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.b<Bac
     public void a(m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar) == null) {
-            this.f30600e = mVar;
+            this.f66522e = mVar;
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 c();
             } else {
@@ -107,7 +107,7 @@ public class l implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.b<Bac
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ l f30602a;
+                    public final /* synthetic */ l f66524a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -124,14 +124,14 @@ public class l implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.b<Bac
                                 return;
                             }
                         }
-                        this.f30602a = this;
+                        this.f66524a = this;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f30602a.c();
+                            this.f66524a.c();
                         }
                     }
                 });
@@ -145,13 +145,13 @@ public class l implements com.bytedance.sdk.openadsdk.core.nativeexpress.a.b<Bac
     public BackupView d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30596a : (BackupView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f66518a : (BackupView) invokeV.objValue;
     }
 
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f30599d = cVar;
+            this.f66521d = cVar;
         }
     }
 }

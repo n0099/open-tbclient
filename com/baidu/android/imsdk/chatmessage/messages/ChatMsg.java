@@ -28,7 +28,7 @@ import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class ChatMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_FORM_OTHER_DEVICE = 2;
@@ -158,14 +158,14 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         return (String) invokeV.objValue;
     }
 
-    public static byte[] long2bytes(long j, int i2) {
+    public static byte[] long2bytes(long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
             byte[] bArr = new byte[i2];
             for (int i3 = i2 - 1; i3 >= 0; i3--) {
-                bArr[i3] = (byte) (255 & j);
-                j >>= 8;
+                bArr[i3] = (byte) (255 & j2);
+                j2 >>= 8;
             }
             return bArr;
         }
@@ -864,10 +864,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
 
     public abstract boolean parseJsonString();
 
-    public void setAppId(long j) {
+    public void setAppId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048639, this, j) == null) {
-            this.mAppId = j;
+        if (interceptable == null || interceptable.invokeJ(1048639, this, j2) == null) {
+            this.mAppId = j2;
         }
     }
 
@@ -903,10 +903,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public void setContacter(long j) {
+    public void setContacter(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048644, this, j) == null) {
-            this.mContacter = j;
+        if (interceptable == null || interceptable.invokeJ(1048644, this, j2) == null) {
+            this.mContacter = j2;
         }
     }
 
@@ -931,10 +931,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public void setExpiresTime(long j) {
+    public void setExpiresTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048648, this, j) == null) {
-            this.expiresTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048648, this, j2) == null) {
+            this.expiresTime = j2;
         }
     }
 
@@ -952,10 +952,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public void setFromUser(long j) {
+    public void setFromUser(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048651, this, j) == null) {
-            this.mFromUser = j;
+        if (interceptable == null || interceptable.invokeJ(1048651, this, j2) == null) {
+            this.mFromUser = j2;
         }
     }
 
@@ -994,10 +994,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public void setMinSdkVersion(long j) {
+    public void setMinSdkVersion(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048657, this, j) == null) {
-            this.mMinSdkVersion = j;
+        if (interceptable == null || interceptable.invokeJ(1048657, this, j2) == null) {
+            this.mMinSdkVersion = j2;
         }
     }
 
@@ -1021,10 +1021,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         return invokeL.booleanValue;
     }
 
-    public void setMsgId(long j) {
+    public void setMsgId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048660, this, j) == null) {
-            this.mMsgId = j;
+        if (interceptable == null || interceptable.invokeJ(1048660, this, j2) == null) {
+            this.mMsgId = j2;
         }
     }
 
@@ -1042,10 +1042,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public void setMsgTime(long j) {
+    public void setMsgTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048663, this, j) == null) {
-            this.mTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048663, this, j2) == null) {
+            this.mTime = j2;
         }
     }
 
@@ -1063,10 +1063,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public void setPaid(long j) {
+    public void setPaid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048666, this, j) == null) {
-            this.mPaid = j;
+        if (interceptable == null || interceptable.invokeJ(1048666, this, j2) == null) {
+            this.mPaid = j2;
         }
     }
 
@@ -1077,10 +1077,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public void setRowId(long j) {
+    public void setRowId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048668, this, j) == null) {
-            this.mRowId = j;
+        if (interceptable == null || interceptable.invokeJ(1048668, this, j2) == null) {
+            this.mRowId = j2;
         }
     }
 
@@ -1161,10 +1161,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public void setTriggerReasonn(long j) {
+    public void setTriggerReasonn(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048679, this, j) == null) {
-            this.mTriggerReasonn = j;
+        if (interceptable == null || interceptable.invokeJ(1048679, this, j2) == null) {
+            this.mTriggerReasonn = j2;
         }
     }
 

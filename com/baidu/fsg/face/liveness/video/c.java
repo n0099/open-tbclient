@@ -1,5 +1,5 @@
 package com.baidu.fsg.face.liveness.video;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface c extends d, e {
     void f();
 

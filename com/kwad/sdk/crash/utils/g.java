@@ -1,7 +1,6 @@
 package com.kwad.sdk.crash.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,37 +21,39 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f35563a;
+    public static final Charset f72323a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Charset f35564b;
+    public static final Charset f72324b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final BigInteger f35565c;
+    public static final BigInteger f72325c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final BigInteger f35566d;
+    public static final BigInteger f72326d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BigInteger f35567e;
+    public static final BigInteger f72327e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BigInteger f35568f;
+    public static final BigInteger f72328f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BigInteger f35569g;
+    public static final BigInteger f72329g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BigInteger f35570h;
+    public static final BigInteger f72330h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final char f35571i;
-    public static final BigInteger j;
+    public static final char f72331i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final BigInteger f72332j;
     public static final BigInteger k;
     public static final File[] l;
     public static final String m;
@@ -73,27 +74,27 @@ public class g {
                 return;
             }
         }
-        f35563a = Charset.forName("US-ASCII");
-        f35564b = Charset.forName("UTF-8");
+        f72323a = Charset.forName("US-ASCII");
+        f72324b = Charset.forName("UTF-8");
         BigInteger valueOf = BigInteger.valueOf(1024L);
-        f35565c = valueOf;
+        f72325c = valueOf;
         BigInteger multiply = valueOf.multiply(valueOf);
-        f35566d = multiply;
-        BigInteger multiply2 = f35565c.multiply(multiply);
-        f35567e = multiply2;
-        BigInteger multiply3 = f35565c.multiply(multiply2);
-        f35568f = multiply3;
-        BigInteger multiply4 = f35565c.multiply(multiply3);
-        f35569g = multiply4;
-        f35570h = f35565c.multiply(multiply4);
+        f72326d = multiply;
+        BigInteger multiply2 = f72325c.multiply(multiply);
+        f72327e = multiply2;
+        BigInteger multiply3 = f72325c.multiply(multiply2);
+        f72328f = multiply3;
+        BigInteger multiply4 = f72325c.multiply(multiply3);
+        f72329g = multiply4;
+        f72330h = f72325c.multiply(multiply4);
         BigInteger multiply5 = BigInteger.valueOf(1024L).multiply(BigInteger.valueOf(LockFreeTaskQueueCore.FROZEN_MASK));
-        j = multiply5;
-        k = f35565c.multiply(multiply5);
+        f72332j = multiply5;
+        k = f72325c.multiply(multiply5);
         l = new File[0];
-        m = Character.toString(IStringUtil.EXTENSION_SEPARATOR);
+        m = Character.toString('.');
         n = Charset.forName("UTF-8");
         o = File.separatorChar;
-        f35571i = a() ? '/' : '\\';
+        f72331i = a() ? '/' : '\\';
     }
 
     public static FileInputStream a(File file) {

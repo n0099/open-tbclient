@@ -1,13 +1,13 @@
 package com.baidu.tieba.frs.lego;
 
 import android.view.View;
+import c.a.p0.o1.o.l.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.n1.o.l.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LegoItemHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import protobuf.UpdateMask.UpdateMaskResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ResponseUpdateMaskMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -3,7 +3,6 @@ package com.baidu.pass.face.platform.utils;
 import android.content.res.AssetManager;
 import android.os.Environment;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -31,7 +30,9 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
+/* loaded from: classes5.dex */
 public final class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern RESERVED_CHARS_PATTERN;
@@ -93,7 +94,7 @@ public final class FileUtils {
         long computeFolderSize;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, file)) == null) {
-            long j = 0;
+            long j2 = 0;
             if (file == null) {
                 return 0L;
             }
@@ -103,13 +104,13 @@ public final class FileUtils {
                     if (file2.isFile()) {
                         computeFolderSize = file2.length();
                     } else if (file2.isDirectory()) {
-                        j += file2.length();
+                        j2 += file2.length();
                         computeFolderSize = computeFolderSize(file2);
                     }
-                    j += computeFolderSize;
+                    j2 += computeFolderSize;
                 }
             }
-            return j;
+            return j2;
         }
         return invokeL.longValue;
     }
@@ -308,13 +309,13 @@ public final class FileUtils {
     public static File getUserDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) ? new File(System.getProperty("user.dir")) : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) ? new File(System.getProperty(SystemUtils.USER_DIR_KEY)) : (File) invokeV.objValue;
     }
 
     public static File getUserHome() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) ? new File(System.getProperty("user.home")) : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) ? new File(System.getProperty(SystemUtils.USER_HOME_KEY)) : (File) invokeV.objValue;
     }
 
     public static boolean isFilenameSafe(File file) {
@@ -351,7 +352,7 @@ public final class FileUtils {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65572, null, assetManager, str)) == null) {
-            Log.i("FileUtil", " try to read asset file :" + str);
+            String str2 = " try to read asset file :" + str;
             InputStream open = assetManager.open(str);
             int available = open.available();
             byte[] bArr = new byte[available];
@@ -378,7 +379,7 @@ public final class FileUtils {
             HashMap hashMap = new HashMap();
             String readFileText = readFileText(file);
             if (readFileText != null && !TextUtils.isEmpty(readFileText)) {
-                for (String str : readFileText.split("\n")) {
+                for (String str : readFileText.split(StringUtils.LF)) {
                     String trim = str.trim();
                     if (!TextUtils.isEmpty(trim) && !trim.startsWith("#")) {
                         String[] split = trim.split("=", 2);

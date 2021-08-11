@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.hk;
 import com.xiaomi.push.service.aq;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class g extends aq.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ f f40078a;
+    public final /* synthetic */ f f76929a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(f fVar, int i2, String str) {
@@ -34,7 +34,7 @@ public class g extends aq.a {
                 return;
             }
         }
-        this.f40078a = fVar;
+        this.f76929a = fVar;
     }
 
     @Override // com.xiaomi.push.service.aq.a
@@ -44,12 +44,12 @@ public class g extends aq.a {
         Context context2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            context = this.f40078a.f89a;
+            context = this.f76929a.f93a;
             boolean a2 = com.xiaomi.push.service.aq.a(context).a(hk.ao.a(), true);
-            z = this.f40078a.f92a;
+            z = this.f76929a.f96a;
             if (z != a2) {
-                this.f40078a.f92a = a2;
-                context2 = this.f40078a.f89a;
+                this.f76929a.f96a = a2;
+                context2 = this.f76929a.f93a;
                 i.b(context2);
             }
         }

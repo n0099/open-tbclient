@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             Context context = KsAdSDKImpl.get().getContext();
-            return (context == null || (c2 = d.n.a.a.b.c(context, str)) == null) ? "" : c2;
+            return (context == null || (c2 = c.r.a.a.b.c(context, str)) == null) ? "" : c2;
         }
         return (String) invokeL.objValue;
     }

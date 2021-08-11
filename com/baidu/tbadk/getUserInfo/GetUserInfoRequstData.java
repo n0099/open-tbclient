@@ -1,5 +1,6 @@
 package com.baidu.tbadk.getUserInfo;
 
+import c.a.o0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,10 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.b1.w;
 import tbclient.GetUserInfo.DataReq;
 import tbclient.GetUserInfo.GetUserInfoReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class GetUserInfoRequstData extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,10 +69,10 @@ public class GetUserInfoRequstData extends NetMessage {
         }
     }
 
-    public void setUid(long j) {
+    public void setUid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.mUid = j;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.mUid = j2;
         }
     }
 }

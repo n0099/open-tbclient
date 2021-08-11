@@ -7,7 +7,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class SmartMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SmartMsg> CREATOR;
@@ -42,7 +41,7 @@ public class SmartMsg extends NormalMsg {
     public String mValuationTxt;
     public String mValuationUrl;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class Commodity implements Parcelable, NoProGuard {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<Commodity> CREATOR;
@@ -392,7 +391,7 @@ public class SmartMsg extends NormalMsg {
                 this.mIcon = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
                 this.mDetailurl = jSONObject.optString("detail_url");
                 this.mShema = jSONObject.optString("schema");
-                JSONObject optJSONObject = jSONObject.optJSONObject(Config.TRACE_VISIT_FIRST);
+                JSONObject optJSONObject = jSONObject.optJSONObject("first");
                 if (optJSONObject != null) {
                     this.mFirstName = optJSONObject.optString("value");
                     this.mFirstColor = optJSONObject.optString("color");
@@ -457,7 +456,7 @@ public class SmartMsg extends NormalMsg {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("value", str2);
                 jSONObject2.put("color", str3);
-                jSONObject.put(Config.TRACE_VISIT_FIRST, jSONObject2);
+                jSONObject.put("first", jSONObject2);
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("value", str4);
                 jSONObject3.put("color", str5);
@@ -482,10 +481,10 @@ public class SmartMsg extends NormalMsg {
         return invokeCommon.booleanValue;
     }
 
-    public void setTopicId(long j) {
+    public void setTopicId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
-            this.mTopicId = j;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
+            this.mTopicId = j2;
         }
     }
 

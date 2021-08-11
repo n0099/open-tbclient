@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import javax.crypto.BadPaddingException;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final SecureRandom f8344a;
+    public static final SecureRandom f42636a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public final class b {
                 return;
             }
         }
-        f8344a = new SecureRandom();
+        f42636a = new SecureRandom();
     }
 
     public static int a(BigInteger bigInteger) {

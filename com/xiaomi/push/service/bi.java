@@ -19,27 +19,27 @@ import java.io.BufferedOutputStream;
 import java.io.Closeable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class bi {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static bi f40918a;
+    public static bi f77794a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f929a;
+    public static String f933a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public al.b f930a;
+    public al.b f934a;
 
     /* renamed from: a  reason: collision with other field name */
-    public dt.a f931a;
+    public dt.a f935a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<a> f932a;
+    public List<a> f936a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public class bi {
                 return;
             }
         }
-        f40918a = new bi();
+        f77794a = new bi();
     }
 
     public bi() {
@@ -100,35 +100,35 @@ public class bi {
                 return;
             }
         }
-        this.f932a = new ArrayList();
+        this.f936a = new ArrayList();
     }
 
     public static bi a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f40918a : (bi) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f77794a : (bi) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m612a() {
+    public static synchronized String m615a() {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
             synchronized (bi.class) {
-                if (f929a == null) {
-                    SharedPreferences sharedPreferences = com.xiaomi.push.t.m636a().getSharedPreferences("XMPushServiceConfig", 0);
+                if (f933a == null) {
+                    SharedPreferences sharedPreferences = com.xiaomi.push.t.m639a().getSharedPreferences("XMPushServiceConfig", 0);
                     String string = sharedPreferences.getString("DeviceUUID", null);
-                    f929a = string;
+                    f933a = string;
                     if (string == null) {
-                        String a2 = com.xiaomi.push.i.a(com.xiaomi.push.t.m636a(), false);
-                        f929a = a2;
+                        String a2 = com.xiaomi.push.i.a(com.xiaomi.push.t.m639a(), false);
+                        f933a = a2;
                         if (a2 != null) {
-                            sharedPreferences.edit().putString("DeviceUUID", f929a).commit();
+                            sharedPreferences.edit().putString("DeviceUUID", f933a).commit();
                         }
                     }
                 }
-                str = f929a;
+                str = f933a;
             }
             return str;
         }
@@ -137,16 +137,16 @@ public class bi {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65545, this) == null) && this.f931a == null) {
+        if ((interceptable == null || interceptable.invokeV(65545, this) == null) && this.f935a == null) {
             d();
         }
     }
 
     private void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65546, this) == null) && this.f930a == null) {
+        if ((interceptable == null || interceptable.invokeV(65546, this) == null) && this.f934a == null) {
             bj bjVar = new bj(this);
-            this.f930a = bjVar;
+            this.f934a = bjVar;
             go.a(bjVar);
         }
     }
@@ -181,17 +181,17 @@ public class bi {
         }
         try {
             try {
-                bufferedInputStream = new BufferedInputStream(com.xiaomi.push.t.m636a().openFileInput("XMCloudCfg"));
+                bufferedInputStream = new BufferedInputStream(com.xiaomi.push.t.m639a().openFileInput("XMCloudCfg"));
                 try {
-                    this.f931a = dt.a.b(com.xiaomi.push.b.a(bufferedInputStream));
+                    this.f935a = dt.a.b(com.xiaomi.push.b.a(bufferedInputStream));
                     bufferedInputStream.close();
                     r2 = bufferedInputStream;
                 } catch (Exception e3) {
                     e2 = e3;
-                    com.xiaomi.channel.commonutils.logger.b.m70a("load config failure: " + e2.getMessage());
+                    com.xiaomi.channel.commonutils.logger.b.m73a("load config failure: " + e2.getMessage());
                     r2 = bufferedInputStream;
                     com.xiaomi.push.y.a((Closeable) r2);
-                    if (this.f931a != null) {
+                    if (this.f935a != null) {
                     }
                 }
             } catch (Throwable th2) {
@@ -209,8 +209,8 @@ public class bi {
             throw th;
         }
         com.xiaomi.push.y.a((Closeable) r2);
-        if (this.f931a != null) {
-            this.f931a = new dt.a();
+        if (this.f935a != null) {
+            this.f935a = new dt.a();
         }
     }
 
@@ -219,26 +219,26 @@ public class bi {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             try {
-                if (this.f931a != null) {
-                    BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.push.t.m636a().openFileOutput("XMCloudCfg", 0));
+                if (this.f935a != null) {
+                    BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.push.t.m639a().openFileOutput("XMCloudCfg", 0));
                     com.xiaomi.push.c a2 = com.xiaomi.push.c.a(bufferedOutputStream);
-                    this.f931a.a(a2);
-                    a2.m193a();
+                    this.f935a.a(a2);
+                    a2.m196a();
                     bufferedOutputStream.close();
                 }
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m70a("save config failure: " + e2.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m73a("save config failure: " + e2.getMessage());
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int m615a() {
+    public int m618a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             b();
-            dt.a aVar = this.f931a;
+            dt.a aVar = this.f935a;
             if (aVar != null) {
                 return aVar.c();
             }
@@ -248,22 +248,22 @@ public class bi {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public dt.a m616a() {
+    public dt.a m619a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             b();
-            return this.f931a;
+            return this.f935a;
         }
         return (dt.a) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m617a() {
+    public synchronized void m620a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                this.f932a.clear();
+                this.f936a.clear();
             }
         }
     }
@@ -272,11 +272,11 @@ public class bi {
         a[] aVarArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            if (bVar.m263d() && bVar.d() > m615a()) {
+            if (bVar.m266d() && bVar.d() > m618a()) {
                 c();
             }
             synchronized (this) {
-                aVarArr = (a[]) this.f932a.toArray(new a[this.f932a.size()]);
+                aVarArr = (a[]) this.f936a.toArray(new a[this.f936a.size()]);
             }
             for (a aVar : aVarArr) {
                 aVar.a(bVar);
@@ -288,7 +288,7 @@ public class bi {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             synchronized (this) {
-                this.f932a.add(aVar);
+                this.f936a.add(aVar);
             }
         }
     }

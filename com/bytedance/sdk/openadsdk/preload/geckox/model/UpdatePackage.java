@@ -13,8 +13,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.a.a.c;
 import java.util.List;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class UpdatePackage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +35,7 @@ public class UpdatePackage {
     public long version;
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Content {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +62,7 @@ public class UpdatePackage {
     }
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class FileType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COMPRESSED_FILE = 0;
@@ -85,7 +86,7 @@ public class UpdatePackage {
     }
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Package {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -176,7 +177,7 @@ public class UpdatePackage {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                return "Package{url='" + this.url + "', md5='" + this.md5 + "'}";
+                return "Package{url='" + this.url + ExtendedMessageFormat.QUOTE + ", md5='" + this.md5 + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -203,7 +204,7 @@ public class UpdatePackage {
     }
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Strategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -393,10 +394,10 @@ public class UpdatePackage {
         }
     }
 
-    public void setLocalVersion(long j) {
+    public void setLocalVersion(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            this.localVersion = j;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
+            this.localVersion = j2;
         }
     }
 
@@ -414,10 +415,10 @@ public class UpdatePackage {
         }
     }
 
-    public void setVersion(long j) {
+    public void setVersion(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
-            this.version = j;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
+            this.version = j2;
         }
     }
 
@@ -425,17 +426,17 @@ public class UpdatePackage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return "UpdatePackage{version=" + this.version + ", channel='" + this.channel + "', content=" + this.content + ", packageType=" + this.packageType + '}';
+            return "UpdatePackage{version=" + this.version + ", channel='" + this.channel + ExtendedMessageFormat.QUOTE + ", content=" + this.content + ", packageType=" + this.packageType + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
 
-    public UpdatePackage(long j, String str, Package r9, Package r10) {
+    public UpdatePackage(long j2, String str, Package r9, Package r10) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), str, r9, r10};
+            Object[] objArr = {Long.valueOf(j2), str, r9, r10};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -445,7 +446,7 @@ public class UpdatePackage {
                 return;
             }
         }
-        this.version = j;
+        this.version = j2;
         this.channel = str;
         Content content = new Content();
         this.content = content;

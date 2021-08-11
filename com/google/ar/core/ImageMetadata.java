@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class ImageMetadata {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f33151a;
+    public final long f69854a;
 
     public ImageMetadata() {
         Interceptable interceptable = $ic;
@@ -26,53 +26,53 @@ public class ImageMetadata {
                 return;
             }
         }
-        this.f33151a = 0L;
+        this.f69854a = 0L;
     }
 
-    private native void nativeDestroyMetadataEntry(long j, long j2);
+    private native void nativeDestroyMetadataEntry(long j2, long j3);
 
-    private native long[] nativeGetAllKeys(long j, long j2);
+    private native long[] nativeGetAllKeys(long j2, long j3);
 
-    private native byte[] nativeGetByteArrayFromMetadataEntry(long j, long j2);
+    private native byte[] nativeGetByteArrayFromMetadataEntry(long j2, long j3);
 
-    private native byte nativeGetByteFromMetadataEntry(long j, long j2);
+    private native byte nativeGetByteFromMetadataEntry(long j2, long j3);
 
-    private native double[] nativeGetDoubleArrayFromMetadataEntry(long j, long j2);
+    private native double[] nativeGetDoubleArrayFromMetadataEntry(long j2, long j3);
 
-    private native double nativeGetDoubleFromMetadataEntry(long j, long j2);
+    private native double nativeGetDoubleFromMetadataEntry(long j2, long j3);
 
-    private native float[] nativeGetFloatArrayFromMetadataEntry(long j, long j2);
+    private native float[] nativeGetFloatArrayFromMetadataEntry(long j2, long j3);
 
-    private native float nativeGetFloatFromMetadataEntry(long j, long j2);
+    private native float nativeGetFloatFromMetadataEntry(long j2, long j3);
 
-    private native int[] nativeGetIntArrayFromMetadataEntry(long j, long j2);
+    private native int[] nativeGetIntArrayFromMetadataEntry(long j2, long j3);
 
-    private native int nativeGetIntFromMetadataEntry(long j, long j2);
+    private native int nativeGetIntFromMetadataEntry(long j2, long j3);
 
-    private native long[] nativeGetLongArrayFromMetadataEntry(long j, long j2);
+    private native long[] nativeGetLongArrayFromMetadataEntry(long j2, long j3);
 
-    private native long nativeGetLongFromMetadataEntry(long j, long j2);
+    private native long nativeGetLongFromMetadataEntry(long j2, long j3);
 
-    private native long nativeGetMetadataEntry(long j, long j2, int i2);
+    private native long nativeGetMetadataEntry(long j2, long j3, int i2);
 
-    private native int nativeGetMetadataEntryValueCount(long j, long j2);
+    private native int nativeGetMetadataEntryValueCount(long j2, long j3);
 
-    private native int nativeGetMetadataEntryValueType(long j, long j2);
+    private native int nativeGetMetadataEntryValueType(long j2, long j3);
 
-    private native Rational[] nativeGetRationalArrayFromMetadataEntry(long j, long j2);
+    private native Rational[] nativeGetRationalArrayFromMetadataEntry(long j2, long j3);
 
-    private native Rational nativeGetRationalFromMetadataEntry(long j, long j2);
+    private native Rational nativeGetRationalFromMetadataEntry(long j2, long j3);
 
     public static native void nativeLoadSymbols();
 
-    public static native void nativeReleaseImageMetadata(long j);
+    public static native void nativeReleaseImageMetadata(long j2);
 
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.f33151a;
-            if (j != 0) {
-                nativeReleaseImageMetadata(j);
+            long j2 = this.f69854a;
+            if (j2 != 0) {
+                nativeReleaseImageMetadata(j2);
             }
             super.finalize();
         }

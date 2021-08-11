@@ -19,6 +19,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.b0.a.a;
+import c.a.b0.a.b;
+import c.a.b0.a.d;
+import c.a.b0.a.e;
+import c.a.b0.a.f;
+import c.a.b0.a.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.PassportViewManager;
@@ -35,14 +41,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c0.a.a;
-import d.a.c0.a.b;
-import d.a.c0.a.d;
-import d.a.c0.a.e;
-import d.a.c0.a.f;
-import d.a.c0.a.h;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class TitleActivity extends Activity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -609,7 +609,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ TitleActivity f9918a;
+                    public final /* synthetic */ TitleActivity f44580a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -626,7 +626,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
                                 return;
                             }
                         }
-                        this.f9918a = this;
+                        this.f44580a = this;
                     }
 
                     @Override // com.baidu.sapi2.utils.SoftKeyBoardListener.OnSoftKeyBoardChangeListener
@@ -634,7 +634,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
                         View view;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                            TitleActivity titleActivity = this.f9918a;
+                            TitleActivity titleActivity = this.f44580a;
                             if (!titleActivity.realShowBottomBack || (view = titleActivity.bottomBackView) == null) {
                                 return;
                             }
@@ -646,7 +646,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
                     public void keyBoardShow(int i2) {
                         View view;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (view = this.f9918a.bottomBackView) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (view = this.f44580a.bottomBackView) == null) {
                             return;
                         }
                         view.setVisibility(8);

@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class FileUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,11 +53,10 @@ public class FileUtil {
                             }
                             fileOutputStream2.write(bArr, 0, read);
                         }
-                    } catch (Throwable th) {
-                        th = th;
+                    } catch (Throwable unused) {
                         fileOutputStream = fileOutputStream2;
                         try {
-                            GDTLogger.e(String.format("Exception while copy from InputStream to File %s", file.getAbsolutePath()), th);
+                            GDTLogger.d(String.format("Exception while copy from InputStream to File %s", file.getAbsolutePath()));
                             return false;
                         } finally {
                             tryClose(inputStream);
@@ -65,8 +64,7 @@ public class FileUtil {
                         }
                     }
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable unused2) {
             }
             return false;
         }

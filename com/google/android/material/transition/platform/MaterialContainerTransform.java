@@ -21,7 +21,6 @@ import android.transition.PathMotion;
 import android.transition.Transition;
 import android.transition.TransitionValues;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -55,7 +54,7 @@ import com.google.android.material.transition.platform.TransitionUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @RequiresApi(21)
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public final class MaterialContainerTransform extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProgressThresholdsGroup DEFAULT_ENTER_THRESHOLDS;
@@ -119,17 +118,17 @@ public final class MaterialContainerTransform extends Transition {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public @interface FadeMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public @interface FitMode {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class ProgressThresholds {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,7 +171,7 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class ProgressThresholdsGroup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -209,11 +208,11 @@ public final class MaterialContainerTransform extends Transition {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public @interface TransitionDirection {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static final class TransitionDrawable extends Drawable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COMPAT_SHADOW_COLOR = -7829368;
@@ -931,10 +930,7 @@ public final class MaterialContainerTransform extends Transition {
                         });
                         return ofFloat;
                     }
-                    Log.w(TAG, "Skipping due to null end bounds. Ensure end view is laid out and measured.");
-                    return null;
                 }
-                Log.w(TAG, "Skipping due to null start bounds. Ensure start view is laid out and measured.");
             }
             return null;
         }

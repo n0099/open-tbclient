@@ -49,7 +49,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class LottieDrawable extends Drawable implements Drawable.Callback, Animatable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INFINITE = -1;
@@ -89,7 +89,7 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
     @Nullable
     public TextDelegate textDelegate;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class ColorFilterData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,13 +148,13 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface LazyCompositionTask {
         void run(LottieComposition lottieComposition);
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public @interface RepeatMode {
     }
 
@@ -928,13 +928,13 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
-    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
+    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j2) {
         Drawable.Callback callback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) || (callback = getCallback()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{drawable, runnable, Long.valueOf(j2)}) == null) || (callback = getCallback()) == null) {
             return;
         }
-        callback.scheduleDrawable(this, runnable, j);
+        callback.scheduleDrawable(this, runnable, j2);
     }
 
     @Override // android.graphics.drawable.Drawable

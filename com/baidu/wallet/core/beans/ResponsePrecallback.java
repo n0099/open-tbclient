@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import com.yy.hiidostatis.inner.util.log.ActLog;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public abstract class ResponsePrecallback implements IBeanResponseCallback, NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static final class ResponseType {
         public static final /* synthetic */ ResponseType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -119,7 +119,7 @@ public abstract class ResponsePrecallback implements IBeanResponseCallback, NoPr
             BeanErrorContent beanErrorContent = new BeanErrorContent(i2, i3, str, null);
             EventBus eventBus = EventBus.getInstance();
             eventBus.getClass();
-            eventBus.post(new EventBus.Event(eventBus, getNotifyKeyName(getClass(), ResponseType.Fail), beanErrorContent));
+            eventBus.post(new EventBus.Event(eventBus, getNotifyKeyName(ResponsePrecallback.class, ResponseType.Fail), beanErrorContent));
         }
     }
 
@@ -130,11 +130,11 @@ public abstract class ResponsePrecallback implements IBeanResponseCallback, NoPr
             if (obj != null) {
                 EventBus eventBus = EventBus.getInstance();
                 eventBus.getClass();
-                eventBus.post(new EventBus.Event(eventBus, getNotifyKeyName(getClass(), ResponseType.OkJson), obj));
+                eventBus.post(new EventBus.Event(eventBus, getNotifyKeyName(ResponsePrecallback.class, ResponseType.OkJson), obj));
             } else if (TextUtils.isEmpty(str)) {
                 EventBus eventBus2 = EventBus.getInstance();
                 eventBus2.getClass();
-                eventBus2.post(new EventBus.Event(eventBus2, getNotifyKeyName(getClass(), ResponseType.OkString), str));
+                eventBus2.post(new EventBus.Event(eventBus2, getNotifyKeyName(ResponsePrecallback.class, ResponseType.OkString), str));
             }
             removeRequest();
             handleResponse(i2, obj, str);

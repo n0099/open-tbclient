@@ -1,7 +1,6 @@
 package com.baidu.ar.plugin;
 
 import android.content.pm.PackageInfo;
-import android.util.Log;
 import com.baidu.ar.session.XRSessionAnchor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.Arrays;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class PackageManagerHookHandler implements InvocationHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,10 +47,10 @@ public class PackageManagerHookHandler implements InvocationHandler {
                 packageInfo.versionCode = 190128146;
                 packageInfo.versionName = "1.7.190120000";
                 if (this.mPPP != null) {
-                    Log.i("andrew", "get Package info flag:" + objArr[1]);
+                    String str = "get Package info flag:" + objArr[1];
                     packageInfo = this.mPPP.getPackageInfo(((Integer) objArr[1]).intValue());
                 }
-                Log.d("andrew", "method:" + method.getName() + " called with args:" + Arrays.toString(objArr) + ";package info:" + packageInfo);
+                String str2 = "method:" + method.getName() + " called with args:" + Arrays.toString(objArr) + ";package info:" + packageInfo;
                 return packageInfo;
             }
             return method.invoke(this.mBase, objArr);

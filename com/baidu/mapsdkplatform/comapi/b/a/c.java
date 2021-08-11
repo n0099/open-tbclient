@@ -33,29 +33,29 @@ import java.net.URLDecoder;
 import java.util.zip.GZIPOutputStream;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f7636a = "";
+    public static String f41904a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f7637b = "";
+    public static String f41905b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f7638c = "";
+    public static String f41906c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f7639d;
+    public Context f41907d;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f7640a;
+        public static final c f41908a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -71,7 +71,7 @@ public class c {
                     return;
                 }
             }
-            f7640a = new c();
+            f41908a = new c();
         }
     }
 
@@ -107,7 +107,7 @@ public class c {
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f7640a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f41908a : (c) invokeV.objValue;
     }
 
     private void a(InputStream inputStream, OutputStream outputStream) throws Exception {
@@ -148,14 +148,14 @@ public class c {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:105:0x0110 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x00e6 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:105:0x010e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x00e4 */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:114:0x014e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:118:0x0130 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:124:0x0139 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:130:0x011d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:114:0x014c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:120:0x012e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x011b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:126:0x0137 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r5v0 */
     /* JADX WARN: Type inference failed for: r5v1 */
     /* JADX WARN: Type inference failed for: r5v2, types: [java.io.BufferedReader] */
@@ -381,7 +381,7 @@ public class c {
             sb.append(Part.CRLF);
             sb.append("Content-Disposition: form-data; name=\"phoneinfo\"\r\n");
             sb.append(Part.CRLF);
-            sb.append(URLDecoder.decode(SyncSysInfo.getPhoneInfo() + "&abi=" + f7638c));
+            sb.append(URLDecoder.decode(SyncSysInfo.getPhoneInfo() + "&abi=" + f41906c));
             sb.append(Part.CRLF);
             sb.append("--bd_map_sdk_cc");
             sb.append(Part.CRLF);
@@ -432,9 +432,9 @@ public class c {
         String str = b2 + File.separator + "crash";
         File file = new File(str);
         if (file.exists() || file.mkdir()) {
-            f7636a = str;
+            f41904a = str;
         } else {
-            f7636a = b2;
+            f41904a = b2;
         }
     }
 
@@ -442,17 +442,17 @@ public class c {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || (str = f7636a) == null || str.isEmpty() || (str2 = f7637b) == null || str2.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || (str = f41904a) == null || str.isEmpty() || (str2 = f41905b) == null || str2.isEmpty()) {
             return;
         }
-        String str3 = f7636a + File.separator + f7637b;
+        String str3 = f41904a + File.separator + f41905b;
         com.baidu.mapsdkplatform.comapi.b.a.a.a().a(str3);
         JNIHandler.registerNativeHandler(str3);
     }
 
     private void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65550, this) == null) && NetworkUtil.isNetworkAvailable(this.f7639d)) {
+        if ((interceptable == null || interceptable.invokeV(65550, this) == null) && NetworkUtil.isNetworkAvailable(this.f41907d)) {
             new Thread(new d(this)).start();
         }
     }
@@ -486,9 +486,9 @@ public class c {
         }
         String[] strArr = Build.SUPPORTED_ABIS;
         if (strArr.length > 0) {
-            f7638c = strArr[0];
+            f41906c = strArr[0];
         }
-        this.f7639d = context;
+        this.f41907d = context;
         String n = i.n();
         if (n.isEmpty()) {
             return;
@@ -496,7 +496,7 @@ public class c {
         if (n.contains("_")) {
             n = n.replaceAll("_", "");
         }
-        f7637b = n + "_" + i.i() + "_";
+        f41905b = n + "_" + i.i() + "_";
         d();
         e();
         f();

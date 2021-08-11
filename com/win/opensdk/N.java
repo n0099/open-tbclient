@@ -15,13 +15,11 @@ import android.view.WindowManager;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.fsg.base.router.RouterCallback;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import com.win.opensdk.core.Info;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -40,7 +38,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class N {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +122,7 @@ public class N {
             }
             hashMap.put("Accept-Encoding", Collections.singletonList("application/gzip"));
             hashMap.put("Content-Encoding", Collections.singletonList("application/gzip"));
-            hashMap.put("User-Agent", Collections.singletonList(Z1.f39723a));
+            hashMap.put("User-Agent", Collections.singletonList(Z1.f76563a));
             return hashMap;
         }
         return (HashMap) invokeL.objValue;
@@ -242,7 +240,7 @@ public class N {
             sb4.append("o7my");
             F1 f1 = new F1(sb3, sb4.toString());
             Cipher cipher = Cipher.getInstance("DES/CBC/NoPadding");
-            cipher.init(2, f1.f39577b, f1.f39576a);
+            cipher.init(2, f1.f76413b, f1.f76412a);
             int length = str.length() / 2;
             byte[] bArr = new byte[length];
             for (int i2 = 0; i2 < length; i2++) {
@@ -531,7 +529,7 @@ public class N {
             if (a2.getFlags() > 0) {
                 Y0 a3 = Z0.a(context);
                 try {
-                    a3.f39714b = Z0.a("wist", new a1(info));
+                    a3.f76554b = Z0.a("wist", new a1(info));
                     a3.a("msg", Z0.a(str));
                 } catch (JSONException unused) {
                 }
@@ -556,7 +554,7 @@ public class N {
                 if (a3 == 200) {
                     t0.a(t1Var);
                 } else {
-                    t0.a(a3, t1Var.f39947b);
+                    t0.a(a3, t1Var.f76796b);
                 }
             } catch (JSONException e2) {
                 message = e2.getMessage();
@@ -574,7 +572,7 @@ public class N {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            return (ContextCompat.checkSelfPermission(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION) == 0 ? context.getExternalCacheDir() : context.getCacheDir()).getPath();
+            return (ContextCompat.checkSelfPermission(context, "android.permission.WRITE_EXTERNAL_STORAGE") == 0 ? context.getExternalCacheDir() : context.getCacheDir()).getPath();
         }
         return (String) invokeL.objValue;
     }
@@ -600,7 +598,7 @@ public class N {
                     fromFile = FileProvider.getUriForFile(context, context.getApplicationInfo().packageName + ".fileProvider", new File(str));
                 } else {
                     intent.setAction("android.intent.action.VIEW");
-                    intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                    intent.setFlags(268435456);
                     fromFile = Uri.fromFile(new File(str));
                 }
                 intent.setDataAndType(fromFile, "application/vnd.android.package-archive");
@@ -611,7 +609,7 @@ public class N {
                 if (info != null) {
                     Y0 a2 = Z0.a(context);
                     try {
-                        a2.f39714b = Z0.a("wiin", new a1(info));
+                        a2.f76554b = Z0.a("wiin", new a1(info));
                         a2.a("msg", Z0.a(str));
                     } catch (JSONException unused) {
                     }
@@ -670,11 +668,11 @@ public class N {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, v0, t1Var)) == null) {
-            byte[] bArr = v0.f39698b;
-            int i2 = v0.f39697a;
+            byte[] bArr = v0.f76538b;
+            int i2 = v0.f76537a;
             if (i2 == 200) {
                 t1Var.a(new String(bArr, "UTF-8"));
-                return t1Var.f39946a;
+                return t1Var.f76795a;
             }
             return i2;
         }

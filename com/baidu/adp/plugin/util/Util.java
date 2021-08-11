@@ -8,6 +8,10 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.m.b;
+import c.a.e.e.p.f;
+import c.a.e.e.p.m;
+import c.a.e.e.p.q;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
@@ -21,10 +25,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.m.b;
-import d.a.d.e.p.f;
-import d.a.d.e.p.m;
-import d.a.d.e.p.q;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -32,13 +32,13 @@ import java.io.InputStream;
 import java.security.MessageDigest;
 import java.util.HashSet;
 import kotlin.UShort;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class VersionCompare {
         public static final /* synthetic */ VersionCompare[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -99,19 +99,19 @@ public final class Util {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f2287a;
+        public boolean f36142a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2288b;
+        public String f36143b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f2289c;
+        public int f36144c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -126,9 +126,9 @@ public final class Util {
                     return;
                 }
             }
-            this.f2287a = false;
-            this.f2288b = null;
-            this.f2289c = 0;
+            this.f36142a = false;
+            this.f36143b = null;
+            this.f36144c = 0;
         }
     }
 
@@ -223,7 +223,7 @@ public final class Util {
             a aVar = new a();
             if (inputStream != null && file != null) {
                 if (file.exists()) {
-                    f.n(file);
+                    f.o(file);
                 }
                 FileOutputStream fileOutputStream2 = null;
                 try {
@@ -246,24 +246,24 @@ public final class Util {
                     }
                     fileOutputStream.flush();
                     fileOutputStream.close();
-                    aVar.f2287a = true;
+                    aVar.f36142a = true;
                 } catch (Exception e3) {
                     e = e3;
                     fileOutputStream2 = fileOutputStream;
-                    aVar.f2287a = false;
-                    aVar.f2288b = e.toString();
-                    d.a.d.e.m.a.d(fileOutputStream2);
+                    aVar.f36142a = false;
+                    aVar.f36143b = e.toString();
+                    c.a.e.e.m.a.d(fileOutputStream2);
                     return aVar;
                 } catch (Throwable th2) {
                     th = th2;
                     fileOutputStream2 = fileOutputStream;
-                    d.a.d.e.m.a.d(fileOutputStream2);
+                    c.a.e.e.m.a.d(fileOutputStream2);
                     throw th;
                 }
-                d.a.d.e.m.a.d(fileOutputStream2);
+                c.a.e.e.m.a.d(fileOutputStream2);
                 return aVar;
             }
-            aVar.f2288b = "illegal_param";
+            aVar.f36143b = "illegal_param";
             return aVar;
         }
         return (a) invokeLL.objValue;
@@ -512,16 +512,16 @@ public final class Util {
         return invokeV.booleanValue;
     }
 
-    public static final boolean u(long j) {
+    public static final boolean u(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65556, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65556, null, j2)) == null) {
             long g2 = g();
-            if (j <= 0) {
+            if (j2 <= 0) {
                 return g2 <= 0 || g2 >= 31457280;
             }
-            long j2 = j * (Build.VERSION.SDK_INT < 19 ? 6 : 10);
-            return (j2 <= 31457280 ? j2 : 31457280L) < g2;
+            long j3 = j2 * (Build.VERSION.SDK_INT < 19 ? 6 : 10);
+            return (j3 <= 31457280 ? j3 : 31457280L) < g2;
         }
         return invokeJ.booleanValue;
     }
@@ -551,7 +551,7 @@ public final class Util {
         return invokeLI.intValue;
     }
 
-    public static d.a.d.h.k.f x(InputStream inputStream) throws IOException {
+    public static c.a.e.h.k.f x(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, inputStream)) == null) {
@@ -564,11 +564,11 @@ public final class Util {
             }
             int w = w(bArr, 6);
             int w2 = w(bArr, 8);
-            d.a.d.h.k.f fVar = new d.a.d.h.k.f();
+            c.a.e.h.k.f fVar = new c.a.e.h.k.f();
             fVar.b(((w2 >> 9) & 127) + 1980, (w2 >> 5) & 15, w2 & 31, (w >> 11) & 31, (w >> 5) & 63, (w & 31) << 1);
             return fVar;
         }
-        return (d.a.d.h.k.f) invokeL.objValue;
+        return (c.a.e.h.k.f) invokeL.objValue;
     }
 
     public static String y(InputStream inputStream, byte[] bArr) {

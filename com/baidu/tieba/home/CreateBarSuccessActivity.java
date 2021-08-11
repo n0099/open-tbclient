@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
@@ -23,7 +22,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAR_NAME_STRING = "barname";
@@ -91,7 +90,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         Intent intent = new Intent(context, CreateBarSuccessActivity.class);
         intent.putExtra("barname", str);
         if (!(context instanceof Activity)) {
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            intent.addFlags(268435456);
         }
         context.startActivity(intent);
     }

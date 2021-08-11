@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -114,16 +114,16 @@ public class c {
         return invokeLL.intValue;
     }
 
-    public static m a(FaceAlgoData faceAlgoData, long j, long j2, long j3, ByteBuffer byteBuffer, long j4, boolean z) {
+    public static m a(FaceAlgoData faceAlgoData, long j2, long j3, long j4, ByteBuffer byteBuffer, long j5, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{faceAlgoData, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), byteBuffer, Long.valueOf(j4), Boolean.valueOf(z)})) == null) {
-            m mVar = new m(j4);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{faceAlgoData, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), byteBuffer, Long.valueOf(j5), Boolean.valueOf(z)})) == null) {
+            m mVar = new m(j5);
             mVar.a(faceAlgoData);
-            mVar.g(j2);
-            mVar.r(j);
+            mVar.g(j3);
+            mVar.r(j2);
             mVar.a(byteBuffer);
-            mVar.p(j3);
+            mVar.p(j4);
             mVar.setFrontCamera(z);
             if (faceAlgoData != null && faceAlgoData.getFaceFrame() != null) {
                 mVar.F(true);

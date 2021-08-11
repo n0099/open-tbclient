@@ -12,7 +12,7 @@ import org.apache.http.cookie.Cookie;
 import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.MalformedCookieException;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class NetscapeDraftSpec extends CookieSpecBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXPIRES_PATTERN = "EEE, dd-MMM-yyyy HH:mm:ss z";

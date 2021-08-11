@@ -1,6 +1,8 @@
 package com.baidu.tieba.flutter.plugin.networkService;
 
 import androidx.annotation.NonNull;
+import c.a.o0.i0.b.g;
+import c.a.p0.r0.a.f.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.SocketMessage;
@@ -8,6 +10,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
+import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.mvc.message.MvcHttpMessage;
@@ -21,19 +24,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.i0.b.g;
-import d.a.q0.q0.a.f.f;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class NetworkServicePlugin implements FlutterPlugin, NetworkServiceAuto.HostNetworkService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, NetModel> netModels;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface NetModel {
         boolean cancelLoadData();
     }
@@ -162,7 +163,7 @@ public class NetworkServicePlugin implements FlutterPlugin, NetworkServiceAuto.H
                         if (interceptable2 == null || interceptable2.invokeLLLLL(1048576, this, str, hashMap, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) {
                             this.this$0.netModels.remove(str);
                             if (hashMap != null) {
-                                hashMap.put("start_time", String.valueOf(this.val$netStartTime));
+                                hashMap.put(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, String.valueOf(this.val$netStartTime));
                             }
                             this.val$result.success(this.this$0.wrapEventData(hashMap, null, mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString(), str));
                         }
@@ -215,7 +216,7 @@ public class NetworkServicePlugin implements FlutterPlugin, NetworkServiceAuto.H
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{hashMap, hashMap2, Integer.valueOf(i2), str, str2, str3}) == null) {
                         this.this$0.netModels.remove(str3);
                         if (hashMap != null) {
-                            hashMap.put("start_time", String.valueOf(this.val$netStartTime));
+                            hashMap.put(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, String.valueOf(this.val$netStartTime));
                         }
                         NetworkServiceAuto.NetworkResult wrapEventData = this.this$0.wrapEventData(hashMap, str2, i2, str, str3);
                         HashMap hashMap3 = this.val$extra;

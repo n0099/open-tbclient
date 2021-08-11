@@ -8,17 +8,17 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import ms.bd.c.t;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class y extends t.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public y(w wVar, t.b bVar, long j) throws IOException {
+    public y(w wVar, t.b bVar, long j2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wVar, bVar, Long.valueOf(j)};
+            Object[] objArr = {wVar, bVar, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -29,15 +29,15 @@ public class y extends t.c {
             }
         }
         ByteBuffer allocate = ByteBuffer.allocate(8);
-        allocate.order(bVar.f73585a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
-        long j2 = bVar.f73586b + (j * bVar.f73588d);
-        wVar.h(allocate, j2, 4);
-        this.f73591a = allocate.getInt() & 4294967295L;
-        wVar.h(allocate, 8 + j2, 8);
-        this.f73592b = allocate.getLong();
-        wVar.h(allocate, 16 + j2, 8);
-        this.f73593c = allocate.getLong();
-        wVar.h(allocate, j2 + 40, 8);
-        this.f73594d = allocate.getLong();
+        allocate.order(bVar.f78886a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
+        long j3 = bVar.f78887b + (j2 * bVar.f78889d);
+        wVar.h(allocate, j3, 4);
+        this.f78892a = allocate.getInt() & 4294967295L;
+        wVar.h(allocate, 8 + j3, 8);
+        this.f78893b = allocate.getLong();
+        wVar.h(allocate, 16 + j3, 8);
+        this.f78894c = allocate.getLong();
+        wVar.h(allocate, j3 + 40, 8);
+        this.f78895d = allocate.getLong();
     }
 }

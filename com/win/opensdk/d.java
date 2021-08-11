@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class d implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f39776a;
+    public final /* synthetic */ e f76616a;
 
     public d(e eVar) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class d implements f {
                 return;
             }
         }
-        this.f39776a = eVar;
+        this.f76616a = eVar;
     }
 
     @Override // com.win.opensdk.f
     public void a(boolean z) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (fVar = this.f39776a.f39793b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (fVar = this.f76616a.f76634b) == null) {
             return;
         }
         fVar.a(z);
@@ -45,7 +45,7 @@ public class d implements f {
     public void onClicked() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (fVar = this.f39776a.f39793b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (fVar = this.f76616a.f76634b) == null) {
             return;
         }
         fVar.onClicked();
@@ -55,7 +55,7 @@ public class d implements f {
     public void onDisplayed() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (fVar = this.f39776a.f39793b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (fVar = this.f76616a.f76634b) == null) {
             return;
         }
         fVar.onDisplayed();
@@ -65,7 +65,7 @@ public class d implements f {
     public void onFail(PBError pBError) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) || (fVar = this.f39776a.f39793b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) || (fVar = this.f76616a.f76634b) == null) {
             return;
         }
         fVar.onFail(pBError);
@@ -75,7 +75,7 @@ public class d implements f {
     public void onLoaded() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (fVar = this.f39776a.f39793b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (fVar = this.f76616a.f76634b) == null) {
             return;
         }
         fVar.onLoaded();

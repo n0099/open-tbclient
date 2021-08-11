@@ -1,22 +1,20 @@
 package com.fun.openid.sdk;
 
-import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f32949a;
+    public static boolean f69638a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f32950b;
+    public static boolean f69639b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static f a() {
@@ -25,7 +23,7 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             String str = Build.BRAND;
             if (FunOpenIDSdk.isLogEnabled()) {
-                Log.e(FunOpenIDSdk.TAG, "==========brand = " + str);
+                String str2 = "==========brand = " + str;
             }
             if (TextUtils.isEmpty(str)) {
                 return null;
@@ -37,7 +35,7 @@ public class b {
                 return new h();
             }
             if (str.equalsIgnoreCase(RomUtils.MANUFACTURER_VIVO)) {
-                return new l();
+                return new m();
             }
             if (str.equalsIgnoreCase(RomUtils.MANUFACTURER_OPPO) || str.equalsIgnoreCase("oneplus")) {
                 return new k();
@@ -45,27 +43,11 @@ public class b {
             if (str.equalsIgnoreCase("lenovo") || str.equalsIgnoreCase("zuk")) {
                 return new g();
             }
+            if (Build.MANUFACTURER.equalsIgnoreCase("SAMSUNG")) {
+                return new l();
+            }
             return null;
         }
         return (f) invokeV.objValue;
-    }
-
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                try {
-                    if (((Integer) Class.forName("android.content.Context").getMethod("checkSelfPermission", String.class).invoke(context, str)).intValue() == 0) {
-                        return true;
-                    }
-                } catch (Throwable unused) {
-                }
-            } else if (context.getPackageManager().checkPermission(str, context.getPackageName()) == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 }

@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class Plane extends TrackableBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -98,13 +98,13 @@ public class Plane extends TrackableBase {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Plane(long j, Session session) {
-        super(j, session);
+    public Plane(long j2, Session session) {
+        super(j2, session);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), session};
+            Object[] objArr = {Long.valueOf(j2), session};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -118,21 +118,21 @@ public class Plane extends TrackableBase {
         }
     }
 
-    private native long nativeAcquireSubsumedBy(long j, long j2);
+    private native long nativeAcquireSubsumedBy(long j2, long j3);
 
-    private native d.f.c.a.a nativeGetCenterPose(long j, long j2);
+    private native c.i.c.a.a nativeGetCenterPose(long j2, long j3);
 
-    private native float nativeGetExtentX(long j, long j2);
+    private native float nativeGetExtentX(long j2, long j3);
 
-    private native float nativeGetExtentZ(long j, long j2);
+    private native float nativeGetExtentZ(long j2, long j3);
 
-    private native float[] nativeGetPolygon(long j, long j2);
+    private native float[] nativeGetPolygon(long j2, long j3);
 
-    private native int nativeGetType(long j, long j2);
+    private native int nativeGetType(long j2, long j3);
 
-    private native boolean nativeIsPoseInExtents(long j, long j2, d.f.c.a.a aVar);
+    private native boolean nativeIsPoseInExtents(long j2, long j3, c.i.c.a.a aVar);
 
-    private native boolean nativeIsPoseInPolygon(long j, long j2, d.f.c.a.a aVar);
+    private native boolean nativeIsPoseInPolygon(long j2, long j3, c.i.c.a.a aVar);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Plane() {

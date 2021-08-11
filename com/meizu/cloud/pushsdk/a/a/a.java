@@ -28,53 +28,55 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f37232b;
+    public static a f74065b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f37233c = new Object();
+    public static final Object f74066c = new Object();
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f37235d;
+    public byte[] f74068d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f37236e;
+    public byte[] f74069e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f37237f;
+    public byte[] f74070f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f37238g;
+    public byte[] f74071g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f37239h;
+    public byte[] f74072h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PublicKey f37240i;
-    public SharedPreferences j;
+    public PublicKey f74073i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public SharedPreferences f74074j;
     public SharedPreferences k;
     public Context m;
     public long l = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f37234a = "88&*5a9*4&a122ek";
+    public String f74067a = "88&*5a9*4&a122ek";
 
     public a(Context context) {
         this.m = context;
-        this.j = context.getSharedPreferences("com.x.y.1", 0);
+        this.f74074j = context.getSharedPreferences("com.x.y.1", 0);
         this.k = context.getSharedPreferences("com.x.y.2", 0);
-        Integer.parseInt(this.j.getString("keyTimeout", "0"));
-        this.j.getLong("createDate", 0L);
+        Integer.parseInt(this.f74074j.getString("keyTimeout", "0"));
+        this.f74074j.getLong("createDate", 0L);
         e();
-        byte[] bArr = this.f37235d;
+        byte[] bArr = this.f74068d;
         if (bArr != null && (bArr == null || bArr.length != 0)) {
-            byte[] bArr2 = this.f37236e;
+            byte[] bArr2 = this.f74069e;
             if (bArr2 == null || (bArr2 != null && bArr2.length == 0)) {
                 PublicKey b2 = b(this.m);
-                this.f37240i = b2;
+                this.f74073i = b2;
                 if (b2 != null) {
                     h();
                     return;
@@ -84,16 +86,16 @@ public class a {
             return;
         }
         PublicKey b3 = b(this.m);
-        this.f37240i = b3;
+        this.f74073i = b3;
         if (b3 != null) {
             f();
             return;
         }
-        this.j.edit().clear().apply();
+        this.f74074j.edit().clear().apply();
         try {
             d();
             PublicKey b4 = b(this.m);
-            this.f37240i = b4;
+            this.f74073i = b4;
             if (b4 != null) {
                 f();
             }
@@ -103,7 +105,7 @@ public class a {
     }
 
     public static a a() {
-        a aVar = f37232b;
+        a aVar = f74065b;
         if (aVar != null) {
             return aVar;
         }
@@ -143,10 +145,10 @@ public class a {
     }
 
     public static void a(Context context) {
-        if (f37232b == null) {
-            synchronized (f37233c) {
-                if (f37232b == null) {
-                    f37232b = new a(context);
+        if (f74065b == null) {
+            synchronized (f74066c) {
+                if (f74065b == null) {
+                    f74065b = new a(context);
                 }
             }
         }
@@ -170,11 +172,11 @@ public class a {
     }
 
     private void b(String str) {
-        d.h.a.a.a.a("HttpKeyMgr", str);
+        c.l.a.a.a.a("HttpKeyMgr", str);
     }
 
     private void c(String str) {
-        d.h.a.a.a.b("HttpKeyMgr", str);
+        c.l.a.a.a.b("HttpKeyMgr", str);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE, IF, INVOKE, IF, NOP, INVOKE, INVOKE, IF, NOP] complete} */
@@ -228,27 +230,27 @@ public class a {
 
     private void e() {
         b("loadKeys");
-        String string = this.j.getString("sKey64", "");
+        String string = this.f74074j.getString("sKey64", "");
         b("saved sKey64: " + string);
         if (!TextUtils.isEmpty(string)) {
-            this.f37239h = string.getBytes();
+            this.f74072h = string.getBytes();
         }
-        String string2 = this.j.getString("aKey64", "");
+        String string2 = this.f74074j.getString("aKey64", "");
         b("saved aKey64: " + string2);
         if (!TextUtils.isEmpty(string2)) {
             byte[] bytes = string2.getBytes();
-            this.f37238g = bytes;
-            this.f37236e = Base64.decode(bytes, 2);
+            this.f74071g = bytes;
+            this.f74069e = Base64.decode(bytes, 2);
         }
-        String string3 = this.j.getString("rKey64", "");
+        String string3 = this.f74074j.getString("rKey64", "");
         b("saved rKey64: " + string3);
         if (TextUtils.isEmpty(string3)) {
             return;
         }
         byte[] bytes2 = string3.getBytes();
-        this.f37237f = bytes2;
-        this.f37235d = Base64.decode(bytes2, 2);
-        b("saved rKey: " + new String(this.f37235d));
+        this.f74070f = bytes2;
+        this.f74068d = Base64.decode(bytes2, 2);
+        b("saved rKey: " + new String(this.f74068d));
     }
 
     private void f() {
@@ -261,11 +263,11 @@ public class a {
             KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
             keyGenerator.init(128);
             byte[] encoded = keyGenerator.generateKey().getEncoded();
-            this.f37235d = encoded;
-            this.f37237f = Base64.encode(encoded, 2);
-            b("***** rKey64: " + new String(this.f37237f));
-            SharedPreferences.Editor edit = this.j.edit();
-            edit.putString("rKey64", new String(this.f37237f));
+            this.f74068d = encoded;
+            this.f74070f = Base64.encode(encoded, 2);
+            b("***** rKey64: " + new String(this.f74070f));
+            SharedPreferences.Editor edit = this.f74074j.edit();
+            edit.putString("rKey64", new String(this.f74070f));
             edit.apply();
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -275,13 +277,13 @@ public class a {
     private void h() {
         try {
             Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
-            cipher.init(1, this.f37240i);
-            byte[] doFinal = cipher.doFinal(this.f37235d);
-            this.f37236e = doFinal;
-            this.f37238g = Base64.encode(doFinal, 2);
-            b("***** aKey64: " + new String(this.f37238g));
-            SharedPreferences.Editor edit = this.j.edit();
-            edit.putString("aKey64", new String(this.f37238g));
+            cipher.init(1, this.f74073i);
+            byte[] doFinal = cipher.doFinal(this.f74068d);
+            this.f74069e = doFinal;
+            this.f74071g = Base64.encode(doFinal, 2);
+            b("***** aKey64: " + new String(this.f74071g));
+            SharedPreferences.Editor edit = this.f74074j.edit();
+            edit.putString("aKey64", new String(this.f74071g));
             edit.apply();
         } catch (InvalidKeyException e2) {
             e2.printStackTrace();
@@ -297,15 +299,15 @@ public class a {
     }
 
     public void a(String str) {
-        this.f37239h = str.getBytes();
-        SharedPreferences.Editor edit = this.j.edit();
-        edit.putString("sKey64", new String(this.f37239h));
+        this.f74072h = str.getBytes();
+        SharedPreferences.Editor edit = this.f74074j.edit();
+        edit.putString("sKey64", new String(this.f74072h));
         edit.apply();
     }
 
     public byte[] a(byte[] bArr) {
         String str;
-        byte[] bArr2 = this.f37235d;
+        byte[] bArr2 = this.f74068d;
         if (bArr2 == null || (bArr2 != null && bArr2.length == 0)) {
             str = "rKey null!";
         } else if (bArr != null && (bArr == null || bArr.length != 0)) {
@@ -313,7 +315,7 @@ public class a {
             b("<<<<<<<<<< encrypt input <<<<<<<<<<");
             try {
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                cipher.init(1, new SecretKeySpec(this.f37235d, "AES"), new IvParameterSpec(this.f37235d));
+                cipher.init(1, new SecretKeySpec(this.f74068d, "AES"), new IvParameterSpec(this.f74068d));
                 byte[] doFinal = cipher.doFinal(bArr);
                 b(">>>>>>>>>> encrypt output >>>>>>>>>>\n" + new String(Base64.encode(doFinal, 2)));
                 b("<<<<<<<<<< encrypt output <<<<<<<<<<");
@@ -345,10 +347,10 @@ public class a {
     }
 
     public byte[] b() {
-        return this.f37238g;
+        return this.f74071g;
     }
 
     public byte[] c() {
-        return this.f37239h;
+        return this.f74072h;
     }
 }

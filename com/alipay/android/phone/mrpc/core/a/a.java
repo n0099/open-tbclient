@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Type;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class a implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Type f1650a;
+    public Type f35485a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f1651b;
+    public byte[] f35486b;
 
     public a(Type type, byte[] bArr) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public abstract class a implements c {
                 return;
             }
         }
-        this.f1650a = type;
-        this.f1651b = bArr;
+        this.f35485a = type;
+        this.f35486b = bArr;
     }
 }

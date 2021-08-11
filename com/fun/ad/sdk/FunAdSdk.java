@@ -1,17 +1,17 @@
 package com.fun.ad.sdk;
 
-import a.a.a.a.e;
-import a.a.a.a.f;
-import a.a.a.a.l;
-import a.a.a.a.q;
-import a.a.a.a.s.c;
-import a.a.a.a.s.h;
-import a.a.a.a.v.b;
-import a.a.a.a.v.d;
 import android.content.Context;
 import android.os.Looper;
 import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
+import b.a.a.a.f;
+import b.a.a.a.g;
+import b.a.a.a.m;
+import b.a.a.a.r;
+import b.a.a.a.u.c;
+import b.a.a.a.u.h;
+import b.a.a.a.x.b;
+import b.a.a.a.x.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,30 +19,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class FunAdSdk {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PLATFORM_CSJ = "csj";
     public static final String PLATFORM_GDT = "gdt";
     public static final String PLATFORM_JY = "jy";
     public static final String PLATFORM_KS = "ks";
-    public static e funAdCallback;
+    public static f funAdCallback;
     public static boolean isAdSdkInitialized;
     public static FunAdConfig sFunAdConfig;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface SdkInitializeCallback {
         void onComplete();
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements e {
+    /* loaded from: classes9.dex */
+    public static class a implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FunAdCallback f32871a;
+        public final /* synthetic */ FunAdCallback f69560a;
 
         public a(FunAdCallback funAdCallback) {
             Interceptable interceptable = $ic;
@@ -59,70 +59,70 @@ public final class FunAdSdk {
                     return;
                 }
             }
-            this.f32871a = funAdCallback;
+            this.f69560a = funAdCallback;
         }
 
-        @Override // a.a.a.a.e
+        @Override // b.a.a.a.f
         public void onAdClicked(h.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f32871a.onAdClicked(aVar.f1362d, aVar.f1361c, aVar.l.f1357b);
+                this.f69560a.onAdClicked(aVar.f1449d, aVar.f1448c, aVar.l.f1444b);
             }
         }
 
-        @Override // a.a.a.a.e
+        @Override // b.a.a.a.f
         public void onAdClose(h.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-                this.f32871a.onAdClose(aVar.f1362d, aVar.f1361c, aVar.l.f1357b);
+                this.f69560a.onAdClose(aVar.f1449d, aVar.f1448c, aVar.l.f1444b);
             }
         }
 
-        @Override // a.a.a.a.e
+        @Override // b.a.a.a.f
         public void onAdLoad(h.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-                this.f32871a.onAdLoad(aVar.f1362d, aVar.f1361c, aVar.l.f1357b);
+                this.f69560a.onAdLoad(aVar.f1449d, aVar.f1448c, aVar.l.f1444b);
             }
         }
 
-        @Override // a.a.a.a.e
+        @Override // b.a.a.a.f
         public void onAdLoadError(h.a aVar, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048579, this, aVar, i2, str) == null) {
-                this.f32871a.onAdLoadError(aVar.f1362d, aVar.f1361c, aVar.l.f1357b, i2, str);
+                this.f69560a.onAdLoadError(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, i2, str);
             }
         }
 
-        @Override // a.a.a.a.e
+        @Override // b.a.a.a.f
         public void onAdLoaded(h.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-                this.f32871a.onAdLoaded(aVar.f1362d, aVar.f1361c, aVar.l.f1357b);
+                this.f69560a.onAdLoaded(aVar.f1449d, aVar.f1448c, aVar.l.f1444b);
             }
         }
 
-        @Override // a.a.a.a.e
+        @Override // b.a.a.a.f
         public void onAdShow(h.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-                this.f32871a.onAdShow(aVar.f1362d, aVar.f1361c, aVar.l.f1357b);
+                this.f69560a.onAdShow(aVar.f1449d, aVar.f1448c, aVar.l.f1444b);
             }
         }
 
-        @Override // a.a.a.a.e
+        @Override // b.a.a.a.f
         public void onAdShowError(h.a aVar, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048582, this, aVar, i2, str) == null) {
-                this.f32871a.onAdShowError(aVar.f1362d, aVar.f1361c, aVar.l.f1357b, i2, str);
+                this.f69560a.onAdShowError(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, i2, str);
             }
         }
 
-        @Override // a.a.a.a.e
+        @Override // b.a.a.a.f
         public void onRewardedVideo(h.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-                this.f32871a.onRewardedVideo(aVar.f1362d, aVar.f1361c, aVar.l.f1357b);
+                this.f69560a.onRewardedVideo(aVar.f1449d, aVar.f1448c, aVar.l.f1444b);
             }
         }
     }
@@ -141,18 +141,18 @@ public final class FunAdSdk {
         }
     }
 
-    public static e getAdCallback() {
+    public static f getAdCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? funAdCallback : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? funAdCallback : (f) invokeV.objValue;
     }
 
     public static FunAdFactory getAdFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            f fVar = f.f1025c;
-            return fVar == null ? new f() : fVar;
+            g gVar = g.f1067c;
+            return gVar == null ? new g() : gVar;
         }
         return (FunAdFactory) invokeV.objValue;
     }
@@ -172,7 +172,7 @@ public final class FunAdSdk {
     public static String getPlatformId(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? c.a(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? c.b(str) : (String) invokeL.objValue;
     }
 
     public static boolean init(FunAdConfig funAdConfig, FunAdCallback funAdCallback2) {
@@ -190,50 +190,50 @@ public final class FunAdSdk {
                     if (Looper.myLooper() == Looper.getMainLooper()) {
                         if (isAdSdkInitialized) {
                             if (sFunAdConfig.logEnabled) {
-                                d.b("Please don't init FunAdSdk duplicated.", new Object[0]);
+                                d.f("Please don't init FunAdSdk duplicated.", new Object[0]);
                             }
                             return false;
                         }
                         sFunAdConfig = funAdConfig;
-                        if (b.f1396b.getLong("key_flt", 0L) <= 0) {
-                            b.f1396b.edit().putLong("key_flt", System.currentTimeMillis()).apply();
+                        if (b.f1484b.getLong("key_flt", 0L) <= 0) {
+                            b.f1484b.edit().putLong("key_flt", System.currentTimeMillis()).apply();
                         }
                         initFunAdCallback(funAdCallback2);
-                        l.a();
-                        l.f1077c = System.currentTimeMillis();
-                        l.f1081g = SystemClock.currentThreadTimeMillis();
+                        m.a();
+                        m.f1133c = System.currentTimeMillis();
+                        m.f1137g = SystemClock.currentThreadTimeMillis();
                         try {
                             Class.forName("com.win.opensdk.PBInitialize");
                         } catch (ClassNotFoundException unused) {
-                            q.a("SDK依赖性错误：请在build.gradle里正确集成win-norm-xxx-release-xxx.aar");
+                            r.h("SDK依赖性错误：请在build.gradle里正确集成win-norm-xxx-release-xxx.aar");
                         }
                         try {
                             Class.forName("com.qq.e.ads.nativ.NativeUnifiedADDataAdapter");
                         } catch (ClassNotFoundException unused2) {
-                            q.a("SDK依赖性错误：请在build.gradle里正确集成GDTSDK.unionNormal.xxx.aar");
+                            r.h("SDK依赖性错误：请在build.gradle里正确集成GDTSDK.unionNormal.xxx.aar");
                         }
                         try {
                             Class.forName("com.kwad.sdk.api.KsAdSDK");
                         } catch (ClassNotFoundException unused3) {
-                            q.a("SDK依赖性错误：请在build.gradle里正确集成ks_adsdk-xxx.aar");
+                            r.h("SDK依赖性错误：请在build.gradle里正确集成ks_adsdk-xxx.aar");
                         }
                         try {
                             Class.forName("com.bytedance.sdk.openadsdk.TTAdSdk");
                         } catch (ClassNotFoundException unused4) {
-                            q.a("SDK依赖性错误：请在build.gradle里正确集成open_ad_sdk.aar");
+                            r.h("SDK依赖性错误：请在build.gradle里正确集成open_ad_sdk.aar");
                         }
                         try {
                             Class.forName("com.fun.openid.sdk.FunOpenIDSdk");
                         } catch (ClassNotFoundException unused5) {
-                            q.a("SDK依赖性错误：请在build.gradle里正确集成fun_openid_sdk_xxx.aar");
+                            r.h("SDK依赖性错误：请在build.gradle里正确集成fun_openid_sdk_xxx.aar");
                         }
-                        l.f1075a.f1084a = System.currentTimeMillis() - l.f1077c;
-                        l.f1075a.f1085b = SystemClock.currentThreadTimeMillis() - l.f1081g;
-                        c.f1327b = sdkInitializeCallback;
-                        c.a(true);
+                        m.f1131a.f1140a = System.currentTimeMillis() - m.f1133c;
+                        m.f1131a.f1141b = SystemClock.currentThreadTimeMillis() - m.f1137g;
+                        c.f1414b = sdkInitializeCallback;
+                        c.d(true);
                         isAdSdkInitialized = true;
-                        l.f1075a.f1088e = System.currentTimeMillis() - l.f1076b;
-                        l.f1075a.f1089f = SystemClock.currentThreadTimeMillis() - l.f1080f;
+                        m.f1131a.f1144e = System.currentTimeMillis() - m.f1132b;
+                        m.f1131a.f1145f = SystemClock.currentThreadTimeMillis() - m.f1136f;
                         return true;
                     }
                     throw new IllegalStateException("This method could only be called on main thread.");
@@ -250,8 +250,8 @@ public final class FunAdSdk {
         if (!(interceptable == null || interceptable.invokeL(65544, null, funAdCallback2) == null) || funAdCallback2 == null) {
             return;
         }
-        if (funAdCallback2 instanceof e) {
-            funAdCallback = (e) funAdCallback2;
+        if (funAdCallback2 instanceof f) {
+            funAdCallback = (f) funAdCallback2;
         } else {
             funAdCallback = new a(funAdCallback2);
         }
@@ -270,6 +270,6 @@ public final class FunAdSdk {
     public static boolean isSdkInitializeComplete() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? c.f1331f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? c.f1418f : invokeV.booleanValue;
     }
 }

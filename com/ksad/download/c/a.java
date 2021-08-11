@@ -16,33 +16,33 @@ import com.kwad.sdk.c.c;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f33836a;
+    public d f70558a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, Integer> f33837b;
+    public final Map<String, Integer> f70559b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Service f33838c;
+    public Service f70560c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HandlerC0399a f33839d;
+    public final HandlerC1966a f70561d;
 
     /* renamed from: com.ksad.download.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class HandlerC0399a extends Handler {
+    /* loaded from: classes10.dex */
+    public static class HandlerC1966a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<a> f33840a;
+        public final WeakReference<a> f70562a;
 
-        public HandlerC0399a(a aVar) {
+        public HandlerC1966a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,18 +57,18 @@ public class a extends c {
                     return;
                 }
             }
-            this.f33840a = new WeakReference<>(aVar);
+            this.f70562a = new WeakReference<>(aVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             a aVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (aVar = this.f33840a.get()) != null && message.what == 1) {
-                if (aVar.f33836a == null || !aVar.f33836a.d()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (aVar = this.f70562a.get()) != null && message.what == 1) {
+                if (aVar.f70558a == null || !aVar.f70558a.d()) {
                     sendEmptyMessageDelayed(1, 30000L);
                 } else {
-                    aVar.f33838c.stopSelf();
+                    aVar.f70560c.stopSelf();
                 }
             }
         }
@@ -87,8 +87,8 @@ public class a extends c {
                 return;
             }
         }
-        this.f33837b = new ConcurrentHashMap();
-        this.f33839d = new HandlerC0399a(this);
+        this.f70559b = new ConcurrentHashMap();
+        this.f70561d = new HandlerC1966a(this);
     }
 
     private void a(Intent intent) {
@@ -100,15 +100,15 @@ public class a extends c {
             int intExtra = intent.getIntExtra("download_service_type_tag", 0);
             String stringExtra = intent.getStringExtra("download_service_id_tag");
             DownloadTask.DownloadRequest downloadRequest = (DownloadTask.DownloadRequest) intent.getSerializableExtra("download_service_args_tag");
-            Integer num = this.f33837b.get(stringExtra);
+            Integer num = this.f70559b.get(stringExtra);
             if (intExtra == 1) {
-                this.f33837b.put(stringExtra, Integer.valueOf(this.f33836a.a(downloadRequest, (com.ksad.download.c) null)));
+                this.f70559b.put(stringExtra, Integer.valueOf(this.f70558a.a(downloadRequest, (com.ksad.download.c) null)));
             } else if (intExtra == 2) {
-                this.f33836a.d(num.intValue());
+                this.f70558a.d(num.intValue());
             } else if (intExtra == 3) {
-                this.f33836a.e(num.intValue());
+                this.f70558a.e(num.intValue());
             } else if (intExtra == 4) {
-                this.f33836a.c(num.intValue());
+                this.f70558a.c(num.intValue());
             }
         } catch (Exception unused) {
         }
@@ -120,9 +120,9 @@ public class a extends c {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, service) == null) || service == null) {
             return;
         }
-        this.f33838c = service;
-        this.f33836a = d.a();
-        this.f33839d.sendEmptyMessageDelayed(1, 30000L);
+        this.f70560c = service;
+        this.f70558a = d.a();
+        this.f70561d.sendEmptyMessageDelayed(1, 30000L);
     }
 
     @Override // com.kwad.sdk.c.c, com.kwad.sdk.api.proxy.IServiceProxy

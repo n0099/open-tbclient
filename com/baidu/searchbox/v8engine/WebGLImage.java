@@ -22,7 +22,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 @NotProguard
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class WebGLImage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -55,12 +55,12 @@ public class WebGLImage {
         }
     }
 
-    public WebGLImage(long j, long j2, String str) {
+    public WebGLImage(long j2, long j3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), str};
+            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -76,8 +76,8 @@ public class WebGLImage {
         this.mNativePtr = 0L;
         this.mEnginePtr = 0L;
         this.mBasePath = "";
-        this.mNativePtr = j;
-        this.mEnginePtr = j2;
+        this.mNativePtr = j2;
+        this.mEnginePtr = j3;
         this.mBasePath = str;
     }
 
@@ -98,10 +98,10 @@ public class WebGLImage {
         return (byte[]) invokeCommon.objValue;
     }
 
-    public static WebGLImage create(long j, long j2, String str) {
+    public static WebGLImage create(long j2, long j3, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str})) == null) ? new WebGLImage(j, j2, str) : (WebGLImage) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str})) == null) ? new WebGLImage(j2, j3, str) : (WebGLImage) invokeCommon.objValue;
     }
 
     public static String getValidFileType(String str) {
@@ -120,11 +120,11 @@ public class WebGLImage {
         return (String) invokeL.objValue;
     }
 
-    private native void nativeOnLoadFailed(long j, String str, int i2);
+    private native void nativeOnLoadFailed(long j2, String str, int i2);
 
-    private native void nativeOnLoadSuccess(long j, int i2);
+    private native void nativeOnLoadSuccess(long j2, int i2);
 
-    public static native boolean nativeReadPixels(long j, Bitmap bitmap, int i2, int i3, int i4, int i5);
+    public static native boolean nativeReadPixels(long j2, Bitmap bitmap, int i2, int i3, int i4, int i5);
 
     private void postImageJSCallback(V8Engine v8Engine, JSEvent jSEvent, int i2) {
         Interceptable interceptable = $ic;
@@ -167,16 +167,16 @@ public class WebGLImage {
         }
     }
 
-    public static Bitmap readCanvas(long j, int i2, int i3, int i4, int i5) {
+    public static Bitmap readCanvas(long j2, int i2, int i3, int i4, int i5) {
         InterceptResult invokeCommon;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
             if (i2 != -1 && i3 != -1) {
                 try {
                     bitmap = Bitmap.createBitmap(i4, i5, Bitmap.Config.ARGB_8888);
                     try {
-                        if (nativeReadPixels(j, bitmap, i2, i3, i4, i5)) {
+                        if (nativeReadPixels(j2, bitmap, i2, i3, i4, i5)) {
                             return bitmap;
                         }
                         throw new RuntimeException("Failed to read pixels from native canvas");
@@ -246,39 +246,37 @@ public class WebGLImage {
         }
     }
 
-    public static String saveTempFilePath(long j, byte[] bArr, String str) {
+    public static String saveTempFilePath(long j2, byte[] bArr, String str) {
         InterceptResult invokeCommon;
-        File createTempFile;
-        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j), bArr, str})) == null) {
-            FileOutputStream fileOutputStream2 = null;
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j2), bArr, str})) != null) {
+            return (String) invokeCommon.objValue;
+        }
+        FileOutputStream fileOutputStream = null;
+        try {
+            File file = new File(V8Engine.getInstance(j2).getBdFileRealPath(), "tmp");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            File createTempFile = File.createTempFile("tmp_", "." + str, file);
+            Log.e("V8", "saveTempFilePath--file : " + createTempFile);
+            FileOutputStream fileOutputStream2 = new FileOutputStream(createTempFile);
             try {
-                File file = new File(V8Engine.getInstance(j).getBdFileRealPath(), "tmp");
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                createTempFile = File.createTempFile("tmp_", "." + str, file);
-                Log.e("V8", "saveTempFilePath--file : " + createTempFile);
-                fileOutputStream = new FileOutputStream(createTempFile);
+                fileOutputStream2.write(bArr);
+                String str2 = "bdfile://tmp/" + createTempFile.getName();
+                fileOutputStream2.close();
+                return str2;
             } catch (Throwable th) {
                 th = th;
-            }
-            try {
-                fileOutputStream.write(bArr);
-                String str2 = "bdfile://tmp/" + createTempFile.getName();
-                fileOutputStream.close();
-                return str2;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                if (fileOutputStream2 != null) {
-                    fileOutputStream2.close();
+                fileOutputStream = fileOutputStream2;
+                if (fileOutputStream != null) {
+                    fileOutputStream.close();
                 }
                 throw th;
             }
+        } catch (Throwable th2) {
+            th = th2;
         }
-        return (String) invokeCommon.objValue;
     }
 
     public static Bitmap.CompressFormat toCompressFormat(String str) {
@@ -293,12 +291,12 @@ public class WebGLImage {
         return (Bitmap.CompressFormat) invokeL.objValue;
     }
 
-    public static String toDataURL(long j, int i2, int i3, String str, float f2) {
+    public static String toDataURL(long j2, int i2, int i3, String str, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), str, Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), str, Float.valueOf(f2)})) == null) {
             try {
-                Bitmap readCanvas = readCanvas(j, 0, 0, i2, i3);
+                Bitmap readCanvas = readCanvas(j2, 0, 0, i2, i3);
                 if (f2 <= 0.0f || f2 > 1.0f) {
                     f2 = 0.92f;
                 }
@@ -314,10 +312,10 @@ public class WebGLImage {
         return (String) invokeCommon.objValue;
     }
 
-    public static String toTempFilePathAsync(long j, long j2, int i2, int i3, int i4, int i5, int i6, int i7, String str, float f2, JsFunction jsFunction, JsFunction jsFunction2, JsFunction jsFunction3) {
+    public static String toTempFilePathAsync(long j2, long j3, int i2, int i3, int i4, int i5, int i6, int i7, String str, float f2, JsFunction jsFunction, JsFunction jsFunction2, JsFunction jsFunction3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), str, Float.valueOf(f2), jsFunction, jsFunction2, jsFunction3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), str, Float.valueOf(f2), jsFunction, jsFunction2, jsFunction3})) == null) {
             Log.e("V8", "toTempFilePathAsync-- " + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i5 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i6 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i7 + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + jsFunction + StringUtil.ARRAY_ELEMENT_SEPARATOR + jsFunction2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + jsFunction3);
             if (sBackgroundThread == null) {
                 HandlerThread handlerThread = new HandlerThread(NotificationCompat.WearableExtender.KEY_BACKGROUND);
@@ -325,7 +323,7 @@ public class WebGLImage {
                 handlerThread.start();
                 sHandler = new Handler(sBackgroundThread.getLooper());
             }
-            sHandler.post(new Runnable((i2 < 0 || i3 < 0 || i4 <= 0 || i5 <= 0 || i6 <= 0 || i7 <= 0) ? null : readCanvas(j, i2, i3, i4, i5), i6, i7, str, f2, j2, jsFunction, jsFunction2, jsFunction3) { // from class: com.baidu.searchbox.v8engine.WebGLImage.2
+            sHandler.post(new Runnable((i2 < 0 || i3 < 0 || i4 <= 0 || i5 <= 0 || i6 <= 0 || i7 <= 0) ? null : readCanvas(j2, i2, i3, i4, i5), i6, i7, str, f2, j3, jsFunction, jsFunction2, jsFunction3) { // from class: com.baidu.searchbox.v8engine.WebGLImage.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Bitmap val$bitmap;
@@ -343,7 +341,7 @@ public class WebGLImage {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {r6, Integer.valueOf(i6), Integer.valueOf(i7), str, Float.valueOf(f2), Long.valueOf(j2), jsFunction, jsFunction2, jsFunction3};
+                        Object[] objArr = {r6, Integer.valueOf(i6), Integer.valueOf(i7), str, Float.valueOf(f2), Long.valueOf(j3), jsFunction, jsFunction2, jsFunction3};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i8 = newInitContext.flag;
                         if ((i8 & 1) != 0) {
@@ -358,7 +356,7 @@ public class WebGLImage {
                     this.val$destHeight = i7;
                     this.val$fileType = str;
                     this.val$quality = f2;
-                    this.val$nativeEnginePtr = j2;
+                    this.val$nativeEnginePtr = j3;
                     this.val$success = jsFunction;
                     this.val$fail = jsFunction2;
                     this.val$complete = jsFunction3;
@@ -415,24 +413,24 @@ public class WebGLImage {
         return (String) invokeCommon.objValue;
     }
 
-    public static String toTempFilePathInternal(long j, long j2, int i2, int i3, int i4, int i5, int i6, int i7, String str, float f2, JsFunction jsFunction, JsFunction jsFunction2, JsFunction jsFunction3, boolean z) {
+    public static String toTempFilePathInternal(long j2, long j3, int i2, int i3, int i4, int i5, int i6, int i7, String str, float f2, JsFunction jsFunction, JsFunction jsFunction2, JsFunction jsFunction3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), str, Float.valueOf(f2), jsFunction, jsFunction2, jsFunction3, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), str, Float.valueOf(f2), jsFunction, jsFunction2, jsFunction3, Boolean.valueOf(z)})) == null) {
             String validFileType = getValidFileType(str);
             float f3 = (f2 <= 0.0f || f2 > 1.0f) ? 0.92f : f2;
             if (z) {
-                return toTempFilePathSync(j, j2, i2, i3, i4, i5, i6, i7, validFileType, f3);
+                return toTempFilePathSync(j2, j3, i2, i3, i4, i5, i6, i7, validFileType, f3);
             }
-            return toTempFilePathAsync(j, j2, i2, i3, i4, i5, i6, i7, validFileType, f3, jsFunction, jsFunction2, jsFunction3);
+            return toTempFilePathAsync(j2, j3, i2, i3, i4, i5, i6, i7, validFileType, f3, jsFunction, jsFunction2, jsFunction3);
         }
         return (String) invokeCommon.objValue;
     }
 
-    public static String toTempFilePathSync(long j, long j2, int i2, int i3, int i4, int i5, int i6, int i7, String str, float f2) {
+    public static String toTempFilePathSync(long j2, long j3, int i2, int i3, int i4, int i5, int i6, int i7, String str, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), str, Float.valueOf(f2)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), str, Float.valueOf(f2)})) != null) {
             return (String) invokeCommon.objValue;
         }
         Log.e("V8", "toTempFilePathSync-- " + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i5 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i6 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i7 + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2);
@@ -442,11 +440,11 @@ public class WebGLImage {
             }
             if (i4 != -1 && i5 != -1 && i6 != -1 && i7 != -1) {
                 try {
-                    return saveTempFilePath(j2, compressCanvas(readCanvas(j, i2, i3, i4, i5), i6, i7, str, f2), str);
+                    return saveTempFilePath(j3, compressCanvas(readCanvas(j2, i2, i3, i4, i5), i6, i7, str, f2), str);
                 } catch (Throwable th) {
                     th = th;
                     Log.e("V8", th.getMessage(), th);
-                    V8Engine v8Engine = V8Engine.getInstance(j2);
+                    V8Engine v8Engine = V8Engine.getInstance(j3);
                     if (v8Engine != null) {
                         v8Engine.throwJSException(JSExceptionType.Error, th.getMessage());
                         return null;
@@ -509,7 +507,7 @@ public class WebGLImage {
         }
     }
 
-    public native boolean nativeLoadAsset(long j, Bitmap bitmap);
+    public native boolean nativeLoadAsset(long j2, Bitmap bitmap);
 
     public long nativePtr() {
         InterceptResult invokeV;
@@ -566,8 +564,8 @@ public class WebGLImage {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bitmap)) == null) {
-            long j = this.mNativePtr;
-            return j != 0 && nativeLoadAsset(j, bitmap);
+            long j2 = this.mNativePtr;
+            return j2 != 0 && nativeLoadAsset(j2, bitmap);
         }
         return invokeL.booleanValue;
     }
@@ -601,7 +599,7 @@ public class WebGLImage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mWidth : invokeV.intValue;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class CanvasResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

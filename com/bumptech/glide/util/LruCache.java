@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class LruCache<T, Y> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,12 +21,12 @@ public class LruCache<T, Y> {
     public final long initialMaxSize;
     public long maxSize;
 
-    public LruCache(long j) {
+    public LruCache(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -37,8 +37,8 @@ public class LruCache<T, Y> {
             }
         }
         this.cache = new LinkedHashMap(100, 0.75f, true);
-        this.initialMaxSize = j;
-        this.maxSize = j;
+        this.initialMaxSize = j2;
+        this.maxSize = j2;
     }
 
     private void evict() {
@@ -97,26 +97,26 @@ public class LruCache<T, Y> {
 
     public synchronized long getCurrentSize() {
         InterceptResult invokeV;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                j = this.currentSize;
+                j2 = this.currentSize;
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }
 
     public synchronized long getMaxSize() {
         InterceptResult invokeV;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
-                j = this.maxSize;
+                j2 = this.maxSize;
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }
@@ -195,11 +195,11 @@ public class LruCache<T, Y> {
         }
     }
 
-    public synchronized void trimToSize(long j) {
+    public synchronized void trimToSize(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
             synchronized (this) {
-                while (this.currentSize > j) {
+                while (this.currentSize > j2) {
                     Iterator<Map.Entry<T, Y>> it = this.cache.entrySet().iterator();
                     Map.Entry<T, Y> next = it.next();
                     Y value = next.getValue();

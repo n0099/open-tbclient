@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.f;
-import h.j;
-import h.m.a;
-import h.o.d.i.e;
-import h.o.d.j.f0;
-import h.o.d.j.y;
+import i.f;
+import i.j;
+import i.m.a;
+import i.o.d.i.e;
+import i.o.d.j.f0;
+import i.o.d.j.y;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class QueuedValueProducer<T> extends AtomicLong implements f {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object NULL_SENTINEL;
@@ -72,9 +72,9 @@ public final class QueuedValueProducer<T> extends AtomicLong implements f {
             Queue<Object> queue = this.queue;
             while (!jVar.isUnsubscribed()) {
                 this.wip.lazySet(1);
-                long j = get();
-                long j2 = 0;
-                while (j != 0 && (poll = queue.poll()) != null) {
+                long j2 = get();
+                long j3 = 0;
+                while (j2 != 0 && (poll = queue.poll()) != null) {
                     try {
                         if (poll == NULL_SENTINEL) {
                             jVar.onNext(null);
@@ -84,8 +84,8 @@ public final class QueuedValueProducer<T> extends AtomicLong implements f {
                         if (jVar.isUnsubscribed()) {
                             return;
                         }
-                        j--;
-                        j2++;
+                        j2--;
+                        j3++;
                     } catch (Throwable th) {
                         if (poll == NULL_SENTINEL) {
                             poll = null;
@@ -94,8 +94,8 @@ public final class QueuedValueProducer<T> extends AtomicLong implements f {
                         return;
                     }
                 }
-                if (j2 != 0 && get() != Long.MAX_VALUE) {
-                    addAndGet(-j2);
+                if (j3 != 0 && get() != Long.MAX_VALUE) {
+                    addAndGet(-j3);
                 }
                 if (this.wip.decrementAndGet() == 0) {
                     return;
@@ -121,16 +121,16 @@ public final class QueuedValueProducer<T> extends AtomicLong implements f {
         return invokeL.booleanValue;
     }
 
-    @Override // h.f
-    public void request(long j) {
+    @Override // i.f
+    public void request(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
             if (i2 < 0) {
                 throw new IllegalArgumentException("n >= 0 required");
             }
             if (i2 > 0) {
-                h.o.a.a.b(this, j);
+                i.o.a.a.b(this, j2);
                 drain();
             }
         }

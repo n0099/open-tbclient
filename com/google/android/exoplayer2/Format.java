@@ -6,6 +6,7 @@ import android.media.MediaFormat;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
+import c.i.b.a.i0.v;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -20,13 +21,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.drm.DrmInitData;
 import com.google.android.exoplayer2.metadata.Metadata;
 import com.google.android.exoplayer2.video.ColorInfo;
-import d.f.b.a.i0.v;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class Format implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<Format> CREATOR;
@@ -61,7 +61,7 @@ public final class Format implements Parcelable {
     public final long subsampleOffsetUs;
     public final int width;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a implements Parcelable.Creator<Format> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,12 +115,12 @@ public final class Format implements Parcelable {
         CREATOR = new a();
     }
 
-    public Format(String str, String str2, String str3, String str4, int i2, int i3, int i4, int i5, float f2, int i6, float f3, byte[] bArr, int i7, ColorInfo colorInfo, int i8, int i9, int i10, int i11, int i12, int i13, String str5, int i14, long j, List<byte[]> list, DrmInitData drmInitData, Metadata metadata) {
+    public Format(String str, String str2, String str3, String str4, int i2, int i3, int i4, int i5, float f2, int i6, float f3, byte[] bArr, int i7, ColorInfo colorInfo, int i8, int i9, int i10, int i11, int i12, int i13, String str5, int i14, long j2, List<byte[]> list, DrmInitData drmInitData, Metadata metadata) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Float.valueOf(f2), Integer.valueOf(i6), Float.valueOf(f3), bArr, Integer.valueOf(i7), colorInfo, Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10), Integer.valueOf(i11), Integer.valueOf(i12), Integer.valueOf(i13), str5, Integer.valueOf(i14), Long.valueOf(j), list, drmInitData, metadata};
+            Object[] objArr = {str, str2, str3, str4, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Float.valueOf(f2), Integer.valueOf(i6), Float.valueOf(f3), bArr, Integer.valueOf(i7), colorInfo, Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10), Integer.valueOf(i11), Integer.valueOf(i12), Integer.valueOf(i13), str5, Integer.valueOf(i14), Long.valueOf(j2), list, drmInitData, metadata};
             interceptable.invokeUnInit(65538, newInitContext);
             int i15 = newInitContext.flag;
             if ((i15 & 1) != 0) {
@@ -152,7 +152,7 @@ public final class Format implements Parcelable {
         this.selectionFlags = i13;
         this.language = str5;
         this.accessibilityChannel = i14;
-        this.subsampleOffsetUs = j;
+        this.subsampleOffsetUs = j2;
         this.initializationData = list == null ? Collections.emptyList() : list;
         this.drmInitData = drmInitData;
         this.metadata = metadata;
@@ -182,10 +182,10 @@ public final class Format implements Parcelable {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, str2, str3, Integer.valueOf(i2), list, str4, drmInitData})) == null) ? new Format(str, null, str2, str3, i2, -1, -1, -1, -1.0f, -1, -1.0f, null, -1, null, -1, -1, -1, -1, -1, 0, str4, -1, Long.MAX_VALUE, list, drmInitData, null) : (Format) invokeCommon.objValue;
     }
 
-    public static Format createSampleFormat(String str, String str2, long j) {
+    public static Format createSampleFormat(String str, String str2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{str, str2, Long.valueOf(j)})) == null) ? new Format(str, null, str2, null, -1, -1, -1, -1, -1.0f, -1, -1.0f, null, -1, null, -1, -1, -1, -1, -1, 0, null, -1, j, null, null, null) : (Format) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{str, str2, Long.valueOf(j2)})) == null) ? new Format(str, null, str2, null, -1, -1, -1, -1, -1.0f, -1, -1.0f, null, -1, null, -1, -1, -1, -1, -1, 0, null, -1, j2, null, null, null) : (Format) invokeCommon.objValue;
     }
 
     public static Format createTextContainerFormat(String str, String str2, String str3, String str4, int i2, int i3, String str5) {
@@ -423,10 +423,10 @@ public final class Format implements Parcelable {
         return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? new Format(this.id, this.containerMimeType, this.sampleMimeType, this.codecs, this.bitrate, this.maxInputSize, this.width, this.height, this.frameRate, i2, this.pixelWidthHeightRatio, this.projectionData, this.stereoMode, this.colorInfo, this.channelCount, this.sampleRate, this.pcmEncoding, this.encoderDelay, this.encoderPadding, this.selectionFlags, this.language, this.accessibilityChannel, this.subsampleOffsetUs, this.initializationData, this.drmInitData, this.metadata) : (Format) invokeI.objValue;
     }
 
-    public Format copyWithSubsampleOffsetUs(long j) {
+    public Format copyWithSubsampleOffsetUs(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) ? new Format(this.id, this.containerMimeType, this.sampleMimeType, this.codecs, this.bitrate, this.maxInputSize, this.width, this.height, this.frameRate, this.rotationDegrees, this.pixelWidthHeightRatio, this.projectionData, this.stereoMode, this.colorInfo, this.channelCount, this.sampleRate, this.pcmEncoding, this.encoderDelay, this.encoderPadding, this.selectionFlags, this.language, this.accessibilityChannel, j, this.initializationData, this.drmInitData, this.metadata) : (Format) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) ? new Format(this.id, this.containerMimeType, this.sampleMimeType, this.codecs, this.bitrate, this.maxInputSize, this.width, this.height, this.frameRate, this.rotationDegrees, this.pixelWidthHeightRatio, this.projectionData, this.stereoMode, this.colorInfo, this.channelCount, this.sampleRate, this.pcmEncoding, this.encoderDelay, this.encoderPadding, this.selectionFlags, this.language, this.accessibilityChannel, j2, this.initializationData, this.drmInitData, this.metadata) : (Format) invokeJ.objValue;
     }
 
     @Override // android.os.Parcelable
@@ -624,16 +624,16 @@ public final class Format implements Parcelable {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), str4, Integer.valueOf(i4), drmInitData})) == null) ? createTextSampleFormat(str, str2, str3, i2, i3, str4, i4, drmInitData, Long.MAX_VALUE, Collections.emptyList()) : (Format) invokeCommon.objValue;
     }
 
-    public static Format createTextSampleFormat(String str, String str2, String str3, int i2, int i3, String str4, DrmInitData drmInitData, long j) {
+    public static Format createTextSampleFormat(String str, String str2, String str3, int i2, int i3, String str4, DrmInitData drmInitData, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), str4, drmInitData, Long.valueOf(j)})) == null) ? createTextSampleFormat(str, str2, str3, i2, i3, str4, -1, drmInitData, j, Collections.emptyList()) : (Format) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), str4, drmInitData, Long.valueOf(j2)})) == null) ? createTextSampleFormat(str, str2, str3, i2, i3, str4, -1, drmInitData, j2, Collections.emptyList()) : (Format) invokeCommon.objValue;
     }
 
-    public static Format createTextSampleFormat(String str, String str2, String str3, int i2, int i3, String str4, int i4, DrmInitData drmInitData, long j, List<byte[]> list) {
+    public static Format createTextSampleFormat(String str, String str2, String str3, int i2, int i3, String str4, int i4, DrmInitData drmInitData, long j2, List<byte[]> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), str4, Integer.valueOf(i4), drmInitData, Long.valueOf(j), list})) == null) ? new Format(str, null, str2, str3, i2, -1, -1, -1, -1.0f, -1, -1.0f, null, -1, null, -1, -1, -1, -1, -1, i3, str4, i4, j, list, drmInitData, null) : (Format) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), str4, Integer.valueOf(i4), drmInitData, Long.valueOf(j2), list})) == null) ? new Format(str, null, str2, str3, i2, -1, -1, -1, -1.0f, -1, -1.0f, null, -1, null, -1, -1, -1, -1, -1, i3, str4, i4, j2, list, drmInitData, null) : (Format) invokeCommon.objValue;
     }
 
     public Format(Parcel parcel) {

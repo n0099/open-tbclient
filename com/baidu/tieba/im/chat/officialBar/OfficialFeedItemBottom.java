@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import c.a.p0.j1.l.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -14,20 +15,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.i1.l.c.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class OfficialFeedItemBottom extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f17481e;
+    public Context f52696e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f17482f;
+    public TextView f52697f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17483g;
+    public TextView f52698g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public OfficialFeedItemBottom(Context context) {
@@ -50,45 +50,45 @@ public class OfficialFeedItemBottom extends LinearLayout {
         }
     }
 
-    public void a(int i2) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f17483g.getLayoutParams();
-            layoutParams.topMargin = i2;
-            this.f17483g.setLayoutParams(layoutParams);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
-            LayoutInflater.from(this.f17481e).inflate(R.layout.official_feed_item_bottom, (ViewGroup) this, true);
-            this.f17482f = (TextView) findViewById(R.id.message_no_image_title);
-            this.f17483g = (TextView) findViewById(R.id.message_info);
-            c();
+            LayoutInflater.from(this.f52696e).inflate(R.layout.official_feed_item_bottom, (ViewGroup) this, true);
+            this.f52697f = (TextView) findViewById(R.id.message_no_image_title);
+            this.f52698g = (TextView) findViewById(R.id.message_info);
+            onSkinTypeChange();
         }
     }
 
-    public void c() {
+    public void adjustForSingleForum(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f52698g.getLayoutParams();
+            layoutParams.topMargin = i2;
+            this.f52698g.setLayoutParams(layoutParams);
+        }
+    }
+
+    public void onSkinTypeChange() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.f17483g, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f17482f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f52698g, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f52697f, R.color.CAM_X0105);
         }
     }
 
-    public void setData(a.C1473a c1473a, boolean z) {
+    public void setData(a.C0959a c0959a, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, c1473a, z) == null) {
-            int i2 = TextUtils.isEmpty(c1473a.f59144b) ? 8 : 0;
-            this.f17482f.setText(c1473a.f59143a);
-            this.f17483g.setText(c1473a.f59144b);
-            this.f17483g.setVisibility(i2);
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, c0959a, z) == null) {
+            int i2 = TextUtils.isEmpty(c0959a.f20579b) ? 8 : 0;
+            this.f52697f.setText(c0959a.f20578a);
+            this.f52698g.setText(c0959a.f20579b);
+            this.f52698g.setVisibility(i2);
             if (z) {
-                this.f17482f.setVisibility(8);
+                this.f52697f.setVisibility(8);
             } else {
-                this.f17482f.setVisibility(0);
+                this.f52697f.setVisibility(0);
             }
         }
     }
@@ -112,7 +112,7 @@ public class OfficialFeedItemBottom extends LinearLayout {
                 return;
             }
         }
-        this.f17481e = context;
-        b();
+        this.f52696e = context;
+        a();
     }
 }

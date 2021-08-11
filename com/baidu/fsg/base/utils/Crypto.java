@@ -22,30 +22,30 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class Crypto {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f5397a = 16;
+    public static final int f39341a = 16;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5398b = 8;
+    public static final int f39342b = 8;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5399c = 128;
+    public static final int f39343c = 128;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5400d = 64;
+    public static final int f39344d = 64;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f5401e = 8;
+    public static final int f39345e = 8;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5402f = 1000;
+    public static final int f39346f = 1000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SecureRandom f5403g;
+    public static SecureRandom f39347g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,7 +61,7 @@ public class Crypto {
                 return;
             }
         }
-        f5403g = new SecureRandom();
+        f39347g = new SecureRandom();
     }
 
     public Crypto() {
@@ -78,15 +78,78 @@ public class Crypto {
         }
     }
 
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Build.VERSION.SDK_INT >= 19 ? "PBKDF2WithHmacSHA1And8bit" : "PBKDF2withHmacSHA1" : (String) invokeV.objValue;
+    }
+
+    public static SecretKey a(String str, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, bArr)) == null) {
+            if (str == null) {
+                str = "";
+            }
+            try {
+                return new SecretKeySpec(SecretKeyFactory.getInstance(a()).generateSecret(new PBEKeySpec(str.toCharArray(), bArr, 1000, 128)).getEncoded(), "AES");
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
+            }
+        }
+        return (SecretKey) invokeLL.objValue;
+    }
+
     public static byte[] a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             byte[] bArr = new byte[i2];
-            f5403g.nextBytes(bArr);
+            f39347g.nextBytes(bArr);
             return bArr;
         }
         return (byte[]) invokeI.objValue;
+    }
+
+    public static byte[] a(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, bArr, bArr2)) == null) {
+            if (bArr == null) {
+                return bArr2;
+            }
+            if (bArr2 == null) {
+                return bArr;
+            }
+            byte[] bArr3 = new byte[bArr.length + bArr2.length];
+            System.arraycopy(bArr, 0, bArr3, 0, bArr.length);
+            System.arraycopy(bArr2, 0, bArr3, bArr.length, bArr2.length);
+            return bArr3;
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] a(byte[] bArr, byte[] bArr2, byte[] bArr3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, bArr, bArr2, bArr3)) == null) {
+            if (bArr == null) {
+                return a(bArr2, bArr3);
+            }
+            if (bArr2 == null) {
+                return a(bArr, bArr3);
+            }
+            if (bArr3 == null) {
+                return a(bArr, bArr2);
+            }
+            byte[] bArr4 = new byte[bArr.length + bArr2.length + bArr3.length];
+            System.arraycopy(bArr, 0, bArr4, 0, bArr.length);
+            System.arraycopy(bArr2, 0, bArr4, bArr.length, bArr2.length);
+            System.arraycopy(bArr3, 0, bArr4, bArr.length + bArr2.length, bArr3.length);
+            return bArr4;
+        }
+        return (byte[]) invokeLLL.objValue;
     }
 
     public static byte[] aesDecrypt(byte[] bArr, String str) {
@@ -209,72 +272,6 @@ public class Crypto {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, bArr, str)) == null) ? RSA.a(RSA.a(Base64.decode(str, 2)), bArr) : (byte[]) invokeLL.objValue;
     }
 
-    public static String sha1(byte[] bArr) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, bArr)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
-                messageDigest.update(bArr);
-                byte[] digest = messageDigest.digest();
-                StringBuffer stringBuffer = new StringBuffer();
-                for (byte b2 : digest) {
-                    String hexString = Integer.toHexString(b2 & 255);
-                    if (hexString.length() < 2) {
-                        stringBuffer.append(0);
-                    }
-                    stringBuffer.append(hexString);
-                }
-                return stringBuffer.toString();
-            } catch (NoSuchAlgorithmException e2) {
-                e2.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Build.VERSION.SDK_INT >= 19 ? "PBKDF2WithHmacSHA1And8bit" : "PBKDF2withHmacSHA1" : (String) invokeV.objValue;
-    }
-
-    public static SecretKey a(String str, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, bArr)) == null) {
-            if (str == null) {
-                str = "";
-            }
-            try {
-                return new SecretKeySpec(SecretKeyFactory.getInstance(a()).generateSecret(new PBEKeySpec(str.toCharArray(), bArr, 1000, 128)).getEncoded(), "AES");
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return null;
-            }
-        }
-        return (SecretKey) invokeLL.objValue;
-    }
-
-    public static byte[] a(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, bArr, bArr2)) == null) {
-            if (bArr == null) {
-                return bArr2;
-            }
-            if (bArr2 == null) {
-                return bArr;
-            }
-            byte[] bArr3 = new byte[bArr.length + bArr2.length];
-            System.arraycopy(bArr, 0, bArr3, 0, bArr.length);
-            System.arraycopy(bArr2, 0, bArr3, bArr.length, bArr2.length);
-            return bArr3;
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
     public static String sha1(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -300,25 +297,28 @@ public class Crypto {
         return (String) invokeL.objValue;
     }
 
-    public static byte[] a(byte[] bArr, byte[] bArr2, byte[] bArr3) {
-        InterceptResult invokeLLL;
+    public static String sha1(byte[] bArr) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, bArr, bArr2, bArr3)) == null) {
-            if (bArr == null) {
-                return a(bArr2, bArr3);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, bArr)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
+                messageDigest.update(bArr);
+                byte[] digest = messageDigest.digest();
+                StringBuffer stringBuffer = new StringBuffer();
+                for (byte b2 : digest) {
+                    String hexString = Integer.toHexString(b2 & 255);
+                    if (hexString.length() < 2) {
+                        stringBuffer.append(0);
+                    }
+                    stringBuffer.append(hexString);
+                }
+                return stringBuffer.toString();
+            } catch (NoSuchAlgorithmException e2) {
+                e2.printStackTrace();
+                return "";
             }
-            if (bArr2 == null) {
-                return a(bArr, bArr3);
-            }
-            if (bArr3 == null) {
-                return a(bArr, bArr2);
-            }
-            byte[] bArr4 = new byte[bArr.length + bArr2.length + bArr3.length];
-            System.arraycopy(bArr, 0, bArr4, 0, bArr.length);
-            System.arraycopy(bArr2, 0, bArr4, bArr.length, bArr2.length);
-            System.arraycopy(bArr3, 0, bArr4, bArr.length + bArr2.length, bArr3.length);
-            return bArr4;
         }
-        return (byte[]) invokeLLL.objValue;
+        return (String) invokeL.objValue;
     }
 }

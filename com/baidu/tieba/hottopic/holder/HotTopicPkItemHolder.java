@@ -9,28 +9,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class HotTopicPkItemHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f17172a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f17173b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f17174c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public HotTopicPkView f17175d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f17176e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f17177f;
+    public TextView moduleName;
+    public TextView pkOpposing;
+    public TextView pkPositive;
+    public TextView pkQuesDesc;
+    public HotTopicPkView pkView;
+    public int skinType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicPkItemHolder(View view) {
@@ -50,19 +38,19 @@ public class HotTopicPkItemHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f17172a = 3;
-        b(view);
+        this.skinType = 3;
+        a(view);
     }
 
-    public final void b(View view) {
+    public final void a(View view) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
             return;
         }
-        this.f17173b = (TextView) view.findViewById(R.id.pk_item_theme_title);
-        this.f17174c = (TextView) view.findViewById(R.id.pk_topic_title);
-        this.f17175d = (HotTopicPkView) view.findViewById(R.id.pk_topic_view);
-        this.f17176e = (TextView) view.findViewById(R.id.pk_topic_positive);
-        this.f17177f = (TextView) view.findViewById(R.id.pk_topic_opposing);
+        this.moduleName = (TextView) view.findViewById(R.id.pk_item_theme_title);
+        this.pkQuesDesc = (TextView) view.findViewById(R.id.pk_topic_title);
+        this.pkView = (HotTopicPkView) view.findViewById(R.id.pk_topic_view);
+        this.pkPositive = (TextView) view.findViewById(R.id.pk_topic_positive);
+        this.pkOpposing = (TextView) view.findViewById(R.id.pk_topic_opposing);
     }
 }

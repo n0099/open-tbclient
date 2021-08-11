@@ -53,7 +53,6 @@ import android.print.PrintManager;
 import android.telecom.TelecomManager;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.WindowManager;
@@ -78,7 +77,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.BaiduWalletServiceProviderMap;
 import java.io.File;
 import java.util.HashMap;
 import java.util.concurrent.Executor;
@@ -160,7 +158,7 @@ public class ContextCompat {
             SERVICES.put(KeyguardManager.class, "keyguard");
             SERVICES.put(LayoutInflater.class, "layout_inflater");
             SERVICES.put(LocationManager.class, "location");
-            SERVICES.put(NfcManager.class, BaiduWalletServiceProviderMap.PLUGIN_NFC);
+            SERVICES.put(NfcManager.class, "nfc");
             SERVICES.put(NotificationManager.class, ActionJsonData.TAG_NOTIFICATION);
             SERVICES.put(PowerManager.class, "power");
             SERVICES.put(SearchManager.class, "search");
@@ -292,7 +290,7 @@ public class ContextCompat {
                 if (file.exists()) {
                     return file;
                 }
-                Log.w("ContextCompat", "Unable to create files subdir " + file.getPath());
+                String str = "Unable to create files subdir " + file.getPath();
                 return null;
             }
         }

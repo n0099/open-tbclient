@@ -3,7 +3,6 @@ package androidx.core.view;
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.os.Build;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import androidx.core.internal.view.SupportMenuItem;
@@ -73,7 +72,6 @@ public final class MenuItemCompat {
             if (menuItem instanceof SupportMenuItem) {
                 return ((SupportMenuItem) menuItem).getSupportActionProvider();
             }
-            Log.w(TAG, "getActionProvider: item does not implement SupportMenuItem; returning null");
             return null;
         }
         return (ActionProvider) invokeL.objValue;
@@ -186,14 +184,7 @@ public final class MenuItemCompat {
     public static MenuItem setActionProvider(MenuItem menuItem, ActionProvider actionProvider) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, menuItem, actionProvider)) == null) {
-            if (menuItem instanceof SupportMenuItem) {
-                return ((SupportMenuItem) menuItem).setSupportActionProvider(actionProvider);
-            }
-            Log.w(TAG, "setActionProvider: item does not implement SupportMenuItem; ignoring");
-            return menuItem;
-        }
-        return (MenuItem) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, menuItem, actionProvider)) == null) ? menuItem instanceof SupportMenuItem ? ((SupportMenuItem) menuItem).setSupportActionProvider(actionProvider) : menuItem : (MenuItem) invokeLL.objValue;
     }
 
     @Deprecated

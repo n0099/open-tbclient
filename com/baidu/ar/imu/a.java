@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class a extends j {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -85,9 +85,9 @@ public class a extends j {
     public void onSensorChanged(SensorEvent sensorEvent) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, sensorEvent) == null) && sensorEvent.sensor.getType() == 4) {
-            long j = this.timestamp;
-            if (j != 0) {
-                float f2 = ((float) (sensorEvent.timestamp - j)) * 1.0E-9f;
+            long j2 = this.timestamp;
+            if (j2 != 0) {
+                float f2 = ((float) (sensorEvent.timestamp - j2)) * 1.0E-9f;
                 float[] fArr = sensorEvent.values;
                 float f3 = fArr[0];
                 float f4 = fArr[1];

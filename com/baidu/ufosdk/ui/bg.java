@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class bg implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bf f23629a;
+    public final /* synthetic */ bf f59365a;
 
     public bg(bf bfVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class bg implements Runnable {
                 return;
             }
         }
-        this.f23629a = bfVar;
+        this.f59365a = bfVar;
     }
 
     @Override // java.lang.Runnable
@@ -42,21 +42,21 @@ public final class bg implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                str = this.f23629a.f23628a.ar;
+                str = this.f59365a.f59364a.ar;
                 if (str != null) {
-                    str3 = this.f23629a.f23628a.ar;
+                    str3 = this.f59365a.f59364a.ar;
                     if (str3.length() > 0) {
-                        str2 = this.f23629a.f23628a.ar;
-                        d2 = com.baidu.ufosdk.e.a.d(this.f23629a.f23628a.getApplicationContext(), this.f23629a.f23628a.f23562e, str2);
+                        str2 = this.f59365a.f59364a.ar;
+                        d2 = com.baidu.ufosdk.e.a.d(this.f59365a.f59364a.getApplicationContext(), this.f59365a.f59364a.f59295e, str2);
                         if (d2 != null || d2.length() == 0) {
                         }
-                        handler = this.f23629a.f23628a.aK;
+                        handler = this.f59365a.f59364a.aK;
                         handler.obtainMessage(5, d2).sendToTarget();
                         return;
                     }
                 }
                 str2 = UfoSDK.appid;
-                d2 = com.baidu.ufosdk.e.a.d(this.f23629a.f23628a.getApplicationContext(), this.f23629a.f23628a.f23562e, str2);
+                d2 = com.baidu.ufosdk.e.a.d(this.f59365a.f59364a.getApplicationContext(), this.f59365a.f59364a.f59295e, str2);
                 if (d2 != null) {
                 }
             } catch (Exception unused) {

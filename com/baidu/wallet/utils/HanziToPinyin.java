@@ -1,7 +1,6 @@
 package com.baidu.wallet.utils;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class HanziToPinyin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Collator COLLATOR;
@@ -28,7 +27,7 @@ public class HanziToPinyin {
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean mHasChinaCollator;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class Token {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LATIN = 1;
@@ -131,7 +130,7 @@ public class HanziToPinyin {
                 if (c2 != c3) {
                     String ch2 = Character.toString(c3);
                     if (COLLATOR.compare(ch, ch2) >= 0) {
-                        Log.e("HanziToPinyin", "Internal error in Unihan table. The last string \"" + ch + "\" is greater than current string \"" + ch2 + "\".");
+                        String str = "Internal error in Unihan table. The last string \"" + ch + "\" is greater than current string \"" + ch2 + "\".";
                         return false;
                     }
                     ch = ch2;
@@ -159,7 +158,6 @@ public class HanziToPinyin {
                     sInstance = hanziToPinyin;
                     return hanziToPinyin;
                 }
-                Log.w("HanziToPinyin", "There is no Chinese collator, HanziToPinyin is disabled");
                 HanziToPinyin hanziToPinyin2 = new HanziToPinyin(false);
                 sInstance = hanziToPinyin2;
                 return hanziToPinyin2;

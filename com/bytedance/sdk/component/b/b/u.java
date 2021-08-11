@@ -1,10 +1,10 @@
 package com.bytedance.sdk.component.b.b;
 
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface u {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         ab a(z zVar) throws IOException;
 

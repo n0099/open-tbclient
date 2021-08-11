@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.pose.PoseAR;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
@@ -72,7 +71,7 @@ import java.util.Set;
 import org.apache.http.HttpStatus;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class XBaseAdContainer implements IOAdEventListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADSERV_URL = "http://mobads.baidu.com/ads/index.htm";
@@ -108,7 +107,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
     public String showRecord;
     public int windowFocusState;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class ApoParser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -199,7 +198,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
                     int optInt = jSONObject.optInt("version", 0);
                     this.mSchema = Uri.parse(optString);
                     Intent intent = new Intent("android.intent.action.VIEW", this.mSchema);
-                    intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                    intent.addFlags(268435456);
                     PackageManager packageManager = this.mContext.getAppContext().getPackageManager();
                     List<ResolveInfo> queryIntentActivities = packageManager.queryIntentActivities(intent, 65536);
                     this.mApps = queryIntentActivities;
@@ -449,7 +448,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
                         if (AdDownloadApkUtils.isInstalled(this.mAppContext, optString3)) {
                             if (!TextUtils.isEmpty(optString2)) {
                                 Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(optString2));
-                                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                                intent.addFlags(268435456);
                                 if (this.mAppContext.getPackageManager().resolveActivity(intent, 65536) != null) {
                                     this.mAppContext.startActivity(intent);
                                     PackageUtils.sendDownloadAPOLog(this.mAppContext, this.mAdContainerCxt, optString3, optString2, i2);
@@ -1096,7 +1095,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
                                 if (!TextUtils.isEmpty(parseApo.getPackageName())) {
                                     intent.setPackage(parseApo.getPackageName());
                                 }
-                                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                                intent.addFlags(268435456);
                                 try {
                                     this.mAppContext.startActivity(intent);
                                 } catch (Throwable unused10) {
@@ -1208,9 +1207,9 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
         }
     }
 
-    public void registerState(long j, String str, IXAdInstanceInfo iXAdInstanceInfo) {
+    public void registerState(long j2, String str, IXAdInstanceInfo iXAdInstanceInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Long.valueOf(j), str, iXAdInstanceInfo}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Long.valueOf(j2), str, iXAdInstanceInfo}) == null) {
         }
     }
 

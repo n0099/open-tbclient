@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class BIMRtcGetTokenRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMRtcGetTokenRequest";
@@ -49,12 +49,12 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
         hexDigits = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
-    public BIMRtcGetTokenRequest(Context context, String str, String str2, long j, BIMRtcTokenListener bIMRtcTokenListener) {
+    public BIMRtcGetTokenRequest(Context context, String str, String str2, long j2, BIMRtcTokenListener bIMRtcTokenListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, Long.valueOf(j), bIMRtcTokenListener};
+            Object[] objArr = {context, str, str2, Long.valueOf(j2), bIMRtcTokenListener};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -71,7 +71,7 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
         this.mListener = bIMRtcTokenListener;
         this.mSource = str;
         this.mRtcRoomId = str2;
-        this.mRtcUserId = j;
+        this.mRtcUserId = j2;
     }
 
     public static String byte2Hex(byte[] bArr) {

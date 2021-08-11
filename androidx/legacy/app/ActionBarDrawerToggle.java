@@ -10,7 +10,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.InsetDrawable;
 import android.os.Build;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -286,8 +285,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
                         ActionBar actionBar2 = this.mActivity.getActionBar();
                         this.mSetIndicatorInfo.mSetHomeActionContentDescription.invoke(actionBar2, Integer.valueOf(i2));
                         actionBar2.setSubtitle(actionBar2.getSubtitle());
-                    } catch (Exception e2) {
-                        Log.w(TAG, "Couldn't set content description via JB-MR2 API", e2);
+                    } catch (Exception unused) {
                     }
                 }
             }
@@ -317,16 +315,13 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
                         this.mSetIndicatorInfo.mSetHomeAsUpIndicator.invoke(actionBar2, drawable);
                         this.mSetIndicatorInfo.mSetHomeActionContentDescription.invoke(actionBar2, Integer.valueOf(i2));
                         return;
-                    } catch (Exception e2) {
-                        Log.w(TAG, "Couldn't set home-as-up indicator via JB-MR2 API", e2);
+                    } catch (Exception unused) {
                         return;
                     }
                 }
                 ImageView imageView = setIndicatorInfo.mUpIndicatorView;
                 if (imageView != null) {
                     imageView.setImageDrawable(drawable);
-                } else {
-                    Log.w(TAG, "Couldn't set home-as-up indicator");
                 }
             }
         }

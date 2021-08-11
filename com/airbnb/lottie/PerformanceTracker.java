@@ -1,6 +1,5 @@
 package com.airbnb.lottie;
 
-import android.util.Log;
 import androidx.collection.ArraySet;
 import androidx.core.util.Pair;
 import com.airbnb.lottie.utils.MeanCalculator;
@@ -17,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class PerformanceTracker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +25,7 @@ public class PerformanceTracker {
     public final Set<FrameListener> frameListeners;
     public final Map<String, MeanCalculator> layerRenderTimes;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface FrameListener {
         void onFrameRendered(float f2);
     }
@@ -123,10 +122,9 @@ public class PerformanceTracker {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.enabled) {
             List<Pair<String, Float>> sortedRenderTimes = getSortedRenderTimes();
-            Log.d(L.TAG, "Render times:");
             for (int i2 = 0; i2 < sortedRenderTimes.size(); i2++) {
                 Pair<String, Float> pair = sortedRenderTimes.get(i2);
-                Log.d(L.TAG, String.format("\t\t%30s:%.2f", pair.first, pair.second));
+                String.format("\t\t%30s:%.2f", pair.first, pair.second);
             }
         }
     }

@@ -6,6 +6,10 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.b1.h0;
+import c.a.o0.b1.k0;
+import c.a.o0.b1.n;
+import c.a.p0.v0.u1.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.BaseActivity;
@@ -22,28 +26,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.b1.f0;
-import d.a.p0.b1.i0;
-import d.a.p0.b1.n;
-import d.a.q0.u0.u1.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GameShareCardActivity extends BaseActivity implements a.h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GameShareData mShareData;
-    public d.a.p0.t.g.g mShareTool;
-    public d.a.q0.u0.u1.a mView;
+    public c.a.o0.t.g.g mShareTool;
+    public c.a.p0.v0.u1.a mView;
 
-    /* loaded from: classes4.dex */
-    public class a extends f0<ShareItem> {
+    /* loaded from: classes7.dex */
+    public class a extends h0<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f15816a;
+        public final /* synthetic */ Bitmap f50985a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GameShareCardActivity f15817b;
+        public final /* synthetic */ GameShareCardActivity f50986b;
 
         public a(GameShareCardActivity gameShareCardActivity, Bitmap bitmap) {
             Interceptable interceptable = $ic;
@@ -60,31 +60,31 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
                     return;
                 }
             }
-            this.f15817b = gameShareCardActivity;
-            this.f15816a = bitmap;
+            this.f50986b = gameShareCardActivity;
+            this.f50985a = bitmap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.p0.b1.f0
+        @Override // c.a.o0.b1.h0
         /* renamed from: a */
         public ShareItem doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f15817b.createWaterMark(this.f15816a);
-                return this.f15817b.generateShareItem(this.f15816a);
+                this.f50986b.createWaterMark(this.f50985a);
+                return this.f50986b.generateShareItem(this.f50985a);
             }
             return (ShareItem) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements n<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GameShareCardActivity f15818a;
+        public final /* synthetic */ GameShareCardActivity f50987a;
 
         public b(GameShareCardActivity gameShareCardActivity) {
             Interceptable interceptable = $ic;
@@ -101,30 +101,30 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
                     return;
                 }
             }
-            this.f15818a = gameShareCardActivity;
+            this.f50987a = gameShareCardActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.p0.b1.n
+        @Override // c.a.o0.b1.n
         /* renamed from: a */
         public void onReturnDataInUI(ShareItem shareItem) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
-                this.f15818a.mShareTool.m(shareItem);
+                this.f50987a.mShareTool.m(shareItem);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c extends f0<ShareItem> {
+    /* loaded from: classes7.dex */
+    public class c extends h0<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f15819a;
+        public final /* synthetic */ Bitmap f50988a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GameShareCardActivity f15820b;
+        public final /* synthetic */ GameShareCardActivity f50989b;
 
         public c(GameShareCardActivity gameShareCardActivity, Bitmap bitmap) {
             Interceptable interceptable = $ic;
@@ -141,31 +141,31 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
                     return;
                 }
             }
-            this.f15820b = gameShareCardActivity;
-            this.f15819a = bitmap;
+            this.f50989b = gameShareCardActivity;
+            this.f50988a = bitmap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.p0.b1.f0
+        @Override // c.a.o0.b1.h0
         /* renamed from: a */
         public ShareItem doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f15820b.createWaterMark(this.f15819a);
-                return this.f15820b.generateShareItem(this.f15819a);
+                this.f50989b.createWaterMark(this.f50988a);
+                return this.f50989b.generateShareItem(this.f50988a);
             }
             return (ShareItem) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class d implements n<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GameShareCardActivity f15821a;
+        public final /* synthetic */ GameShareCardActivity f50990a;
 
         public d(GameShareCardActivity gameShareCardActivity) {
             Interceptable interceptable = $ic;
@@ -182,30 +182,30 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
                     return;
                 }
             }
-            this.f15821a = gameShareCardActivity;
+            this.f50990a = gameShareCardActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.p0.b1.n
+        @Override // c.a.o0.b1.n
         /* renamed from: a */
         public void onReturnDataInUI(ShareItem shareItem) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
-                this.f15821a.mShareTool.n(shareItem);
+                this.f50990a.mShareTool.n(shareItem);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class e extends f0<ShareItem> {
+    /* loaded from: classes7.dex */
+    public class e extends h0<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f15822a;
+        public final /* synthetic */ Bitmap f50991a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GameShareCardActivity f15823b;
+        public final /* synthetic */ GameShareCardActivity f50992b;
 
         public e(GameShareCardActivity gameShareCardActivity, Bitmap bitmap) {
             Interceptable interceptable = $ic;
@@ -222,31 +222,31 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
                     return;
                 }
             }
-            this.f15823b = gameShareCardActivity;
-            this.f15822a = bitmap;
+            this.f50992b = gameShareCardActivity;
+            this.f50991a = bitmap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.p0.b1.f0
+        @Override // c.a.o0.b1.h0
         /* renamed from: a */
         public ShareItem doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f15823b.createWaterMark(this.f15822a);
-                return this.f15823b.generateShareItem(this.f15822a);
+                this.f50992b.createWaterMark(this.f50991a);
+                return this.f50992b.generateShareItem(this.f50991a);
             }
             return (ShareItem) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class f implements n<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GameShareCardActivity f15824a;
+        public final /* synthetic */ GameShareCardActivity f50993a;
 
         public f(GameShareCardActivity gameShareCardActivity) {
             Interceptable interceptable = $ic;
@@ -263,30 +263,30 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
                     return;
                 }
             }
-            this.f15824a = gameShareCardActivity;
+            this.f50993a = gameShareCardActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.p0.b1.n
+        @Override // c.a.o0.b1.n
         /* renamed from: a */
         public void onReturnDataInUI(ShareItem shareItem) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
-                this.f15824a.mShareTool.h(shareItem);
+                this.f50993a.mShareTool.h(shareItem);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class g extends f0<ShareItem> {
+    /* loaded from: classes7.dex */
+    public class g extends h0<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f15825a;
+        public final /* synthetic */ Bitmap f50994a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GameShareCardActivity f15826b;
+        public final /* synthetic */ GameShareCardActivity f50995b;
 
         public g(GameShareCardActivity gameShareCardActivity, Bitmap bitmap) {
             Interceptable interceptable = $ic;
@@ -303,31 +303,31 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
                     return;
                 }
             }
-            this.f15826b = gameShareCardActivity;
-            this.f15825a = bitmap;
+            this.f50995b = gameShareCardActivity;
+            this.f50994a = bitmap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.p0.b1.f0
+        @Override // c.a.o0.b1.h0
         /* renamed from: a */
         public ShareItem doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f15826b.createWaterMark(this.f15825a);
-                return this.f15826b.generateShareItem(this.f15825a);
+                this.f50995b.createWaterMark(this.f50994a);
+                return this.f50995b.generateShareItem(this.f50994a);
             }
             return (ShareItem) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class h implements n<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GameShareCardActivity f15827a;
+        public final /* synthetic */ GameShareCardActivity f50996a;
 
         public h(GameShareCardActivity gameShareCardActivity) {
             Interceptable interceptable = $ic;
@@ -344,16 +344,16 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
                     return;
                 }
             }
-            this.f15827a = gameShareCardActivity;
+            this.f50996a = gameShareCardActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.p0.b1.n
+        @Override // c.a.o0.b1.n
         /* renamed from: a */
         public void onReturnDataInUI(ShareItem shareItem) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
-                this.f15827a.mShareTool.k(shareItem);
+                this.f50996a.mShareTool.k(shareItem);
             }
         }
     }
@@ -407,7 +407,7 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, bundle) == null) {
             if (this.mShareTool == null) {
-                this.mShareTool = new d.a.p0.t.g.g(getActivity(), null);
+                this.mShareTool = new c.a.o0.t.g.g(getActivity(), null);
             }
             if (bundle == null) {
                 this.mShareData = (GameShareData) getIntent().getParcelableExtra(GameShareActivityConfig.KEY_GAME_SHARE_DATA);
@@ -421,7 +421,7 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             if (this.mView == null) {
-                this.mView = new d.a.q0.u0.u1.a(getActivity(), this);
+                this.mView = new c.a.p0.v0.u1.a(getActivity(), this);
             }
             setContentView(this.mView.i());
             this.mView.m(this.mShareData);
@@ -448,7 +448,7 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
         }
     }
 
-    @Override // d.a.q0.u0.u1.a.h
+    @Override // c.a.p0.v0.u1.a.h
     public void onCancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -473,21 +473,21 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            d.a.q0.u0.u1.a aVar = this.mView;
+            c.a.p0.v0.u1.a aVar = this.mView;
             if (aVar != null) {
                 aVar.j();
             }
         }
     }
 
-    @Override // d.a.q0.u0.u1.a.h
+    @Override // c.a.p0.v0.u1.a.h
     public void onQQShare(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) || bitmap == null) {
             return;
         }
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_param1", "8").param("obj_type", "9"));
-        i0.b(new e(this, bitmap), new f(this));
+        k0.b(new e(this, bitmap), new f(this));
     }
 
     @Override // android.app.Activity
@@ -499,33 +499,33 @@ public class GameShareCardActivity extends BaseActivity implements a.h {
         }
     }
 
-    @Override // d.a.q0.u0.u1.a.h
+    @Override // c.a.p0.v0.u1.a.h
     public void onSinaShare(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048583, this, bitmap) == null) || bitmap == null) {
             return;
         }
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_param1", "8").param("obj_type", "7"));
-        i0.b(new g(this, bitmap), new h(this));
+        k0.b(new g(this, bitmap), new h(this));
     }
 
-    @Override // d.a.q0.u0.u1.a.h
+    @Override // c.a.p0.v0.u1.a.h
     public void onWeixinShare(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bitmap) == null) || bitmap == null) {
             return;
         }
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_param1", "8").param("obj_type", "4"));
-        i0.b(new a(this, bitmap), new b(this));
+        k0.b(new a(this, bitmap), new b(this));
     }
 
-    @Override // d.a.q0.u0.u1.a.h
+    @Override // c.a.p0.v0.u1.a.h
     public void onWxFriendsShare(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048585, this, bitmap) == null) || bitmap == null) {
             return;
         }
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("obj_param1", "8").param("obj_type", "3"));
-        i0.b(new c(this, bitmap), new d(this));
+        k0.b(new c(this, bitmap), new d(this));
     }
 }

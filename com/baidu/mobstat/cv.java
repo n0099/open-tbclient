@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class cv extends cy implements ct {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8969a;
+    public String f43280a;
 
     public cv() {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class cv extends cy implements ct {
                 return;
             }
         }
-        this.f8969a = "*";
+        this.f43280a = "*";
     }
 
     @Override // com.baidu.mobstat.ct
@@ -35,7 +35,7 @@ public class cv extends cy implements ct {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             if (str != null) {
-                this.f8969a = str;
+                this.f43280a = str;
                 return;
             }
             throw new IllegalArgumentException("http resource descriptor must not be null");
@@ -46,6 +46,6 @@ public class cv extends cy implements ct {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8969a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43280a : (String) invokeV.objValue;
     }
 }

@@ -35,8 +35,8 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes5.dex */
-public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
+/* loaded from: classes9.dex */
+public class d implements w.a, c.a, c.b, c.InterfaceC1905c, c.d, c.e, c.f, c.g {
     public static /* synthetic */ Interceptable $ic;
     public static boolean s;
     public static final SparseIntArray u;
@@ -49,32 +49,34 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
     public boolean F;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30799a;
+    public int f66724a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f30800b;
+    public c f66725b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f30801c;
+    public boolean f66726c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f30802d;
+    public boolean f66727d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f30803e;
+    public boolean f66728e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f30804f;
+    public boolean f66729f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f30805g;
+    public int f66730g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f30806h;
+    public long f66731h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Handler f30807i;
-    public boolean j;
+    public final Handler f66732i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f66733j;
     public long k;
     public int l;
     public long m;
@@ -192,7 +194,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
             this.k = 0L;
             this.l = 0;
             this.n = 0L;
-            this.j = false;
+            this.f66733j = false;
             this.m = Long.MIN_VALUE;
         }
     }
@@ -200,24 +202,24 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
     /* JADX INFO: Access modifiers changed from: private */
     public void s() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65559, this) == null) && this.f30800b == null) {
+        if ((interceptable == null || interceptable.invokeV(65559, this) == null) && this.f66725b == null) {
             k.b("SSMediaPlayeWrapper", "SSMediaPlayerWrapper use System Mediaplayer");
             b bVar = new b();
-            this.f30800b = bVar;
+            this.f66725b = bVar;
             this.t = "0";
             bVar.a((c.e) this);
-            this.f30800b.a((c.b) this);
-            this.f30800b.a((c.InterfaceC0345c) this);
-            this.f30800b.a((c.a) this);
-            this.f30800b.a((c.f) this);
-            this.f30800b.a((c.d) this);
-            this.f30800b.a((c.g) this);
+            this.f66725b.a((c.b) this);
+            this.f66725b.a((c.InterfaceC1905c) this);
+            this.f66725b.a((c.a) this);
+            this.f66725b.a((c.f) this);
+            this.f66725b.a((c.d) this);
+            this.f66725b.a((c.g) this);
             try {
-                this.f30800b.b(this.f30801c);
+                this.f66725b.b(this.f66726c);
             } catch (Throwable th) {
                 k.a("SSMediaPlayeWrapper", "setLooping error: ", th);
             }
-            this.f30802d = false;
+            this.f66727d = false;
         }
     }
 
@@ -230,7 +232,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f30809a;
+                public final /* synthetic */ d f66735a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -247,16 +249,16 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                             return;
                         }
                     }
-                    this.f30809a = this;
+                    this.f66735a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f30809a.f30807i == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f66735a.f66732i == null) {
                         return;
                     }
-                    this.f30809a.f30807i.sendEmptyMessage(104);
+                    this.f66735a.f66732i.sendEmptyMessage(104);
                     k.b("tag_video_play", "[video] MediaPlayerProxy#start first play prepare invoke ! sendMsg --> OP_PREPARE_ASYNC");
                 }
             });
@@ -266,7 +268,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
     private void u() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65561, this) == null) || (cVar = this.f30800b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65561, this) == null) || (cVar = this.f66725b) == null) {
             return;
         }
         try {
@@ -274,15 +276,15 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
         } catch (Throwable th) {
             k.a("SSMediaPlayeWrapper", "releaseMediaplayer error1: ", th);
         }
-        this.f30800b.a((c.b) null);
-        this.f30800b.a((c.g) null);
-        this.f30800b.a((c.a) null);
-        this.f30800b.a((c.d) null);
-        this.f30800b.a((c.InterfaceC0345c) null);
-        this.f30800b.a((c.e) null);
-        this.f30800b.a((c.f) null);
+        this.f66725b.a((c.b) null);
+        this.f66725b.a((c.g) null);
+        this.f66725b.a((c.a) null);
+        this.f66725b.a((c.d) null);
+        this.f66725b.a((c.InterfaceC1905c) null);
+        this.f66725b.a((c.e) null);
+        this.f66725b.a((c.f) null);
         try {
-            this.f30800b.k();
+            this.f66725b.k();
         } catch (Throwable th2) {
             k.a("SSMediaPlayeWrapper", "releaseMediaplayer error2: ", th2);
         }
@@ -291,12 +293,12 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
     private void v() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65562, this) == null) || (handler = this.f30807i) == null || handler.getLooper() == null) {
+        if (!(interceptable == null || interceptable.invokeV(65562, this) == null) || (handler = this.f66732i) == null || handler.getLooper() == null) {
             return;
         }
         try {
             k.b("SSMediaPlayeWrapper", "onDestory............");
-            this.f30807i.getLooper().quit();
+            this.f66732i.getLooper().quit();
         } catch (Throwable th) {
             k.a("SSMediaPlayeWrapper", "onDestroy error: ", th);
         }
@@ -324,16 +326,16 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
 
     private void y() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65565, this) == null) || this.f30803e) {
+        if (!(interceptable == null || interceptable.invokeV(65565, this) == null) || this.f66728e) {
             return;
         }
-        this.f30803e = true;
+        this.f66728e = true;
         Iterator it = new ArrayList(this.p).iterator();
         while (it.hasNext()) {
             ((Runnable) it.next()).run();
         }
         this.p.clear();
-        this.f30803e = false;
+        this.f66728e = false;
     }
 
     private void z() {
@@ -353,7 +355,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f30810a;
+                public final /* synthetic */ d f66736a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -370,16 +372,16 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                             return;
                         }
                     }
-                    this.f30810a = this;
+                    this.f66736a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f30810a.f30807i == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f66736a.f66732i == null) {
                         return;
                     }
-                    this.f30810a.f30807i.sendEmptyMessage(105);
+                    this.f66736a.f66732i.sendEmptyMessage(105);
                 }
             });
         }
@@ -388,7 +390,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
     public void e() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (handler = this.f30807i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (handler = this.f66732i) == null) {
             return;
         }
         handler.obtainMessage(108).sendToTarget();
@@ -397,7 +399,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
     public void f() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (handler = this.f30807i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (handler = this.f66732i) == null) {
             return;
         }
         handler.obtainMessage(109).sendToTarget();
@@ -406,7 +408,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? (this.f30805g == 206 || this.f30807i.hasMessages(100)) && !this.x : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? (this.f66730g == 206 || this.f66732i.hasMessages(100)) && !this.x : invokeV.booleanValue;
     }
 
     public boolean h() {
@@ -418,25 +420,25 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? (this.f30805g == 207 || this.x) && !this.f30807i.hasMessages(100) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? (this.f66730g == 207 || this.x) && !this.f66732i.hasMessages(100) : invokeV.booleanValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f30805g == 203 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f66730g == 203 : invokeV.booleanValue;
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f30805g == 205 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f66730g == 205 : invokeV.booleanValue;
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f30805g == 209 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f66730g == 209 : invokeV.booleanValue;
     }
 
     public void m() {
@@ -452,10 +454,10 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
-                if (this.j) {
-                    long j = this.n;
-                    if (j > 0) {
-                        return this.k + j;
+                if (this.f66733j) {
+                    long j2 = this.n;
+                    if (j2 > 0) {
+                        return this.k + j2;
                     }
                 }
                 return this.k;
@@ -495,7 +497,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
             if (Build.VERSION.SDK_INT >= 23) {
                 return this.l;
             }
-            return this.f30799a;
+            return this.f66724a;
         }
         return invokeV.intValue;
     }
@@ -516,13 +518,13 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                 return;
             }
         }
-        this.f30799a = 0;
-        this.f30800b = null;
-        this.f30801c = false;
-        this.f30802d = false;
-        this.f30805g = 201;
-        this.f30806h = -1L;
-        this.j = false;
+        this.f66724a = 0;
+        this.f66725b = null;
+        this.f66726c = false;
+        this.f66727d = false;
+        this.f66730g = 201;
+        this.f66731h = -1L;
+        this.f66733j = false;
         this.k = 0L;
         this.l = 0;
         this.m = Long.MIN_VALUE;
@@ -534,7 +536,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d f30808a;
+            public final /* synthetic */ d f66734a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -551,14 +553,14 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                         return;
                     }
                 }
-                this.f30808a = this;
+                this.f66734a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f30808a.f30807i.sendEmptyMessageDelayed(100, 0L);
+                    this.f66734a.f66732i.sendEmptyMessageDelayed(100, 0L);
                     k.b("tag_video_play", "[video] MediaPlayerProxy#start not first play ! sendMsg --> OP_START , video start to play !");
                 }
             }
@@ -575,7 +577,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
         this.o = handler;
         HandlerThread handlerThread = new HandlerThread("VideoManager");
         handlerThread.start();
-        this.f30807i = new w(handlerThread.getLooper(), this);
+        this.f66732i = new w(handlerThread.getLooper(), this);
         this.F = Build.VERSION.SDK_INT >= 17;
         s();
     }
@@ -583,9 +585,9 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f30807i.removeMessages(100);
+            this.f66732i.removeMessages(100);
             this.x = true;
-            this.f30807i.sendEmptyMessage(101);
+            this.f66732i.sendEmptyMessage(101);
             F();
         }
     }
@@ -593,16 +595,16 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f30805g = 203;
+            this.f66730g = 203;
             F();
             B();
-            if (this.f30807i != null) {
+            if (this.f66732i != null) {
                 try {
                     b("release");
-                    this.f30807i.removeCallbacksAndMessages(null);
-                    if (this.f30800b != null) {
-                        this.f30804f = true;
-                        this.f30807i.sendEmptyMessage(103);
+                    this.f66732i.removeCallbacksAndMessages(null);
+                    if (this.f66725b != null) {
+                        this.f66729f = true;
+                        this.f66732i.sendEmptyMessage(103);
                     }
                 } catch (Throwable th) {
                     v();
@@ -623,7 +625,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c cVar = this.f30800b;
+            c cVar = this.f66725b;
             if (cVar != null) {
                 return ((b) cVar).e();
             }
@@ -638,7 +640,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048591, this, cVar, i2, i3)) == null) {
             k.f("SSMediaPlayeWrapper", "what,extra:" + i2 + "," + i3);
-            if (this.f30800b != cVar) {
+            if (this.f66725b != cVar) {
                 return false;
             }
             Handler handler = this.o;
@@ -654,32 +656,32 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
         return invokeLII.booleanValue;
     }
 
-    public void a(boolean z, long j, boolean z2) {
+    public void a(boolean z, long j2, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j), Boolean.valueOf(z2)}) == null) {
-            k.b("tag_video_play", "[video] MediaPlayerProxy#start firstSeekToPosition=" + j + ",firstPlay :" + z + ",isPauseOtherMusicVolume=" + z2);
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2), Boolean.valueOf(z2)}) == null) {
+            k.b("tag_video_play", "[video] MediaPlayerProxy#start firstSeekToPosition=" + j2 + ",firstPlay :" + z + ",isPauseOtherMusicVolume=" + z2);
             this.x = false;
             if (!z2) {
-                if (this.f30800b != null) {
+                if (this.f66725b != null) {
                     b(true);
                 }
-            } else if (this.f30800b != null) {
+            } else if (this.f66725b != null) {
                 b(false);
             }
             if (z) {
                 k.b("tag_video_play", "[video] first start , SSMediaPlayer  start method !");
                 t();
-                this.f30806h = j;
+                this.f66731h = j2;
                 return;
             }
             E();
-            c cVar = this.f30800b;
+            c cVar = this.f66725b;
             if (cVar != null) {
                 try {
-                    if (j <= cVar.i()) {
-                        j = this.f30800b.i();
+                    if (j2 <= cVar.i()) {
+                        j2 = this.f66725b.i();
                     }
-                    this.f30806h = j;
+                    this.f66731h = j2;
                 } catch (Throwable th) {
                     k.b("tag_video_play", "[video] MediaPlayerProxy#start  error: getCurrentPosition :" + th.toString());
                 }
@@ -698,7 +700,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
             if (i2 == 701) {
                 F();
                 this.D = SystemClock.elapsedRealtime();
-                this.f30799a++;
+                this.f66724a++;
             } else if (i2 == 702) {
                 if (this.C <= 0) {
                     this.C = System.currentTimeMillis();
@@ -723,28 +725,28 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
         handler.sendEmptyMessage(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA);
     }
 
-    public void a(long j) {
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
             F();
-            int i2 = this.f30805g;
+            int i2 = this.f66730g;
             if (i2 == 207 || i2 == 206 || i2 == 209) {
-                b(new Runnable(this, j) { // from class: com.bytedance.sdk.openadsdk.core.video.c.d.4
+                b(new Runnable(this, j2) { // from class: com.bytedance.sdk.openadsdk.core.video.c.d.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ long f30811a;
+                    public final /* synthetic */ long f66737a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ d f30812b;
+                    public final /* synthetic */ d f66738b;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Long.valueOf(j)};
+                            Object[] objArr = {this, Long.valueOf(j2)};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i3 = newInitContext.flag;
                             if ((i3 & 1) != 0) {
@@ -754,17 +756,17 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                                 return;
                             }
                         }
-                        this.f30812b = this;
-                        this.f30811a = j;
+                        this.f66738b = this;
+                        this.f66737a = j2;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f30812b.f30807i == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f66738b.f66732i == null) {
                             return;
                         }
-                        this.f30812b.f30807i.obtainMessage(106, Long.valueOf(this.f30811a)).sendToTarget();
+                        this.f66738b.f66732i.obtainMessage(106, Long.valueOf(this.f66737a)).sendToTarget();
                     }
                 });
             }
@@ -775,14 +777,14 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
     public void b(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, cVar) == null) {
-            this.f30805g = 205;
+            this.f66730g = 205;
             if (this.x) {
-                this.f30807i.post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.video.c.d.8
+                this.f66732i.post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.video.c.d.8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ d f30819a;
+                    public final /* synthetic */ d f66745a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -799,7 +801,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                                 return;
                             }
                         }
-                        this.f30819a = this;
+                        this.f66745a = this;
                     }
 
                     @Override // java.lang.Runnable
@@ -807,9 +809,9 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                this.f30819a.f30800b.h();
-                                this.f30819a.f30805g = 207;
-                                this.f30819a.x = false;
+                                this.f66745a.f66725b.h();
+                                this.f66745a.f66730g = 207;
+                                this.f66745a.x = false;
                             } catch (Throwable th) {
                                 k.a("SSMediaPlayeWrapper", "onPrepared error: ", th);
                             }
@@ -817,7 +819,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                     }
                 });
             } else {
-                Handler handler = this.f30807i;
+                Handler handler = this.f66732i;
                 handler.sendMessage(handler.obtainMessage(100, -1, -1));
             }
             u.delete(this.q);
@@ -837,10 +839,10 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SurfaceTexture f30813a;
+                public final /* synthetic */ SurfaceTexture f66739a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f30814b;
+                public final /* synthetic */ d f66740b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -857,17 +859,17 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                             return;
                         }
                     }
-                    this.f30814b = this;
-                    this.f30813a = surfaceTexture;
+                    this.f66740b = this;
+                    this.f66739a = surfaceTexture;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f30814b.s();
-                        if (this.f30814b.f30807i != null) {
-                            this.f30814b.f30807i.obtainMessage(111, this.f30813a).sendToTarget();
+                        this.f66740b.s();
+                        if (this.f66740b.f66732i != null) {
+                            this.f66740b.f66732i.obtainMessage(111, this.f66739a).sendToTarget();
                         }
                     }
                 }
@@ -883,10 +885,10 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SurfaceHolder f30815a;
+                public final /* synthetic */ SurfaceHolder f66741a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f30816b;
+                public final /* synthetic */ d f66742b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -903,17 +905,17 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                             return;
                         }
                     }
-                    this.f30816b = this;
-                    this.f30815a = surfaceHolder;
+                    this.f66742b = this;
+                    this.f66741a = surfaceHolder;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f30816b.s();
-                        if (this.f30816b.f30807i != null) {
-                            this.f30816b.f30807i.obtainMessage(110, this.f30815a).sendToTarget();
+                        this.f66742b.s();
+                        if (this.f66742b.f66732i != null) {
+                            this.f66742b.f66732i.obtainMessage(110, this.f66741a).sendToTarget();
                         }
                     }
                 }
@@ -929,10 +931,10 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.n.f.b f30817a;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.n.f.b f66743a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f30818b;
+                public final /* synthetic */ d f66744b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -949,17 +951,17 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                             return;
                         }
                     }
-                    this.f30818b = this;
-                    this.f30817a = bVar;
+                    this.f66744b = this;
+                    this.f66743a = bVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f30818b.s();
-                        if (this.f30818b.f30807i != null) {
-                            this.f30818b.f30807i.obtainMessage(107, this.f30817a).sendToTarget();
+                        this.f66744b.s();
+                        if (this.f66744b.f66732i != null) {
+                            this.f66744b.f66732i.obtainMessage(107, this.f66743a).sendToTarget();
                         }
                     }
                 }
@@ -968,7 +970,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Removed duplicated region for block: B:177:0x03a1  */
+    /* JADX WARN: Removed duplicated region for block: B:177:0x039f  */
     /* JADX WARN: Removed duplicated region for block: B:210:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:33:0x00ad  */
     @Override // com.bytedance.sdk.component.utils.w.a
@@ -977,27 +979,27 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
     */
     public void a(Message message) {
         boolean z;
-        long j;
+        long j2;
         long i2;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeL(1048579, this, message) != null) {
             return;
         }
         int i3 = message.what;
-        k.b("tag_video_play", "[video]  execute , mCurrentState = " + this.f30805g + " handlerMsg=" + i3);
-        c cVar = this.f30800b;
+        k.b("tag_video_play", "[video]  execute , mCurrentState = " + this.f66730g + " handlerMsg=" + i3);
+        c cVar = this.f66725b;
         if (cVar != null) {
             switch (message.what) {
                 case 100:
-                    int i4 = this.f30805g;
+                    int i4 = this.f66730g;
                     if (i4 == 205 || i4 == 206 || i4 == 207 || i4 == 209) {
                         try {
-                            this.f30800b.f();
+                            this.f66725b.f();
                             k.b("tag_video_play", "[video] OP_START execute , mMediaPlayer real start !");
-                            this.f30805g = 206;
-                            if (this.f30806h >= 0) {
-                                this.f30800b.a(this.f30806h);
-                                this.f30806h = -1L;
+                            this.f66730g = 206;
+                            if (this.f66731h >= 0) {
+                                this.f66725b.a(this.f66731h);
+                                this.f66731h = -1L;
                             }
                             if (this.o != null) {
                                 this.o.removeMessages(312);
@@ -1012,18 +1014,18 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                     z = true;
                     break;
                 case 101:
-                    if (this.j) {
+                    if (this.f66733j) {
                         this.k += this.n;
                     }
-                    this.j = false;
+                    this.f66733j = false;
                     this.n = 0L;
                     this.m = Long.MIN_VALUE;
-                    int i5 = this.f30805g;
+                    int i5 = this.f66730g;
                     if (i5 == 206 || i5 == 207 || i5 == 209) {
                         try {
                             k.b("tag_video_play", "[video] OP_PAUSE execute , mMediaPlayer  OP_PAUSE !");
-                            this.f30800b.h();
-                            this.f30805g = 207;
+                            this.f66725b.h();
+                            this.f66730g = 207;
                             try {
                                 this.x = false;
                             } catch (Throwable th2) {
@@ -1044,7 +1046,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                     try {
                         cVar.l();
                         k.b("tag_video_play", "[video] OP_RELEASE execute , releaseMediaplayer !");
-                        this.f30805g = 201;
+                        this.f66730g = 201;
                         break;
                     } catch (Throwable th4) {
                         k.a("SSMediaPlayeWrapper", "OP_RESET error: ", th4);
@@ -1057,17 +1059,17 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                     } catch (Throwable th5) {
                         k.c("NativeVideoController", "OP_RELEASE error: ", th5);
                     }
-                    this.f30804f = false;
+                    this.f66729f = false;
                     a(309, (Object) null);
-                    this.f30805g = 203;
-                    this.f30800b = null;
+                    this.f66730g = 203;
+                    this.f66725b = null;
                     A();
                     break;
                 case 104:
-                    int i6 = this.f30805g;
+                    int i6 = this.f66730g;
                     if (i6 == 202 || i6 == 208) {
                         try {
-                            ((b) this.f30800b).e().prepareAsync();
+                            ((b) this.f66725b).e().prepareAsync();
                             k.b("tag_video_play", "[video] OP_PREPARE_ASYNC execute , mMediaPlayer real prepareAsync !");
                             if (this.o != null) {
                                 this.o.sendEmptyMessageDelayed(312, 10000L);
@@ -1081,11 +1083,11 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                     z = true;
                     break;
                 case 105:
-                    int i7 = this.f30805g;
+                    int i7 = this.f66730g;
                     if (i7 == 205 || i7 == 206 || i7 == 208 || i7 == 207 || i7 == 209) {
                         try {
-                            this.f30800b.g();
-                            this.f30805g = 208;
+                            this.f66725b.g();
+                            this.f66730g = 208;
                             break;
                         } catch (Throwable th7) {
                             k.a("SSMediaPlayeWrapper", "OP_STOP error: ", th7);
@@ -1095,10 +1097,10 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                     z = true;
                     break;
                 case 106:
-                    int i8 = this.f30805g;
+                    int i8 = this.f66730g;
                     if (i8 == 206 || i8 == 207 || i8 == 209) {
                         try {
-                            this.f30800b.a(((Long) message.obj).longValue());
+                            this.f66725b.a(((Long) message.obj).longValue());
                             break;
                         } catch (Throwable th8) {
                             k.a("SSMediaPlayeWrapper", "OP_SEEKTO error: ", th8);
@@ -1109,7 +1111,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                     break;
                 case 107:
                     r();
-                    int i9 = this.f30805g;
+                    int i9 = this.f66730g;
                     if (i9 == 201 || i9 == 203) {
                         try {
                             com.bytedance.sdk.openadsdk.n.f.b bVar = (com.bytedance.sdk.openadsdk.n.f.b) message.obj;
@@ -1125,14 +1127,14 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                                     a(file.getAbsolutePath());
                                 } else {
-                                    this.f30800b.a(file.getAbsolutePath());
+                                    this.f66725b.a(file.getAbsolutePath());
                                 }
                             } else {
                                 k.b("SSMediaPlayeWrapper", "paly net:" + bVar.a());
-                                if (bVar.f31944b == 1 && Build.VERSION.SDK_INT < 23) {
-                                    this.f30800b.a(bVar.a());
+                                if (bVar.f67895b == 1 && Build.VERSION.SDK_INT < 23) {
+                                    this.f66725b.a(bVar.a());
                                 } else if (Build.VERSION.SDK_INT >= 23) {
-                                    this.f30800b.a(bVar);
+                                    this.f66725b.a(bVar);
                                 } else {
                                     String b2 = com.bytedance.sdk.openadsdk.n.f.a.a().b(bVar);
                                     k.f("cache009", "使用Video缓存-OP_SET_DATASOURCE-proxyurl=" + b2);
@@ -1141,11 +1143,11 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                                         k.f("cache010", "使用uri parse =" + parse.getPath());
                                         a(parse.getPath());
                                     } else {
-                                        this.f30800b.a(b2);
+                                        this.f66725b.a(b2);
                                     }
                                 }
                             }
-                            this.f30805g = 202;
+                            this.f66730g = 202;
                             if (this.o != null) {
                                 this.o.obtainMessage(314).sendToTarget();
                                 break;
@@ -1158,44 +1160,44 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                     z = true;
                     break;
                 case 108:
-                    int i10 = this.f30805g;
+                    int i10 = this.f66730g;
                     if (i10 == 206 || i10 == 207) {
                         try {
-                            j = this.f30800b.j();
+                            j2 = this.f66725b.j();
                         } catch (Throwable th10) {
                             k.a("SSMediaPlayeWrapper", "OP_REQUEST_DURATION error: ", th10);
                         }
-                        a(108, Long.valueOf(j));
+                        a(108, Long.valueOf(j2));
                         break;
                     }
-                    j = 0;
-                    a(108, Long.valueOf(j));
+                    j2 = 0;
+                    a(108, Long.valueOf(j2));
                 case 109:
-                    int i11 = this.f30805g;
+                    int i11 = this.f66730g;
                     if (i11 == 206 || i11 == 207) {
                         try {
-                            i2 = this.f30800b.i();
+                            i2 = this.f66725b.i();
                         } catch (Throwable th11) {
                             k.a("SSMediaPlayeWrapper", "OP_REQUEST_CUR_POSITION error: ", th11);
                         }
                         if (i2 > 0) {
                             a(109, Long.valueOf(i2));
                             if (Build.VERSION.SDK_INT >= 23 && g()) {
-                                long j2 = this.m;
-                                if (j2 != Long.MIN_VALUE) {
-                                    if (j2 == i2) {
-                                        if (!this.j && this.n >= 400) {
+                                long j3 = this.m;
+                                if (j3 != Long.MIN_VALUE) {
+                                    if (j3 == i2) {
+                                        if (!this.f66733j && this.n >= 400) {
                                             this.l++;
-                                            this.j = true;
+                                            this.f66733j = true;
                                         }
                                         this.n += 200;
                                     } else {
-                                        if (this.j) {
-                                            long j3 = this.k + this.n;
-                                            this.k = j3;
-                                            k.b("SSMediaPlayeWrapper", "handleMsg:  bufferingDuration =", Long.valueOf(j3), "  bufferingCount =", Integer.valueOf(this.l));
+                                        if (this.f66733j) {
+                                            long j4 = this.k + this.n;
+                                            this.k = j4;
+                                            k.b("SSMediaPlayeWrapper", "handleMsg:  bufferingDuration =", Long.valueOf(j4), "  bufferingCount =", Integer.valueOf(this.l));
                                         }
-                                        this.j = false;
+                                        this.f66733j = false;
                                         this.n = 0L;
                                     }
                                 }
@@ -1212,9 +1214,9 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                     try {
                         cVar.a((SurfaceHolder) message.obj);
                         if (this.q == 2) {
-                            this.f30800b.a(o.a(), 10);
+                            this.f66725b.a(o.a(), 10);
                         }
-                        this.f30800b.a(true);
+                        this.f66725b.a(true);
                         break;
                     } catch (Throwable th12) {
                         k.a("SSMediaPlayeWrapper", "OP_SET_DISPLAY error: ", th12);
@@ -1225,8 +1227,8 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                         if (Build.VERSION.SDK_INT >= 14) {
                             cVar.a(new Surface((SurfaceTexture) message.obj));
                         }
-                        this.f30800b.a(true);
-                        this.f30800b.a(o.a(), 10);
+                        this.f66725b.a(true);
+                        this.f66725b.a(o.a(), 10);
                         z();
                         break;
                     } catch (Throwable th13) {
@@ -1235,12 +1237,12 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
                     }
             }
             if (z) {
-                this.f30805g = 200;
-                if (this.f30802d) {
+                this.f66730g = 200;
+                if (this.f66727d) {
                     return;
                 }
                 a(308, Integer.valueOf(i3));
-                this.f30802d = true;
+                this.f66727d = true;
                 return;
             }
             return;
@@ -1255,7 +1257,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
         if (!(interceptable == null || interceptable.invokeL(65555, this, runnable) == null) || runnable == null) {
             return;
         }
-        if (!this.f30804f) {
+        if (!this.f66729f) {
             runnable.run();
         } else {
             a(runnable);
@@ -1267,9 +1269,9 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             try {
                 if (z) {
-                    this.f30800b.a(0.0f, 0.0f);
+                    this.f66725b.a(0.0f, 0.0f);
                 } else {
-                    this.f30800b.a(1.0f, 1.0f);
+                    this.f66725b.a(1.0f, 1.0f);
                 }
             } catch (Throwable th) {
                 k.a("SSMediaPlayeWrapper", "setQuietPlay error: ", th);
@@ -1280,7 +1282,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
     private void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, this, str) == null) {
-            Handler handler = this.f30807i;
+            Handler handler = this.f66732i;
             if (handler != null) {
                 handler.removeMessages(201);
             }
@@ -1296,7 +1298,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, this, str) == null) {
             FileInputStream fileInputStream = new FileInputStream(str);
-            this.f30800b.a(fileInputStream.getFD());
+            this.f66725b.a(fileInputStream.getFD());
             fileInputStream.close();
         }
     }
@@ -1318,7 +1320,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
     public void a(c cVar, int i2) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048582, this, cVar, i2) == null) && this.f30800b == cVar && (handler = this.o) != null) {
+        if ((interceptable == null || interceptable.invokeLI(1048582, this, cVar, i2) == null) && this.f66725b == cVar && (handler = this.o) != null) {
             handler.obtainMessage(301, Integer.valueOf(i2)).sendToTarget();
         }
     }
@@ -1327,7 +1329,7 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f30805g = !this.f30801c ? 209 : 206;
+            this.f66730g = !this.f66726c ? 209 : 206;
             u.delete(this.q);
             Handler handler = this.o;
             if (handler != null) {
@@ -1338,26 +1340,26 @@ public class d implements w.a, c.a, c.b, c.InterfaceC0345c, c.d, c.e, c.f, c.g {
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.video.c.c.InterfaceC0345c
+    @Override // com.bytedance.sdk.openadsdk.core.video.c.c.InterfaceC1905c
     public boolean a(c cVar, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048587, this, cVar, i2, i3)) == null) {
             k.f("SSMediaPlayeWrapper", "what=" + i2 + "extra=" + i3);
             w();
-            this.f30805g = 200;
+            this.f66730g = 200;
             Handler handler = this.o;
             if (handler != null) {
                 handler.obtainMessage(303, i2, i3).sendToTarget();
             }
-            Handler handler2 = this.f30807i;
+            Handler handler2 = this.f66732i;
             if (handler2 != null) {
                 handler2.removeMessages(108);
-                this.f30807i.removeMessages(109);
+                this.f66732i.removeMessages(109);
             }
-            if (!this.f30802d) {
+            if (!this.f66727d) {
                 a(308, Integer.valueOf(i2));
-                this.f30802d = true;
+                this.f66727d = true;
             }
             if (a(i2, i3)) {
                 v();

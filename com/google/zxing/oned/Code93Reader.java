@@ -4,6 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.SDKLogTypeConstants;
+import com.baidu.tieba.videoplay.VideoPlayFragment;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +26,7 @@ import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
 import java.util.Arrays;
 import java.util.Map;
 import org.apache.http.HttpStatus;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class Code93Reader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char[] ALPHABET;
@@ -50,7 +51,7 @@ public final class Code93Reader extends OneDReader {
             }
         }
         ALPHABET = ALPHABET_STRING.toCharArray();
-        int[] iArr = {276, 328, 324, 322, 296, 292, QRScanCodeActivity.DIALOG_CHECK_SAFE, 336, 274, 266, HttpStatus.SC_FAILED_DEPENDENCY, HttpStatus.SC_METHOD_FAILURE, SDKLogTypeConstants.TYPE_RSPLASH_HTML_LOG, 404, 402, 394, 360, 356, 354, 308, 282, 344, 332, 326, 300, 278, 436, 434, 428, HttpStatus.SC_UNPROCESSABLE_ENTITY, 406, 410, SDKLogTypeConstants.TYPE_FEED_CLICK, 358, 310, 314, 302, 468, 466, 458, SDKLogTypeConstants.TYPE_APO_CLICK, 374, SDKLogTypeConstants.TYPE_LP_DOWNLOAD, QRScanCodeActivity.DIALOG_ALIPAY_JD_WX_COPY, 474, FloatingActionButton.AUTO_MINI_LARGEST_SCREEN_WIDTH, ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, 350};
+        int[] iArr = {276, 328, 324, 322, 296, 292, QRScanCodeActivity.DIALOG_CHECK_SAFE, 336, 274, 266, HttpStatus.SC_FAILED_DEPENDENCY, HttpStatus.SC_METHOD_FAILURE, SDKLogTypeConstants.TYPE_RSPLASH_HTML_LOG, 404, 402, 394, 360, 356, 354, 308, 282, 344, 332, 326, 300, 278, 436, 434, 428, HttpStatus.SC_UNPROCESSABLE_ENTITY, 406, 410, SDKLogTypeConstants.TYPE_FEED_CLICK, 358, 310, 314, 302, 468, 466, 458, SDKLogTypeConstants.TYPE_APO_CLICK, 374, SDKLogTypeConstants.TYPE_LP_DOWNLOAD, QRScanCodeActivity.DIALOG_ALIPAY_JD_WX_COPY, 474, FloatingActionButton.AUTO_MINI_LARGEST_SCREEN_WIDTH, ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, VideoPlayFragment.COVER_ANIMINATION_TIME};
         CHARACTER_ENCODINGS = iArr;
         ASTERISK_ENCODING = iArr[47];
     }

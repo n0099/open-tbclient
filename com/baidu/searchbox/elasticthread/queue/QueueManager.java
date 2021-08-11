@@ -1,6 +1,5 @@
 package com.baidu.searchbox.elasticthread.queue;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.elasticthread.ElasticConfig;
 import com.baidu.searchbox.elasticthread.statistic.Recordable;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class QueueManager implements Recordable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double BLOCK_WEIGHT_IMMEDIATE = 9999999.0d;
@@ -33,8 +32,8 @@ public class QueueManager implements Recordable {
             }
         }
         this.mEnabledQueues = new ElasticQueue[4];
-        if (ElasticConfig.ELASTIC_QUEUE_INDEX_PRIORITY_TABLE.length != 4 || ElasticConfig.ELASTIC_QUEUE_BLOCK_WEIGHT.length != 4) {
-            Log.e(TAG, "Elastic Queue size incompatible!");
+        if (ElasticConfig.ELASTIC_QUEUE_INDEX_PRIORITY_TABLE.length == 4) {
+            int length = ElasticConfig.ELASTIC_QUEUE_BLOCK_WEIGHT.length;
         }
         for (int i4 = 0; i4 < 4; i4++) {
             this.mEnabledQueues[i4] = new ElasticQueue();

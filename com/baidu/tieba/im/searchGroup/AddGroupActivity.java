@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
+import c.a.e.c.g.c;
+import c.a.e.e.m.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
@@ -22,24 +24,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.c.g.c;
-import d.a.d.e.m.b;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d.a.q0.i1.r.a addGroupView;
+    public c.a.p0.j1.r.a addGroupView;
     public c searchGroupCallback;
     public SearchGroupModel searchGroupModel;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AddGroupActivity f17720a;
+        public final /* synthetic */ AddGroupActivity f52944a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AddGroupActivity addGroupActivity, int i2) {
@@ -59,7 +59,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
                     return;
                 }
             }
-            this.f17720a = addGroupActivity;
+            this.f52944a = addGroupActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,22 +67,22 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.f17720a.addGroupView.n(false);
+                this.f52944a.addGroupView.l(false);
                 if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103007) {
-                    this.f17720a.groupNotSearched();
+                    this.f52944a.groupNotSearched();
                 } else if (!(socketResponsedMessage instanceof ResponseSearchGroupMessage)) {
-                    this.f17720a.groupNotSearched();
+                    this.f52944a.groupNotSearched();
                 } else {
                     ResponseSearchGroupMessage responseSearchGroupMessage = (ResponseSearchGroupMessage) socketResponsedMessage;
                     if (responseSearchGroupMessage.getError() != 0) {
-                        this.f17720a.showError(responseSearchGroupMessage.getErrorString(), responseSearchGroupMessage.getError());
+                        this.f52944a.showError(responseSearchGroupMessage.getErrorString(), responseSearchGroupMessage.getError());
                         return;
                     }
                     List<BaseGroupData> searchResult = responseSearchGroupMessage.getSearchResult();
                     if (searchResult == null || searchResult.size() <= 0) {
-                        this.f17720a.groupNotSearched();
+                        this.f52944a.groupNotSearched();
                     } else {
-                        this.f17720a.groupSearched(searchResult.get(0));
+                        this.f52944a.groupSearched(searchResult.get(0));
                     }
                 }
             }
@@ -143,12 +143,12 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
                 try {
-                    this.addGroupView.n(true);
+                    this.addGroupView.l(true);
                     this.searchGroupModel.sendMessage(b.f(str, 0L));
                     return;
                 } catch (NumberFormatException e2) {
                     e2.printStackTrace();
-                    this.addGroupView.n(false);
+                    this.addGroupView.l(false);
                     showToast(R.string.groupid_error);
                     return;
                 }
@@ -162,7 +162,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
-            this.addGroupView.g(i2);
+            this.addGroupView.f(i2);
         }
     }
 
@@ -171,16 +171,16 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
             super.onClick(view);
-            if (view == this.addGroupView.j()) {
+            if (view == this.addGroupView.h()) {
                 finish();
-            } else if (view == this.addGroupView.l()) {
+            } else if (view == this.addGroupView.j()) {
                 TiebaStatic.log("add_group_searchbtn_click");
                 if (view.getTag() instanceof String) {
                     doSearch((String) view.getTag());
                 }
+            } else if (view == this.addGroupView.i()) {
+                this.addGroupView.g();
             } else if (view == this.addGroupView.k()) {
-                this.addGroupView.h();
-            } else if (view == this.addGroupView.m()) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2902030, new IntentConfig(getPageContext().getPageActivity())));
             }
         }
@@ -191,7 +191,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.addGroupView = new d.a.q0.i1.r.a(this);
+            this.addGroupView = new c.a.p0.j1.r.a(this);
             this.searchGroupModel = new SearchGroupModel(this);
             registerListener(this.searchGroupCallback);
         }

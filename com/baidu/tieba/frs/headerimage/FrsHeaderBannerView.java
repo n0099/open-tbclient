@@ -8,10 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import c.a.e.e.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -20,27 +22,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FrsHeaderBannerView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f15949e;
+    public TbImageView f51127e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f15950f;
+    public TextView f51128f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f15951g;
+    public TextView f51129g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f15952h;
+    public View f51130h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f15953i;
-    public String j;
+    public View f51131i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public String f51132j;
     public TbPageContext k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,7 +64,7 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
                 return;
             }
         }
-        a();
+        init();
     }
 
     private TbPageContext getTbPageContext() {
@@ -83,59 +86,92 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
         return (TbPageContext) invokeV.objValue;
     }
 
-    public void a() {
+    public void hideTitle() {
+        View view;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.f51130h) == null) {
+            return;
+        }
+        view.setVisibility(8);
+    }
+
+    public void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.frs_header_banner, (ViewGroup) this, true);
-            this.f15952h = inflate.findViewById(R.id.frs_header_title_container);
-            this.f15949e = (TbImageView) inflate.findViewById(R.id.frs_head_image);
-            this.f15950f = (TextView) inflate.findViewById(R.id.frs_header_title);
-            this.f15951g = (TextView) inflate.findViewById(R.id.frs_header_title_lable);
-            this.f15953i = inflate.findViewById(R.id.frs_image_header_contianer);
-            this.f15949e.setOnClickListener(this);
-            this.f15952h.setOnClickListener(this);
-            this.f15953i.setOnClickListener(this);
-            this.f15949e.setDefaultResource(0);
-            this.f15949e.setRadius(l.g(getContext(), R.dimen.tbds20));
-            this.f15949e.setConrers(15);
-            this.f15949e.setPlaceHolder(2);
-            this.f15951g.setText(getContext().getString(R.string.frs_header_image_lable));
+            this.f51130h = inflate.findViewById(R.id.frs_header_title_container);
+            this.f51127e = (TbImageView) inflate.findViewById(R.id.frs_head_image);
+            this.f51128f = (TextView) inflate.findViewById(R.id.frs_header_title);
+            this.f51129g = (TextView) inflate.findViewById(R.id.frs_header_title_lable);
+            this.f51131i = inflate.findViewById(R.id.frs_image_header_contianer);
+            this.f51127e.setOnClickListener(this);
+            this.f51130h.setOnClickListener(this);
+            this.f51131i.setOnClickListener(this);
+            this.f51127e.setDefaultResource(0);
+            this.f51127e.setRadius(l.g(getContext(), R.dimen.tbds20));
+            this.f51127e.setConrers(15);
+            this.f51127e.setPlaceHolder(2);
+            this.f51129g.setText(getContext().getString(R.string.frs_header_image_lable));
             this.k = getTbPageContext();
+        }
+    }
+
+    public void onChangeSkinType(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            TextView textView = this.f51129g;
+            if (textView != null) {
+                SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i2);
+                SkinManager.setBackgroundResource(this.f51129g, R.drawable.frs_header_text_bg, i2);
+            }
+            TextView textView2 = this.f51128f;
+            if (textView2 != null) {
+                SkinManager.setViewTextColor(textView2, R.color.CAM_X0101, i2);
+            }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             TbPageContext<?> tbPageContext = getTbPageContext();
-            if (TextUtils.isEmpty(this.j) || tbPageContext == null) {
+            if (TextUtils.isEmpty(this.f51132j) || tbPageContext == null) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.j}, true);
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f51132j}, true);
         }
     }
 
     public void setSchemaUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.j = str;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f51132j = str;
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.f15950f == null || this.f15951g == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f51128f == null || this.f51129g == null) {
             return;
         }
         if (!TextUtils.isEmpty(str)) {
-            this.f15950f.setText(str);
-            this.f15951g.setVisibility(0);
-            this.f15950f.setVisibility(0);
+            this.f51128f.setText(str);
+            this.f51129g.setVisibility(0);
+            this.f51128f.setVisibility(0);
             return;
         }
-        this.f15951g.setVisibility(8);
-        this.f15950f.setVisibility(8);
+        this.f51129g.setVisibility(8);
+        this.f51128f.setVisibility(8);
+    }
+
+    public void startLoad(String str) {
+        TbImageView tbImageView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (tbImageView = this.f51127e) == null) {
+            return;
+        }
+        tbImageView.startLoad(str, 33, false);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -157,7 +193,7 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
                 return;
             }
         }
-        a();
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -179,6 +215,6 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
                 return;
             }
         }
-        a();
+        init();
     }
 }

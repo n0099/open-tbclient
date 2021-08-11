@@ -3,6 +3,7 @@ package com.baidu.sapi2.activity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.b0.a.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.CoreViewRouter;
@@ -22,9 +23,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c0.a.f;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class NormalizeGuestAccountActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
@@ -51,7 +51,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ NormalizeGuestAccountActivity f9863a;
+            public final /* synthetic */ NormalizeGuestAccountActivity f44525a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -68,7 +68,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                         return;
                     }
                 }
-                this.f9863a = this;
+                this.f44525a = this;
             }
 
             @Override // com.baidu.sapi2.result.NormalizeGuestAccountResult
@@ -76,7 +76,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     super.finishActivity();
-                    this.f9863a.finish();
+                    this.f44525a.finish();
                     CoreViewRouter.getInstance().release();
                 }
             }
@@ -168,7 +168,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NormalizeGuestAccountActivity f9864a;
+                public final /* synthetic */ NormalizeGuestAccountActivity f44526a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -185,14 +185,14 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9864a = this;
+                    this.f44526a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
                 public void onBack() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f9864a.a();
+                        this.f44526a.a();
                     }
                 }
             });
@@ -201,7 +201,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NormalizeGuestAccountActivity f9865a;
+                public final /* synthetic */ NormalizeGuestAccountActivity f44527a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -218,14 +218,14 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9865a = this;
+                    this.f44527a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f9865a.onClose();
+                        this.f44527a.onClose();
                     }
                 }
             });
@@ -244,7 +244,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NormalizeGuestAccountActivity f9866a;
+                public final /* synthetic */ NormalizeGuestAccountActivity f44528a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -261,16 +261,16 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9866a = this;
+                    this.f44528a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.NormalizeGuestAccountCallback
                 public void onFailure(int i2, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
-                        this.f9866a.t.setResultCode(i2);
-                        this.f9866a.t.setResultMsg(str2);
-                        this.f9866a.b();
+                        this.f44528a.t.setResultCode(i2);
+                        this.f44528a.t.setResultMsg(str2);
+                        this.f44528a.b();
                     }
                 }
 
@@ -278,11 +278,11 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                 public void onSuccess(boolean z, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str2) == null) {
-                        this.f9866a.t.isAccountMerge = z;
-                        this.f9866a.t.setNormalizeWay(str2);
-                        this.f9866a.t.setResultCode(0);
-                        this.f9866a.t.setResultMsg("成功");
-                        this.f9866a.c();
+                        this.f44528a.t.isAccountMerge = z;
+                        this.f44528a.t.setNormalizeWay(str2);
+                        this.f44528a.t.setResultCode(0);
+                        this.f44528a.t.setResultMsg("成功");
+                        this.f44528a.c();
                         new PtokenStat().onEvent(PtokenStat.NORMAL_GUEST);
                     }
                 }

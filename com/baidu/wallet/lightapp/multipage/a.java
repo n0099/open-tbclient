@@ -3,10 +3,13 @@ package com.baidu.wallet.lightapp.multipage;
 import android.app.Activity;
 import android.content.Context;
 import java.util.ArrayList;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface a {
+    void checkClodDown(String str, List<String> list, String str2);
+
     void closeTopWebview();
 
     void closeWindow();
@@ -17,6 +20,8 @@ public interface a {
 
     Activity getActivity();
 
+    String getCellHashStamps();
+
     Context getContext();
 
     String getLoadTimeLine();
@@ -25,13 +30,17 @@ public interface a {
 
     boolean isActiveCell();
 
+    boolean isPreloaded();
+
     void loadAlubm(String str);
 
-    void openInNewWebView(String str, boolean z);
+    void openInNewWebView(String str, String str2);
 
     void preLoadException(String str);
 
     void preLoadUrl(ArrayList<String> arrayList, int i2);
+
+    void rmFromPreloadPool();
 
     void selectPhoneFromAddressBook();
 
@@ -41,5 +50,9 @@ public interface a {
 
     void setMenuInMainThread(JSONArray jSONArray);
 
+    void setSubMenu(String str, String str2, String str3, int i2);
+
     void setTitlesInMainThread(String str, String str2, boolean z);
+
+    void startNewLightApp(Context context, String str, String str2, boolean z, boolean z2);
 }

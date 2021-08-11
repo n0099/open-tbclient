@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ShadowTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f30948a;
+    public Paint f66878a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RectF f30949b;
+    public RectF f66879b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30950c;
+    public int f66880c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ShadowTextView(Context context) {
@@ -53,12 +53,12 @@ public class ShadowTextView extends TextView {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             setTextColor(-1);
             Paint paint = new Paint();
-            this.f30948a = paint;
+            this.f66878a = paint;
             paint.setStyle(Paint.Style.FILL_AND_STROKE);
-            this.f30948a.setColor(Color.parseColor("#99333333"));
-            this.f30948a.setAntiAlias(true);
-            this.f30948a.setStrokeWidth(0.0f);
-            this.f30949b = new RectF();
+            this.f66878a.setColor(Color.parseColor("#99333333"));
+            this.f66878a.setAntiAlias(true);
+            this.f66878a.setStrokeWidth(0.0f);
+            this.f66879b = new RectF();
         }
     }
 
@@ -66,10 +66,10 @@ public class ShadowTextView extends TextView {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            RectF rectF = this.f30949b;
+            RectF rectF = this.f66879b;
             float f2 = rectF.bottom;
-            canvas.drawRoundRect(rectF, f2 / 2.0f, f2 / 2.0f, this.f30948a);
-            canvas.translate((this.f30949b.right / 2.0f) - (getPaint().measureText(getText().toString()) / 2.0f), 0.0f);
+            canvas.drawRoundRect(rectF, f2 / 2.0f, f2 / 2.0f, this.f66878a);
+            canvas.translate((this.f66879b.right / 2.0f) - (getPaint().measureText(getText().toString()) / 2.0f), 0.0f);
             super.onDraw(canvas);
         }
     }
@@ -83,16 +83,16 @@ public class ShadowTextView extends TextView {
             int measuredHeight = getMeasuredHeight();
             if (measuredWidth > 0 && measuredHeight > 0) {
                 int measureText = (int) getPaint().measureText("00");
-                this.f30950c = measureText;
+                this.f66880c = measureText;
                 if (measuredWidth < measureText) {
                     measuredWidth = measureText;
                 }
                 int i4 = measuredWidth + ((measuredHeight / 2) * 2);
                 setMeasuredDimension(i4, measuredHeight);
-                this.f30949b.set(0.0f, 0.0f, i4, measuredHeight);
+                this.f66879b.set(0.0f, 0.0f, i4, measuredHeight);
                 return;
             }
-            this.f30949b.set(0.0f, 0.0f, 0.0f, 0.0f);
+            this.f66879b.set(0.0f, 0.0f, 0.0f, 0.0f);
         }
     }
 
@@ -136,7 +136,7 @@ public class ShadowTextView extends TextView {
                 return;
             }
         }
-        this.f30950c = 0;
+        this.f66880c = 0;
         a();
     }
 }

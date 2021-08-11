@@ -31,7 +31,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public abstract class ImageUtils implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = true;
@@ -64,7 +64,7 @@ public abstract class ImageUtils implements NoProguard {
                 options.inJustDecodeBounds = true;
                 ParcelFileDescriptor parcelFileDescriptor = null;
                 try {
-                    ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7788a);
+                    ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f42062a);
                     if (openFileDescriptor != null) {
                         try {
                             BitmapFactory.decodeFileDescriptor(openFileDescriptor.getFileDescriptor(), null, options);
@@ -181,7 +181,7 @@ public abstract class ImageUtils implements NoProguard {
             try {
                 try {
                     try {
-                        parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7788a);
+                        parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f42062a);
                         if (parcelFileDescriptor != null) {
                             try {
                                 bitmap = BitmapFactory.decodeFileDescriptor(parcelFileDescriptor.getFileDescriptor(), null, options);

@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import i.a.a.e.l.c;
+import j.a.a.e.l.c;
 import java.util.List;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PaySource;
-/* loaded from: classes9.dex */
-public interface IYYPayWayView extends i.a.a.e.o.a {
+/* loaded from: classes2.dex */
+public interface IYYPayWayView extends j.a.a.e.o.a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class PayViewState {
         public static final /* synthetic */ PayViewState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -75,35 +75,35 @@ public interface IYYPayWayView extends i.a.a.e.o.a {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        void a(c cVar, i.a.a.e.l.a aVar, AppCustomExpand appCustomExpand);
+        void a(c cVar, j.a.a.e.l.a aVar, AppCustomExpand appCustomExpand);
 
         void onRefreshViewFail(int i2, String str);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<PayWayInfo> f74190a;
+        public List<PayWayInfo> f79499a;
 
         /* renamed from: b  reason: collision with root package name */
-        public i.a.a.e.l.a f74191b;
+        public j.a.a.e.l.a f79500b;
 
         /* renamed from: c  reason: collision with root package name */
-        public AppCustomExpand f74192c;
+        public AppCustomExpand f79501c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f74193d;
+        public boolean f79502d;
 
         /* renamed from: e  reason: collision with root package name */
-        public AbsViewEventHandler f74194e;
+        public AbsViewEventHandler f79503e;
 
         /* renamed from: f  reason: collision with root package name */
-        public PaySource f74195f;
+        public PaySource f79504f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -118,8 +118,8 @@ public interface IYYPayWayView extends i.a.a.e.o.a {
                     return;
                 }
             }
-            this.f74193d = false;
-            this.f74195f = PaySource.UNKNOW;
+            this.f79502d = false;
+            this.f79504f = PaySource.UNKNOW;
         }
     }
 

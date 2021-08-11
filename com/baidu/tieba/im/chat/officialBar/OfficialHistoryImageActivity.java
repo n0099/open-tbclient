@@ -1,14 +1,14 @@
 package com.baidu.tieba.im.chat.officialBar;
 
+import c.a.p0.j1.s.c;
 import com.baidu.tieba.im.chat.AbsMsgImageActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.i1.s.c;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class OfficialHistoryImageActivity extends AbsMsgImageActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

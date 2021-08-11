@@ -9,38 +9,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RelateTopicForumItemHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public BarImageView f17187a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f17188b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f17189c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f17190d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f17191e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f17192f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f17193g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f17194h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public View f17195i;
-    public int j;
+    public TextView content;
+    public TextView forumAddLove;
+    public BarImageView forumAvatar;
+    public TextView forumName;
+    public View line;
+    public TextView memberNum;
+    public TextView memberNumLable;
+    public TextView postNum;
+    public TextView postNumLable;
+    public int skinType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RelateTopicForumItemHolder(View view) {
@@ -60,15 +42,15 @@ public class RelateTopicForumItemHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.j = 3;
-        this.f17188b = (TextView) view.findViewById(R.id.forum_name);
-        this.f17187a = (BarImageView) view.findViewById(R.id.forum_avatar);
-        this.f17190d = (TextView) view.findViewById(R.id.member_num_label);
-        this.f17189c = (TextView) view.findViewById(R.id.post_num_label);
-        this.f17192f = (TextView) view.findViewById(R.id.member_num);
-        this.f17191e = (TextView) view.findViewById(R.id.post_num);
-        this.f17193g = (TextView) view.findViewById(R.id.forum_content);
-        this.f17194h = (TextView) view.findViewById(R.id.forum_add_love);
-        this.f17195i = view.findViewById(R.id.forum_item_divider);
+        this.skinType = 3;
+        this.forumName = (TextView) view.findViewById(R.id.forum_name);
+        this.forumAvatar = (BarImageView) view.findViewById(R.id.forum_avatar);
+        this.memberNumLable = (TextView) view.findViewById(R.id.member_num_label);
+        this.postNumLable = (TextView) view.findViewById(R.id.post_num_label);
+        this.memberNum = (TextView) view.findViewById(R.id.member_num);
+        this.postNum = (TextView) view.findViewById(R.id.post_num);
+        this.content = (TextView) view.findViewById(R.id.forum_content);
+        this.forumAddLove = (TextView) view.findViewById(R.id.forum_add_love);
+        this.line = view.findViewById(R.id.forum_item_divider);
     }
 }

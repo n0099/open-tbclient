@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SpeechRecognitionDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ELLIPSIS_NORMAL = "…";
@@ -61,12 +61,12 @@ public class SpeechRecognitionDialog extends Dialog {
     public RelativeLayout voiceParentLayout;
     public VoiceSinWaveView voiceSinWaveView;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface ResetCallback {
         void onReset();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface StopSpeechLister {
         void onStopSpeech();
     }

@@ -23,55 +23,57 @@ import java.io.File;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f5594a = 100;
+    public static final int f39549a = 100;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5595c = ".BD_SAPI_CACHE";
+    public static final String f39550c = ".BD_SAPI_CACHE";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5596d = "so_zips";
+    public static final String f39551d = "so_zips";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5597e = "1.0.1";
+    public static final String f39552e = "1.0.1";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5598f = "1.0.3";
+    public static final String f39553f = "1.0.3";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5599g = "FaceSDKLibs";
+    public static final String f39554g = "FaceSDKLibs";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String[] f5600h;
+    public static final String[] f39555h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static b f5601i;
+    public static b f39556i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5602b;
-    public SharedPreferences j;
+    public String f39557b;
 
-    /* loaded from: classes2.dex */
+    /* renamed from: j  reason: collision with root package name */
+    public SharedPreferences f39558j;
+
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f5603a;
+        public String f39559a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f5604b;
+        public String f39560b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f5605c;
+        public String f39561c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String[] f5606d;
+        public String[] f39562d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -101,7 +103,7 @@ public class b {
                 return;
             }
         }
-        f5600h = new String[]{License.LICENSE_DEFAULT_FILE_NAME, "FaceSDK"};
+        f39555h = new String[]{License.LICENSE_ASSETS_FILE, "FaceSDK"};
     }
 
     public b(Context context) {
@@ -119,7 +121,7 @@ public class b {
                 return;
             }
         }
-        this.j = context.getApplicationContext().getSharedPreferences("rim_liveness_base_system_v1", 0);
+        this.f39558j = context.getApplicationContext().getSharedPreferences("rim_liveness_base_system_v1", 0);
     }
 
     public static b a(Context context) {
@@ -127,10 +129,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             Context applicationContext = context.getApplicationContext();
-            if (f5601i == null) {
-                f5601i = new b(applicationContext);
+            if (f39556i == null) {
+                f39556i = new b(applicationContext);
             }
-            return f5601i;
+            return f39556i;
         }
         return (b) invokeL.objValue;
     }
@@ -150,7 +152,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, aVar)) == null) {
             String a2 = a(context, aVar);
-            return new File(a2 + File.separator + aVar.f5603a + File.separator + aVar.f5603a + "-" + aVar.f5604b + ".zip").getAbsolutePath();
+            return new File(a2 + File.separator + aVar.f39559a + File.separator + aVar.f39559a + "-" + aVar.f39560b + ".zip").getAbsolutePath();
         }
         return (String) invokeLL.objValue;
     }
@@ -159,14 +161,14 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, context)) == null) {
-            if (TextUtils.isEmpty(this.f5602b)) {
+            if (TextUtils.isEmpty(this.f39557b)) {
                 try {
-                    this.f5602b = MD5Util.toMd5((context.getPackageName() + h.a(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
+                    this.f39557b = MD5Util.toMd5((context.getPackageName() + h.a(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
                 } catch (UnsupportedEncodingException e2) {
                     com.baidu.fsg.face.base.d.d.a(e2);
                 }
             }
-            return this.f5602b;
+            return this.f39557b;
         }
         return (String) invokeL.objValue;
     }
@@ -174,14 +176,14 @@ public class b {
     public static String a(Context context, a aVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, aVar)) == null) ? context.getDir(aVar.f5605c, 0).getAbsolutePath() : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, aVar)) == null) ? context.getDir(aVar.f39561c, 0).getAbsolutePath() : (String) invokeLL.objValue;
     }
 
     public static String a(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, aVar)) == null) {
-            return ShareStorage.SP_FILE_PATH + aVar.f5603a + "/" + aVar.f5603a + "-" + aVar.f5604b + ".zip";
+            return ShareStorage.SP_FILE_PATH + aVar.f39559a + "/" + aVar.f39559a + "-" + aVar.f39560b + ".zip";
         }
         return (String) invokeL.objValue;
     }
@@ -189,16 +191,16 @@ public class b {
     private String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) ? this.j.getString(str, "") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) ? this.f39558j.getString(str, "") : (String) invokeL.objValue;
     }
 
     private void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, this, str, str2) == null) {
             if (Build.VERSION.SDK_INT > 8) {
-                this.j.edit().putString(str, str2).apply();
+                this.f39558j.edit().putString(str, str2).apply();
             } else {
-                this.j.edit().putString(str, str2).commit();
+                this.f39558j.edit().putString(str, str2).commit();
             }
         }
     }
@@ -237,10 +239,10 @@ public class b {
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
             a aVar = new a();
             if (i2 == 4) {
-                aVar.f5603a = f5596d;
-                aVar.f5604b = "1.0.3";
-                aVar.f5605c = f5599g;
-                aVar.f5606d = f5600h;
+                aVar.f39559a = f39551d;
+                aVar.f39560b = "1.0.3";
+                aVar.f39561c = f39554g;
+                aVar.f39562d = f39555h;
                 return aVar;
             }
             throw new IllegalArgumentException("the so modle type = " + i2 + " is not support");

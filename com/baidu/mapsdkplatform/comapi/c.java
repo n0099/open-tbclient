@@ -2,7 +2,6 @@ package com.baidu.mapsdkplatform.comapi;
 
 import android.app.Application;
 import android.content.Context;
-import android.util.Log;
 import com.baidu.mapapi.JNIInitializer;
 import com.baidu.mapapi.common.EnvironmentUtilities;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,17 +9,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f7642a;
+    public static boolean f41910a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Context context, boolean z, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Boolean.valueOf(z), str, str2, str3}) == null) || f7642a) {
+        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Boolean.valueOf(z), str, str2, str3}) == null) || f41910a) {
             return;
         }
         if (context == null) {
@@ -40,7 +39,7 @@ public class c {
         }
         EnvironmentUtilities.initAppDirectory(context);
         com.baidu.mapsdkplatform.comapi.b.a.c.a().a(context);
-        f7642a = true;
+        f41910a = true;
     }
 
     public static boolean a(String str) {
@@ -61,8 +60,7 @@ public class c {
                     return true;
                 }
                 return true;
-            } catch (IOException e2) {
-                Log.e("SDKInitializer", "SDCard cache path invalid", e2);
+            } catch (IOException unused) {
                 throw new IllegalArgumentException("BDMapSDKException: Provided sdcard cache path invalid can not used.");
             }
         }

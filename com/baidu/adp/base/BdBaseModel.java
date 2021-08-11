@@ -1,6 +1,9 @@
 package com.baidu.adp.base;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.a.e;
+import c.a.e.a.f;
+import c.a.e.c.g.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
@@ -13,10 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.e;
-import d.a.d.a.f;
-import d.a.d.c.g.a;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class BdBaseModel<T> extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public static final int MODE_INVALID = 0;
@@ -91,7 +91,7 @@ public abstract class BdBaseModel<T> extends OrmObject {
 
     public void registerListener(MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, messageListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, messageListener) == null) {
             check();
             if (messageListener != null && messageListener.getTag() == null) {
                 messageListener.setTag(this.unique_id);
@@ -152,7 +152,7 @@ public abstract class BdBaseModel<T> extends OrmObject {
 
     public void registerListener(int i2, MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i2, messageListener) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, messageListener) == null) {
             check();
             if (messageListener != null && messageListener.getTag() == null) {
                 messageListener.setTag(this.unique_id);
@@ -189,7 +189,7 @@ public abstract class BdBaseModel<T> extends OrmObject {
 
     public void registerListener(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
             check();
             if (aVar != null && aVar.getTag() == null) {
                 aVar.setTag(this.unique_id);
@@ -200,7 +200,7 @@ public abstract class BdBaseModel<T> extends OrmObject {
 
     public void registerListener(int i2, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, aVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i2, aVar) == null) {
             check();
             if (aVar != null && aVar.getTag() == null) {
                 aVar.setTag(this.unique_id);

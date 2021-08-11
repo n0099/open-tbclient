@@ -1,7 +1,7 @@
 package com.qq.e.ads.splash;
 
 import com.qq.e.comm.util.AdError;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface SplashADListener {
     void onADClicked();
 
@@ -9,11 +9,11 @@ public interface SplashADListener {
 
     void onADExposure();
 
-    void onADLoaded(long j);
+    void onADLoaded(long j2);
 
     void onADPresent();
 
-    void onADTick(long j);
+    void onADTick(long j2);
 
     void onNoAD(AdError adError);
 }

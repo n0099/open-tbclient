@@ -1,7 +1,6 @@
 package kotlin.internal;
 
 import androidx.transition.Transition;
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.media.duplayer.LibsInfoDef;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
@@ -13,7 +12,7 @@ import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsKt;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000 \n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\u001a'\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0001\u001a\u00020\u00002\u0006\u0010\u0002\u001a\u00020\u00002\u0006\u0010\u0003\u001a\u00020\u0000H\u0001¢\u0006\u0004\b\u0005\u0010\u0006\u001a$\u0010\n\u001a\u00028\u0000\"\n\b\u0000\u0010\b\u0018\u0001*\u00020\u00072\u0006\u0010\t\u001a\u00020\u0007H\u0083\b¢\u0006\u0004\b\n\u0010\u000b\u001a\u000f\u0010\f\u001a\u00020\u0000H\u0002¢\u0006\u0004\b\f\u0010\r\"\u0016\u0010\u000f\u001a\u00020\u000e8\u0000@\u0001X\u0081\u0004¢\u0006\u0006\n\u0004\b\u000f\u0010\u0010¨\u0006\u0011"}, d2 = {"", "major", "minor", SchemeDescPatchListener.PATCH, "", "apiVersionIsAtLeast", "(III)Z", "", "T", Transition.MATCH_INSTANCE_STR, "castToBaseType", "(Ljava/lang/Object;)Ljava/lang/Object;", "getJavaVersion", "()I", "Lkotlin/internal/PlatformImplementations;", "IMPLEMENTATIONS", "Lkotlin/internal/PlatformImplementations;", "kotlin-stdlib"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class PlatformImplementationsKt {
     @JvmField
     public static final PlatformImplementations IMPLEMENTATIONS;
@@ -124,7 +123,7 @@ public final class PlatformImplementationsKt {
     public static final int getJavaVersion() {
         String property = System.getProperty("java.specification.version");
         if (property != null) {
-            int indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) property, (char) IStringUtil.EXTENSION_SEPARATOR, 0, false, 6, (Object) null);
+            int indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) property, '.', 0, false, 6, (Object) null);
             if (indexOf$default < 0) {
                 try {
                     return Integer.parseInt(property) * 65536;
@@ -133,7 +132,7 @@ public final class PlatformImplementationsKt {
                 }
             }
             int i2 = indexOf$default + 1;
-            int indexOf$default2 = StringsKt__StringsKt.indexOf$default((CharSequence) property, (char) IStringUtil.EXTENSION_SEPARATOR, i2, false, 4, (Object) null);
+            int indexOf$default2 = StringsKt__StringsKt.indexOf$default((CharSequence) property, '.', i2, false, 4, (Object) null);
             if (indexOf$default2 < 0) {
                 indexOf$default2 = property.length();
             }

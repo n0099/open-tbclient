@@ -12,16 +12,16 @@ import java.lang.reflect.Method;
 import java.util.List;
 import javax.net.ssl.SSLParameters;
 import javax.net.ssl.SSLSocket;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class b extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Method f28548a;
+    public final Method f64402a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Method f28549b;
+    public final Method f64403b;
 
     public b(Method method, Method method2) {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public final class b extends e {
                 return;
             }
         }
-        this.f28548a = method;
-        this.f28549b = method2;
+        this.f64402a = method;
+        this.f64403b = method2;
     }
 
     @Override // com.bytedance.sdk.component.b.b.a.g.e
@@ -49,7 +49,7 @@ public final class b extends e {
             try {
                 SSLParameters sSLParameters = sSLSocket.getSSLParameters();
                 List<String> a2 = e.a(list);
-                this.f28548a.invoke(sSLParameters, a2.toArray(new String[a2.size()]));
+                this.f64402a.invoke(sSLParameters, a2.toArray(new String[a2.size()]));
                 sSLSocket.setSSLParameters(sSLParameters);
             } catch (IllegalAccessException | InvocationTargetException e2) {
                 throw com.bytedance.sdk.component.b.b.a.c.a("unable to set ssl parameters", (Exception) e2);
@@ -63,7 +63,7 @@ public final class b extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sSLSocket)) == null) {
             try {
-                String str = (String) this.f28549b.invoke(sSLSocket, new Object[0]);
+                String str = (String) this.f64403b.invoke(sSLSocket, new Object[0]);
                 if (str != null) {
                     if (str.equals("")) {
                         return null;

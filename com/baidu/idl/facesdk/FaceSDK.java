@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.os.Environment;
+import com.baidu.fsg.face.base.b.b;
 import com.baidu.idl.authority.AlgorithmOnMainThreadException;
 import com.baidu.idl.authority.IDLAuthorityException;
 import com.baidu.idl.license.License;
@@ -25,11 +26,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class FaceSDK {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceSDK";
-    public static final String VERSION = "3.0.3.0";
+    public static final String VERSION = "3.0.1.0";
     public static String cdnn_alignmean_path = "";
     public static String cdnn_alignmodel_path = "align_model.binary";
     public static String cdnn_parsingmodel_path1 = "3_class_model";
@@ -46,7 +47,7 @@ public class FaceSDK {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class AlignMethodType {
         public static final /* synthetic */ AlignMethodType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -110,7 +111,7 @@ public class FaceSDK {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class DetectMethodType {
         public static final /* synthetic */ DetectMethodType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -168,7 +169,7 @@ public class FaceSDK {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class ImgType {
         public static final /* synthetic */ ImgType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -226,7 +227,7 @@ public class FaceSDK {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class LivenessAction {
         public static final /* synthetic */ LivenessAction[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -286,7 +287,7 @@ public class FaceSDK {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class LivenessMethodType {
         public static final /* synthetic */ LivenessMethodType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -350,7 +351,7 @@ public class FaceSDK {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class ParsMethodType {
         public static final /* synthetic */ ParsMethodType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -483,6 +484,16 @@ public class FaceSDK {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{assetManager, context, str, str2, str3, alignMethodType, parsMethodType}) == null) {
             synchronized (FaceSDK.class) {
+                File dir = context.getDir(b.f39554g, 0);
+                File file = new File(dir.getAbsolutePath() + File.separator + "libFaceSDK.so");
+                File file2 = new File(dir.getAbsolutePath() + File.separator + "libidl_license.so");
+                if (file.exists() && file2.exists()) {
+                    System.load(file2.getAbsolutePath());
+                    System.load(file.getAbsolutePath());
+                } else {
+                    System.loadLibrary(License.LICENSE_ASSETS_FILE);
+                    System.loadLibrary("FaceSDK");
+                }
                 if (mAuthorityStatus > 48) {
                     new Thread(new Runnable(str2, context, str, str3) { // from class: com.baidu.idl.facesdk.FaceSDK.1
                         public static /* synthetic */ Interceptable $ic;

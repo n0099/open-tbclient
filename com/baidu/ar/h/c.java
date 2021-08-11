@@ -11,8 +11,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.qq.e.comm.constants.ErrorCode;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static String xU = "pro";
@@ -37,7 +36,10 @@ public class c {
     public static int getVersionCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ErrorCode.RENDER_TYPE_POSTYPE_NOTMATCH : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return 5010;
+        }
+        return invokeV.intValue;
     }
 
     public static String getVersionName() {

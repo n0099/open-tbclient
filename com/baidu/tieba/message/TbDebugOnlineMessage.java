@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.DebugCommitMsg.DataReq;
 import protobuf.DebugCommitMsg.DebugCommitMsgReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class TbDebugOnlineMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

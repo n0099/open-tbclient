@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -130,10 +130,10 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
         }
     }
 
-    public void handleFileLengthMessage(long j, String str) {
+    public void handleFileLengthMessage(long j2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j, str) == null) {
-            onFileLengthRec(j, str);
+        if (interceptable == null || interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2, str) == null) {
+            onFileLengthRec(j2, str);
         }
     }
 
@@ -189,10 +189,10 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
         }
     }
 
-    public void handleSuccessMessage(int i2, byte[] bArr, long j) {
+    public void handleSuccessMessage(int i2, byte[] bArr, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), bArr, Long.valueOf(j)}) == null) {
-            onSuccess(i2, bArr, j);
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), bArr, Long.valueOf(j2)}) == null) {
+            onSuccess(i2, bArr, j2);
         }
     }
 
@@ -209,9 +209,9 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
         }
     }
 
-    public void onFileLengthRec(long j, String str) {
+    public void onFileLengthRec(long j2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048591, this, j, str) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048591, this, j2, str) == null) {
         }
     }
 
@@ -221,37 +221,37 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
         }
     }
 
-    public void onSuccess(int i2, byte[] bArr, long j) {
+    public void onSuccess(int i2, byte[] bArr, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), bArr, Long.valueOf(j)}) == null) {
-            onSuccess(bArr, j);
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), bArr, Long.valueOf(j2)}) == null) {
+            onSuccess(bArr, j2);
         }
     }
 
-    public void onSuccess(byte[] bArr, long j) {
+    public void onSuccess(byte[] bArr, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048594, this, bArr, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048594, this, bArr, j2) == null) {
         }
     }
 
     /* JADX DEBUG: Incorrect finally slice size: {[IF, INVOKE, INVOKE, IGET, INVOKE, IPUT, INVOKE, INVOKE, IGET] complete}, expected: {[IF, INVOKE, INVOKE, INVOKE, IPUT, INVOKE, INVOKE] complete} */
     /* JADX WARN: Finally extract failed */
-    public long receiveResponseData(ICommonRequestHandler iCommonRequestHandler, long j, int i2, AsyncHttpRequest asyncHttpRequest) throws IOException {
+    public long receiveResponseData(ICommonRequestHandler iCommonRequestHandler, long j2, int i2, AsyncHttpRequest asyncHttpRequest) throws IOException {
         InterceptResult invokeCommon;
         int read;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{iCommonRequestHandler, Long.valueOf(j), Integer.valueOf(i2), asyncHttpRequest})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{iCommonRequestHandler, Long.valueOf(j2), Integer.valueOf(i2), asyncHttpRequest})) == null) {
             InputStream inputStream = iCommonRequestHandler.getInputStream();
             long contentLength = iCommonRequestHandler.getContentLength();
             ThreadSpeedStat threadSpeedStat = asyncHttpRequest.getThreadSpeedStat();
             if (threadSpeedStat != null) {
-                asyncHttpRequest.setDownStartPos(j);
+                asyncHttpRequest.setDownStartPos(j2);
                 threadSpeedStat.dsize = this.mFileTotalBytes;
             }
             if (inputStream != null) {
                 this.totalLen = contentLength;
                 ByteArrayInfo byteArray = TaskFacade.getInstance(null).getBinaryTaskMng().getByteArrayInfoMng().getByteArray();
-                byteArray.mFilePos = j;
+                byteArray.mFilePos = j2;
                 byteArray.mByteArrayLength = 0;
                 this.mRunning = true;
                 int length = byteArray.mByteArray.length;
@@ -267,23 +267,23 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
                                 System.arraycopy(bArr, 0, byteArray.mByteArray, byteArray.mByteArrayLength, i3);
                                 byteArray.mByteArrayLength += i3;
                                 sendDownloadMessage(byteArray);
-                                j += i3;
+                                j2 += i3;
                                 byteArray = TaskFacade.getInstance(null).getBinaryTaskMng().getByteArrayInfoMng().getByteArray();
-                                byteArray.mFilePos = j;
+                                byteArray.mFilePos = j2;
                                 byteArray.mByteArrayLength = 0;
                             } else {
                                 System.arraycopy(bArr, 0, byteArray.mByteArray, byteArray.mByteArrayLength, i3);
                                 byteArray.mByteArrayLength += i3;
-                                j += i3;
+                                j2 += i3;
                             }
                             if (i3 < read) {
                                 int i4 = read - i3;
                                 System.arraycopy(bArr, i3, byteArray.mByteArray, byteArray.mByteArrayLength, i4);
                                 byteArray.mByteArrayLength += i4;
-                                j += i4;
+                                j2 += i4;
                             }
                             if (threadSpeedStat != null) {
-                                threadSpeedStat.dTempDownSize = j;
+                                threadSpeedStat.dTempDownSize = j2;
                             }
                         } catch (IOException e2) {
                             throw e2;
@@ -311,12 +311,12 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
                     threadSpeedStat.dend += threadSpeedStat.dTempDownSize;
                     threadSpeedStat.dTempDownSize = 0L;
                 }
-                sendSuccessMessage(i2, null, j);
+                sendSuccessMessage(i2, null, j2);
             }
             if (this.mTrunked) {
                 this.mRunning = false;
             }
-            return j;
+            return j2;
         }
         return invokeCommon.longValue;
     }
@@ -373,8 +373,8 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
 
     public long sendResponseMessage(ICommonRequestHandler iCommonRequestHandler, AsyncHttpRequest asyncHttpRequest) throws IOException {
         InterceptResult invokeLL;
-        long j;
         long j2;
+        long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, iCommonRequestHandler, asyncHttpRequest)) == null) {
             int httpStatus = iCommonRequestHandler.getHttpStatus();
@@ -391,12 +391,12 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
             if (onGetResponseHeader != null) {
                 Matcher matcher = mContentRangPattern.matcher(onGetResponseHeader);
                 if (matcher.matches()) {
-                    j2 = Long.valueOf(matcher.group(2)).longValue();
+                    j3 = Long.valueOf(matcher.group(2)).longValue();
                     this.mFileTotalBytes = Long.valueOf(matcher.group(3)).longValue();
                 } else {
-                    j2 = 0;
+                    j3 = 0;
                 }
-                j = j2;
+                j2 = j3;
             } else {
                 this.mSupportRange = false;
                 String onGetHttpHeader2 = iCommonRequestHandler.onGetHttpHeader(false);
@@ -405,7 +405,7 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
                 if (onGetResponseHeader2 != null) {
                     this.mFileTotalBytes = Long.valueOf(onGetResponseHeader2).longValue();
                 }
-                j = 0;
+                j2 = 0;
             }
             if (this.mFileTotalBytes > 0) {
                 sendFileLengthMessage();
@@ -420,16 +420,16 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
                 String onGetHttpHeader3 = iCommonRequestHandler.onGetHttpHeader(false);
                 throw new IOException("Oops! content-length illegal : \n" + onGetHttpHeader3.toString());
             }
-            return receiveResponseData(iCommonRequestHandler, j, httpStatus, asyncHttpRequest);
+            return receiveResponseData(iCommonRequestHandler, j2, httpStatus, asyncHttpRequest);
         }
         return invokeLL.longValue;
     }
 
     @Override // com.baidu.down.loopj.android.http.AsyncHttpResponseHandler
-    public void sendSuccessMessage(int i2, String str, long j) {
+    public void sendSuccessMessage(int i2, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j)}) == null) {
-            sendMessage(obtainMessage(0, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j)}));
+        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)}) == null) {
+            sendMessage(obtainMessage(0, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)}));
         }
     }
 

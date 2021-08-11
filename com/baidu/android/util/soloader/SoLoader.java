@@ -32,7 +32,7 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class SoLoader implements NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -269,11 +269,8 @@ public final class SoLoader implements NoProGuard {
                         return entry.getSize();
                     }
                     return 0L;
-                } catch (Exception e2) {
-                    if (DEBUG) {
-                        Log.e("SoLoader", "SoLoader getSoSize exception.", e2);
-                        return 0L;
-                    }
+                } catch (Exception unused) {
+                    boolean z = DEBUG;
                     return 0L;
                 }
             }
@@ -285,9 +282,7 @@ public final class SoLoader implements NoProGuard {
     private void initSoSource(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, context) == null) {
-            if (DEBUG) {
-                Log.d("SoLoader", "initSoSource is called");
-            }
+            boolean z = DEBUG;
             addSysSoLibraryDirectory();
             addLocalSoLibraryDirectory(context);
         }
@@ -413,9 +408,7 @@ public final class SoLoader implements NoProGuard {
                 iCallingSoLoader.loadLibrary(simpleName);
                 return true;
             } catch (Throwable th) {
-                if (DEBUG) {
-                    Log.e("SoLoader", "SoLoader load exception.", th);
-                }
+                boolean z = DEBUG;
                 StringBuilder sb = this.sb;
                 sb.append(str2 + ":::" + simpleName + ":" + Log.getStackTraceString(th));
                 return false;
@@ -424,8 +417,8 @@ public final class SoLoader implements NoProGuard {
         return invokeLLL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:77:0x008c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x0082 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x0075 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x007f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -460,18 +453,15 @@ public final class SoLoader implements NoProGuard {
                                     return renameTo;
                                 }
                                 inputStream = inputStream2;
-                            } catch (Exception e4) {
-                                e = e4;
+                            } catch (Exception unused) {
                                 inputStream = inputStream2;
                                 try {
-                                    if (DEBUG) {
-                                        Log.e("SoLoader", "SoLoader releaseFileFromApk exception.", e);
-                                    }
+                                    boolean z = DEBUG;
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
-                                        } catch (Exception e5) {
-                                            e5.printStackTrace();
+                                        } catch (Exception e4) {
+                                            e4.printStackTrace();
                                         }
                                     }
                                     if (fileOutputStream != null) {
@@ -484,15 +474,15 @@ public final class SoLoader implements NoProGuard {
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
-                                        } catch (Exception e6) {
-                                            e6.printStackTrace();
+                                        } catch (Exception e5) {
+                                            e5.printStackTrace();
                                         }
                                     }
                                     if (fileOutputStream != null) {
                                         try {
                                             fileOutputStream.close();
-                                        } catch (Exception e7) {
-                                            e7.printStackTrace();
+                                        } catch (Exception e6) {
+                                            e6.printStackTrace();
                                         }
                                     }
                                     throw th;
@@ -506,15 +496,13 @@ public final class SoLoader implements NoProGuard {
                                 }
                                 throw th;
                             }
-                        } catch (Exception e8) {
-                            e = e8;
+                        } catch (Exception unused2) {
                             fileOutputStream = null;
                         } catch (Throwable th3) {
                             th = th3;
                             fileOutputStream = null;
                         }
-                    } catch (Exception e9) {
-                        e = e9;
+                    } catch (Exception unused3) {
                         fileOutputStream = null;
                     } catch (Throwable th4) {
                         th = th4;
@@ -526,8 +514,8 @@ public final class SoLoader implements NoProGuard {
                 if (inputStream != null) {
                     try {
                         inputStream.close();
-                    } catch (Exception e10) {
-                        e10.printStackTrace();
+                    } catch (Exception e7) {
+                        e7.printStackTrace();
                     }
                 }
                 if (fileOutputStream != null) {
@@ -535,8 +523,8 @@ public final class SoLoader implements NoProGuard {
                     return false;
                 }
                 return false;
-            } catch (Exception e11) {
-                e11.printStackTrace();
+            } catch (Exception e8) {
+                e8.printStackTrace();
                 return false;
             }
         }
@@ -548,7 +536,7 @@ public final class SoLoader implements NoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
             if (DEBUG) {
-                Log.d("SoLoader", "unpackLibDep is called, shortName=" + str);
+                String str2 = "unpackLibDep is called, shortName=" + str;
             }
             String fullName = SoUtils.getFullName(str);
             try {
@@ -557,7 +545,7 @@ public final class SoLoader implements NoProGuard {
                 }
                 File file = new File(soSources.get(0), fullName);
                 if (DEBUG) {
-                    Log.d("SoLoader", "unpackLibDep soFile path is: " + file.getAbsolutePath());
+                    String str3 = "unpackLibDep soFile path is: " + file.getAbsolutePath();
                 }
                 return file;
             } catch (Exception e2) {
@@ -608,9 +596,7 @@ public final class SoLoader implements NoProGuard {
                 iCallingSoLoader.load(str2);
                 return true;
             } catch (Throwable th) {
-                if (DEBUG) {
-                    Log.e("SoLoader", "SoLoader load exception.", th);
-                }
+                boolean z = DEBUG;
                 StringBuilder sb = this.sb;
                 sb.append(str3 + ":::" + str2 + ":" + Log.getStackTraceString(th));
                 return false;

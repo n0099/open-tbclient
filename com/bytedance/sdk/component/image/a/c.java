@@ -9,12 +9,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final TimeUnit f28864a;
+    public static final TimeUnit f64726a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,14 +30,14 @@ public class c {
                 return;
             }
         }
-        f28864a = TimeUnit.SECONDS;
+        f64726a = TimeUnit.SECONDS;
     }
 
     public static ExecutorService a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 2, 30L, f28864a, new LinkedBlockingQueue(), new a("default"));
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 2, 30L, f64726a, new LinkedBlockingQueue(), new a("default"));
             threadPoolExecutor.allowCoreThreadTimeOut(true);
             return threadPoolExecutor;
         }

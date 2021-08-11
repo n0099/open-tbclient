@@ -1,5 +1,6 @@
 package com.baidu.tieba.homepage.topic.topicdetail.message;
 
+import c.a.o0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -8,18 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.b1.w;
 import tbclient.CommonReq;
 import tbclient.NewHottopic.DataReq;
 import tbclient.NewHottopic.NewHottopicReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RequestGetTopicDetailMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String callFrom;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f16956common;
+    public CommonReq f52189common;
     public long topicId;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -47,7 +47,7 @@ public class RequestGetTopicDetailMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f74057common = this.f16956common;
+            builder.f79366common = this.f52189common;
             builder.topic_id = Long.valueOf(this.topicId);
             builder.call_from = this.callFrom;
             if (z) {
@@ -70,14 +70,14 @@ public class RequestGetTopicDetailMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f16956common = commonReq;
+            this.f52189common = commonReq;
         }
     }
 
-    public void setTopicId(long j) {
+    public void setTopicId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.topicId = j;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.topicId = j2;
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tbadk.coreExtra.message;
 
+import c.a.e.e.p.k;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,45 +11,46 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f12866a;
+        public boolean f47847a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f12867b;
+        public String f47848b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12868c;
+        public String f47849c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f12869d;
+        public boolean f47850d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f12870e;
+        public boolean f47851e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f12871f;
+        public boolean f47852f;
 
         /* renamed from: g  reason: collision with root package name */
-        public HttpResponse f12872g;
+        public HttpResponse f47853g;
 
         /* renamed from: h  reason: collision with root package name */
-        public JSONObject f12873h;
+        public JSONObject f47854h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f12874i;
-        public boolean j;
+        public boolean f47855i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public boolean f47856j;
         public String k;
         public BlockPopInfoData l;
         public int m;
@@ -66,8 +68,8 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                     return;
                 }
             }
-            this.f12870e = false;
-            this.f12871f = false;
+            this.f47851e = false;
+            this.f47852f = false;
             this.m = 0;
         }
 
@@ -98,7 +100,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f12873h = jSONObject;
+                this.f47854h = jSONObject;
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject == null) {
                     return;
@@ -142,7 +144,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f12869d;
+            return getData().f47850d;
         }
         return invokeV.booleanValue;
     }
@@ -154,7 +156,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f12871f;
+            return getData().f47852f;
         }
         return invokeV.booleanValue;
     }
@@ -166,7 +168,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f12866a;
+            return getData().f47847a;
         }
         return invokeV.booleanValue;
     }

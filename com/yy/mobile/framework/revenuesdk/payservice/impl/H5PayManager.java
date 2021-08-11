@@ -25,7 +25,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.request.GetChargeOrderStatusReq
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class H5PayManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CODE_FAIL = 2;

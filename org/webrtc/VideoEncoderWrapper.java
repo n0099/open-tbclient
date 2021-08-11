@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.VideoEncoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class VideoEncoderWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,10 +29,10 @@ public class VideoEncoderWrapper {
     }
 
     @CalledByNative
-    public static VideoEncoder.Callback createEncoderCallback(final long j) {
+    public static VideoEncoder.Callback createEncoderCallback(final long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) ? new VideoEncoder.Callback() { // from class: org.webrtc._$$Lambda$VideoEncoderWrapper$dRHADZXMoanHTOdEf2Act96Dzi0
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j2)) == null) ? new VideoEncoder.Callback() { // from class: org.webrtc._$$Lambda$VideoEncoderWrapper$dRHADZXMoanHTOdEf2Act96Dzi0
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,7 +40,7 @@ public class VideoEncoderWrapper {
             public final void onEncodedFrame(EncodedImage encodedImage, VideoEncoder.CodecSpecificInfo codecSpecificInfo) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, encodedImage, codecSpecificInfo) == null) {
-                    VideoEncoderWrapper.nativeOnEncodedFrame(j, encodedImage.buffer, encodedImage.encodedWidth, encodedImage.encodedHeight, encodedImage.captureTimeNs, encodedImage.frameType.getNative(), encodedImage.rotation, encodedImage.completeFrame, encodedImage.qp);
+                    VideoEncoderWrapper.nativeOnEncodedFrame(j2, encodedImage.buffer, encodedImage.encodedWidth, encodedImage.encodedHeight, encodedImage.captureTimeNs, encodedImage.frameType.getNative(), encodedImage.rotation, encodedImage.completeFrame, encodedImage.qp);
                 }
             }
         } : (VideoEncoder.Callback) invokeJ.objValue;
@@ -69,5 +69,5 @@ public class VideoEncoderWrapper {
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, scalingSettings)) == null) ? scalingSettings.on : invokeL.booleanValue;
     }
 
-    public static native void nativeOnEncodedFrame(long j, ByteBuffer byteBuffer, int i2, int i3, long j2, int i4, int i5, boolean z, Integer num);
+    public static native void nativeOnEncodedFrame(long j2, ByteBuffer byteBuffer, int i2, int i3, long j3, int i4, int i5, boolean z, Integer num);
 }

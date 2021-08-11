@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ProcessUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MESSAGE_PROCESS_SERVICE_SUFFIX = ":pushservice";

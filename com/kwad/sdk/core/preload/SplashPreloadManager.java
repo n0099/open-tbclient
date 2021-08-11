@@ -32,31 +32,31 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class SplashPreloadManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, PreLoadItem> f35015a;
+    public HashMap<String, PreLoadItem> f71763a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f35016b;
+    public List<String> f71764b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile SharedPreferences f35017c;
+    public volatile SharedPreferences f71765c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f35018d;
+    public final Object f71766d;
 
     /* renamed from: com.kwad.sdk.core.preload.SplashPreloadManager$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class PreLoadItem extends com.kwad.sdk.core.response.a.a implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class SplashPreloadManager {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class PreLoadPara extends com.kwad.sdk.core.response.a.a implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,12 +101,12 @@ public class SplashPreloadManager {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final SplashPreloadManager f35019a;
+        public static final SplashPreloadManager f71767a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -122,7 +122,7 @@ public class SplashPreloadManager {
                     return;
                 }
             }
-            f35019a = new SplashPreloadManager(null);
+            f71767a = new SplashPreloadManager(null);
         }
     }
 
@@ -139,9 +139,9 @@ public class SplashPreloadManager {
                 return;
             }
         }
-        this.f35018d = new Object();
-        this.f35015a = new HashMap<>();
-        this.f35016b = new ArrayList();
+        this.f71766d = new Object();
+        this.f71763a = new HashMap<>();
+        this.f71764b = new ArrayList();
         a();
     }
 
@@ -157,14 +157,14 @@ public class SplashPreloadManager {
             preLoadItem.cacheTime = System.currentTimeMillis();
             preLoadItem.expiredTime = System.currentTimeMillis() + (adInfo.adPreloadInfo.validityPeriod * 1000);
             preLoadItem.preloadId = com.kwad.sdk.core.response.b.a.D(adInfo);
-            synchronized (this.f35018d) {
-                this.f35015a.put(adInfo.adPreloadInfo.preloadId, preLoadItem);
-                if (!this.f35016b.contains(adInfo.adPreloadInfo.preloadId)) {
-                    this.f35016b.add(adInfo.adPreloadInfo.preloadId);
+            synchronized (this.f71766d) {
+                this.f71763a.put(adInfo.adPreloadInfo.preloadId, preLoadItem);
+                if (!this.f71764b.contains(adInfo.adPreloadInfo.preloadId)) {
+                    this.f71764b.add(adInfo.adPreloadInfo.preloadId);
                 }
             }
-            if (this.f35017c != null) {
-                SharedPreferences.Editor edit = this.f35017c.edit();
+            if (this.f71765c != null) {
+                SharedPreferences.Editor edit = this.f71765c.edit();
                 edit.putString(adInfo.adPreloadInfo.preloadId, preLoadItem.toJson().toString());
                 edit.apply();
             }
@@ -176,8 +176,8 @@ public class SplashPreloadManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            SplashPreloadManager splashPreloadManager = a.f35019a;
-            if (splashPreloadManager.f35017c == null) {
+            SplashPreloadManager splashPreloadManager = a.f71767a;
+            if (splashPreloadManager.f71765c == null) {
                 splashPreloadManager.a();
             }
             return splashPreloadManager;
@@ -208,7 +208,7 @@ public class SplashPreloadManager {
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            Map<String, ?> all = this.f35017c.getAll();
+            Map<String, ?> all = this.f71765c.getAll();
             ArrayList<String> arrayList = new ArrayList();
             for (String str : all.keySet()) {
                 PreLoadItem preLoadItem = new PreLoadItem();
@@ -222,10 +222,10 @@ public class SplashPreloadManager {
                                 arrayList.add(preLoadItem.preloadId);
                                 com.kwad.sdk.core.d.a.a("PreloadManager", "Remove null file list " + preLoadItem.preloadId);
                             } else {
-                                synchronized (this.f35018d) {
-                                    this.f35015a.put(str, preLoadItem);
-                                    if (!this.f35016b.contains(str)) {
-                                        this.f35016b.add(str);
+                                synchronized (this.f71766d) {
+                                    this.f71763a.put(str, preLoadItem);
+                                    if (!this.f71764b.contains(str)) {
+                                        this.f71764b.add(str);
                                     }
                                 }
                             }
@@ -235,7 +235,7 @@ public class SplashPreloadManager {
                     com.kwad.sdk.core.d.a.a(e2);
                 }
             }
-            SharedPreferences.Editor edit = this.f35017c.edit();
+            SharedPreferences.Editor edit = this.f71765c.edit();
             for (String str3 : arrayList) {
                 edit.remove(str3);
             }
@@ -248,42 +248,42 @@ public class SplashPreloadManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            synchronized (this.f35018d) {
+            synchronized (this.f71766d) {
                 ArrayList<String> arrayList = new ArrayList();
-                for (String str : this.f35015a.keySet()) {
-                    PreLoadItem preLoadItem = this.f35015a.get(str);
+                for (String str : this.f71763a.keySet()) {
+                    PreLoadItem preLoadItem = this.f71763a.get(str);
                     if (preLoadItem != null && preLoadItem.expiredTime < currentTimeMillis) {
                         arrayList.add(str);
                     }
                 }
-                SharedPreferences.Editor edit = this.f35017c.edit();
+                SharedPreferences.Editor edit = this.f71765c.edit();
                 for (String str2 : arrayList) {
-                    this.f35016b.remove(str2);
-                    this.f35015a.remove(str2);
+                    this.f71764b.remove(str2);
+                    this.f71763a.remove(str2);
                     edit.remove(str2);
                     com.kwad.sdk.core.diskcache.b.a.a().c(str2);
                 }
                 edit.apply();
-                size = this.f35016b.size();
+                size = this.f71764b.size();
             }
             if (size > 30) {
                 com.kwad.sdk.core.d.a.a("PreloadManager", "大于 30 按失效日期远近顺序移除");
                 int i2 = size - 15;
                 for (int i3 = 0; i3 < i2; i3++) {
-                    long j = Long.MAX_VALUE;
+                    long j2 = Long.MAX_VALUE;
                     String str3 = "";
-                    synchronized (this.f35018d) {
-                        for (PreLoadItem preLoadItem2 : this.f35015a.values()) {
-                            if (preLoadItem2.expiredTime < j) {
-                                j = preLoadItem2.expiredTime;
+                    synchronized (this.f71766d) {
+                        for (PreLoadItem preLoadItem2 : this.f71763a.values()) {
+                            if (preLoadItem2.expiredTime < j2) {
+                                j2 = preLoadItem2.expiredTime;
                                 str3 = preLoadItem2.preloadId;
                             }
                         }
                         if (!TextUtils.isEmpty(str3)) {
-                            this.f35016b.remove(str3);
-                            this.f35015a.remove(str3);
-                            this.f35017c.edit().remove(str3).apply();
-                            com.kwad.sdk.core.d.a.a("PreloadManager", "移除 preloadId = " + str3 + " expiredTime =  " + j);
+                            this.f71764b.remove(str3);
+                            this.f71763a.remove(str3);
+                            this.f71765c.edit().remove(str3).apply();
+                            com.kwad.sdk.core.d.a.a("PreloadManager", "移除 preloadId = " + str3 + " expiredTime =  " + j2);
                         }
                     }
                     if (!TextUtils.isEmpty(str3)) {
@@ -308,7 +308,7 @@ public class SplashPreloadManager {
                 AdTemplate next = it.next();
                 if (next != null) {
                     for (AdInfo adInfo : next.adInfoList) {
-                        if (adInfo.adPreloadInfo != null && this.f35017c != null) {
+                        if (adInfo.adPreloadInfo != null && this.f71765c != null) {
                             if (!b(adInfo.adPreloadInfo.preloadId)) {
                                 String a2 = com.kwad.sdk.core.response.b.a.F(adInfo) ? com.kwad.sdk.core.response.b.a.a(adInfo) : com.kwad.sdk.core.response.b.a.G(adInfo) ? com.kwad.sdk.core.response.b.a.B(adInfo).materialUrl : null;
                                 if (!TextUtils.isEmpty(a2)) {
@@ -318,7 +318,7 @@ public class SplashPreloadManager {
                                         e();
                                         c.a aVar = new c.a();
                                         if (!g.a(a2, D, aVar)) {
-                                            d.a(next, 1, aVar.f34469a);
+                                            d.a(next, 1, aVar.f71207a);
                                         }
                                     }
                                 }
@@ -361,7 +361,7 @@ public class SplashPreloadManager {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (context = KsAdSDK.getContext()) == null) {
             return;
         }
-        this.f35017c = context.getSharedPreferences("ksadsdk_splash_preload_id_list", 0);
+        this.f71765c = context.getSharedPreferences("ksadsdk_splash_preload_id_list", 0);
         d();
     }
 
@@ -384,8 +384,8 @@ public class SplashPreloadManager {
                         PreLoadPara preLoadPara = new PreLoadPara();
                         preLoadPara.isValidReturned = z ? 1 : 0;
                         if (z) {
-                            synchronized (this.f35018d) {
-                                preLoadItem = this.f35015a.get(D);
+                            synchronized (this.f71766d) {
+                                preLoadItem = this.f71763a.get(D);
                             }
                             if (preLoadItem != null) {
                                 preLoadPara.spreadTime = preLoadItem.cacheTime;
@@ -422,10 +422,10 @@ public class SplashPreloadManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            synchronized (this.f35018d) {
+            synchronized (this.f71766d) {
                 com.kwad.sdk.core.d.a.a("PreloadManager", "getPreloadIdList start ");
-                for (int i2 = 0; i2 < this.f35016b.size(); i2++) {
-                    String str = this.f35016b.get(i2);
+                for (int i2 = 0; i2 < this.f71764b.size(); i2++) {
+                    String str = this.f71764b.get(i2);
                     File b2 = com.kwad.sdk.core.diskcache.b.a.a().b(str);
                     if (b2 != null && b2.exists()) {
                         arrayList.add(str);
@@ -433,7 +433,7 @@ public class SplashPreloadManager {
                 }
                 com.kwad.sdk.core.d.a.a("PreloadManager", "getPreloadIdList end ");
             }
-            com.kwad.sdk.core.d.a.a("PreloadManager", "getPreloadIdList " + this.f35016b.size());
+            com.kwad.sdk.core.d.a.a("PreloadManager", "getPreloadIdList " + this.f71764b.size());
             return arrayList;
         }
         return (List) invokeV.objValue;

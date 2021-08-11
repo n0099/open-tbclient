@@ -2,26 +2,27 @@ package com.baidu.swan.apps.res.ui.pullrefresh;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.animation.TranslateAnimation;
+import c.a.n0.a.c;
+import c.a.n0.a.c1.a;
+import c.a.n0.a.e;
+import c.a.n0.a.v2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.c;
-import d.a.o0.a.c1.a;
-import d.a.o0.a.e;
-import d.a.o0.a.v2.n0;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean isInited;
     public boolean r;
-    public boolean s;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public HeaderRefreshIndicator(Context context) {
-        this(context, null);
+        this(context, (AttributeSet) null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,36 +41,32 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
         }
     }
 
-    public void i() {
+    public void changeTheme(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.r) {
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        }
+    }
+
+    public void initIfNeed() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.isInited) {
             return;
         }
-        this.r = true;
-        this.s = a.H().a();
-        j();
+        this.isInited = true;
+        this.r = a.H().a();
+        initResources();
         setTextSize(1, 11.0f);
         setCompoundDrawablePadding(n0.f(getContext(), 5.0f));
-        b(0);
+        initCornerRadius(0);
     }
 
-    public void j() {
+    public void initResources() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setBackground(getResources().getDrawable(e.aiapps_pull_refresh_success_tip_bg));
             setTextColor(getResources().getColor(c.aiapps_pull_refresh_result_text_color));
-            c(getResources().getDrawable(e.aiapps_pull_refresh_success_tip_icon), 0, n0.f(getContext(), 11.0f), n0.f(getContext(), 11.0f));
+            initDrawable(getResources().getDrawable(e.aiapps_pull_refresh_success_tip_icon), 0, n0.f(getContext(), 11.0f), n0.f(getContext(), 11.0f));
         }
-    }
-
-    public void k() {
-        boolean a2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.s == (a2 = a.H().a())) {
-            return;
-        }
-        j();
-        this.s = a2;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -77,7 +74,7 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onAttachedToWindow();
-            k();
+            resetTheme();
         }
     }
 
@@ -86,6 +83,47 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
+        }
+    }
+
+    public void resetTheme() {
+        boolean a2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.r == (a2 = a.H().a())) {
+            return;
+        }
+        initResources();
+        this.r = a2;
+    }
+
+    public void startAnim() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, 0.0f, getHeight(), 0.0f);
+            translateAnimation.setDuration(280L);
+            setAnimation(translateAnimation);
+            translateAnimation.startNow();
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public HeaderRefreshIndicator(Context context, boolean z) {
+        this(context, null, z);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
         }
     }
 
@@ -108,7 +146,30 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
                 return;
             }
         }
+        this.isInited = false;
         this.r = false;
-        this.s = false;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public HeaderRefreshIndicator(Context context, AttributeSet attributeSet, boolean z) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.isInited = false;
+        this.r = false;
     }
 }

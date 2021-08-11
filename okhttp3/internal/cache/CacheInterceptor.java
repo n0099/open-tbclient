@@ -30,7 +30,7 @@ import okio.Source;
 import okio.Timeout;
 import org.apache.http.auth.AUTH;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class CacheInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -105,12 +105,12 @@ public final class CacheInterceptor implements Interceptor {
                 }
 
                 @Override // okio.Source
-                public long read(Buffer buffer, long j) throws IOException {
+                public long read(Buffer buffer, long j2) throws IOException {
                     InterceptResult invokeLJ;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
+                    if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
                         try {
-                            long read = this.val$source.read(buffer, j);
+                            long read = this.val$source.read(buffer, j2);
                             if (read == -1) {
                                 if (!this.cacheRequestClosed) {
                                     this.cacheRequestClosed = true;

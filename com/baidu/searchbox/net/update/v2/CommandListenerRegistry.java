@@ -1,7 +1,6 @@
 package com.baidu.searchbox.net.update.v2;
 
 import android.content.Context;
-import android.util.Log;
 import android.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class CommandListenerRegistry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CommandListenerRegistry";
@@ -73,7 +72,7 @@ public final class CommandListenerRegistry {
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         if (AppConfig.isDebug()) {
-                            Log.e(TAG, "addPostData error " + e2.getMessage());
+                            String str = "addPostData error " + e2.getMessage();
                         }
                     }
                 }

@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.pubaccount;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public interface IAcceptMsgChangeListener {
-    void onAcceptMsgChange(int i2, long j, boolean z);
+    void onAcceptMsgChange(int i2, long j2, boolean z);
 }

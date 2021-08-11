@@ -13,21 +13,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.dialog.WalletDialog;
 import com.baidu.wallet.base.widget.dialog.binding.ImageDialogBinding;
 import com.baidu.wallet.base.widget.dialog.model.ImageDialogModel;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class ImageDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageDialogModel f24666a;
+    public ImageDialogModel f60373a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class BaseHolder extends WalletDialog.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImageDialogAdapter f24667a;
+        public final /* synthetic */ ImageDialogAdapter f60374a;
         public final ImageDialogBinding binding;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,7 +48,7 @@ public class ImageDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
                     return;
                 }
             }
-            this.f24667a = imageDialogAdapter;
+            this.f60374a = imageDialogAdapter;
             this.binding = imageDialogBinding;
         }
     }
@@ -68,7 +68,7 @@ public class ImageDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
                 return;
             }
         }
-        this.f24666a = imageDialogModel;
+        this.f60373a = imageDialogModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class ImageDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
     public void onBindViewHolder(BaseHolder baseHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseHolder) == null) {
-            baseHolder.binding.setViewModel(this.f24666a);
+            baseHolder.binding.setViewModel(this.f60373a);
         }
     }
 

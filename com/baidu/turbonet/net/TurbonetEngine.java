@@ -2,8 +2,8 @@ package com.baidu.turbonet.net;
 
 import android.content.Context;
 import android.os.Environment;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import c.a.q0.b.c;
 import com.alipay.sdk.cons.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.net.UrlRequest;
-import d.a.r0.b.c;
 import java.io.File;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -24,13 +23,13 @@ import java.util.Collection;
 import java.util.concurrent.Executor;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public abstract class TurbonetEngine {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class AppState {
         public static final /* synthetic */ AppState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -89,49 +88,51 @@ public abstract class TurbonetEngine {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Context f23380a;
+        public final Context f59105a;
 
         /* renamed from: b  reason: collision with root package name */
-        public LibraryLoader f23381b;
+        public LibraryLoader f59106b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f23382c;
+        public String f59107c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f23383d;
+        public String f59108d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f23384e;
+        public boolean f59109e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f23385f;
+        public boolean f59110f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f23386g;
+        public String f59111g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f23387h;
+        public boolean f59112h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f23388i;
-        public long j;
+        public int f59113i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public long f59114j;
         public String k;
         public boolean l;
         public JSONObject m;
         public String n;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes4.dex */
+        /* loaded from: classes8.dex */
         public @interface HttpCacheSetting {
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes8.dex */
         public static abstract class LibraryLoader {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -168,7 +169,7 @@ public abstract class TurbonetEngine {
                     return;
                 }
             }
-            this.f23380a = context;
+            this.f59105a = context;
             t("turbonet");
             this.m = new JSONObject();
             d(false);
@@ -186,18 +187,11 @@ public abstract class TurbonetEngine {
 
         public TurbonetEngine b() {
             InterceptResult invokeV;
-            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (Environment.getExternalStorageState().equals("mounted")) {
-                    str = Environment.getExternalStorageDirectory().getPath();
-                } else {
-                    Log.e("chromium", "SD card is not mounted correctly");
-                    str = "";
-                }
-                s(SchemeCollecter.CLASSIFY_BASE, "config_path", str);
+                s(SchemeCollecter.CLASSIFY_BASE, "config_path", Environment.getExternalStorageState().equals("mounted") ? Environment.getExternalStorageDirectory().getPath() : "");
                 if (j() == null) {
-                    v(c.a(this.f23380a));
+                    v(c.a(this.f59105a));
                 }
                 return TurbonetEngine.c(this);
             }
@@ -207,7 +201,7 @@ public abstract class TurbonetEngine {
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23387h : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59112h : invokeV.booleanValue;
         }
 
         public Builder d(boolean z) {
@@ -215,7 +209,7 @@ public abstract class TurbonetEngine {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
                 s(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
-                this.f23384e = z;
+                this.f59109e = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -254,47 +248,47 @@ public abstract class TurbonetEngine {
         public Context i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f23380a : (Context) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59105a : (Context) invokeV.objValue;
         }
 
         public String j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f23383d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f59108d : (String) invokeV.objValue;
         }
 
         public boolean k() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f23384e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f59109e : invokeV.booleanValue;
         }
 
         public long l() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.j : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f59114j : invokeV.longValue;
         }
 
         public int m() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f23388i : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f59113i : invokeV.intValue;
         }
 
         public void n() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-                LibraryLoader libraryLoader = this.f23381b;
+                LibraryLoader libraryLoader = this.f59106b;
                 if (libraryLoader == null) {
-                    if (this.f23382c.equals("turbonet")) {
-                        System.loadLibrary(this.f23382c);
+                    if (this.f59107c.equals("turbonet")) {
+                        System.loadLibrary(this.f59107c);
                         return;
                     } else {
-                        System.load(this.f23382c);
+                        System.load(this.f59107c);
                         return;
                     }
                 }
-                libraryLoader.a(this.f23382c);
+                libraryLoader.a(this.f59107c);
             }
         }
 
@@ -307,7 +301,7 @@ public abstract class TurbonetEngine {
         public boolean p() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f23385f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f59110f : invokeV.booleanValue;
         }
 
         public Builder q(String str) {
@@ -350,7 +344,7 @@ public abstract class TurbonetEngine {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
-                this.f23382c = str;
+                this.f59107c = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -361,7 +355,7 @@ public abstract class TurbonetEngine {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
                 if (new File(str).isDirectory()) {
-                    this.f23386g = str;
+                    this.f59111g = str;
                     return this;
                 }
                 throw new IllegalArgumentException("Storage path must be set to existing directory");
@@ -373,8 +367,8 @@ public abstract class TurbonetEngine {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
-                s(SchemeCollecter.CLASSIFY_BASE, b.f1875b, str);
-                this.f23383d = str;
+                s(SchemeCollecter.CLASSIFY_BASE, b.f35719b, str);
+                this.f59108d = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -383,12 +377,12 @@ public abstract class TurbonetEngine {
         public String w() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f23386g : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f59111g : (String) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class QUICConnectStatus {
         public static final /* synthetic */ QUICConnectStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -449,12 +443,12 @@ public abstract class TurbonetEngine {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public interface RequestFinishedListener {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class TCPNetworkQualityStatus {
         public static final /* synthetic */ TCPNetworkQualityStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -515,13 +509,13 @@ public abstract class TurbonetEngine {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class UrlRequestInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class UrlRequestMetrics {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -575,5 +569,5 @@ public abstract class TurbonetEngine {
 
     public abstract boolean f();
 
-    public abstract void g(String str, String str2, int i2, int i3, long j, long j2, long j3, long j4);
+    public abstract void g(String str, String str2, int i2, int i3, long j2, long j3, long j4, long j5);
 }

@@ -2,7 +2,6 @@ package androidx.loader.app;
 
 import android.os.Bundle;
 import android.os.Looper;
-import android.util.Log;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -82,7 +81,7 @@ public class LoaderManagerImpl extends LoaderManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
                 if (LoaderManagerImpl.DEBUG) {
-                    Log.v("LoaderManager", "  Destroying: " + this);
+                    String str = "  Destroying: " + this;
                 }
                 this.mLoader.cancelLoad();
                 this.mLoader.abandon();
@@ -164,7 +163,7 @@ public class LoaderManagerImpl extends LoaderManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 if (LoaderManagerImpl.DEBUG) {
-                    Log.v("LoaderManager", "  Starting: " + this);
+                    String str = "  Starting: " + this;
                 }
                 this.mLoader.startLoading();
             }
@@ -175,7 +174,7 @@ public class LoaderManagerImpl extends LoaderManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 if (LoaderManagerImpl.DEBUG) {
-                    Log.v("LoaderManager", "  Stopping: " + this);
+                    String str = "  Stopping: " + this;
                 }
                 this.mLoader.stopLoading();
             }
@@ -186,15 +185,13 @@ public class LoaderManagerImpl extends LoaderManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048583, this, loader, d2) == null) {
                 if (LoaderManagerImpl.DEBUG) {
-                    Log.v("LoaderManager", "onLoadComplete: " + this);
+                    String str = "onLoadComplete: " + this;
                 }
                 if (Looper.myLooper() == Looper.getMainLooper()) {
                     setValue(d2);
                     return;
                 }
-                if (LoaderManagerImpl.DEBUG) {
-                    Log.w("LoaderManager", "onLoadComplete was incorrectly called on a background thread");
-                }
+                boolean z = LoaderManagerImpl.DEBUG;
                 postValue(d2);
             }
         }
@@ -311,7 +308,7 @@ public class LoaderManagerImpl extends LoaderManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2) == null) {
                 if (LoaderManagerImpl.DEBUG) {
-                    Log.v("LoaderManager", "  onLoadFinished in " + this.mLoader + ": " + this.mLoader.dataToString(d2));
+                    String str = "  onLoadFinished in " + this.mLoader + ": " + this.mLoader.dataToString(d2);
                 }
                 this.mCallback.onLoadFinished(this.mLoader, d2);
                 this.mDeliveredData = true;
@@ -323,7 +320,7 @@ public class LoaderManagerImpl extends LoaderManager {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.mDeliveredData) {
                 if (LoaderManagerImpl.DEBUG) {
-                    Log.v("LoaderManager", "  Resetting: " + this.mLoader);
+                    String str = "  Resetting: " + this.mLoader;
                 }
                 this.mCallback.onLoaderReset(this.mLoader);
             }
@@ -556,7 +553,7 @@ public class LoaderManagerImpl extends LoaderManager {
                     }
                     LoaderInfo loaderInfo = new LoaderInfo(i2, bundle, onCreateLoader, loader);
                     if (DEBUG) {
-                        Log.v("LoaderManager", "  Created new loader " + loaderInfo);
+                        String str = "  Created new loader " + loaderInfo;
                     }
                     this.mLoaderViewModel.putLoader(i2, loaderInfo);
                     this.mLoaderViewModel.finishCreatingLoader();
@@ -579,7 +576,7 @@ public class LoaderManagerImpl extends LoaderManager {
             if (!this.mLoaderViewModel.isCreatingLoader()) {
                 if (Looper.getMainLooper() == Looper.myLooper()) {
                     if (DEBUG) {
-                        Log.v("LoaderManager", "destroyLoader in " + this + " of " + i2);
+                        String str = "destroyLoader in " + this + " of " + i2;
                     }
                     LoaderInfo loader = this.mLoaderViewModel.getLoader(i2);
                     if (loader != null) {
@@ -640,13 +637,13 @@ public class LoaderManagerImpl extends LoaderManager {
                 if (Looper.getMainLooper() == Looper.myLooper()) {
                     LoaderInfo<D> loader = this.mLoaderViewModel.getLoader(i2);
                     if (DEBUG) {
-                        Log.v("LoaderManager", "initLoader in " + this + ": args=" + bundle);
+                        String str = "initLoader in " + this + ": args=" + bundle;
                     }
                     if (loader == null) {
                         return createAndInstallLoader(i2, bundle, loaderCallbacks, null);
                     }
                     if (DEBUG) {
-                        Log.v("LoaderManager", "  Re-using existing loader " + loader);
+                        String str2 = "  Re-using existing loader " + loader;
                     }
                     return loader.setCallback(this.mLifecycleOwner, loaderCallbacks);
                 }
@@ -675,7 +672,7 @@ public class LoaderManagerImpl extends LoaderManager {
             if (!this.mLoaderViewModel.isCreatingLoader()) {
                 if (Looper.getMainLooper() == Looper.myLooper()) {
                     if (DEBUG) {
-                        Log.v("LoaderManager", "restartLoader in " + this + ": args=" + bundle);
+                        String str = "restartLoader in " + this + ": args=" + bundle;
                     }
                     LoaderInfo<D> loader = this.mLoaderViewModel.getLoader(i2);
                     return createAndInstallLoader(i2, bundle, loaderCallbacks, loader != null ? loader.destroy(false) : null);

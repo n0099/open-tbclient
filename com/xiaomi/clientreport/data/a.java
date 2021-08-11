@@ -1,7 +1,6 @@
 package com.xiaomi.clientreport.data;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +12,7 @@ import com.xiaomi.push.bq;
 import com.xiaomi.push.l;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +38,7 @@ public class a {
             }
         }
         this.os = bq.a();
-        this.miuiVersion = l.m532a();
+        this.miuiVersion = l.m535a();
     }
 
     public String getPackageName() {
@@ -71,7 +70,7 @@ public class a {
                 jSONObject.put("production", this.production);
                 jSONObject.put("reportType", this.reportType);
                 jSONObject.put("clientInterfaceId", this.clientInterfaceId);
-                jSONObject.put(IAdRequestParam.OS, this.os);
+                jSONObject.put("os", this.os);
                 jSONObject.put("miuiVersion", this.miuiVersion);
                 jSONObject.put(PushClientConstants.TAG_PKG_NAME, this.pkgName);
                 jSONObject.put(CommandMessage.SDK_VERSION, this.sdkVersion);

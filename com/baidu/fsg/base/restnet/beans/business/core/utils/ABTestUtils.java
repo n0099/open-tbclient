@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ABTestUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,6 +29,32 @@ public class ABTestUtils {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    public ABTestUtils(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        String exps = BdWalletUtils.getExps(context);
+        if (TextUtils.isEmpty(exps)) {
+            return;
+        }
+        try {
+            this.exps = (GetFPResponse.Exp[]) JsonUtils.fromJson(exps, GetFPResponse.Exp[].class);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -89,31 +115,5 @@ public class ABTestUtils {
             return "";
         }
         return (String) invokeL.objValue;
-    }
-
-    public ABTestUtils(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        String exps = BdWalletUtils.getExps(context);
-        if (TextUtils.isEmpty(exps)) {
-            return;
-        }
-        try {
-            this.exps = (GetFPResponse.Exp[]) JsonUtils.fromJson(exps, GetFPResponse.Exp[].class);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
     }
 }

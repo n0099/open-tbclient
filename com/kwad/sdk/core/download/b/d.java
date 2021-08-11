@@ -4,13 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +42,7 @@ public class d {
             try {
                 Intent parseUri = Intent.parseUri(str, 0);
                 parseUri.setAction("android.intent.action.VIEW");
-                parseUri.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                parseUri.setFlags(268435456);
                 List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(parseUri, 65536);
                 if (queryIntentActivities == null || queryIntentActivities.size() <= 0) {
                     return 0;

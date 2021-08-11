@@ -1,5 +1,6 @@
 package com.baidu.tieba.personPolymeric.tab.data;
 
+import c.a.o0.s.q.c2;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -9,20 +10,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.p0.s.q.b2;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetShoubaiThreadList.DataRes;
 import tbclient.GetShoubaiThreadList.GetShoubaiThreadListResIdl;
 import tbclient.GetShoubaiThreadList.PageInfo;
 import tbclient.ThreadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PersonCenterDynamicTabHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long mCursor;
     public boolean mHasMore;
-    public List<b2> mThreadDataList;
+    public List<c2> mThreadDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonCenterDynamicTabHttpResMessage() {
@@ -65,9 +65,9 @@ public class PersonCenterDynamicTabHttpResMessage extends HttpResponsedMessage {
             }
             for (ThreadInfo threadInfo : getShoubaiThreadListResIdl.data.thread_list) {
                 if (threadInfo != null) {
-                    b2 b2Var = new b2();
-                    b2Var.K2(threadInfo);
-                    this.mThreadDataList.add(b2Var);
+                    c2 c2Var = new c2();
+                    c2Var.S2(threadInfo);
+                    this.mThreadDataList.add(c2Var);
                 }
             }
         }

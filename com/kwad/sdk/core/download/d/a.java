@@ -15,13 +15,13 @@ import com.kwad.sdk.core.download.DownloadParams;
 import com.kwad.sdk.export.proxy.AdDownloadProxy;
 import com.kwad.sdk.utils.w;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a implements AdDownloadProxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f34570a;
+    public boolean f71311a;
 
     public a(boolean z) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class a implements AdDownloadProxy {
                 return;
             }
         }
-        this.f34570a = z;
+        this.f71311a = z;
     }
 
     private String a(String str) {
@@ -92,7 +92,7 @@ public class a implements AdDownloadProxy {
             downloadRequest.setDestinationFileName(a(downloadParams.mFileUrl));
             downloadRequest.setTag(downloadParams);
             downloadRequest.setDownloadEnablePause(downloadParams.downloadEnablePause);
-            downloadRequest.setNotificationVisibility(this.f34570a ? 3 : 0);
+            downloadRequest.setNotificationVisibility(this.f71311a ? 3 : 0);
             com.ksad.download.a.a.a(context, str, downloadRequest);
         }
     }

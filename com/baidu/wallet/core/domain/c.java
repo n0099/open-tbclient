@@ -14,15 +14,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.lollipop.json.JSONException;
 import com.baidu.wallet.core.lollipop.json.JSONObject;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class c implements a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern H;
     public static c I = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f24864i = "life_host";
-    public static final String j = "my_host";
+    public static final String f60580i = "life_host";
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final String f60581j = "my_host";
     public static final String k = "credit_card_host";
     public static final String l = "app_host";
     public static final String m = "nfc_host";
@@ -375,7 +377,7 @@ public class c implements a {
             } else {
                 this.v = "https://www.baifubao.com";
             }
-            String optString2 = jSONObject.optString(a.f24856b);
+            String optString2 = jSONObject.optString(a.f60571b);
             if (!TextUtils.isEmpty(optString2) && H.matcher(optString2).matches()) {
                 this.x = optString2;
             } else {
@@ -395,7 +397,7 @@ public class c implements a {
                 this.y = "https://www.baifubao.com";
                 com.baidu.apollon.heartbeat.a.c().a(this.y);
             }
-            String optString5 = jSONObject.optString(a.f24859e);
+            String optString5 = jSONObject.optString(a.f60574e);
             if (!TextUtils.isEmpty(optString5) && H.matcher(optString5).matches()) {
                 this.A = optString5;
                 this.C = optString5;
@@ -407,7 +409,7 @@ public class c implements a {
                 this.E = "https://co.baifubao.com";
                 this.D = "https://qianbao.baidu.com";
             }
-            String optString6 = jSONObject.optString(a.f24860f);
+            String optString6 = jSONObject.optString(a.f60575f);
             if (!TextUtils.isEmpty(optString6) && H.matcher(optString6).matches()) {
                 this.G = optString6;
             } else {

@@ -1,7 +1,6 @@
 package com.bytedance.sdk.component.b.b;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,28 +10,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class x {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final x f28753a;
+    public static final x f64615a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final x f28754b;
+    public static final x f64616b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final x f28755c;
+    public static final x f64617c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final x f28756d;
+    public static final x f64618d;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final /* synthetic */ x[] f28757f;
+    public static final /* synthetic */ x[] f64619f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f28758e;
+    public final String f64620e;
 
     static {
         InterceptResult invokeClinit;
@@ -47,12 +46,12 @@ public final class x {
                 return;
             }
         }
-        f28753a = new x("HTTP_1_0", 0, "http/1.0");
-        f28754b = new x("HTTP_1_1", 1, "http/1.1");
-        f28755c = new x("SPDY_3", 2, "spdy/3.1");
-        x xVar = new x("HTTP_2", 3, Config.EVENT_NATIVE_VIEW_HIERARCHY);
-        f28756d = xVar;
-        f28757f = new x[]{f28753a, f28754b, f28755c, xVar};
+        f64615a = new x("HTTP_1_0", 0, "http/1.0");
+        f64616b = new x("HTTP_1_1", 1, "http/1.1");
+        f64617c = new x("SPDY_3", 2, "spdy/3.1");
+        x xVar = new x("HTTP_2", 3, "h2");
+        f64618d = xVar;
+        f64619f = new x[]{f64615a, f64616b, f64617c, xVar};
     }
 
     public x(String str, int i2, String str2) {
@@ -73,24 +72,24 @@ public final class x {
                 return;
             }
         }
-        this.f28758e = str2;
+        this.f64620e = str2;
     }
 
     public static x a(String str) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str.equals(f28753a.f28758e)) {
-                return f28753a;
+            if (str.equals(f64615a.f64620e)) {
+                return f64615a;
             }
-            if (str.equals(f28754b.f28758e)) {
-                return f28754b;
+            if (str.equals(f64616b.f64620e)) {
+                return f64616b;
             }
-            if (str.equals(f28756d.f28758e)) {
-                return f28756d;
+            if (str.equals(f64618d.f64620e)) {
+                return f64618d;
             }
-            if (str.equals(f28755c.f28758e)) {
-                return f28755c;
+            if (str.equals(f64617c.f64620e)) {
+                return f64617c;
             }
             throw new IOException("Unexpected protocol: " + str);
         }
@@ -106,13 +105,13 @@ public final class x {
     public static x[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (x[]) f28757f.clone() : (x[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (x[]) f64619f.clone() : (x[]) invokeV.objValue;
     }
 
     @Override // java.lang.Enum
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28758e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64620e : (String) invokeV.objValue;
     }
 }

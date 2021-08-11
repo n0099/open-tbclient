@@ -16,7 +16,7 @@ import io.reactivex.observers.SerializedObserver;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ObservableSampleTimed<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public final class ObservableSampleTimed<T> extends AbstractObservableWithUpstre
     public final Scheduler scheduler;
     public final TimeUnit unit;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class SampleTimedEmitLast<T> extends SampleTimedObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7139995637533111443L;
@@ -33,13 +33,13 @@ public final class ObservableSampleTimed<T> extends AbstractObservableWithUpstre
         public final AtomicInteger wip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SampleTimedEmitLast(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler scheduler) {
-            super(observer, j, timeUnit, scheduler);
+        public SampleTimedEmitLast(Observer<? super T> observer, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+            super(observer, j2, timeUnit, scheduler);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r8;
-                Object[] objArr = {observer, Long.valueOf(j), timeUnit, scheduler};
+                Object[] objArr = {observer, Long.valueOf(j2), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -77,20 +77,20 @@ public final class ObservableSampleTimed<T> extends AbstractObservableWithUpstre
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class SampleTimedNoLast<T> extends SampleTimedObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7139995637533111443L;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SampleTimedNoLast(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler scheduler) {
-            super(observer, j, timeUnit, scheduler);
+        public SampleTimedNoLast(Observer<? super T> observer, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+            super(observer, j2, timeUnit, scheduler);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r8;
-                Object[] objArr = {observer, Long.valueOf(j), timeUnit, scheduler};
+                Object[] objArr = {observer, Long.valueOf(j2), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -121,7 +121,7 @@ public final class ObservableSampleTimed<T> extends AbstractObservableWithUpstre
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static abstract class SampleTimedObserver<T> extends AtomicReference<T> implements Observer<T>, Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3517602651313910099L;
@@ -133,12 +133,12 @@ public final class ObservableSampleTimed<T> extends AbstractObservableWithUpstre
         public final AtomicReference<Disposable> timer;
         public final TimeUnit unit;
 
-        public SampleTimedObserver(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        public SampleTimedObserver(Observer<? super T> observer, long j2, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j), timeUnit, scheduler};
+                Object[] objArr = {observer, Long.valueOf(j2), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -150,7 +150,7 @@ public final class ObservableSampleTimed<T> extends AbstractObservableWithUpstre
             }
             this.timer = new AtomicReference<>();
             this.actual = observer;
-            this.period = j;
+            this.period = j2;
             this.unit = timeUnit;
             this.scheduler = scheduler;
         }
@@ -222,20 +222,20 @@ public final class ObservableSampleTimed<T> extends AbstractObservableWithUpstre
                 this.s = disposable;
                 this.actual.onSubscribe(this);
                 Scheduler scheduler = this.scheduler;
-                long j = this.period;
-                DisposableHelper.replace(this.timer, scheduler.schedulePeriodicallyDirect(this, j, j, this.unit));
+                long j2 = this.period;
+                DisposableHelper.replace(this.timer, scheduler.schedulePeriodicallyDirect(this, j2, j2, this.unit));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableSampleTimed(ObservableSource<T> observableSource, long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+    public ObservableSampleTimed(ObservableSource<T> observableSource, long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)};
+            Object[] objArr = {observableSource, Long.valueOf(j2), timeUnit, scheduler, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -246,7 +246,7 @@ public final class ObservableSampleTimed<T> extends AbstractObservableWithUpstre
                 return;
             }
         }
-        this.period = j;
+        this.period = j2;
         this.unit = timeUnit;
         this.scheduler = scheduler;
         this.emitLast = z;

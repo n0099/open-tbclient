@@ -1,6 +1,8 @@
 package com.baidu.tieba.write.write.vote;
 
 import android.widget.LinearLayout;
+import c.a.o0.v0.a;
+import c.a.p0.b4.u.p.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
@@ -9,9 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.v0.a;
-import d.a.q0.a4.u.p.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class WriteVoteActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

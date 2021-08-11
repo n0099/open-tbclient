@@ -6,8 +6,6 @@ import android.text.TextUtils;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.utils.ResUtils;
-import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,16 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.PayStatServiceEvent;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
-import com.baidu.wallet.base.widget.dialog.PromptDialog;
-import com.baidu.wallet.base.widget.dialog.PromptMultiBtnDialog;
-import com.baidu.wallet.base.widget.dialog.PromptTipDialog;
-import com.baidu.wallet.core.BaseActivity;
-import com.baidu.wallet.core.beans.BeanActivity;
-import com.baidu.wallet.core.utils.LogUtil;
-import com.baidu.wallet.core.utils.WalletGlobalUtils;
 import com.baidu.wallet.paysdk.PayCallBackManager;
-import com.baidu.wallet.paysdk.api.BaiduPay;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.contract.PwdPayContract;
 import com.baidu.wallet.paysdk.datamodel.BindFastRequest;
@@ -34,17 +23,20 @@ import com.baidu.wallet.paysdk.presenter.f;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.widget.IdentifyCodeGetFailDialog;
-import com.baidu.wallet.statistics.api.StatisticManager;
-import com.baidu.wallet.statistics.impl.SensorsSyncHttpImpl;
-import com.baidu.wallet.statistics.impl.StatConfig;
-import com.baidu.wallet.util.StatHelper;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.base.widget.dialog.PromptDialog;
+import com.dxmpay.wallet.base.widget.dialog.PromptMultiBtnDialog;
+import com.dxmpay.wallet.base.widget.dialog.PromptTipDialog;
+import com.dxmpay.wallet.core.BaseActivity;
+import com.dxmpay.wallet.core.beans.BeanActivity;
+import com.dxmpay.wallet.core.utils.LogUtil;
+import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
+import com.dxmpay.wallet.utils.StatHelper;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public abstract class PayBaseBeanActivity extends BeanActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DIALOG_ABANDON_CONFIM = 18;
@@ -73,10 +65,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f26730a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f26731b;
+    public f f62638a;
 
     public PayBaseBeanActivity() {
         Interceptable interceptable = $ic;
@@ -115,7 +104,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
             synchronized (PayBaseBeanActivity.class) {
                 try {
                     BaseActivity.getTopActivity().getApplicationContext();
-                    LogUtil.d("PayBaseBeanActivity", "exitActiveBindCard. stack size = " + BaseActivity.mActivityStack.size());
+                    String str = "exitActiveBindCard. stack size = " + BaseActivity.mActivityStack.size();
                     LogUtil.methodTrace("PayBaseBeanActivity");
                     BaseActivity.clearTasksWithFlag(2);
                     HalfScreenBaseActivity.resetInstanceCount();
@@ -140,7 +129,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
             synchronized (PayBaseBeanActivity.class) {
                 try {
                     BaseActivity.getTopActivity().getApplicationContext();
-                    LogUtil.d("PayBaseBeanActivity", "method->exitEbpay\n mActivityStack size->" + BaseActivity.mActivityStack.size() + "\nname->" + a(BaseActivity.mActivityStack));
+                    String str = "method->exitEbpay\n mActivityStack size->" + BaseActivity.mActivityStack.size() + "\nname->" + a(BaseActivity.mActivityStack);
                     LogUtil.methodTrace("PayBaseBeanActivity");
                     BaseActivity.clearTasksWithFlag(1);
                     HalfScreenBaseActivity.resetInstanceCount();
@@ -153,10 +142,10 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f26730a == null) {
-                this.f26730a = new f(this);
+            if (this.f62638a == null) {
+                this.f62638a = new f(this);
             }
-            return this.f26730a;
+            return this.f62638a;
         }
         return (f) invokeV.objValue;
     }
@@ -180,7 +169,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanActivity
+    @Override // com.dxmpay.wallet.core.beans.BeanActivity
     public void onBeanExecFailureWithErrContent(int i2, int i3, String str, Object obj) {
         PwdPayContract.Presenter presenter;
         Interceptable interceptable = $ic;
@@ -193,13 +182,10 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.dxmpay.wallet.core.beans.BeanActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            this.f26731b = System.currentTimeMillis();
-            d.d.a.a.a.g(this, StatConfig.getInstance(this));
-            d.d.a.a.a.x(new SensorsSyncHttpImpl());
             super.onCreate(bundle);
             this.mAct = this;
             if (bundle != null) {
@@ -222,12 +208,12 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, android.app.Activity
+    @Override // com.dxmpay.wallet.core.BaseActivity, android.app.Activity
     public Dialog onCreateDialog(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            LogUtil.d("PayBaseBeanActivity", "onCreateDialog. id = " + i2);
+            String str = "onCreateDialog. id = " + i2;
             if (i2 != 13) {
                 if (i2 != 23) {
                     if (i2 != 34 && i2 != 35) {
@@ -242,7 +228,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
         return (Dialog) invokeI.objValue;
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -250,7 +236,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -258,11 +244,11 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, android.app.Activity
+    @Override // com.dxmpay.wallet.core.BaseActivity, android.app.Activity
     public void onPrepareDialog(int i2, Dialog dialog) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, dialog) == null) {
-            LogUtil.d("PayBaseBeanActivity", "onPrepareDialog. id = " + i2);
+            String str = "onPrepareDialog. id = " + i2;
             if (i2 != 4) {
                 if (i2 != 12) {
                     super.onPrepareDialog(i2, dialog);
@@ -271,12 +257,12 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                 PromptDialog promptDialog = (PromptDialog) dialog;
                 promptDialog.setMessage(this.mDialogMsg);
                 promptDialog.setCanceledOnTouchOutside(false);
-                promptDialog.setPositiveBtn(ResUtils.string(getActivity(), "ebpay_know"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PayBaseBeanActivity.3
+                promptDialog.setPositiveBtn(ResUtils.string(getActivity(), "dxm_ebpay_know"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PayBaseBeanActivity.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PayBaseBeanActivity f26734a;
+                    public final /* synthetic */ PayBaseBeanActivity f62641a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -293,14 +279,14 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                                 return;
                             }
                         }
-                        this.f26734a = this;
+                        this.f62641a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f26734a, 12);
+                            WalletGlobalUtils.safeDismissDialog(this.f62641a, 12);
                         }
                     }
                 });
@@ -314,13 +300,13 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                 detainmentDesc = ResUtils.getString(getActivity(), "ebpay_confirm_abandon_pay");
             }
             promptDialog2.setMessage(detainmentDesc);
-            StatisticManager.onEventWithValues(StatServiceEvent.CANCEL_DOPAY_ALERT, getCancelPayEventValue(detainmentDesc));
-            promptDialog2.setNegativeBtn(ResUtils.string(getActivity(), "ebpay_cancel"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PayBaseBeanActivity.1
+            StatHelper.statServiceEvent("cancelDoPayAlert", null, detainmentDesc, PayDataCache.getInstance().getInsideTransOrder());
+            promptDialog2.setNegativeBtn(ResUtils.string(getActivity(), "dxm_ebpay_cancel"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PayBaseBeanActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayBaseBeanActivity f26732a;
+                public final /* synthetic */ PayBaseBeanActivity f62639a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -337,14 +323,14 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f26732a = this;
+                    this.f62639a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        WalletGlobalUtils.safeDismissDialog(this.f26732a, 4);
+                        WalletGlobalUtils.safeDismissDialog(this.f62639a, 4);
                     }
                 }
             });
@@ -353,7 +339,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PayBaseBeanActivity f26733a;
+                public final /* synthetic */ PayBaseBeanActivity f62640a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -370,33 +356,31 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f26733a = this;
+                    this.f62640a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        WalletGlobalUtils.safeDismissDialog(this.f26733a, 4);
+                        WalletGlobalUtils.safeDismissDialog(this.f62640a, 4);
                         BindFastRequest bindFastRequest = (BindFastRequest) PayRequestCache.getInstance().getRequest(PayRequestCache.BindCategory.Other);
                         if (bindFastRequest != null && bindFastRequest.mBindFrom == 0) {
-                            StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_BIND_CARD_FAILED, StatHelper.collectData(StatHelper.getOrderNo(), "-2", "payBindCardCancel"));
+                            StatHelper.statServiceEvent(PayStatServiceEvent.PAY_BIND_CARD_FAILED, null, StatHelper.SENSOR_ERR_2, "payBindCardCancel");
+                            StatHelper.cacheCodeAndMsg(StatHelper.SENSOR_ERR_2, "payBindCardCancel");
+                            StatHelper.payEventEndWithValues(PayStatServiceEvent.PAY_BIND_CARD_DURATION, null, new String[0]);
                         }
                         if (!PayDataCache.getInstance().isFromPreCashier()) {
-                            List<String> collectData = StatHelper.collectData(StatHelper.getOrderNo(), "2", "PayBaseBeanActivity.exitDialog");
-                            HashMap hashMap = new HashMap();
-                            hashMap.put(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, StatHelper.getSpNo());
-                            hashMap.put(BaiduPay.AMOUNT, StatHelper.getPayAmount());
-                            StatisticManager.onEventWithValues(PayStatServiceEvent.STD_PAY_CANCEL, collectData, hashMap);
+                            StatHelper.statServiceEvent(PayStatServiceEvent.STD_PAY_CANCEL);
                         }
-                        PayCallBackManager.callBackClientCancel(this.f26733a, "PayBaseBeanActivity.onPrepareDialog().1");
+                        PayCallBackManager.callBackClientCancel(this.f62640a, "PayBaseBeanActivity.onPrepareDialog().1");
                     }
                 }
             });
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.dxmpay.wallet.core.beans.BeanActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -404,7 +388,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {

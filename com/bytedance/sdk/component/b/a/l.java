@@ -18,12 +18,12 @@ import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Logger f28202a;
+    public static final Logger f64045a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public final class l {
                 return;
             }
         }
-        f28202a = Logger.getLogger(l.class.getName());
+        f64045a = Logger.getLogger(l.class.getName());
     }
 
     public l() {
@@ -86,7 +86,7 @@ public final class l {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Socket f28207b;
+            public final /* synthetic */ Socket f64050b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -103,7 +103,7 @@ public final class l {
                         return;
                     }
                 }
-                this.f28207b = socket;
+                this.f64050b = socket;
             }
 
             @Override // com.bytedance.sdk.component.b.a.a
@@ -111,19 +111,19 @@ public final class l {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
-                        this.f28207b.close();
+                        this.f64050b.close();
                     } catch (AssertionError e2) {
                         if (l.a(e2)) {
-                            Logger logger = l.f28202a;
+                            Logger logger = l.f64045a;
                             Level level = Level.WARNING;
-                            logger.log(level, "Failed to close timed out socket " + this.f28207b, (Throwable) e2);
+                            logger.log(level, "Failed to close timed out socket " + this.f64050b, (Throwable) e2);
                             return;
                         }
                         throw e2;
                     } catch (Exception e3) {
-                        Logger logger2 = l.f28202a;
+                        Logger logger2 = l.f64045a;
                         Level level2 = Level.WARNING;
-                        logger2.log(level2, "Failed to close timed out socket " + this.f28207b, (Throwable) e3);
+                        logger2.log(level2, "Failed to close timed out socket " + this.f64050b, (Throwable) e3);
                     }
                 }
             }
@@ -161,10 +161,10 @@ public final class l {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ t f28203a;
+                        public final /* synthetic */ t f64046a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ OutputStream f28204b;
+                        public final /* synthetic */ OutputStream f64047b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -181,34 +181,34 @@ public final class l {
                                     return;
                                 }
                             }
-                            this.f28203a = tVar;
-                            this.f28204b = outputStream;
+                            this.f64046a = tVar;
+                            this.f64047b = outputStream;
                         }
 
                         @Override // com.bytedance.sdk.component.b.a.r
                         public t a() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f28203a : (t) invokeV.objValue;
+                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f64046a : (t) invokeV.objValue;
                         }
 
                         @Override // com.bytedance.sdk.component.b.a.r
-                        public void a_(c cVar, long j) throws IOException {
+                        public void a_(c cVar, long j2) throws IOException {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, j) == null) {
-                                u.a(cVar.f28183b, 0L, j);
-                                while (j > 0) {
-                                    this.f28203a.g();
-                                    o oVar = cVar.f28182a;
-                                    int min = (int) Math.min(j, oVar.f28217c - oVar.f28216b);
-                                    this.f28204b.write(oVar.f28215a, oVar.f28216b, min);
-                                    int i2 = oVar.f28216b + min;
-                                    oVar.f28216b = i2;
-                                    long j2 = min;
-                                    j -= j2;
-                                    cVar.f28183b -= j2;
-                                    if (i2 == oVar.f28217c) {
-                                        cVar.f28182a = oVar.b();
+                            if (interceptable2 == null || interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, j2) == null) {
+                                u.a(cVar.f64026b, 0L, j2);
+                                while (j2 > 0) {
+                                    this.f64046a.g();
+                                    o oVar = cVar.f64025a;
+                                    int min = (int) Math.min(j2, oVar.f64060c - oVar.f64059b);
+                                    this.f64047b.write(oVar.f64058a, oVar.f64059b, min);
+                                    int i2 = oVar.f64059b + min;
+                                    oVar.f64059b = i2;
+                                    long j3 = min;
+                                    j2 -= j3;
+                                    cVar.f64026b -= j3;
+                                    if (i2 == oVar.f64060c) {
+                                        cVar.f64025a = oVar.b();
                                         p.a(oVar);
                                     }
                                 }
@@ -219,7 +219,7 @@ public final class l {
                         public void close() throws IOException {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                                this.f28204b.close();
+                                this.f64047b.close();
                             }
                         }
 
@@ -227,7 +227,7 @@ public final class l {
                         public void flush() throws IOException {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                                this.f28204b.flush();
+                                this.f64047b.flush();
                             }
                         }
 
@@ -235,7 +235,7 @@ public final class l {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) {
-                                return "sink(" + this.f28204b + SmallTailInfo.EMOTION_SUFFIX;
+                                return "sink(" + this.f64047b + SmallTailInfo.EMOTION_SUFFIX;
                             }
                             return (String) invokeV.objValue;
                         }
@@ -281,10 +281,10 @@ public final class l {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ t f28205a;
+                        public final /* synthetic */ t f64048a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ InputStream f28206b;
+                        public final /* synthetic */ InputStream f64049b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -301,32 +301,32 @@ public final class l {
                                     return;
                                 }
                             }
-                            this.f28205a = tVar;
-                            this.f28206b = inputStream;
+                            this.f64048a = tVar;
+                            this.f64049b = inputStream;
                         }
 
                         @Override // com.bytedance.sdk.component.b.a.s
-                        public long a(c cVar, long j) throws IOException {
+                        public long a(c cVar, long j2) throws IOException {
                             InterceptResult invokeLJ;
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(1048576, this, cVar, j)) == null) {
-                                int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                            if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(1048576, this, cVar, j2)) == null) {
+                                int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
                                 if (i2 < 0) {
-                                    throw new IllegalArgumentException("byteCount < 0: " + j);
+                                    throw new IllegalArgumentException("byteCount < 0: " + j2);
                                 } else if (i2 == 0) {
                                     return 0L;
                                 } else {
                                     try {
-                                        this.f28205a.g();
+                                        this.f64048a.g();
                                         o e2 = cVar.e(1);
-                                        int read = this.f28206b.read(e2.f28215a, e2.f28217c, (int) Math.min(j, 8192 - e2.f28217c));
+                                        int read = this.f64049b.read(e2.f64058a, e2.f64060c, (int) Math.min(j2, 8192 - e2.f64060c));
                                         if (read == -1) {
                                             return -1L;
                                         }
-                                        e2.f28217c += read;
-                                        long j2 = read;
-                                        cVar.f28183b += j2;
-                                        return j2;
+                                        e2.f64060c += read;
+                                        long j3 = read;
+                                        cVar.f64026b += j3;
+                                        return j3;
                                     } catch (AssertionError e3) {
                                         if (l.a(e3)) {
                                             throw new IOException(e3);
@@ -342,7 +342,7 @@ public final class l {
                         public void close() throws IOException {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                                this.f28206b.close();
+                                this.f64049b.close();
                             }
                         }
 
@@ -350,7 +350,7 @@ public final class l {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
-                                return "source(" + this.f28206b + SmallTailInfo.EMOTION_SUFFIX;
+                                return "source(" + this.f64049b + SmallTailInfo.EMOTION_SUFFIX;
                             }
                             return (String) invokeV.objValue;
                         }
@@ -359,7 +359,7 @@ public final class l {
                         public t a() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28205a : (t) invokeV.objValue;
+                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64048a : (t) invokeV.objValue;
                         }
                     };
                 }

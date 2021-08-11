@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ParallelRunOn<T> extends ParallelFlowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public final class ParallelRunOn<T> extends ParallelFlowable<T> {
     public final Scheduler scheduler;
     public final ParallelFlowable<? extends T> source;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static abstract class BaseRunOnSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 9222303586456402150L;
@@ -119,10 +119,10 @@ public final class ParallelRunOn<T> extends ParallelFlowable<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public final void request(long j) {
+        public final void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && SubscriptionHelper.validate(j)) {
-                BackpressureHelper.add(this.requested, j);
+            if ((interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+                BackpressureHelper.add(this.requested, j2);
                 schedule();
             }
         }
@@ -135,7 +135,7 @@ public final class ParallelRunOn<T> extends ParallelFlowable<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public final class MultiWorkerCallback implements SchedulerMultiWorkerSupport.WorkerCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,7 +172,7 @@ public final class ParallelRunOn<T> extends ParallelFlowable<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class RunOnConditionalSubscriber<T> extends BaseRunOnSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1075119423897941642L;
@@ -294,10 +294,10 @@ public final class ParallelRunOn<T> extends ParallelFlowable<T> {
             int i3 = this.limit;
             int i4 = 1;
             while (true) {
-                long j = this.requested.get();
-                long j2 = 0;
+                long j2 = this.requested.get();
+                long j3 = 0;
                 while (true) {
-                    int i5 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                    int i5 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
                     if (i5 == 0) {
                         break;
                     } else if (this.cancelled) {
@@ -321,7 +321,7 @@ public final class ParallelRunOn<T> extends ParallelFlowable<T> {
                             break;
                         } else {
                             if (conditionalSubscriber.tryOnNext(poll)) {
-                                j2++;
+                                j3++;
                             }
                             i2++;
                             if (i2 == i3) {
@@ -335,7 +335,7 @@ public final class ParallelRunOn<T> extends ParallelFlowable<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class RunOnSubscriber<T> extends BaseRunOnSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1075119423897941642L;
@@ -457,10 +457,10 @@ public final class ParallelRunOn<T> extends ParallelFlowable<T> {
             int i3 = this.limit;
             int i4 = 1;
             while (true) {
-                long j = this.requested.get();
-                long j2 = 0;
+                long j2 = this.requested.get();
+                long j3 = 0;
                 while (true) {
-                    int i5 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                    int i5 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
                     if (i5 == 0) {
                         break;
                     } else if (this.cancelled) {
@@ -484,7 +484,7 @@ public final class ParallelRunOn<T> extends ParallelFlowable<T> {
                             break;
                         } else {
                             subscriber.onNext(poll);
-                            j2++;
+                            j3++;
                             i2++;
                             if (i2 == i3) {
                                 this.s.request(i2);

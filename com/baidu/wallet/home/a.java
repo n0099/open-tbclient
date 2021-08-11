@@ -2,7 +2,6 @@ package com.baidu.wallet.home;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,22 +12,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
 import com.baidu.wallet.base.widget.SDKJumpManager;
 import com.baidu.wallet.home.beans.HomeCfgBean;
+import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25133a;
+    public String f60865a;
 
     /* renamed from: com.baidu.wallet.home.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0267a {
+    /* loaded from: classes8.dex */
+    public static class C1822a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f25136a;
+        public static a f60868a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -44,8 +44,14 @@ public class a {
                     return;
                 }
             }
-            f25136a = new a();
+            f60868a = new a();
         }
+    }
+
+    public static a a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1822a.f60868a : (a) invokeV.objValue;
     }
 
     public a() {
@@ -61,13 +67,7 @@ public class a {
                 return;
             }
         }
-        this.f25133a = "";
-    }
-
-    public static a a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0267a.f25136a : (a) invokeV.objValue;
+        this.f60865a = "";
     }
 
     public void a(String str) {
@@ -76,7 +76,7 @@ public class a {
             if (str == null) {
                 str = "";
             }
-            this.f25133a = str;
+            this.f60865a = str;
         }
     }
 
@@ -94,10 +94,10 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f25134a;
+                public final /* synthetic */ String f60866a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f25135b;
+                public final /* synthetic */ a f60867b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -114,16 +114,15 @@ public class a {
                             return;
                         }
                     }
-                    this.f25135b = this;
-                    this.f25134a = str5;
+                    this.f60867b = this;
+                    this.f60866a = str5;
                 }
 
                 @Override // com.baidu.wallet.base.widget.SDKJumpManager.OnJumpListener
                 public void beforeJump(Context context2, String str6, String str7, String str8, boolean z2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{context2, str6, str7, str8, Boolean.valueOf(z2)}) == null) {
-                        DXMSdkSAUtils.onEventWithValues(this.f25134a, Arrays.asList(str6, str7, str8, this.f25135b.f25133a));
-                        PayStatisticsUtil.onEventWithValues(this.f25134a, Arrays.asList(str6, str7, str8, this.f25135b.f25133a));
+                        DXMSdkSAUtils.onEventWithValues(this.f60866a, Arrays.asList(str6, str7, str8, HomeCfgResponse.getUserStatus()));
                     }
                 }
             });

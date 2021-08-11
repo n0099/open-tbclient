@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.CompositeException;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ExceptionsUtils {
     public static final /* synthetic */ ExceptionsUtils[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

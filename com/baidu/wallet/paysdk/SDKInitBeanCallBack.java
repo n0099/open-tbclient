@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.beans.IBeanResponseCallback;
+import com.baidu.apollon.utils.DxmApplicationContextImpl;
 import com.baidu.apollon.utils.SharedPreferencesUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.BaiduWalletServiceProviderMap;
 import com.baidu.wallet.analytics.Tracker;
 import com.baidu.wallet.core.DebugConfig;
 import com.baidu.wallet.core.beans.BeanConstants;
@@ -30,19 +30,19 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class SDKInitBeanCallBack implements IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f26001a = true;
+    public static volatile boolean f61917a = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f26002c;
+    public static int f61918c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f26003b;
+    public Context f61919b;
 
     static {
         InterceptResult invokeClinit;
@@ -74,7 +74,7 @@ public class SDKInitBeanCallBack implements IBeanResponseCallback {
                 return;
             }
         }
-        this.f26003b = context;
+        this.f61919b = context;
     }
 
     public static Map<String, Set<String>> a(String str) throws JSONException {
@@ -104,25 +104,25 @@ public class SDKInitBeanCallBack implements IBeanResponseCallback {
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
     public void onBeanExecFailure(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) || f26001a) {
+        if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) || f61917a) {
             return;
         }
-        int i4 = f26002c + 1;
-        f26002c = i4;
+        int i4 = f61918c + 1;
+        f61918c = i4;
         if (i4 >= 3) {
             HashMap hashMap = new HashMap();
             hashMap.put("code", "1");
-            Tracker.send("OfflineFailOverOccur", hashMap, this.f26003b);
+            Tracker.send("OfflineFailOverOccur", hashMap, this.f61919b);
             LogUtil.d("WebViewCacheManager", "pollinit-连续三次失败关闭离线缓存");
             PollOfflineCacheSwitch.getInstance().updateCacheConfig(null);
-            SdkInitResponse.getInstance().updateOfflineCacheConfig(this.f26003b, null);
+            SdkInitResponse.getInstance().updateOfflineCacheConfig(this.f61919b, null);
             LogUtil.d("WebViewCacheManager", "pollinit-连续三次失败关闭多webview");
-            LocalRouter.getInstance(this.f26003b).route(this.f26003b, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_updateSettings").data("config", null), new RouterCallback(this) { // from class: com.baidu.wallet.paysdk.SDKInitBeanCallBack.1
+            LocalRouter.getInstance(this.f61919b).route(this.f61919b, new RouterRequest().provider("langbrige").action("langbrige_updateSettings").data("config", null), new RouterCallback(this) { // from class: com.baidu.wallet.paysdk.SDKInitBeanCallBack.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SDKInitBeanCallBack f26004a;
+                public final /* synthetic */ SDKInitBeanCallBack f61920a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -139,7 +139,7 @@ public class SDKInitBeanCallBack implements IBeanResponseCallback {
                             return;
                         }
                     }
-                    this.f26004a = this;
+                    this.f61920a = this;
                 }
 
                 @Override // com.baidu.wallet.router.RouterCallback
@@ -157,11 +157,11 @@ public class SDKInitBeanCallBack implements IBeanResponseCallback {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) {
-            if (!f26001a) {
-                f26002c = 0;
+            if (!f61917a) {
+                f61918c = 0;
                 return;
             }
-            f26001a = false;
+            f61917a = false;
             if (obj instanceof SdkInitResponse) {
                 SdkInitResponse sdkInitResponse = (SdkInitResponse) obj;
                 if (!TextUtils.isEmpty(sdkInitResponse.domainConfig)) {
@@ -175,26 +175,26 @@ public class SDKInitBeanCallBack implements IBeanResponseCallback {
                     if (z) {
                         if (DebugConfig.getInstance().isOnline()) {
                             DomainConfig.getInstance().setStrategy(DomainConfig.DomainStrategyType.ONLINE, sdkInitResponse.domainConfig);
-                            SharedPreferencesUtils.setParam(this.f26003b.getApplicationContext(), BeanConstants.DOMAIN_CONFIG_NAME_ONLINE, BeanConstants.DOMAIN_CONFIG_KEY, sdkInitResponse.domainConfig);
+                            SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.f61919b), BeanConstants.DOMAIN_CONFIG_NAME_ONLINE, "wallet_sdk_domain_config_key", sdkInitResponse.domainConfig);
                         } else {
                             DomainConfig.getInstance().setStrategy(DomainConfig.DomainStrategyType.QA, sdkInitResponse.domainConfig);
-                            SharedPreferencesUtils.setParam(this.f26003b.getApplicationContext(), BeanConstants.DOMAIN_CONFIG_NAME_QA, BeanConstants.DOMAIN_CONFIG_KEY, sdkInitResponse.domainConfig);
+                            SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.f61919b), BeanConstants.DOMAIN_CONFIG_NAME_QA, "wallet_sdk_domain_config_key", sdkInitResponse.domainConfig);
                         }
                     }
                 }
                 if (!TextUtils.isEmpty(sdkInitResponse.domainSwitch)) {
                     if (TextUtils.equals("1", sdkInitResponse.domainSwitch)) {
                         if (DebugConfig.getInstance().isOnline()) {
-                            SharedPreferencesUtils.setParam(this.f26003b.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_ONLINE, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.TRUE);
+                            SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.f61919b), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_ONLINE, "wallet_sdk_domain_change_key", Boolean.TRUE);
                         } else {
-                            SharedPreferencesUtils.setParam(this.f26003b.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_QA, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.TRUE);
+                            SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.f61919b), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_QA, "wallet_sdk_domain_change_key", Boolean.TRUE);
                         }
                         com.baidu.apollon.heartbeat.a.c().a(true);
                     } else {
                         if (DebugConfig.getInstance().isOnline()) {
-                            SharedPreferencesUtils.setParam(this.f26003b.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_ONLINE, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.FALSE);
+                            SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.f61919b), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_ONLINE, "wallet_sdk_domain_change_key", Boolean.FALSE);
                         } else {
-                            SharedPreferencesUtils.setParam(this.f26003b.getApplicationContext(), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_QA, BeanConstants.DOMAIN_CHANGE_SWITCH_KEY, Boolean.FALSE);
+                            SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.f61919b), BeanConstants.DOMAIN_CHANGE_SWITCH_NAME_QA, "wallet_sdk_domain_change_key", Boolean.FALSE);
                         }
                         com.baidu.apollon.heartbeat.a.c().a(false);
                     }

@@ -8,7 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+import com.dxmpay.wallet.core.beans.BeanConstants;
+/* loaded from: classes5.dex */
 public class b extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,12 +35,12 @@ public class b extends com.baidu.platform.base.e {
     private void a(LocationShareURLOption locationShareURLOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, locationShareURLOption) == null) {
-            this.f9434a.a("qt", "cs");
+            this.f44083a.a("qt", "cs");
             Point ll2point = CoordUtil.ll2point(locationShareURLOption.mLocation);
-            com.baidu.platform.util.a aVar = this.f9434a;
+            com.baidu.platform.util.a aVar = this.f44083a;
             aVar.a("geo", ll2point.x + "|" + ll2point.y);
-            this.f9434a.a("t", locationShareURLOption.mName);
-            this.f9434a.a("cnt", locationShareURLOption.mSnippet);
+            this.f44083a.a("t", locationShareURLOption.mName);
+            this.f44083a.a(BeanConstants.DXM_OCR_KEY_CNT, locationShareURLOption.mSnippet);
             b(false);
             a(false);
         }

@@ -1,6 +1,9 @@
 package com.baidu.media.ext;
 
 import android.content.Context;
+import c.a.y.a.c;
+import c.a.y.a.e;
+import c.a.y.b.a;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.loader.CyberClassLoader;
 import com.baidu.media.duplayer.Keep;
@@ -11,17 +14,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.z.a.c;
-import d.a.z.a.e;
-import d.a.z.b.a;
 import java.io.File;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class CyberMediaExtLoader {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ClassLoader f8135a;
+    public static ClassLoader f42423a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -63,7 +63,7 @@ public class CyberMediaExtLoader {
             String str = c.k() + File.separator + "libs";
             File file = new File(e.b().a(2048).j());
             if (file.exists()) {
-                f8135a = new CyberClassLoader(file.getAbsolutePath(), new File(str), null, context.getClassLoader());
+                f42423a = new CyberClassLoader(file.getAbsolutePath(), new File(str), null, context.getClassLoader());
             } else {
                 CyberLog.e("CyberMediaExtInvoker", "dexFile = null or dexFile not exist!");
             }
@@ -77,7 +77,7 @@ public class CyberMediaExtLoader {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             synchronized (CyberMediaExtLoader.class) {
                 a(context);
-                a.e(f8135a);
+                a.e(f42423a);
                 d2 = a.d();
             }
             return d2;

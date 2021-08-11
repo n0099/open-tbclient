@@ -30,7 +30,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
 @Experimental
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class FlowableConcatMapCompletable<T> extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public final class FlowableConcatMapCompletable<T> extends Completable {
     public final int prefetch;
     public final Flowable<T> source;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class ConcatMapCompletableObserver<T> extends AtomicInteger implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3610901111000061034L;
@@ -57,7 +57,7 @@ public final class FlowableConcatMapCompletable<T> extends Completable {
         public final SimplePlainQueue<T> queue;
         public Subscription upstream;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes2.dex */
         public static final class ConcatMapInnerObserver extends AtomicReference<Disposable> implements CompletableObserver {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 5638352172918776687L;

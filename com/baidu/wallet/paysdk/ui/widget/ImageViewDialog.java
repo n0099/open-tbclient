@@ -9,15 +9,15 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.base.widget.NetImageView;
-import com.baidu.apollon.utils.ResUtils;
-import com.baidu.apollon.utils.support.ViewHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.dxmpay.apollon.base.widget.NetImageView;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.apollon.utils.support.ViewHelper;
+/* loaded from: classes8.dex */
 public class ImageViewDialog extends Dialog implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class ImageViewDialog extends Dialog implements View.OnClickListener {
     public NetImageView mContentImgageView;
     public a mListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a();
 
@@ -88,7 +88,7 @@ public class ImageViewDialog extends Dialog implements View.OnClickListener {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ImageViewDialog f27055a;
+                public final /* synthetic */ ImageViewDialog f62892a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -105,7 +105,7 @@ public class ImageViewDialog extends Dialog implements View.OnClickListener {
                             return;
                         }
                     }
-                    this.f27055a = this;
+                    this.f62892a = this;
                 }
 
                 @Override // android.view.View.OnTouchListener
@@ -114,10 +114,10 @@ public class ImageViewDialog extends Dialog implements View.OnClickListener {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
                         if (motionEvent.getAction() != 0 && motionEvent.getAction() != 2) {
-                            ViewHelper.setAlpha(this.f27055a.mCloseButton, 1.0f);
+                            ViewHelper.setAlpha(this.f62892a.mCloseButton, 1.0f);
                             return false;
                         }
-                        ViewHelper.setAlpha(this.f27055a.mCloseButton, 0.5f);
+                        ViewHelper.setAlpha(this.f62892a.mCloseButton, 0.5f);
                         return false;
                     }
                     return invokeLL.booleanValue;

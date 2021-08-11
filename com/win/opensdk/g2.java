@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class g2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39810a;
+    public Context f76651a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f39811b;
+    public WebView f76652b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Info f39812c;
+    public Info f76653c;
 
     public g2(Context context) {
         Interceptable interceptable = $ic;
@@ -38,24 +38,24 @@ public class g2 {
                 return;
             }
         }
-        this.f39810a = context;
-        if (this.f39811b == null) {
-            WebView webView = new WebView(this.f39810a);
-            this.f39811b = webView;
+        this.f76651a = context;
+        if (this.f76652b == null) {
+            WebView webView = new WebView(this.f76651a);
+            this.f76652b = webView;
             WebSettings settings = webView.getSettings();
             settings.setAllowContentAccess(true);
             settings.setJavaScriptEnabled(true);
             if (Build.VERSION.SDK_INT >= 11) {
-                this.f39811b.removeJavascriptInterface("searchBoxJavaBridge_");
-                this.f39811b.removeJavascriptInterface("accessibility");
-                this.f39811b.removeJavascriptInterface("accessibilityTraversal");
+                this.f76652b.removeJavascriptInterface("searchBoxJavaBridge_");
+                this.f76652b.removeJavascriptInterface("accessibility");
+                this.f76652b.removeJavascriptInterface("accessibilityTraversal");
             }
-            this.f39811b.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-            this.f39811b.getSettings().setBlockNetworkImage(true);
-            this.f39811b.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
-            this.f39811b.getSettings().setCacheMode(2);
-            this.f39811b.getSettings().setAppCacheEnabled(true);
-            this.f39811b.setScrollBarStyle(0);
+            this.f76652b.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+            this.f76652b.getSettings().setBlockNetworkImage(true);
+            this.f76652b.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+            this.f76652b.getSettings().setCacheMode(2);
+            this.f76652b.getSettings().setAppCacheEnabled(true);
+            this.f76652b.setScrollBarStyle(0);
             settings.setDomStorageEnabled(true);
             settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
             settings.setEnableSmoothTransition(true);
@@ -63,10 +63,10 @@ public class g2 {
                 settings.setMixedContentMode(1);
             }
             settings.setNeedInitialFocus(false);
-            this.f39811b.clearCache(true);
-            this.f39811b.clearHistory();
-            this.f39811b.setWebChromeClient(new d2(this));
-            this.f39811b.setWebViewClient(new e2(this));
+            this.f76652b.clearCache(true);
+            this.f76652b.clearHistory();
+            this.f76652b.setWebChromeClient(new d2(this));
+            this.f76652b.setWebViewClient(new e2(this));
         }
     }
 }

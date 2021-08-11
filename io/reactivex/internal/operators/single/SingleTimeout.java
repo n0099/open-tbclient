@@ -16,7 +16,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class SingleTimeout<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public final class SingleTimeout<T> extends Single<T> {
     public final long timeout;
     public final TimeUnit unit;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class TimeoutMainObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T>, Runnable, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 37497744973048446L;
@@ -36,7 +36,7 @@ public final class SingleTimeout<T> extends Single<T> {
         public SingleSource<? extends T> other;
         public final AtomicReference<Disposable> task;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes2.dex */
         public static final class TimeoutFallbackObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 2071387740092105509L;
@@ -185,12 +185,12 @@ public final class SingleTimeout<T> extends Single<T> {
         }
     }
 
-    public SingleTimeout(SingleSource<T> singleSource, long j, TimeUnit timeUnit, Scheduler scheduler, SingleSource<? extends T> singleSource2) {
+    public SingleTimeout(SingleSource<T> singleSource, long j2, TimeUnit timeUnit, Scheduler scheduler, SingleSource<? extends T> singleSource2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {singleSource, Long.valueOf(j), timeUnit, scheduler, singleSource2};
+            Object[] objArr = {singleSource, Long.valueOf(j2), timeUnit, scheduler, singleSource2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -201,7 +201,7 @@ public final class SingleTimeout<T> extends Single<T> {
             }
         }
         this.source = singleSource;
-        this.timeout = j;
+        this.timeout = j2;
         this.unit = timeUnit;
         this.scheduler = scheduler;
         this.other = singleSource2;

@@ -18,13 +18,13 @@ import com.bumptech.glide.util.ByteBufferUtil;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ByteBufferFileLoader";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class ByteBufferFetcher implements DataFetcher<ByteBuffer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,16 +85,14 @@ public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
                 try {
                     dataCallback.onDataReady(ByteBufferUtil.fromFile(this.file));
                 } catch (IOException e2) {
-                    if (Log.isLoggable(ByteBufferFileLoader.TAG, 3)) {
-                        Log.d(ByteBufferFileLoader.TAG, "Failed to obtain ByteBuffer for file", e2);
-                    }
+                    Log.isLoggable(ByteBufferFileLoader.TAG, 3);
                     dataCallback.onLoadFailed(e2);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Factory implements ModelLoaderFactory<File, ByteBuffer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

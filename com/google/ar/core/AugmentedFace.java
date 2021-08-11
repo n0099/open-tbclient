@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class AugmentedFace extends TrackableBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static final class RegionType {
         public static final /* synthetic */ RegionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -79,13 +79,13 @@ public class AugmentedFace extends TrackableBase {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AugmentedFace(long j, Session session) {
-        super(j, session);
+    public AugmentedFace(long j2, Session session) {
+        super(j2, session);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), session};
+            Object[] objArr = {Long.valueOf(j2), session};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -100,25 +100,25 @@ public class AugmentedFace extends TrackableBase {
         a();
     }
 
-    private native d.f.c.a.a nativeGetCenterPose(long j, long j2);
+    private native c.i.c.a.a nativeGetCenterPose(long j2, long j3);
 
-    private native ByteBuffer nativeGetMeshNormalsByteBuffer(long j, long j2);
+    private native ByteBuffer nativeGetMeshNormalsByteBuffer(long j2, long j3);
 
-    private native ByteBuffer nativeGetMeshTextureCoordinatesByteBuffer(long j, long j2);
+    private native ByteBuffer nativeGetMeshTextureCoordinatesByteBuffer(long j2, long j3);
 
-    private native ByteBuffer nativeGetMeshTriangleIndicesByteBuffer(long j, long j2);
+    private native ByteBuffer nativeGetMeshTriangleIndicesByteBuffer(long j2, long j3);
 
-    private native ByteBuffer nativeGetMeshVerticesByteBuffer(long j, long j2);
+    private native ByteBuffer nativeGetMeshVerticesByteBuffer(long j2, long j3);
 
-    private native d.f.c.a.a nativeGetRegionPose(long j, long j2, int i2);
+    private native c.i.c.a.a nativeGetRegionPose(long j2, long j3, int i2);
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Session.a(nativeGetMeshVerticesByteBuffer(this.f33178b.f33154a, this.f33177a)).asFloatBuffer().asReadOnlyBuffer();
-            Session.a(nativeGetMeshNormalsByteBuffer(this.f33178b.f33154a, this.f33177a)).asFloatBuffer().asReadOnlyBuffer();
-            Session.a(nativeGetMeshTextureCoordinatesByteBuffer(this.f33178b.f33154a, this.f33177a)).asFloatBuffer().asReadOnlyBuffer();
-            Session.a(nativeGetMeshTriangleIndicesByteBuffer(this.f33178b.f33154a, this.f33177a)).asCharBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshVerticesByteBuffer(this.f69882b.f69857a, this.f69881a)).asFloatBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshNormalsByteBuffer(this.f69882b.f69857a, this.f69881a)).asFloatBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshTextureCoordinatesByteBuffer(this.f69882b.f69857a, this.f69881a)).asFloatBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshTriangleIndicesByteBuffer(this.f69882b.f69857a, this.f69881a)).asCharBuffer().asReadOnlyBuffer();
         }
     }
 

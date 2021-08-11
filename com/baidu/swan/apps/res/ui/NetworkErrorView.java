@@ -1,30 +1,40 @@
 package com.baidu.swan.apps.res.ui;
 
 import android.content.Context;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import c.a.n0.a.c;
+import c.a.n0.a.e;
+import c.a.n0.a.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bdeventbus.BdEventBus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.h;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class NetworkErrorView extends CommonEmptyView {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int THEME_CLASIC = 0;
+    public static final int THEME_NIGHT = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public int f46066e;
+
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Object f11360a;
+        public Object f46067a;
 
         public a(int i2) {
             Interceptable interceptable = $ic;
@@ -64,11 +74,11 @@ public class NetworkErrorView extends CommonEmptyView {
         b();
     }
 
-    public static void c(View view) {
+    public static void postErrorViewShowEvent(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, view) == null) {
             a aVar = new a(1);
-            aVar.f11360a = view;
+            aVar.f46067a = view;
             BdEventBus.Companion.getDefault().post(aVar);
         }
     }
@@ -76,43 +86,49 @@ public class NetworkErrorView extends CommonEmptyView {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f11332i.setVisibility(0);
+            this.mRefreshTextBtn.setVisibility(0);
             setTitle(getContext().getString(h.swanapp_tip_net_unavailable));
         }
+    }
+
+    public boolean isNight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46066e == 2 : invokeV.booleanValue;
     }
 
     public void setBottomLayout(View.OnClickListener onClickListener, View view, RelativeLayout.LayoutParams layoutParams) {
         FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener, view, layoutParams) == null) || (frameLayout = this.j) == null || view == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, onClickListener, view, layoutParams) == null) || (frameLayout = this.mBottomLayout) == null || view == null) {
             return;
         }
         frameLayout.setVisibility(0);
-        this.j.addView(view);
+        this.mBottomLayout.addView(view);
         if (layoutParams != null) {
-            this.j.setLayoutParams(layoutParams);
+            this.mBottomLayout.setLayoutParams(layoutParams);
         }
-        this.j.setOnClickListener(onClickListener);
+        this.mBottomLayout.setOnClickListener(onClickListener);
     }
 
     public void setEmptyButtonVisiblity(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f11332i.setVisibility(i2);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            this.mRefreshTextBtn.setVisibility(i2);
         }
     }
 
     public void setEmptyViewVisiblity(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f11328e.setVisibility(i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            this.mIcon.setVisibility(i2);
         }
     }
 
     public void setNetworkButtonShow(boolean z) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (textView = this.f11331h) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (textView = this.mLinkText) == null) {
             return;
         }
         textView.setVisibility(z ? 0 : 4);
@@ -120,7 +136,7 @@ public class NetworkErrorView extends CommonEmptyView {
 
     public void setReloadClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
             setTextButtonClickListener(onClickListener);
         }
     }
@@ -128,11 +144,41 @@ public class NetworkErrorView extends CommonEmptyView {
     @Override // android.view.View
     public void setVisibility(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             if (i2 == 0) {
-                c(this);
+                postErrorViewShowEvent(this);
             }
             super.setVisibility(i2);
+        }
+    }
+
+    public void updateUI(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+            this.f46066e = i2;
+            if (i2 == 2) {
+                setBackgroundColor(-16777216);
+                this.mIcon.setAlpha(0.5f);
+                this.mTitle.setTextColor(getResources().getColor(c.aiapps_emptyview_title_text_color_night));
+                this.mSubTitle.setTextColor(getResources().getColor(c.aiapps_emptyview_subtitle_text_color_night));
+                if (Build.VERSION.SDK_INT >= 23) {
+                    this.mRefreshTextBtn.setTextColor(getResources().getColorStateList(c.swan_app_emptyview_btn_text_color_night, null));
+                } else {
+                    this.mRefreshTextBtn.setTextColor(getResources().getColorStateList(c.swan_app_emptyview_btn_text_color_night));
+                }
+            } else {
+                setBackgroundColor(-1);
+                this.mIcon.setAlpha(1.0f);
+                this.mTitle.setTextColor(getResources().getColor(c.aiapps_emptyview_title_text_color));
+                this.mSubTitle.setTextColor(getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
+                if (Build.VERSION.SDK_INT >= 23) {
+                    this.mRefreshTextBtn.setTextColor(getResources().getColorStateList(c.swan_app_emptyview_btn_text_color, null));
+                } else {
+                    this.mRefreshTextBtn.setTextColor(getResources().getColorStateList(c.swan_app_emptyview_btn_text_color));
+                }
+            }
+            this.mIcon.setImageDrawable(getContext().getResources().getDrawable(e.aiapps_empty_icon_network));
+            this.mRefreshTextBtn.setBackground(getContext().getResources().getDrawable(e.aiapps_emptyview_btn_bg));
         }
     }
 

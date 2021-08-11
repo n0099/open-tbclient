@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class a extends j {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "a";
@@ -23,11 +23,11 @@ public class a extends j {
     public int cj;
     public int ck;
     public boolean cl;
-    public InterfaceC0066a cm;
+    public InterfaceC1613a cm;
 
     /* renamed from: com.baidu.ar.anime.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public interface InterfaceC0066a {
+    /* loaded from: classes5.dex */
+    public interface InterfaceC1613a {
         void b(FramePixels framePixels);
     }
 
@@ -69,10 +69,10 @@ public class a extends j {
         this.nk.setOutputHeight(this.ck);
     }
 
-    public void a(InterfaceC0066a interfaceC0066a) {
+    public void a(InterfaceC1613a interfaceC1613a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0066a) == null) {
-            this.cm = interfaceC0066a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC1613a) == null) {
+            this.cm = interfaceC1613a;
         }
     }
 
@@ -119,9 +119,9 @@ public class a extends j {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, framePixels)) == null) {
             if (this.cl) {
                 this.cl = false;
-                InterfaceC0066a interfaceC0066a = this.cm;
-                if (interfaceC0066a != null) {
-                    interfaceC0066a.b(framePixels);
+                InterfaceC1613a interfaceC1613a = this.cm;
+                if (interfaceC1613a != null) {
+                    interfaceC1613a.b(framePixels);
                     return true;
                 }
                 return true;

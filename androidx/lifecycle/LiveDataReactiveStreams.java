@@ -112,9 +112,9 @@ public final class LiveDataReactiveStreams {
                 if (this.mRequested > 0) {
                     this.mLatest = null;
                     this.mSubscriber.onNext(t);
-                    long j = this.mRequested;
-                    if (j != Long.MAX_VALUE) {
-                        this.mRequested = j - 1;
+                    long j2 = this.mRequested;
+                    if (j2 != Long.MAX_VALUE) {
+                        this.mRequested = j2 - 1;
                         return;
                     }
                     return;
@@ -123,12 +123,12 @@ public final class LiveDataReactiveStreams {
             }
 
             @Override // org.reactivestreams.Subscription
-            public void request(long j) {
+            public void request(long j2) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || this.mCanceled) {
+                if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) || this.mCanceled) {
                     return;
                 }
-                ArchTaskExecutor.getInstance().executeOnMainThread(new Runnable(this, j) { // from class: androidx.lifecycle.LiveDataReactiveStreams.LiveDataPublisher.LiveDataSubscription.1
+                ArchTaskExecutor.getInstance().executeOnMainThread(new Runnable(this, j2) { // from class: androidx.lifecycle.LiveDataReactiveStreams.LiveDataPublisher.LiveDataSubscription.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveDataSubscription this$0;
@@ -139,7 +139,7 @@ public final class LiveDataReactiveStreams {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Long.valueOf(j)};
+                            Object[] objArr = {this, Long.valueOf(j2)};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -150,7 +150,7 @@ public final class LiveDataReactiveStreams {
                             }
                         }
                         this.this$0 = this;
-                        this.val$n = j;
+                        this.val$n = j2;
                     }
 
                     @Override // java.lang.Runnable
@@ -159,8 +159,8 @@ public final class LiveDataReactiveStreams {
                         if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.mCanceled) {
                             return;
                         }
-                        long j2 = this.val$n;
-                        if (j2 <= 0) {
+                        long j3 = this.val$n;
+                        if (j3 <= 0) {
                             this.this$0.mCanceled = true;
                             LiveDataSubscription liveDataSubscription = this.this$0;
                             if (liveDataSubscription.mObserving) {
@@ -173,8 +173,8 @@ public final class LiveDataReactiveStreams {
                             return;
                         }
                         LiveDataSubscription liveDataSubscription3 = this.this$0;
-                        long j3 = liveDataSubscription3.mRequested;
-                        liveDataSubscription3.mRequested = j3 + j2 >= j3 ? j3 + j2 : Long.MAX_VALUE;
+                        long j4 = liveDataSubscription3.mRequested;
+                        liveDataSubscription3.mRequested = j4 + j3 >= j4 ? j4 + j3 : Long.MAX_VALUE;
                         LiveDataSubscription liveDataSubscription4 = this.this$0;
                         if (!liveDataSubscription4.mObserving) {
                             liveDataSubscription4.mObserving = true;

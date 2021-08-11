@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @NotProguard
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class AudioParams {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_AUDIO_BUFFER_SIZE = 32768;

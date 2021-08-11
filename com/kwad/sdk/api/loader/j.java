@@ -12,28 +12,29 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import java.io.File;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f34012a;
+    public final String f70740a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f34013b;
+    public final String f70741b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f34014c;
+    public final String f70742c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Resources f34015d;
+    public Resources f70743d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ClassLoader f34016e;
+    public ClassLoader f70744e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IKsAdSDK f34017f;
+    public IKsAdSDK f70745f;
 
     public j(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -50,9 +51,9 @@ public class j {
                 return;
             }
         }
-        this.f34012a = str;
-        this.f34013b = str2;
-        this.f34014c = str3;
+        this.f70740a = str;
+        this.f70741b = str2;
+        this.f70742c = str3;
     }
 
     public static synchronized j a(Context context, String str) {
@@ -95,14 +96,14 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
             d();
-            Resources a2 = o.a(context, context.getResources(), this.f34012a);
-            ClassLoader a3 = d.a(context, this.f34012a, this.f34013b, this.f34014c);
+            Resources a2 = o.a(context, context.getResources(), this.f70740a);
+            ClassLoader a3 = d.a(context, this.f70740a, this.f70741b, this.f70742c);
             IKsAdSDK a4 = Loader.a(a3);
-            this.f34015d = a2;
-            this.f34016e = a3;
-            this.f34017f = a4;
+            this.f70743d = a2;
+            this.f70744e = a3;
+            this.f70745f = a4;
             int sDKType = a4.getSDKType();
-            int i2 = com.kwad.sdk.api.a.f33953a;
+            int i2 = com.kwad.sdk.api.a.f70680a;
             if (sDKType == i2) {
                 return;
             }
@@ -113,10 +114,10 @@ public class j {
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            if (TextUtils.isEmpty(this.f34012a)) {
+            if (TextUtils.isEmpty(this.f70740a)) {
                 throw new RuntimeException("mApk is null");
             }
-            File file = new File(this.f34012a);
+            File file = new File(this.f70740a);
             if (!file.isFile() || !file.exists()) {
                 throw new RuntimeException("mApk not a file");
             }
@@ -126,26 +127,26 @@ public class j {
     public Resources a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34015d : (Resources) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70743d : (Resources) invokeV.objValue;
     }
 
     public ClassLoader b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34016e : (ClassLoader) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70744e : (ClassLoader) invokeV.objValue;
     }
 
     public IKsAdSDK c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34017f : (IKsAdSDK) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70745f : (IKsAdSDK) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "ExternalPackage{mApk='" + this.f34012a + "', mDexDir='" + this.f34013b + "', mNativeLibDir='" + this.f34014c + "', mResource=" + this.f34015d + ", mClassLoader=" + this.f34016e + ", mKsSdk=" + this.f34017f + '}';
+            return "ExternalPackage{mApk='" + this.f70740a + ExtendedMessageFormat.QUOTE + ", mDexDir='" + this.f70741b + ExtendedMessageFormat.QUOTE + ", mNativeLibDir='" + this.f70742c + ExtendedMessageFormat.QUOTE + ", mResource=" + this.f70743d + ", mClassLoader=" + this.f70744e + ", mKsSdk=" + this.f70745f + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.bh;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f40087a = -1;
+    public static int f76938a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,9 +39,9 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                return (context.getPackageManager().getServiceInfo(new ComponentName("com.huawei.hwid", "com.huawei.hms.core.service.HMSCoreService"), 128) == null || !a()) ? af.f40043f : af.f40038a;
+                return (context.getPackageManager().getServiceInfo(new ComponentName("com.huawei.hwid", "com.huawei.hms.core.service.HMSCoreService"), 128) == null || !a()) ? af.f76894f : af.f76889a;
             } catch (Exception unused) {
-                return af.f40043f;
+                return af.f76894f;
             }
         }
         return (af) invokeL.objValue;
@@ -67,31 +67,31 @@ public class n {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m136a(Context context) {
+    public static boolean m139a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             Object a2 = bh.a(bh.a("com.google.android.gms.common.GoogleApiAvailability", "getInstance", new Object[0]), "isGooglePlayServicesAvailable", context);
-            Object a3 = bh.a("com.google.android.gms.common.ConnectionResult", com.alipay.security.mobile.module.http.model.c.f2136g);
+            Object a3 = bh.a("com.google.android.gms.common.ConnectionResult", com.alipay.security.mobile.module.http.model.c.f35984g);
             if (a3 == null || !(a3 instanceof Integer)) {
                 com.xiaomi.channel.commonutils.logger.b.c("google service is not avaliable");
-                f40087a = 0;
+                f76938a = 0;
                 return false;
             }
             int intValue = ((Integer) Integer.class.cast(a3)).intValue();
             if (a2 != null) {
                 if (a2 instanceof Integer) {
-                    f40087a = ((Integer) Integer.class.cast(a2)).intValue() == intValue ? 1 : 0;
+                    f76938a = ((Integer) Integer.class.cast(a2)).intValue() == intValue ? 1 : 0;
                 } else {
-                    f40087a = 0;
+                    f76938a = 0;
                     com.xiaomi.channel.commonutils.logger.b.c("google service is not avaliable");
                 }
             }
             StringBuilder sb = new StringBuilder();
             sb.append("is google service can be used");
-            sb.append(f40087a > 0);
+            sb.append(f76938a > 0);
             com.xiaomi.channel.commonutils.logger.b.c(sb.toString());
-            return f40087a > 0;
+            return f76938a > 0;
         }
         return invokeL.booleanValue;
     }

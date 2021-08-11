@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PersonChangeData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG_PERSON_INFO = "person_change_data";
@@ -153,10 +153,10 @@ public class PersonChangeData extends OrmObject implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mTiebaId : (String) invokeV.objValue;
     }
 
-    public void setAlaId(long j) {
+    public void setAlaId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.mAlaId = j;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
+            this.mAlaId = j2;
         }
     }
 
@@ -167,10 +167,10 @@ public class PersonChangeData extends OrmObject implements Serializable {
         }
     }
 
-    public void setBirthdayTime(long j) {
+    public void setBirthdayTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
-            this.mBirthdayTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
+            this.mBirthdayTime = j2;
         }
     }
 

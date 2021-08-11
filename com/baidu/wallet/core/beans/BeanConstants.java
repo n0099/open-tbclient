@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public abstract class BeanConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String API_GET_FP = "/odp/wireless/sdk/init";
@@ -22,7 +22,7 @@ public abstract class BeanConstants {
     public static final String BANK_TYPE = "bank_type";
     public static final int BEAN_ID_FOR_NEW_INIT = 786;
     public static final int BEAN_ID_GET_FP = 530;
-    public static String CHANNEL_ID = "tieba";
+    public static String CHANNEL_ID = "baiduapp";
     public static final String CHANNEL_ID_BDMAP = "bdmap";
     public static final String CHANNEL_ID_BROWSER = "browser";
     public static final String CHANNEL_ID_HI = "hi";
@@ -40,6 +40,8 @@ public abstract class BeanConstants {
     public static final String CHANNEL_ID_WEISHI = "weishi";
     public static final String CHANNEL_ID_YIPINGTAI = "yipingtai";
     public static final String CHANNEL_ID_YUN = "bdcloud";
+    public static final String COOKIE_BDUSS = "BDUSS";
+    public static final String COOKIE_OPENBDUSS = "OPENBDUSS";
     public static final boolean DEBUG = false;
     public static final String DOMAIN_CHANGE_SWITCH_KEY = "wallet_sdk_domain_change_key";
     public static final String DOMAIN_CHANGE_SWITCH_NAME_ONLINE = "wallet_sdk_domain_change_name_online";
@@ -75,7 +77,7 @@ public abstract class BeanConstants {
     public static final int SCREEN_ORIENTATION_LANDSCAPE = 0;
     public static final int SCREEN_ORIENTATION_PORTRAIT = 1;
     public static String SDK_VERSION = "";
-    public static String VERSION_NO = "8.8.1.47";
+    public static String VERSION_NO = "9.4.0.111";
     public static final String WEB_VIEW_CACHE_TAG = "WebViewCacheManager";
     public static boolean needActAnimation = true;
     public transient /* synthetic */ FieldHolder $fh;

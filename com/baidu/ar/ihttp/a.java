@@ -1,5 +1,5 @@
 package com.baidu.ar.ihttp;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public interface a {
     void a(HttpException httpException);
 

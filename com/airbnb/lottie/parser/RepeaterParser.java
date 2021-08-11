@@ -6,7 +6,6 @@ import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
 import com.airbnb.lottie.model.animatable.AnimatableTransform;
 import com.airbnb.lottie.model.content.Repeater;
 import com.airbnb.lottie.parser.moshi.JsonReader;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class RepeaterParser {
     public static /* synthetic */ Interceptable $ic;
     public static JsonReader.Options NAMES;
@@ -34,7 +33,7 @@ public class RepeaterParser {
                 return;
             }
         }
-        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "c", Config.OS, "tr", "hd");
+        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "c", "o", "tr", "hd");
     }
 
     public RepeaterParser() {

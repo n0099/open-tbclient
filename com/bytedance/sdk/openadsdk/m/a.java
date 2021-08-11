@@ -5,11 +5,12 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.b.c.b.g;
+import c.b.c.b.k;
+import c.p.a.b.a.a.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,9 +31,6 @@ import com.bytedance.sdk.openadsdk.core.l;
 import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.core.s;
 import com.bytedance.sdk.openadsdk.q.q;
-import d.b.c.b.g;
-import d.b.c.b.k;
-import d.l.a.b.a.a.c;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.HashMap;
@@ -42,7 +40,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,9 +59,9 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(65539, null, context, jSONObject) == null) {
             try {
                 float f2 = 0.0f;
-                float f3 = b.a(context) == null ? 0.0f : b.a(context).f30419a;
+                float f3 = b.a(context) == null ? 0.0f : b.a(context).f66337a;
                 if (b.a(context) != null) {
-                    f2 = b.a(context).f30420b;
+                    f2 = b.a(context).f66338b;
                 }
                 jSONObject.put("latitude", f3);
                 jSONObject.put("longitude", f2);
@@ -73,15 +71,15 @@ public class a {
         }
     }
 
-    public static void a(TTAdConfig tTAdConfig) {
+    public static void a(c.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tTAdConfig) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar) == null) {
         }
     }
 
-    public static void a(c.a aVar) {
+    public static void a(TTAdConfig tTAdConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, tTAdConfig) == null) {
         }
     }
 
@@ -91,7 +89,7 @@ public class a {
         }
     }
 
-    public static boolean a(d.l.a.a.a.f.c cVar) {
+    public static boolean a(c.p.a.a.a.f.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, cVar)) == null) {
@@ -116,7 +114,7 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(65555, null, context, jSONObject) == null) {
             try {
                 jSONObject.put("udid", j.d(context));
-                jSONObject.put(Config.DEVICE_MAC_ID, com.bytedance.sdk.openadsdk.core.k.c.b());
+                jSONObject.put("mc", com.bytedance.sdk.openadsdk.core.k.c.b());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -153,7 +151,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (l.f30442b == null || l.f30442b.isCanUseWifiState()) {
+            if (l.f66360b == null || l.f66360b.isCanUseWifiState()) {
                 return j.h(o.a());
             }
             return null;
@@ -175,8 +173,8 @@ public class a {
                 com.bytedance.sdk.openadsdk.core.k.a a2 = b.a(o.a());
                 JSONObject jSONObject2 = new JSONObject();
                 if (a2 != null) {
-                    jSONObject2.put("longitude", a2.f30420b);
-                    jSONObject2.put("latitude", a2.f30419a);
+                    jSONObject2.put("longitude", a2.f66338b);
+                    jSONObject2.put("latitude", a2.f66337a);
                 }
                 jSONObject.put("location", jSONObject2);
             } catch (JSONException e2) {
@@ -188,12 +186,12 @@ public class a {
     public static void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65554, null, context) == null) {
-            d.b.c.b.l.a(context.getApplicationContext(), new g(context) { // from class: com.bytedance.sdk.openadsdk.m.a.1
+            c.b.c.b.l.a(context.getApplicationContext(), new g(context) { // from class: com.bytedance.sdk.openadsdk.m.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f31706a;
+                public final /* synthetic */ Context f67651a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -210,10 +208,10 @@ public class a {
                             return;
                         }
                     }
-                    this.f31706a = context;
+                    this.f67651a = context;
                 }
 
-                @Override // d.b.c.b.g
+                @Override // c.b.c.b.g
                 public Map<String, Object> a() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -221,12 +219,12 @@ public class a {
                         HashMap hashMap = new HashMap();
                         String appLogDid = AppLogHelper.getInstance().getAppLogDid();
                         if (TextUtils.isEmpty(appLogDid)) {
-                            appLogDid = j.a(this.f31706a);
+                            appLogDid = j.a(this.f67651a);
                         }
                         if (!TextUtils.isEmpty(appLogDid)) {
                             hashMap.put("device_id", appLogDid);
                         }
-                        hashMap.put("ac", NetworkUtils.getNetworkTypeString(this.f31706a));
+                        hashMap.put("ac", NetworkUtils.getNetworkTypeString(this.f67651a));
                         hashMap.put("aid", 164362);
                         hashMap.put("app_name", "unionser_slardar_applog");
                         String f2 = q.f();
@@ -240,10 +238,10 @@ public class a {
                         }
                         hashMap.put("version_name", "3.7.0.3");
                         hashMap.put("device_platform", "android");
-                        hashMap.put(IAdRequestParam.OS, "Android");
+                        hashMap.put("os", "Android");
                         hashMap.put(HttpConstants.DEVICE_TYPE, Build.MODEL);
                         hashMap.put("device_mode", Build.MODEL);
-                        hashMap.put(Config.ROM, com.bytedance.sdk.openadsdk.q.l.a());
+                        hashMap.put("rom", com.bytedance.sdk.openadsdk.q.l.a());
                         hashMap.put(PmsConstant.EnvParam.Key.CPU_ABI, Build.CPU_ABI);
                         hashMap.put("device_brand", Build.BRAND);
                         hashMap.put("language", Locale.getDefault().getLanguage());
@@ -256,29 +254,29 @@ public class a {
                             hashMap.put(HttpConstants.OS_VERSION, str);
                         } catch (Exception unused) {
                         }
-                        hashMap.put("openudid", j.c(this.f31706a));
-                        hashMap.put("dpi", String.valueOf(com.bytedance.sdk.openadsdk.q.s.f(this.f31706a)));
-                        hashMap.put("resolution", com.bytedance.sdk.openadsdk.q.s.c(this.f31706a) + "*" + com.bytedance.sdk.openadsdk.q.s.d(this.f31706a));
+                        hashMap.put("openudid", j.c(this.f67651a));
+                        hashMap.put("dpi", String.valueOf(com.bytedance.sdk.openadsdk.q.s.f(this.f67651a)));
+                        hashMap.put("resolution", com.bytedance.sdk.openadsdk.q.s.c(this.f67651a) + "*" + com.bytedance.sdk.openadsdk.q.s.d(this.f67651a));
                         return hashMap;
                     }
                     return (Map) invokeV.objValue;
                 }
 
-                @Override // d.b.c.b.g
+                @Override // c.b.c.b.g
                 public String b() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? j.a(this.f31706a) : (String) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? j.a(this.f67651a) : (String) invokeV.objValue;
                 }
 
-                @Override // d.b.c.b.g
+                @Override // c.b.c.b.g
                 public String c() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? AppLogHelper.getInstance().getAppLogUserUniqueID() : (String) invokeV.objValue;
                 }
 
-                @Override // d.b.c.b.g
+                @Override // c.b.c.b.g
                 public String d() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -288,7 +286,7 @@ public class a {
                     return (String) invokeV.objValue;
                 }
 
-                @Override // d.b.c.b.g
+                @Override // c.b.c.b.g
                 public Map<String, Integer> e() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -298,7 +296,7 @@ public class a {
                     return (Map) invokeV.objValue;
                 }
 
-                @Override // d.b.c.b.g
+                @Override // c.b.c.b.g
                 public List<String> f() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -308,7 +306,7 @@ public class a {
                     return (List) invokeV.objValue;
                 }
 
-                @Override // d.b.c.b.g
+                @Override // c.b.c.b.g
                 public Map<String, Object> g() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -325,7 +323,7 @@ public class a {
                     return (Map) invokeV.objValue;
                 }
             }, true, false);
-            d.b.c.b.l.d(new k() { // from class: com.bytedance.sdk.openadsdk.m.a.2
+            c.b.c.b.l.d(new k() { // from class: com.bytedance.sdk.openadsdk.m.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -344,7 +342,7 @@ public class a {
                 }
 
                 /* JADX WARN: Removed duplicated region for block: B:15:0x0037 A[Catch: all -> 0x0043, TRY_LEAVE, TryCatch #0 {all -> 0x0043, blocks: (B:5:0x0005, B:7:0x0018, B:9:0x0029, B:15:0x0037), top: B:23:0x0005 }] */
-                @Override // d.b.c.b.k
+                @Override // c.b.c.b.k
                 /*
                     Code decompiled incorrectly, please refer to instructions dump.
                 */
@@ -361,7 +359,7 @@ public class a {
                                 if (!stringWriter2.contains(AdSlot.class.getPackage().getName()) && !stringWriter2.contains("com.bytedance.msdk")) {
                                     z = false;
                                     if (z) {
-                                        d.b.c.b.l.e(com.bytedance.sdk.openadsdk.core.d.a().b());
+                                        c.b.c.b.l.e(com.bytedance.sdk.openadsdk.core.d.a().b());
                                         return true;
                                     }
                                 }
@@ -381,7 +379,7 @@ public class a {
 
     public static void a(TTCustomController tTCustomController, List<String> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, tTCustomController, list) == null) && tTCustomController.isCanUseLocation()) {
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, tTCustomController, list) == null) && tTCustomController.isCanUseLocation()) {
             list.add("android.permission.ACCESS_COARSE_LOCATION");
             list.add("android.permission.ACCESS_FINE_LOCATION");
         }
@@ -395,8 +393,8 @@ public class a {
         }
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("latitude", a2.f30419a);
-            jSONObject2.put("longitude", a2.f30420b);
+            jSONObject2.put("latitude", a2.f66337a);
+            jSONObject2.put("longitude", a2.f66338b);
             jSONObject.put("geo", jSONObject2);
         } catch (Exception unused) {
         }
@@ -420,7 +418,7 @@ public class a {
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (l.f30442b == null || l.f30442b.isCanUsePhoneState()) ? j.f(o.a()) : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (l.f66360b == null || l.f66360b.isCanUsePhoneState()) ? j.f(o.a()) : "" : (String) invokeV.objValue;
     }
 
     public static Map<String, String> b(String str, String str2) {

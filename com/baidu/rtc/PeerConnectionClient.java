@@ -5,7 +5,6 @@ import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
 import android.os.Environment;
 import android.os.ParcelFileDescriptor;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.RtcParameterSettings;
@@ -64,7 +63,7 @@ import org.webrtc.audio.AudioDeviceModule;
 import org.webrtc.audio.JavaAudioDeviceModule;
 import org.webrtc.voiceengine.WebRtcAudioManager;
 import org.webrtc.voiceengine.WebRtcAudioUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class PeerConnectionClient implements DataChannel.Observer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUDIO_AUTO_GAIN_CONTROL_CONSTRAINT = "googAutoGainControl";
@@ -140,7 +139,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
     public int videoWidth;
     public int videokbps;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class PCObserver implements PeerConnection.Observer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,69 +168,64 @@ public class PeerConnectionClient implements DataChannel.Observer {
         @Override // org.webrtc.PeerConnection.Observer
         public void onAddStream(MediaStream mediaStream) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, mediaStream) == null) {
-                if (this.this$0.executor.isShutdown()) {
-                    Log.w(PeerConnectionClient.TAG, "executor is already shutdown");
-                } else {
-                    this.this$0.executor.execute(new Runnable(this, mediaStream) { // from class: com.baidu.rtc.PeerConnectionClient.PCObserver.4
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ PCObserver this$1;
-                        public final /* synthetic */ MediaStream val$stream;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, mediaStream};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$1 = this;
-                            this.val$stream = mediaStream;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$1.peerConnection == null || this.this$1.this$0.isError) {
-                                return;
-                            }
-                            Log.d(PeerConnectionClient.TAG, "=========== onAddStream ==========");
-                            if (this.val$stream.audioTracks.size() == 1) {
-                                this.this$1.this$0.remoteAudioTrack = this.val$stream.audioTracks.get(0);
-                                this.this$1.connection.audioTrack = this.this$1.this$0.remoteAudioTrack;
-                            }
-                            if (this.val$stream.videoTracks.size() == 1) {
-                                this.this$1.this$0.remoteVideoTrack = this.val$stream.videoTracks.get(0);
-                                this.this$1.this$0.remoteVideoTrack.setEnabled(true);
-                                this.this$1.connection.videoTrack = this.this$1.this$0.remoteVideoTrack;
-                                this.this$1.this$0.events.onRemoteRender(this.this$1.connection);
-                            }
-                            Boolean bool = Boolean.FALSE;
-                            Boolean bool2 = this.val$stream.videoTracks.size() != 0 ? Boolean.TRUE : bool;
-                            if (this.val$stream.audioTracks.size() != 0) {
-                                bool = Boolean.TRUE;
-                            }
-                            this.this$1.this$0.events.onRemoteStreamStats(bool2, bool, this.this$1.connection.handleId);
-                        }
-                    });
-                }
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaStream) == null) || this.this$0.executor.isShutdown()) {
+                return;
             }
+            this.this$0.executor.execute(new Runnable(this, mediaStream) { // from class: com.baidu.rtc.PeerConnectionClient.PCObserver.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PCObserver this$1;
+                public final /* synthetic */ MediaStream val$stream;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, mediaStream};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$1 = this;
+                    this.val$stream = mediaStream;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$1.peerConnection == null || this.this$1.this$0.isError) {
+                        return;
+                    }
+                    if (this.val$stream.audioTracks.size() == 1) {
+                        this.this$1.this$0.remoteAudioTrack = this.val$stream.audioTracks.get(0);
+                        this.this$1.connection.audioTrack = this.this$1.this$0.remoteAudioTrack;
+                    }
+                    if (this.val$stream.videoTracks.size() == 1) {
+                        this.this$1.this$0.remoteVideoTrack = this.val$stream.videoTracks.get(0);
+                        this.this$1.this$0.remoteVideoTrack.setEnabled(true);
+                        this.this$1.connection.videoTrack = this.this$1.this$0.remoteVideoTrack;
+                        this.this$1.this$0.events.onRemoteRender(this.this$1.connection);
+                    }
+                    Boolean bool = Boolean.FALSE;
+                    Boolean bool2 = this.val$stream.videoTracks.size() != 0 ? Boolean.TRUE : bool;
+                    if (this.val$stream.audioTracks.size() != 0) {
+                        bool = Boolean.TRUE;
+                    }
+                    this.this$1.this$0.events.onRemoteStreamStats(bool2, bool, this.this$1.connection.handleId);
+                }
+            });
         }
 
         @Override // org.webrtc.PeerConnection.Observer
         public void onAddTrack(RtpReceiver rtpReceiver, MediaStream[] mediaStreamArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rtpReceiver, mediaStreamArr) == null) {
-                Log.d(PeerConnectionClient.TAG, "testing ... add track");
             }
         }
 
@@ -248,7 +242,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         public void onDataChannel(DataChannel dataChannel) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, dataChannel) == null) {
-                Log.d(PeerConnectionClient.TAG, "New Data channel " + dataChannel.label());
+                String str = "New Data channel " + dataChannel.label();
                 dataChannel.registerObserver(this.this$0);
             }
         }
@@ -256,148 +250,139 @@ public class PeerConnectionClient implements DataChannel.Observer {
         @Override // org.webrtc.PeerConnection.Observer
         public void onIceCandidate(IceCandidate iceCandidate) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, iceCandidate) == null) {
-                if (this.this$0.executor.isShutdown()) {
-                    Log.w(PeerConnectionClient.TAG, "executor is already shutdown");
-                } else {
-                    this.this$0.executor.execute(new Runnable(this, iceCandidate) { // from class: com.baidu.rtc.PeerConnectionClient.PCObserver.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ PCObserver this$1;
-                        public final /* synthetic */ IceCandidate val$candidate;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, iceCandidate};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$1 = this;
-                            this.val$candidate = iceCandidate;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.this$1.this$0.events.onIceCandidate(this.val$candidate, this.this$1.connection.handleId);
-                            }
-                        }
-                    });
-                }
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, iceCandidate) == null) || this.this$0.executor.isShutdown()) {
+                return;
             }
+            this.this$0.executor.execute(new Runnable(this, iceCandidate) { // from class: com.baidu.rtc.PeerConnectionClient.PCObserver.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PCObserver this$1;
+                public final /* synthetic */ IceCandidate val$candidate;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, iceCandidate};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$1 = this;
+                    this.val$candidate = iceCandidate;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$1.this$0.events.onIceCandidate(this.val$candidate, this.this$1.connection.handleId);
+                    }
+                }
+            });
         }
 
         @Override // org.webrtc.PeerConnection.Observer
         public void onIceCandidatesRemoved(IceCandidate[] iceCandidateArr) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, iceCandidateArr) == null) {
-                if (this.this$0.executor.isShutdown()) {
-                    Log.w(PeerConnectionClient.TAG, "executor is already shutdown");
-                } else {
-                    this.this$0.executor.execute(new Runnable(this, iceCandidateArr) { // from class: com.baidu.rtc.PeerConnectionClient.PCObserver.2
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ PCObserver this$1;
-                        public final /* synthetic */ IceCandidate[] val$candidates;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, iceCandidateArr};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$1 = this;
-                            this.val$candidates = iceCandidateArr;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.this$1.this$0.events.onIceCandidatesRemoved(this.val$candidates);
-                            }
-                        }
-                    });
-                }
+            if (!(interceptable == null || interceptable.invokeL(1048581, this, iceCandidateArr) == null) || this.this$0.executor.isShutdown()) {
+                return;
             }
+            this.this$0.executor.execute(new Runnable(this, iceCandidateArr) { // from class: com.baidu.rtc.PeerConnectionClient.PCObserver.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PCObserver this$1;
+                public final /* synthetic */ IceCandidate[] val$candidates;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, iceCandidateArr};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$1 = this;
+                    this.val$candidates = iceCandidateArr;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$1.this$0.events.onIceCandidatesRemoved(this.val$candidates);
+                    }
+                }
+            });
         }
 
         @Override // org.webrtc.PeerConnection.Observer
         public void onIceConnectionChange(PeerConnection.IceConnectionState iceConnectionState) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, iceConnectionState) == null) {
-                if (this.this$0.executor.isShutdown()) {
-                    Log.w(PeerConnectionClient.TAG, "executor is already shutdown");
-                } else {
-                    this.this$0.executor.execute(new Runnable(this, iceConnectionState) { // from class: com.baidu.rtc.PeerConnectionClient.PCObserver.3
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ PCObserver this$1;
-                        public final /* synthetic */ PeerConnection.IceConnectionState val$newState;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, iceConnectionState};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$1 = this;
-                            this.val$newState = iceConnectionState;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                Log.d(PeerConnectionClient.TAG, "IceConnectionState: " + this.val$newState);
-                                PeerConnection.IceConnectionState iceConnectionState2 = this.val$newState;
-                                if (iceConnectionState2 == PeerConnection.IceConnectionState.CONNECTED) {
-                                    this.this$1.this$0.events.onIceConnected();
-                                } else if (iceConnectionState2 == PeerConnection.IceConnectionState.DISCONNECTED) {
-                                    this.this$1.this$0.events.onIceDisconnected();
-                                } else if (iceConnectionState2 == PeerConnection.IceConnectionState.FAILED) {
-                                    this.this$1.this$0.events.onIceFailed();
-                                }
-                            }
-                        }
-                    });
-                }
+            if (!(interceptable == null || interceptable.invokeL(1048582, this, iceConnectionState) == null) || this.this$0.executor.isShutdown()) {
+                return;
             }
+            this.this$0.executor.execute(new Runnable(this, iceConnectionState) { // from class: com.baidu.rtc.PeerConnectionClient.PCObserver.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PCObserver this$1;
+                public final /* synthetic */ PeerConnection.IceConnectionState val$newState;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, iceConnectionState};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$1 = this;
+                    this.val$newState = iceConnectionState;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        String str = "IceConnectionState: " + this.val$newState;
+                        PeerConnection.IceConnectionState iceConnectionState2 = this.val$newState;
+                        if (iceConnectionState2 == PeerConnection.IceConnectionState.CONNECTED) {
+                            this.this$1.this$0.events.onIceConnected();
+                        } else if (iceConnectionState2 == PeerConnection.IceConnectionState.DISCONNECTED) {
+                            this.this$1.this$0.events.onIceDisconnected();
+                        } else if (iceConnectionState2 == PeerConnection.IceConnectionState.FAILED) {
+                            this.this$1.this$0.events.onIceFailed();
+                        }
+                    }
+                }
+            });
         }
 
         @Override // org.webrtc.PeerConnection.Observer
         public void onIceConnectionReceivingChange(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-                Log.d(PeerConnectionClient.TAG, "IceConnectionReceiving changed to " + z);
+                String str = "IceConnectionReceiving changed to " + z;
             }
         }
 
@@ -405,51 +390,48 @@ public class PeerConnectionClient implements DataChannel.Observer {
         public void onIceGatheringChange(PeerConnection.IceGatheringState iceGatheringState) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iceGatheringState) == null) {
-                Log.d(PeerConnectionClient.TAG, "IceGatheringState: " + iceGatheringState);
+                String str = "IceGatheringState: " + iceGatheringState;
             }
         }
 
         @Override // org.webrtc.PeerConnection.Observer
         public void onRemoveStream(MediaStream mediaStream) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, mediaStream) == null) {
-                if (this.this$0.executor.isShutdown()) {
-                    Log.w(PeerConnectionClient.TAG, "executor is already shutdown");
-                } else {
-                    this.this$0.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.PCObserver.5
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ PCObserver this$1;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$1 = this;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.this$1.this$0.remoteVideoTrack = null;
-                                this.this$1.this$0.remoteAudioTrack = null;
-                            }
-                        }
-                    });
-                }
+            if (!(interceptable == null || interceptable.invokeL(1048585, this, mediaStream) == null) || this.this$0.executor.isShutdown()) {
+                return;
             }
+            this.this$0.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.PCObserver.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PCObserver this$1;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$1 = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$1.this$0.remoteVideoTrack = null;
+                        this.this$1.this$0.remoteAudioTrack = null;
+                    }
+                }
+            });
         }
 
         @Override // org.webrtc.PeerConnection.Observer
@@ -463,7 +445,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         public void onSignalingChange(PeerConnection.SignalingState signalingState) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048587, this, signalingState) == null) {
-                Log.d(PeerConnectionClient.TAG, "SignalingState: " + signalingState);
+                String str = "SignalingState: " + signalingState;
             }
         }
 
@@ -485,7 +467,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface PeerConnectionEvents {
         void onIceCandidate(IceCandidate iceCandidate, BigInteger bigInteger);
 
@@ -518,7 +500,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         void onSEIRecv(ByteBuffer byteBuffer);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class PeerConnectionParameters {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -607,7 +589,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class SDPObserver implements SdpObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -658,48 +640,46 @@ public class PeerConnectionClient implements DataChannel.Observer {
         public void onCreateSuccess(SessionDescription sessionDescription) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sessionDescription) == null) {
-                Log.e(PeerConnectionClient.TAG, "SDP on create success");
                 SessionDescription sessionDescription2 = new SessionDescription(sessionDescription.type, sessionDescription.description);
                 this.localSdp = sessionDescription2;
                 if (this.this$0.executor.isShutdown()) {
-                    Log.w(PeerConnectionClient.TAG, "executor is already shutdown");
-                } else {
-                    this.this$0.executor.execute(new Runnable(this, sessionDescription2) { // from class: com.baidu.rtc.PeerConnectionClient.SDPObserver.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ SDPObserver this$1;
-                        public final /* synthetic */ SessionDescription val$sdp;
+                    return;
+                }
+                this.this$0.executor.execute(new Runnable(this, sessionDescription2) { // from class: com.baidu.rtc.PeerConnectionClient.SDPObserver.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ SDPObserver this$1;
+                    public final /* synthetic */ SessionDescription val$sdp;
 
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, sessionDescription2};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$1 = this;
-                            this.val$sdp = sessionDescription2;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$1.peerConnection == null || this.this$1.this$0.isError) {
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, sessionDescription2};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
-                            Log.d(PeerConnectionClient.TAG, "Set local SDP from " + this.val$sdp.type + " description:" + this.val$sdp.description);
-                            this.this$1.peerConnection.setLocalDescription(this.this$1.sdpObserver, this.val$sdp);
                         }
-                    });
-                }
+                        this.this$1 = this;
+                        this.val$sdp = sessionDescription2;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$1.peerConnection == null || this.this$1.this$0.isError) {
+                            return;
+                        }
+                        String str = "Set local SDP from " + this.val$sdp.type + " description:" + this.val$sdp.description;
+                        this.this$1.peerConnection.setLocalDescription(this.this$1.sdpObserver, this.val$sdp);
+                    }
+                });
             }
         }
 
@@ -716,59 +696,47 @@ public class PeerConnectionClient implements DataChannel.Observer {
         @Override // org.webrtc.SdpObserver
         public void onSetSuccess() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                if (this.this$0.executor.isShutdown()) {
-                    Log.w(PeerConnectionClient.TAG, "executor is already shutdown");
-                } else {
-                    this.this$0.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.SDPObserver.2
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ SDPObserver this$1;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$1 = this;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            String str;
-                            Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$1.peerConnection == null || this.this$1.this$0.isError) {
-                                return;
-                            }
-                            if (this.this$1.type) {
-                                if (this.this$1.peerConnection.getRemoteDescription() == null) {
-                                    Log.d(PeerConnectionClient.TAG, "Local SDP set succesfully");
-                                    this.this$1.this$0.events.onLocalDescription(this.this$1.localSdp, this.this$1.handleId, this.this$1.localSdp.description.contains("profile-level-id=640c1f"));
-                                    return;
-                                }
-                                str = "Remote SDP set succesfully";
-                            } else if (this.this$1.peerConnection.getLocalDescription() != null) {
-                                Log.d(PeerConnectionClient.TAG, "answer Local SDP set succesfully");
-                                this.this$1.this$0.events.onRemoteDescription(this.this$1.localSdp, this.this$1.handleId);
-                                return;
-                            } else {
-                                str = "answer Remote SDP set succesfully";
-                            }
-                            Log.d(PeerConnectionClient.TAG, str);
-                        }
-                    });
-                }
+            if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.this$0.executor.isShutdown()) {
+                return;
             }
+            this.this$0.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.SDPObserver.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ SDPObserver this$1;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$1 = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$1.peerConnection == null || this.this$1.this$0.isError) {
+                        return;
+                    }
+                    if (!this.this$1.type) {
+                        if (this.this$1.peerConnection.getLocalDescription() != null) {
+                            this.this$1.this$0.events.onRemoteDescription(this.this$1.localSdp, this.this$1.handleId);
+                        }
+                    } else if (this.this$1.peerConnection.getRemoteDescription() == null) {
+                        this.this$1.this$0.events.onLocalDescription(this.this$1.localSdp, this.this$1.handleId, this.this$1.localSdp.description.contains("profile-level-id=640c1f"));
+                    }
+                }
+            });
         }
 
         public void setConnection(JanusConnection janusConnection) {
@@ -784,7 +752,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class StatsEventsType {
         public static final /* synthetic */ StatsEventsType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -847,7 +815,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class VideoDecoderObserver implements MediaCodecVideoDecoder.MediaCodecVideoDecoderObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -938,10 +906,10 @@ public class PeerConnectionClient implements DataChannel.Observer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(65575, this, i2, i3, i4) == null) {
             if (this.isError || this.videoCapturer == null) {
-                Log.e(TAG, "Failed to change capture format. Video: true. Error : " + this.isError);
+                String str = "Failed to change capture format. Video: true. Error : " + this.isError;
                 return;
             }
-            Log.d(TAG, "changeCaptureFormat: " + i2 + "x" + i3 + TNCManager.TNC_PROBE_HEADER_SECEPTOR + i4);
+            String str2 = "changeCaptureFormat: " + i2 + "x" + i3 + TNCManager.TNC_PROBE_HEADER_SECEPTOR + i4;
             this.videoSource.adaptOutputFormat(i2, i3, i4);
         }
     }
@@ -950,7 +918,6 @@ public class PeerConnectionClient implements DataChannel.Observer {
     public void closeInternal() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65576, this) == null) {
-            Log.d(TAG, "Closing peer connection.");
             this.statsTimer.cancel();
             ConcurrentHashMap<BigInteger, JanusConnection> concurrentHashMap = this.peerConnectionMap;
             if (concurrentHashMap != null) {
@@ -963,13 +930,11 @@ public class PeerConnectionClient implements DataChannel.Observer {
                     janusConnection.sdpObserver.close();
                 }
             }
-            Log.d(TAG, "Closing audio source.");
             AudioSource audioSource = this.audioSource;
             if (audioSource != null) {
                 audioSource.dispose();
                 this.audioSource = null;
             }
-            Log.d(TAG, "Stopping capture.");
             VideoCapturer videoCapturer = this.videoCapturer;
             if (videoCapturer != null) {
                 try {
@@ -981,7 +946,6 @@ public class PeerConnectionClient implements DataChannel.Observer {
                     throw new RuntimeException(e2);
                 }
             }
-            Log.d(TAG, "Closing video source.");
             VideoSource videoSource = this.videoSource;
             if (videoSource != null) {
                 videoSource.dispose();
@@ -992,14 +956,12 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 surfaceTextureHelper.dispose();
                 this.localTextureHelper = null;
             }
-            Log.d(TAG, "Closing peer connection factory.");
             PeerConnectionFactory peerConnectionFactory = this.factory;
             if (peerConnectionFactory != null) {
                 peerConnectionFactory.dispose();
                 this.factory = null;
             }
             this.options = null;
-            Log.d(TAG, "Closing peer connection done.");
             this.events.onPeerConnectionClosed();
             PeerConnectionFactory.stopInternalTracingCapture();
             PeerConnectionFactory.shutdownInternalTracer();
@@ -1043,7 +1005,6 @@ public class PeerConnectionClient implements DataChannel.Observer {
             Logging.d(TAG, "Capturing format: " + this.videoWidth + "x" + this.videoHeight + TNCManager.TNC_PROBE_HEADER_SECEPTOR + this.videoFps);
             this.audioConstraints = new MediaConstraints();
             if (this.peerConnectionParameters.noAudioProcessing) {
-                Log.d(TAG, "Disabling audio processing");
                 this.audioConstraints.mandatory.add(new MediaConstraints.KeyValuePair(AUDIO_ECHO_CANCELLATION_CONSTRAINT, "false"));
                 this.audioConstraints.mandatory.add(new MediaConstraints.KeyValuePair(AUDIO_AUTO_GAIN_CONTROL_CONSTRAINT, "false"));
                 this.audioConstraints.mandatory.add(new MediaConstraints.KeyValuePair(AUDIO_HIGH_PASS_FILTER_CONSTRAINT, "false"));
@@ -1068,7 +1029,6 @@ public class PeerConnectionClient implements DataChannel.Observer {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65579, this, bigInteger, z)) == null) {
-            Log.d(TAG, "Create peer connection.");
             ArrayList arrayList = new ArrayList();
             PeerConnection.IceServer.builder("stun:180.149.142.139:3478").createIceServer();
             PeerConnection.RTCConfiguration rTCConfiguration = new PeerConnection.RTCConfiguration(arrayList);
@@ -1093,15 +1053,14 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.mHasData && z) {
                 this.dcPublisher = createPeerConnection.createDataChannel("JanusDataChannel", init);
             }
-            Log.d(TAG, "Peer connection created.");
             return createPeerConnection;
         }
         return (PeerConnection) invokeLZ.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0055, code lost:
-        if (r2.equals(com.baidu.rtc.PeerConnectionClient.VIDEO_CODEC_H264) != false) goto L10;
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x004e, code lost:
+        if (r1.equals(com.baidu.rtc.PeerConnectionClient.VIDEO_CODEC_H264) != false) goto L10;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1113,7 +1072,6 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.peerConnectionParameters.tracing) {
                 PeerConnectionFactory.startInternalTracingCapture(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "webrtc-trace.txt");
             }
-            Log.d(TAG, "Create peer connection factory. Use video: true");
             boolean z = false;
             this.isError = false;
             this.preferredVideoCodec = VIDEO_CODEC_VP8;
@@ -1126,33 +1084,25 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 }
                 this.preferredVideoCodec = str2;
             }
-            Log.d(TAG, "Pereferred video codec: " + this.preferredVideoCodec);
+            String str4 = "Pereferred video codec: " + this.preferredVideoCodec;
             if (this.peerConnectionParameters.useOpenSLES) {
-                Log.d(TAG, "Allow OpenSL ES audio if device supports it");
                 WebRtcAudioManager.setBlacklistDeviceForOpenSLESUsage(false);
             } else {
-                Log.d(TAG, "Disable OpenSL ES audio even if device supports it");
                 WebRtcAudioManager.setBlacklistDeviceForOpenSLESUsage(true);
             }
             if (this.peerConnectionParameters.disableBuiltInAEC) {
-                Log.d(TAG, "Disable built-in AEC even if device supports it");
                 WebRtcAudioUtils.setWebRtcBasedAcousticEchoCanceler(true);
             } else {
-                Log.d(TAG, "Enable built-in AEC if device supports it");
                 WebRtcAudioUtils.setWebRtcBasedAcousticEchoCanceler(false);
             }
             if (this.peerConnectionParameters.disableBuiltInAGC) {
-                Log.d(TAG, "Disable built-in AGC even if device supports it");
                 WebRtcAudioUtils.setWebRtcBasedAutomaticGainControl(true);
             } else {
-                Log.d(TAG, "Enable built-in AGC if device supports it");
                 WebRtcAudioUtils.setWebRtcBasedAutomaticGainControl(false);
             }
             if (this.peerConnectionParameters.disableBuiltInNS) {
-                Log.d(TAG, "Disable built-in NS even if device supports it");
                 WebRtcAudioUtils.setWebRtcBasedNoiseSuppressor(true);
             } else {
-                Log.d(TAG, "Enable built-in NS if device supports it");
                 WebRtcAudioUtils.setWebRtcBasedNoiseSuppressor(false);
             }
             this.context = context;
@@ -1160,31 +1110,31 @@ public class PeerConnectionClient implements DataChannel.Observer {
             this.answer_sdpMediaConstraints = mediaConstraints;
             mediaConstraints.mandatory.add(new MediaConstraints.KeyValuePair("OfferToReceiveAudio", "true"));
             this.answer_sdpMediaConstraints.mandatory.add(new MediaConstraints.KeyValuePair("OfferToReceiveVideo", "true"));
-            String str4 = this.peerConnectionParameters.enableFEC ? "WebRTC-FlexFEC-03-Advertised/Enabled/WebRTC-FlexFEC-03/Enabled/" : "";
+            String str5 = this.peerConnectionParameters.enableFEC ? "WebRTC-FlexFEC-03-Advertised/Enabled/WebRTC-FlexFEC-03/Enabled/" : "";
             if (this.peerConnectionParameters.enableFixedResolution) {
-                str4 = str4 + "BRTC.Fixed.Resolution/Enabled/";
+                str5 = str5 + "BRTC.Fixed.Resolution/Enabled/";
             }
             int i2 = this.peerConnectionParameters.encodeBitrateMode;
             if (i2 == 0 || i2 == 1 || i2 == 2) {
-                str4 = str4 + "BRTC-Encoder-BitrateMode/" + this.peerConnectionParameters.encodeBitrateMode + "/";
+                str5 = str5 + "BRTC-Encoder-BitrateMode/" + this.peerConnectionParameters.encodeBitrateMode + "/";
             }
             if (this.peerConnectionParameters.enableHighProfile) {
-                str4 = (str4 + "WebRTC-H264HighProfile/Enabled/") + "WebRTC-MediaTekH264/Enabled/";
+                str5 = (str5 + "WebRTC-H264HighProfile/Enabled/") + "WebRTC-MediaTekH264/Enabled/";
             }
             if (this.peerConnectionParameters.enableHisiH264HW) {
-                str4 = str4 + "BRTC.HisiH264HW/Enabled/";
+                str5 = str5 + "BRTC.HisiH264HW/Enabled/";
             }
             if (this.peerConnectionParameters.enableMTKH264Decode) {
-                str4 = str4 + "BRTC.MTK.H264.Decode/Enabled/";
+                str5 = str5 + "BRTC.MTK.H264.Decode/Enabled/";
             }
             if (this.peerConnectionParameters.audioPlayoutDelay >= 0) {
-                str4 = str4 + "BRTC.Playout.Delay.AudioOnly/" + this.peerConnectionParameters.audioPlayoutDelay + "/";
+                str5 = str5 + "BRTC.Playout.Delay.AudioOnly/" + this.peerConnectionParameters.audioPlayoutDelay + "/";
             }
             if (this.peerConnectionParameters.audioCodecComplex >= 0) {
-                str4 = str4 + "BRTC.Opus.Complexity/" + this.peerConnectionParameters.audioCodecComplex + "/";
+                str5 = str5 + "BRTC.Opus.Complexity/" + this.peerConnectionParameters.audioCodecComplex + "/";
             }
             if (this.peerConnectionParameters.enableAACCodec) {
-                str4 = str4 + "BRTC.Aac.Codec/Enabled/";
+                str5 = str5 + "BRTC.Aac.Codec/Enabled/";
             }
             int i3 = 0;
             while (true) {
@@ -1204,14 +1154,13 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 i3++;
             }
             if (this.peerConnectionParameters.enableRequiredResolutionAligment32 || z) {
-                str4 = str4 + "BRTC.Required.Resolustion.Aligment32/Enabled/";
+                str5 = str5 + "BRTC.Required.Resolustion.Aligment32/Enabled/";
             }
-            PeerConnectionFactory.initialize(PeerConnectionFactory.InitializationOptions.builder(context).setFieldTrials(str4).createInitializationOptions());
+            PeerConnectionFactory.initialize(PeerConnectionFactory.InitializationOptions.builder(context).setFieldTrials(str5).createInitializationOptions());
             AudioDeviceModule createJavaAudioDevice = createJavaAudioDevice();
             this.adm = (JavaAudioDeviceModule) createJavaAudioDevice;
             MediaCodecVideoDecoder.setVideoDecoderObserver(new VideoDecoderObserver(this.events));
             this.factory = PeerConnectionFactory.builder().setAudioDeviceModule(createJavaAudioDevice).setVideoDecoderFactory(MediaCodecVideoDecoder.createFactory()).setVideoEncoderFactory(MediaCodecVideoEncoder.createFactory()).createPeerConnectionFactory();
-            Log.d(TAG, "Peer connection factory created.");
             createJavaAudioDevice.release();
             if (this.mbEnableDebugLog) {
                 Logging.enableLogThreads();
@@ -1228,34 +1177,31 @@ public class PeerConnectionClient implements DataChannel.Observer {
     public void createPeerConnectionInternal(EglBase.Context context, BigInteger bigInteger) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65581, this, context, bigInteger) == null) {
-            if (this.factory == null || this.isError) {
-                Log.e(TAG, "Peerconnection factory is not created");
-                return;
-            }
-            Log.d(TAG, "PCConstraints: " + this.pcConstraints.toString());
-            Log.d(TAG, "EGLContext: " + context);
-            PeerConnection createPeerConnection = createPeerConnection(bigInteger, true);
-            boolean z2 = this.mHasAudioSend;
-            if (!z2 && !(z = this.mHasVideoSend)) {
-                if (z2 || z) {
-                    return;
-                }
-                createPeerConnection.addTransceiver(MediaStreamTrack.MediaType.MEDIA_TYPE_AUDIO, new RtpTransceiver.RtpTransceiverInit(RtpTransceiver.RtpTransceiverDirection.RECV_ONLY));
-                createPeerConnection.addTransceiver(MediaStreamTrack.MediaType.MEDIA_TYPE_VIDEO, new RtpTransceiver.RtpTransceiverInit(RtpTransceiver.RtpTransceiverDirection.RECV_ONLY));
-                return;
-            }
-            MediaStream createLocalMediaStream = this.factory.createLocalMediaStream("ARDAMS");
-            this.mediaStream = createLocalMediaStream;
-            if (this.mHasVideoSend) {
-                createLocalMediaStream.addTrack(createVideoTrack(context, this.videoCapturer));
-            }
-            if (this.mHasAudioSend) {
-                this.mediaStream.addTrack(createAudioTrack());
-            }
-            createPeerConnection.addStream(this.mediaStream);
-            findVideoSender(bigInteger);
+        if (!(interceptable == null || interceptable.invokeLL(65581, this, context, bigInteger) == null) || this.factory == null || this.isError) {
+            return;
         }
+        String str = "PCConstraints: " + this.pcConstraints.toString();
+        String str2 = "EGLContext: " + context;
+        PeerConnection createPeerConnection = createPeerConnection(bigInteger, true);
+        boolean z2 = this.mHasAudioSend;
+        if (!z2 && !(z = this.mHasVideoSend)) {
+            if (z2 || z) {
+                return;
+            }
+            createPeerConnection.addTransceiver(MediaStreamTrack.MediaType.MEDIA_TYPE_AUDIO, new RtpTransceiver.RtpTransceiverInit(RtpTransceiver.RtpTransceiverDirection.RECV_ONLY));
+            createPeerConnection.addTransceiver(MediaStreamTrack.MediaType.MEDIA_TYPE_VIDEO, new RtpTransceiver.RtpTransceiverInit(RtpTransceiver.RtpTransceiverDirection.RECV_ONLY));
+            return;
+        }
+        MediaStream createLocalMediaStream = this.factory.createLocalMediaStream("ARDAMS");
+        this.mediaStream = createLocalMediaStream;
+        if (this.mHasVideoSend) {
+            createLocalMediaStream.addTrack(createVideoTrack(context, this.videoCapturer));
+        }
+        if (this.mHasAudioSend) {
+            this.mediaStream.addTrack(createAudioTrack());
+        }
+        createPeerConnection.addStream(this.mediaStream);
+        findVideoSender(bigInteger);
     }
 
     private VideoTrack createVideoTrack(EglBase.Context context, VideoCapturer videoCapturer) {
@@ -1281,7 +1227,6 @@ public class PeerConnectionClient implements DataChannel.Observer {
         if (interceptable == null || interceptable.invokeL(65583, this, bigInteger) == null) {
             for (RtpSender rtpSender : this.peerConnectionMap.get(bigInteger).peerConnection.getSenders()) {
                 if (rtpSender.track() != null && rtpSender.track().kind().equals("video")) {
-                    Log.d(TAG, "Found video sender.");
                     this.localVideoSender = rtpSender;
                 }
             }
@@ -1304,175 +1249,161 @@ public class PeerConnectionClient implements DataChannel.Observer {
     /* JADX INFO: Access modifiers changed from: private */
     public void getStats(BigInteger bigInteger, StatsEventsType statsEventsType) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65585, this, bigInteger, statsEventsType) == null) || this.peerConnectionMap.get(bigInteger).peerConnection.getStats(new StatsObserver(this, bigInteger, statsEventsType) { // from class: com.baidu.rtc.PeerConnectionClient.8
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ PeerConnectionClient this$0;
-            public final /* synthetic */ StatsEventsType val$eventsType;
-            public final /* synthetic */ BigInteger val$handleId;
+        if (interceptable == null || interceptable.invokeLL(65585, this, bigInteger, statsEventsType) == null) {
+            this.peerConnectionMap.get(bigInteger).peerConnection.getStats(new StatsObserver(this, bigInteger, statsEventsType) { // from class: com.baidu.rtc.PeerConnectionClient.8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PeerConnectionClient this$0;
+                public final /* synthetic */ StatsEventsType val$eventsType;
+                public final /* synthetic */ BigInteger val$handleId;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, bigInteger, statsEventsType};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, bigInteger, statsEventsType};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$handleId = bigInteger;
+                    this.val$eventsType = statsEventsType;
+                }
+
+                @Override // org.webrtc.StatsObserver
+                public void onComplete(StatsReport[] statsReportArr) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, statsReportArr) == null) {
+                        this.this$0.events.onPeerConnectionStatsReady(statsReportArr, this.val$handleId, this.val$eventsType);
                     }
                 }
-                this.this$0 = this;
-                this.val$handleId = bigInteger;
-                this.val$eventsType = statsEventsType;
-            }
-
-            @Override // org.webrtc.StatsObserver
-            public void onComplete(StatsReport[] statsReportArr) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, statsReportArr) == null) {
-                    this.this$0.events.onPeerConnectionStatsReady(statsReportArr, this.val$handleId, this.val$eventsType);
-                }
-            }
-        }, null)) {
-            return;
+            }, null);
         }
-        Log.e(TAG, "getStats() returns false!");
     }
 
     public static /* synthetic */ void lambda$setVideoMaxBitrate$0(PeerConnectionClient peerConnectionClient, Integer num) {
         if (peerConnectionClient.localVideoSender == null) {
             return;
         }
-        Log.d(TAG, "Requested max video bitrate: " + num);
+        String str = "Requested max video bitrate: " + num;
         RtpSender rtpSender = peerConnectionClient.localVideoSender;
         if (rtpSender == null) {
-            Log.w(TAG, "Sender is not ready.");
             return;
         }
         RtpParameters parameters = rtpSender.getParameters();
         if (parameters.encodings.size() == 0) {
-            Log.w(TAG, "RtpParameters are not ready.");
             return;
         }
         for (RtpParameters.Encoding encoding : parameters.encodings) {
             encoding.maxBitrateBps = num == null ? null : Integer.valueOf(num.intValue() * 1000);
         }
-        if (!peerConnectionClient.localVideoSender.setParameters(parameters)) {
-            Log.e(TAG, "RtpSender.setParameters failed.");
-        }
-        Log.d(TAG, "Configured max video bitrate to: " + num);
+        peerConnectionClient.localVideoSender.setParameters(parameters);
+        String str2 = "Configured max video bitrate to: " + num;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void reportError(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65587, this, str) == null) {
-            Log.e(TAG, "Peerconnection error: " + str);
+            String str2 = "Peerconnection error: " + str;
             if (this.executor.isShutdown()) {
-                Log.w(TAG, "executor is already shutdown");
-            } else {
-                this.executor.execute(new Runnable(this, str) { // from class: com.baidu.rtc.PeerConnectionClient.19
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ PeerConnectionClient this$0;
-                    public final /* synthetic */ String val$errorMessage;
+                return;
+            }
+            this.executor.execute(new Runnable(this, str) { // from class: com.baidu.rtc.PeerConnectionClient.19
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PeerConnectionClient this$0;
+                public final /* synthetic */ String val$errorMessage;
 
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, str};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$errorMessage = str;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.isError) {
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
-                        this.this$0.events.onPeerConnectionError(this.val$errorMessage);
-                        this.this$0.isError = true;
                     }
-                });
-            }
+                    this.this$0 = this;
+                    this.val$errorMessage = str;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.isError) {
+                        return;
+                    }
+                    this.this$0.events.onPeerConnectionError(this.val$errorMessage);
+                    this.this$0.isError = true;
+                }
+            });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void switchCameraInternal() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65588, this) == null) {
-            if (!(this.videoCapturer instanceof CameraVideoCapturer)) {
-                Log.d(TAG, "Will not switch camera, video caputurer is not a camera");
-                return;
-            }
-            Log.d(TAG, "Switch camera");
+        if ((interceptable == null || interceptable.invokeV(65588, this) == null) && (this.videoCapturer instanceof CameraVideoCapturer)) {
             ((CameraVideoCapturer) this.videoCapturer).switchCamera(null);
         }
     }
 
     public void changeCaptureFormat(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048576, this, i2, i3, i4) == null) {
-            if (this.executor.isShutdown()) {
-                Log.w(TAG, "executor is already shutdown");
-            } else {
-                this.executor.execute(new Runnable(this, i2, i3, i4) { // from class: com.baidu.rtc.PeerConnectionClient.21
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ PeerConnectionClient this$0;
-                    public final /* synthetic */ int val$framerate;
-                    public final /* synthetic */ int val$height;
-                    public final /* synthetic */ int val$width;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i5 = newInitContext.flag;
-                            if ((i5 & 1) != 0) {
-                                int i6 = i5 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$width = i2;
-                        this.val$height = i3;
-                        this.val$framerate = i4;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.this$0.changeCaptureFormatInternal(this.val$width, this.val$height, this.val$framerate);
-                        }
-                    }
-                });
-            }
+        if (!(interceptable == null || interceptable.invokeIII(1048576, this, i2, i3, i4) == null) || this.executor.isShutdown()) {
+            return;
         }
+        this.executor.execute(new Runnable(this, i2, i3, i4) { // from class: com.baidu.rtc.PeerConnectionClient.21
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PeerConnectionClient this$0;
+            public final /* synthetic */ int val$framerate;
+            public final /* synthetic */ int val$height;
+            public final /* synthetic */ int val$width;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i5 = newInitContext.flag;
+                    if ((i5 & 1) != 0) {
+                        int i6 = i5 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$width = i2;
+                this.val$height = i3;
+                this.val$framerate = i4;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.this$0.changeCaptureFormatInternal(this.val$width, this.val$height, this.val$framerate);
+                }
+            }
+        });
     }
 
     public void close() {
@@ -1567,7 +1498,6 @@ public class PeerConnectionClient implements DataChannel.Observer {
                     janusConnection.sdpObserver = null;
                 }
                 this.this$0.peerConnectionMap.remove(this.val$handleId);
-                Log.d(PeerConnectionClient.TAG, "Closing peer connection done.");
                 this.this$0.events.onPeerClosed(this.val$handleId);
             }
         });
@@ -1604,7 +1534,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 public void onWebRtcAudioRecordError(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                        Log.e(PeerConnectionClient.TAG, "onWebRtcAudioRecordError: " + str);
+                        String str2 = "onWebRtcAudioRecordError: " + str;
                         this.this$0.reportError(str);
                     }
                 }
@@ -1613,7 +1543,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 public void onWebRtcAudioRecordInitError(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                        Log.e(PeerConnectionClient.TAG, "onWebRtcAudioRecordInitError: " + str);
+                        String str2 = "onWebRtcAudioRecordInitError: " + str;
                         this.this$0.reportError(str);
                         ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.PEERCONNECTION_CREATE_ERROR);
                     }
@@ -1623,7 +1553,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 public void onWebRtcAudioRecordStartError(JavaAudioDeviceModule.AudioRecordStartErrorCode audioRecordStartErrorCode, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, audioRecordStartErrorCode, str) == null) {
-                        Log.e(PeerConnectionClient.TAG, "onWebRtcAudioRecordStartError: " + audioRecordStartErrorCode + ". " + str);
+                        String str2 = "onWebRtcAudioRecordStartError: " + audioRecordStartErrorCode + ". " + str;
                     }
                 }
             }).setAudioTrackErrorCallback(new JavaAudioDeviceModule.AudioTrackErrorCallback(this) { // from class: com.baidu.rtc.PeerConnectionClient.5
@@ -1653,7 +1583,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 public void onWebRtcAudioTrackError(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                        Log.e(PeerConnectionClient.TAG, "onWebRtcAudioTrackError: " + str);
+                        String str2 = "onWebRtcAudioTrackError: " + str;
                         this.this$0.reportError(str);
                     }
                 }
@@ -1662,7 +1592,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 public void onWebRtcAudioTrackInitError(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                        Log.e(PeerConnectionClient.TAG, "onWebRtcAudioTrackInitError: " + str);
+                        String str2 = "onWebRtcAudioTrackInitError: " + str;
                         this.this$0.reportError(str);
                     }
                 }
@@ -1671,7 +1601,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 public void onWebRtcAudioTrackStartError(JavaAudioDeviceModule.AudioTrackStartErrorCode audioTrackStartErrorCode, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, audioTrackStartErrorCode, str) == null) {
-                        Log.e(PeerConnectionClient.TAG, "onWebRtcAudioTrackStartError: " + audioTrackStartErrorCode + ". " + str);
+                        String str2 = "onWebRtcAudioTrackStartError: " + audioTrackStartErrorCode + ". " + str;
                         this.this$0.reportError(str);
                     }
                 }
@@ -1686,108 +1616,100 @@ public class PeerConnectionClient implements DataChannel.Observer {
 
     public void createOffer(BigInteger bigInteger) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bigInteger) == null) {
-            if (this.executor.isShutdown()) {
-                Log.w(TAG, "executor is already shutdown");
-            } else {
-                this.executor.execute(new Runnable(this, bigInteger) { // from class: com.baidu.rtc.PeerConnectionClient.12
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ PeerConnectionClient this$0;
-                    public final /* synthetic */ BigInteger val$handleId;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, bigInteger};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$handleId = bigInteger;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        JanusConnection janusConnection;
-                        PeerConnection peerConnection;
-                        Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (peerConnection = (janusConnection = (JanusConnection) this.this$0.peerConnectionMap.get(this.val$handleId)).peerConnection) == null || this.this$0.isError) {
-                            return;
-                        }
-                        Log.d(PeerConnectionClient.TAG, "PC Create OFFER");
-                        peerConnection.createOffer(janusConnection.sdpObserver, this.this$0.sdpMediaConstraints);
-                    }
-                });
-            }
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, bigInteger) == null) || this.executor.isShutdown()) {
+            return;
         }
+        this.executor.execute(new Runnable(this, bigInteger) { // from class: com.baidu.rtc.PeerConnectionClient.12
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PeerConnectionClient this$0;
+            public final /* synthetic */ BigInteger val$handleId;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, bigInteger};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$handleId = bigInteger;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                JanusConnection janusConnection;
+                PeerConnection peerConnection;
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (peerConnection = (janusConnection = (JanusConnection) this.this$0.peerConnectionMap.get(this.val$handleId)).peerConnection) == null || this.this$0.isError) {
+                    return;
+                }
+                peerConnection.createOffer(janusConnection.sdpObserver, this.this$0.sdpMediaConstraints);
+            }
+        });
     }
 
     public void createPeerConnection(EglBase.Context context, VideoSink videoSink, VideoCapturer videoCapturer, BigInteger bigInteger) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, context, videoSink, videoCapturer, bigInteger) == null) {
-            if (this.peerConnectionParameters == null) {
-                Log.e(TAG, "Creating peer connection without initializing factory.");
-                return;
-            }
-            this.localRender = videoSink;
-            this.videoCapturer = videoCapturer;
-            if (this.executor.isShutdown()) {
-                Log.w(TAG, "executor is already shutdown");
-            } else {
-                this.executor.execute(new Runnable(this, context, bigInteger) { // from class: com.baidu.rtc.PeerConnectionClient.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ PeerConnectionClient this$0;
-                    public final /* synthetic */ BigInteger val$handleId;
-                    public final /* synthetic */ EglBase.Context val$renderEGLContext;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, context, bigInteger};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$renderEGLContext = context;
-                        this.val$handleId = bigInteger;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            try {
-                                this.this$0.createMediaConstraintsInternal();
-                                this.this$0.createPeerConnectionInternal(this.val$renderEGLContext, this.val$handleId);
-                            } catch (Exception e2) {
-                                PeerConnectionClient peerConnectionClient = this.this$0;
-                                peerConnectionClient.reportError("Failed to create peer connection: " + e2.getMessage());
-                                ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.PEERCONNECTION_CREATE_ERROR);
-                                throw e2;
-                            }
-                        }
-                    }
-                });
-            }
+        if (!(interceptable == null || interceptable.invokeLLLL(1048581, this, context, videoSink, videoCapturer, bigInteger) == null) || this.peerConnectionParameters == null) {
+            return;
         }
+        this.localRender = videoSink;
+        this.videoCapturer = videoCapturer;
+        if (this.executor.isShutdown()) {
+            return;
+        }
+        this.executor.execute(new Runnable(this, context, bigInteger) { // from class: com.baidu.rtc.PeerConnectionClient.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PeerConnectionClient this$0;
+            public final /* synthetic */ BigInteger val$handleId;
+            public final /* synthetic */ EglBase.Context val$renderEGLContext;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, context, bigInteger};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$renderEGLContext = context;
+                this.val$handleId = bigInteger;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    try {
+                        this.this$0.createMediaConstraintsInternal();
+                        this.this$0.createPeerConnectionInternal(this.val$renderEGLContext, this.val$handleId);
+                    } catch (Exception e2) {
+                        PeerConnectionClient peerConnectionClient = this.this$0;
+                        peerConnectionClient.reportError("Failed to create peer connection: " + e2.getMessage());
+                        ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.PEERCONNECTION_CREATE_ERROR);
+                        throw e2;
+                    }
+                }
+            }
+        });
     }
 
     public void createPeerConnectionFactory(Context context, PeerConnectionParameters peerConnectionParameters, PeerConnectionEvents peerConnectionEvents) {
@@ -1810,74 +1732,73 @@ public class PeerConnectionClient implements DataChannel.Observer {
             this.remoteAudioTrack = null;
             this.statsTimer = new Timer();
             if (this.executor.isShutdown()) {
-                Log.w(TAG, "executor is already shutdown");
-            } else {
-                this.executor.execute(new Runnable(this, context) { // from class: com.baidu.rtc.PeerConnectionClient.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ PeerConnectionClient this$0;
-                    public final /* synthetic */ Context val$context;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, context};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$context = context;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.this$0.createPeerConnectionFactoryInternal(this.val$context);
-                        }
-                    }
-                });
+                return;
             }
+            this.executor.execute(new Runnable(this, context) { // from class: com.baidu.rtc.PeerConnectionClient.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PeerConnectionClient this$0;
+                public final /* synthetic */ Context val$context;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, context};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$context = context;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.createPeerConnectionFactoryInternal(this.val$context);
+                    }
+                }
+            });
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x002d A[Catch: Exception -> 0x0056, TryCatch #0 {Exception -> 0x0056, blocks: (B:6:0x0007, B:8:0x000b, B:9:0x0011, B:17:0x002d, B:18:0x0030, B:20:0x0039, B:21:0x003b, B:28:0x004d, B:22:0x003f, B:24:0x0043, B:25:0x0046, B:27:0x004a, B:10:0x0015, B:12:0x0019, B:13:0x0020, B:15:0x0024), top: B:48:0x0007 }] */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0039 A[Catch: Exception -> 0x0056, TryCatch #0 {Exception -> 0x0056, blocks: (B:6:0x0007, B:8:0x000b, B:9:0x0011, B:17:0x002d, B:18:0x0030, B:20:0x0039, B:21:0x003b, B:28:0x004d, B:22:0x003f, B:24:0x0043, B:25:0x0046, B:27:0x004a, B:10:0x0015, B:12:0x0019, B:13:0x0020, B:15:0x0024), top: B:48:0x0007 }] */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x003f A[Catch: Exception -> 0x0056, TryCatch #0 {Exception -> 0x0056, blocks: (B:6:0x0007, B:8:0x000b, B:9:0x0011, B:17:0x002d, B:18:0x0030, B:20:0x0039, B:21:0x003b, B:28:0x004d, B:22:0x003f, B:24:0x0043, B:25:0x0046, B:27:0x004a, B:10:0x0015, B:12:0x0019, B:13:0x0020, B:15:0x0024), top: B:48:0x0007 }] */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x007d  */
-    /* JADX WARN: Removed duplicated region for block: B:51:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0025 A[Catch: Exception -> 0x006f, TryCatch #0 {Exception -> 0x006f, blocks: (B:6:0x0007, B:8:0x000b, B:9:0x000d, B:17:0x0025, B:18:0x0028, B:20:0x0031, B:21:0x0033, B:28:0x0045, B:22:0x0037, B:24:0x003b, B:25:0x003e, B:27:0x0042, B:10:0x0015, B:12:0x0019, B:13:0x001c, B:15:0x0020), top: B:47:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0031 A[Catch: Exception -> 0x006f, TryCatch #0 {Exception -> 0x006f, blocks: (B:6:0x0007, B:8:0x000b, B:9:0x000d, B:17:0x0025, B:18:0x0028, B:20:0x0031, B:21:0x0033, B:28:0x0045, B:22:0x0037, B:24:0x003b, B:25:0x003e, B:27:0x0042, B:10:0x0015, B:12:0x0019, B:13:0x001c, B:15:0x0020), top: B:47:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0037 A[Catch: Exception -> 0x006f, TryCatch #0 {Exception -> 0x006f, blocks: (B:6:0x0007, B:8:0x000b, B:9:0x000d, B:17:0x0025, B:18:0x0028, B:20:0x0031, B:21:0x0033, B:28:0x0045, B:22:0x0037, B:24:0x003b, B:25:0x003e, B:27:0x0042, B:10:0x0015, B:12:0x0019, B:13:0x001c, B:15:0x0020), top: B:47:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x006c  */
+    /* JADX WARN: Removed duplicated region for block: B:49:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void enableStatsEvents(boolean z, int i2, BigInteger bigInteger, StatsEventsType statsEventsType) {
-        TimerTask timerTask;
         Map<BigInteger, TimerTask> map;
         Map<BigInteger, TimerTask> map2;
+        Map<BigInteger, TimerTask> map3;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), bigInteger, statsEventsType}) != null) {
             return;
         }
-        TimerTask timerTask2 = null;
+        TimerTask timerTask = null;
         if (z) {
             try {
                 if (statsEventsType == StatsEventsType.GET_AUDIOLEVEL_EVENT) {
-                    timerTask = this.timerTaskGetVolumeMap.get(bigInteger);
+                    map = this.timerTaskGetVolumeMap;
                 } else if (statsEventsType != StatsEventsType.GET_QUALITY_MONITOR_EVENT) {
                     if (statsEventsType == StatsEventsType.GET_SLI_EVENT) {
-                        timerTask = this.timerTaskGetSLIMap.get(bigInteger);
+                        map = this.timerTaskGetSLIMap;
                     }
-                    if (timerTask2 != null) {
-                        timerTask2.cancel();
+                    if (timerTask != null) {
+                        timerTask.cancel();
                     }
-                    TimerTask timerTask3 = new TimerTask(this, bigInteger, statsEventsType) { // from class: com.baidu.rtc.PeerConnectionClient.9
+                    TimerTask timerTask2 = new TimerTask(this, bigInteger, statsEventsType) { // from class: com.baidu.rtc.PeerConnectionClient.9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ PeerConnectionClient this$0;
@@ -1945,26 +1866,26 @@ public class PeerConnectionClient implements DataChannel.Observer {
                         }
                     };
                     if (statsEventsType != StatsEventsType.GET_AUDIOLEVEL_EVENT) {
-                        map = this.timerTaskGetVolumeMap;
+                        map2 = this.timerTaskGetVolumeMap;
                     } else if (statsEventsType != StatsEventsType.GET_QUALITY_MONITOR_EVENT) {
                         if (statsEventsType == StatsEventsType.GET_SLI_EVENT) {
-                            map = this.timerTaskGetSLIMap;
+                            map2 = this.timerTaskGetSLIMap;
                         }
-                        this.statsTimer.schedule(timerTask3, 0L, i2);
+                        this.statsTimer.schedule(timerTask2, 0L, i2);
                         return;
                     } else {
-                        map = this.timerTaskGetQualityMap;
+                        map2 = this.timerTaskGetQualityMap;
                     }
-                    map.put(bigInteger, timerTask3);
-                    this.statsTimer.schedule(timerTask3, 0L, i2);
+                    map2.put(bigInteger, timerTask2);
+                    this.statsTimer.schedule(timerTask2, 0L, i2);
                     return;
                 } else {
-                    timerTask = this.timerTaskGetQualityMap.get(bigInteger);
+                    map = this.timerTaskGetQualityMap;
                 }
-                timerTask2 = timerTask;
-                if (timerTask2 != null) {
+                timerTask = map.get(bigInteger);
+                if (timerTask != null) {
                 }
-                TimerTask timerTask32 = new TimerTask(this, bigInteger, statsEventsType) { // from class: com.baidu.rtc.PeerConnectionClient.9
+                TimerTask timerTask22 = new TimerTask(this, bigInteger, statsEventsType) { // from class: com.baidu.rtc.PeerConnectionClient.9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PeerConnectionClient this$0;
@@ -2033,30 +1954,29 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 };
                 if (statsEventsType != StatsEventsType.GET_AUDIOLEVEL_EVENT) {
                 }
-                map.put(bigInteger, timerTask32);
-                this.statsTimer.schedule(timerTask32, 0L, i2);
+                map2.put(bigInteger, timerTask22);
+                this.statsTimer.schedule(timerTask22, 0L, i2);
                 return;
-            } catch (Exception e2) {
-                Log.e(TAG, "Can not schedule statistics timer", e2);
+            } catch (Exception unused) {
                 return;
             }
         }
         if (statsEventsType == StatsEventsType.GET_AUDIOLEVEL_EVENT) {
-            map2 = this.timerTaskGetVolumeMap;
+            map3 = this.timerTaskGetVolumeMap;
         } else if (statsEventsType != StatsEventsType.GET_QUALITY_MONITOR_EVENT) {
             if (statsEventsType == StatsEventsType.GET_SLI_EVENT) {
-                map2 = this.timerTaskGetSLIMap;
+                map3 = this.timerTaskGetSLIMap;
             }
-            if (timerTask2 == null) {
-                timerTask2.cancel();
+            if (timerTask == null) {
+                timerTask.cancel();
                 return;
             }
             return;
         } else {
-            map2 = this.timerTaskGetQualityMap;
+            map3 = this.timerTaskGetQualityMap;
         }
-        timerTask2 = map2.get(bigInteger);
-        if (timerTask2 == null) {
+        timerTask = map3.get(bigInteger);
+        if (timerTask == null) {
         }
     }
 
@@ -2079,9 +1999,9 @@ public class PeerConnectionClient implements DataChannel.Observer {
     }
 
     @Override // org.webrtc.DataChannel.Observer
-    public void onBufferedAmountChange(long j) {
+    public void onBufferedAmountChange(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
         }
     }
 
@@ -2117,51 +2037,48 @@ public class PeerConnectionClient implements DataChannel.Observer {
 
     public void setAudioEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            if (this.executor.isShutdown()) {
-                Log.w(TAG, "executor is already shutdown");
-            } else {
-                this.executor.execute(new Runnable(this, z) { // from class: com.baidu.rtc.PeerConnectionClient.10
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ PeerConnectionClient this$0;
-                    public final /* synthetic */ boolean val$enable;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Boolean.valueOf(z)};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$enable = z;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.this$0.enableAudio = this.val$enable;
-                            if (this.this$0.localAudioTrack != null) {
-                                this.this$0.localAudioTrack.setEnabled(this.this$0.enableAudio);
-                            }
-                            if (this.this$0.adm != null) {
-                                this.this$0.adm.setMicrophoneMute(!this.val$enable);
-                            }
-                        }
-                    }
-                });
-            }
+        if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || this.executor.isShutdown()) {
+            return;
         }
+        this.executor.execute(new Runnable(this, z) { // from class: com.baidu.rtc.PeerConnectionClient.10
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PeerConnectionClient this$0;
+            public final /* synthetic */ boolean val$enable;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, Boolean.valueOf(z)};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$enable = z;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.this$0.enableAudio = this.val$enable;
+                    if (this.this$0.localAudioTrack != null) {
+                        this.this$0.localAudioTrack.setEnabled(this.this$0.enableAudio);
+                    }
+                    if (this.this$0.adm != null) {
+                        this.this$0.adm.setMicrophoneMute(!this.val$enable);
+                    }
+                }
+            }
+        });
     }
 
     public void setAudioFreguency(int i2) {
@@ -2173,49 +2090,46 @@ public class PeerConnectionClient implements DataChannel.Observer {
 
     public void setAudioRecording(BigInteger bigInteger, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048594, this, bigInteger, z) == null) {
-            if (this.executor.isShutdown()) {
-                Log.w(TAG, "executor is already shutdown");
-            } else {
-                this.executor.execute(new Runnable(this, bigInteger, z) { // from class: com.baidu.rtc.PeerConnectionClient.18
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ PeerConnectionClient this$0;
-                    public final /* synthetic */ BigInteger val$handleId;
-                    public final /* synthetic */ boolean val$recording;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, bigInteger, Boolean.valueOf(z)};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$handleId = bigInteger;
-                        this.val$recording = z;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        PeerConnection peerConnection;
-                        Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (peerConnection = ((JanusConnection) this.this$0.peerConnectionMap.get(this.val$handleId)).peerConnection) == null) {
-                            return;
-                        }
-                        peerConnection.setAudioRecording(this.val$recording);
-                    }
-                });
-            }
+        if (!(interceptable == null || interceptable.invokeLZ(1048594, this, bigInteger, z) == null) || this.executor.isShutdown()) {
+            return;
         }
+        this.executor.execute(new Runnable(this, bigInteger, z) { // from class: com.baidu.rtc.PeerConnectionClient.18
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PeerConnectionClient this$0;
+            public final /* synthetic */ BigInteger val$handleId;
+            public final /* synthetic */ boolean val$recording;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, bigInteger, Boolean.valueOf(z)};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$handleId = bigInteger;
+                this.val$recording = z;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                PeerConnection peerConnection;
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (peerConnection = ((JanusConnection) this.this$0.peerConnectionMap.get(this.val$handleId)).peerConnection) == null) {
+                    return;
+                }
+                peerConnection.setAudioRecording(this.val$recording);
+            }
+        });
     }
 
     public void setAudioSamplesReadyCallback(JavaAudioDeviceModule.SamplesReadyCallback samplesReadyCallback) {
@@ -2234,46 +2148,43 @@ public class PeerConnectionClient implements DataChannel.Observer {
 
     public void setEnableSLIReport(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            if (this.executor.isShutdown()) {
-                Log.w(TAG, "executor is already shutdown");
-            } else {
-                this.executor.execute(new Runnable(this, z) { // from class: com.baidu.rtc.PeerConnectionClient.24
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ PeerConnectionClient this$0;
-                    public final /* synthetic */ boolean val$enable;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Boolean.valueOf(z)};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$enable = z;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.adm == null) {
-                            return;
-                        }
-                        this.this$0.adm.setEnableSLIReport(this.val$enable);
-                    }
-                });
-            }
+        if (!(interceptable == null || interceptable.invokeZ(1048597, this, z) == null) || this.executor.isShutdown()) {
+            return;
         }
+        this.executor.execute(new Runnable(this, z) { // from class: com.baidu.rtc.PeerConnectionClient.24
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PeerConnectionClient this$0;
+            public final /* synthetic */ boolean val$enable;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, Boolean.valueOf(z)};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$enable = z;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.adm == null) {
+                    return;
+                }
+                this.this$0.adm.setEnableSLIReport(this.val$enable);
+            }
+        });
     }
 
     public void setExternalAudioRecord(boolean z) {
@@ -2338,7 +2249,6 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.adm == null) {
                 this.mRemoteSamplesReadyCallback = remoteSamplesReadyCallback;
             } else if (this.executor.isShutdown()) {
-                Log.w(TAG, "executor is already shutdown");
             } else {
                 this.executor.execute(new Runnable(this, remoteSamplesReadyCallback) { // from class: com.baidu.rtc.PeerConnectionClient.6
                     public static /* synthetic */ Interceptable $ic;
@@ -2380,195 +2290,183 @@ public class PeerConnectionClient implements DataChannel.Observer {
 
     public void setRemoteDescription(BigInteger bigInteger, SessionDescription sessionDescription) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048607, this, bigInteger, sessionDescription) == null) {
-            if (this.executor.isShutdown()) {
-                Log.w(TAG, "executor is already shutdown");
-            } else {
-                this.executor.execute(new Runnable(this, bigInteger, sessionDescription) { // from class: com.baidu.rtc.PeerConnectionClient.13
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ PeerConnectionClient this$0;
-                    public final /* synthetic */ BigInteger val$handleId;
-                    public final /* synthetic */ SessionDescription val$sdp;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, bigInteger, sessionDescription};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$handleId = bigInteger;
-                        this.val$sdp = sessionDescription;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            PeerConnection peerConnection = ((JanusConnection) this.this$0.peerConnectionMap.get(this.val$handleId)).peerConnection;
-                            SDPObserver sDPObserver = ((JanusConnection) this.this$0.peerConnectionMap.get(this.val$handleId)).sdpObserver;
-                            if (peerConnection == null || this.this$0.isError) {
-                                return;
-                            }
-                            String str = this.val$sdp.description;
-                            SdpPrefer.AudioSdpAttribute audioSdpAttribute = new SdpPrefer.AudioSdpAttribute();
-                            audioSdpAttribute.cbr = this.this$0.peerConnectionParameters.audioBitrateMode == RtcParameterSettings.RtcAudioBitrateMode.RTC_AUDIO_BITRATE_CBR;
-                            audioSdpAttribute.maxaveragebitrate = this.this$0.peerConnectionParameters.audioMaxkbps;
-                            audioSdpAttribute.stereo = this.this$0.peerConnectionParameters.transportAudioChannel == RtcParameterSettings.RtcAudioChannel.RTC_AUDIO_STEREO;
-                            String audioAttributes = SdpPrefer.setAudioAttributes(this.this$0.peerConnectionParameters.audioCodec, str, audioSdpAttribute);
-                            peerConnection.setRemoteDescription(sDPObserver, new SessionDescription(this.val$sdp.type, audioAttributes));
-                            ErrorInfoReport.getInstance().putServerMap(this.val$handleId, SdpPrefer.parseRemoteMediaIp(audioAttributes));
-                        }
-                    }
-                });
-            }
+        if (!(interceptable == null || interceptable.invokeLL(1048607, this, bigInteger, sessionDescription) == null) || this.executor.isShutdown()) {
+            return;
         }
+        this.executor.execute(new Runnable(this, bigInteger, sessionDescription) { // from class: com.baidu.rtc.PeerConnectionClient.13
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PeerConnectionClient this$0;
+            public final /* synthetic */ BigInteger val$handleId;
+            public final /* synthetic */ SessionDescription val$sdp;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, bigInteger, sessionDescription};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$handleId = bigInteger;
+                this.val$sdp = sessionDescription;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    PeerConnection peerConnection = ((JanusConnection) this.this$0.peerConnectionMap.get(this.val$handleId)).peerConnection;
+                    SDPObserver sDPObserver = ((JanusConnection) this.this$0.peerConnectionMap.get(this.val$handleId)).sdpObserver;
+                    if (peerConnection == null || this.this$0.isError) {
+                        return;
+                    }
+                    String str = this.val$sdp.description;
+                    SdpPrefer.AudioSdpAttribute audioSdpAttribute = new SdpPrefer.AudioSdpAttribute();
+                    audioSdpAttribute.cbr = this.this$0.peerConnectionParameters.audioBitrateMode == RtcParameterSettings.RtcAudioBitrateMode.RTC_AUDIO_BITRATE_CBR;
+                    audioSdpAttribute.maxaveragebitrate = this.this$0.peerConnectionParameters.audioMaxkbps;
+                    audioSdpAttribute.stereo = this.this$0.peerConnectionParameters.transportAudioChannel == RtcParameterSettings.RtcAudioChannel.RTC_AUDIO_STEREO;
+                    String audioAttributes = SdpPrefer.setAudioAttributes(this.this$0.peerConnectionParameters.audioCodec, str, audioSdpAttribute);
+                    peerConnection.setRemoteDescription(sDPObserver, new SessionDescription(this.val$sdp.type, audioAttributes));
+                    ErrorInfoReport.getInstance().putServerMap(this.val$handleId, SdpPrefer.parseRemoteMediaIp(audioAttributes));
+                }
+            }
+        });
     }
 
     public void setSpeakerMute(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
-            if (this.executor.isShutdown()) {
-                Log.w(TAG, "executor is already shutdown");
-            } else {
-                this.executor.execute(new Runnable(this, z) { // from class: com.baidu.rtc.PeerConnectionClient.22
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ PeerConnectionClient this$0;
-                    public final /* synthetic */ boolean val$muted;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Boolean.valueOf(z)};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$muted = z;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.adm == null) {
-                            return;
-                        }
-                        this.this$0.adm.setSpeakerMute(this.val$muted);
-                    }
-                });
-            }
+        if (!(interceptable == null || interceptable.invokeZ(1048608, this, z) == null) || this.executor.isShutdown()) {
+            return;
         }
+        this.executor.execute(new Runnable(this, z) { // from class: com.baidu.rtc.PeerConnectionClient.22
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PeerConnectionClient this$0;
+            public final /* synthetic */ boolean val$muted;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, Boolean.valueOf(z)};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$muted = z;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.adm == null) {
+                    return;
+                }
+                this.this$0.adm.setSpeakerMute(this.val$muted);
+            }
+        });
     }
 
     public void setStuckEventListener(SLIReportInterface sLIReportInterface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, sLIReportInterface) == null) {
-            if (this.executor.isShutdown()) {
-                Log.w(TAG, "executor is already shutdown");
-            } else {
-                this.executor.execute(new Runnable(this, sLIReportInterface) { // from class: com.baidu.rtc.PeerConnectionClient.23
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ PeerConnectionClient this$0;
-                    public final /* synthetic */ SLIReportInterface val$r;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, sLIReportInterface};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$r = sLIReportInterface;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.this$0.mStuckEvent = this.val$r;
-                            if (this.this$0.adm != null) {
-                                this.this$0.adm.setStuckEventListener(this.val$r);
-                            }
-                        }
-                    }
-                });
-            }
+        if (!(interceptable == null || interceptable.invokeL(1048609, this, sLIReportInterface) == null) || this.executor.isShutdown()) {
+            return;
         }
+        this.executor.execute(new Runnable(this, sLIReportInterface) { // from class: com.baidu.rtc.PeerConnectionClient.23
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PeerConnectionClient this$0;
+            public final /* synthetic */ SLIReportInterface val$r;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, sLIReportInterface};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$r = sLIReportInterface;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.this$0.mStuckEvent = this.val$r;
+                    if (this.this$0.adm != null) {
+                        this.this$0.adm.setStuckEventListener(this.val$r);
+                    }
+                }
+            }
+        });
     }
 
     public void setVideoEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
-            if (this.executor.isShutdown()) {
-                Log.w(TAG, "executor is already shutdown");
-            } else {
-                this.executor.execute(new Runnable(this, z) { // from class: com.baidu.rtc.PeerConnectionClient.11
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ PeerConnectionClient this$0;
-                    public final /* synthetic */ boolean val$enable;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Boolean.valueOf(z)};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$enable = z;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.this$0.renderVideo = this.val$enable;
-                            if (this.this$0.localVideoTrack != null) {
-                                this.this$0.localVideoTrack.setEnabled(this.this$0.renderVideo);
-                            }
-                        }
-                    }
-                });
-            }
+        if (!(interceptable == null || interceptable.invokeZ(1048610, this, z) == null) || this.executor.isShutdown()) {
+            return;
         }
+        this.executor.execute(new Runnable(this, z) { // from class: com.baidu.rtc.PeerConnectionClient.11
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PeerConnectionClient this$0;
+            public final /* synthetic */ boolean val$enable;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, Boolean.valueOf(z)};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$enable = z;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.this$0.renderVideo = this.val$enable;
+                    if (this.this$0.localVideoTrack != null) {
+                        this.this$0.localVideoTrack.setEnabled(this.this$0.renderVideo);
+                    }
+                }
+            }
+        });
     }
 
     public void setVideoMaxBitrate(final Integer num) {
@@ -2591,228 +2489,210 @@ public class PeerConnectionClient implements DataChannel.Observer {
 
     public void startVideoSource() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
-            if (this.executor.isShutdown()) {
-                Log.w(TAG, "executor is already shutdown");
-            } else {
-                this.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.16
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ PeerConnectionClient this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.this$0.videoCapturer != null && this.this$0.videoCapturerStopped) {
-                            Log.d(PeerConnectionClient.TAG, "Restart video source.");
-                            this.this$0.videoCapturer.startCapture(this.this$0.videoWidth, this.this$0.videoHeight, this.this$0.videoFps);
-                            this.this$0.videoCapturerStopped = false;
-                        }
-                    }
-                });
-            }
+        if (!(interceptable == null || interceptable.invokeV(1048612, this) == null) || this.executor.isShutdown()) {
+            return;
         }
+        this.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.16
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PeerConnectionClient this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.this$0.videoCapturer != null && this.this$0.videoCapturerStopped) {
+                    this.this$0.videoCapturer.startCapture(this.this$0.videoWidth, this.this$0.videoHeight, this.this$0.videoFps);
+                    this.this$0.videoCapturerStopped = false;
+                }
+            }
+        });
     }
 
     public void stopAudioSource() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            if (this.executor.isShutdown()) {
-                Log.w(TAG, "executor is already shutdown");
-            } else {
-                this.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.17
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ PeerConnectionClient this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.audioSource == null) {
-                            return;
-                        }
-                        this.this$0.audioSource.dispose();
-                        this.this$0.audioSource = null;
-                    }
-                });
-            }
+        if (!(interceptable == null || interceptable.invokeV(1048613, this) == null) || this.executor.isShutdown()) {
+            return;
         }
+        this.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.17
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PeerConnectionClient this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.audioSource == null) {
+                    return;
+                }
+                this.this$0.audioSource.dispose();
+                this.this$0.audioSource = null;
+            }
+        });
     }
 
     public void stopVideoSource() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            if (this.executor.isShutdown()) {
-                Log.w(TAG, "executor is already shutdown");
-            } else {
-                this.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.15
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ PeerConnectionClient this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.videoCapturer == null || this.this$0.videoCapturerStopped) {
-                            return;
-                        }
-                        Log.d(PeerConnectionClient.TAG, "Stop video source.");
-                        try {
-                            this.this$0.videoCapturer.stopCapture();
-                        } catch (InterruptedException unused) {
-                        }
-                        this.this$0.videoCapturerStopped = true;
-                    }
-                });
-            }
+        if (!(interceptable == null || interceptable.invokeV(1048614, this) == null) || this.executor.isShutdown()) {
+            return;
         }
+        this.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.15
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PeerConnectionClient this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.videoCapturer == null || this.this$0.videoCapturerStopped) {
+                    return;
+                }
+                try {
+                    this.this$0.videoCapturer.stopCapture();
+                } catch (InterruptedException unused) {
+                }
+                this.this$0.videoCapturerStopped = true;
+            }
+        });
     }
 
     public void subscriberHandleRemoteJsep(BigInteger bigInteger, SessionDescription sessionDescription) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048615, this, bigInteger, sessionDescription) == null) {
-            if (this.executor.isShutdown()) {
-                Log.w(TAG, "executor is already shutdown");
-            } else {
-                this.executor.execute(new Runnable(this, bigInteger, sessionDescription) { // from class: com.baidu.rtc.PeerConnectionClient.14
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ PeerConnectionClient this$0;
-                    public final /* synthetic */ BigInteger val$handleId;
-                    public final /* synthetic */ SessionDescription val$sdp;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, bigInteger, sessionDescription};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$handleId = bigInteger;
-                        this.val$sdp = sessionDescription;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            PeerConnection createPeerConnection = this.this$0.createPeerConnection(this.val$handleId, false);
-                            SDPObserver sDPObserver = ((JanusConnection) this.this$0.peerConnectionMap.get(this.val$handleId)).sdpObserver;
-                            if (createPeerConnection == null || this.this$0.isError) {
-                                return;
-                            }
-                            createPeerConnection.setRemoteDescription(sDPObserver, this.val$sdp);
-                            ErrorInfoReport.getInstance().putServerMap(this.val$handleId, SdpPrefer.parseRemoteMediaIp(this.val$sdp.description));
-                            Log.d(PeerConnectionClient.TAG, "PC create ANSWER");
-                            createPeerConnection.createAnswer(((JanusConnection) this.this$0.peerConnectionMap.get(this.val$handleId)).sdpObserver, this.this$0.answer_sdpMediaConstraints);
-                        }
-                    }
-                });
-            }
+        if (!(interceptable == null || interceptable.invokeLL(1048615, this, bigInteger, sessionDescription) == null) || this.executor.isShutdown()) {
+            return;
         }
+        this.executor.execute(new Runnable(this, bigInteger, sessionDescription) { // from class: com.baidu.rtc.PeerConnectionClient.14
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PeerConnectionClient this$0;
+            public final /* synthetic */ BigInteger val$handleId;
+            public final /* synthetic */ SessionDescription val$sdp;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, bigInteger, sessionDescription};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$handleId = bigInteger;
+                this.val$sdp = sessionDescription;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    PeerConnection createPeerConnection = this.this$0.createPeerConnection(this.val$handleId, false);
+                    SDPObserver sDPObserver = ((JanusConnection) this.this$0.peerConnectionMap.get(this.val$handleId)).sdpObserver;
+                    if (createPeerConnection == null || this.this$0.isError) {
+                        return;
+                    }
+                    createPeerConnection.setRemoteDescription(sDPObserver, this.val$sdp);
+                    ErrorInfoReport.getInstance().putServerMap(this.val$handleId, SdpPrefer.parseRemoteMediaIp(this.val$sdp.description));
+                    createPeerConnection.createAnswer(((JanusConnection) this.this$0.peerConnectionMap.get(this.val$handleId)).sdpObserver, this.this$0.answer_sdpMediaConstraints);
+                }
+            }
+        });
     }
 
     public void switchCamera() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
-            if (this.executor.isShutdown()) {
-                Log.w(TAG, "executor is already shutdown");
-            } else {
-                this.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.20
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ PeerConnectionClient this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.this$0.switchCameraInternal();
-                        }
-                    }
-                });
-            }
+        if (!(interceptable == null || interceptable.invokeV(1048616, this) == null) || this.executor.isShutdown()) {
+            return;
         }
+        this.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.20
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PeerConnectionClient this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.this$0.switchCameraInternal();
+                }
+            }
+        });
     }
 }

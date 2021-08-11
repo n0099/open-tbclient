@@ -2,6 +2,11 @@ package com.baidu.tieba.setting.more;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import c.a.e.e.p.l;
+import c.a.o0.s.d0.b;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,11 +16,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SettingTextFunctionIntroView extends TbSettingTextTipView {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String m = "has_shown_funtion_intro";
+    public static String HAS_SHOWN_FUNCTION_INTRO = "has_shown_funtion_intro";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,8 +55,22 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
                 return;
             }
         }
-        c();
-        h(0, 0, l.g(context, R.dimen.ds30), 0);
+        hideArrow();
+        resetTipViewMargains(0, 0, l.g(context, R.dimen.ds30), 0);
+    }
+
+    public void refresh() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            VersionData versionData = TbadkCoreApplication.getInst().getVersionData();
+            boolean z = versionData != null && versionData.hasNewVer();
+            boolean g2 = b.j().g(HAS_SHOWN_FUNCTION_INTRO, false);
+            if (!z && !g2) {
+                SkinManager.setBackgroundResource(this.tipView, R.drawable.icon_news_head_new);
+            } else {
+                hideTip();
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -74,7 +92,7 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
                 return;
             }
         }
-        c();
-        h(0, 0, l.g(context, R.dimen.ds30), 0);
+        hideArrow();
+        resetTipViewMargains(0, 0, l.g(context, R.dimen.ds30), 0);
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class WireFormat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MESSAGE_SET_ITEM = 1;
@@ -30,14 +30,14 @@ public final class WireFormat {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.protobuf.WireFormat$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class FieldType {
         public static final /* synthetic */ FieldType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -295,7 +295,7 @@ public final class WireFormat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class JavaType {
         public static final /* synthetic */ JavaType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

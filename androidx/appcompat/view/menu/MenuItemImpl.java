@@ -8,7 +8,6 @@ import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -469,8 +468,7 @@ public final class MenuItemImpl implements SupportMenuItem {
                     try {
                         this.mMenu.getContext().startActivity(this.mIntent);
                         return true;
-                    } catch (ActivityNotFoundException e2) {
-                        Log.e(TAG, "Can't find activity to handle intent; ignoring", e2);
+                    } catch (ActivityNotFoundException unused) {
                     }
                 }
                 ActionProvider actionProvider = this.mActionProvider;

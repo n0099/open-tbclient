@@ -43,12 +43,12 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BaiduStatJSInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface IWebviewPageLoadCallback {
         void onPageFinished(WebView webView, String str, bl blVar);
 
@@ -69,25 +69,25 @@ public class BaiduStatJSInterface {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class CustomWebChromeViewClient extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<Context> f8524a;
+        public WeakReference<Context> f42820a;
 
         /* renamed from: b  reason: collision with root package name */
-        public WebChromeClient f8525b;
+        public WebChromeClient f42821b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ArrayList<IWebviewPageLoadCallback> f8526c;
+        public ArrayList<IWebviewPageLoadCallback> f42822c;
 
         /* renamed from: d  reason: collision with root package name */
-        public bl f8527d;
+        public bl f42823d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f8528e;
+        public int f42824e;
 
         public CustomWebChromeViewClient(Context context, WebChromeClient webChromeClient, ArrayList<IWebviewPageLoadCallback> arrayList, bl blVar) {
             Interceptable interceptable = $ic;
@@ -104,18 +104,18 @@ public class BaiduStatJSInterface {
                     return;
                 }
             }
-            this.f8528e = 0;
-            this.f8524a = new WeakReference<>(context);
-            this.f8525b = webChromeClient;
-            this.f8526c = arrayList;
-            this.f8527d = blVar;
+            this.f42824e = 0;
+            this.f42820a = new WeakReference<>(context);
+            this.f42821b = webChromeClient;
+            this.f42822c = arrayList;
+            this.f42823d = blVar;
         }
 
         @Override // android.webkit.WebChromeClient
         public void onCloseWindow(WebView webView) {
             WebChromeClient webChromeClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, webView) == null) || (webChromeClient = this.f8525b) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, webView) == null) || (webChromeClient = this.f42821b) == null) {
                 return;
             }
             webChromeClient.onCloseWindow(webView);
@@ -126,7 +126,7 @@ public class BaiduStatJSInterface {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, consoleMessage)) == null) {
-                WebChromeClient webChromeClient = this.f8525b;
+                WebChromeClient webChromeClient = this.f42821b;
                 if (webChromeClient != null) {
                     return webChromeClient.onConsoleMessage(consoleMessage);
                 }
@@ -140,7 +140,7 @@ public class BaiduStatJSInterface {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{webView, Boolean.valueOf(z), Boolean.valueOf(z2), message})) == null) {
-                WebChromeClient webChromeClient = this.f8525b;
+                WebChromeClient webChromeClient = this.f42821b;
                 if (webChromeClient != null) {
                     return webChromeClient.onCreateWindow(webView, z, z2, message);
                 }
@@ -151,20 +151,20 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebChromeClient
         @Deprecated
-        public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+        public void onExceededDatabaseQuota(String str, String str2, long j2, long j3, long j4, WebStorage.QuotaUpdater quotaUpdater) {
             WebChromeClient webChromeClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) || (webChromeClient = this.f8525b) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), quotaUpdater}) == null) || (webChromeClient = this.f42821b) == null) {
                 return;
             }
-            webChromeClient.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            webChromeClient.onExceededDatabaseQuota(str, str2, j2, j3, j4, quotaUpdater);
         }
 
         @Override // android.webkit.WebChromeClient
         public void onGeolocationPermissionsHidePrompt() {
             WebChromeClient webChromeClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (webChromeClient = this.f8525b) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (webChromeClient = this.f42821b) == null) {
                 return;
             }
             webChromeClient.onGeolocationPermissionsHidePrompt();
@@ -174,7 +174,7 @@ public class BaiduStatJSInterface {
         public void onGeolocationPermissionsShowPrompt(String str, GeolocationPermissions.Callback callback) {
             WebChromeClient webChromeClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, callback) == null) || (webChromeClient = this.f8525b) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, callback) == null) || (webChromeClient = this.f42821b) == null) {
                 return;
             }
             webChromeClient.onGeolocationPermissionsShowPrompt(str, callback);
@@ -184,7 +184,7 @@ public class BaiduStatJSInterface {
         public void onHideCustomView() {
             WebChromeClient webChromeClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (webChromeClient = this.f8525b) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (webChromeClient = this.f42821b) == null) {
                 return;
             }
             webChromeClient.onHideCustomView();
@@ -195,7 +195,7 @@ public class BaiduStatJSInterface {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, str, str2, jsResult)) == null) {
-                WebChromeClient webChromeClient = this.f8525b;
+                WebChromeClient webChromeClient = this.f42821b;
                 if (webChromeClient != null) {
                     return webChromeClient.onJsAlert(webView, str, str2, jsResult);
                 }
@@ -209,7 +209,7 @@ public class BaiduStatJSInterface {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, webView, str, str2, jsResult)) == null) {
-                WebChromeClient webChromeClient = this.f8525b;
+                WebChromeClient webChromeClient = this.f42821b;
                 if (webChromeClient != null) {
                     return webChromeClient.onJsBeforeUnload(webView, str, str2, jsResult);
                 }
@@ -223,7 +223,7 @@ public class BaiduStatJSInterface {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048586, this, webView, str, str2, jsResult)) == null) {
-                WebChromeClient webChromeClient = this.f8525b;
+                WebChromeClient webChromeClient = this.f42821b;
                 if (webChromeClient != null) {
                     return webChromeClient.onJsConfirm(webView, str, str2, jsResult);
                 }
@@ -237,7 +237,7 @@ public class BaiduStatJSInterface {
             InterceptResult invokeLLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048587, this, webView, str, str2, str3, jsPromptResult)) == null) {
-                WebChromeClient webChromeClient = this.f8525b;
+                WebChromeClient webChromeClient = this.f42821b;
                 if (webChromeClient != null) {
                     return webChromeClient.onJsPrompt(webView, str, str2, str3, jsPromptResult);
                 }
@@ -252,7 +252,7 @@ public class BaiduStatJSInterface {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                WebChromeClient webChromeClient = this.f8525b;
+                WebChromeClient webChromeClient = this.f42821b;
                 if (webChromeClient != null) {
                     return webChromeClient.onJsTimeout();
                 }
@@ -266,7 +266,7 @@ public class BaiduStatJSInterface {
         public void onPermissionRequest(PermissionRequest permissionRequest) {
             WebChromeClient webChromeClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048589, this, permissionRequest) == null) || (webChromeClient = this.f8525b) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048589, this, permissionRequest) == null) || (webChromeClient = this.f42821b) == null) {
                 return;
             }
             webChromeClient.onPermissionRequest(permissionRequest);
@@ -277,7 +277,7 @@ public class BaiduStatJSInterface {
         public void onPermissionRequestCanceled(PermissionRequest permissionRequest) {
             WebChromeClient webChromeClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048590, this, permissionRequest) == null) || (webChromeClient = this.f8525b) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048590, this, permissionRequest) == null) || (webChromeClient = this.f42821b) == null) {
                 return;
             }
             webChromeClient.onPermissionRequestCanceled(permissionRequest);
@@ -287,29 +287,29 @@ public class BaiduStatJSInterface {
         public void onProgressChanged(WebView webView, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048591, this, webView, i2) == null) {
-                ArrayList<IWebviewPageLoadCallback> arrayList = this.f8526c;
+                ArrayList<IWebviewPageLoadCallback> arrayList = this.f42822c;
                 if (arrayList != null) {
-                    if (this.f8528e == 0) {
+                    if (this.f42824e == 0) {
                         Iterator<IWebviewPageLoadCallback> it = arrayList.iterator();
                         while (it.hasNext()) {
                             IWebviewPageLoadCallback next = it.next();
                             if (next != null) {
-                                next.onPageStarted(webView, webView.getUrl(), this.f8527d);
+                                next.onPageStarted(webView, webView.getUrl(), this.f42823d);
                             }
                         }
                     }
-                    this.f8528e = i2;
+                    this.f42824e = i2;
                     if (i2 == 100) {
-                        Iterator<IWebviewPageLoadCallback> it2 = this.f8526c.iterator();
+                        Iterator<IWebviewPageLoadCallback> it2 = this.f42822c.iterator();
                         while (it2.hasNext()) {
                             IWebviewPageLoadCallback next2 = it2.next();
                             if (next2 != null) {
-                                next2.onPageFinished(webView, webView.getUrl(), this.f8527d);
+                                next2.onPageFinished(webView, webView.getUrl(), this.f42823d);
                             }
                         }
                     }
                 }
-                WebChromeClient webChromeClient = this.f8525b;
+                WebChromeClient webChromeClient = this.f42821b;
                 if (webChromeClient != null) {
                     webChromeClient.onProgressChanged(webView, i2);
                 }
@@ -318,20 +318,20 @@ public class BaiduStatJSInterface {
 
         @Override // android.webkit.WebChromeClient
         @Deprecated
-        public void onReachedMaxAppCacheSize(long j, long j2, WebStorage.QuotaUpdater quotaUpdater) {
+        public void onReachedMaxAppCacheSize(long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
             WebChromeClient webChromeClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), quotaUpdater}) == null) || (webChromeClient = this.f8525b) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) || (webChromeClient = this.f42821b) == null) {
                 return;
             }
-            webChromeClient.onReachedMaxAppCacheSize(j, j2, quotaUpdater);
+            webChromeClient.onReachedMaxAppCacheSize(j2, j3, quotaUpdater);
         }
 
         @Override // android.webkit.WebChromeClient
         public void onReceivedIcon(WebView webView, Bitmap bitmap) {
             WebChromeClient webChromeClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048593, this, webView, bitmap) == null) || (webChromeClient = this.f8525b) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048593, this, webView, bitmap) == null) || (webChromeClient = this.f42821b) == null) {
                 return;
             }
             webChromeClient.onReceivedIcon(webView, bitmap);
@@ -341,7 +341,7 @@ public class BaiduStatJSInterface {
         public void onReceivedTitle(WebView webView, String str) {
             WebChromeClient webChromeClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048594, this, webView, str) == null) || (webChromeClient = this.f8525b) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048594, this, webView, str) == null) || (webChromeClient = this.f42821b) == null) {
                 return;
             }
             webChromeClient.onReceivedTitle(webView, str);
@@ -351,7 +351,7 @@ public class BaiduStatJSInterface {
         public void onReceivedTouchIconUrl(WebView webView, String str, boolean z) {
             WebChromeClient webChromeClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLZ(1048595, this, webView, str, z) == null) || (webChromeClient = this.f8525b) == null) {
+            if (!(interceptable == null || interceptable.invokeLLZ(1048595, this, webView, str, z) == null) || (webChromeClient = this.f42821b) == null) {
                 return;
             }
             webChromeClient.onReceivedTouchIconUrl(webView, str, z);
@@ -361,7 +361,7 @@ public class BaiduStatJSInterface {
         public void onRequestFocus(WebView webView) {
             WebChromeClient webChromeClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048596, this, webView) == null) || (webChromeClient = this.f8525b) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048596, this, webView) == null) || (webChromeClient = this.f42821b) == null) {
                 return;
             }
             webChromeClient.onRequestFocus(webView);
@@ -371,7 +371,7 @@ public class BaiduStatJSInterface {
         public void onShowCustomView(View view, WebChromeClient.CustomViewCallback customViewCallback) {
             WebChromeClient webChromeClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048598, this, view, customViewCallback) == null) || (webChromeClient = this.f8525b) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048598, this, view, customViewCallback) == null) || (webChromeClient = this.f42821b) == null) {
                 return;
             }
             webChromeClient.onShowCustomView(view, customViewCallback);
@@ -383,7 +383,7 @@ public class BaiduStatJSInterface {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048599, this, webView, valueCallback, fileChooserParams)) == null) {
-                WebChromeClient webChromeClient = this.f8525b;
+                WebChromeClient webChromeClient = this.f42821b;
                 if (webChromeClient != null) {
                     return webChromeClient.onShowFileChooser(webView, valueCallback, fileChooserParams);
                 }
@@ -398,7 +398,7 @@ public class BaiduStatJSInterface {
         public void onShowCustomView(View view, int i2, WebChromeClient.CustomViewCallback customViewCallback) {
             WebChromeClient webChromeClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIL(1048597, this, view, i2, customViewCallback) == null) || (webChromeClient = this.f8525b) == null) {
+            if (!(interceptable == null || interceptable.invokeLIL(1048597, this, view, i2, customViewCallback) == null) || (webChromeClient = this.f42821b) == null) {
                 return;
             }
             webChromeClient.onShowCustomView(view, i2, customViewCallback);
@@ -409,29 +409,29 @@ public class BaiduStatJSInterface {
         public void onConsoleMessage(String str, int i2, String str2) {
             WebChromeClient webChromeClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2, str2) == null) || (webChromeClient = this.f8525b) == null) {
+            if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2, str2) == null) || (webChromeClient = this.f42821b) == null) {
                 return;
             }
             webChromeClient.onConsoleMessage(str, i2, str2);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class CustomWebViewClient extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<Context> f8529a;
+        public WeakReference<Context> f42825a;
 
         /* renamed from: b  reason: collision with root package name */
-        public WebViewClient f8530b;
+        public WebViewClient f42826b;
 
         /* renamed from: c  reason: collision with root package name */
-        public IWebviewPageLoadCallback f8531c;
+        public IWebviewPageLoadCallback f42827c;
 
         /* renamed from: d  reason: collision with root package name */
-        public bl f8532d;
+        public bl f42828d;
 
         public CustomWebViewClient(Context context, WebViewClient webViewClient, IWebviewPageLoadCallback iWebviewPageLoadCallback, bl blVar) {
             Interceptable interceptable = $ic;
@@ -448,10 +448,10 @@ public class BaiduStatJSInterface {
                     return;
                 }
             }
-            this.f8529a = new WeakReference<>(context);
-            this.f8530b = webViewClient;
-            this.f8531c = iWebviewPageLoadCallback;
-            this.f8532d = blVar;
+            this.f42825a = new WeakReference<>(context);
+            this.f42826b = webViewClient;
+            this.f42827c = iWebviewPageLoadCallback;
+            this.f42828d = blVar;
         }
 
         private void a(String str) throws JSONException {
@@ -460,7 +460,7 @@ public class BaiduStatJSInterface {
                 JSONObject jSONObject = new JSONObject(str);
                 String string = jSONObject.getString("action");
                 JSONObject jSONObject2 = jSONObject.getJSONObject("obj");
-                Context context = this.f8529a.get();
+                Context context = this.f42825a.get();
                 if (context == null) {
                     return;
                 }
@@ -512,7 +512,7 @@ public class BaiduStatJSInterface {
                 } else if ("onEventDuration".equals(string)) {
                     String string10 = jSONObject2.getString("event_id");
                     String string11 = jSONObject2.getString(NotificationCompatJellybean.KEY_LABEL);
-                    long j = jSONObject2.getLong("duration");
+                    long j2 = jSONObject2.getLong("duration");
                     if (TextUtils.isEmpty(string10)) {
                         return;
                     }
@@ -520,7 +520,7 @@ public class BaiduStatJSInterface {
                         jSONObject3 = (JSONObject) jSONObject2.get("attributes");
                     } catch (Exception unused3) {
                     }
-                    BDStatCore.instance().onEventDuration(context, string10, string11, j, null, a(jSONObject3), false, true);
+                    BDStatCore.instance().onEventDuration(context, string10, string11, j2, null, a(jSONObject3), false, true);
                 }
             }
         }
@@ -529,7 +529,7 @@ public class BaiduStatJSInterface {
         public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, webView, str, z) == null) || (webViewClient = this.f8530b) == null) {
+            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, webView, str, z) == null) || (webViewClient = this.f42826b) == null) {
                 return;
             }
             webViewClient.doUpdateVisitedHistory(webView, str, z);
@@ -539,7 +539,7 @@ public class BaiduStatJSInterface {
         public void onFormResubmission(WebView webView, Message message, Message message2) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, message, message2) == null) || (webViewClient = this.f8530b) == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, message, message2) == null) || (webViewClient = this.f42826b) == null) {
                 return;
             }
             webViewClient.onFormResubmission(webView, message, message2);
@@ -549,7 +549,7 @@ public class BaiduStatJSInterface {
         public void onLoadResource(WebView webView, String str) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) || (webViewClient = this.f8530b) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) || (webViewClient = this.f42826b) == null) {
                 return;
             }
             webViewClient.onLoadResource(webView, str);
@@ -560,7 +560,7 @@ public class BaiduStatJSInterface {
         public void onPageCommitVisible(WebView webView, String str) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) || (webViewClient = this.f8530b) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) || (webViewClient = this.f42826b) == null) {
                 return;
             }
             webViewClient.onPageCommitVisible(webView, str);
@@ -570,7 +570,7 @@ public class BaiduStatJSInterface {
         public void onPageFinished(WebView webView, String str) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) || (webViewClient = this.f8530b) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) || (webViewClient = this.f42826b) == null) {
                 return;
             }
             webViewClient.onPageFinished(webView, str);
@@ -580,7 +580,7 @@ public class BaiduStatJSInterface {
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048581, this, webView, str, bitmap) == null) || (webViewClient = this.f8530b) == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(1048581, this, webView, str, bitmap) == null) || (webViewClient = this.f42826b) == null) {
                 return;
             }
             webViewClient.onPageStarted(webView, str, bitmap);
@@ -591,7 +591,7 @@ public class BaiduStatJSInterface {
         public void onReceivedClientCertRequest(WebView webView, ClientCertRequest clientCertRequest) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048582, this, webView, clientCertRequest) == null) || (webViewClient = this.f8530b) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048582, this, webView, clientCertRequest) == null) || (webViewClient = this.f42826b) == null) {
                 return;
             }
             webViewClient.onReceivedClientCertRequest(webView, clientCertRequest);
@@ -601,7 +601,7 @@ public class BaiduStatJSInterface {
         public void onReceivedError(WebView webView, int i2, String str, String str2) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLILL(1048583, this, webView, i2, str, str2) == null) || (webViewClient = this.f8530b) == null) {
+            if (!(interceptable == null || interceptable.invokeLILL(1048583, this, webView, i2, str, str2) == null) || (webViewClient = this.f42826b) == null) {
                 return;
             }
             webViewClient.onReceivedError(webView, i2, str, str2);
@@ -611,7 +611,7 @@ public class BaiduStatJSInterface {
         public void onReceivedHttpAuthRequest(WebView webView, HttpAuthHandler httpAuthHandler, String str, String str2) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLLL(1048585, this, webView, httpAuthHandler, str, str2) == null) || (webViewClient = this.f8530b) == null) {
+            if (!(interceptable == null || interceptable.invokeLLLL(1048585, this, webView, httpAuthHandler, str, str2) == null) || (webViewClient = this.f42826b) == null) {
                 return;
             }
             webViewClient.onReceivedHttpAuthRequest(webView, httpAuthHandler, str, str2);
@@ -622,7 +622,7 @@ public class BaiduStatJSInterface {
         public void onReceivedHttpError(WebView webView, WebResourceRequest webResourceRequest, WebResourceResponse webResourceResponse) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048586, this, webView, webResourceRequest, webResourceResponse) == null) || (webViewClient = this.f8530b) == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(1048586, this, webView, webResourceRequest, webResourceResponse) == null) || (webViewClient = this.f42826b) == null) {
                 return;
             }
             webViewClient.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
@@ -633,7 +633,7 @@ public class BaiduStatJSInterface {
         public void onReceivedLoginRequest(WebView webView, String str, String str2, String str3) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLLL(1048587, this, webView, str, str2, str3) == null) || (webViewClient = this.f8530b) == null) {
+            if (!(interceptable == null || interceptable.invokeLLLL(1048587, this, webView, str, str2, str3) == null) || (webViewClient = this.f42826b) == null) {
                 return;
             }
             webViewClient.onReceivedLoginRequest(webView, str, str2, str3);
@@ -643,7 +643,7 @@ public class BaiduStatJSInterface {
         public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048588, this, webView, sslErrorHandler, sslError) == null) || (webViewClient = this.f8530b) == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(1048588, this, webView, sslErrorHandler, sslError) == null) || (webViewClient = this.f42826b) == null) {
                 return;
             }
             webViewClient.onReceivedSslError(webView, sslErrorHandler, sslError);
@@ -655,7 +655,7 @@ public class BaiduStatJSInterface {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, webView, renderProcessGoneDetail)) == null) {
-                WebViewClient webViewClient = this.f8530b;
+                WebViewClient webViewClient = this.f42826b;
                 if (webViewClient != null) {
                     return webViewClient.onRenderProcessGone(webView, renderProcessGoneDetail);
                 }
@@ -668,7 +668,7 @@ public class BaiduStatJSInterface {
         public void onScaleChanged(WebView webView, float f2, float f3) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{webView, Float.valueOf(f2), Float.valueOf(f3)}) == null) || (webViewClient = this.f8530b) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{webView, Float.valueOf(f2), Float.valueOf(f3)}) == null) || (webViewClient = this.f42826b) == null) {
                 return;
             }
             webViewClient.onScaleChanged(webView, f2, f3);
@@ -679,7 +679,7 @@ public class BaiduStatJSInterface {
         public void onTooManyRedirects(WebView webView, Message message, Message message2) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048591, this, webView, message, message2) == null) || (webViewClient = this.f8530b) == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(1048591, this, webView, message, message2) == null) || (webViewClient = this.f42826b) == null) {
                 return;
             }
             webViewClient.onTooManyRedirects(webView, message, message2);
@@ -689,7 +689,7 @@ public class BaiduStatJSInterface {
         public void onUnhandledKeyEvent(WebView webView, KeyEvent keyEvent) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048592, this, webView, keyEvent) == null) || (webViewClient = this.f8530b) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048592, this, webView, keyEvent) == null) || (webViewClient = this.f42826b) == null) {
                 return;
             }
             webViewClient.onUnhandledKeyEvent(webView, keyEvent);
@@ -701,7 +701,7 @@ public class BaiduStatJSInterface {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, webView, str)) == null) {
-                WebViewClient webViewClient = this.f8530b;
+                WebViewClient webViewClient = this.f42826b;
                 if (webViewClient != null) {
                     return webViewClient.shouldInterceptRequest(webView, str);
                 }
@@ -715,7 +715,7 @@ public class BaiduStatJSInterface {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, webView, keyEvent)) == null) {
-                WebViewClient webViewClient = this.f8530b;
+                WebViewClient webViewClient = this.f42826b;
                 if (webViewClient != null) {
                     return webViewClient.shouldOverrideKeyEvent(webView, keyEvent);
                 }
@@ -737,7 +737,7 @@ public class BaiduStatJSInterface {
                     }
                 } catch (UnsupportedEncodingException | JSONException unused) {
                 }
-                WebViewClient webViewClient = this.f8530b;
+                WebViewClient webViewClient = this.f42826b;
                 if (webViewClient != null) {
                     return webViewClient.shouldOverrideUrlLoading(webView, str);
                 }
@@ -751,7 +751,7 @@ public class BaiduStatJSInterface {
         public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, webResourceRequest, webResourceError) == null) || (webViewClient = this.f8530b) == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, webResourceRequest, webResourceError) == null) || (webViewClient = this.f42826b) == null) {
                 return;
             }
             webViewClient.onReceivedError(webView, webResourceRequest, webResourceError);
@@ -763,7 +763,7 @@ public class BaiduStatJSInterface {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, webView, webResourceRequest)) == null) {
-                WebViewClient webViewClient = this.f8530b;
+                WebViewClient webViewClient = this.f42826b;
                 if (webViewClient != null) {
                     return webViewClient.shouldInterceptRequest(webView, webResourceRequest);
                 }
@@ -778,7 +778,7 @@ public class BaiduStatJSInterface {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, webView, webResourceRequest)) == null) {
-                WebViewClient webViewClient = this.f8530b;
+                WebViewClient webViewClient = this.f42826b;
                 if (webViewClient != null) {
                     return webViewClient.shouldOverrideUrlLoading(webView, webResourceRequest);
                 }

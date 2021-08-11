@@ -15,7 +15,7 @@ import java.security.NoSuchAlgorithmException;
 import javax.annotation.Nullable;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class HashingSink extends ForwardingSink {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +92,7 @@ public final class HashingSink extends ForwardingSink {
         return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, sink)) == null) ? new HashingSink(sink, "SHA-512") : (HashingSink) invokeL.objValue;
     }
 
-    public ByteString hash() {
+    public final ByteString hash() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -103,24 +103,24 @@ public final class HashingSink extends ForwardingSink {
     }
 
     @Override // okio.ForwardingSink, okio.Sink
-    public void write(Buffer buffer, long j) throws IOException {
+    public void write(Buffer buffer, long j2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j) == null) {
-            Util.checkOffsetAndCount(buffer.size, 0L, j);
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2) == null) {
+            Util.checkOffsetAndCount(buffer.size, 0L, j2);
             Segment segment = buffer.head;
-            long j2 = 0;
-            while (j2 < j) {
-                int min = (int) Math.min(j - j2, segment.limit - segment.pos);
+            long j3 = 0;
+            while (j3 < j2) {
+                int min = (int) Math.min(j2 - j3, segment.limit - segment.pos);
                 MessageDigest messageDigest = this.messageDigest;
                 if (messageDigest != null) {
                     messageDigest.update(segment.data, segment.pos, min);
                 } else {
                     this.mac.update(segment.data, segment.pos, min);
                 }
-                j2 += min;
+                j3 += min;
                 segment = segment.next;
             }
-            super.write(buffer, j);
+            super.write(buffer, j2);
         }
     }
 

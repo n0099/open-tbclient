@@ -1,7 +1,7 @@
 package com.baidu.searchbox.anr.impl;
 
 import android.content.Context;
-import android.util.Log;
+import c.h.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
@@ -20,11 +20,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.github.anrwatchdog.ANRError;
-import d.e.a.a;
 import java.io.File;
 @Singleton
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ANRMonitor implements IANRMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_WATCHDOG_ANR_TIMEOUT = 5000;
@@ -35,13 +34,13 @@ public class ANRMonitor implements IANRMonitor {
     public boolean mMonitorStarted;
 
     /* renamed from: com.baidu.searchbox.anr.impl.ANRMonitor$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class ANRListenerImpl implements a.f {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DEFAULT_ALL_STACK_TRACES_NAME = "all_stack_traces.txt";
@@ -64,7 +63,7 @@ public class ANRMonitor implements IANRMonitor {
             }
         }
 
-        @Override // d.e.a.a.f
+        @Override // c.h.a.a.f
         public void onAppNotResponding(ANRError aNRError) {
             Context appContext;
             String str;
@@ -160,7 +159,7 @@ public class ANRMonitor implements IANRMonitor {
         aVar.d();
         this.mANRWatchDog.c(new ANRListenerImpl(null));
         if (AppConfig.isDebug()) {
-            Log.d("Ruka", "mANRWatchDog = " + this.mANRWatchDog.getName());
+            String str = "mANRWatchDog = " + this.mANRWatchDog.getName();
         }
         this.mANRWatchDog.start();
     }

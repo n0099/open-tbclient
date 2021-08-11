@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class j extends com.kwad.sdk.b.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f34149b;
+    public View f70879b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.d f34150c;
+    public com.kwad.sdk.contentalliance.detail.video.d f70880c;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -31,12 +31,12 @@ public class j extends com.kwad.sdk.b.a.a {
                 return;
             }
         }
-        this.f34150c = new com.kwad.sdk.contentalliance.detail.video.e(this) { // from class: com.kwad.sdk.b.b.j.1
+        this.f70880c = new com.kwad.sdk.contentalliance.detail.video.e(this) { // from class: com.kwad.sdk.b.b.j.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ j f34151a;
+            public final /* synthetic */ j f70881a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -53,14 +53,14 @@ public class j extends com.kwad.sdk.b.a.a {
                         return;
                     }
                 }
-                this.f34151a = this;
+                this.f70881a = this;
             }
 
             @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
             public void a(int i4, int i5) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeII(1048576, this, i4, i5) == null) {
-                    this.f34151a.e();
+                    this.f70881a.e();
                 }
             }
         };
@@ -69,10 +69,10 @@ public class j extends com.kwad.sdk.b.a.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.f34149b.getVisibility() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.f70879b.getVisibility() == 0) {
             return;
         }
-        this.f34149b.setVisibility(0);
+        this.f70879b.setVisibility(0);
     }
 
     @Override // com.kwad.sdk.b.a.a, com.kwad.sdk.mvp.Presenter
@@ -80,8 +80,8 @@ public class j extends com.kwad.sdk.b.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            this.f34149b.setVisibility(8);
-            ((com.kwad.sdk.b.a.a) this).f34082a.f34088f.a(this.f34150c);
+            this.f70879b.setVisibility(8);
+            ((com.kwad.sdk.b.a.a) this).f70810a.f70816f.a(this.f70880c);
         }
     }
 
@@ -90,7 +90,7 @@ public class j extends com.kwad.sdk.b.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.b();
-            this.f34149b = a(R.id.ksad_video_error_container);
+            this.f70879b = a(R.id.ksad_video_error_container);
         }
     }
 
@@ -99,7 +99,7 @@ public class j extends com.kwad.sdk.b.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.c();
-            ((com.kwad.sdk.b.a.a) this).f34082a.f34088f.b(this.f34150c);
+            ((com.kwad.sdk.b.a.a) this).f70810a.f70816f.b(this.f70880c);
         }
     }
 }

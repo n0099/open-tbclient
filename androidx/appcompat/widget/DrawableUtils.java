@@ -11,15 +11,15 @@ import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.ScaleDrawable;
 import android.os.Build;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.graphics.drawable.DrawableWrapper;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.graphics.drawable.WrappedDrawable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.HorizontalTranslateLayout;
+import com.baidu.adp.widget.VerticalTranslateLayout;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.config.item.TipsConfigItem;
 import java.lang.reflect.Field;
 @SuppressLint({"RestrictedAPI"})
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
@@ -164,25 +163,25 @@ public class DrawableUtils {
                             char c2 = 65535;
                             switch (name.hashCode()) {
                                 case -1383228885:
-                                    if (name.equals(TipsConfigItem.TipConfigData.BOTTOM)) {
+                                    if (name.equals("bottom")) {
                                         c2 = 3;
                                         break;
                                     }
                                     break;
                                 case 115029:
-                                    if (name.equals("top")) {
+                                    if (name.equals(VerticalTranslateLayout.TOP)) {
                                         c2 = 1;
                                         break;
                                     }
                                     break;
                                 case 3317767:
-                                    if (name.equals(CustomDialogData.POS_LEFT)) {
+                                    if (name.equals("left")) {
                                         c2 = 0;
                                         break;
                                     }
                                     break;
                                 case 108511772:
-                                    if (name.equals("right")) {
+                                    if (name.equals(HorizontalTranslateLayout.RIGHT)) {
                                         c2 = 2;
                                         break;
                                     }
@@ -201,7 +200,6 @@ public class DrawableUtils {
                         return rect2;
                     }
                 } catch (Exception unused) {
-                    Log.e(TAG, "Couldn't obtain the optical insets. Ignoring.");
                 }
             }
             return INSETS_NONE;

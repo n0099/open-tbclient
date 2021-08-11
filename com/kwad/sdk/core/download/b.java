@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ksad.download.DownloadTask;
 import com.kwad.sdk.utils.w;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b extends com.ksad.download.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

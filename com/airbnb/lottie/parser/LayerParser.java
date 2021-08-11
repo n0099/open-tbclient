@@ -14,7 +14,6 @@ import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.Keyframe;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +27,7 @@ import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class LayerParser {
     public static /* synthetic */ Interceptable $ic;
     public static final JsonReader.Options EFFECTS_NAMES;
@@ -37,7 +36,7 @@ public class LayerParser {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.airbnb.lottie.parser.LayerParser$1  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$layer$Layer$MatteType;
         public static /* synthetic */ Interceptable $ic;
@@ -82,7 +81,7 @@ public class LayerParser {
                 return;
             }
         }
-        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "ind", "refId", "ty", "parent", "sw", IAdRequestParam.SCREEN_HEIGHT, Config.STAT_SDK_CHANNEL, FunAdSdk.PLATFORM_KS, PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, "masksProperties", "shapes", "t", "ef", BaseStatisContent.SR, "st", "w", "h", "ip", "op", "tm", Config.CELL_LOCATION, "hd");
+        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "ind", "refId", "ty", "parent", "sw", IAdRequestParam.SCREEN_HEIGHT, "sc", FunAdSdk.PLATFORM_KS, PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, "masksProperties", "shapes", "t", "ef", BaseStatisContent.SR, "st", "w", "h", "ip", "op", "tm", "cl", "hd");
         TEXT_NAMES = JsonReader.Options.of("d", "a");
         EFFECTS_NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE);
     }
@@ -130,7 +129,7 @@ public class LayerParser {
             AnimatableTextFrame animatableTextFrame = null;
             AnimatableTextProperties animatableTextProperties = null;
             AnimatableFloatValue animatableFloatValue = null;
-            long j = -1;
+            long j2 = -1;
             float f2 = 0.0f;
             float f3 = 0.0f;
             int i2 = 0;
@@ -141,7 +140,7 @@ public class LayerParser {
             int i5 = 0;
             int i6 = 0;
             boolean z = false;
-            long j2 = 0;
+            long j3 = 0;
             String str2 = null;
             String str3 = "UNSET";
             while (jsonReader.hasNext()) {
@@ -150,7 +149,7 @@ public class LayerParser {
                         str3 = jsonReader.nextString();
                         break;
                     case 1:
-                        j2 = jsonReader.nextInt();
+                        j3 = jsonReader.nextInt();
                         break;
                     case 2:
                         str = jsonReader.nextString();
@@ -165,7 +164,7 @@ public class LayerParser {
                             break;
                         }
                     case 4:
-                        j = jsonReader.nextInt();
+                        j2 = jsonReader.nextInt();
                         break;
                     case 5:
                         i2 = (int) (jsonReader.nextInt() * Utils.dpScale());
@@ -306,7 +305,7 @@ public class LayerParser {
             if (str3.endsWith(".ai") || "ai".equals(str2)) {
                 lottieComposition.addWarning("Convert your Illustrator layers to shape layers.");
             }
-            return new Layer(arrayList4, lottieComposition, str3, j2, layerType, j, str, arrayList, animatableTransform, i2, i3, i4, f4, f5, i5, i6, animatableTextFrame, animatableTextProperties, arrayList2, matteType2, animatableFloatValue, z);
+            return new Layer(arrayList4, lottieComposition, str3, j3, layerType, j2, str, arrayList, animatableTransform, i2, i3, i4, f4, f5, i5, i6, animatableTextFrame, animatableTextProperties, arrayList2, matteType2, animatableFloatValue, z);
         }
         return (Layer) invokeLL.objValue;
     }

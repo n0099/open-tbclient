@@ -3,6 +3,8 @@ package com.baidu.tieba.barselect.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
+import c.a.e.e.p.l;
+import c.a.p0.o1.o.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
@@ -12,13 +14,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.q0.n1.o.k.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BazhuHeadView extends HeadPendantView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbImageView q;
+    public TbImageView r;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BazhuHeadView(Context context, AttributeSet attributeSet, int i2) {
@@ -41,21 +41,27 @@ public class BazhuHeadView extends HeadPendantView {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.HeadPendantView
-    public void d() {
+    public TbImageView getBawuLogoView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.d();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.r : (TbImageView) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.view.HeadPendantView
+    public void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.init();
             int g2 = l.g(getContext(), R.dimen.tbds92);
             int g3 = l.g(getContext(), R.dimen.tbds82);
             if (getPendantView() != null) {
                 getPendantView().setLayoutParams(new RelativeLayout.LayoutParams(g2, g3));
             }
             TbImageView tbImageView = new TbImageView(getContext());
-            this.q = tbImageView;
+            this.r = tbImageView;
             tbImageView.setDefaultBgResource(0);
-            this.q.setDefaultResource(0);
-            this.q.setImageDrawable(null);
+            this.r.setDefaultResource(0);
+            this.r.setImageDrawable(null);
             int g4 = l.g(getContext(), R.dimen.tbds115);
             int g5 = l.g(getContext(), R.dimen.tbds34);
             int g6 = l.g(getContext(), R.dimen.tbds154);
@@ -63,18 +69,12 @@ public class BazhuHeadView extends HeadPendantView {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g4, g5);
             layoutParams.topMargin = g6;
             layoutParams.leftMargin = g7;
-            this.q.setLayoutParams(layoutParams);
-            this.q.setVisibility(8);
+            this.r.setLayoutParams(layoutParams);
+            this.r.setVisibility(8);
         }
     }
 
-    public TbImageView getBawuLogoView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.q : (TbImageView) invokeV.objValue;
-    }
-
-    public void n(boolean z) {
+    public void resizeView(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
@@ -95,7 +95,7 @@ public class BazhuHeadView extends HeadPendantView {
             getHeadView().setBorderWidth(0);
             getHeadView().setDrawBorder(false);
             getHeadView().setLayoutParams(new RelativeLayout.LayoutParams(g6, g6));
-            TbImageView tbImageView = this.q;
+            TbImageView tbImageView = this.r;
             if (tbImageView != null) {
                 tbImageView.setVisibility(8);
             }
@@ -109,11 +109,11 @@ public class BazhuHeadView extends HeadPendantView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             if (i2 == 0) {
-                this.q.setVisibility(8);
+                this.r.setVisibility(8);
                 return;
             }
-            this.q.setImageResource(i2);
-            this.q.setVisibility(0);
+            this.r.setImageResource(i2);
+            this.r.setVisibility(0);
         }
     }
 

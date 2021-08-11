@@ -8,7 +8,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -313,19 +312,16 @@ public class ListPopupWindow implements ShowableListMenu {
             try {
                 sSetClipToWindowEnabledMethod = PopupWindow.class.getDeclaredMethod("setClipToScreenEnabled", Boolean.TYPE);
             } catch (NoSuchMethodException unused) {
-                Log.i(TAG, "Could not find method setClipToScreenEnabled() on PopupWindow. Oh well.");
             }
             try {
                 sSetEpicenterBoundsMethod = PopupWindow.class.getDeclaredMethod("setEpicenterBounds", Rect.class);
             } catch (NoSuchMethodException unused2) {
-                Log.i(TAG, "Could not find method setEpicenterBounds(Rect) on PopupWindow. Oh well.");
             }
         }
         if (Build.VERSION.SDK_INT <= 23) {
             try {
                 sGetMaxAvailableHeightMethod = PopupWindow.class.getDeclaredMethod("getMaxAvailableHeight", View.class, Integer.TYPE, Boolean.TYPE);
             } catch (NoSuchMethodException unused3) {
-                Log.i(TAG, "Could not find method getMaxAvailableHeight(View, int, boolean) on PopupWindow. Oh well.");
             }
         }
     }
@@ -430,10 +426,10 @@ public class ListPopupWindow implements ShowableListMenu {
                     }
 
                     @Override // android.widget.AdapterView.OnItemSelectedListener
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i5, long j) {
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i5, long j2) {
                         DropDownListView dropDownListView;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j)}) == null) || i5 == -1 || (dropDownListView = this.this$0.mDropDownList) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j2)}) == null) || i5 == -1 || (dropDownListView = this.this$0.mDropDownList) == null) {
                             return;
                         }
                         dropDownListView.setListSelectionHidden(false);
@@ -462,7 +458,7 @@ public class ListPopupWindow implements ShowableListMenu {
                         linearLayout.addView(view);
                         linearLayout.addView(dropDownListView, layoutParams);
                     } else if (i5 != 1) {
-                        Log.e(TAG, "Invalid hint position " + this.mPromptPosition);
+                        String str = "Invalid hint position " + this.mPromptPosition;
                     } else {
                         linearLayout.addView(dropDownListView, layoutParams);
                         linearLayout.addView(view);
@@ -540,7 +536,6 @@ public class ListPopupWindow implements ShowableListMenu {
                     try {
                         return ((Integer) method.invoke(this.mPopup, view, Integer.valueOf(i2), Boolean.valueOf(z))).intValue();
                     } catch (Exception unused) {
-                        Log.i(TAG, "Could not call getMaxAvailableHeightMethod(View, int, boolean) on PopupWindow. Using the public version.");
                     }
                 }
                 return this.mPopup.getMaxAvailableHeight(view, i2);
@@ -578,7 +573,6 @@ public class ListPopupWindow implements ShowableListMenu {
                         method.invoke(this.mPopup, Boolean.valueOf(z));
                         return;
                     } catch (Exception unused) {
-                        Log.i(TAG, "Could not call setClipToScreenEnabled() on PopupWindow. Oh well.");
                         return;
                     }
                 }
@@ -1233,8 +1227,7 @@ public class ListPopupWindow implements ShowableListMenu {
                 if (method != null) {
                     try {
                         method.invoke(this.mPopup, this.mEpicenterBounds);
-                    } catch (Exception e2) {
-                        Log.e(TAG, "Could not invoke setEpicenterBounds on PopupWindow", e2);
+                    } catch (Exception unused) {
                     }
                 }
             } else {

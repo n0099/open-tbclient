@@ -4,10 +4,9 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.app.i;
 import com.alipay.sdk.net.a;
-import com.alipay.sdk.util.m;
-import com.alipay.sdk.util.n;
+import com.alipay.sdk.util.j;
+import com.alipay.sdk.util.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,37 +18,39 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1942a = "msp-gzip";
+    public static final String f35794a = "msp-gzip";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1943b = "Msp-Param";
+    public static final String f35795b = "Msp-Param";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f1944c = "Operation-Type";
+    public static final String f35796c = "Operation-Type";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f1945d = "content-type";
+    public static final String f35797d = "content-type";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f1946e = "Version";
+    public static final String f35798e = "Version";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f1947f = "AppId";
+    public static final String f35799f = "AppId";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f1948g = "des-mode";
+    public static final String f35800g = "des-mode";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f1949h = "namespace";
+    public static final String f35801h = "namespace";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f1950i = "api_name";
-    public static final String j = "api_version";
+    public static final String f35802i = "api_name";
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final String f35803j = "api_version";
     public static final String k = "data";
     public static final String l = "params";
     public static final String m = "public_key";
@@ -83,13 +84,13 @@ public abstract class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(1048582, this, z, str)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put(f1942a, String.valueOf(z));
-            hashMap.put(f1944c, "alipay.msp.cashier.dispatch.bytes");
+            hashMap.put(f35794a, String.valueOf(z));
+            hashMap.put(f35796c, "alipay.msp.cashier.dispatch.bytes");
             hashMap.put("content-type", "application/octet-stream");
-            hashMap.put(f1946e, "2.0");
-            hashMap.put(f1947f, "TAOBAO");
-            hashMap.put(f1943b, a.a(str));
-            hashMap.put(f1948g, "CBC");
+            hashMap.put(f35798e, "2.0");
+            hashMap.put(f35799f, "TAOBAO");
+            hashMap.put(f35795b, a.a(str));
+            hashMap.put(f35800g, "CBC");
             return hashMap;
         }
         return (Map) invokeZL.objValue;
@@ -110,8 +111,8 @@ public abstract class e {
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("device", Build.MODEL);
             hashMap.put("namespace", "com.alipay.mobilecashier");
-            hashMap.put(f1950i, "com.alipay.mcpay");
-            hashMap.put(j, b());
+            hashMap.put(f35802i, "com.alipay.mcpay");
+            hashMap.put(f35803j, b());
             return a(hashMap, new HashMap<>());
         }
         return (String) invokeV.objValue;
@@ -131,35 +132,36 @@ public abstract class e {
         return (JSONObject) invokeLL.objValue;
     }
 
-    public String a(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    public String a(com.alipay.sdk.sys.a aVar, String str, JSONObject jSONObject) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, jSONObject)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, aVar, str, jSONObject)) == null) {
             com.alipay.sdk.sys.b a2 = com.alipay.sdk.sys.b.a();
-            com.alipay.sdk.tid.b a3 = com.alipay.sdk.tid.b.a(a2.b());
+            com.alipay.sdk.tid.a a3 = com.alipay.sdk.tid.a.a(a2.b());
             JSONObject a4 = com.alipay.sdk.util.b.a(new JSONObject(), jSONObject);
             try {
+                a4.put(com.alipay.sdk.cons.b.f35721d, str);
                 a4.put("tid", a3.a());
-                a4.put(com.alipay.sdk.cons.b.f1875b, a2.c().a(a3));
-                a4.put(com.alipay.sdk.cons.b.f1878e, n.b(a2.b(), i.f1837a));
-                a4.put(com.alipay.sdk.cons.b.f1879f, n.a(a2.b()));
-                a4.put(com.alipay.sdk.cons.b.f1877d, str);
-                a4.put("app_key", com.alipay.sdk.cons.a.f1868d);
-                a4.put(com.alipay.sdk.cons.b.f1880g, a2.e());
-                a4.put(com.alipay.sdk.cons.b.j, a3.b());
-                a4.put(com.alipay.sdk.cons.b.k, a2.c().a(a2.b()));
+                a4.put(com.alipay.sdk.cons.b.f35719b, a2.c().a(aVar, a3));
+                a4.put(com.alipay.sdk.cons.b.f35722e, k.b(aVar, a2.b(), com.alipay.sdk.app.a.f35676a));
+                a4.put(com.alipay.sdk.cons.b.f35723f, k.a(a2.b()));
+                a4.put("app_key", com.alipay.sdk.cons.a.f35713f);
+                a4.put(com.alipay.sdk.cons.b.f35724g, a2.e());
+                a4.put(com.alipay.sdk.cons.b.f35727j, a3.b());
+                a4.put(com.alipay.sdk.cons.b.k, com.alipay.sdk.data.b.a(a2.b()));
             } catch (Throwable th) {
+                com.alipay.sdk.app.statistic.a.a(aVar, "biz", "BodyErr", th);
                 com.alipay.sdk.util.c.a(th);
             }
             return a4.toString();
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeLLL.objValue;
     }
 
     public static boolean a(a.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bVar)) == null) ? Boolean.valueOf(a(bVar, f1942a)).booleanValue() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bVar)) == null) ? Boolean.valueOf(a(bVar, f35794a)).booleanValue() : invokeL.booleanValue;
     }
 
     public static String a(a.b bVar, String str) {
@@ -168,7 +170,7 @@ public abstract class e {
         List<String> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bVar, str)) == null) {
-            if (bVar == null || str == null || (map = bVar.f1933a) == null || (list = map.get(str)) == null) {
+            if (bVar == null || str == null || (map = bVar.f35785a) == null || (list = map.get(str)) == null) {
                 return null;
             }
             return TextUtils.join(",", list);
@@ -200,10 +202,10 @@ public abstract class e {
         return (String) invokeLL.objValue;
     }
 
-    private boolean a(String str) {
+    public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -214,7 +216,7 @@ public abstract class e {
                     if (TextUtils.isEmpty(optString)) {
                         return false;
                     }
-                    com.alipay.sdk.sys.b.a().c().a(optString);
+                    com.alipay.sdk.data.b.a(optString);
                     return true;
                 }
                 return false;
@@ -226,35 +228,37 @@ public abstract class e {
         return invokeL.booleanValue;
     }
 
-    public b a(Context context) throws Throwable {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? a(context, "") : (b) invokeL.objValue;
-    }
-
-    public b a(Context context, String str) throws Throwable {
+    public b a(com.alipay.sdk.sys.a aVar, Context context) throws Throwable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) ? a(context, str, m.a(context)) : (b) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, context)) == null) ? a(aVar, context, "") : (b) invokeLL.objValue;
     }
 
-    public b a(Context context, String str, String str2) throws Throwable {
+    public b a(com.alipay.sdk.sys.a aVar, Context context, String str) throws Throwable {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2)) == null) ? a(context, str, str2, true) : (b) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, context, str)) == null) ? a(aVar, context, str, j.a(context)) : (b) invokeLLL.objValue;
     }
 
-    public b a(Context context, String str, String str2, boolean z) throws Throwable {
+    public b a(com.alipay.sdk.sys.a aVar, Context context, String str, String str2) throws Throwable {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, aVar, context, str, str2)) == null) ? a(aVar, context, str, str2, true) : (b) invokeLLLL.objValue;
+    }
+
+    public b a(com.alipay.sdk.sys.a aVar, Context context, String str, String str2, boolean z) throws Throwable {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{context, str, str2, Boolean.valueOf(z)})) == null) {
-            com.alipay.sdk.util.c.b("", "PacketTask::request url >" + str2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{aVar, context, str, str2, Boolean.valueOf(z)})) == null) {
+            com.alipay.sdk.util.c.a(com.alipay.sdk.cons.a.x, "Packet: " + str2);
             c cVar = new c(this.s);
-            d a2 = cVar.a(new b(c(), a(str, a())), this.r);
-            a.b a3 = com.alipay.sdk.net.a.a(context, new a.C0017a(str2, a(a2.a(), str), a2.b()));
-            if (a3 != null) {
-                b a4 = cVar.a(new d(a(a3), a3.f1935c));
-                return (a4 != null && a(a4.a()) && z) ? a(context, str, str2, false) : a4;
+            b bVar = new b(c(), a(aVar, str, a()));
+            Map<String, String> a2 = a(false, str);
+            d a3 = cVar.a(bVar, this.r, a2.get("iSr"));
+            a.b a4 = com.alipay.sdk.net.a.a(context, new a.C1560a(str2, a(a3.a(), str), a3.b()));
+            if (a4 != null) {
+                b a5 = cVar.a(new d(a(a4), a4.f35787c), a2.get("iSr"));
+                return (a5 != null && a(a5.a()) && z) ? a(aVar, context, str, str2, false) : a5;
             }
             throw new RuntimeException("Response is null.");
         }

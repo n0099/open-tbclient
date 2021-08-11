@@ -1,5 +1,6 @@
 package com.baidu.tieba.lego.card.model;
 
+import c.a.p0.o1.o.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,12 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.n1.o.k.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FocusListCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MIN_FOCUS_ITEMS = 3;
@@ -23,31 +23,31 @@ public class FocusListCard extends BaseCardInfo {
     public final int titleColor;
     public final int titleColorNight;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18244a;
+        public String f53513a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18245b;
+        public String f53514b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f18246c;
+        public String f53515c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f18247d;
+        public int f53516d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f18248e;
+        public int f53517e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f18249f;
+        public String f53518f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f18250g;
+        public long f53519g;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -96,18 +96,18 @@ public class FocusListCard extends BaseCardInfo {
                 a aVar = new a();
                 try {
                     if (optJSONArray.length() > 0) {
-                        aVar.f18244a = optJSONArray.getString(0);
+                        aVar.f53513a = optJSONArray.getString(0);
                     }
                     if (optJSONArray.length() > 1) {
-                        aVar.f18245b = optJSONArray.getString(1);
+                        aVar.f53514b = optJSONArray.getString(1);
                     }
                     if (optJSONArray.length() > 2) {
-                        aVar.f18246c = optJSONArray.getString(2);
+                        aVar.f53515c = optJSONArray.getString(2);
                     }
-                    aVar.f18247d = b.b(optJSONObject.optString("focusColor", ""));
-                    aVar.f18248e = b.b(optJSONObject.optString("focusColorNight", ""));
-                    aVar.f18249f = optJSONObject.optString("scheme");
-                    aVar.f18250g = optJSONObject.optLong("resourceId");
+                    aVar.f53516d = b.b(optJSONObject.optString("focusColor", ""));
+                    aVar.f53517e = b.b(optJSONObject.optString("focusColorNight", ""));
+                    aVar.f53518f = optJSONObject.optString("scheme");
+                    aVar.f53519g = optJSONObject.optLong("resourceId");
                     this.focusItemList.add(aVar);
                 } catch (Exception unused) {
                 }

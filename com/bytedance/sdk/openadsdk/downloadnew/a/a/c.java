@@ -2,6 +2,8 @@ package com.bytedance.sdk.openadsdk.downloadnew.a.a;
 
 import android.content.Context;
 import android.text.TextUtils;
+import c.p.a.a.a.c.g;
+import c.p.a.a.a.c.r;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,18 +11,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.net.NetResponse;
 import com.bytedance.sdk.component.net.executor.PostExecutor;
-import d.l.a.a.a.c.g;
-import d.l.a.a.a.c.r;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class c implements g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f31282a;
+    public final WeakReference<Context> f67221a;
 
     public c(Context context) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class c implements g {
                 return;
             }
         }
-        this.f31282a = new WeakReference<>(context);
+        this.f67221a = new WeakReference<>(context);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x009c */
@@ -46,7 +46,7 @@ public class c implements g {
     /* JADX WARN: Type inference failed for: r5v13 */
     /* JADX WARN: Type inference failed for: r5v7, types: [com.bytedance.sdk.component.net.executor.GetExecutor] */
     /* JADX WARN: Type inference failed for: r5v8, types: [com.bytedance.sdk.component.net.executor.NetExecutor] */
-    @Override // d.l.a.a.a.c.g
+    @Override // c.p.a.a.a.c.g
     public void a(String str, String str2, Map<String, Object> map, r rVar) {
         char c2;
         ?? getExecutor;
@@ -88,7 +88,7 @@ public class c implements g {
         }
     }
 
-    @Override // d.l.a.a.a.c.g
+    @Override // c.p.a.a.a.c.g
     public void a(String str, byte[] bArr, String str2, int i2, r rVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, bArr, str2, Integer.valueOf(i2), rVar}) == null) {

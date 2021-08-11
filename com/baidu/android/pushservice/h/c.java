@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3179a;
+    public String f37069a;
 
     /* renamed from: b  reason: collision with root package name */
-    public short f3180b;
+    public short f37070b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public abstract class c implements Runnable {
                 return;
             }
         }
-        this.f3180b = (short) 99;
+        this.f37070b = (short) 99;
     }
 
     public c(String str, short s) {
@@ -49,9 +49,9 @@ public abstract class c implements Runnable {
                 return;
             }
         }
-        this.f3180b = (short) 99;
-        this.f3179a = str;
-        this.f3180b = s;
+        this.f37070b = (short) 99;
+        this.f37069a = str;
+        this.f37070b = s;
     }
 
     public abstract void a();
@@ -59,29 +59,29 @@ public abstract class c implements Runnable {
     public void a(short s) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Short.valueOf(s)}) == null) {
-            this.f3180b = s;
+            this.f37070b = s;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f3179a = str;
+            this.f37069a = str;
         }
     }
 
     public short d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3180b : invokeV.shortValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37070b : invokeV.shortValue;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!TextUtils.isEmpty(this.f3179a)) {
-                Thread.currentThread().setName(this.f3179a);
+            if (!TextUtils.isEmpty(this.f37069a)) {
+                Thread.currentThread().setName(this.f37069a);
             }
             a();
         }

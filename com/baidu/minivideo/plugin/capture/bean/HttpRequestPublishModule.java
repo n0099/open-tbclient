@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class HttpRequestPublishModule {
     public static /* synthetic */ Interceptable $ic;
     public static final int HTTP_NO_ERROR = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class ImageData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class HttpRequestPublishModule {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class PopInfoDaLiBao implements Jsonable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class HttpRequestPublishModule {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class PublishData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,7 +151,7 @@ public class HttpRequestPublishModule {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class PublishResultInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -187,7 +187,7 @@ public class HttpRequestPublishModule {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class ShareData implements Jsonable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -249,20 +249,20 @@ public class HttpRequestPublishModule {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 try {
                     jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("title", this.title);
-                        jSONObject.put("content", this.content);
-                        jSONObject.put("link", this.link);
-                        jSONObject.put("icon", this.icon);
-                        jSONObject.put("shareText", this.shareText);
-                    } catch (Exception e3) {
-                        e2 = e3;
-                        e2.printStackTrace();
-                        return jSONObject;
-                    }
-                } catch (Exception e4) {
+                } catch (Exception e3) {
                     jSONObject = null;
+                    e2 = e3;
+                }
+                try {
+                    jSONObject.put("title", this.title);
+                    jSONObject.put("content", this.content);
+                    jSONObject.put("link", this.link);
+                    jSONObject.put("icon", this.icon);
+                    jSONObject.put("shareText", this.shareText);
+                } catch (Exception e4) {
                     e2 = e4;
+                    e2.printStackTrace();
+                    return jSONObject;
                 }
                 return jSONObject;
             }
@@ -270,7 +270,7 @@ public class HttpRequestPublishModule {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class VideoUploadModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

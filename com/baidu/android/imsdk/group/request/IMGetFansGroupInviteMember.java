@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGetFansGroupInviteMember";
@@ -108,10 +108,10 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
                             JSONArray jSONArray = jSONObject2.getJSONArray("members");
                             while (i4 < jSONArray.length()) {
                                 JSONObject jSONObject3 = jSONArray.getJSONObject(i4);
-                                long j = jSONObject3.getLong("bd_uid");
+                                long j2 = jSONObject3.getLong("bd_uid");
                                 String optString = jSONObject3.optString("display_name");
                                 String optString2 = jSONObject3.optString("group_name");
-                                ChatUser chatUser = new ChatUser(0L, j, TextUtils.isEmpty(optString2) ? optString : optString2, jSONObject3.optString("avatar"));
+                                ChatUser chatUser = new ChatUser(0L, j2, TextUtils.isEmpty(optString2) ? optString : optString2, jSONObject3.optString("avatar"));
                                 chatUser.setGroupStatus(jSONObject3.optInt("group_status"));
                                 arrayList.add(chatUser);
                                 i4++;

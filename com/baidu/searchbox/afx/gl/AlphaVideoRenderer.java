@@ -3,7 +3,6 @@ package com.baidu.searchbox.afx.gl;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
-import android.util.Log;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.StatusCode;
 import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
@@ -21,7 +19,7 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTexture.OnFrameAvailableListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AlphaVideoRenderer";
@@ -45,7 +43,7 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
     public int uMVPMatrixHandle;
     public int uSTMatrixHandle;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnSurfacePrepareListener {
         void onSurfacePrepared(Surface surface);
     }
@@ -82,7 +80,7 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
         if (!(interceptable == null || interceptable.invokeL(65537, this, str) == null) || (glGetError = GLES20.glGetError()) == 0) {
             return;
         }
-        Log.e(TAG, str + ": glError " + glGetError);
+        String str2 = str + ": glError " + glGetError;
         throw new RuntimeException(str + ": glError " + glGetError);
     }
 
@@ -105,8 +103,7 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
                 int[] iArr = new int[1];
                 GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
                 if (iArr[0] != 1) {
-                    Log.e(TAG, "Could not link program: ");
-                    Log.e(TAG, GLES20.glGetProgramInfoLog(glCreateProgram));
+                    GLES20.glGetProgramInfoLog(glCreateProgram);
                     GLES20.glDeleteProgram(glCreateProgram);
                     return 0;
                 }
@@ -127,8 +124,8 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
                 int[] iArr = new int[1];
                 GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
                 if (iArr[0] == 0) {
-                    Log.e(TAG, "Could not compile shader " + i2 + ":");
-                    Log.e(TAG, GLES20.glGetShaderInfoLog(glCreateShader));
+                    String str2 = "Could not compile shader " + i2 + ":";
+                    GLES20.glGetShaderInfoLog(glCreateShader);
                     GLES20.glDeleteShader(glCreateShader);
                     return 0;
                 }
@@ -192,17 +189,17 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
             GLES20.glUseProgram(this.mProgram);
             checkGlError("glUseProgram");
             this.mTriangleVertices.position(0);
-            GLES20.glVertexAttribPointer(this.aPositionHandle, 3, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 28, (Buffer) this.mTriangleVertices);
+            GLES20.glVertexAttribPointer(this.aPositionHandle, 3, 5126, false, 28, (Buffer) this.mTriangleVertices);
             checkGlError("glVertexAttribPointer maPosition");
             GLES20.glEnableVertexAttribArray(this.aPositionHandle);
             checkGlError("glEnableVertexAttribArray aPositionHandle");
             this.mTriangleVertices.position(3);
-            GLES20.glVertexAttribPointer(this.aTextureAlphaHandle, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 28, (Buffer) this.mTriangleVertices);
+            GLES20.glVertexAttribPointer(this.aTextureAlphaHandle, 2, 5126, false, 28, (Buffer) this.mTriangleVertices);
             checkGlError("glVertexAttribPointer aTextureAlphaHandle");
             GLES20.glEnableVertexAttribArray(this.aTextureAlphaHandle);
             checkGlError("glEnableVertexAttribArray aTextureAlphaHandle");
             this.mTriangleVertices.position(5);
-            GLES20.glVertexAttribPointer(this.aTextureColorHandle, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 28, (Buffer) this.mTriangleVertices);
+            GLES20.glVertexAttribPointer(this.aTextureColorHandle, 2, 5126, false, 28, (Buffer) this.mTriangleVertices);
             checkGlError("glVertexAttribPointer aTextureColorHandle");
             GLES20.glEnableVertexAttribArray(this.aTextureColorHandle);
             checkGlError("glEnableVertexAttribArray aTextureColorHandle");

@@ -11,29 +11,30 @@ import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RewardWebView extends WebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f11816e;
+    public boolean f46701e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f11817f;
+    public Handler f46702f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11818e;
+        public final /* synthetic */ String f46703e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RewardWebView f11819f;
+        public final /* synthetic */ RewardWebView f46704f;
 
         public a(RewardWebView rewardWebView, String str) {
             Interceptable interceptable = $ic;
@@ -50,39 +51,41 @@ public class RewardWebView extends WebView {
                     return;
                 }
             }
-            this.f11819f = rewardWebView;
-            this.f11818e = str;
+            this.f46704f = rewardWebView;
+            this.f46703e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RewardWebView.super.loadUrl(this.f11818e);
+                RewardWebView.super.loadUrl(this.f46703e);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11820e;
+        public final /* synthetic */ String f46705e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f11821f;
+        public final /* synthetic */ String f46706f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f11822g;
+        public final /* synthetic */ String f46707g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f11823h;
+        public final /* synthetic */ String f46708h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f11824i;
-        public final /* synthetic */ RewardWebView j;
+        public final /* synthetic */ String f46709i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public final /* synthetic */ RewardWebView f46710j;
 
         public b(RewardWebView rewardWebView, String str, String str2, String str3, String str4, String str5) {
             Interceptable interceptable = $ic;
@@ -99,36 +102,36 @@ public class RewardWebView extends WebView {
                     return;
                 }
             }
-            this.j = rewardWebView;
-            this.f11820e = str;
-            this.f11821f = str2;
-            this.f11822g = str3;
-            this.f11823h = str4;
-            this.f11824i = str5;
+            this.f46710j = rewardWebView;
+            this.f46705e = str;
+            this.f46706f = str2;
+            this.f46707g = str3;
+            this.f46708h = str4;
+            this.f46709i = str5;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RewardWebView.super.loadDataWithBaseURL(this.f11820e, this.f11821f, this.f11822g, this.f11823h, this.f11824i);
+                RewardWebView.super.loadDataWithBaseURL(this.f46705e, this.f46706f, this.f46707g, this.f46708h, this.f46709i);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11825e;
+        public final /* synthetic */ String f46711e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ValueCallback f11826f;
+        public final /* synthetic */ ValueCallback f46712f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ RewardWebView f11827g;
+        public final /* synthetic */ RewardWebView f46713g;
 
         public c(RewardWebView rewardWebView, String str, ValueCallback valueCallback) {
             Interceptable interceptable = $ic;
@@ -145,16 +148,16 @@ public class RewardWebView extends WebView {
                     return;
                 }
             }
-            this.f11827g = rewardWebView;
-            this.f11825e = str;
-            this.f11826f = valueCallback;
+            this.f46713g = rewardWebView;
+            this.f46711e = str;
+            this.f46712f = valueCallback;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RewardWebView.super.evaluateJavascript(this.f11825e, this.f11826f);
+                RewardWebView.super.evaluateJavascript(this.f46711e, this.f46712f);
             }
         }
     }
@@ -178,8 +181,8 @@ public class RewardWebView extends WebView {
                 return;
             }
         }
-        this.f11816e = false;
-        this.f11817f = new Handler(Looper.getMainLooper());
+        this.f46701e = false;
+        this.f46702f = new Handler(Looper.getMainLooper());
         setClickable(true);
         setBackgroundColor(0);
         setFocusable(true);
@@ -213,7 +216,7 @@ public class RewardWebView extends WebView {
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 runnable.run();
             } else {
-                this.f11817f.post(runnable);
+                this.f46702f.post(runnable);
             }
         }
     }
@@ -223,14 +226,14 @@ public class RewardWebView extends WebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                if (this.f11816e) {
+                if (this.f46701e) {
                     return;
                 }
                 if (getParent() != null) {
                     ((ViewGroup) getParent()).removeView(this);
                 }
                 super.destroy();
-                this.f11816e = true;
+                this.f46701e = true;
             } catch (Exception unused) {
             }
         }
@@ -240,23 +243,29 @@ public class RewardWebView extends WebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WebSettings settings = getSettings();
-            settings.setUserAgentString(d.a.o0.f.i.m.a.b().o(settings.getUserAgentString()));
+            settings.setUserAgentString(c.a.n0.f.i.m.a.b().o(settings.getUserAgentString()));
         }
     }
 
     @Override // android.webkit.WebView
     public void evaluateJavascript(String str, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, valueCallback) == null) || this.f11816e) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, valueCallback) == null) || this.f46701e) {
             return;
         }
         d(new c(this, str, valueCallback));
     }
 
+    public boolean isDestroy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f46701e : invokeV.booleanValue;
+    }
+
     @Override // android.webkit.WebView
     public void loadDataWithBaseURL(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(1048580, this, str, str2, str3, str4, str5) == null) || this.f11816e) {
+        if (!(interceptable == null || interceptable.invokeLLLLL(1048581, this, str, str2, str3, str4, str5) == null) || this.f46701e) {
             return;
         }
         d(new b(this, str, str2, str3, str4, str5));
@@ -265,9 +274,9 @@ public class RewardWebView extends WebView {
     @Override // android.webkit.WebView
     public void loadUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             try {
-                if (this.f11816e) {
+                if (this.f46701e) {
                     return;
                 }
                 d(new a(this, str));

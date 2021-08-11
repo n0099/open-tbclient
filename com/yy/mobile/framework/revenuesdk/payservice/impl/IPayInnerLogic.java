@@ -9,9 +9,9 @@ import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.PayOrderResult;
 import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.response.IResponse;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface IPayInnerLogic {
-    void dealOnOrderInter(IResponse iResponse, ChargeCurrencyReqParams chargeCurrencyReqParams, PayOrderResult payOrderResult, IRequest iRequest, HiidoReport.CReportResponse cReportResponse, long j);
+    void dealOnOrderInter(IResponse iResponse, ChargeCurrencyReqParams chargeCurrencyReqParams, PayOrderResult payOrderResult, IRequest iRequest, HiidoReport.CReportResponse cReportResponse, long j2);
 
     void onAccountDelayMessage(AccountDelayMessage accountDelayMessage);
 

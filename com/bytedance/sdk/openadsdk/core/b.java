@@ -3,7 +3,6 @@ package com.bytedance.sdk.openadsdk.core;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.ar.gesture.GestureAR;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -26,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +90,7 @@ public class b {
             mVar.f(jSONObject.optInt("video_adaptation", 0));
             mVar.e(jSONObject.optInt("feed_video_opentype", 0));
             mVar.b(jSONObject.optJSONObject("session_params"));
-            mVar.c(jSONObject.optInt("render_control", nVar != null ? nVar.f30204e : 1));
+            mVar.c(jSONObject.optInt("render_control", nVar != null ? nVar.f66113e : 1));
             if (optJSONObject != null) {
                 com.bytedance.sdk.openadsdk.core.e.l lVar = new com.bytedance.sdk.openadsdk.core.e.l();
                 lVar.a(optJSONObject.optString("url"));
@@ -133,12 +132,12 @@ public class b {
             JSONObject optJSONObject4 = jSONObject.optJSONObject("click_area");
             if (optJSONObject4 != null) {
                 com.bytedance.sdk.openadsdk.core.e.e eVar = new com.bytedance.sdk.openadsdk.core.e.e();
-                eVar.f30120a = optJSONObject4.optBoolean("click_upper_content_area", true);
-                eVar.f30121b = optJSONObject4.optBoolean("click_upper_non_content_area", true);
-                eVar.f30122c = optJSONObject4.optBoolean("click_lower_content_area", true);
-                eVar.f30123d = optJSONObject4.optBoolean("click_lower_non_content_area", true);
-                eVar.f30124e = optJSONObject4.optBoolean("click_button_area", true);
-                eVar.f30125f = optJSONObject4.optBoolean("click_video_area", true);
+                eVar.f66023a = optJSONObject4.optBoolean("click_upper_content_area", true);
+                eVar.f66024b = optJSONObject4.optBoolean("click_upper_non_content_area", true);
+                eVar.f66025c = optJSONObject4.optBoolean("click_lower_content_area", true);
+                eVar.f66026d = optJSONObject4.optBoolean("click_lower_non_content_area", true);
+                eVar.f66027e = optJSONObject4.optBoolean("click_button_area", true);
+                eVar.f66028f = optJSONObject4.optBoolean("click_video_area", true);
                 mVar.a(eVar);
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("adslot");
@@ -266,7 +265,7 @@ public class b {
             bVar.c(jSONObject.optString("app_name"));
             bVar.d(jSONObject.optString("package_name"));
             bVar.b(jSONObject.optString("download_url"));
-            bVar.a(jSONObject.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE, 4));
+            bVar.a(jSONObject.optInt("score", 4));
             bVar.b(jSONObject.optInt("comment_num", 6870));
             bVar.c(jSONObject.optInt("app_size", 0));
             bVar.a(jSONObject.optString("quick_app_url", ""));

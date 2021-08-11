@@ -8,8 +8,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams;
 import java.util.Map;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class CurrencyChargeMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +47,7 @@ public class CurrencyChargeMessage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "CurrencyChargeMessage{appid=" + this.appid + ", uid=" + this.uid + ", usedChannel=" + this.usedChannel + ", currencyType=" + this.currencyType + ", amount=" + this.amount + ", currencyAmount=" + this.currencyAmount + ", orderId=" + this.orderId + ", expand='" + this.expand + "', status='" + this.status + "', timeout='" + this.timeout + "', appClientExpand='" + this.appClientExpand + "', payMethod='" + this.payMethod + "'}";
+            return "CurrencyChargeMessage{appid=" + this.appid + ", uid=" + this.uid + ", usedChannel=" + this.usedChannel + ", currencyType=" + this.currencyType + ", amount=" + this.amount + ", currencyAmount=" + this.currencyAmount + ", orderId=" + this.orderId + ", expand='" + this.expand + ExtendedMessageFormat.QUOTE + ", status='" + this.status + ExtendedMessageFormat.QUOTE + ", timeout='" + this.timeout + ExtendedMessageFormat.QUOTE + ", appClientExpand='" + this.appClientExpand + ExtendedMessageFormat.QUOTE + ", payMethod='" + this.payMethod + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

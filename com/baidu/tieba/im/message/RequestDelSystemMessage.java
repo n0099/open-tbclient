@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.DelGroupMsgs.DataReq;
 import protobuf.DelGroupMsgs.DelGroupMsgsReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RequestDelSystemMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,10 +61,10 @@ public class RequestDelSystemMessage extends TbSocketMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.msgIds : (String) invokeV.objValue;
     }
 
-    public void setGroupId(long j) {
+    public void setGroupId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.groupId = j;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.groupId = j2;
         }
     }
 

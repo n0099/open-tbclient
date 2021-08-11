@@ -24,7 +24,7 @@ import io.reactivex.internal.util.ErrorMode;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.ArrayDeque;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ObservableConcatMapEager<T, R> extends AbstractObservableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
     public final int maxConcurrency;
     public final int prefetch;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class ConcatMapEagerMainObserver<T, R> extends AtomicInteger implements Observer<T>, Disposable, InnerQueuedObserverSupport<R> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8080567949447303262L;
@@ -44,7 +44,7 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
         public InnerQueuedObserver<R> current;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f73490d;
+        public Disposable f78549d;
         public volatile boolean done;
         public final AtomicThrowable error;
         public final ErrorMode errorMode;
@@ -147,7 +147,7 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
                             i3++;
                         } catch (Throwable th) {
                             Exceptions.throwIfFatal(th);
-                            this.f73490d.dispose();
+                            this.f78549d.dispose();
                             simpleQueue.clear();
                             disposeAll();
                             this.error.addThrowable(th);
@@ -246,7 +246,7 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
             if (interceptable == null || interceptable.invokeLL(1048580, this, innerQueuedObserver, th) == null) {
                 if (this.error.addThrowable(th)) {
                     if (this.errorMode == ErrorMode.IMMEDIATE) {
-                        this.f73490d.dispose();
+                        this.f78549d.dispose();
                     }
                     innerQueuedObserver.setDone();
                     drain();
@@ -308,8 +308,8 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048586, this, disposable) == null) && DisposableHelper.validate(this.f73490d, disposable)) {
-                this.f73490d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048586, this, disposable) == null) && DisposableHelper.validate(this.f78549d, disposable)) {
+                this.f78549d = disposable;
                 if (disposable instanceof QueueDisposable) {
                     QueueDisposable queueDisposable = (QueueDisposable) disposable;
                     int requestFusion = queueDisposable.requestFusion(3);

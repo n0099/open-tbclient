@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ItemizedOverlay extends Overlay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MapView f6996a;
+    public MapView f41242a;
 
     public ItemizedOverlay(Drawable drawable, MapView mapView) {
         Interceptable interceptable = $ic;
@@ -29,8 +29,8 @@ public class ItemizedOverlay extends Overlay {
                 return;
             }
         }
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.f7749c;
-        this.f6996a = mapView;
+        this.type = com.baidu.mapsdkplatform.comapi.map.h.f42021c;
+        this.f41242a = mapView;
     }
 
     public void addItem(OverlayOptions overlayOptions) {
@@ -38,7 +38,7 @@ public class ItemizedOverlay extends Overlay {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, overlayOptions) == null) || overlayOptions == null || overlayOptions == null) {
             return;
         }
-        this.f6996a.getMap().addOverlay(overlayOptions);
+        this.f41242a.getMap().addOverlay(overlayOptions);
     }
 
     public void reAddAll() {
@@ -50,7 +50,7 @@ public class ItemizedOverlay extends Overlay {
     public void removeAll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f6996a.getMap().clear();
+            this.f41242a.getMap().clear();
         }
     }
 }

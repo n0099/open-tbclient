@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class ARConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AR_SDK_SALT_FIGURE = "777078ec21930de508131ba36035de6b";

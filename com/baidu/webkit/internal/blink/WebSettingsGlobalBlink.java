@@ -17,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.Domains;
 import com.baidu.webkit.internal.ABTestConstants;
 import com.baidu.webkit.internal.CfgFileUtils;
 import com.baidu.webkit.internal.ETAG;
@@ -35,6 +34,7 @@ import com.baidu.webkit.sdk.VideoCloudSetting;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactory;
+import com.dxmpay.wallet.core.Domains;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -51,7 +51,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class WebSettingsGlobalBlink implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLOUD_SETTING_URL = "https://browserkernel.baidu.com/config/t5config?cmd=1&";
@@ -304,11 +304,11 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void chromiumNetInit(long j) {
+    public static void chromiumNetInit(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65551, null, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65551, null, j2) == null) {
             initCronet(getKernelContext());
-            mSoHandler = j;
+            mSoHandler = j2;
             synchronized (BdNetEngine.mSelfLock) {
                 Log.w(LOGTAG, "chromiunNetInit notifyAll");
                 BdNetEngine.mSelfLock.notifyAll();
@@ -2482,28 +2482,22 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65673, null)) == null) {
-            android.util.Log.d(LOGTAG, "manufacturer: " + Build.MANUFACTURER);
-            android.util.Log.d(LOGTAG, "build host: " + Build.HOST);
-            android.util.Log.d(LOGTAG, "version: " + Build.VERSION.INCREMENTAL);
+            String str = "manufacturer: " + Build.MANUFACTURER;
+            String str2 = "build host: " + Build.HOST;
+            String str3 = "version: " + Build.VERSION.INCREMENTAL;
             try {
                 String GetCloudSettingsValue = GetCloudSettingsValue("multiple_process_blacklist");
-                if (GetCloudSettingsValue == null) {
-                    android.util.Log.d(LOGTAG, "blacklist not configured");
-                }
                 if (GetCloudSettingsValue != null) {
-                    android.util.Log.d(LOGTAG, "blackList=".concat(String.valueOf(GetCloudSettingsValue)));
+                    "blackList=".concat(String.valueOf(GetCloudSettingsValue));
                     JSONArray jSONArray = new JSONArray(GetCloudSettingsValue);
                     if (jSONArray.length() == 0) {
-                        android.util.Log.d(LOGTAG, "empty blacklist");
                         return false;
                     }
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         if (isMatchedDevice((JSONObject) jSONArray.get(i2))) {
-                            android.util.Log.d(LOGTAG, "in blacklist");
                             return true;
                         }
                     }
-                    android.util.Log.d(LOGTAG, "not in blackList");
                     return false;
                 }
             } catch (Throwable th) {
@@ -2591,7 +2585,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65678, null, jSONObject)) == null) {
-            android.util.Log.d(LOGTAG, "isMatchedDevice, rule=".concat(String.valueOf(jSONObject)));
+            "isMatchedDevice, rule=".concat(String.valueOf(jSONObject));
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
@@ -2648,12 +2642,10 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                         ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
                         try {
                             activityManager.getMemoryInfo(memoryInfo);
-                            android.util.Log.d(LOGTAG, "MemoryInfo.totalMem: " + (memoryInfo.totalMem >> 20) + " MB");
-                            android.util.Log.d(LOGTAG, "MemoryInfo.threshold: " + (memoryInfo.threshold >> 20) + " MB");
-                            android.util.Log.d(LOGTAG, "MemoryInfo.availMem: " + (memoryInfo.availMem >> 20) + " MB");
-                            StringBuilder sb = new StringBuilder("MemoryInfo.lowMemory: ");
-                            sb.append(memoryInfo.lowMemory);
-                            android.util.Log.d(LOGTAG, sb.toString());
+                            String str3 = "MemoryInfo.totalMem: " + (memoryInfo.totalMem >> 20) + " MB";
+                            String str4 = "MemoryInfo.threshold: " + (memoryInfo.threshold >> 20) + " MB";
+                            String str5 = "MemoryInfo.availMem: " + (memoryInfo.availMem >> 20) + " MB";
+                            String str6 = "MemoryInfo.lowMemory: " + memoryInfo.lowMemory;
                         } catch (RuntimeException e2) {
                             Log.w(LOGTAG, "Failed to get memory info due to a runtime exception: %s", e2);
                         }
@@ -2903,14 +2895,14 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void notifyAllOnCronetThreadInitializedListener(long j) {
+    public static void notifyAllOnCronetThreadInitializedListener(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65691, null, j) == null) {
-            Log.i(LOGTAG, "NotifyAllOnCronetThreadInitializedListener. nativeTablePointer=%d, list size=%d", Long.valueOf(j), Integer.valueOf(sOnCronetThreadInitializedListenerList.size()));
+        if (interceptable == null || interceptable.invokeJ(65691, null, j2) == null) {
+            Log.i(LOGTAG, "NotifyAllOnCronetThreadInitializedListener. nativeTablePointer=%d, list size=%d", Long.valueOf(j2), Integer.valueOf(sOnCronetThreadInitializedListenerList.size()));
             synchronized (sOnCronetThreadInitializedListenerList) {
-                sNativeV8FunctionTablePointer = j;
+                sNativeV8FunctionTablePointer = j2;
                 for (ValueCallback<Long> valueCallback : sOnCronetThreadInitializedListenerList) {
-                    valueCallback.onReceiveValue(Long.valueOf(j));
+                    valueCallback.onReceiveValue(Long.valueOf(j2));
                 }
                 sOnCronetThreadInitializedListenerList.clear();
             }
@@ -3665,12 +3657,12 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void setMagicFilterModelSize(long j) {
+    public static void setMagicFilterModelSize(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65745, null, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65745, null, j2) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("mf_size", j);
+                jSONObject.put("mf_size", j2);
                 jSONObject.put("type", ZeusMonitorType.MONITOR_TYPE_MAGICFILTER_MODEL_SIZE);
                 SessionMonitorEngine.getInstance().recordImmediately("sailor_monitor", jSONObject.toString());
             } catch (Throwable th) {
@@ -4489,15 +4481,15 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void uploadMF30InitInfo(long j, long j2, long j3, long j4, boolean z) {
+    public static void uploadMF30InitInfo(long j2, long j3, long j4, long j5, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65795, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65795, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Boolean.valueOf(z)}) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("vm_size_in_smaps", j);
-                jSONObject.put("vm_max_slice", j2);
-                jSONObject.put("vm_size_available", j3);
-                jSONObject.put("pm_size_available", j4);
+                jSONObject.put("vm_size_in_smaps", j2);
+                jSONObject.put("vm_max_slice", j3);
+                jSONObject.put("vm_size_available", j4);
+                jSONObject.put("pm_size_available", j5);
                 jSONObject.put("in_good_state", z ? 1 : 0);
                 jSONObject.put("type", 12303);
                 sMf30InitInfo = jSONObject;

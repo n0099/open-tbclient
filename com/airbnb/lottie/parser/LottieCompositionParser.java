@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class LottieCompositionParser {
     public static /* synthetic */ Interceptable $ic;
     public static JsonReader.Options NAMES;

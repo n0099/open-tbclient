@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,8 +39,9 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ActLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LENGTH_APPKEY = 8;
@@ -68,17 +68,17 @@ public class ActLog {
     public static volatile String mUploadUrl;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface ActLogListener {
         void sendFail(String str, String str2, String str3, String str4, Integer num, String str5, String str6, String str7);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface ILogConfigListener {
         JSONObject getLogConfig();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class LogWriter {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BUFFER_MAX_LEN = 50;
@@ -146,7 +146,7 @@ public class ActLog {
                     this.bufferCount.decrementAndGet();
                     try {
                         fileWriter.write(poll);
-                        fileWriter.write("\n");
+                        fileWriter.write(StringUtils.LF);
                         fileWriter.flush();
                         poll = this.logBuffer.poll();
                     } catch (IOException e2) {
@@ -233,20 +233,20 @@ public class ActLog {
         }
     }
 
-    public static void addLogLength(long j) {
+    public static void addLogLength(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65550, null, j) == null) {
-            long addAndGet = countLength.addAndGet(j);
+        if (interceptable == null || interceptable.invokeJ(65550, null, j2) == null) {
+            long addAndGet = countLength.addAndGet(j2);
             if (addAndGet > 52428800) {
-                countLength.getAndAdd(delLog(addAndGet - Config.FULL_TRACE_LOG_LIMIT) * (-1));
+                countLength.getAndAdd(delLog(addAndGet - 10485760) * (-1));
             }
         }
     }
 
-    public static long delLog(long j, String str) {
+    public static long delLog(long j2, String str) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65552, null, j, str)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65552, null, j2, str)) == null) {
             File[] listFiles = new File(str).listFiles();
             ArrayList arrayList = new ArrayList(listFiles.length);
             for (File file : listFiles) {
@@ -279,18 +279,18 @@ public class ActLog {
                 }
             });
             Iterator it = arrayList.iterator();
-            long j2 = 0;
+            long j3 = 0;
             while (it.hasNext()) {
                 File file2 = (File) it.next();
                 long length = file2.length();
                 if (file2.delete()) {
-                    j2 += length;
+                    j3 += length;
                 }
-                if (j2 >= j) {
+                if (j3 >= j2) {
                     break;
                 }
             }
-            return j2;
+            return j3;
         }
         return invokeJL.longValue;
     }
@@ -555,15 +555,15 @@ public class ActLog {
                 }
                 mContext = (Application) (context instanceof Application ? context : context.getApplicationContext());
                 innerPath = String.format("%s/%s", context.getCacheDir().getAbsolutePath(), mLogNamePre);
-                long j = 0;
+                long j2 = 0;
                 File file = new File(innerPath);
                 if (file.exists()) {
                     innerPathValid = true;
                     for (File file2 : file.listFiles()) {
-                        j += file2.length();
+                        j2 += file2.length();
                     }
                 }
-                countLength.set(j);
+                countLength.set(j2);
                 initActLog = true;
                 return initActLog;
             }
@@ -838,7 +838,7 @@ public class ActLog {
                             try {
                                 String str6 = this.val$host;
                                 if (str6 != null) {
-                                    str6 = (str6 + "\n" + InetAddress.getByName(this.val$host).getHostAddress()) + "\n" + TextUtils.join(" ", InetAddress.getAllByName(this.val$host));
+                                    str6 = (str6 + StringUtils.LF + InetAddress.getByName(this.val$host).getHostAddress()) + StringUtils.LF + TextUtils.join(" ", InetAddress.getAllByName(this.val$host));
                                 }
                                 String formatDate = Util.formatDate("yyyyMMddHHmmss", System.currentTimeMillis());
                                 Map<String, String> parseParams = Util.parseParams(this.val$content);
@@ -1043,13 +1043,13 @@ public class ActLog {
         }
     }
 
-    public static long delLog(long j) {
+    public static long delLog(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, null, j2)) == null) {
             try {
                 if (innerPathValid) {
-                    return delLog(j, innerPath);
+                    return delLog(j2, innerPath);
                 }
                 return 0L;
             } catch (Throwable th) {

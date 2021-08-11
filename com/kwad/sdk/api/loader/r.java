@@ -1,14 +1,13 @@
 package com.kwad.sdk.api.loader;
 
 import android.content.Context;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.loader.k;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +41,7 @@ public class r {
                 public void a(Boolean bool) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
-                        Log.d("Updater", "checkAndUpdate result: " + bool);
+                        String str = "checkAndUpdate result: " + bool;
                     }
                 }
 

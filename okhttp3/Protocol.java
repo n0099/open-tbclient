@@ -1,7 +1,6 @@
 package okhttp3;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class Protocol {
     public static final /* synthetic */ Protocol[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -40,7 +39,7 @@ public final class Protocol {
         HTTP_1_0 = new Protocol("HTTP_1_0", 0, "http/1.0");
         HTTP_1_1 = new Protocol("HTTP_1_1", 1, "http/1.1");
         SPDY_3 = new Protocol("SPDY_3", 2, "spdy/3.1");
-        HTTP_2 = new Protocol("HTTP_2", 3, Config.EVENT_NATIVE_VIEW_HIERARCHY);
+        HTTP_2 = new Protocol("HTTP_2", 3, "h2");
         H2_PRIOR_KNOWLEDGE = new Protocol("H2_PRIOR_KNOWLEDGE", 4, "h2_prior_knowledge");
         Protocol protocol = new Protocol("QUIC", 5, "quic");
         QUIC = protocol;

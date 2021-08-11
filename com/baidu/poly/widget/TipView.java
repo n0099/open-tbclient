@@ -9,28 +9,28 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import c.a.d0.b;
+import c.a.d0.d;
+import c.a.d0.f;
+import c.a.d0.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.e0.b;
-import d.a.e0.d;
-import d.a.e0.f;
-import d.a.e0.g;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class TipView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f9491e;
+    public ImageView f44142e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f9492f;
+    public TextView f44143f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f9493g;
+    public Animation f44144g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TipView(Context context) {
@@ -57,17 +57,17 @@ public class TipView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             setVisibility(0);
-            if (this.f9493g == null) {
-                this.f9493g = AnimationUtils.loadAnimation(getContext(), b.loading_rotate);
+            if (this.f44144g == null) {
+                this.f44144g = AnimationUtils.loadAnimation(getContext(), b.loading_rotate);
             }
-            this.f9492f.setText(str);
-            ViewGroup.LayoutParams layoutParams = this.f9491e.getLayoutParams();
+            this.f44143f.setText(str);
+            ViewGroup.LayoutParams layoutParams = this.f44142e.getLayoutParams();
             if (layoutParams != null) {
                 int dimensionPixelOffset = getResources().getDimensionPixelOffset(d.channel_loading_icon_size);
                 layoutParams.width = dimensionPixelOffset;
                 layoutParams.height = dimensionPixelOffset;
             }
-            this.f9491e.startAnimation(this.f9493g);
+            this.f44142e.startAnimation(this.f44144g);
         }
     }
 
@@ -75,15 +75,15 @@ public class TipView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
             setVisibility(0);
-            this.f9491e.clearAnimation();
-            ViewGroup.LayoutParams layoutParams = this.f9491e.getLayoutParams();
+            this.f44142e.clearAnimation();
+            ViewGroup.LayoutParams layoutParams = this.f44142e.getLayoutParams();
             if (layoutParams != null) {
                 int dimensionPixelOffset = getResources().getDimensionPixelOffset(d.pay_loading_icon_size);
                 layoutParams.width = dimensionPixelOffset;
                 layoutParams.height = dimensionPixelOffset;
             }
-            d.a.e0.k.d.b.c().b(this.f9491e, str);
-            this.f9492f.setText(str2);
+            c.a.d0.k.d.b.c().b(this.f44142e, str);
+            this.f44143f.setText(str2);
         }
     }
 
@@ -93,16 +93,16 @@ public class TipView extends LinearLayout {
             setOrientation(1);
             setGravity(17);
             LayoutInflater.from(context).inflate(g.view_tip, (ViewGroup) this, true);
-            this.f9491e = (ImageView) findViewById(f.tip_loading_view);
-            this.f9492f = (TextView) findViewById(f.tip_text_view);
+            this.f44142e = (ImageView) findViewById(f.tip_loading_view);
+            this.f44143f = (TextView) findViewById(f.tip_text_view);
         }
     }
 
-    public void d() {
+    public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setVisibility(8);
-            this.f9491e.clearAnimation();
+            this.f44142e.clearAnimation();
         }
     }
 

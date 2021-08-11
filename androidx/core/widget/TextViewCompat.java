@@ -17,7 +17,6 @@ import android.text.TextDirectionHeuristic;
 import android.text.TextDirectionHeuristics;
 import android.text.TextPaint;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -548,7 +547,7 @@ public final class TextViewCompat {
                 field.setAccessible(true);
                 return field;
             } catch (NoSuchFieldException unused) {
-                Log.e(LOG_TAG, "Could not retrieve " + str + " field.");
+                String str2 = "Could not retrieve " + str + " field.";
                 return field;
             }
         }
@@ -562,7 +561,7 @@ public final class TextViewCompat {
             try {
                 return field.getInt(textView);
             } catch (IllegalAccessException unused) {
-                Log.d(LOG_TAG, "Could not retrieve value of " + field.getName() + " field.");
+                String str = "Could not retrieve value of " + field.getName() + " field.";
                 return -1;
             }
         }

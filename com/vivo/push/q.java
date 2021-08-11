@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.p;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class q implements IPushActionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ p.a f39428a;
+    public final /* synthetic */ p.a f76261a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ p f39429b;
+    public final /* synthetic */ p f76262b;
 
     public q(p pVar, p.a aVar) {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public final class q implements IPushActionListener {
                 return;
             }
         }
-        this.f39429b = pVar;
-        this.f39428a = aVar;
+        this.f76262b = pVar;
+        this.f76261a = aVar;
     }
 
     @Override // com.vivo.push.IPushActionListener
@@ -41,17 +41,17 @@ public final class q implements IPushActionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             if (i2 == 0) {
-                Object[] b2 = this.f39428a.b();
+                Object[] b2 = this.f76261a.b();
                 if (b2 != null && b2.length != 0) {
-                    this.f39429b.a((String) this.f39428a.b()[0]);
+                    this.f76262b.a((String) this.f76261a.b()[0]);
                     return;
                 } else {
                     com.vivo.push.util.p.a("PushClientManager", "bind app result is null");
                     return;
                 }
             }
-            this.f39429b.l = null;
-            aVar = this.f39429b.k;
+            this.f76262b.l = null;
+            aVar = this.f76262b.k;
             aVar.c("APP_TOKEN");
         }
     }

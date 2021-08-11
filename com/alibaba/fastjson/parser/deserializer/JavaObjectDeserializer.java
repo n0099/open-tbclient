@@ -17,7 +17,7 @@ import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class JavaObjectDeserializer implements ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public static final JavaObjectDeserializer instance;

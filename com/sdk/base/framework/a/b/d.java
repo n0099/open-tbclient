@@ -11,12 +11,12 @@ import com.sdk.base.framework.c.f;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Boolean f38275a;
+    public static final Boolean f75058a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public final class d {
                 return;
             }
         }
-        f38275a = Boolean.valueOf(f.f38384b);
+        f75058a = Boolean.valueOf(f.f75169b);
     }
 
     public d() {
@@ -60,7 +60,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, httpURLConnection, cVar, str)) == null) {
             if (httpURLConnection != null) {
-                long j = 0;
+                long j2 = 0;
                 try {
                     long contentLength = httpURLConnection.getContentLength();
                     if (cVar != null && !cVar.a(contentLength, 0L, true)) {
@@ -76,18 +76,18 @@ public final class d {
                             }
                             sb.append(readLine);
                             sb.append('\n');
-                            j += com.sdk.base.framework.a.a.c.a(readLine, str);
-                            if (cVar != null && !cVar.a(contentLength, j, false)) {
+                            j2 += com.sdk.base.framework.a.a.c.a(readLine, str);
+                            if (cVar != null && !cVar.a(contentLength, j2, false)) {
                                 break;
                             }
                         }
-                        long j2 = j;
+                        long j3 = j2;
                         if (cVar != null) {
-                            cVar.a(contentLength, j2, true);
+                            cVar.a(contentLength, j3, true);
                         }
                     } catch (Exception e2) {
                         e = e2;
-                        com.sdk.base.framework.a.a.c.b("StringDownloadHandler", e.getMessage(), f38275a);
+                        com.sdk.base.framework.a.a.c.b("StringDownloadHandler", e.getMessage(), f75058a);
                         if (sb != null) {
                         }
                     }

@@ -31,7 +31,7 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import okhttp3.CertificatePinner;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class SSLSocketClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALT_DNS_NAME = 2;
@@ -244,10 +244,10 @@ public class SSLSocketClient {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
             if (str != null && str.length() != 0 && !str.startsWith(".") && !str.endsWith(IStringUtil.TOP_PATH) && str2 != null && str2.length() != 0 && !str2.startsWith(".") && !str2.endsWith(IStringUtil.TOP_PATH)) {
                 if (!str.endsWith(".")) {
-                    str = str + IStringUtil.EXTENSION_SEPARATOR;
+                    str = str + '.';
                 }
                 if (!str2.endsWith(".")) {
-                    str2 = str2 + IStringUtil.EXTENSION_SEPARATOR;
+                    str2 = str2 + '.';
                 }
                 String lowerCase = str2.toLowerCase(Locale.US);
                 if (!lowerCase.contains("*")) {

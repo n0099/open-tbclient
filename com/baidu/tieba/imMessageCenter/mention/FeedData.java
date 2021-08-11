@@ -1,6 +1,8 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.k;
+import c.a.o0.i0.b.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
@@ -12,8 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
-import d.a.p0.i0.b.a;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ import org.json.JSONObject;
 import tbclient.ReplyMe.ReplyList;
 import tbclient.User;
 import tbclient.Zan;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FeedData implements Serializable, a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_DECLARE = "declare";
@@ -276,7 +276,7 @@ public class FeedData implements Serializable, a {
             if (z) {
                 OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
                 this.mOriginalThreadInfo = originalThreadInfo;
-                originalThreadInfo.l(jSONObject.optJSONObject("origin_thread_info"));
+                originalThreadInfo.o(jSONObject.optJSONObject("origin_thread_info"));
             }
             if (((!k.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
                 this.mPraiseNum = optJSONObject.optInt("num");
@@ -350,7 +350,7 @@ public class FeedData implements Serializable, a {
         if (z) {
             OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
             this.mOriginalThreadInfo = originalThreadInfo;
-            originalThreadInfo.j(replyList.origin_thread_info);
+            originalThreadInfo.l(replyList.origin_thread_info);
         }
         this.postFrom = replyList.post_from;
         this.threadImgUrl = replyList.thread_img_url;
@@ -410,7 +410,7 @@ public class FeedData implements Serializable, a {
                 jSONObject.put("is_share_thread", i2);
                 if (this.mOriginalThreadInfo != null) {
                     JSONObject jSONObject5 = new JSONObject();
-                    jSONObject5.put("title", this.mOriginalThreadInfo.f12283g);
+                    jSONObject5.put("title", this.mOriginalThreadInfo.f47201g);
                     jSONObject.put("origin_thread_info", jSONObject5);
                 }
                 jSONArray.put(jSONObject);

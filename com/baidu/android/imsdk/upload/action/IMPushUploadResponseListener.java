@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.upload.action;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public interface IMPushUploadResponseListener {
     void uploadResponse(int i2, String str);
 }

@@ -15,7 +15,8 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Date;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes9.dex */
 public abstract class DateFormatTextWatcher implements TextWatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +93,7 @@ public abstract class DateFormatTextWatcher implements TextWatcher {
                 String format = String.format(this.textInputLayout.getContext().getString(R.string.mtrl_picker_invalid_format_use), this.formatHint);
                 String format2 = String.format(this.textInputLayout.getContext().getString(R.string.mtrl_picker_invalid_format_example), this.dateFormat.format(new Date(UtcDates.getTodayCalendar().getTimeInMillis())));
                 TextInputLayout textInputLayout = this.textInputLayout;
-                textInputLayout.setError(string + "\n" + format + "\n" + format2);
+                textInputLayout.setError(string + StringUtils.LF + format + StringUtils.LF + format2);
                 onInvalidDate();
             }
         }

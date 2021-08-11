@@ -1,6 +1,7 @@
 package com.baidu.tieba.play.cyberPlayer;
 
 import android.content.Intent;
+import c.a.p0.o2.p.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.remote.RemotePlayerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,8 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.n2.p.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CyberRemotePlayerService extends RemotePlayerService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

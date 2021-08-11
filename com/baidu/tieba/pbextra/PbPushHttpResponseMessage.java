@@ -11,7 +11,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.PushThread.DataRes;
 import tbclient.PushThread.PushThreadResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PbPushHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

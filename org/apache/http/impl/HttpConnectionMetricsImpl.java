@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.HttpConnectionMetrics;
 import org.apache.http.io.HttpTransportMetrics;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class HttpConnectionMetricsImpl implements HttpConnectionMetrics {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String RECEIVED_BYTES_COUNT = "http.received-bytes-count";

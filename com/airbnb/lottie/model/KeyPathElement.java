@@ -5,7 +5,7 @@ import androidx.annotation.RestrictTo;
 import com.airbnb.lottie.value.LottieValueCallback;
 import java.util.List;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public interface KeyPathElement {
     <T> void addValueCallback(T t, @Nullable LottieValueCallback<T> lottieValueCallback);
 

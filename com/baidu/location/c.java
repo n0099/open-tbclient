@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class c extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ LocationClient f6714a;
+    public final /* synthetic */ LocationClient f40946a;
 
     public c(LocationClient locationClient) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class c extends Thread {
                 return;
             }
         }
-        this.f6714a = locationClient;
+        this.f40946a = locationClient;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -40,16 +40,16 @@ public class c extends Thread {
         LocationClientOption locationClientOption;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            cVar = this.f6714a.C;
+            cVar = this.f40946a.C;
             if (cVar == null) {
-                LocationClient locationClient = this.f6714a;
-                context = this.f6714a.f6533f;
-                locationClientOption = this.f6714a.f6531d;
-                locationClient.C = new com.baidu.location.b.c(context, locationClientOption, this.f6714a);
+                LocationClient locationClient = this.f40946a;
+                context = this.f40946a.f40756f;
+                locationClientOption = this.f40946a.f40754d;
+                locationClient.C = new com.baidu.location.b.c(context, locationClientOption, this.f40946a);
             }
-            cVar2 = this.f6714a.C;
+            cVar2 = this.f40946a.C;
             if (cVar2 != null) {
-                cVar3 = this.f6714a.C;
+                cVar3 = this.f40946a.C;
                 cVar3.c();
             }
         }

@@ -1,5 +1,6 @@
 package com.baidu.tieba.enterForum.recommend.message;
 
+import c.a.o0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -8,17 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.b1.w;
 import tbclient.CommonReq;
 import tbclient.TestClose.DataReq;
 import tbclient.TestClose.TestCloseReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RequestTestCloseMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f14820common;
+    public CommonReq f50003common;
     public long fromPage;
     public long testId;
 
@@ -47,7 +47,7 @@ public class RequestTestCloseMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f74143common = this.f14820common;
+            builder.f79452common = this.f50003common;
             builder.test_id = Long.valueOf(this.testId);
             builder.from_page = Long.valueOf(this.fromPage);
             if (z) {
@@ -63,21 +63,21 @@ public class RequestTestCloseMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f14820common = commonReq;
+            this.f50003common = commonReq;
         }
     }
 
-    public void setFromPage(long j) {
+    public void setFromPage(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.fromPage = j;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+            this.fromPage = j2;
         }
     }
 
-    public void setTestId(long j) {
+    public void setTestId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.testId = j;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.testId = j2;
         }
     }
 }

@@ -15,7 +15,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class StringUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,6 +38,12 @@ public abstract class StringUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, collection)) == null) ? collectionToDelimitedString(collection, ",") : (String) invokeL.objValue;
+    }
+
+    public static String collectionToDelimitedString(Collection<?> collection, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, collection, str)) == null) ? collectionToDelimitedString(collection, str, "", "") : (String) invokeLL.objValue;
     }
 
     public static String collectionToDelimitedString(Collection<?> collection, String str, String str2, String str3) {
@@ -96,16 +102,16 @@ public abstract class StringUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (str.contains(".")) {
-                int indexOf = str.indexOf(".");
-                String substring = str.substring(indexOf + 1);
-                String substring2 = str.substring(0, indexOf);
-                if (substring.length() < 2) {
-                    substring = substring + "0";
-                }
-                return substring2 + "." + substring;
+            if (!str.contains(".")) {
+                return str + ".00";
             }
-            return str + ".00";
+            int indexOf = str.indexOf(".");
+            String substring = str.substring(indexOf + 1);
+            String substring2 = str.substring(0, indexOf);
+            if (substring.length() < 2) {
+                substring = substring + "0";
+            }
+            return substring2 + "." + substring;
         }
         return (String) invokeL.objValue;
     }
@@ -143,6 +149,12 @@ public abstract class StringUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, charSequence)) == null) ? charSequence != null && charSequence.length() > 0 : invokeL.booleanValue;
+    }
+
+    public static boolean hasLength(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? hasLength((CharSequence) str) : invokeL.booleanValue;
     }
 
     public static boolean isAmountMoreThanZero(String str) {
@@ -307,34 +319,6 @@ public abstract class StringUtils {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65559, null, str, str2)) == null) ? tokenizeToStringArray(str, str2, true, true) : (String[]) invokeLL.objValue;
     }
 
-    public static String trimAll(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) ? !TextUtils.isEmpty(str) ? str.replace(" ", "") : "" : (String) invokeL.objValue;
-    }
-
-    public static String yuan2Fen(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "0";
-            }
-            try {
-                return String.valueOf(new BigDecimal(str).multiply(new BigDecimal("100")).setScale(0));
-            } catch (Exception unused) {
-                return "0";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean hasLength(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? hasLength((CharSequence) str) : invokeL.booleanValue;
-    }
-
     public static String[] tokenizeToStringArray(String str, String str2, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -358,9 +342,25 @@ public abstract class StringUtils {
         return (String[]) invokeCommon.objValue;
     }
 
-    public static String collectionToDelimitedString(Collection<?> collection, String str) {
-        InterceptResult invokeLL;
+    public static String trimAll(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, collection, str)) == null) ? collectionToDelimitedString(collection, str, "", "") : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) ? !TextUtils.isEmpty(str) ? str.replace(" ", "") : "" : (String) invokeL.objValue;
+    }
+
+    public static String yuan2Fen(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "0";
+            }
+            try {
+                return String.valueOf(new BigDecimal(str).multiply(new BigDecimal("100")).setScale(0));
+            } catch (Exception unused) {
+                return "0";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

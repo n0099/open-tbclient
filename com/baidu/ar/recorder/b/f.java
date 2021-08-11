@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class f extends b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "f";
@@ -102,8 +102,8 @@ public class f extends b {
     }
 
     @Override // com.baidu.ar.recorder.b.b
-    public /* bridge */ /* synthetic */ void a(boolean z, ByteBuffer byteBuffer, int i2, long j) {
-        super.a(z, byteBuffer, i2, j);
+    public /* bridge */ /* synthetic */ void a(boolean z, ByteBuffer byteBuffer, int i2, long j2) {
+        super.a(z, byteBuffer, i2, j2);
     }
 
     @Override // com.baidu.ar.recorder.b.b

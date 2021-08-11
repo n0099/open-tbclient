@@ -19,24 +19,24 @@ import java.io.File;
 import java.io.FileWriter;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f38204a;
+    public JSONObject f74985a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f38205a;
+        public final String f74986a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f38206b;
+        public final T f74987b;
 
         public a(String str, T t) {
             Interceptable interceptable = $ic;
@@ -53,8 +53,8 @@ public class e {
                     return;
                 }
             }
-            this.f38205a = str;
-            this.f38206b = t;
+            this.f74986a = str;
+            this.f74987b = t;
         }
 
         public /* synthetic */ a(String str, Object obj, byte b2) {
@@ -64,13 +64,13 @@ public class e {
         public final String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38205a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f74986a : (String) invokeV.objValue;
         }
 
         public final T b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38206b : (T) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f74987b : (T) invokeV.objValue;
         }
     }
 
@@ -111,13 +111,13 @@ public class e {
         GDTLogger.d("Initialize " + simpleName + ",Json=" + str);
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.f38204a = new JSONObject(str);
-            } catch (JSONException e2) {
-                GDTLogger.e("JsonException While build" + simpleName + " Instance from JSON", e2);
+                this.f74985a = new JSONObject(str);
+            } catch (JSONException unused) {
+                GDTLogger.d("JsonException While build" + simpleName + " Instance from JSON");
             }
         }
-        if (this.f38204a == null) {
-            this.f38204a = new JSONObject();
+        if (this.f74985a == null) {
+            this.f74985a = new JSONObject();
         }
     }
 
@@ -136,9 +136,9 @@ public class e {
                         if (!TextUtils.isEmpty(readAll) && !TextUtils.isEmpty(readAll2) && com.qq.e.comm.util.a.a().a(readAll, readAll2)) {
                             return new Pair<>(readAll, new String(Base64.decode(readAll2, 0), "UTF-8"));
                         }
-                        GDTLogger.e("verify " + str + " setting fail");
-                    } catch (Exception e2) {
-                        GDTLogger.e("exception while loading local " + str, e2);
+                        GDTLogger.d("verify " + str + " setting fail");
+                    } catch (Exception unused) {
+                        GDTLogger.d("exception while loading local " + str);
                     }
                 }
                 return null;
@@ -179,7 +179,7 @@ public class e {
             } else {
                 format = String.format("Fail to update Cloud setting due to sig verify fail,name=%s\tsig=%s\tsetting=%s", str, str2, str3);
             }
-            GDTLogger.e(format);
+            GDTLogger.d(format);
             return false;
         }
         return invokeLLLL.booleanValue;

@@ -5,6 +5,8 @@ import android.text.TextUtils;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import c.a.e.e.p.l;
+import c.a.p0.a4.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -20,19 +22,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.q0.z3.c;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class FloorImageTextViewNew extends AbsFloorImageTextView {
     public static /* synthetic */ Interceptable $ic;
-    public static final int r;
-    public static final int s;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final int f47919j;
+    public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbRichTextView n;
-    public EditorScrollView o;
-    public int p;
-    public boolean q;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TbRichTextView f47920f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public EditorScrollView f47921g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f47922h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f47923i;
 
     static {
         InterceptResult invokeClinit;
@@ -47,8 +57,8 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
                 return;
             }
         }
-        r = l.g(TbadkApplication.getInst(), R.dimen.tbds348);
-        s = l.g(TbadkApplication.getInst(), R.dimen.tbds308);
+        f47919j = l.g(TbadkApplication.getInst(), R.dimen.tbds348);
+        k = l.g(TbadkApplication.getInst(), R.dimen.tbds308);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -69,8 +79,8 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
                 return;
             }
         }
-        this.q = false;
-        h(context);
+        this.f47923i = false;
+        b(context);
     }
 
     private void setExpandState(boolean z) {
@@ -79,9 +89,9 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         if (!(interceptable == null || interceptable.invokeZ(65538, this, z) == null) || (layoutParams = getLayoutParams()) == null) {
             return;
         }
-        setVisibility(this.q ? 0 : 8);
+        setVisibility(this.f47923i ? 0 : 8);
         if (z) {
-            layoutParams.height = this.p;
+            layoutParams.height = this.f47922h;
             setLayoutParams(layoutParams);
             return;
         }
@@ -89,19 +99,75 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         setLayoutParams(layoutParams);
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView
-    public void e(boolean z) {
+    public final void a(Pair<Integer, Integer> pair) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, pair) == null) || pair == null) {
+            return;
+        }
+        if (((Integer) pair.second).intValue() > 2) {
+            if (c()) {
+                this.f47922h = k + AbsFloorImageTextView.TOP + AbsFloorImageTextView.BOTTOM;
+            } else {
+                this.f47922h = f47919j + AbsFloorImageTextView.TOP + AbsFloorImageTextView.BOTTOM;
+            }
+        } else {
+            this.f47922h = -2;
+        }
+        checkAndSetViewHeight(this.f47922h);
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.floorimage_textview_layout_new, (ViewGroup) this, true);
+            TbRichTextView tbRichTextView = (TbRichTextView) findViewById(R.id.textview);
+            this.f47920f = tbRichTextView;
+            tbRichTextView.setVerticalScrollBarEnabled(true);
+            this.f47920f.setTextSize(AbsFloorImageTextView.TEXT_SIZE);
+            this.f47920f.setTextColor(SkinManager.getColor(R.color.white_alpha83));
+            this.f47920f.hasShadow = true;
+            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.scrollview);
+            this.f47921g = editorScrollView;
+            editorScrollView.setPadding(0, l.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.BOTTOM);
+            this.f47921g.setOnTouchListener(this.mTbGestureDetector);
+            ((ViewGroup.MarginLayoutParams) this.f47921g.getLayoutParams()).topMargin = l.g(TbadkApplication.getInst(), R.dimen.tbds174);
+            setVisibility(8);
+        }
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            float h2 = l.h(getContext());
+            int i2 = l.i(getContext());
+            int k2 = l.k(getContext());
+            double d2 = h2;
+            int i3 = (d2 > 3.0d ? 1 : (d2 == 3.0d ? 0 : -1));
+            if (i3 != 0 || k2 < 1920 || i2 < 2049) {
+                if (i3 != 0 || k2 < 1080 || i2 < 2280) {
+                    return d2 == 3.5d && i2 >= 2434;
+                }
+                return true;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView
+    public void updateExpandState(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             setExpandState(z);
         }
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView
-    public void f(ImageUrlData imageUrlData) {
+    public void updateTextView(ImageUrlData imageUrlData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageUrlData) == null) {
-            this.f12898e = imageUrlData;
+        if (interceptable == null || interceptable.invokeL(1048580, this, imageUrlData) == null) {
+            this.mAssistUrlData = imageUrlData;
             JSONArray jSONArray = null;
             if (imageUrlData != null) {
                 try {
@@ -113,71 +179,15 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
                 }
             }
             if (imageUrlData != null && jSONArray != null && jSONArray.length() > 0) {
-                this.q = true;
-                c.a().d(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                TbRichText T = TbRichTextView.T(getContext(), jSONArray, false);
-                g(d(T.toString()));
-                this.n.setText(T);
+                this.f47923i = true;
+                b.a().d(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                TbRichText parse = TbRichTextView.parse(getContext(), jSONArray, false);
+                a(measureTextViewHeightAndLine(parse.toString()));
+                this.f47920f.setText(parse);
             } else {
-                this.q = false;
+                this.f47923i = false;
             }
-            setVisibility(this.q ? 0 : 8);
+            setVisibility(this.f47923i ? 0 : 8);
         }
-    }
-
-    public final void g(Pair<Integer, Integer> pair) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pair) == null) || pair == null) {
-            return;
-        }
-        if (((Integer) pair.second).intValue() > 2) {
-            if (i()) {
-                this.p = s + AbsFloorImageTextView.f12896h + AbsFloorImageTextView.f12897i;
-            } else {
-                this.p = r + AbsFloorImageTextView.f12896h + AbsFloorImageTextView.f12897i;
-            }
-        } else {
-            this.p = -2;
-        }
-        a(this.p);
-    }
-
-    public final void h(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.floorimage_textview_layout_new, (ViewGroup) this, true);
-            TbRichTextView tbRichTextView = (TbRichTextView) findViewById(R.id.textview);
-            this.n = tbRichTextView;
-            tbRichTextView.setVerticalScrollBarEnabled(true);
-            this.n.setTextSize(AbsFloorImageTextView.m);
-            this.n.setTextColor(SkinManager.getColor(R.color.white_alpha83));
-            this.n.U = true;
-            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.scrollview);
-            this.o = editorScrollView;
-            editorScrollView.setPadding(0, l.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.f12897i);
-            this.o.setOnTouchListener(this.f12900g);
-            ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = l.g(TbadkApplication.getInst(), R.dimen.tbds174);
-            setVisibility(8);
-        }
-    }
-
-    public final boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            float h2 = l.h(getContext());
-            int i2 = l.i(getContext());
-            int k = l.k(getContext());
-            double d2 = h2;
-            int i3 = (d2 > 3.0d ? 1 : (d2 == 3.0d ? 0 : -1));
-            if (i3 != 0 || k < 1920 || i2 < 2049) {
-                if (i3 != 0 || k < 1080 || i2 < 2280) {
-                    return d2 == 3.5d && i2 >= 2434;
-                }
-                return true;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

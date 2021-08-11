@@ -2,7 +2,6 @@ package androidx.fragment.app;
 
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
@@ -163,7 +162,7 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
                     fragment.setMenuVisibility(false);
                     this.mFragments.set(parseInt, fragment);
                 } else {
-                    Log.w(TAG, "Bad fragment at key " + str);
+                    String str2 = "Bad fragment at key " + str;
                 }
             }
         }

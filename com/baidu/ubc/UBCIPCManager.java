@@ -2,8 +2,8 @@ package com.baidu.ubc;
 
 import android.os.RemoteException;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import c.a.g0.b.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
 import com.baidu.searchbox.config.AppConfig;
@@ -15,15 +15,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.IRemoteUBCService;
-import d.a.h0.b.a.a;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class UBCIPCManager {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23421a = "UBCIPCManager";
+    public static final String f59149a = "UBCIPCManager";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -70,18 +69,18 @@ public class UBCIPCManager {
                     }
                     flow.addEvent(str, str2);
                     if (AppConfig.isDebug()) {
-                        String str3 = UBCIPCManager.f23421a;
-                        Log.d(str3, " [add Event] flow id " + flow.getId() + " handler id " + flow.getHandle());
+                        String unused = UBCIPCManager.f59149a;
+                        String str3 = " [add Event] flow id " + flow.getId() + " handler id " + flow.getHandle();
                     }
                 }
 
                 @Override // com.baidu.ubc.IRemoteUBCService
-                public void flowAddEventWithTime(Flow flow, String str, String str2, long j) {
+                public void flowAddEventWithTime(Flow flow, String str, String str2, long j2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{flow, str, str2, Long.valueOf(j)}) == null) || flow == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{flow, str, str2, Long.valueOf(j2)}) == null) || flow == null) {
                         return;
                     }
-                    flow.addEvent(str, str2, j);
+                    flow.addEvent(str, str2, j2);
                 }
 
                 @Override // com.baidu.ubc.IRemoteUBCService
@@ -101,8 +100,8 @@ public class UBCIPCManager {
                     }
                     flow.end();
                     if (AppConfig.isDebug()) {
-                        String str = UBCIPCManager.f23421a;
-                        Log.d(str, " [end] flow id " + flow.getId() + " handler id " + flow.getHandle());
+                        String unused = UBCIPCManager.f59149a;
+                        String str = " [end] flow id " + flow.getId() + " handler id " + flow.getHandle();
                     }
                 }
 
@@ -164,8 +163,8 @@ public class UBCIPCManager {
                     if (interceptable2 == null || (invokeLLI = interceptable2.invokeLLI(1048585, this, str, str2, i2)) == null) {
                         Flow beginFlow = UBC.beginFlow(str, str2, i2);
                         if (AppConfig.isDebug() && beginFlow != null) {
-                            String str3 = UBCIPCManager.f23421a;
-                            Log.d(str3, " process name " + a.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle());
+                            String unused = UBCIPCManager.f59149a;
+                            String str3 = " process name " + a.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle();
                         }
                         return beginFlow;
                     }

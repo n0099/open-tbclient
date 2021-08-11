@@ -8,6 +8,8 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import c.a.e.e.p.l;
+import c.a.p0.d2.g.i;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -24,11 +26,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.q0.c2.g.i;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,13 +45,13 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
     public TextView mTitleView;
     public TextView mTransmitConfirmButton;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectSingleForumActivity f19004e;
+        public final /* synthetic */ SelectSingleForumActivity f54370e;
 
         public a(SelectSingleForumActivity selectSingleForumActivity) {
             Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
                     return;
                 }
             }
-            this.f19004e = selectSingleForumActivity;
+            this.f54370e = selectSingleForumActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -77,28 +77,28 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
                 return;
             }
-            if (view.getId() == this.f19004e.mTransmitConfirmButton.getId()) {
-                if (this.f19004e.getSelectedData() == null) {
+            if (view.getId() == this.f54370e.mTransmitConfirmButton.getId()) {
+                if (this.f54370e.getSelectedData() == null) {
                     return;
                 }
                 Intent intent = new Intent();
-                intent.putExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM, this.f19004e.getSelectedData());
-                this.f19004e.setResult(-1, intent);
-                this.f19004e.finish();
-            } else if (view.getId() == this.f19004e.mBackView.getId()) {
-                this.f19004e.setResult(0);
-                this.f19004e.finish();
+                intent.putExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM, this.f54370e.getSelectedData());
+                this.f54370e.setResult(-1, intent);
+                this.f54370e.finish();
+            } else if (view.getId() == this.f54370e.mBackView.getId()) {
+                this.f54370e.setResult(0);
+                this.f54370e.finish();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectSingleForumActivity f19005e;
+        public final /* synthetic */ SelectSingleForumActivity f54371e;
 
         public b(SelectSingleForumActivity selectSingleForumActivity) {
             Interceptable interceptable = $ic;
@@ -115,24 +115,24 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
                     return;
                 }
             }
-            this.f19005e = selectSingleForumActivity;
+            this.f54371e = selectSingleForumActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) this.f19005e.mDataList.get(i2);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+                BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) this.f54371e.mDataList.get(i2);
                 CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
                 if (checkBox.isChecked()) {
                     return;
                 }
-                if (this.f19005e.getSelectedData() != null && this.f19005e.getSelectedData().isChecked) {
-                    this.f19005e.getSelectedData().isChecked = false;
+                if (this.f54371e.getSelectedData() != null && this.f54371e.getSelectedData().isChecked) {
+                    this.f54371e.getSelectedData().isChecked = false;
                 }
                 baInfo.isChecked = true;
                 checkBox.setChecked(!checkBox.isChecked());
-                this.f19005e.mAdapter.notifyDataSetChanged();
+                this.f54371e.mAdapter.notifyDataSetChanged();
             }
         }
     }

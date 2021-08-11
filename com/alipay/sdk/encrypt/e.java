@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1926a = "DESede/CBC/PKCS5Padding";
+    public static String f35777a = "DESede/CBC/PKCS5Padding";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,63 +49,61 @@ public class e {
         }
     }
 
-    public static byte[] a(String str, byte[] bArr) {
-        InterceptResult invokeLL;
+    public static byte[] a(String str, byte[] bArr, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, bArr)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, bArr, str2)) == null) {
             try {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str.getBytes(), "DESede");
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(new byte[8]);
-                Cipher cipher = Cipher.getInstance(f1926a);
-                cipher.init(1, secretKeySpec, ivParameterSpec);
+                Cipher cipher = Cipher.getInstance(f35777a);
+                cipher.init(1, secretKeySpec, new IvParameterSpec(c.a(cipher, str2)));
                 return cipher.doFinal(bArr);
             } catch (Exception unused) {
                 return null;
             }
         }
-        return (byte[]) invokeLL.objValue;
+        return (byte[]) invokeLLL.objValue;
     }
 
-    public static byte[] b(String str, byte[] bArr) {
-        InterceptResult invokeLL;
+    public static byte[] b(String str, byte[] bArr, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, bArr)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, bArr, str2)) == null) {
             try {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str.getBytes(), "DESede");
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(new byte[8]);
-                Cipher cipher = Cipher.getInstance(f1926a);
-                cipher.init(2, secretKeySpec, ivParameterSpec);
+                Cipher cipher = Cipher.getInstance(f35777a);
+                cipher.init(2, secretKeySpec, new IvParameterSpec(c.a(cipher, str2)));
                 return cipher.doFinal(bArr);
             } catch (Exception unused) {
                 return null;
             }
         }
-        return (byte[]) invokeLL.objValue;
+        return (byte[]) invokeLLL.objValue;
     }
 
-    public static String a(String str, String str2) {
-        InterceptResult invokeLL;
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
             try {
-                return a.a(a(str, str2.getBytes()));
+                return a.a(a(str, str2.getBytes(), str3));
             } catch (Exception unused) {
                 return null;
             }
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeLLL.objValue;
     }
 
-    public static String b(String str, String str2) {
-        InterceptResult invokeLL;
+    public static String b(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
             try {
-                return new String(b(str, a.a(str2)));
+                return new String(b(str, a.a(str2), str3));
             } catch (Exception unused) {
                 return null;
             }
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeLLL.objValue;
     }
 }

@@ -4,22 +4,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.f;
-import h.j;
-import h.n.a;
+import i.f;
+import i.j;
+import i.n.a;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f73713e;
+    public final int f79018e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f73714f;
+    public final int f79019f;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public final class WindowSkipProducer extends AtomicBoolean implements f {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4625807964358024108L;
@@ -44,19 +44,19 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends j<T> implements 
             this.this$0 = operatorWindowWithSize$WindowSkip;
         }
 
-        @Override // h.f
-        public void request(long j) {
+        @Override // i.f
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+                int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
                 if (i2 < 0) {
-                    throw new IllegalArgumentException("n >= 0 required but it was " + j);
+                    throw new IllegalArgumentException("n >= 0 required but it was " + j2);
                 } else if (i2 != 0) {
                     OperatorWindowWithSize$WindowSkip operatorWindowWithSize$WindowSkip = this.this$0;
                     if (get() || !compareAndSet(false, true)) {
-                        operatorWindowWithSize$WindowSkip.request(h.o.a.a.c(j, operatorWindowWithSize$WindowSkip.f73714f));
+                        operatorWindowWithSize$WindowSkip.request(i.o.a.a.c(j2, operatorWindowWithSize$WindowSkip.f79019f));
                     } else {
-                        operatorWindowWithSize$WindowSkip.request(h.o.a.a.a(h.o.a.a.c(j, operatorWindowWithSize$WindowSkip.f73713e), h.o.a.a.c(operatorWindowWithSize$WindowSkip.f73714f - operatorWindowWithSize$WindowSkip.f73713e, j - 1)));
+                        operatorWindowWithSize$WindowSkip.request(i.o.a.a.a(i.o.a.a.c(j2, operatorWindowWithSize$WindowSkip.f79018e), i.o.a.a.c(operatorWindowWithSize$WindowSkip.f79019f - operatorWindowWithSize$WindowSkip.f79018e, j2 - 1)));
                     }
                 }
             }

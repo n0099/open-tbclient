@@ -2,7 +2,7 @@ package com.baidu.wallet.api;
 
 import android.content.Context;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface IWalletLoginListener extends IWalletHostListener2 {
     public static final String KEY_LOGIN_TYPE = "loginType";
     public static final String KEY_PASS_BDUSS = "pass_bduss";
@@ -29,6 +29,8 @@ public interface IWalletLoginListener extends IWalletHostListener2 {
     int getLoginType();
 
     void getOpenBduss(boolean z, ILoginBackListener iLoginBackListener);
+
+    void getOpenBduss(boolean z, ILoginBackListener iLoginBackListener, int i2);
 
     String getOpenLoginToken();
 

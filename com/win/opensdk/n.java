@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class n implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PBDrawVideo f39884a;
+    public final /* synthetic */ PBDrawVideo f76729a;
 
     public n(PBDrawVideo pBDrawVideo) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class n implements Runnable {
                 return;
             }
         }
-        this.f39884a = pBDrawVideo;
+        this.f76729a = pBDrawVideo;
     }
 
     @Override // java.lang.Runnable
@@ -36,8 +36,8 @@ public class n implements Runnable {
         View view;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            PBDrawVideo pBDrawVideo = this.f39884a;
-            if (pBDrawVideo.f39625h == null || pBDrawVideo.f39626i == null || (view = pBDrawVideo.j) == null) {
+            PBDrawVideo pBDrawVideo = this.f76729a;
+            if (pBDrawVideo.f76461h == null || pBDrawVideo.f76462i == null || (view = pBDrawVideo.f76463j) == null) {
                 return;
             }
             view.setVisibility(0);

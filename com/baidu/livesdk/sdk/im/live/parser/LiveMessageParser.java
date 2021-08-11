@@ -28,7 +28,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class LiveMessageParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -140,7 +140,7 @@ public class LiveMessageParser {
         return (LiveMessageBean) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0039 A[Catch: Exception -> 0x0033, TryCatch #2 {Exception -> 0x0033, blocks: (B:6:0x001b, B:8:0x0028, B:16:0x0039, B:17:0x0058, B:26:0x007c, B:28:0x008c, B:29:0x0092, B:31:0x00a4, B:32:0x00aa, B:34:0x00b0, B:35:0x00b6, B:37:0x00de, B:38:0x00e4, B:40:0x00ee, B:41:0x00f4, B:43:0x00fe, B:44:0x0104, B:46:0x0134, B:47:0x013a, B:49:0x0142, B:19:0x005f, B:21:0x006b, B:24:0x0078, B:11:0x002f), top: B:61:0x001b, inners: #0, #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0038 A[Catch: Exception -> 0x0032, TryCatch #2 {Exception -> 0x0032, blocks: (B:6:0x001b, B:8:0x0027, B:16:0x0038, B:17:0x0054, B:26:0x0077, B:28:0x0087, B:29:0x008d, B:31:0x009f, B:32:0x00a5, B:34:0x00ab, B:35:0x00b1, B:37:0x00d9, B:38:0x00df, B:40:0x00e9, B:41:0x00ef, B:43:0x00f9, B:44:0x00ff, B:46:0x012f, B:47:0x0135, B:49:0x013d, B:19:0x005a, B:21:0x0066, B:24:0x0073, B:11:0x002e), top: B:61:0x001b, inners: #0, #1 }] */
     /* JADX WARN: Removed duplicated region for block: B:62:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

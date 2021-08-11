@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class x extends u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39324a;
+    public String f76156a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f39325b;
+    public long f76157b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(int i2) {
@@ -42,8 +42,8 @@ public abstract class x extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT", this.f39324a);
-            aVar.a("notify_id", this.f39325b);
+            aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT", this.f76156a);
+            aVar.a("notify_id", this.f76157b);
         }
     }
 
@@ -52,20 +52,20 @@ public abstract class x extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             super.d(aVar);
-            this.f39324a = aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT");
-            this.f39325b = aVar.b("notify_id", -1L);
+            this.f76156a = aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT");
+            this.f76157b = aVar.b("notify_id", -1L);
         }
     }
 
     public final long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39325b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f76157b : invokeV.longValue;
     }
 
     public final String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39324a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f76156a : (String) invokeV.objValue;
     }
 }

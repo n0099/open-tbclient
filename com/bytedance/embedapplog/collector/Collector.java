@@ -3,13 +3,13 @@ package com.bytedance.embedapplog.collector;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import c.b.a.h0;
+import c.b.a.j1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.b.a.h0;
-import d.b.a.j1;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class Collector extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

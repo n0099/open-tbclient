@@ -11,34 +11,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SoftKeyBoardListener implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f10027a;
+    public View f44690a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f10028b;
+    public int f44691b;
 
     /* renamed from: c  reason: collision with root package name */
-    public OnSoftKeyBoardChangeListener f10029c;
+    public OnSoftKeyBoardChangeListener f44692c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnSoftKeyBoardChangeListener extends NoProguard {
         void keyBoardHide(int i2);
 
         void keyBoardShow(int i2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SoftKeyBoardListener f10030a;
+        public final /* synthetic */ SoftKeyBoardListener f44693a;
 
         public a(SoftKeyBoardListener softKeyBoardListener) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class SoftKeyBoardListener implements NoProguard {
                     return;
                 }
             }
-            this.f10030a = softKeyBoardListener;
+            this.f44693a = softKeyBoardListener;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -63,26 +63,26 @@ public class SoftKeyBoardListener implements NoProguard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Rect rect = new Rect();
-                this.f10030a.f10027a.getWindowVisibleDisplayFrame(rect);
+                this.f44693a.f44690a.getWindowVisibleDisplayFrame(rect);
                 int height = rect.height();
                 PrintStream printStream = System.out;
                 printStream.println("" + height);
-                SoftKeyBoardListener softKeyBoardListener = this.f10030a;
-                int i2 = softKeyBoardListener.f10028b;
+                SoftKeyBoardListener softKeyBoardListener = this.f44693a;
+                int i2 = softKeyBoardListener.f44691b;
                 if (i2 == 0) {
-                    softKeyBoardListener.f10028b = height;
+                    softKeyBoardListener.f44691b = height;
                 } else if (i2 == height) {
                 } else {
                     if (i2 - height > 200) {
-                        if (softKeyBoardListener.f10029c != null) {
-                            this.f10030a.f10029c.keyBoardShow(this.f10030a.f10028b - height);
+                        if (softKeyBoardListener.f44692c != null) {
+                            this.f44693a.f44692c.keyBoardShow(this.f44693a.f44691b - height);
                         }
-                        this.f10030a.f10028b = height;
+                        this.f44693a.f44691b = height;
                     } else if (height - i2 > 200) {
-                        if (softKeyBoardListener.f10029c != null) {
-                            this.f10030a.f10029c.keyBoardHide(height - this.f10030a.f10028b);
+                        if (softKeyBoardListener.f44692c != null) {
+                            this.f44693a.f44692c.keyBoardHide(height - this.f44693a.f44691b);
                         }
-                        this.f10030a.f10028b = height;
+                        this.f44693a.f44691b = height;
                     }
                 }
             }
@@ -105,7 +105,7 @@ public class SoftKeyBoardListener implements NoProguard {
             }
         }
         View decorView = activity.getWindow().getDecorView();
-        this.f10027a = decorView;
+        this.f44690a = decorView;
         decorView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
     }
 
@@ -119,7 +119,7 @@ public class SoftKeyBoardListener implements NoProguard {
     private void a(OnSoftKeyBoardChangeListener onSoftKeyBoardChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, onSoftKeyBoardChangeListener) == null) {
-            this.f10029c = onSoftKeyBoardChangeListener;
+            this.f44692c = onSoftKeyBoardChangeListener;
         }
     }
 }

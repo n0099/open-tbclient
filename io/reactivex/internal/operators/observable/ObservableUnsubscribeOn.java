@@ -13,13 +13,13 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ObservableUnsubscribeOn<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler scheduler;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class UnsubscribeObserver<T> extends AtomicBoolean implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1015244841293359600L;
@@ -28,7 +28,7 @@ public final class ObservableUnsubscribeOn<T> extends AbstractObservableWithUpst
         public Disposable s;
         public final Scheduler scheduler;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes2.dex */
         public final class DisposeTask implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

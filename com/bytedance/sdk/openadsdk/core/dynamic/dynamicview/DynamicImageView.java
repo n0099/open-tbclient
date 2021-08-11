@@ -23,7 +23,7 @@ import com.bytedance.sdk.openadsdk.core.widget.TTRoundRectImageView;
 import com.bytedance.sdk.openadsdk.img.ImageLoaderWrapper;
 import com.bytedance.sdk.openadsdk.q.b;
 import com.bytedance.sdk.openadsdk.q.s;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class DynamicImageView extends DynamicBaseWidgetImp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,22 +47,22 @@ public class DynamicImageView extends DynamicBaseWidgetImp {
                 return;
             }
         }
-        if (this.j.m() > 0.0f) {
+        if (this.f65991j.m() > 0.0f) {
             TTRoundRectImageView tTRoundRectImageView = new TTRoundRectImageView(context);
             this.n = tTRoundRectImageView;
-            tTRoundRectImageView.setXRound(s.d(context, this.j.m()));
-            ((TTRoundRectImageView) this.n).setYRound(s.d(context, this.j.m()));
+            tTRoundRectImageView.setXRound(s.d(context, this.f65991j.m()));
+            ((TTRoundRectImageView) this.n).setYRound(s.d(context, this.f65991j.m()));
         } else {
             this.n = new ImageView(context);
         }
         this.n.setTag(Integer.valueOf(getClickArea()));
-        addView(this.n, new FrameLayout.LayoutParams(this.f30084e, this.f30085f));
+        addView(this.n, new FrameLayout.LayoutParams(this.f65986e, this.f65987f));
     }
 
     private boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? !TextUtils.isEmpty(this.j.k()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? !TextUtils.isEmpty(this.f65991j.k()) : invokeV.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicBaseWidgetImp, com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicBaseWidget
@@ -71,16 +71,16 @@ public class DynamicImageView extends DynamicBaseWidgetImp {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             super.b();
-            ((ImageView) this.n).setBackgroundColor(this.j.r());
-            ImageLoaderWrapper.from(this.j.j()).to((ImageView) this.n);
+            ((ImageView) this.n).setBackgroundColor(this.f65991j.r());
+            ImageLoaderWrapper.from(this.f65991j.j()).to((ImageView) this.n);
             if (f() && Build.VERSION.SDK_INT >= 17) {
                 ((ImageView) this.n).setScaleType(ImageView.ScaleType.FIT_CENTER);
-                ImageLoaderWrapper.from(this.j.j()).type(ResultType.BITMAP).to(new ILoaderListener<Bitmap>(this) { // from class: com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicImageView.1
+                ImageLoaderWrapper.from(this.f65991j.j()).type(ResultType.BITMAP).to(new ILoaderListener<Bitmap>(this) { // from class: com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicImageView.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ DynamicImageView f30089a;
+                    public final /* synthetic */ DynamicImageView f65992a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -97,7 +97,7 @@ public class DynamicImageView extends DynamicBaseWidgetImp {
                                 return;
                             }
                         }
-                        this.f30089a = this;
+                        this.f65992a = this;
                     }
 
                     @Override // com.bytedance.sdk.component.image.ILoaderListener
@@ -111,11 +111,11 @@ public class DynamicImageView extends DynamicBaseWidgetImp {
                     public void onSuccess(ImageResponse<Bitmap> imageResponse) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageResponse) == null) {
-                            Bitmap a2 = b.a(this.f30089a.f30088i, imageResponse.getResult(), 25);
+                            Bitmap a2 = b.a(this.f65992a.f65990i, imageResponse.getResult(), 25);
                             if (a2 == null) {
                                 return;
                             }
-                            this.f30089a.n.setBackground(new BitmapDrawable(this.f30089a.getResources(), a2));
+                            this.f65992a.n.setBackground(new BitmapDrawable(this.f65992a.getResources(), a2));
                         }
                     }
                 });

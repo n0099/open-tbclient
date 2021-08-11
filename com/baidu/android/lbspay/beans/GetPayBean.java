@@ -7,29 +7,29 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.CashierDataNew;
 import com.baidu.android.lbspay.network.GetPayContent;
 import com.baidu.android.lbspay.network.NewCashierContent;
-import com.baidu.apollon.armor.SafePay;
-import com.baidu.apollon.restnet.RestNameValuePair;
-import com.baidu.apollon.utils.BussinessUtils;
-import com.baidu.apollon.utils.EncodeUtils;
-import com.baidu.apollon.utils.PhoneUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.core.beans.NetworkBean;
-import com.baidu.wallet.core.domain.DomainConfig;
-import com.baidu.wallet.paysdk.PayUtils;
-import com.baidu.wallet.paysdk.beans.PayBaseBean;
 import com.baidu.wallet.paysdk.fingerprint.WalletFingerprint;
+import com.dxmpay.apollon.armor.SecurePay;
+import com.dxmpay.apollon.restnet.RestNameValuePair;
+import com.dxmpay.apollon.utils.BussinessUtils;
+import com.dxmpay.apollon.utils.EncodeUtils;
+import com.dxmpay.apollon.utils.PhoneUtils;
+import com.dxmpay.wallet.api.WalletLoginHelper;
+import com.dxmpay.wallet.core.beans.BaseBean;
+import com.dxmpay.wallet.core.domain.DomainConfig;
+import com.dxmpay.wallet.paysdk.PayUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
-public class GetPayBean extends PayBaseBean<GetPayContent> {
+/* loaded from: classes4.dex */
+public class GetPayBean extends BaseBean<GetPayContent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NewCashierContent mCashierContent;
@@ -58,7 +58,7 @@ public class GetPayBean extends PayBaseBean<GetPayContent> {
         }
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -66,7 +66,7 @@ public class GetPayBean extends PayBaseBean<GetPayContent> {
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.NetworkBean
+    @Override // com.dxmpay.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -120,16 +120,16 @@ public class GetPayBean extends PayBaseBean<GetPayContent> {
                 jSONObject.put("ua", BussinessUtils.getUA(this.mContext));
                 jSONObject.put("cuid_1", EncodeUtils.encodeCommParms(PhoneUtils.getCUID(this.mContext)));
                 jSONObject.put("wcp", PhoneUtils.getWCPParams(this.mContext));
-                jSONObject.put("key", SafePay.getInstance().getpwProxy());
+                jSONObject.put("key", SecurePay.getInstance().getpwProxy());
                 String cookie = PayUtils.getCookie(this.mContext);
                 if (!TextUtils.isEmpty(cookie)) {
-                    jSONObject.put(NetworkBean.PARAM_COOKIE, SafePay.getInstance().encryptProxy(cookie));
+                    jSONObject.put(NetworkBean.PARAM_COOKIE, SecurePay.getInstance().encryptProxy(cookie));
                 } else {
                     jSONObject.put(NetworkBean.PARAM_COOKIE, "");
                 }
                 String newCookie = PayUtils.getNewCookie(this.mContext);
                 if (!TextUtils.isEmpty(newCookie)) {
-                    jSONObject.put(NetworkBean.PARAM_NEW_COOKIE, SafePay.getInstance().encryptProxy(newCookie));
+                    jSONObject.put(NetworkBean.PARAM_NEW_COOKIE, SecurePay.getInstance().encryptProxy(newCookie));
                 } else {
                     jSONObject.put(NetworkBean.PARAM_NEW_COOKIE, "");
                 }
@@ -150,7 +150,7 @@ public class GetPayBean extends PayBaseBean<GetPayContent> {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -160,14 +160,14 @@ public class GetPayBean extends PayBaseBean<GetPayContent> {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.wallet.core.beans.NetworkBean, com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.wallet.core.beans.NetworkBean, com.dxmpay.apollon.beans.ApollonBean
     public List<RestNameValuePair> getRequestParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? super.getRequestParams() : (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -177,7 +177,7 @@ public class GetPayBean extends PayBaseBean<GetPayContent> {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.wallet.core.beans.NetworkBean
+    @Override // com.dxmpay.wallet.core.beans.NetworkBean
     public boolean isLbsPayBean() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -9,7 +9,6 @@ import android.os.Parcelable;
 import android.support.v4.media.MediaDescriptionCompat;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.RestrictTo;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
@@ -244,8 +243,7 @@ public final class MediaMetadataCompat implements Parcelable {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             try {
                 return (Bitmap) this.mBundle.getParcelable(str);
-            } catch (Exception e2) {
-                Log.w(TAG, "Failed to retrieve a key as Bitmap.", e2);
+            } catch (Exception unused) {
                 return null;
             }
         }
@@ -377,8 +375,7 @@ public final class MediaMetadataCompat implements Parcelable {
                     return RatingCompat.fromRating(this.mBundle.getParcelable(str));
                 }
                 return (RatingCompat) this.mBundle.getParcelable(str);
-            } catch (Exception e2) {
-                Log.w(TAG, "Failed to retrieve a key as Rating.", e2);
+            } catch (Exception unused) {
                 return null;
             }
         }
@@ -476,14 +473,14 @@ public final class MediaMetadataCompat implements Parcelable {
             return (Builder) invokeLL.objValue;
         }
 
-        public Builder putLong(String str, long j) {
+        public Builder putLong(String str, long j2) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j2)) == null) {
                 if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 0) {
                     throw new IllegalArgumentException("The " + str + " key cannot be used to put a long");
                 }
-                this.mBundle.putLong(str, j);
+                this.mBundle.putLong(str, j2);
                 return this;
             }
             return (Builder) invokeLJ.objValue;

@@ -2,21 +2,20 @@ package com.baidu.rtc;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import c.a.a.b.a;
+import c.a.a.b.b;
+import c.a.a.b.c;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cloudbase.plugin.DownSoHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.m.d.a;
-import d.a.m.d.b;
 import java.io.File;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class RTCLoadManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JINGLE_LIB_NAME = "jingle_peerconnection_so";
@@ -27,9 +26,9 @@ public class RTCLoadManager {
     public boolean mIsLoadCompleted;
     public LoadListener mLoadListener;
     public ExecutorService mLoadServer;
-    public b mSoCallback;
+    public c mSoCallback;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface LoadListener {
         void onLoadError(int i2, String str);
 
@@ -55,7 +54,7 @@ public class RTCLoadManager {
         }
         this.mLoadServer = Executors.newSingleThreadExecutor();
         this.mIsLoadCompleted = false;
-        this.mSoCallback = new b.a(this) { // from class: com.baidu.rtc.RTCLoadManager.2
+        this.mSoCallback = new c.a(this) { // from class: com.baidu.rtc.RTCLoadManager.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ RTCLoadManager this$0;
@@ -78,11 +77,10 @@ public class RTCLoadManager {
                 this.this$0 = this;
             }
 
-            @Override // d.a.m.d.b
+            @Override // c.a.a.b.c
             public void onDownloadFail(String str, int i4, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, str, i4, str2) == null) {
-                    Log.d(RTCLoadManager.TAG, "Failed to download so.");
                     this.this$0.mIsLoadCompleted = false;
                     if (this.this$0.mLoadListener != null) {
                         this.this$0.mLoadListener.onLoadError(i4, str2);
@@ -90,7 +88,7 @@ public class RTCLoadManager {
                 }
             }
 
-            @Override // d.a.m.d.b.a, d.a.m.d.b
+            @Override // c.a.a.b.c.a, c.a.a.b.c
             public void onDownloadProgress(float f2) {
                 Interceptable interceptable2 = $ic;
                 if (!(interceptable2 == null || interceptable2.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) || this.this$0.mLoadListener == null) {
@@ -99,28 +97,26 @@ public class RTCLoadManager {
                 this.this$0.mLoadListener.onLoadProgress(f2);
             }
 
-            @Override // d.a.m.d.b
+            @Override // c.a.a.b.c
             public void onDownloadSuccess(String str, String str2) {
                 LoadListener loadListener;
                 int i4;
                 String str3;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-                    Log.d(RTCLoadManager.TAG, "Be successful to download so!");
-                    String str4 = a.k(this.this$0.mContext) + File.separator + "libjingle_peerconnection_so.so";
-                    Log.d(RTCLoadManager.TAG, "RTC so path is: " + str4);
-                    if (DownSoHelper.k(this.this$0.mContext).n(a.k(this.this$0.mContext))) {
+                    String str4 = b.k(this.this$0.mContext) + File.separator + "libjingle_peerconnection_so.so";
+                    String str5 = "RTC so path is: " + str4;
+                    if (a.k(this.this$0.mContext).n(b.k(this.this$0.mContext))) {
                         try {
                             System.load(str4);
                             this.this$0.mIsLoadCompleted = true;
-                            Log.d(RTCLoadManager.TAG, "loaded so, and start to login room.");
                             if (this.this$0.mLoadListener != null) {
                                 this.this$0.mLoadListener.onLoadSuccess();
                                 return;
                             }
                             return;
                         } catch (Throwable th) {
-                            Log.d(RTCLoadManager.TAG, "Failed call System.load to load so! Error: " + th);
+                            String str6 = "Failed call System.load to load so! Error: " + th;
                             this.this$0.mIsLoadCompleted = false;
                             if (this.this$0.mLoadListener == null) {
                                 return;
@@ -130,18 +126,16 @@ public class RTCLoadManager {
                             str3 = "Failed call System.load to load so";
                         }
                     } else {
-                        Log.d(RTCLoadManager.TAG, "call loadSo failed try call load Full Path.");
                         try {
                             System.load(str4);
                             this.this$0.mIsLoadCompleted = true;
-                            Log.d(RTCLoadManager.TAG, "loaded so with full path, and start to login room.");
                             if (this.this$0.mLoadListener != null) {
                                 this.this$0.mLoadListener.onLoadSuccess();
                                 return;
                             }
                             return;
                         } catch (Throwable th2) {
-                            Log.d(RTCLoadManager.TAG, "Failed to load so with full path! Error: " + th2);
+                            String str7 = "Failed to load so with full path! Error: " + th2;
                             this.this$0.mIsLoadCompleted = false;
                             if (this.this$0.mLoadListener == null) {
                                 return;
@@ -199,10 +193,9 @@ public class RTCLoadManager {
                         if (this.mLoadListener != null) {
                             this.mLoadListener.onLoadSuccess();
                         }
-                        Log.d(TAG, "Loaded default so in aar");
                     } catch (UnsatisfiedLinkError e2) {
                         this.mIsLoadCompleted = false;
-                        Log.d(TAG, "load default so fail " + e2.getMessage());
+                        String str3 = "load default so fail " + e2.getMessage();
                         this.mLoadServer.submit(new Runnable(this, str, str2) { // from class: com.baidu.rtc.RTCLoadManager.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -257,14 +250,14 @@ public class RTCLoadManager {
     public void setupSoLaterLoad(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            Log.d(TAG, "setup so later loading feature, and cpu type: " + str2);
-            DownSoHelper.k(this.mContext).o(str2);
+            String str3 = "setup so later loading feature, and cpu type: " + str2;
+            a.k(this.mContext).o(str2);
             if (TextUtils.isEmpty(str)) {
-                DownSoHelper.k(this.mContext).j(a.j(), true, this.mSoCallback);
+                a.k(this.mContext).j(b.j(), true, this.mSoCallback);
                 return;
             }
-            Log.d(TAG, "setup so later load url: " + str);
-            DownSoHelper.k(this.mContext).j(str, true, this.mSoCallback);
+            String str4 = "setup so later load url: " + str;
+            a.k(this.mContext).j(str, true, this.mSoCallback);
         }
     }
 }

@@ -20,25 +20,25 @@ import com.kwad.sdk.core.page.widget.TextProgressBar;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.av;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class DownloadProgressView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextProgressBar f36807a;
+    public TextProgressBar f73631a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f36808b;
+    public TextView f73632b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f36809c;
+    public AdTemplate f73633c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdInfo f36810d;
+    public AdInfo f73634d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final KsAppDownloadListener f36811e;
+    public final KsAppDownloadListener f73635e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DownloadProgressView(@NonNull Context context) {
@@ -101,12 +101,12 @@ public class DownloadProgressView extends FrameLayout {
                 return;
             }
         }
-        this.f36811e = new com.kwad.sdk.core.download.b.c(this) { // from class: com.kwad.sdk.widget.DownloadProgressView.2
+        this.f73635e = new com.kwad.sdk.core.download.b.c(this) { // from class: com.kwad.sdk.widget.DownloadProgressView.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ DownloadProgressView f36813b;
+            public final /* synthetic */ DownloadProgressView f73637b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -123,16 +123,16 @@ public class DownloadProgressView extends FrameLayout {
                         return;
                     }
                 }
-                this.f36813b = this;
+                this.f73637b = this;
             }
 
             @Override // com.kwad.sdk.core.download.b.c
             public void a(int i5) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeI(1048576, this, i5) == null) {
-                    this.f36813b.f36808b.setVisibility(8);
-                    this.f36813b.f36807a.setVisibility(0);
-                    this.f36813b.f36807a.a(com.kwad.sdk.core.response.b.a.a(), i5);
+                    this.f73637b.f73632b.setVisibility(8);
+                    this.f73637b.f73631a.setVisibility(0);
+                    this.f73637b.f73631a.a(com.kwad.sdk.core.response.b.a.a(), i5);
                 }
             }
 
@@ -140,9 +140,9 @@ public class DownloadProgressView extends FrameLayout {
             public void onDownloadFailed() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.f36813b.f36808b.setText(com.kwad.sdk.core.response.b.a.u(this.f36813b.f36810d));
-                    this.f36813b.f36808b.setVisibility(0);
-                    this.f36813b.f36807a.setVisibility(8);
+                    this.f73637b.f73632b.setText(com.kwad.sdk.core.response.b.a.u(this.f73637b.f73634d));
+                    this.f73637b.f73632b.setVisibility(0);
+                    this.f73637b.f73631a.setVisibility(8);
                 }
             }
 
@@ -150,9 +150,9 @@ public class DownloadProgressView extends FrameLayout {
             public void onDownloadFinished() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.f36813b.f36808b.setVisibility(8);
-                    this.f36813b.f36807a.setVisibility(0);
-                    this.f36813b.f36807a.a(com.kwad.sdk.core.response.b.a.a(this.f36813b.f36809c), this.f36813b.f36807a.getMax());
+                    this.f73637b.f73632b.setVisibility(8);
+                    this.f73637b.f73631a.setVisibility(0);
+                    this.f73637b.f73631a.a(com.kwad.sdk.core.response.b.a.a(this.f73637b.f73633c), this.f73637b.f73631a.getMax());
                 }
             }
 
@@ -160,7 +160,7 @@ public class DownloadProgressView extends FrameLayout {
             public void onIdle() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                    this.f36813b.f36808b.setText(com.kwad.sdk.core.response.b.a.u(this.f36813b.f36810d));
+                    this.f73637b.f73632b.setText(com.kwad.sdk.core.response.b.a.u(this.f73637b.f73634d));
                 }
             }
 
@@ -168,9 +168,9 @@ public class DownloadProgressView extends FrameLayout {
             public void onInstalled() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                    this.f36813b.f36808b.setVisibility(8);
-                    this.f36813b.f36807a.setVisibility(0);
-                    this.f36813b.f36807a.a(com.kwad.sdk.core.response.b.a.j(this.f36813b.f36810d), this.f36813b.f36807a.getMax());
+                    this.f73637b.f73632b.setVisibility(8);
+                    this.f73637b.f73631a.setVisibility(0);
+                    this.f73637b.f73631a.a(com.kwad.sdk.core.response.b.a.j(this.f73637b.f73634d), this.f73637b.f73631a.getMax());
                 }
             }
 
@@ -178,9 +178,9 @@ public class DownloadProgressView extends FrameLayout {
             public void onProgressUpdate(int i5) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeI(1048581, this, i5) == null) {
-                    this.f36813b.f36808b.setVisibility(8);
-                    this.f36813b.f36807a.setVisibility(0);
-                    this.f36813b.f36807a.a(com.kwad.sdk.core.response.b.a.a(i5), i5);
+                    this.f73637b.f73632b.setVisibility(8);
+                    this.f73637b.f73631a.setVisibility(0);
+                    this.f73637b.f73631a.a(com.kwad.sdk.core.response.b.a.a(i5), i5);
                 }
             }
         };
@@ -192,18 +192,18 @@ public class DownloadProgressView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             FrameLayout.inflate(context, R.layout.ksad_download_progress_layout, this);
             TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.ksad_progress_bar);
-            this.f36807a = textProgressBar;
+            this.f73631a = textProgressBar;
             textProgressBar.setTextDimen(av.a(getContext(), 11.0f));
-            this.f36807a.a(-1, -45056);
+            this.f73631a.a(-1, -45056);
             TextView textView = (TextView) findViewById(R.id.ksad_normal_text);
-            this.f36808b = textView;
+            this.f73632b = textView;
             textView.setVisibility(0);
             findViewById(R.id.ksad_foreground_cover).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.widget.DownloadProgressView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ DownloadProgressView f36812a;
+                public final /* synthetic */ DownloadProgressView f73636a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -220,14 +220,14 @@ public class DownloadProgressView extends FrameLayout {
                             return;
                         }
                     }
-                    this.f36812a = this;
+                    this.f73636a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f36812a.performClick();
+                        this.f73636a.performClick();
                     }
                 }
             });
@@ -237,18 +237,18 @@ public class DownloadProgressView extends FrameLayout {
     public void a(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adTemplate) == null) {
-            this.f36809c = adTemplate;
+            this.f73633c = adTemplate;
             AdInfo i2 = com.kwad.sdk.core.response.b.c.i(adTemplate);
-            this.f36810d = i2;
-            this.f36808b.setText(com.kwad.sdk.core.response.b.a.u(i2));
-            this.f36807a.setVisibility(8);
-            this.f36808b.setVisibility(0);
+            this.f73634d = i2;
+            this.f73632b.setText(com.kwad.sdk.core.response.b.a.u(i2));
+            this.f73631a.setVisibility(8);
+            this.f73632b.setVisibility(0);
         }
     }
 
     public KsAppDownloadListener getAppDownloadListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36811e : (KsAppDownloadListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73635e : (KsAppDownloadListener) invokeV.objValue;
     }
 }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,12 +19,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7647a;
+    public static final boolean f41915a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +40,7 @@ public class a {
                 return;
             }
         }
-        f7647a = Build.VERSION.SDK_INT >= 8;
+        f41915a = Build.VERSION.SDK_INT >= 8;
     }
 
     public a() {
@@ -209,52 +208,47 @@ public class a {
             ZipFile zipFile2 = null;
             try {
                 try {
-                    try {
-                        zipFile = new ZipFile(f7647a ? context.getPackageCodePath() : "");
-                    } catch (IOException unused) {
+                    zipFile = new ZipFile(f41915a ? context.getPackageCodePath() : "");
+                } catch (IOException unused) {
+                }
+                try {
+                    int lastIndexOf = str2.lastIndexOf("/");
+                    if (lastIndexOf > 0) {
+                        file = new File(context.getFilesDir().getAbsolutePath());
+                        String substring = str2.substring(0, lastIndexOf);
+                        String substring2 = str2.substring(lastIndexOf + 1, str2.length());
+                        file2 = new File(file.getAbsolutePath() + "/" + substring, substring2);
+                    } else {
+                        file = new File(context.getFilesDir(), "assets");
+                        file2 = new File(file.getAbsolutePath(), str2);
                     }
-                } catch (Exception e2) {
-                    e = e2;
+                    file.mkdirs();
+                    entry = zipFile.getEntry(str);
+                } catch (Exception unused2) {
+                    zipFile2 = zipFile;
+                    if (zipFile2 != null) {
+                        zipFile2.close();
+                    }
+                    return sb.toString();
+                } catch (Throwable th) {
+                    th = th;
+                    zipFile2 = zipFile;
+                    if (zipFile2 != null) {
+                        try {
+                            zipFile2.close();
+                        } catch (IOException unused3) {
+                        }
+                    }
+                    throw th;
                 }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                int lastIndexOf = str2.lastIndexOf("/");
-                if (lastIndexOf > 0) {
-                    file = new File(context.getFilesDir().getAbsolutePath());
-                    String substring = str2.substring(0, lastIndexOf);
-                    String substring2 = str2.substring(lastIndexOf + 1, str2.length());
-                    file2 = new File(file.getAbsolutePath() + "/" + substring, substring2);
-                } else {
-                    file = new File(context.getFilesDir(), "assets");
-                    file2 = new File(file.getAbsolutePath(), str2);
-                }
-                file.mkdirs();
-                entry = zipFile.getEntry(str);
-            } catch (Exception e3) {
-                e = e3;
-                zipFile2 = zipFile;
-                Log.e(a.class.getSimpleName(), "copyAssetsError", e);
-                if (zipFile2 != null) {
-                    zipFile2.close();
-                }
-                return sb.toString();
+            } catch (Exception unused4) {
             } catch (Throwable th2) {
                 th = th2;
-                zipFile2 = zipFile;
-                if (zipFile2 != null) {
-                    try {
-                        zipFile2.close();
-                    } catch (IOException unused2) {
-                    }
-                }
-                throw th;
             }
             if (entry == null) {
                 try {
                     zipFile.close();
-                } catch (IOException unused3) {
+                } catch (IOException unused5) {
                 }
                 return null;
             }

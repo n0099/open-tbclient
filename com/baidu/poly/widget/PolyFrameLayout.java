@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class PolyFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f9481e;
+    public boolean f44131e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PolyFrameLayout(Context context) {
@@ -42,7 +42,7 @@ public class PolyFrameLayout extends FrameLayout {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f9481e = z;
+            this.f44131e = z;
         }
     }
 
@@ -51,7 +51,7 @@ public class PolyFrameLayout extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (this.f9481e) {
+            if (this.f44131e) {
                 return true;
             }
             return super.onInterceptTouchEvent(motionEvent);
@@ -99,6 +99,6 @@ public class PolyFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f9481e = false;
+        this.f44131e = false;
     }
 }

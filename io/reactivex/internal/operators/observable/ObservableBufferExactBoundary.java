@@ -22,14 +22,14 @@ import io.reactivex.observers.DisposableObserver;
 import io.reactivex.observers.SerializedObserver;
 import java.util.Collection;
 import java.util.concurrent.Callable;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ObservableBufferExactBoundary<T, U extends Collection<? super T>, B> extends AbstractObservableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ObservableSource<B> boundary;
     public final Callable<U> bufferSupplier;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class BufferBoundaryObserver<T, U extends Collection<? super T>, B> extends DisposableObserver<B> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +78,7 @@ public final class ObservableBufferExactBoundary<T, U extends Collection<? super
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class BufferExactBoundaryObserver<T, U extends Collection<? super T>, B> extends QueueDrainObserver<T, U, U> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

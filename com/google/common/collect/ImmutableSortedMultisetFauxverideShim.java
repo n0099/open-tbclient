@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ImmutableSortedMultiset;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class ImmutableSortedMultisetFauxverideShim<E> extends ImmutableMultiset<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +57,7 @@ public abstract class ImmutableSortedMultisetFauxverideShim<E> extends Immutable
         return (ImmutableSortedMultiset) invokeL.objValue;
     }
 
-    @Override // com.google.common.collect.ImmutableMultiset, d.f.d.c.s0
+    @Override // com.google.common.collect.ImmutableMultiset, c.i.d.c.s0
     public abstract /* synthetic */ int count(Object obj);
 
     @Deprecated

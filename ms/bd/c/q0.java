@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.UtilsBlink;
 import ms.bd.c.b;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class q0 extends b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,10 +30,10 @@ public final class q0 extends b.a {
     }
 
     @Override // ms.bd.c.b.a
-    public Object b(int i2, long j, String str, Object obj) throws Throwable {
+    public Object b(int i2, long j2, String str, Object obj) throws Throwable {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), str, obj})) == null) {
             JSONArray jSONArray = new JSONArray();
             try {
                 DhcpInfo dhcpInfo = ((WifiManager) a.c().a().getApplicationContext().getSystemService((String) h.a(16777217, 0, 0L, "529c70", new byte[]{51, 57, 76, 30}))).getDhcpInfo();

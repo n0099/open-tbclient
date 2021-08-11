@@ -7,7 +7,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.model.AbstractBceResponse;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes9.dex */
 public class ProcessMediaResponse extends AbstractBceResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +45,7 @@ public class ProcessMediaResponse extends AbstractBceResponse {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "ProcessMediaResponse {mediaId='" + this.mediaId + "'}\n";
+            return "ProcessMediaResponse {mediaId='" + this.mediaId + ExtendedMessageFormat.QUOTE + "}\n";
         }
         return (String) invokeV.objValue;
     }

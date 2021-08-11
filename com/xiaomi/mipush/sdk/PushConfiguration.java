@@ -8,7 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.module.PushChannelRegion;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class PushConfiguration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,7 +20,7 @@ public class PushConfiguration {
     public boolean mOpenHmsPush;
     public PushChannelRegion mRegion;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class PushConfigurationBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -224,7 +225,7 @@ public class PushConfiguration {
             stringBuffer.append(",mOpenFCMPush:" + this.mOpenFCMPush);
             stringBuffer.append(",mOpenCOSPush:" + this.mOpenCOSPush);
             stringBuffer.append(",mOpenFTOSPush:" + this.mOpenFTOSPush);
-            stringBuffer.append('}');
+            stringBuffer.append(ExtendedMessageFormat.END_FE);
             return stringBuffer.toString();
         }
         return (String) invokeV.objValue;

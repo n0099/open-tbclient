@@ -11,40 +11,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FrsMemberHeaderViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public TextView f15287a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f15288b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ImageView f15289c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f15290d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public View f15291e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f15292f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f15293g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public NoPressedLinearLayout f15294h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public View f15295i;
-    public TextView j;
-    public ImageView k;
-    public ImageView l;
+    public View headerDividerLine3;
+    public View mDivider;
+    public LinearLayout mExperienceView;
+    public ImageView mLevelIcon;
+    public TextView mLevelNameView;
+    public TextView mLevelTipView;
+    public ImageView mLevelTopImage;
+    public ImageView mLevelTopImageBg;
+    public TextView mLikeButton;
+    public TextView mScoreView;
+    public NoPressedLinearLayout rootForumMemberHeader;
+    public TextView tipExperience;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsMemberHeaderViewHolder(View view, View.OnClickListener onClickListener) {
@@ -64,19 +46,19 @@ public class FrsMemberHeaderViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f15287a = (TextView) view.findViewById(R.id.like_btn);
-        this.f15288b = (TextView) view.findViewById(R.id.lever_tip_view);
-        this.f15289c = (ImageView) view.findViewById(R.id.header_level_img);
-        this.f15290d = (TextView) view.findViewById(R.id.user_level_name);
-        this.f15291e = view.findViewById(R.id.header_divider_line2);
-        this.f15292f = (LinearLayout) view.findViewById(R.id.view_experience_score);
-        this.f15293g = (TextView) view.findViewById(R.id.tip_experience_score);
-        this.f15294h = (NoPressedLinearLayout) view.findViewById(R.id.root_forum_member_header);
-        this.f15295i = view.findViewById(R.id.header_divider_line3);
-        this.j = (TextView) view.findViewById(R.id.tip_experience);
-        this.k = (ImageView) view.findViewById(R.id.love_level_top);
-        this.l = (ImageView) view.findViewById(R.id.love_level_bg);
-        this.f15287a.setOnClickListener(onClickListener);
-        this.f15290d.setOnClickListener(onClickListener);
+        this.mLikeButton = (TextView) view.findViewById(R.id.like_btn);
+        this.mLevelTipView = (TextView) view.findViewById(R.id.lever_tip_view);
+        this.mLevelIcon = (ImageView) view.findViewById(R.id.header_level_img);
+        this.mLevelNameView = (TextView) view.findViewById(R.id.user_level_name);
+        this.mDivider = view.findViewById(R.id.header_divider_line2);
+        this.mExperienceView = (LinearLayout) view.findViewById(R.id.view_experience_score);
+        this.mScoreView = (TextView) view.findViewById(R.id.tip_experience_score);
+        this.rootForumMemberHeader = (NoPressedLinearLayout) view.findViewById(R.id.root_forum_member_header);
+        this.headerDividerLine3 = view.findViewById(R.id.header_divider_line3);
+        this.tipExperience = (TextView) view.findViewById(R.id.tip_experience);
+        this.mLevelTopImage = (ImageView) view.findViewById(R.id.love_level_top);
+        this.mLevelTopImageBg = (ImageView) view.findViewById(R.id.love_level_bg);
+        this.mLikeButton.setOnClickListener(onClickListener);
+        this.mLevelNameView.setOnClickListener(onClickListener);
     }
 }

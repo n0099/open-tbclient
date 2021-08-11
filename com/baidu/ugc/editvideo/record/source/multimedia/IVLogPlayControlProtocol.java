@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface IVLogPlayControlProtocol {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface OnPlayStateListener {
         void onPause();
 
-        void onSeek(long j);
+        void onSeek(long j2);
 
         void onSetIsLoop(boolean z);
 
@@ -22,7 +22,7 @@ public interface IVLogPlayControlProtocol {
         void onStart();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static abstract class OnPlayStateListenerAdapter implements OnPlayStateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,9 +49,9 @@ public interface IVLogPlayControlProtocol {
         }
 
         @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol.OnPlayStateListener
-        public void onSeek(long j) {
+        public void onSeek(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
             }
         }
 
@@ -97,9 +97,9 @@ public interface IVLogPlayControlProtocol {
 
     void reset();
 
-    void seek(long j);
+    void seek(long j2);
 
-    void seek(long j, int i2);
+    void seek(long j2, int i2);
 
     void setLooping(boolean z);
 

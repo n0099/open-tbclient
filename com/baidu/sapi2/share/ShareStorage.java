@@ -33,7 +33,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,7 +42,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ShareStorage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_PORTRAIT;
@@ -65,12 +64,12 @@ public class ShareStorage {
     public String mAesKey;
     public boolean readSpFromChmodFile;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface CallBack {
         void call(StorageModel storageModel);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class StorageModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -518,7 +517,7 @@ public class ShareStorage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
             try {
-                if (SapiUtils.checkRequestPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION, this.context)) {
+                if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.context)) {
                     File externalStorageDirectory = Environment.getExternalStorageDirectory();
                     File file = new File(externalStorageDirectory, SD_FILE_NAME + str);
                     if (TextUtils.isEmpty(str2)) {
@@ -632,8 +631,8 @@ public class ShareStorage {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:15:0x003e  */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x004a  */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x003d  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0049  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

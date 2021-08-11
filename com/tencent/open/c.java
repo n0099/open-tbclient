@@ -39,48 +39,50 @@ import com.tencent.tauth.UiError;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class c extends com.tencent.open.b implements a.InterfaceC0528a {
+/* loaded from: classes10.dex */
+public class c extends com.tencent.open.b implements a.InterfaceC2088a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Toast f39143c;
+    public static Toast f75970c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39144d;
+    public String f75971d;
 
     /* renamed from: e  reason: collision with root package name */
-    public IUiListener f39145e;
+    public IUiListener f75972e;
 
     /* renamed from: f  reason: collision with root package name */
-    public C0529c f39146f;
+    public C2089c f75973f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f39147g;
+    public Handler f75974g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.tencent.open.b.a f39148h;
+    public com.tencent.open.b.a f75975h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.tencent.open.b.b f39149i;
-    public WeakReference<Context> j;
+    public com.tencent.open.b.b f75976i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public WeakReference<Context> f75977j;
     public int k;
 
     /* renamed from: com.tencent.open.c$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class a extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f39150a;
+        public final /* synthetic */ c f75978a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -97,7 +99,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0528a {
                     return;
                 }
             }
-            this.f39150a = cVar;
+            this.f75978a = cVar;
         }
 
         @Override // android.webkit.WebViewClient
@@ -105,7 +107,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0528a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                this.f39150a.f39149i.setVisibility(0);
+                this.f75978a.f75976i.setVisibility(0);
             }
         }
 
@@ -123,11 +125,11 @@ public class c extends com.tencent.open.b implements a.InterfaceC0528a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) {
                 super.onReceivedError(webView, i2, str, str2);
-                this.f39150a.f39146f.onError(new UiError(i2, str, str2));
-                if (this.f39150a.j != null && this.f39150a.j.get() != null) {
-                    Toast.makeText((Context) this.f39150a.j.get(), "网络连接异常或系统错误", 0).show();
+                this.f75978a.f75973f.onError(new UiError(i2, str, str2));
+                if (this.f75978a.f75977j != null && this.f75978a.f75977j.get() != null) {
+                    Toast.makeText((Context) this.f75978a.f75977j.get(), "网络连接异常或系统错误", 0).show();
                 }
-                this.f39150a.dismiss();
+                this.f75978a.dismiss();
             }
         }
 
@@ -137,16 +139,16 @@ public class c extends com.tencent.open.b implements a.InterfaceC0528a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
                 SLog.v("openSDK_LOG.PKDialog", "Redirect URL: " + str);
-                if (str.startsWith(h.a().a((Context) this.f39150a.j.get(), "auth://tauth.qq.com/"))) {
-                    this.f39150a.f39146f.onComplete(l.c(str));
-                    this.f39150a.dismiss();
+                if (str.startsWith(h.a().a((Context) this.f75978a.f75977j.get(), "auth://tauth.qq.com/"))) {
+                    this.f75978a.f75973f.onComplete(l.c(str));
+                    this.f75978a.dismiss();
                     return true;
                 } else if (str.startsWith(com.tencent.connect.common.Constants.CANCEL_URI)) {
-                    this.f39150a.f39146f.onCancel();
-                    this.f39150a.dismiss();
+                    this.f75978a.f75973f.onCancel();
+                    this.f75978a.dismiss();
                     return true;
                 } else if (str.startsWith(com.tencent.connect.common.Constants.CLOSE_URI)) {
-                    this.f39150a.dismiss();
+                    this.f75978a.dismiss();
                     return true;
                 } else {
                     return false;
@@ -160,13 +162,13 @@ public class c extends com.tencent.open.b implements a.InterfaceC0528a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class b extends a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f39151a;
+        public final /* synthetic */ c f75979a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -183,7 +185,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0528a {
                     return;
                 }
             }
-            this.f39151a = cVar;
+            this.f75979a = cVar;
         }
 
         public /* synthetic */ b(c cVar, AnonymousClass1 anonymousClass1) {
@@ -192,27 +194,27 @@ public class c extends com.tencent.open.b implements a.InterfaceC0528a {
     }
 
     /* renamed from: com.tencent.open.c$c  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0529c extends DefaultUiListener {
+    /* loaded from: classes10.dex */
+    public static class C2089c extends DefaultUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f39152a;
+        public String f75980a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f39153b;
+        public String f75981b;
 
         /* renamed from: c  reason: collision with root package name */
-        public WeakReference<Context> f39154c;
+        public WeakReference<Context> f75982c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f39155d;
+        public String f75983d;
 
         /* renamed from: e  reason: collision with root package name */
-        public IUiListener f39156e;
+        public IUiListener f75984e;
 
-        public C0529c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
+        public C2089c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -227,22 +229,22 @@ public class c extends com.tencent.open.b implements a.InterfaceC0528a {
                     return;
                 }
             }
-            this.f39154c = new WeakReference<>(context);
-            this.f39155d = str;
-            this.f39152a = str2;
-            this.f39153b = str3;
-            this.f39156e = iUiListener;
+            this.f75982c = new WeakReference<>(context);
+            this.f75983d = str;
+            this.f75980a = str2;
+            this.f75981b = str3;
+            this.f75984e = iUiListener;
         }
 
         @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
         public void onCancel() {
             IUiListener iUiListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iUiListener = this.f39156e) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iUiListener = this.f75984e) == null) {
                 return;
             }
             iUiListener.onCancel();
-            this.f39156e = null;
+            this.f75984e = null;
         }
 
         @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
@@ -251,11 +253,11 @@ public class c extends com.tencent.open.b implements a.InterfaceC0528a {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
                 JSONObject jSONObject = (JSONObject) obj;
                 g a2 = g.a();
-                a2.a(this.f39155d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(Constants.KEYS.RET, -6), this.f39152a, false);
-                IUiListener iUiListener = this.f39156e;
+                a2.a(this.f75983d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(Constants.KEYS.RET, -6), this.f75980a, false);
+                IUiListener iUiListener = this.f75984e;
                 if (iUiListener != null) {
                     iUiListener.onComplete(jSONObject);
-                    this.f39156e = null;
+                    this.f75984e = null;
                 }
             }
         }
@@ -266,16 +268,16 @@ public class c extends com.tencent.open.b implements a.InterfaceC0528a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, uiError) == null) {
                 if (uiError.errorMessage != null) {
-                    str = uiError.errorMessage + this.f39152a;
+                    str = uiError.errorMessage + this.f75980a;
                 } else {
-                    str = this.f39152a;
+                    str = this.f75980a;
                 }
                 g a2 = g.a();
-                a2.a(this.f39155d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, uiError.errorCode, str, false);
-                IUiListener iUiListener = this.f39156e;
+                a2.a(this.f75983d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, uiError.errorCode, str, false);
+                IUiListener iUiListener = this.f75984e;
                 if (iUiListener != null) {
                     iUiListener.onError(uiError);
-                    this.f39156e = null;
+                    this.f75984e = null;
                 }
             }
         }
@@ -294,25 +296,25 @@ public class c extends com.tencent.open.b implements a.InterfaceC0528a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class d extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f39157a;
+        public final /* synthetic */ c f75985a;
 
         /* renamed from: b  reason: collision with root package name */
-        public C0529c f39158b;
+        public C2089c f75986b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(c cVar, C0529c c0529c, Looper looper) {
+        public d(c cVar, C2089c c2089c, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cVar, c0529c, looper};
+                Object[] objArr = {cVar, c2089c, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -323,8 +325,8 @@ public class c extends com.tencent.open.b implements a.InterfaceC0528a {
                     return;
                 }
             }
-            this.f39157a = cVar;
-            this.f39158b = c0529c;
+            this.f75985a = cVar;
+            this.f75986b = c2089c;
         }
 
         @Override // android.os.Handler
@@ -334,17 +336,17 @@ public class c extends com.tencent.open.b implements a.InterfaceC0528a {
                 SLog.d("openSDK_LOG.PKDialog", "msg = " + message.what);
                 int i2 = message.what;
                 if (i2 == 1) {
-                    this.f39158b.a((String) message.obj);
+                    this.f75986b.a((String) message.obj);
                 } else if (i2 == 2) {
-                    this.f39158b.onCancel();
+                    this.f75986b.onCancel();
                 } else if (i2 != 3) {
-                    if (i2 != 5 || this.f39157a.j == null || this.f39157a.j.get() == null) {
+                    if (i2 != 5 || this.f75985a.f75977j == null || this.f75985a.f75977j.get() == null) {
                         return;
                     }
-                    c.d((Context) this.f39157a.j.get(), (String) message.obj);
-                } else if (this.f39157a.j == null || this.f39157a.j.get() == null) {
+                    c.d((Context) this.f75985a.f75977j.get(), (String) message.obj);
+                } else if (this.f75985a.f75977j == null || this.f75985a.f75977j.get() == null) {
                 } else {
-                    c.c((Context) this.f39157a.j.get(), (String) message.obj);
+                    c.c((Context) this.f75985a.f75977j.get(), (String) message.obj);
                 }
             }
         }
@@ -384,11 +386,11 @@ public class c extends com.tencent.open.b implements a.InterfaceC0528a {
                 return;
             }
         }
-        this.j = new WeakReference<>(context);
-        this.f39144d = str2;
-        this.f39146f = new C0529c(context, str, str2, qQToken.getAppId(), iUiListener);
-        this.f39147g = new d(this, this.f39146f, context.getMainLooper());
-        this.f39145e = iUiListener;
+        this.f75977j = new WeakReference<>(context);
+        this.f75971d = str2;
+        this.f75973f = new C2089c(context, str, str2, qQToken.getAppId(), iUiListener);
+        this.f75974g = new d(this, this.f75973f, context.getMainLooper());
+        this.f75972e = iUiListener;
         this.k = Math.round(context.getResources().getDisplayMetrics().density * 185.0f);
         SLog.e("openSDK_LOG.PKDialog", "density=" + context.getResources().getDisplayMetrics().density + "; webviewHeight=" + this.k);
     }
@@ -432,12 +434,12 @@ public class c extends com.tencent.open.b implements a.InterfaceC0528a {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            this.f39149i.setVerticalScrollBarEnabled(false);
-            this.f39149i.setHorizontalScrollBarEnabled(false);
-            this.f39149i.setWebViewClient(new a(this, null));
-            this.f39149i.setWebChromeClient(this.f39134b);
-            this.f39149i.clearFormData();
-            WebSettings settings = this.f39149i.getSettings();
+            this.f75976i.setVerticalScrollBarEnabled(false);
+            this.f75976i.setHorizontalScrollBarEnabled(false);
+            this.f75976i.setWebViewClient(new a(this, null));
+            this.f75976i.setWebChromeClient(this.f75961b);
+            this.f75976i.clearFormData();
+            WebSettings settings = this.f75976i.getSettings();
             if (settings == null) {
                 return;
             }
@@ -449,67 +451,67 @@ public class c extends com.tencent.open.b implements a.InterfaceC0528a {
             settings.setSupportZoom(true);
             settings.setRenderPriority(WebSettings.RenderPriority.HIGH);
             settings.setJavaScriptEnabled(true);
-            WeakReference<Context> weakReference = this.j;
+            WeakReference<Context> weakReference = this.f75977j;
             if (weakReference != null && weakReference.get() != null) {
                 settings.setDatabaseEnabled(true);
-                settings.setDatabasePath(this.j.get().getApplicationContext().getDir("databases", 0).getPath());
+                settings.setDatabasePath(this.f75977j.get().getApplicationContext().getDir("databases", 0).getPath());
             }
             settings.setDomStorageEnabled(true);
-            this.f39133a.a(new b(this, null), "sdk_js_if");
-            this.f39149i.clearView();
-            this.f39149i.loadUrl(this.f39144d);
-            this.f39149i.getSettings().setSavePassword(false);
+            this.f75960a.a(new b(this, null), "sdk_js_if");
+            this.f75976i.clearView();
+            this.f75976i.loadUrl(this.f75971d);
+            this.f75976i.getSettings().setSavePassword(false);
         }
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            com.tencent.open.b.a aVar = new com.tencent.open.b.a(this.j.get());
-            this.f39148h = aVar;
+            com.tencent.open.b.a aVar = new com.tencent.open.b.a(this.f75977j.get());
+            this.f75975h = aVar;
             aVar.setBackgroundColor(1711276032);
-            this.f39148h.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-            com.tencent.open.b.b bVar = new com.tencent.open.b.b(this.j.get());
-            this.f39149i = bVar;
+            this.f75975h.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+            com.tencent.open.b.b bVar = new com.tencent.open.b.b(this.f75977j.get());
+            this.f75976i = bVar;
             bVar.setBackgroundColor(0);
-            this.f39149i.setBackgroundDrawable(null);
+            this.f75976i.setBackgroundDrawable(null);
             if (Build.VERSION.SDK_INT >= 11) {
                 try {
-                    View.class.getMethod("setLayerType", Integer.TYPE, Paint.class).invoke(this.f39149i, 1, new Paint());
+                    View.class.getMethod("setLayerType", Integer.TYPE, Paint.class).invoke(this.f75976i, 1, new Paint());
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.k);
             layoutParams.addRule(13, -1);
-            this.f39149i.setLayoutParams(layoutParams);
-            this.f39148h.addView(this.f39149i);
-            this.f39148h.a(this);
-            setContentView(this.f39148h);
+            this.f75976i.setLayoutParams(layoutParams);
+            this.f75975h.addView(this.f75976i);
+            this.f75975h.a(this);
+            setContentView(this.f75975h);
         }
     }
 
-    @Override // com.tencent.open.b.a.InterfaceC0528a
+    @Override // com.tencent.open.b.a.InterfaceC2088a
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            WeakReference<Context> weakReference = this.j;
+            WeakReference<Context> weakReference = this.f75977j;
             if (weakReference != null && weakReference.get() != null) {
-                if (i2 < this.k && 2 == this.j.get().getResources().getConfiguration().orientation) {
-                    this.f39149i.getLayoutParams().height = i2;
+                if (i2 < this.k && 2 == this.f75977j.get().getResources().getConfiguration().orientation) {
+                    this.f75976i.getLayoutParams().height = i2;
                 } else {
-                    this.f39149i.getLayoutParams().height = this.k;
+                    this.f75976i.getLayoutParams().height = this.k;
                 }
             }
             SLog.e("openSDK_LOG.PKDialog", "onKeyboardShown keyboard show");
         }
     }
 
-    @Override // com.tencent.open.b.a.InterfaceC0528a
+    @Override // com.tencent.open.b.a.InterfaceC2088a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f39149i.getLayoutParams().height = this.k;
+            this.f75976i.getLayoutParams().height = this.k;
             SLog.e("openSDK_LOG.PKDialog", "onKeyboardHidden keyboard hide");
         }
     }
@@ -520,7 +522,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0528a {
         if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             SLog.d("openSDK_LOG.PKDialog", "--onConsoleMessage--");
             try {
-                this.f39133a.a(this.f39149i, str);
+                this.f75960a.a(this.f75976i, str);
             } catch (Exception unused) {
             }
         }
@@ -534,23 +536,23 @@ public class c extends com.tencent.open.b implements a.InterfaceC0528a {
                 int i2 = d2.getInt("type");
                 String string = d2.getString("msg");
                 if (i2 == 0) {
-                    if (f39143c == null) {
-                        f39143c = Toast.makeText(context, string, 0);
+                    if (f75970c == null) {
+                        f75970c = Toast.makeText(context, string, 0);
                     } else {
-                        f39143c.setView(f39143c.getView());
-                        f39143c.setText(string);
-                        f39143c.setDuration(0);
+                        f75970c.setView(f75970c.getView());
+                        f75970c.setText(string);
+                        f75970c.setDuration(0);
                     }
-                    f39143c.show();
+                    f75970c.show();
                 } else if (i2 == 1) {
-                    if (f39143c == null) {
-                        f39143c = Toast.makeText(context, string, 1);
+                    if (f75970c == null) {
+                        f75970c = Toast.makeText(context, string, 1);
                     } else {
-                        f39143c.setView(f39143c.getView());
-                        f39143c.setText(string);
-                        f39143c.setDuration(1);
+                        f75970c.setView(f75970c.getView());
+                        f75970c.setText(string);
+                        f75970c.setDuration(1);
                     }
-                    f39143c.show();
+                    f75970c.show();
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();

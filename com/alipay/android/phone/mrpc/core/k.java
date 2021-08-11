@@ -2,8 +2,8 @@ package com.alipay.android.phone.mrpc.core;
 
 import android.text.format.Time;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,30 +13,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f1677a;
+    public static final Pattern f35512a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f1678b;
+    public static final Pattern f35513b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1679a;
+        public int f35514a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f1680b;
+        public int f35515b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f1681c;
+        public int f35516c;
 
         public a(int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -53,9 +53,9 @@ public final class k {
                     return;
                 }
             }
-            this.f1679a = i2;
-            this.f1680b = i3;
-            this.f1681c = i4;
+            this.f35514a = i2;
+            this.f35515b = i3;
+            this.f35516c = i4;
         }
     }
 
@@ -72,8 +72,8 @@ public final class k {
                 return;
             }
         }
-        f1677a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
-        f1678b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
+        f35512a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
+        f35513b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
     }
 
     public static long a(String str) {
@@ -87,14 +87,14 @@ public final class k {
         int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Matcher matcher = f1677a.matcher(str);
+            Matcher matcher = f35512a.matcher(str);
             if (matcher.find()) {
                 i2 = b(matcher.group(1));
                 c2 = c(matcher.group(2));
                 d2 = d(matcher.group(3));
                 aVar = e(matcher.group(4));
             } else {
-                Matcher matcher2 = f1678b.matcher(str);
+                Matcher matcher2 = f35513b.matcher(str);
                 if (!matcher2.find()) {
                     throw new IllegalArgumentException();
                 }
@@ -108,14 +108,14 @@ public final class k {
             if (d2 >= 2038) {
                 i3 = 1;
                 i4 = 0;
-                i5 = 2038;
+                i5 = SpeedStatsStampTable.INIT_MSG_SIX_STAMP_KEY;
             } else {
                 i3 = i2;
                 i4 = c2;
                 i5 = d2;
             }
             Time time = new Time("UTC");
-            time.set(aVar.f1681c, aVar.f1680b, aVar.f1679a, i3, i4, i5);
+            time.set(aVar.f35516c, aVar.f35515b, aVar.f35514a, i3, i4, i5);
             return time.toMillis(false);
         }
         return invokeL.longValue;
@@ -179,9 +179,9 @@ public final class k {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (str.length() == 2) {
                 int charAt = ((str.charAt(0) - '0') * 10) + (str.charAt(1) - '0');
-                return charAt >= 70 ? charAt + FeatureCodes.SKY_SEG : charAt + 2000;
+                return charAt >= 70 ? charAt + 1900 : charAt + 2000;
             } else if (str.length() == 3) {
-                return ((str.charAt(0) - '0') * 100) + ((str.charAt(1) - '0') * 10) + (str.charAt(2) - '0') + FeatureCodes.SKY_SEG;
+                return ((str.charAt(0) - '0') * 100) + ((str.charAt(1) - '0') * 10) + (str.charAt(2) - '0') + 1900;
             } else {
                 if (str.length() == 4) {
                     return ((str.charAt(0) - '0') * 1000) + ((str.charAt(1) - '0') * 100) + ((str.charAt(2) - '0') * 10) + (str.charAt(3) - '0');

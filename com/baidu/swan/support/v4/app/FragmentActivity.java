@@ -10,7 +10,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -21,7 +20,16 @@ import android.view.Window;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.IStringUtil;
+import c.a.n0.o.a.a.a;
+import c.a.n0.o.a.a.c;
+import c.a.n0.o.a.a.d;
+import c.a.n0.o.a.a.g;
+import c.a.n0.o.a.a.j;
+import c.a.n0.o.a.a.k;
+import c.a.n0.o.a.a.l;
+import c.a.n0.o.a.a.p;
+import c.a.n0.o.a.a.s;
+import c.a.n0.o.a.c.f;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,22 +38,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
-import d.a.o0.o.a.a.a;
-import d.a.o0.o.a.a.c;
-import d.a.o0.o.a.a.d;
-import d.a.o0.o.a.a.g;
-import d.a.o0.o.a.a.j;
-import d.a.o0.o.a.a.k;
-import d.a.o0.o.a.a.l;
-import d.a.o0.o.a.a.p;
-import d.a.o0.o.a.a.s;
-import d.a.o0.o.a.c.f;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class FragmentActivity extends g implements a.b, c.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENTS_TAG = "android:support:fragments";
@@ -64,13 +63,13 @@ public class FragmentActivity extends g implements a.b, c.a {
     public boolean mRetaining;
     public boolean mStopped;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FragmentActivity f12104a;
+        public final /* synthetic */ FragmentActivity f47013a;
 
         public a(FragmentActivity fragmentActivity) {
             Interceptable interceptable = $ic;
@@ -87,7 +86,7 @@ public class FragmentActivity extends g implements a.b, c.a {
                     return;
                 }
             }
-            this.f12104a = fragmentActivity;
+            this.f47013a = fragmentActivity;
         }
 
         @Override // android.os.Handler
@@ -96,27 +95,27 @@ public class FragmentActivity extends g implements a.b, c.a {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i2 = message.what;
                 if (i2 == 1) {
-                    FragmentActivity fragmentActivity = this.f12104a;
+                    FragmentActivity fragmentActivity = this.f47013a;
                     if (fragmentActivity.mStopped) {
                         fragmentActivity.doReallyStop(false);
                     }
                 } else if (i2 != 2) {
                     super.handleMessage(message);
                 } else {
-                    this.f12104a.onResumeFragments();
-                    this.f12104a.mFragments.v();
+                    this.f47013a.onResumeFragments();
+                    this.f47013a.mFragments.v();
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class b extends k<FragmentActivity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ FragmentActivity f12105i;
+        public final /* synthetic */ FragmentActivity f47014i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(FragmentActivity fragmentActivity) {
@@ -136,57 +135,57 @@ public class FragmentActivity extends g implements a.b, c.a {
                     return;
                 }
             }
-            this.f12105i = fragmentActivity;
+            this.f47014i = fragmentActivity;
         }
 
-        @Override // d.a.o0.o.a.a.i
+        @Override // c.a.n0.o.a.a.i
         @Nullable
         public View a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f12105i.findViewById(i2) : (View) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f47014i.findViewById(i2) : (View) invokeI.objValue;
         }
 
-        @Override // d.a.o0.o.a.a.i
+        @Override // c.a.n0.o.a.a.i
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Window window = this.f12105i.getWindow();
+                Window window = this.f47014i.getWindow();
                 return (window == null || window.peekDecorView() == null) ? false : true;
             }
             return invokeV.booleanValue;
         }
 
-        @Override // d.a.o0.o.a.a.k
+        @Override // c.a.n0.o.a.a.k
         public void n(Fragment fragment) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fragment) == null) {
-                this.f12105i.onAttachFragment(fragment);
+                this.f47014i.onAttachFragment(fragment);
             }
         }
 
-        @Override // d.a.o0.o.a.a.k
+        @Override // c.a.n0.o.a.a.k
         public void o(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, fileDescriptor, printWriter, strArr) == null) {
-                this.f12105i.dump(str, fileDescriptor, printWriter, strArr);
+                this.f47014i.dump(str, fileDescriptor, printWriter, strArr);
             }
         }
 
-        @Override // d.a.o0.o.a.a.k
+        @Override // c.a.n0.o.a.a.k
         public LayoutInflater p() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12105i.getLayoutInflater().cloneInContext(this.f12105i) : (LayoutInflater) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f47014i.getLayoutInflater().cloneInContext(this.f47014i) : (LayoutInflater) invokeV.objValue;
         }
 
-        @Override // d.a.o0.o.a.a.k
+        @Override // c.a.n0.o.a.a.k
         public int q() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                Window window = this.f12105i.getWindow();
+                Window window = this.f47014i.getWindow();
                 if (window == null) {
                     return 0;
                 }
@@ -195,50 +194,50 @@ public class FragmentActivity extends g implements a.b, c.a {
             return invokeV.intValue;
         }
 
-        @Override // d.a.o0.o.a.a.k
+        @Override // c.a.n0.o.a.a.k
         public boolean r() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f12105i.getWindow() != null : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f47014i.getWindow() != null : invokeV.booleanValue;
         }
 
-        @Override // d.a.o0.o.a.a.k
+        @Override // c.a.n0.o.a.a.k
         public void s(@NonNull Fragment fragment, @NonNull String[] strArr, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048583, this, fragment, strArr, i2) == null) {
-                this.f12105i.requestPermissionsFromFragment(fragment, strArr, i2);
+                this.f47014i.requestPermissionsFromFragment(fragment, strArr, i2);
             }
         }
 
-        @Override // d.a.o0.o.a.a.k
+        @Override // c.a.n0.o.a.a.k
         public boolean t(Fragment fragment) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fragment)) == null) ? !this.f12105i.isFinishing() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fragment)) == null) ? !this.f47014i.isFinishing() : invokeL.booleanValue;
         }
 
-        @Override // d.a.o0.o.a.a.k
+        @Override // c.a.n0.o.a.a.k
         public void u() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                this.f12105i.supportInvalidateOptionsMenu();
+                this.f47014i.supportInvalidateOptionsMenu();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Object f12106a;
+        public Object f47015a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<Fragment> f12107b;
+        public List<Fragment> f47016b;
 
         /* renamed from: c  reason: collision with root package name */
-        public f<String, p> f12108c;
+        public f<String, p> f47017c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -297,10 +296,10 @@ public class FragmentActivity extends g implements a.b, c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65539, this, fragment, strArr, i2) == null) {
             if (i2 == -1) {
-                d.a.o0.o.a.a.a.h(this, strArr, i2);
+                c.a.n0.o.a.a.a.h(this, strArr, i2);
             } else if ((i2 & (-256)) == 0) {
                 this.mRequestedPermissionsFromFragment = true;
-                d.a.o0.o.a.a.a.h(this, strArr, ((fragment.j + 1) << 8) + (i2 & 255));
+                c.a.n0.o.a.a.a.h(this, strArr, ((fragment.f47011j + 1) << 8) + (i2 & 255));
             } else {
                 throw new IllegalArgumentException("Can only use lower 8 bits for requestCode");
             }
@@ -314,34 +313,30 @@ public class FragmentActivity extends g implements a.b, c.a {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view)) == null) {
             StringBuilder sb = new StringBuilder(128);
             sb.append(view.getClass().getName());
-            sb.append('{');
+            sb.append(ExtendedMessageFormat.START_FE);
             sb.append(Integer.toHexString(System.identityHashCode(view)));
             sb.append(' ');
             int visibility = view.getVisibility();
-            char c2 = IStringUtil.EXTENSION_SEPARATOR;
             if (visibility == 0) {
                 sb.append('V');
             } else if (visibility == 4) {
                 sb.append('I');
             } else if (visibility != 8) {
-                sb.append(IStringUtil.EXTENSION_SEPARATOR);
+                sb.append('.');
             } else {
                 sb.append('G');
             }
-            sb.append(view.isFocusable() ? 'F' : IStringUtil.EXTENSION_SEPARATOR);
-            sb.append(view.isEnabled() ? 'E' : IStringUtil.EXTENSION_SEPARATOR);
-            sb.append(view.willNotDraw() ? IStringUtil.EXTENSION_SEPARATOR : 'D');
-            sb.append(view.isHorizontalScrollBarEnabled() ? 'H' : IStringUtil.EXTENSION_SEPARATOR);
-            sb.append(view.isVerticalScrollBarEnabled() ? 'V' : IStringUtil.EXTENSION_SEPARATOR);
-            sb.append(view.isClickable() ? 'C' : IStringUtil.EXTENSION_SEPARATOR);
-            sb.append(view.isLongClickable() ? 'L' : IStringUtil.EXTENSION_SEPARATOR);
+            sb.append(view.isFocusable() ? 'F' : '.');
+            sb.append(view.isEnabled() ? 'E' : '.');
+            sb.append(view.willNotDraw() ? '.' : 'D');
+            sb.append(view.isHorizontalScrollBarEnabled() ? 'H' : '.');
+            sb.append(view.isVerticalScrollBarEnabled() ? 'V' : '.');
+            sb.append(view.isClickable() ? 'C' : '.');
+            sb.append(view.isLongClickable() ? 'L' : '.');
             sb.append(' ');
-            sb.append(view.isFocused() ? 'F' : IStringUtil.EXTENSION_SEPARATOR);
-            sb.append(view.isSelected() ? 'S' : IStringUtil.EXTENSION_SEPARATOR);
-            if (view.isPressed()) {
-                c2 = 'P';
-            }
-            sb.append(c2);
+            sb.append(view.isFocused() ? 'F' : '.');
+            sb.append(view.isSelected() ? 'S' : '.');
+            sb.append(view.isPressed() ? 'P' : '.');
             sb.append(' ');
             sb.append(view.getLeft());
             sb.append(',');
@@ -383,7 +378,7 @@ public class FragmentActivity extends g implements a.b, c.a {
         return (String) invokeL.objValue;
     }
 
-    @Override // d.a.o0.o.a.a.f
+    @Override // c.a.n0.o.a.a.f
     public final View dispatchFragmentsOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -433,7 +428,7 @@ public class FragmentActivity extends g implements a.b, c.a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             c cVar = (c) getLastNonConfigurationInstance();
             if (cVar != null) {
-                return cVar.f12106a;
+                return cVar.f47015a;
             }
             return null;
         }
@@ -464,13 +459,13 @@ public class FragmentActivity extends g implements a.b, c.a {
                 if (x != 0 && i5 >= 0 && i5 < x) {
                     Fragment fragment = this.mFragments.w(new ArrayList(x)).get(i5);
                     if (fragment == null) {
-                        Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i2));
+                        String str = "Activity result no fragment exists for index: 0x" + Integer.toHexString(i2);
                         return;
                     }
                     fragment.t0(i2 & 65535, i3, intent);
                     return;
                 }
-                Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i2));
+                String str2 = "Activity result fragment index out of range: 0x" + Integer.toHexString(i2);
                 return;
             }
             super.onActivityResult(i2, i3, intent);
@@ -501,7 +496,7 @@ public class FragmentActivity extends g implements a.b, c.a {
         }
     }
 
-    @Override // d.a.o0.o.a.a.f, android.app.Activity
+    @Override // c.a.n0.o.a.a.f, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
@@ -509,10 +504,10 @@ public class FragmentActivity extends g implements a.b, c.a {
             super.onCreate(bundle);
             c cVar = (c) getLastNonConfigurationInstance();
             if (cVar != null) {
-                this.mFragments.E(cVar.f12108c);
+                this.mFragments.E(cVar.f47017c);
             }
             if (bundle != null) {
-                this.mFragments.D(bundle.getParcelable("android:support:fragments"), cVar != null ? cVar.f12107b : null);
+                this.mFragments.D(bundle.getParcelable("android:support:fragments"), cVar != null ? cVar.f47016b : null);
             }
             this.mFragments.f();
         }
@@ -535,7 +530,7 @@ public class FragmentActivity extends g implements a.b, c.a {
         return invokeIL.booleanValue;
     }
 
-    @Override // d.a.o0.o.a.a.g, android.app.Activity, android.view.LayoutInflater.Factory2
+    @Override // c.a.n0.o.a.a.g, android.app.Activity, android.view.LayoutInflater.Factory2
     public /* bridge */ /* synthetic */ View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
         return super.onCreateView(view, str, context, attributeSet);
     }
@@ -670,7 +665,7 @@ public class FragmentActivity extends g implements a.b, c.a {
         }
     }
 
-    @Override // android.app.Activity, d.a.o0.o.a.a.a.b
+    @Override // android.app.Activity, c.a.n0.o.a.a.a.b
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         int i3;
         Interceptable interceptable = $ic;
@@ -682,13 +677,13 @@ public class FragmentActivity extends g implements a.b, c.a {
         if (x != 0 && i4 >= 0 && i4 < x) {
             Fragment fragment = this.mFragments.w(new ArrayList(x)).get(i4);
             if (fragment == null) {
-                Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i2));
+                String str = "Activity result no fragment exists for index: 0x" + Integer.toHexString(i2);
                 return;
             }
-            fragment.L0(i2 & 255, strArr, iArr);
+            fragment.J0(i2 & 255, strArr, iArr);
             return;
         }
-        Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i2));
+        String str2 = "Activity result fragment index out of range: 0x" + Integer.toHexString(i2);
     }
 
     @Override // android.app.Activity
@@ -733,9 +728,9 @@ public class FragmentActivity extends g implements a.b, c.a {
                 return null;
             }
             c cVar = new c();
-            cVar.f12106a = onRetainCustomNonConfigurationInstance;
-            cVar.f12107b = G;
-            cVar.f12108c = F;
+            cVar.f47015a = onRetainCustomNonConfigurationInstance;
+            cVar.f47016b = G;
+            cVar.f47017c = F;
             return cVar;
         }
         return invokeV.objValue;
@@ -795,14 +790,14 @@ public class FragmentActivity extends g implements a.b, c.a {
     public void setEnterSharedElementCallback(s sVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, sVar) == null) {
-            d.a.o0.o.a.a.a.i(this, sVar);
+            c.a.n0.o.a.a.a.i(this, sVar);
         }
     }
 
     public void setExitSharedElementCallback(s sVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, sVar) == null) {
-            d.a.o0.o.a.a.a.j(this, sVar);
+            c.a.n0.o.a.a.a.j(this, sVar);
         }
     }
 
@@ -823,7 +818,7 @@ public class FragmentActivity extends g implements a.b, c.a {
             if (i2 == -1) {
                 super.startActivityForResult(intent, -1);
             } else if (((-65536) & i2) == 0) {
-                super.startActivityForResult(intent, ((fragment.j + 1) << 16) + (i2 & 65535));
+                super.startActivityForResult(intent, ((fragment.f47011j + 1) << 16) + (i2 & 65535));
             } else {
                 throw new IllegalArgumentException("Can only use lower 16 bits for requestCode");
             }
@@ -833,7 +828,7 @@ public class FragmentActivity extends g implements a.b, c.a {
     public void supportFinishAfterTransition() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            d.a.o0.o.a.a.a.f(this);
+            c.a.n0.o.a.a.a.f(this);
         }
     }
 
@@ -851,18 +846,18 @@ public class FragmentActivity extends g implements a.b, c.a {
     public void supportPostponeEnterTransition() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
-            d.a.o0.o.a.a.a.g(this);
+            c.a.n0.o.a.a.a.g(this);
         }
     }
 
     public void supportStartPostponedEnterTransition() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-            d.a.o0.o.a.a.a.l(this);
+            c.a.n0.o.a.a.a.l(this);
         }
     }
 
-    @Override // d.a.o0.o.a.a.c.a
+    @Override // c.a.n0.o.a.a.c.a
     public final void validateRequestPermissionsRequestCode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
@@ -874,7 +869,7 @@ public class FragmentActivity extends g implements a.b, c.a {
         }
     }
 
-    @Override // d.a.o0.o.a.a.f, android.app.Activity, android.view.LayoutInflater.Factory
+    @Override // c.a.n0.o.a.a.f, android.app.Activity, android.view.LayoutInflater.Factory
     public /* bridge */ /* synthetic */ View onCreateView(String str, Context context, AttributeSet attributeSet) {
         return super.onCreateView(str, context, attributeSet);
     }

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMGetUserIpLocation extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGetUserIpLocation";

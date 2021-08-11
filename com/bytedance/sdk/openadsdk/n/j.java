@@ -15,22 +15,22 @@ import java.net.SocketAddress;
 import java.net.URI;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class j extends ProxySelector {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<Proxy> f31989a;
+    public static final List<Proxy> f67941a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ProxySelector f31990b;
+    public final ProxySelector f67942b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f31991c;
+    public final String f67943c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f31992d;
+    public final int f67944d;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public class j extends ProxySelector {
                 return;
             }
         }
-        f31989a = Collections.singletonList(Proxy.NO_PROXY);
+        f67941a = Collections.singletonList(Proxy.NO_PROXY);
     }
 
     public j(String str, int i2) {
@@ -63,9 +63,9 @@ public class j extends ProxySelector {
                 return;
             }
         }
-        this.f31990b = ProxySelector.getDefault();
-        this.f31991c = str;
-        this.f31992d = i2;
+        this.f67942b = ProxySelector.getDefault();
+        this.f67943c = str;
+        this.f67944d = i2;
     }
 
     public static void a(String str, int i2) {
@@ -79,7 +79,7 @@ public class j extends ProxySelector {
     public void connectFailed(URI uri, SocketAddress socketAddress, IOException iOException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, uri, socketAddress, iOException) == null) {
-            this.f31990b.connectFailed(uri, socketAddress, iOException);
+            this.f67942b.connectFailed(uri, socketAddress, iOException);
         }
     }
 
@@ -89,7 +89,7 @@ public class j extends ProxySelector {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
             if (uri != null) {
-                return (this.f31991c.equalsIgnoreCase(uri.getHost()) && this.f31992d == uri.getPort()) ? f31989a : this.f31990b.select(uri);
+                return (this.f67943c.equalsIgnoreCase(uri.getHost()) && this.f67944d == uri.getPort()) ? f67941a : this.f67942b.select(uri);
             }
             throw new IllegalArgumentException("URI can't be null");
         }

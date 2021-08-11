@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BasicAdRequestInfo implements IAdRequestParam {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +123,7 @@ public class BasicAdRequestInfo implements IAdRequestParam {
                 hashMap.put(IAdRequestParam.SCREEN_HEIGHT, "" + ScreenUtils.getScreenHeight(this.mCxt));
                 hashMap.put(IAdRequestParam.DENSITY, "" + ScreenUtils.getScreenDensity(this.mCxt));
                 hashMap.put(IAdRequestParam.BDR, "" + Build.VERSION.SDK_INT);
-                hashMap.put(IAdRequestParam.OS, "android");
+                hashMap.put("os", "android");
                 hashMap.put(IAdRequestParam.PHONE_TYPE, Build.MODEL);
                 hashMap.put(IAdRequestParam.OSV, Build.VERSION.RELEASE);
                 hashMap.put(IAdRequestParam.BRAND, DeviceUtils.getInstance().getPhoneOSBrand());

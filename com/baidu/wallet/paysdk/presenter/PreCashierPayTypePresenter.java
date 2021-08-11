@@ -5,10 +5,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.eventbus.EventBus;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
-import com.baidu.apollon.utils.GlobalUtils;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,9 +14,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.controllers.PayController;
 import com.baidu.wallet.base.datamodel.CardData;
 import com.baidu.wallet.base.datamodel.PayData;
-import com.baidu.wallet.base.datamodel.UserData;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
-import com.baidu.wallet.core.utils.StringUtils;
 import com.baidu.wallet.paysdk.PayCallBackManager;
 import com.baidu.wallet.paysdk.api.BaiduPay;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
@@ -34,9 +27,15 @@ import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.PayBaseBeanActivity;
 import com.baidu.wallet.paysdk.ui.PayTypeActivity;
 import com.baidu.wallet.paysdk.ui.widget.PayTypeItemView;
+import com.dxmpay.apollon.eventbus.EventBus;
+import com.dxmpay.apollon.utils.GlobalUtils;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.base.datamodel.UserData;
+import com.dxmpay.wallet.core.utils.StringUtils;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class PreCashierPayTypePresenter extends PayTypeContract.Presenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BALANCE = "balance";
@@ -163,7 +162,7 @@ public class PreCashierPayTypePresenter extends PayTypeContract.Presenter {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PreCashierPayTypePresenter f26376a;
+                public final /* synthetic */ PreCashierPayTypePresenter f62278a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -180,16 +179,16 @@ public class PreCashierPayTypePresenter extends PayTypeContract.Presenter {
                             return;
                         }
                     }
-                    this.f26376a = this;
+                    this.f62278a = this;
                 }
 
                 @Override // com.baidu.wallet.paysdk.api.BaiduPay.IBindCardCallback
                 public void onChangeFailed(String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) || this.f26376a.mActivity == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) || this.f62278a.mActivity == null) {
                         return;
                     }
-                    GlobalUtils.toast(this.f26376a.mActivity.getApplicationContext(), str2);
+                    GlobalUtils.toast(this.f62278a.mActivity.getApplicationContext(), str2);
                 }
 
                 @Override // com.baidu.wallet.paysdk.api.BaiduPay.IBindCardCallback
@@ -202,8 +201,8 @@ public class PreCashierPayTypePresenter extends PayTypeContract.Presenter {
                         card.account_no = str2;
                         precashierModifyPayTypeDefaultData.card = card;
                         PayController.getInstance().onPreModifiedPayType(precashierModifyPayTypeDefaultData);
-                        if (this.f26376a.mActivity != null) {
-                            this.f26376a.mActivity.finish();
+                        if (this.f62278a.mActivity != null) {
+                            this.f62278a.mActivity.finish();
                         }
                     }
                 }
@@ -349,6 +348,9 @@ public class PreCashierPayTypePresenter extends PayTypeContract.Presenter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (PayDataCache.getInstance().isFromPreCashier()) {
+                if (PayController.getInstance().getModifyPayTypeCallback() != null) {
+                    PayController.getInstance().getModifyPayTypeCallback().onPayTypeModifiedFailed(-1, "");
+                }
                 PayController.getInstance().clearPreModifiedCallBack();
             }
             if (!PayDataCache.getInstance().isFromPreCashier() || (twoTupleForPrecashier = this.mTupleDatasForPrecashier) == null || twoTupleForPrecashier.isFromChange().booleanValue()) {
@@ -411,7 +413,7 @@ public class PreCashierPayTypePresenter extends PayTypeContract.Presenter {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             PayRequestCache.getInstance().clearPaySdkRequestCache();
             PayBaseBeanActivity.exitEbpay();
-            PayStatisticsUtil.onEvent(StatServiceEvent.PRE_CASHIER_REORDER);
+            StatisticManager.onEvent("doPreCashierReorder");
             PrecashierModifyPayTypeDefaultData precashierModifyPayTypeDefaultData = new PrecashierModifyPayTypeDefaultData();
             precashierModifyPayTypeDefaultData.updated = 1;
             PayController.getInstance().onPreModifiedPayType(precashierModifyPayTypeDefaultData);

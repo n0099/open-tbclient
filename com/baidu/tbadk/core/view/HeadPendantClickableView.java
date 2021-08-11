@@ -4,6 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
+import c.a.o0.b.d;
+import c.a.o0.s.q.c2;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -26,26 +28,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.b.d;
-import d.a.p0.s.q.b2;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class HeadPendantClickableView extends HeadPendantView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b2 q;
-    public Context r;
-    public View.OnClickListener s;
+    public View.OnClickListener mOnClickListener;
+    public c2 r;
+    public Context s;
     public View.OnClickListener t;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HeadPendantClickableView f12453e;
+        public final /* synthetic */ HeadPendantClickableView f47415e;
 
         public a(HeadPendantClickableView headPendantClickableView) {
             Interceptable interceptable = $ic;
@@ -62,11 +62,11 @@ public class HeadPendantClickableView extends HeadPendantView {
                     return;
                 }
             }
-            this.f12453e = headPendantClickableView;
+            this.f47415e = headPendantClickableView;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:33:0x0157  */
-        /* JADX WARN: Removed duplicated region for block: B:41:? A[RETURN, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:45:0x019d  */
+        /* JADX WARN: Removed duplicated region for block: B:53:? A[RETURN, SYNTHETIC] */
         @Override // android.view.View.OnClickListener
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -75,47 +75,59 @@ public class HeadPendantClickableView extends HeadPendantView {
             String str;
             String str2;
             String str3;
+            String str4;
             AlaInfoData alaInfo;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f12453e.q == null || this.f12453e.q.H() == null || StringUtils.isNull(this.f12453e.q.H().getName_show()) || StringUtils.isNull(this.f12453e.q.H().getUserId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47415e.r == null || this.f47415e.r.J() == null || StringUtils.isNull(this.f47415e.r.J().getName_show()) || StringUtils.isNull(this.f47415e.r.J().getUserId())) {
                 return;
             }
-            if (this.f12453e.q.W1) {
-                str3 = AddFriendActivityConfig.TYPE_HOME_HEAD;
-                str = YYLiveUtil.SOURCE_HOME_RECOMMEND_HEAD;
-            } else if (this.f12453e.q.P1()) {
-                str3 = AddFriendActivityConfig.TYPE_CONCERN_HEAD;
-                str = YYLiveUtil.SOURCE_HOME_FOLLOW_TAB_HEAD;
-            } else if (!this.f12453e.q.isFromFrs()) {
-                str = YYLiveUtil.SOURCE_NOT_DEFINE;
-                str2 = "";
-                String str4 = str;
-                alaInfo = this.f12453e.q.H().getAlaInfo();
-                if (alaInfo == null && alaInfo.isLegalYYLiveData()) {
-                    TbPageContext tbPageContext = this.f12453e.getTbPageContext();
-                    YyExtData yyExtData = alaInfo.mYyExtData;
-                    YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + alaInfo.roomId, str4);
-                    HeadPendantClickableView headPendantClickableView = this.f12453e;
-                    headPendantClickableView.r(headPendantClickableView.q.o1(), String.valueOf(this.f12453e.q.R()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
+            boolean z = this.f47415e.r.X1;
+            String str5 = AddFriendActivityConfig.TYPE_HOME_HEAD;
+            if (z) {
+                if (this.f47415e.r.m1() == 69) {
+                    str3 = YYLiveUtil.SOURCE_HOME_RECOMMEND_LIVE_HEAD;
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f12453e.r, this.f12453e.q.H().getUserId(), this.f12453e.q.H().getName_show(), this.f12453e.q.X(), str2, this.f12453e.q.o1(), this.f12453e.q.B0())));
+                    str3 = this.f47415e.r.m1() == 40 ? YYLiveUtil.SOURCE_HOME_RECOMMEND_VIDEO_HEAD : YYLiveUtil.SOURCE_HOME_RECOMMEND_TUWEN_HEAD;
                 }
-                if (this.f12453e.s == null) {
-                    this.f12453e.s.onClick(view);
+            } else {
+                if (this.f47415e.r.U1()) {
+                    if (this.f47415e.r.m1() == 69) {
+                        str4 = YYLiveUtil.SOURCE_HOME_CONCERN_LIVE_HEAD;
+                    } else {
+                        str4 = this.f47415e.r.m1() == 40 ? YYLiveUtil.SOURCE_HOME_CONCERN_VIDEO_HEAD : YYLiveUtil.SOURCE_HOME_CONCERN_TUWEN_HEAD;
+                    }
+                    str = str4;
+                    str2 = AddFriendActivityConfig.TYPE_CONCERN_HEAD;
+                } else if (this.f47415e.r.isFromFrs()) {
+                    str3 = YYLiveUtil.SOURCE_FRS_LIVE_HEAD_ + TbSingleton.getInstance().getFrsCurTabType();
+                    str5 = AddFriendActivityConfig.TYPE_FRS_HEAD;
+                } else {
+                    str = YYLiveUtil.SOURCE_NOT_DEFINE;
+                    str2 = "";
+                }
+                alaInfo = this.f47415e.r.J().getAlaInfo();
+                if (alaInfo == null && alaInfo.isLegalYYLiveData()) {
+                    TbPageContext tbPageContext = this.f47415e.getTbPageContext();
+                    YyExtData yyExtData = alaInfo.mYyExtData;
+                    YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + alaInfo.roomId, str);
+                    HeadPendantClickableView headPendantClickableView = this.f47415e;
+                    headPendantClickableView.j(headPendantClickableView.r.q1(), String.valueOf(this.f47415e.r.T()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
+                } else {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f47415e.s, this.f47415e.r.J().getUserId(), this.f47415e.r.J().getName_show(), this.f47415e.r.Z(), str2, this.f47415e.r.q1(), this.f47415e.r.D0())));
+                }
+                if (this.f47415e.t == null) {
+                    this.f47415e.t.onClick(view);
                     return;
                 }
                 return;
-            } else {
-                str = YYLiveUtil.SOURCE_FRS_LIVE_HEAD_ + TbSingleton.getInstance().getFrsCurTabType();
-                str3 = AddFriendActivityConfig.TYPE_FRS_HEAD;
             }
-            str2 = str3;
-            String str42 = str;
-            alaInfo = this.f12453e.q.H().getAlaInfo();
+            str = str3;
+            str2 = str5;
+            alaInfo = this.f47415e.r.J().getAlaInfo();
             if (alaInfo == null) {
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f12453e.r, this.f12453e.q.H().getUserId(), this.f12453e.q.H().getName_show(), this.f12453e.q.X(), str2, this.f12453e.q.o1(), this.f12453e.q.B0())));
-            if (this.f12453e.s == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f47415e.s, this.f47415e.r.J().getUserId(), this.f47415e.r.J().getName_show(), this.f47415e.r.Z(), str2, this.f47415e.r.q1(), this.f47415e.r.D0())));
+            if (this.f47415e.t == null) {
             }
         }
     }
@@ -139,8 +151,8 @@ public class HeadPendantClickableView extends HeadPendantView {
             }
         }
         a aVar = new a(this);
-        this.t = aVar;
-        this.r = context;
+        this.mOnClickListener = aVar;
+        this.s = context;
         setOnClickListener(aVar);
     }
 
@@ -160,7 +172,7 @@ public class HeadPendantClickableView extends HeadPendantView {
         return (TbPageContext) invokeV.objValue;
     }
 
-    public final void r(String str, String str2, String str3, String str4, String str5) {
+    public final void j(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4, str5) == null) {
             JSONObject jSONObject = new JSONObject();
@@ -187,38 +199,38 @@ public class HeadPendantClickableView extends HeadPendantView {
     public void setAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.s = onClickListener;
+            this.t = onClickListener;
         }
     }
 
-    public void setData(b2 b2Var) {
+    public void setData(c2 c2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, b2Var) == null) {
-            setData(b2Var, false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, c2Var) == null) {
+            setData(c2Var, false);
         }
     }
 
-    public void setData(b2 b2Var, boolean z) {
+    public void setData(c2 c2Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048582, this, b2Var, z) == null) || b2Var == null || b2Var.H() == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, c2Var, z) == null) || c2Var == null || c2Var.J() == null) {
             return;
         }
-        this.q = b2Var;
-        MetaData H = b2Var.H();
-        setContentDescription(H.getName_show() + this.r.getString(R.string.somebodys_portrait));
-        getHeadView().setUserId(H.getUserId());
-        getHeadView().setUserName(H.getUserName());
-        getHeadView().setUrl(H.getAvater());
-        if (H.isDefaultAvatar && d.o0()) {
-            getHeadView().M(String.valueOf(R.drawable.pic_mask_pass_head), 24, false);
-        } else if (!StringUtils.isNull(H.getAvater()) && H.getAvater().startsWith("http")) {
-            getHeadView().M(H.getAvater(), 10, false);
+        this.r = c2Var;
+        MetaData J = c2Var.J();
+        setContentDescription(J.getName_show() + this.s.getString(R.string.somebodys_portrait));
+        getHeadView().setUserId(J.getUserId());
+        getHeadView().setUserName(J.getUserName());
+        getHeadView().setUrl(J.getAvater());
+        if (J.isDefaultAvatar && d.r0()) {
+            getHeadView().startLoad(String.valueOf(R.drawable.pic_mask_pass_head), 24, false);
+        } else if (!StringUtils.isNull(J.getAvater()) && J.getAvater().startsWith("http")) {
+            getHeadView().startLoad(J.getAvater(), 10, false);
         } else if (z) {
-            getHeadView().M(H.getAvater(), 25, false);
+            getHeadView().startLoad(J.getAvater(), 25, false);
         } else {
-            getHeadView().M(H.getAvater(), 28, false);
+            getHeadView().startLoad(J.getAvater(), 28, false);
         }
-        i(H, 0);
+        showHeadPendantAndBigV(J, 0);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -241,25 +253,25 @@ public class HeadPendantClickableView extends HeadPendantView {
             }
         }
         a aVar = new a(this);
-        this.t = aVar;
-        this.r = context;
+        this.mOnClickListener = aVar;
+        this.s = context;
         setOnClickListener(aVar);
     }
 
     public void setData(MetaData metaData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, metaData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, metaData) == null) {
             setData(metaData, false);
         }
     }
 
     public void setData(MetaData metaData, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, metaData, z) == null) || metaData == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048582, this, metaData, z) == null) || metaData == null) {
             return;
         }
-        b2 b2Var = new b2();
-        b2Var.j3(metaData);
-        setData(b2Var, z);
+        c2 c2Var = new c2();
+        c2Var.r3(metaData);
+        setData(c2Var, z);
     }
 }

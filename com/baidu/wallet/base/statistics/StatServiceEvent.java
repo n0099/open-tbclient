@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class StatServiceEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCESS_WALLET_ENTRY_EVENT = "accessWalletEntryEvent";
@@ -309,7 +309,6 @@ public final class StatServiceEvent {
     public static final String EVENT_WRC_SHOW_ERROR = "WRC_show_error";
     public static final String EVENT_WRC_UNZIP = "WRC_unzip";
     public static final String EVENT_WRC_VERIFY = "WRC_verify";
-    public static final String FAST_DOUBLE_CLICK_GOTO_WALLET_SERVICE = "fastDoubleClickGotoWalletService";
     public static final String FIND_PASSWORD = "findPassword";
     public static final String FIND_PASSWORD_FROM_OLD_CARD_RESET_PWD = "findPwdResetPWD";
     public static final String FIND_PASSWORD_FROM_OLD_CARD_RESET_PWD_CHECKSMS = "findPwdCheckSMS";
@@ -416,6 +415,7 @@ public final class StatServiceEvent {
     public static final String PAY_ALERT_ACTION = "payAlertAction";
     public static final String PAY_SUCCESS = "paySuccess";
     public static final String PAY_VER_TYPE = "payVerType";
+    public static final String POLL_INIT_EXCEPTION = "poll_init_exception";
     public static final String PRE_CASHIER_PAY = "doPreCashierPay";
     public static final String PRE_CASHIER_REORDER = "doPreCashierReorder";
     public static final String PRE_CREATE_ORDER_FROM_TRANSFER = "preCreateOrderFromTransfer";
@@ -460,12 +460,14 @@ public final class StatServiceEvent {
     public static final String SDK_FRONT_PAGE_IDAUTH_TYPE_CARMERA_FINISH = "sdk_frontpage_idauth_type_camera_finish";
     public static final String SDK_ROUTER_ERROR = "sdk_router_error";
     public static final String SDK_SELF_DEFINE_CAMERA_GET_SIZE = "sdk_self_define_camera_get_size";
-    public static final String SDK_SELF_DEFINE_TAKEPIC_CALLBACK_INTERVAL = "sdk_self_define_takepic_callback_interval";
+    public static final String SDK_SELF_DEFINE_GET_PREVIEW_SIZE_FAILED = "sdk_self_define_get_preview_size_failed";
+    public static final String SDK_SELF_DEFINE_GET_SELECT_PIC_FAILED = "sdk_self_define_get_select_pic_failed";
     public static final String SDK_SELF_DEFINE_TAKE_PICTURE_FAILED = "sdk_self_define_take_picture_failed";
     public static final String SECURITY_PROTECTION_DOWNLOAD = "securityProtectionDownload";
     public static final String SECURITY_PROTECTION_LAUNCH = "securityProtectionLaunch";
     public static final String SECURITY_PROTECTION_PROMPT = "securityProtectionPrompt";
     public static final String SECURITY_PROTECTION_UPGRADE = "securityProtectionUpgrade";
+    public static final String SHOW_LOADING_ACT = "DXMLoadingShow";
     public static final String SMS_LENTH = "smsLength";
     public static final String SMS_SEND_SMS_CLICK = "getSmsCode";
     public static final String SMS_STYLE = "smsStyle";
@@ -478,7 +480,6 @@ public final class StatServiceEvent {
     public static final String STAT_MANUAINPUT = "manualInputBankCard";
     public static final String STAT_NUMCHANGE = "#takephotoNumchange";
     public static final String STAT_PHOTOREAD = "takephotoPhotoread";
-    public static final String STOKEN_EMPTY = "stoken_empty";
     public static final String SYNC_H5_LOGINSTATE_RESULT = "DXMSyncH5LoginState";
     public static final String TIME_PAY = "timePay";
     public static final String TIME_SMS = "timeSms";

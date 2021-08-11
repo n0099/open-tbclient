@@ -13,12 +13,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.vivo.push.model.UnvarnishedMessage;
 import com.vivo.push.util.p;
 import com.vivo.push.util.s;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class BasePushMessageReceiver extends BroadcastReceiver implements PushMessageCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PushMessageReceiver";
@@ -54,7 +53,7 @@ public abstract class BasePushMessageReceiver extends BroadcastReceiver implemen
             }
             Intent intent = new Intent("com.vivo.pushservice.action.PUSH_SERVICE");
             intent.setPackage(packageName);
-            List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE);
+            List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, 576);
             if (queryIntentServices != null && queryIntentServices.size() > 0) {
                 return s.a(context, packageName);
             }

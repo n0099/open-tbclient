@@ -1,48 +1,91 @@
 package com.baidu.wallet.fastpay.a;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+/* loaded from: classes8.dex */
 public class a {
-    public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f24959a = "mobileRechargeClickMenu";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f24960b = "mobileRechargeAddressbookClick";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f24961c = "mobileRechargeClickService";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static String f24962d = "mobileRechargeClickHistoryRecord";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static String f24963e = "mobileRechargeBackBtnClick";
-
-    /* renamed from: f  reason: collision with root package name */
-    public static String f24964f = "mobileRechargeChooseDenomination";
-
-    /* renamed from: g  reason: collision with root package name */
-    public static String f24965g = "mobileRechargeClickPrompt";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1136003667, "Lcom/baidu/wallet/fastpay/a/a;")) == null) {
-            return;
+    /* renamed from: a  reason: collision with root package name */
+    public List<String> f60677a;
+
+    /* renamed from: com.baidu.wallet.fastpay.a.a$1  reason: invalid class name */
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* renamed from: com.baidu.wallet.fastpay.a.a$a  reason: collision with other inner class name */
+    /* loaded from: classes8.dex */
+    public static class C1819a {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static a f60678a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(777811766, "Lcom/baidu/wallet/fastpay/a/a$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(777811766, "Lcom/baidu/wallet/fastpay/a/a$a;");
+                    return;
+                }
+            }
+            f60678a = new a(null);
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+    }
+
+    public /* synthetic */ a(AnonymousClass1 anonymousClass1) {
+        this();
+    }
+
+    public static a a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1819a.f60678a : (a) invokeV.objValue;
+    }
+
+    public List<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60677a : (List) invokeV.objValue;
+    }
+
+    public a() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1136003667, "Lcom/baidu/wallet/fastpay/a/a;");
+        this.f60677a = null;
+    }
+
+    public void a(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            this.f60677a = list;
         }
     }
 }

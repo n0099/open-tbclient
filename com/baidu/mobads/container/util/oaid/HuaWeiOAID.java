@@ -32,7 +32,7 @@ import java.lang.reflect.Method;
 import java.nio.ByteBuffer;
 import kotlin.jvm.internal.ByteCompanionObject;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class HuaWeiOAID {
     public static /* synthetic */ Interceptable $ic;
     public static boolean hwTrackLimited;

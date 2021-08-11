@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class MergeCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MergeCallback";
     public transient /* synthetic */ FieldHolder $fh;
     public final List<MergeBean> list;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class MergeBean {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,13 +137,13 @@ public class MergeCallback {
         }
     }
 
-    public void onProgress(long j, long j2) {
+    public void onProgress(long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             synchronized (this.list) {
                 for (MergeBean mergeBean : this.list) {
-                    mergeBean.info.currentSize = j;
-                    mergeBean.info.totalSize = j2;
+                    mergeBean.info.currentSize = j2;
+                    mergeBean.info.totalSize = j3;
                     mergeBean.callback.onProgress(mergeBean.info, mergeBean.info.currentSize, mergeBean.info.totalSize);
                 }
             }

@@ -12,7 +12,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.Messenger;
 import android.text.TextUtils;
-import android.util.Log;
 import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -31,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class LocationClient implements c.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CONNECT_HOT_SPOT_FALSE = 0;
@@ -56,32 +55,34 @@ public final class LocationClient implements c.a {
     public ServiceConnection G;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f6528a;
+    public long f40751a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6529b;
+    public String f40752b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LocationClientOption f6530c;
+    public LocationClientOption f40753c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LocationClientOption f6531d;
+    public LocationClientOption f40754d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f6532e;
+    public boolean f40755e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f6533f;
+    public Context f40756f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Messenger f6534g;
+    public Messenger f40757g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f6535h;
+    public a f40758h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Messenger f6536i;
-    public ArrayList<BDLocationListener> j;
+    public final Messenger f40759i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public ArrayList<BDLocationListener> f40760j;
     public ArrayList<BDAbstractLocationListener> k;
     public BDLocation l;
     public boolean m;
@@ -99,13 +100,13 @@ public final class LocationClient implements c.a {
     public Boolean y;
     public Boolean z;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<LocationClient> f6537a;
+        public final WeakReference<LocationClient> f40761a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Looper looper, LocationClient locationClient) {
@@ -125,14 +126,14 @@ public final class LocationClient implements c.a {
                     return;
                 }
             }
-            this.f6537a = new WeakReference<>(locationClient);
+            this.f40761a = new WeakReference<>(locationClient);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             LocationClient locationClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (locationClient = this.f6537a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (locationClient = this.f40761a.get()) == null) {
                 return;
             }
             int i2 = message.what;
@@ -224,10 +225,10 @@ public final class LocationClient implements c.a {
                                         return;
                                 }
                             }
-                        } else if (!locationClient.f6530c.location_change_notify) {
+                        } else if (!locationClient.f40753c.location_change_notify) {
                             return;
                         }
-                    } else if (!locationClient.f6530c.location_change_notify) {
+                    } else if (!locationClient.f40753c.location_change_notify) {
                         return;
                     }
                     locationClient.q = z;
@@ -237,13 +238,13 @@ public final class LocationClient implements c.a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LocationClient f6538a;
+        public final /* synthetic */ LocationClient f40762a;
 
         public b(LocationClient locationClient) {
             Interceptable interceptable = $ic;
@@ -260,7 +261,7 @@ public final class LocationClient implements c.a {
                     return;
                 }
             }
-            this.f6538a = locationClient;
+            this.f40762a = locationClient;
         }
 
         public /* synthetic */ b(LocationClient locationClient, com.baidu.location.b bVar) {
@@ -271,18 +272,18 @@ public final class LocationClient implements c.a {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f6538a.r) {
-                    this.f6538a.o = false;
-                    if (this.f6538a.f6534g != null && this.f6538a.f6536i != null) {
-                        if ((this.f6538a.j != null && this.f6538a.j.size() >= 1) || (this.f6538a.k != null && this.f6538a.k.size() >= 1)) {
-                            if (!this.f6538a.n) {
-                                this.f6538a.f6535h.obtainMessage(4).sendToTarget();
+                synchronized (this.f40762a.r) {
+                    this.f40762a.o = false;
+                    if (this.f40762a.f40757g != null && this.f40762a.f40759i != null) {
+                        if ((this.f40762a.f40760j != null && this.f40762a.f40760j.size() >= 1) || (this.f40762a.k != null && this.f40762a.k.size() >= 1)) {
+                            if (!this.f40762a.n) {
+                                this.f40762a.f40758h.obtainMessage(4).sendToTarget();
                                 return;
                             }
-                            if (this.f6538a.p == null) {
-                                this.f6538a.p = new b(this.f6538a);
+                            if (this.f40762a.p == null) {
+                                this.f40762a.p = new b(this.f40762a);
                             }
-                            this.f6538a.f6535h.postDelayed(this.f6538a.p, this.f6538a.f6530c.scanSpan);
+                            this.f40762a.f40758h.postDelayed(this.f40762a.p, this.f40762a.f40753c.scanSpan);
                         }
                     }
                 }
@@ -305,14 +306,14 @@ public final class LocationClient implements c.a {
                 return;
             }
         }
-        this.f6528a = 0L;
-        this.f6529b = null;
-        this.f6530c = new LocationClientOption();
-        this.f6531d = new LocationClientOption();
-        this.f6532e = false;
-        this.f6533f = null;
-        this.f6534g = null;
-        this.j = null;
+        this.f40751a = 0L;
+        this.f40752b = null;
+        this.f40753c = new LocationClientOption();
+        this.f40754d = new LocationClientOption();
+        this.f40755e = false;
+        this.f40756f = null;
+        this.f40757g = null;
+        this.f40760j = null;
         this.k = null;
         this.l = null;
         this.m = false;
@@ -335,11 +336,11 @@ public final class LocationClient implements c.a {
         this.E = false;
         this.F = false;
         this.G = new com.baidu.location.b(this);
-        this.f6533f = context;
-        this.f6530c = new LocationClientOption();
-        this.f6531d = new LocationClientOption();
-        this.f6535h = new a(Looper.getMainLooper(), this);
-        this.f6536i = new Messenger(this.f6535h);
+        this.f40756f = context;
+        this.f40753c = new LocationClientOption();
+        this.f40754d = new LocationClientOption();
+        this.f40758h = new a(Looper.getMainLooper(), this);
+        this.f40759i = new Messenger(this.f40758h);
     }
 
     public LocationClient(Context context, LocationClientOption locationClientOption) {
@@ -357,14 +358,14 @@ public final class LocationClient implements c.a {
                 return;
             }
         }
-        this.f6528a = 0L;
-        this.f6529b = null;
-        this.f6530c = new LocationClientOption();
-        this.f6531d = new LocationClientOption();
-        this.f6532e = false;
-        this.f6533f = null;
-        this.f6534g = null;
-        this.j = null;
+        this.f40751a = 0L;
+        this.f40752b = null;
+        this.f40753c = new LocationClientOption();
+        this.f40754d = new LocationClientOption();
+        this.f40755e = false;
+        this.f40756f = null;
+        this.f40757g = null;
+        this.f40760j = null;
         this.k = null;
         this.l = null;
         this.m = false;
@@ -387,17 +388,17 @@ public final class LocationClient implements c.a {
         this.E = false;
         this.F = false;
         this.G = new com.baidu.location.b(this);
-        this.f6533f = context;
-        this.f6530c = locationClientOption;
-        this.f6531d = new LocationClientOption(locationClientOption);
-        this.f6535h = new a(Looper.getMainLooper(), this);
-        this.f6536i = new Messenger(this.f6535h);
+        this.f40756f = context;
+        this.f40753c = locationClientOption;
+        this.f40754d = new LocationClientOption(locationClientOption);
+        this.f40758h = new a(Looper.getMainLooper(), this);
+        this.f40759i = new Messenger(this.f40758h);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || this.f6532e) {
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || this.f40755e) {
             return;
         }
         if (this.A.booleanValue()) {
@@ -407,23 +408,23 @@ public final class LocationClient implements c.a {
             }
             this.A = Boolean.FALSE;
         }
-        this.f6529b = this.f6533f.getPackageName();
-        this.u = this.f6529b + "_bdls_v2.9";
-        Intent intent = new Intent(this.f6533f, f.class);
+        this.f40752b = this.f40756f.getPackageName();
+        this.u = this.f40752b + "_bdls_v2.9";
+        Intent intent = new Intent(this.f40756f, f.class);
         try {
             intent.putExtra("debug_dev", this.B);
         } catch (Exception unused2) {
         }
-        if (this.f6530c == null) {
-            this.f6530c = new LocationClientOption();
+        if (this.f40753c == null) {
+            this.f40753c = new LocationClientOption();
         }
-        intent.putExtra("cache_exception", this.f6530c.isIgnoreCacheException);
-        intent.putExtra("kill_process", this.f6530c.isIgnoreKillProcess);
+        intent.putExtra("cache_exception", this.f40753c.isIgnoreCacheException);
+        intent.putExtra("kill_process", this.f40753c.isIgnoreKillProcess);
         try {
-            this.f6533f.bindService(intent, this.G, 1);
+            this.f40756f.bindService(intent, this.G, 1);
         } catch (Exception e2) {
             e2.printStackTrace();
-            this.f6532e = false;
+            this.f40755e = false;
         }
     }
 
@@ -431,10 +432,10 @@ public final class LocationClient implements c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65543, this, i2) == null) {
             if (this.l.getCoorType() == null) {
-                this.l.setCoorType(this.f6530c.coorType);
+                this.l.setCoorType(this.f40753c.coorType);
             }
-            if (this.m || ((this.f6530c.location_change_notify && this.l.getLocType() == 61) || this.l.getLocType() == 66 || this.l.getLocType() == 67 || this.w || this.l.getLocType() == 161)) {
-                ArrayList<BDLocationListener> arrayList = this.j;
+            if (this.m || ((this.f40753c.location_change_notify && this.l.getLocType() == 61) || this.l.getLocType() == 66 || this.l.getLocType() == 67 || this.w || this.l.getLocType() == 161)) {
+                ArrayList<BDLocationListener> arrayList = this.f40760j;
                 if (arrayList != null) {
                     Iterator<BDLocationListener> it = arrayList.iterator();
                     while (it.hasNext()) {
@@ -462,14 +463,14 @@ public final class LocationClient implements c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65544, this, i2, notification) == null) {
             try {
-                Intent intent = new Intent(this.f6533f, f.class);
+                Intent intent = new Intent(this.f40756f, f.class);
                 intent.putExtra(ActionJsonData.TAG_NOTIFICATION, notification);
                 intent.putExtra("id", i2);
                 intent.putExtra("command", 1);
                 if (Build.VERSION.SDK_INT >= 26) {
-                    this.f6533f.startForegroundService(intent);
+                    this.f40756f.startForegroundService(intent);
                 } else {
-                    this.f6533f.startService(intent);
+                    this.f40756f.startService(intent);
                 }
                 this.F = true;
             } catch (Exception unused) {
@@ -487,36 +488,36 @@ public final class LocationClient implements c.a {
                 return;
             }
             LocationClientOption locationClientOption = (LocationClientOption) obj;
-            if (this.f6530c.optionEquals(locationClientOption)) {
+            if (this.f40753c.optionEquals(locationClientOption)) {
                 return;
             }
-            if (this.f6530c.scanSpan != locationClientOption.scanSpan) {
+            if (this.f40753c.scanSpan != locationClientOption.scanSpan) {
                 try {
                     synchronized (this.r) {
                         if (this.o) {
-                            this.f6535h.removeCallbacks(this.p);
+                            this.f40758h.removeCallbacks(this.p);
                             this.o = false;
                         }
                         if (locationClientOption.scanSpan >= 1000 && !this.o) {
                             if (this.p == null) {
                                 this.p = new b(this, null);
                             }
-                            this.f6535h.postDelayed(this.p, locationClientOption.scanSpan);
+                            this.f40758h.postDelayed(this.p, locationClientOption.scanSpan);
                             this.o = true;
                         }
                     }
                 } catch (Exception unused) {
                 }
             }
-            this.f6530c = new LocationClientOption(locationClientOption);
-            if (this.f6534g == null) {
+            this.f40753c = new LocationClientOption(locationClientOption);
+            if (this.f40757g == null) {
                 return;
             }
             try {
                 Message obtain = Message.obtain((Handler) null, 15);
-                obtain.replyTo = this.f6536i;
+                obtain.replyTo = this.f40759i;
                 obtain.setData(c());
-                this.f6534g.send(obtain);
+                this.f40757g.send(obtain);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -526,7 +527,7 @@ public final class LocationClient implements c.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Message message, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65546, this, message, i2) == null) && this.f6532e) {
+        if ((interceptable == null || interceptable.invokeLI(65546, this, message, i2) == null) && this.f40755e) {
             try {
                 Bundle data = message.getData();
                 data.setClassLoader(BDLocation.class.getClassLoader());
@@ -551,7 +552,7 @@ public final class LocationClient implements c.a {
         if (!this.E && bDLocation.getLocType() == 161) {
             this.D = true;
         }
-        ArrayList<BDLocationListener> arrayList = this.j;
+        ArrayList<BDLocationListener> arrayList = this.f40760j;
         if (arrayList != null) {
             Iterator<BDLocationListener> it = arrayList.iterator();
             while (it.hasNext()) {
@@ -572,10 +573,10 @@ public final class LocationClient implements c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65552, this, z) == null) {
             try {
-                Intent intent = new Intent(this.f6533f, f.class);
+                Intent intent = new Intent(this.f40756f, f.class);
                 intent.putExtra("removenotify", z);
                 intent.putExtra("command", 2);
-                this.f6533f.startService(intent);
+                this.f40756f.startService(intent);
                 this.F = true;
             } catch (Exception unused) {
             }
@@ -585,19 +586,19 @@ public final class LocationClient implements c.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65554, this) == null) && this.f6532e && this.f6534g != null) {
+        if ((interceptable == null || interceptable.invokeV(65554, this) == null) && this.f40755e && this.f40757g != null) {
             Message obtain = Message.obtain((Handler) null, 12);
-            obtain.replyTo = this.f6536i;
+            obtain.replyTo = this.f40759i;
             try {
-                this.f6534g.send(obtain);
+                this.f40757g.send(obtain);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
             try {
-                this.f6533f.unbindService(this.G);
+                this.f40756f.unbindService(this.G);
                 if (this.F) {
                     try {
-                        this.f6533f.stopService(new Intent(this.f6533f, f.class));
+                        this.f40756f.stopService(new Intent(this.f40756f, f.class));
                     } catch (Exception unused) {
                     }
                     this.F = false;
@@ -607,16 +608,16 @@ public final class LocationClient implements c.a {
             synchronized (this.r) {
                 try {
                     if (this.o) {
-                        this.f6535h.removeCallbacks(this.p);
+                        this.f40758h.removeCallbacks(this.p);
                         this.o = false;
                     }
                 } catch (Exception unused3) {
                 }
             }
-            this.f6534g = null;
+            this.f40757g = null;
             this.n = false;
             this.w = false;
-            this.f6532e = false;
+            this.f40755e = false;
             this.D = false;
             this.E = false;
         }
@@ -630,13 +631,13 @@ public final class LocationClient implements c.a {
             return;
         }
         BDLocationListener bDLocationListener = (BDLocationListener) obj;
-        if (this.j == null) {
-            this.j = new ArrayList<>();
+        if (this.f40760j == null) {
+            this.f40760j = new ArrayList<>();
         }
-        if (this.j.contains(bDLocationListener)) {
+        if (this.f40760j.contains(bDLocationListener)) {
             return;
         }
-        this.j.add(bDLocationListener);
+        this.f40760j.add(bDLocationListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -644,34 +645,34 @@ public final class LocationClient implements c.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) {
-            if (this.f6530c == null) {
+            if (this.f40753c == null) {
                 return null;
             }
             Bundle bundle = new Bundle();
-            bundle.putString("packName", this.f6529b);
-            bundle.putString("prodName", this.f6530c.prodName);
-            bundle.putString("coorType", this.f6530c.coorType);
-            bundle.putString("addrType", this.f6530c.addrType);
-            bundle.putBoolean("openGPS", this.f6530c.openGps);
-            bundle.putBoolean("location_change_notify", this.f6530c.location_change_notify);
-            bundle.putInt("scanSpan", this.f6530c.scanSpan);
-            bundle.putBoolean("enableSimulateGps", this.f6530c.enableSimulateGps);
-            bundle.putInt("timeOut", this.f6530c.timeOut);
-            bundle.putInt("priority", this.f6530c.priority);
+            bundle.putString("packName", this.f40752b);
+            bundle.putString("prodName", this.f40753c.prodName);
+            bundle.putString("coorType", this.f40753c.coorType);
+            bundle.putString("addrType", this.f40753c.addrType);
+            bundle.putBoolean("openGPS", this.f40753c.openGps);
+            bundle.putBoolean("location_change_notify", this.f40753c.location_change_notify);
+            bundle.putInt("scanSpan", this.f40753c.scanSpan);
+            bundle.putBoolean("enableSimulateGps", this.f40753c.enableSimulateGps);
+            bundle.putInt("timeOut", this.f40753c.timeOut);
+            bundle.putInt("priority", this.f40753c.priority);
             bundle.putBoolean("map", this.y.booleanValue());
             bundle.putBoolean(ShareDirectionType.IMPORT, this.z.booleanValue());
-            bundle.putBoolean("needDirect", this.f6530c.mIsNeedDeviceDirect);
-            bundle.putBoolean("isneedaptag", this.f6530c.isNeedAptag);
-            bundle.putBoolean("isneedpoiregion", this.f6530c.isNeedPoiRegion);
-            bundle.putBoolean("isneedregular", this.f6530c.isNeedRegular);
-            bundle.putBoolean("isneedaptagd", this.f6530c.isNeedAptagd);
-            bundle.putBoolean("isneedaltitude", this.f6530c.isNeedAltitude);
-            bundle.putBoolean("isneednewrgc", this.f6530c.isNeedNewVersionRgc);
-            bundle.putInt("autoNotifyMaxInterval", this.f6530c.a());
-            bundle.putInt("autoNotifyMinTimeInterval", this.f6530c.getAutoNotifyMinTimeInterval());
-            bundle.putInt("autoNotifyMinDistance", this.f6530c.getAutoNotifyMinDistance());
-            bundle.putFloat("autoNotifyLocSensitivity", this.f6530c.b());
-            bundle.putInt("wifitimeout", this.f6530c.wifiCacheTimeOut);
+            bundle.putBoolean("needDirect", this.f40753c.mIsNeedDeviceDirect);
+            bundle.putBoolean("isneedaptag", this.f40753c.isNeedAptag);
+            bundle.putBoolean("isneedpoiregion", this.f40753c.isNeedPoiRegion);
+            bundle.putBoolean("isneedregular", this.f40753c.isNeedRegular);
+            bundle.putBoolean("isneedaptagd", this.f40753c.isNeedAptagd);
+            bundle.putBoolean("isneedaltitude", this.f40753c.isNeedAltitude);
+            bundle.putBoolean("isneednewrgc", this.f40753c.isNeedNewVersionRgc);
+            bundle.putInt("autoNotifyMaxInterval", this.f40753c.a());
+            bundle.putInt("autoNotifyMinTimeInterval", this.f40753c.getAutoNotifyMinTimeInterval());
+            bundle.putInt("autoNotifyMinDistance", this.f40753c.getAutoNotifyMinDistance());
+            bundle.putFloat("autoNotifyLocSensitivity", this.f40753c.b());
+            bundle.putInt("wifitimeout", this.f40753c.wifiCacheTimeOut);
             return bundle;
         }
         return (Bundle) invokeV.objValue;
@@ -697,10 +698,10 @@ public final class LocationClient implements c.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65565, this) == null) || this.f6534g == null) {
+        if (!(interceptable == null || interceptable.invokeV(65565, this) == null) || this.f40757g == null) {
             return;
         }
-        if ((System.currentTimeMillis() - this.s > 3000 || !this.f6530c.location_change_notify || this.n) && (!this.w || System.currentTimeMillis() - this.t > 20000 || this.n)) {
+        if ((System.currentTimeMillis() - this.s > 3000 || !this.f40753c.location_change_notify || this.n) && (!this.w || System.currentTimeMillis() - this.t > 20000 || this.n)) {
             Message obtain = Message.obtain((Handler) null, 22);
             if (this.n) {
                 Bundle bundle = new Bundle();
@@ -709,20 +710,20 @@ public final class LocationClient implements c.a {
                 obtain.setData(bundle);
             }
             try {
-                obtain.replyTo = this.f6536i;
-                this.f6534g.send(obtain);
-                this.f6528a = System.currentTimeMillis();
+                obtain.replyTo = this.f40759i;
+                this.f40757g.send(obtain);
+                this.f40751a = System.currentTimeMillis();
                 this.m = true;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
         synchronized (this.r) {
-            if (this.f6530c != null && this.f6530c.scanSpan >= 1000 && !this.o) {
+            if (this.f40753c != null && this.f40753c.scanSpan >= 1000 && !this.o) {
                 if (this.p == null) {
                     this.p = new b(this, null);
                 }
-                this.f6535h.postDelayed(this.p, this.f6530c.scanSpan);
+                this.f40758h.postDelayed(this.p, this.f40753c.scanSpan);
                 this.o = true;
             }
         }
@@ -751,11 +752,11 @@ public final class LocationClient implements c.a {
             return;
         }
         BDLocationListener bDLocationListener = (BDLocationListener) obj;
-        ArrayList<BDLocationListener> arrayList = this.j;
+        ArrayList<BDLocationListener> arrayList = this.f40760j;
         if (arrayList == null || !arrayList.contains(bDLocationListener)) {
             return;
         }
-        this.j.remove(bDLocationListener);
+        this.f40760j.remove(bDLocationListener);
     }
 
     public static BDLocation getBDLocationInCoorType(BDLocation bDLocation, String str) {
@@ -783,7 +784,7 @@ public final class LocationClient implements c.a {
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             Bundle bundle = new Bundle();
             bundle.putBoolean("removenotify", z);
-            Message obtainMessage = this.f6535h.obtainMessage(SDKLogTypeConstants.SEND_DOWNLOAD_TYPE);
+            Message obtainMessage = this.f40758h.obtainMessage(SDKLogTypeConstants.SEND_DOWNLOAD_TYPE);
             obtainMessage.setData(bundle);
             obtainMessage.sendToTarget();
         }
@@ -792,24 +793,21 @@ public final class LocationClient implements c.a {
     public void enableAssistantLocation(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView) == null) {
-            k.a().a(this.f6533f, webView, this);
+            k.a().a(this.f40756f, webView, this);
         }
     }
 
     public void enableLocInForeground(int i2, Notification notification) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, notification) == null) {
-            if (i2 <= 0 || notification == null) {
-                Log.e("baidu_location_Client", "can not startLocInForeground if the param is unlegal");
-                return;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putInt("id", i2);
-            bundle.putParcelable(ActionJsonData.TAG_NOTIFICATION, notification);
-            Message obtainMessage = this.f6535h.obtainMessage(703);
-            obtainMessage.setData(bundle);
-            obtainMessage.sendToTarget();
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, notification) == null) || i2 <= 0 || notification == null) {
+            return;
         }
+        Bundle bundle = new Bundle();
+        bundle.putInt("id", i2);
+        bundle.putParcelable(ActionJsonData.TAG_NOTIFICATION, notification);
+        Message obtainMessage = this.f40758h.obtainMessage(703);
+        obtainMessage.setData(bundle);
+        obtainMessage.sendToTarget();
     }
 
     public String getAccessKey() {
@@ -817,7 +815,7 @@ public final class LocationClient implements c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                String b2 = com.baidu.location.a.a.b(this.f6533f);
+                String b2 = com.baidu.location.a.a.b(this.f40756f);
                 this.v = b2;
                 if (TextUtils.isEmpty(b2)) {
                     throw new IllegalStateException("please setting key from Manifest.xml");
@@ -839,7 +837,7 @@ public final class LocationClient implements c.a {
     public LocationClientOption getLocOption() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f6530c : (LocationClientOption) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f40753c : (LocationClientOption) invokeV.objValue;
     }
 
     public String getVersion() {
@@ -851,7 +849,7 @@ public final class LocationClient implements c.a {
     public boolean isStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f6532e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f40755e : invokeV.booleanValue;
     }
 
     public void onReceiveLightLocString(String str) {
@@ -865,7 +863,7 @@ public final class LocationClient implements c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bDLocation) == null) {
             if ((!this.E || this.D) && bDLocation != null) {
-                Message obtainMessage = this.f6535h.obtainMessage(701);
+                Message obtainMessage = this.f40758h.obtainMessage(701);
                 obtainMessage.obj = bDLocation;
                 obtainMessage.sendToTarget();
             }
@@ -878,7 +876,7 @@ public final class LocationClient implements c.a {
             if (bDAbstractLocationListener == null) {
                 throw new IllegalStateException("please set a non-null listener");
             }
-            Message obtainMessage = this.f6535h.obtainMessage(1300);
+            Message obtainMessage = this.f40758h.obtainMessage(1300);
             obtainMessage.obj = bDAbstractLocationListener;
             obtainMessage.sendToTarget();
         }
@@ -890,7 +888,7 @@ public final class LocationClient implements c.a {
             if (bDLocationListener == null) {
                 throw new IllegalStateException("please set a non-null listener");
             }
-            Message obtainMessage = this.f6535h.obtainMessage(5);
+            Message obtainMessage = this.f40758h.obtainMessage(5);
             obtainMessage.obj = bDLocationListener;
             obtainMessage.sendToTarget();
         }
@@ -900,9 +898,9 @@ public final class LocationClient implements c.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.f6534g != null && this.f6532e) {
+            if (this.f40757g != null && this.f40755e) {
                 try {
-                    this.f6534g.send(Message.obtain((Handler) null, 406));
+                    this.f40757g.send(Message.obtain((Handler) null, 406));
                     return true;
                 } catch (Exception unused) {
                 }
@@ -917,18 +915,18 @@ public final class LocationClient implements c.a {
         ArrayList<BDAbstractLocationListener> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.f6534g == null || this.f6536i == null) {
+            if (this.f40757g == null || this.f40759i == null) {
                 return 1;
             }
-            ArrayList<BDLocationListener> arrayList2 = this.j;
+            ArrayList<BDLocationListener> arrayList2 = this.f40760j;
             if ((arrayList2 == null || arrayList2.size() < 1) && ((arrayList = this.k) == null || arrayList.size() < 1)) {
                 return 2;
             }
-            if (System.currentTimeMillis() - this.f6528a < 1000) {
+            if (System.currentTimeMillis() - this.f40751a < 1000) {
                 return 6;
             }
             this.n = true;
-            Message obtainMessage = this.f6535h.obtainMessage(4);
+            Message obtainMessage = this.f40758h.obtainMessage(4);
             obtainMessage.arg1 = 0;
             obtainMessage.sendToTarget();
             return 0;
@@ -941,7 +939,7 @@ public final class LocationClient implements c.a {
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             stop();
             this.x = false;
-            this.f6535h.sendEmptyMessageDelayed(1, 1000L);
+            this.f40758h.sendEmptyMessageDelayed(1, 1000L);
         }
     }
 
@@ -955,8 +953,8 @@ public final class LocationClient implements c.a {
                 locationClientOption.setScanSpan(0);
                 locationClientOption.setLocationNotify(true);
             }
-            this.f6531d = new LocationClientOption(locationClientOption);
-            Message obtainMessage = this.f6535h.obtainMessage(3);
+            this.f40754d = new LocationClientOption(locationClientOption);
+            Message obtainMessage = this.f40758h.obtainMessage(3);
             obtainMessage.obj = locationClientOption;
             obtainMessage.sendToTarget();
         }
@@ -966,7 +964,7 @@ public final class LocationClient implements c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             this.x = false;
-            this.f6535h.obtainMessage(1).sendToTarget();
+            this.f40758h.obtainMessage(1).sendToTarget();
         }
     }
 
@@ -974,7 +972,7 @@ public final class LocationClient implements c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.x = true;
-            this.f6535h.obtainMessage(2).sendToTarget();
+            this.f40758h.obtainMessage(2).sendToTarget();
             this.C = null;
         }
     }
@@ -985,7 +983,7 @@ public final class LocationClient implements c.a {
             if (bDAbstractLocationListener == null) {
                 throw new IllegalStateException("please set a non-null listener");
             }
-            Message obtainMessage = this.f6535h.obtainMessage(FeatureCodes.POSE);
+            Message obtainMessage = this.f40758h.obtainMessage(FeatureCodes.POSE);
             obtainMessage.obj = bDAbstractLocationListener;
             obtainMessage.sendToTarget();
         }
@@ -997,7 +995,7 @@ public final class LocationClient implements c.a {
             if (bDLocationListener == null) {
                 throw new IllegalStateException("please set a non-null listener");
             }
-            Message obtainMessage = this.f6535h.obtainMessage(6);
+            Message obtainMessage = this.f40758h.obtainMessage(6);
             obtainMessage.obj = bDLocationListener;
             obtainMessage.sendToTarget();
         }
@@ -1007,13 +1005,13 @@ public final class LocationClient implements c.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, location)) == null) {
-            if (this.f6534g == null || this.f6536i == null || location == null) {
+            if (this.f40757g == null || this.f40759i == null || location == null) {
                 return false;
             }
             try {
                 Message obtain = Message.obtain((Handler) null, 57);
                 obtain.obj = location;
-                this.f6534g.send(obtain);
+                this.f40757g.send(obtain);
                 return true;
             } catch (Exception e2) {
                 e2.printStackTrace();

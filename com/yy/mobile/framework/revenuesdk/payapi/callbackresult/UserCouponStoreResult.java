@@ -9,20 +9,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.UserCouponStore;
 import java.util.List;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class UserCouponStoreResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long serverCurrentTime;
     public List<UserCouponStore> userCouponStoreList;
 
-    public UserCouponStoreResult(long j, List<UserCouponStore> list) {
+    public UserCouponStoreResult(long j2, List<UserCouponStore> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), list};
+            Object[] objArr = {Long.valueOf(j2), list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -32,7 +33,7 @@ public class UserCouponStoreResult {
                 return;
             }
         }
-        this.serverCurrentTime = j;
+        this.serverCurrentTime = j2;
         this.userCouponStoreList = list;
     }
 
@@ -52,7 +53,7 @@ public class UserCouponStoreResult {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "UserCouponStoreResult{serverCurrentTime=" + this.serverCurrentTime + ", userCouponStoreList=" + this.userCouponStoreList + '}';
+            return "UserCouponStoreResult{serverCurrentTime=" + this.serverCurrentTime + ", userCouponStoreList=" + this.userCouponStoreList + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.mvp.Presenter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class d extends RecyclerView.Adapter<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Presenter> f34972a;
+    public List<Presenter> f71719a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public abstract class d extends RecyclerView.Adapter<c> {
                 return;
             }
         }
-        this.f34972a = new ArrayList();
+        this.f71719a = new ArrayList();
     }
 
     public abstract c a(ViewGroup viewGroup, int i2);
@@ -40,7 +40,7 @@ public abstract class d extends RecyclerView.Adapter<c> {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (Presenter presenter : this.f34972a) {
+            for (Presenter presenter : this.f71719a) {
                 presenter.h();
             }
         }
@@ -53,7 +53,7 @@ public abstract class d extends RecyclerView.Adapter<c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
             super.onViewRecycled(cVar);
-            cVar.f34970a.g();
+            cVar.f71717a.g();
         }
     }
 
@@ -63,7 +63,7 @@ public abstract class d extends RecyclerView.Adapter<c> {
     public void onBindViewHolder(c cVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, cVar, i2) == null) {
-            cVar.f34970a.a(cVar.f34971b);
+            cVar.f71717a.a(cVar.f71718b);
         }
     }
 
@@ -75,7 +75,7 @@ public abstract class d extends RecyclerView.Adapter<c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i2)) == null) {
             c a2 = a(viewGroup, i2);
-            this.f34972a.add(a2.f34970a);
+            this.f71719a.add(a2.f71717a);
             return a2;
         }
         return (c) invokeLI.objValue;

@@ -12,7 +12,7 @@ import org.apache.commons.base.BinaryDecoder;
 import org.apache.commons.base.BinaryEncoder;
 import org.apache.commons.base.DecoderException;
 import org.apache.commons.base.EncoderException;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_RESIZE_FACTOR = 2;
@@ -31,7 +31,7 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
     public final byte pad;
     public final int unencodedBlockSize;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class Context {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -210,9 +210,9 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, bArr)) == null) {
             int length = bArr.length;
             int i2 = this.unencodedBlockSize;
-            long j = (((length + i2) - 1) / i2) * this.encodedBlockSize;
+            long j2 = (((length + i2) - 1) / i2) * this.encodedBlockSize;
             int i3 = this.lineLength;
-            return i3 > 0 ? j + ((((i3 + j) - 1) / i3) * this.chunkSeparatorLength) : j;
+            return i3 > 0 ? j2 + ((((i3 + j2) - 1) / i3) * this.chunkSeparatorLength) : j2;
         }
         return invokeL.longValue;
     }

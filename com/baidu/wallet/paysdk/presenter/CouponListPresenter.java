@@ -3,16 +3,11 @@ package com.baidu.wallet.paysdk.presenter;
 import android.content.Context;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
-import com.baidu.apollon.utils.GlobalUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.PayData;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
-import com.baidu.wallet.core.beans.BeanManager;
-import com.baidu.wallet.core.utils.WalletGlobalUtils;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.baidu.wallet.paysdk.contract.CouponListContract;
@@ -20,8 +15,11 @@ import com.baidu.wallet.paysdk.datamodel.CalcPaymentResponse;
 import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.CouponListActivity;
+import com.dxmpay.apollon.utils.GlobalUtils;
+import com.dxmpay.wallet.core.beans.BeanManager;
+import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class CouponListPresenter extends CouponListContract.Presenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CouponListPresenter";
@@ -30,34 +28,34 @@ public class CouponListPresenter extends CouponListContract.Presenter {
     public CouponListActivity mActivity;
     public PayRequest mPayRequest;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f26358a;
+        public String f62260a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f26359b;
+        public int f62261b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f26360c;
+        public int f62262c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f26361d;
+        public String f62263d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f26362e;
+        public String f62264e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f26363f;
+        public String f62265f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f26364g;
+        public boolean f62266g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f26365h;
+        public boolean f62267h;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -101,16 +99,15 @@ public class CouponListPresenter extends CouponListContract.Presenter {
     public void calcPayamount(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            if (aVar != null && aVar.f26359b == -1) {
+            if (aVar != null && aVar.f62261b == -1) {
                 this.mActivity.showLoading(0);
             } else {
                 this.mActivity.setPageClickable(false);
             }
             com.baidu.wallet.paysdk.beans.c cVar = (com.baidu.wallet.paysdk.beans.c) PayBeanFactory.getInstance().getBean((Context) this.mActivity, 16, TAG);
-            PayStatisticsUtil.onEventStart(StatServiceEvent.CALCU_COUPON);
             if (aVar != null) {
                 this.isFromActivityJump = false;
-                cVar.a(aVar.f26360c, aVar.f26359b, !aVar.f26365h ? "4" : "0");
+                cVar.a(aVar.f62262c, aVar.f62261b, !aVar.f62267h ? "4" : "0");
             } else {
                 this.isFromActivityJump = true;
             }
@@ -146,7 +143,6 @@ public class CouponListPresenter extends CouponListContract.Presenter {
         couponListActivity.dismissLoading(0);
         this.isFromActivityJump = false;
         if (i2 == 16) {
-            PayStatisticsUtil.onEventEnd(StatServiceEvent.CALCU_COUPON, 0);
             CalcPaymentResponse calcPaymentResponse = obj instanceof CalcPaymentResponse ? (CalcPaymentResponse) obj : null;
             if (calcPaymentResponse == null) {
                 return;
@@ -161,14 +157,14 @@ public class CouponListPresenter extends CouponListContract.Presenter {
                 for (int i4 = 0; i4 < calcPaymentResponse.coupon_list.length; i4++) {
                     a aVar = new a();
                     PayData.Coupon[] couponArr = calcPaymentResponse.coupon_list;
-                    aVar.f26358a = couponArr[i4].icon_url;
-                    aVar.f26359b = i4;
-                    aVar.f26360c = 2;
-                    aVar.f26361d = couponArr[i4].description;
-                    aVar.f26362e = couponArr[i4].discount_msg;
-                    aVar.f26363f = couponArr[i4].select_state_desc;
-                    aVar.f26364g = couponArr[i4].getEnable();
-                    aVar.f26365h = calcPaymentResponse.coupon_list[i4].getSelected();
+                    aVar.f62260a = couponArr[i4].icon_url;
+                    aVar.f62261b = i4;
+                    aVar.f62262c = 2;
+                    aVar.f62263d = couponArr[i4].description;
+                    aVar.f62264e = couponArr[i4].discount_msg;
+                    aVar.f62265f = couponArr[i4].select_state_desc;
+                    aVar.f62266g = couponArr[i4].getEnable();
+                    aVar.f62267h = calcPaymentResponse.coupon_list[i4].getSelected();
                     arrayList.add(aVar);
                 }
             }
@@ -181,14 +177,14 @@ public class CouponListPresenter extends CouponListContract.Presenter {
                     if (discountArr[i3].isCommonDiscount()) {
                         a aVar2 = new a();
                         PayData.Discount[] discountArr2 = calcPaymentResponse.activity_list;
-                        aVar2.f26358a = discountArr2[i3].icon_url;
-                        aVar2.f26359b = i3;
-                        aVar2.f26360c = 1;
-                        aVar2.f26361d = discountArr2[i3].description;
-                        aVar2.f26362e = discountArr2[i3].discount_msg;
-                        aVar2.f26363f = discountArr2[i3].select_state_desc;
-                        aVar2.f26364g = discountArr2[i3].getEnable();
-                        aVar2.f26365h = calcPaymentResponse.activity_list[i3].getSelected();
+                        aVar2.f62260a = discountArr2[i3].icon_url;
+                        aVar2.f62261b = i3;
+                        aVar2.f62262c = 1;
+                        aVar2.f62263d = discountArr2[i3].description;
+                        aVar2.f62264e = discountArr2[i3].discount_msg;
+                        aVar2.f62265f = discountArr2[i3].select_state_desc;
+                        aVar2.f62266g = discountArr2[i3].getEnable();
+                        aVar2.f62267h = calcPaymentResponse.activity_list[i3].getSelected();
                         arrayList.add(aVar2);
                     }
                     i3++;

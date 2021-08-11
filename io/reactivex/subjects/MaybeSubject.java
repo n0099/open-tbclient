@@ -18,7 +18,7 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class MaybeSubject<T> extends Maybe<T> implements MaybeObserver<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final MaybeDisposable[] EMPTY;
@@ -29,7 +29,7 @@ public final class MaybeSubject<T> extends Maybe<T> implements MaybeObserver<T> 
     public final AtomicBoolean once;
     public T value;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class MaybeDisposable<T> extends AtomicReference<MaybeSubject<T>> implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7650903191002190468L;

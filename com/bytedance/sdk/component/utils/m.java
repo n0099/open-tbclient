@@ -24,22 +24,22 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile m f29001c;
+    public static volatile m f64867c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f29002a;
+    public Map<String, String> f64868a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f29003b;
+    public volatile boolean f64869b;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f29004d;
+    public Context f64870d;
 
     public m(Context context) {
         Interceptable interceptable = $ic;
@@ -56,12 +56,12 @@ public class m {
                 return;
             }
         }
-        this.f29003b = false;
-        if (context != null && this.f29004d == null) {
-            this.f29004d = context.getApplicationContext();
+        this.f64869b = false;
+        if (context != null && this.f64870d == null) {
+            this.f64870d = context.getApplicationContext();
             a();
         }
-        this.f29004d = context;
+        this.f64870d = context;
     }
 
     public static String b(String str) {
@@ -125,12 +125,12 @@ public class m {
                 return null;
             }
             a();
-            Map<String, String> map = this.f29002a;
+            Map<String, String> map = this.f64868a;
             if (map == null || map.isEmpty()) {
                 return null;
             }
             do {
-                str2 = this.f29002a.get(e2);
+                str2 = this.f64868a.get(e2);
                 if (str2 == null) {
                     e2 = e(e2);
                 }
@@ -214,14 +214,14 @@ public class m {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f29001c == null) {
+            if (f64867c == null) {
                 synchronized (m.class) {
-                    if (f29001c == null) {
-                        f29001c = new m(context);
+                    if (f64867c == null) {
+                        f64867c = new m(context);
                     }
                 }
             }
-            return f29001c;
+            return f64867c;
         }
         return (m) invokeL.objValue;
     }
@@ -250,17 +250,17 @@ public class m {
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.f29004d == null || this.f29003b) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.f64870d == null || this.f64869b) {
             return;
         }
         synchronized (this) {
-            if (!this.f29003b) {
+            if (!this.f64869b) {
                 List list = (List) AccessController.doPrivileged(new PrivilegedAction<List<String>>(this) { // from class: com.bytedance.sdk.component.utils.m.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ m f29005a;
+                    public final /* synthetic */ m f64871a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -277,7 +277,7 @@ public class m {
                                 return;
                             }
                         }
-                        this.f29005a = this;
+                        this.f64871a = this;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -293,7 +293,7 @@ public class m {
                         InputStream inputStream = null;
                         try {
                             ArrayList arrayList = new ArrayList();
-                            InputStream open = this.f29005a.f29004d.getAssets().open("tt_mime_type.pro");
+                            InputStream open = this.f64871a.f64870d.getAssets().open("tt_mime_type.pro");
                             try {
                                 bufferedReader = new BufferedReader(new InputStreamReader(open));
                                 while (true) {
@@ -350,7 +350,7 @@ public class m {
                         }
                     }
                 });
-                this.f29002a = new HashMap(list.size());
+                this.f64868a = new HashMap(list.size());
                 String str = "";
                 Iterator it = list.iterator();
                 while (it.hasNext()) {
@@ -365,16 +365,16 @@ public class m {
                 if (!str.isEmpty()) {
                     f(str);
                 }
-                this.f29003b = true;
+                this.f64869b = true;
             }
         }
     }
 
     private void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, str2) == null) || str == null || str.isEmpty() || str2 == null || str2.isEmpty() || this.f29002a.containsKey(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, str2) == null) || str == null || str.isEmpty() || str2 == null || str2.isEmpty() || this.f64868a.containsKey(str)) {
             return;
         }
-        this.f29002a.put(str, str2);
+        this.f64868a.put(str, str2);
     }
 }

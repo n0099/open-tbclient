@@ -1,7 +1,7 @@
 package com.alipay.sdk.packet;
 
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.util.n;
+import com.alipay.sdk.util.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,16 +13,16 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.util.Locale;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f1938a;
+    public boolean f35790a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1939b;
+    public String f35791b;
 
     public c(boolean z) {
         Interceptable interceptable = $ic;
@@ -39,21 +39,21 @@ public final class c {
                 return;
             }
         }
-        this.f1938a = z;
-        this.f1939b = n.a(24);
+        this.f35790a = z;
+        this.f35791b = k.a(24);
     }
 
-    public static byte[] b(String str, byte[] bArr) {
-        InterceptResult invokeLL;
+    public static byte[] b(String str, byte[] bArr, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, bArr)) == null) ? com.alipay.sdk.encrypt.e.b(str, bArr) : (byte[]) invokeLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, bArr, str2)) == null) ? com.alipay.sdk.encrypt.e.b(str, bArr, str2) : (byte[]) invokeLLL.objValue;
     }
 
-    public d a(b bVar, boolean z) {
-        InterceptResult invokeLZ;
+    public d a(b bVar, boolean z, String str) {
+        InterceptResult invokeCommon;
         byte[] a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, z)) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bVar, Boolean.valueOf(z), str})) == null) {
             if (bVar == null) {
                 return null;
             }
@@ -61,32 +61,32 @@ public final class c {
             byte[] bytes2 = bVar.b().getBytes();
             if (z) {
                 try {
-                    bytes2 = com.alipay.sdk.encrypt.c.a(bytes2);
+                    bytes2 = com.alipay.sdk.encrypt.b.a(bytes2);
                 } catch (Exception unused) {
                     z = false;
                 }
             }
-            if (this.f1938a) {
-                a2 = a(bytes, a(this.f1939b, com.alipay.sdk.cons.a.f1867c), a(this.f1939b, bytes2));
+            if (this.f35790a) {
+                a2 = a(bytes, a(this.f35791b, com.alipay.sdk.cons.a.f35712e), a(this.f35791b, bytes2, str));
             } else {
                 a2 = a(bytes, bytes2);
             }
             return new d(z, a2);
         }
-        return (d) invokeLZ.objValue;
+        return (d) invokeCommon.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:59:0x007f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public b a(d dVar) {
-        InterceptResult invokeL;
+    public b a(d dVar, String str) {
+        InterceptResult invokeLL;
         ByteArrayInputStream byteArrayInputStream;
-        String str;
         String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, dVar, str)) == null) {
             ByteArrayInputStream byteArrayInputStream2 = null;
             try {
                 byteArrayInputStream = new ByteArrayInputStream(dVar.b());
@@ -96,10 +96,10 @@ public final class c {
                         byteArrayInputStream.read(bArr);
                         byte[] bArr2 = new byte[a(new String(bArr))];
                         byteArrayInputStream.read(bArr2);
-                        str = new String(bArr2);
+                        str2 = new String(bArr2);
                     } catch (Exception e2) {
                         e = e2;
-                        str = null;
+                        str2 = null;
                     }
                     try {
                         byte[] bArr3 = new byte[5];
@@ -108,15 +108,15 @@ public final class c {
                         if (a2 > 0) {
                             byte[] bArr4 = new byte[a2];
                             byteArrayInputStream.read(bArr4);
-                            if (this.f1938a) {
-                                bArr4 = b(this.f1939b, bArr4);
+                            if (this.f35790a) {
+                                bArr4 = b(this.f35791b, bArr4, str);
                             }
                             if (dVar.a()) {
-                                bArr4 = com.alipay.sdk.encrypt.c.b(bArr4);
+                                bArr4 = com.alipay.sdk.encrypt.b.b(bArr4);
                             }
-                            str2 = new String(bArr4);
+                            str3 = new String(bArr4);
                         } else {
-                            str2 = null;
+                            str3 = null;
                         }
                         try {
                             byteArrayInputStream.close();
@@ -131,10 +131,10 @@ public final class c {
                             } catch (Exception unused2) {
                             }
                         }
-                        str2 = null;
-                        if (str == null) {
+                        str3 = null;
+                        if (str2 == null) {
                         }
-                        return new b(str, str2);
+                        return new b(str2, str3);
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -150,19 +150,19 @@ public final class c {
             } catch (Exception e4) {
                 e = e4;
                 byteArrayInputStream = null;
-                str = null;
+                str2 = null;
             } catch (Throwable th2) {
                 th = th2;
                 if (byteArrayInputStream2 != null) {
                 }
                 throw th;
             }
-            if (str == null || str2 != null) {
-                return new b(str, str2);
+            if (str2 == null || str3 != null) {
+                return new b(str2, str3);
             }
             return null;
         }
-        return (b) invokeL.objValue;
+        return (b) invokeLL.objValue;
     }
 
     public static byte[] a(String str, String str2) {
@@ -171,10 +171,10 @@ public final class c {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) ? com.alipay.sdk.encrypt.d.a(str, str2) : (byte[]) invokeLL.objValue;
     }
 
-    public static byte[] a(String str, byte[] bArr) {
-        InterceptResult invokeLL;
+    public static byte[] a(String str, byte[] bArr, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bArr)) == null) ? com.alipay.sdk.encrypt.e.a(str, bArr) : (byte[]) invokeLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bArr, str2)) == null) ? com.alipay.sdk.encrypt.e.a(str, bArr, str2) : (byte[]) invokeLLL.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:33:0x0054, code lost:

@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class d<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class<?> f28558a;
+    public final Class<?> f64412a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f28559b;
+    public final String f64413b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Class[] f28560c;
+    public final Class[] f64414c;
 
     public d(Class<?> cls, String str, Class... clsArr) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public class d<T> {
                 return;
             }
         }
-        this.f28558a = cls;
-        this.f28559b = str;
-        this.f28560c = clsArr;
+        this.f64412a = cls;
+        this.f64413b = str;
+        this.f64414c = clsArr;
     }
 
     public boolean a(T t) {
@@ -81,7 +81,7 @@ public class d<T> {
                     throw assertionError;
                 }
             }
-            throw new AssertionError("Method " + this.f28559b + " not supported for object " + t);
+            throw new AssertionError("Method " + this.f64413b + " not supported for object " + t);
         }
         return invokeLL.objValue;
     }
@@ -127,10 +127,10 @@ public class d<T> {
         Class<?> cls2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, cls)) == null) {
-            String str = this.f28559b;
+            String str = this.f64413b;
             if (str != null) {
-                Method a2 = a(cls, str, this.f28560c);
-                if (a2 == null || (cls2 = this.f28558a) == null || cls2.isAssignableFrom(a2.getReturnType())) {
+                Method a2 = a(cls, str, this.f64414c);
+                if (a2 == null || (cls2 = this.f64412a) == null || cls2.isAssignableFrom(a2.getReturnType())) {
                     return a2;
                 }
                 return null;

@@ -14,22 +14,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DragContainer extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Scroller f21261e;
+    public Scroller f56760e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Rect f21262f;
+    public Rect f56761f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f21263g;
+    public View f56762g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f21264h;
+    public Bitmap f56763h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DragContainer(Context context) {
@@ -49,27 +49,34 @@ public class DragContainer extends LinearLayout {
                 return;
             }
         }
-        this.f21262f = new Rect();
-        f(context);
+        this.f56761f = new Rect();
+        a(context);
     }
 
-    public void c(View view) {
+    public final void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f21263g = view;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.f56760e = new Scroller(context);
+        }
+    }
+
+    public void delete(View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+            this.f56762g = view;
             view.setDrawingCacheEnabled(true);
             view.buildDrawingCache();
             Bitmap drawingCache = view.getDrawingCache();
             if (drawingCache != null) {
-                this.f21264h = Bitmap.createBitmap(drawingCache);
+                this.f56763h = Bitmap.createBitmap(drawingCache);
             }
             view.destroyDrawingCache();
             view.setDrawingCacheEnabled(false);
-            view.getDrawingRect(this.f21262f);
-            offsetDescendantRectToMyCoords(view, this.f21262f);
+            view.getDrawingRect(this.f56761f);
+            offsetDescendantRectToMyCoords(view, this.f56761f);
             int height = getHeight();
-            Scroller scroller = this.f21261e;
-            int i2 = this.f21262f.top;
+            Scroller scroller = this.f56760e;
+            int i2 = this.f56761f.top;
             scroller.startScroll(i2, 0, height - i2, 0, 800);
             invalidate();
         }
@@ -78,30 +85,23 @@ public class DragContainer extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            if (this.f21263g != null) {
-                if (this.f21261e.computeScrollOffset() && this.f21264h != null) {
+            if (this.f56762g != null) {
+                if (this.f56760e.computeScrollOffset() && this.f56763h != null) {
                     canvas.save();
-                    canvas.drawBitmap(this.f21264h, this.f21262f.left, this.f21261e.getCurrX(), (Paint) null);
+                    canvas.drawBitmap(this.f56763h, this.f56761f.left, this.f56760e.getCurrX(), (Paint) null);
                     canvas.restore();
                     postInvalidateDelayed(16L);
                     return;
                 }
-                Bitmap bitmap = this.f21264h;
+                Bitmap bitmap = this.f56763h;
                 if (bitmap != null) {
                     bitmap.recycle();
                 }
-                this.f21264h = null;
-                this.f21263g = null;
+                this.f56763h = null;
+                this.f56762g = null;
             }
-        }
-    }
-
-    public final void f(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.f21261e = new Scroller(context);
         }
     }
 
@@ -110,13 +110,13 @@ public class DragContainer extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDetachedFromWindow();
-            this.f21261e.forceFinished(true);
-            Bitmap bitmap = this.f21264h;
+            this.f56760e.forceFinished(true);
+            Bitmap bitmap = this.f56763h;
             if (bitmap != null) {
                 bitmap.recycle();
             }
-            this.f21264h = null;
-            this.f21263g = null;
+            this.f56763h = null;
+            this.f56762g = null;
         }
     }
 
@@ -139,7 +139,7 @@ public class DragContainer extends LinearLayout {
                 return;
             }
         }
-        this.f21262f = new Rect();
-        f(context);
+        this.f56761f = new Rect();
+        a(context);
     }
 }

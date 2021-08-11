@@ -1,7 +1,6 @@
 package com.baidu.adp.lib.util;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class BdLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "BaiduLog";
@@ -86,42 +85,34 @@ public class BdLog {
     }
 
     public static void d(String str, String str2, String str3) {
-        String createMsg;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, str3) == null) || (createMsg = createMsg(true, str, str2, str3)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, str3) == null) {
+            createMsg(true, str, str2, str3);
         }
-        Log.d(LOG_TAG, createMsg);
     }
 
     public static int detailException(String str, Throwable th) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, th)) == null) {
-            if (isDebugMode() && th != null) {
-                Log.e(LOG_TAG, str, th);
-            }
+            isDebugMode();
             return printLog(0, str);
         }
         return invokeLL.intValue;
     }
 
     public static void e(String str, String str2, String str3) {
-        String createMsg;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65546, null, str, str2, str3) == null) || (createMsg = createMsg(false, str, str2, str3)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, str, str2, str3) == null) {
+            createMsg(false, str, str2, str3);
         }
-        Log.e(LOG_TAG, createMsg);
     }
 
     public static void i(String str, String str2, String str3) {
-        String createMsg;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65548, null, str, str2, str3) == null) || (createMsg = createMsg(true, str, str2, str3)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLL(65548, null, str, str2, str3) == null) {
+            createMsg(true, str, str2, str3);
         }
-        Log.i(LOG_TAG, createMsg);
     }
 
     public static boolean isDebugMode() {
@@ -200,21 +191,17 @@ public class BdLog {
     }
 
     public static void v(String str, String str2, String str3) {
-        String createMsg;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65554, null, str, str2, str3) == null) || (createMsg = createMsg(true, str, str2, str3)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLL(65554, null, str, str2, str3) == null) {
+            createMsg(true, str, str2, str3);
         }
-        Log.v(LOG_TAG, createMsg);
     }
 
     public static void w(String str, String str2, String str3) {
-        String createMsg;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65556, null, str, str2, str3) == null) || (createMsg = createMsg(false, str, str2, str3)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLL(65556, null, str, str2, str3) == null) {
+            createMsg(false, str, str2, str3);
         }
-        Log.w(LOG_TAG, createMsg);
     }
 
     public static int d(String str) {
@@ -254,7 +241,7 @@ public class BdLog {
             if (!isDebugMode() || th == null) {
                 return -1;
             }
-            Log.e(LOG_TAG, th.getMessage(), th);
+            th.getMessage();
             return printLog(0, th.getMessage());
         }
         return invokeL.intValue;

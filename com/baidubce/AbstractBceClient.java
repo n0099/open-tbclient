@@ -1,6 +1,5 @@
 package com.baidubce;
 
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import com.baidubce.model.AbstractBceResponse;
 import com.baidubce.util.DateUtils;
 import java.net.URI;
 import java.net.URISyntaxException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class AbstractBceClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CONTENT_TYPE = "application/json; charset=utf-8";
@@ -80,7 +79,7 @@ public abstract class AbstractBceClient {
                 String substring = name.substring(str.length());
                 if (substring.indexOf(46) == -1) {
                     String name2 = getClass().getName();
-                    String str2 = name + IStringUtil.EXTENSION_SEPARATOR + Character.toUpperCase(substring.charAt(0)) + substring.substring(1) + "Client";
+                    String str2 = name + '.' + Character.toUpperCase(substring.charAt(0)) + substring.substring(1) + "Client";
                     if (name2.equals(str2)) {
                         return substring;
                     }

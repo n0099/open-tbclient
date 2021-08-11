@@ -14,22 +14,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.HttpURLConnection;
 import java.net.URL;
 @SuppressLint({"NewApi"})
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38263a = "com.sdk.base.framework.a.a";
+    public static final String f75046a = "com.sdk.base.framework.a.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f38264b;
+    public static Boolean f75047b;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ConnectivityManager.NetworkCallback f38265d;
+    public static ConnectivityManager.NetworkCallback f75048d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpURLConnection f38266c;
+    public HttpURLConnection f75049c;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public class a {
                 return;
             }
         }
-        f38264b = Boolean.valueOf(com.sdk.base.framework.c.f.f38384b);
+        f75047b = Boolean.valueOf(com.sdk.base.framework.c.f.f75169b);
     }
 
     public a(Context context, URL url) {
@@ -68,10 +68,10 @@ public class a {
             builder.addTransportType(0);
             NetworkRequest build = builder.build();
             b bVar = new b(this, url);
-            f38265d = bVar;
+            f75048d = bVar;
             ((ConnectivityManager) context.getSystemService("connectivity")).requestNetwork(build, bVar);
         } catch (Exception e2) {
-            com.sdk.base.framework.a.a.c.b(f38263a, e2.toString(), f38264b);
+            com.sdk.base.framework.a.a.c.b(f75046a, e2.toString(), f75047b);
         }
     }
 
@@ -81,7 +81,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c(this, 2000L);
             while (!cVar.a()) {
-                HttpURLConnection httpURLConnection = this.f38266c;
+                HttpURLConnection httpURLConnection = this.f75049c;
                 if (httpURLConnection != null) {
                     return httpURLConnection;
                 }

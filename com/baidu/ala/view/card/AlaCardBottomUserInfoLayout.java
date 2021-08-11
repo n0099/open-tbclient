@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.b1.l0;
+import c.a.o0.s.q.c2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -21,9 +23,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.b1.j0;
-import d.a.p0.s.q.b2;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AlaCardBottomUserInfoLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_USERNAME_LENGTH = 10;
@@ -85,26 +85,26 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
         }
     }
 
-    public void setData(b2 b2Var) {
+    public void setData(c2 c2Var) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b2Var) == null) || b2Var == null || b2Var.h1() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c2Var) == null) || c2Var == null || c2Var.j1() == null) {
             return;
         }
-        AlaUserInfoData alaUserInfoData = b2Var.h1().user_info;
-        if (b2Var.H() != null) {
-            str = b2Var.H().getName_show();
+        AlaUserInfoData alaUserInfoData = c2Var.j1().user_info;
+        if (c2Var.J() != null) {
+            str = c2Var.J().getName_show();
         } else {
             str = alaUserInfoData != null ? alaUserInfoData.user_name : "";
         }
-        if (j0.d(str) > 10) {
-            str = j0.m(str, 10) + StringHelper.STRING_MORE;
+        if (l0.d(str) > 10) {
+            str = l0.m(str, 10) + "...";
         }
         if (alaUserInfoData != null) {
-            this.alaCardUserHeadImg.M(alaUserInfoData.portrait, 28, false);
+            this.alaCardUserHeadImg.startLoad(alaUserInfoData.portrait, 28, false);
         }
         this.alaCardUserName.setText(str);
-        this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), StringHelper.numFormatOverWan(b2Var.h1().audience_count)));
+        this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), StringHelper.numFormatOverWan(c2Var.j1().audience_count)));
     }
 
     public void setUserHeadImgVisible(int i2) {
@@ -122,7 +122,7 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (alaPlayAnimationView = this.alaPlayAnim) == null) {
             return;
         }
-        alaPlayAnimationView.b();
+        alaPlayAnimationView.startPlayAnimation();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

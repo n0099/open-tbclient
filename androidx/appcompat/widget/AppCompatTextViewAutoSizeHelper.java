@@ -13,7 +13,6 @@ import android.text.TextPaint;
 import android.text.method.TransformationMethod;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.util.TypedValue;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -221,8 +220,8 @@ public class AppCompatTextViewAutoSizeHelper {
             try {
                 Field textViewField = getTextViewField(str);
                 return textViewField == null ? t : (T) textViewField.get(obj);
-            } catch (IllegalAccessException e2) {
-                Log.w(TAG, "Failed to access TextView#" + str + " member", e2);
+            } catch (IllegalAccessException unused) {
+                String str2 = "Failed to access TextView#" + str + " member";
                 return t;
             }
         }
@@ -283,7 +282,6 @@ public class AppCompatTextViewAutoSizeHelper {
             try {
                 this.mImpl.computeAndSetTextDirection(obtain, this.mTextView);
             } catch (ClassCastException unused) {
-                Log.w(TAG, "Failed to obtain TextDirectionHeuristic, auto size may be incorrect");
             }
             return obtain.build();
         }
@@ -342,8 +340,8 @@ public class AppCompatTextViewAutoSizeHelper {
                     sTextViewFieldByNameCache.put(str, field);
                 }
                 return field;
-            } catch (NoSuchFieldException e2) {
-                Log.w(TAG, "Failed to access TextView#" + str + " member", e2);
+            } catch (NoSuchFieldException unused) {
+                String str2 = "Failed to access TextView#" + str + " member";
                 return null;
             }
         }
@@ -362,8 +360,8 @@ public class AppCompatTextViewAutoSizeHelper {
                     sTextViewMethodByNameCache.put(str, method);
                 }
                 return method;
-            } catch (Exception e2) {
-                Log.w(TAG, "Failed to retrieve TextView#" + str + "() method", e2);
+            } catch (Exception unused) {
+                String str2 = "Failed to retrieve TextView#" + str + "() method";
                 return null;
             }
         }
@@ -376,8 +374,8 @@ public class AppCompatTextViewAutoSizeHelper {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, obj, str, t)) == null) {
             try {
                 return (T) getTextViewMethod(str).invoke(obj, new Object[0]);
-            } catch (Exception e2) {
-                Log.w(TAG, "Failed to invoke TextView#" + str + "() method", e2);
+            } catch (Exception unused) {
+                String str2 = "Failed to invoke TextView#" + str + "() method";
                 return t;
             }
         }
@@ -398,8 +396,7 @@ public class AppCompatTextViewAutoSizeHelper {
                 if (textViewMethod != null) {
                     textViewMethod.invoke(this.mTextView, new Object[0]);
                 }
-            } catch (Exception e2) {
-                Log.w(TAG, "Failed to invoke TextView#nullLayouts() method", e2);
+            } catch (Exception unused) {
             }
             if (!isInLayout) {
                 this.mTextView.requestLayout();

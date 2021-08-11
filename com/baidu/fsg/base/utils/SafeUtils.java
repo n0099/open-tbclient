@@ -1,7 +1,6 @@
 package com.baidu.fsg.base.utils;
 
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class SafeUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SafeUtils";
@@ -35,23 +34,6 @@ public final class SafeUtils {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? !TextUtils.isEmpty(str2) ? RimArmor.getInstance().encryptProxy(str2) : "" : (String) invokeLL.objValue;
     }
 
-    public static byte[] xor(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (bArr == null || bArr2 == null) {
-                return null;
-            }
-            for (int i2 = 0; i2 < bArr.length; i2++) {
-                bArr[i2] = (byte) (bArr[i2] ^ bArr2[i2 % bArr2.length]);
-            }
-            Log.i(TAG, "xor cost time " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
-            return bArr;
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
     public static String xor(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -66,5 +48,22 @@ public final class SafeUtils {
             return "";
         }
         return (String) invokeLL.objValue;
+    }
+
+    public static byte[] xor(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (bArr == null || bArr2 == null) {
+                return null;
+            }
+            for (int i2 = 0; i2 < bArr.length; i2++) {
+                bArr[i2] = (byte) (bArr[i2] ^ bArr2[i2 % bArr2.length]);
+            }
+            String str = "xor cost time " + (System.currentTimeMillis() - currentTimeMillis) + "ms";
+            return bArr;
+        }
+        return (byte[]) invokeLL.objValue;
     }
 }

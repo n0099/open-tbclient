@@ -41,7 +41,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Queue;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class Downsampler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Option<Boolean> ALLOW_HARDWARE_CONFIG;
@@ -64,7 +64,7 @@ public final class Downsampler {
     public final HardwareConfigState hardwareConfigState;
     public final List<ImageHeaderParser> parsers;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface DecodeCallbacks {
         void onDecodeComplete(BitmapPool bitmapPool, Bitmap bitmap) throws IOException;
 
@@ -167,9 +167,9 @@ public final class Downsampler {
             boolean z3 = false;
             try {
                 z3 = ImageHeaderParserUtils.getType(this.parsers, inputStream, this.byteArrayPool).hasAlpha();
-            } catch (IOException e2) {
+            } catch (IOException unused) {
                 if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "Cannot determine whether the image has alpha or not from header, format " + decodeFormat, e2);
+                    String str = "Cannot determine whether the image has alpha or not from header, format " + decodeFormat;
                 }
             }
             Bitmap.Config config = z3 ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565;
@@ -194,7 +194,7 @@ public final class Downsampler {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{imageType, inputStream, decodeCallbacks, bitmapPool, downsampleStrategy, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), options}) == null) {
             if (i3 <= 0 || i4 <= 0) {
                 if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "Unable to determine dimensions for: " + imageType + " with target [" + i5 + "x" + i6 + PreferencesUtil.RIGHT_MOUNT);
+                    String str = "Unable to determine dimensions for: " + imageType + " with target [" + i5 + "x" + i6 + PreferencesUtil.RIGHT_MOUNT;
                     return;
                 }
                 return;
@@ -274,7 +274,7 @@ public final class Downsampler {
                         options.inDensity = 0;
                     }
                     if (Log.isLoggable(TAG, 2)) {
-                        Log.v(TAG, "Calculate scaling, source: [" + i3 + "x" + i4 + "], target: [" + i5 + "x" + i6 + "], power of two scaled: [" + floor + "x" + i7 + "], exact scale factor: " + scaleFactor + ", power of 2 sample size: " + max + ", adjusted scale factor: " + scaleFactor2 + ", target density: " + options.inTargetDensity + ", density: " + options.inDensity);
+                        String str2 = "Calculate scaling, source: [" + i3 + "x" + i4 + "], target: [" + i5 + "x" + i6 + "], power of two scaled: [" + floor + "x" + i7 + "], exact scale factor: " + scaleFactor + ", power of 2 sample size: " + max + ", adjusted scale factor: " + scaleFactor2 + ", target density: " + options.inTargetDensity + ", density: " + options.inDensity;
                         return;
                     }
                     return;
@@ -318,7 +318,7 @@ public final class Downsampler {
                         round = Math.round(((int) Math.ceil(i5 / f3)) * f2);
                         round2 = Math.round(((int) Math.ceil(i6 / f3)) * f2);
                         if (Log.isLoggable(TAG, 2)) {
-                            Log.v(TAG, "Calculated target [" + round + "x" + round2 + "] for source [" + i5 + "x" + i6 + "], sampleSize: " + i9 + ", targetDensity: " + options.inTargetDensity + ", density: " + options.inDensity + ", density multiplier: " + f2);
+                            String str2 = "Calculated target [" + round + "x" + round2 + "] for source [" + i5 + "x" + i6 + "], sampleSize: " + i9 + ", targetDensity: " + options.inTargetDensity + ", density: " + options.inDensity + ", density multiplier: " + f2;
                         }
                     } else {
                         round = i7;
@@ -375,9 +375,7 @@ public final class Downsampler {
                     return decodeStream;
                 } catch (IllegalArgumentException e2) {
                     IOException newIoExceptionForInBitmapAssertion = newIoExceptionForInBitmapAssertion(e2, i2, i3, str, options);
-                    if (Log.isLoggable(TAG, 3)) {
-                        Log.d(TAG, "Failed to decode with inBitmap, trying again without Bitmap re-use", newIoExceptionForInBitmapAssertion);
-                    }
+                    Log.isLoggable(TAG, 3);
                     if (options.inBitmap != null) {
                         try {
                             inputStream.reset();
@@ -480,10 +478,10 @@ public final class Downsampler {
         return invokeL.booleanValue;
     }
 
-    public static void logDecode(int i2, int i3, String str, BitmapFactory.Options options, Bitmap bitmap, int i4, int i5, long j) {
+    public static void logDecode(int i2, int i3, String str, BitmapFactory.Options options, Bitmap bitmap, int i4, int i5, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, options, bitmap, Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j)}) == null) {
-            Log.v(TAG, "Decoded " + getBitmapString(bitmap) + " from [" + i2 + "x" + i3 + "] " + str + " with inBitmap " + getInBitmapString(options) + " for [" + i4 + "x" + i5 + "], sample size: " + options.inSampleSize + ", density: " + options.inDensity + ", target density: " + options.inTargetDensity + ", thread: " + Thread.currentThread().getName() + ", duration: " + LogTime.getElapsedMillis(j));
+        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, options, bitmap, Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j2)}) == null) {
+            String str2 = "Decoded " + getBitmapString(bitmap) + " from [" + i2 + "x" + i3 + "] " + str + " with inBitmap " + getInBitmapString(options) + " for [" + i4 + "x" + i5 + "], sample size: " + options.inSampleSize + ", density: " + options.inDensity + ", target density: " + options.inTargetDensity + ", thread: " + Thread.currentThread().getName() + ", duration: " + LogTime.getElapsedMillis(j2);
         }
     }
 

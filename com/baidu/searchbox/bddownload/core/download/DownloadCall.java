@@ -37,7 +37,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class DownloadCall extends NamedRunnable implements Comparable<DownloadCall> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ExecutorService EXECUTOR;
@@ -182,10 +182,10 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
     }
 
     @NonNull
-    public BreakpointLocalCheck createLocalCheck(@NonNull BreakpointInfo breakpointInfo, long j) {
+    public BreakpointLocalCheck createLocalCheck(@NonNull BreakpointInfo breakpointInfo, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, breakpointInfo, j)) == null) ? new BreakpointLocalCheck(this.task, breakpointInfo, j) : (BreakpointLocalCheck) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, breakpointInfo, j2)) == null) ? new BreakpointLocalCheck(this.task, breakpointInfo, j2) : (BreakpointLocalCheck) invokeLJ.objValue;
     }
 
     @NonNull
@@ -201,7 +201,7 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
         return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, downloadTask)) == null) ? this.task.equals(downloadTask) : invokeL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:77:0x0160 A[EDGE_INSN: B:77:0x0160->B:47:0x0160 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x015f A[EDGE_INSN: B:77:0x015f->B:47:0x015f ?: BREAK  , SYNTHETIC] */
     @Override // com.baidu.searchbox.bddownload.core.NamedRunnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.

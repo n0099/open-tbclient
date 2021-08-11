@@ -7,37 +7,39 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.tencent.connect.common.Constants;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f39183a = 60;
+    public static int f76013a = 60;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f39184b = 60;
+    public static int f76014b = 60;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f39185c = "OpenSDK.Client.File.Tracer";
+    public static String f76015c = "OpenSDK.Client.File.Tracer";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f39186d;
+    public static String f76016d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f39187e;
+    public static String f76017e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f39188f;
+    public static long f76018f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f39189g;
+    public static int f76019g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f39190h;
+    public static int f76020h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f39191i;
-    public static String j;
+    public static int f76021i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static String f76022j;
     public static String k;
     public static String l;
     public static int m;
@@ -58,13 +60,13 @@ public class c {
                 return;
             }
         }
-        f39186d = "Tencent" + File.separator + "msflogs" + File.separator + "com" + File.separator + "tencent" + File.separator + "mobileqq" + File.separator;
-        f39187e = ".log";
-        f39188f = 8388608L;
-        f39189g = 262144;
-        f39190h = 1024;
-        f39191i = 10000;
-        j = "debug.file.blockcount";
+        f76016d = "Tencent" + File.separator + "msflogs" + File.separator + "com" + File.separator + "tencent" + File.separator + "mobileqq" + File.separator;
+        f76017e = ".log";
+        f76018f = 8388608L;
+        f76019g = 262144;
+        f76020h = 1024;
+        f76021i = 10000;
+        f76022j = "debug.file.blockcount";
         k = "debug.file.keepperiod";
         l = "debug.file.tracelevel";
         m = 24;

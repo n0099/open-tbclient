@@ -18,23 +18,23 @@ import com.bytedance.sdk.openadsdk.g.a;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class r implements TTNativeExpressAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AtomicBoolean m;
     public a n;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a implements TTAppDownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<TTAppDownloadListener> f30616a;
+        public WeakReference<TTAppDownloadListener> f66539a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f30617b;
+        public String f66540b;
 
         public a(TTAppDownloadListener tTAppDownloadListener, String str) {
             Interceptable interceptable = $ic;
@@ -51,68 +51,68 @@ public class r implements TTNativeExpressAd {
                     return;
                 }
             }
-            this.f30617b = "";
-            this.f30616a = new WeakReference<>(tTAppDownloadListener);
-            this.f30617b = str;
+            this.f66540b = "";
+            this.f66539a = new WeakReference<>(tTAppDownloadListener);
+            this.f66540b = str;
         }
 
         public void a(TTAppDownloadListener tTAppDownloadListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, tTAppDownloadListener) == null) {
-                this.f30616a = new WeakReference<>(tTAppDownloadListener);
+                this.f66539a = new WeakReference<>(tTAppDownloadListener);
             }
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-        public void onDownloadActive(long j, long j2, String str, String str2) {
+        public void onDownloadActive(long j2, long j3, String str, String str2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-                WeakReference<TTAppDownloadListener> weakReference = this.f30616a;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) {
+                WeakReference<TTAppDownloadListener> weakReference = this.f66539a;
                 if (weakReference != null && weakReference.get() != null) {
-                    this.f30616a.get().onDownloadActive(j, j2, str, str2);
+                    this.f66539a.get().onDownloadActive(j2, j3, str, str2);
                 }
-                if (j > 0) {
-                    a.C0355a.a(this.f30617b, 3, (int) ((j2 * 100) / j));
-                }
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-        public void onDownloadFailed(long j, long j2, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-                WeakReference<TTAppDownloadListener> weakReference = this.f30616a;
-                if (weakReference != null && weakReference.get() != null) {
-                    this.f30616a.get().onDownloadFailed(j, j2, str, str2);
-                }
-                if (j > 0) {
-                    a.C0355a.a(this.f30617b, 4, (int) ((j2 * 100) / j));
+                if (j2 > 0) {
+                    a.C1915a.a(this.f66540b, 3, (int) ((j3 * 100) / j2));
                 }
             }
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-        public void onDownloadFinished(long j, String str, String str2) {
+        public void onDownloadFailed(long j2, long j3, String str, String str2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
-                WeakReference<TTAppDownloadListener> weakReference = this.f30616a;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) {
+                WeakReference<TTAppDownloadListener> weakReference = this.f66539a;
                 if (weakReference != null && weakReference.get() != null) {
-                    this.f30616a.get().onDownloadFinished(j, str, str2);
+                    this.f66539a.get().onDownloadFailed(j2, j3, str, str2);
                 }
-                a.C0355a.a(this.f30617b, 5, 100);
+                if (j2 > 0) {
+                    a.C1915a.a(this.f66540b, 4, (int) ((j3 * 100) / j2));
+                }
             }
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-        public void onDownloadPaused(long j, long j2, String str, String str2) {
+        public void onDownloadFinished(long j2, String str, String str2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-                WeakReference<TTAppDownloadListener> weakReference = this.f30616a;
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {
+                WeakReference<TTAppDownloadListener> weakReference = this.f66539a;
                 if (weakReference != null && weakReference.get() != null) {
-                    this.f30616a.get().onDownloadPaused(j, j2, str, str2);
+                    this.f66539a.get().onDownloadFinished(j2, str, str2);
                 }
-                if (j > 0) {
-                    a.C0355a.a(this.f30617b, 2, (int) ((j2 * 100) / j));
+                a.C1915a.a(this.f66540b, 5, 100);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+        public void onDownloadPaused(long j2, long j3, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) {
+                WeakReference<TTAppDownloadListener> weakReference = this.f66539a;
+                if (weakReference != null && weakReference.get() != null) {
+                    this.f66539a.get().onDownloadPaused(j2, j3, str, str2);
+                }
+                if (j2 > 0) {
+                    a.C1915a.a(this.f66540b, 2, (int) ((j3 * 100) / j2));
                 }
             }
         }
@@ -121,11 +121,11 @@ public class r implements TTNativeExpressAd {
         public void onIdle() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                WeakReference<TTAppDownloadListener> weakReference = this.f30616a;
+                WeakReference<TTAppDownloadListener> weakReference = this.f66539a;
                 if (weakReference != null && weakReference.get() != null) {
-                    this.f30616a.get().onIdle();
+                    this.f66539a.get().onIdle();
                 }
-                a.C0355a.a(this.f30617b, 1, 0);
+                a.C1915a.a(this.f66540b, 1, 0);
             }
         }
 
@@ -133,11 +133,11 @@ public class r implements TTNativeExpressAd {
         public void onInstalled(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-                WeakReference<TTAppDownloadListener> weakReference = this.f30616a;
+                WeakReference<TTAppDownloadListener> weakReference = this.f66539a;
                 if (weakReference != null && weakReference.get() != null) {
-                    this.f30616a.get().onInstalled(str, str2);
+                    this.f66539a.get().onInstalled(str, str2);
                 }
-                a.C0355a.a(this.f30617b, 6, 100);
+                a.C1915a.a(this.f66540b, 6, 100);
             }
         }
     }

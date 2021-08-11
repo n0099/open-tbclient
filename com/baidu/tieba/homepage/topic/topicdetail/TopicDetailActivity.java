@@ -4,6 +4,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.m.b;
+import c.a.e.e.p.j;
+import c.a.e.e.p.k;
+import c.a.e.k.e.n;
+import c.a.o0.a.g;
+import c.a.o0.a.w;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -25,12 +31,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.m.b;
-import d.a.d.e.p.j;
-import d.a.d.e.p.k;
-import d.a.d.k.e.n;
-import d.a.p0.a.g;
-import d.a.p0.a.x;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -39,8 +39,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements d.a.q0.e1.k.a.a {
+/* loaded from: classes7.dex */
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements c.a.p0.f1.k.a.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
@@ -52,13 +52,13 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
     public TopicDetailView mTopicDetailView;
     public long topicID;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements g.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TopicDetailActivity f16952a;
+        public final /* synthetic */ TopicDetailActivity f52185a;
 
         public a(TopicDetailActivity topicDetailActivity) {
             Interceptable interceptable = $ic;
@@ -75,10 +75,10 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                     return;
                 }
             }
-            this.f16952a = topicDetailActivity;
+            this.f52185a = topicDetailActivity;
         }
 
-        @Override // d.a.p0.a.g.b
+        @Override // c.a.o0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.v) instanceof String)) {
@@ -86,7 +86,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 if (StringUtils.isNull(str)) {
                     return;
                 }
-                this.f16952a.topicID = b.f(str, -1L);
+                this.f52185a.topicID = b.f(str, -1L);
             }
         }
     }
@@ -117,14 +117,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             Map<String, String> paramPair = UrlManager.getParamPair(str);
             if (paramPair != null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-                x.b(statisticItem, paramPair);
+                w.b(statisticItem, paramPair);
                 statisticItem.param("obj_locate", paramPair.get("obj_locate"));
                 statisticItem.param("obj_type", 1);
                 statisticItem.param("tid", paramPair.get("tid"));
                 statisticItem.param("obj_source", paramPair.get("obj_source"));
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, paramPair.get(TiebaStatic.Params.OBJ_PARAM2));
                 statisticItem.param(TiebaStatic.Params.OBJ_TO, 3);
-                statisticItem.param("obj_id", paramPair.get("bdid"));
+                statisticItem.param("obj_id", paramPair.get(TiebaStatic.Params.BDID));
                 statisticItem.param("obj_name", TbadkCoreApplication.getInst().getStartType());
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, 1);
                 if (!k.isEmpty(paramPair.get("ext_log"))) {
@@ -167,14 +167,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.p0.m0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a024" : (String) invokeV.objValue;
     }
 
-    @Override // d.a.q0.e1.k.a.a
+    @Override // c.a.p0.f1.k.a.a
     public void loadData() {
         int i2;
         String substring;
@@ -217,11 +217,11 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             if (this.topicID < 0) {
                 finish();
             } else if (!j.A()) {
-                this.mTopicDetailView.r();
-                this.mTopicDetailView.B(true);
+                this.mTopicDetailView.hideLoadingView();
+                this.mTopicDetailView.showNetRefreshView(true);
             } else {
-                this.mTopicDetailView.s();
-                this.mTopicDetailView.A(false);
+                this.mTopicDetailView.hideNetRefreshView();
+                this.mTopicDetailView.showLoadingView(false);
                 TopicDetailView topicDetailView = this.mTopicDetailView;
                 if (topicDetailView != null && topicDetailView.getEditor() != null) {
                     this.mTopicDetailView.getEditor().J(this.topicID);
@@ -231,21 +231,21 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // d.a.q0.e1.k.a.a
-    public void netCallback(int i2, d.a.q0.e1.k.a.c.a aVar) {
+    @Override // c.a.p0.f1.k.a.a
+    public void netCallback(int i2, c.a.p0.f1.k.a.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, aVar) == null) {
-            this.mTopicDetailView.r();
-            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f56305f)) {
-                this.mTopicDetailView.s();
+            this.mTopicDetailView.hideLoadingView();
+            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f17610f)) {
+                this.mTopicDetailView.hideNetRefreshView();
                 this.mTopicDetailView.setData(aVar);
                 return;
             }
-            this.mTopicDetailView.B(true);
+            this.mTopicDetailView.showNetRefreshView(true);
         }
     }
 
-    @Override // d.a.q0.e1.k.a.a
+    @Override // c.a.p0.f1.k.a.a
     public void netThreadCallback(int i2, boolean z, List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), list}) == null) {
@@ -271,7 +271,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             super.onChangeSkinType(i2);
-            this.mTopicDetailView.x();
+            this.mTopicDetailView.onChangeSkinType();
         }
     }
 
@@ -288,7 +288,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             adjustResizeForSoftInput();
             this.mTopicDetailModel.D(this);
             loadData();
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !d.a.d.a.b.f().h("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.e.a.b.f().h("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {
@@ -320,13 +320,13 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    public void requestNextPageThreadData(long j) {
+    public void requestNextPageThreadData(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            long j2 = this.mCurPageNum + 1;
-            this.mCurPageNum = j2;
-            this.mLastThreadId = j;
-            this.mTopicDetailModel.C(this.topicID, j2, j);
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+            long j3 = this.mCurPageNum + 1;
+            this.mCurPageNum = j3;
+            this.mLastThreadId = j2;
+            this.mTopicDetailModel.C(this.topicID, j3, j2);
         }
     }
 }

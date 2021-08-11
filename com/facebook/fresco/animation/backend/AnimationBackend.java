@@ -6,7 +6,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.IntRange;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface AnimationBackend extends AnimationInformation {
     public static final int INTRINSIC_DIMENSION_UNSET = -1;
 

@@ -7,22 +7,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class r1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39927a;
+    public Context f76775a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39928b;
+    public String f76776b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39929c;
+    public String f76777c;
 
     /* renamed from: d  reason: collision with root package name */
-    public T0 f39930d;
+    public T0 f76778d;
 
     public r1(Context context) {
         Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public class r1 {
                 return;
             }
         }
-        this.f39927a = context;
+        this.f76775a = context;
     }
 
     public r1 a(T0 t0) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t0)) == null) {
-            this.f39930d = t0;
+            this.f76778d = t0;
             return this;
         }
         return (r1) invokeL.objValue;
@@ -55,7 +55,7 @@ public class r1 {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f39929c = s1.f39936d + s1.f39938f;
+            this.f76777c = s1.f76784d + s1.f76786f;
             s1.a(this);
         }
     }
@@ -63,7 +63,7 @@ public class r1 {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f39929c = s1.f39936d + s1.j;
+            this.f76777c = s1.f76784d + s1.f76790j;
             s1.a(this);
         }
     }
@@ -71,7 +71,7 @@ public class r1 {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f39929c = s1.f39936d + s1.f39939g;
+            this.f76777c = s1.f76784d + s1.f76787g;
             s1.a(this);
         }
     }
@@ -79,7 +79,7 @@ public class r1 {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f39929c = s1.f39936d + s1.f39937e;
+            this.f76777c = s1.f76784d + s1.f76785e;
             s1.a(this);
         }
     }
@@ -87,7 +87,7 @@ public class r1 {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f39929c = s1.f39936d + s1.f39941i;
+            this.f76777c = s1.f76784d + s1.f76789i;
             s1.a(this);
         }
     }
@@ -95,7 +95,7 @@ public class r1 {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f39929c = s1.f39936d + s1.f39940h;
+            this.f76777c = s1.f76784d + s1.f76788h;
             s1.a(this);
         }
     }

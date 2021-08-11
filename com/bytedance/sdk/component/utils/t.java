@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f29011a;
+    public static String f64877a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Resources f29012b;
+    public static Resources f64878b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,10 +40,10 @@ public final class t {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f29011a == null) {
-                f29011a = context.getPackageName();
+            if (f64877a == null) {
+                f64877a = context.getPackageName();
             }
-            return f29011a;
+            return f64877a;
         }
         return (String) invokeL.objValue;
     }
@@ -118,10 +118,10 @@ public final class t {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, str2)) == null) {
-            if (f29012b == null) {
-                f29012b = context.getResources();
+            if (f64878b == null) {
+                f64878b = context.getResources();
             }
-            return f29012b.getIdentifier(str, str2, a(context));
+            return f64878b.getIdentifier(str, str2, a(context));
         }
         return invokeLLL.intValue;
     }

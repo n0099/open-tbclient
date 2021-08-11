@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class bn extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40173a;
+    public Context f77024a;
 
     public bn(Context context) {
         Interceptable interceptable = $ic;
@@ -31,18 +31,18 @@ public class bn extends ai.a {
                 return;
             }
         }
-        this.f40173a = context;
+        this.f77024a = context;
     }
 
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.f40173a).m75a().isEventUploadSwitchOpen() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.f77024a).m78a().isEventUploadSwitchOpen() : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a  reason: collision with other method in class */
-    public String mo184a() {
+    public String mo187a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "100886" : (String) invokeV.objValue;
@@ -54,8 +54,8 @@ public class bn extends ai.a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 if (a()) {
-                    com.xiaomi.channel.commonutils.logger.b.c(this.f40173a.getPackageName() + " begin upload event");
-                    com.xiaomi.clientreport.manager.a.a(this.f40173a).m77b();
+                    com.xiaomi.channel.commonutils.logger.b.c(this.f77024a.getPackageName() + " begin upload event");
+                    com.xiaomi.clientreport.manager.a.a(this.f77024a).m80b();
                 }
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);

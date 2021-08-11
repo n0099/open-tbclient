@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class PASSMethodCallTransfer implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static abstract class DynamicCallbak {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ERROR_CODE_NOT_FIND_CALL_METHOD = -1002;
@@ -48,7 +48,7 @@ public class PASSMethodCallTransfer implements NoProguard {
         public abstract void onFailure(int i2, String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class ParamsWap {
         public static /* synthetic */ Interceptable $ic = null;
         public static String BDUSS = "2";

@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import c.a.e.e.p.l;
+import c.a.p0.j1.i.a.b.b;
+import c.a.p0.j1.l.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -20,29 +23,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.q0.i1.i.a.b.b;
-import d.a.q0.i1.l.c.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class OfficialFeedItemImage extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f17484e;
+    public Context f52699e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f17485f;
+    public TbImageView f52700f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f17486g;
+    public ImageView f52701g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17487h;
+    public TextView f52702h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f17488i;
-    public View j;
+    public TextView f52703i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public View f52704j;
     public View k;
     public View l;
     public boolean m;
@@ -69,79 +71,79 @@ public class OfficialFeedItemImage extends RelativeLayout {
         this.m = z;
     }
 
-    public void a() {
+    public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f17485f.setRadius(l.g(this.f17484e, R.dimen.tbds31));
-            this.f17485f.setConrers(3);
-            ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
-            layoutParams.height = l.g(this.f17484e, R.dimen.tbds579);
-            this.k.setLayoutParams(layoutParams);
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.l.getLayoutParams();
-            layoutParams2.leftMargin = l.g(this.f17484e, R.dimen.tbds27);
-            this.l.setLayoutParams(layoutParams2);
-            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f17488i.getLayoutParams();
-            layoutParams3.leftMargin = l.g(this.f17484e, R.dimen.tbds30);
-            layoutParams3.bottomMargin = l.g(this.f17484e, R.dimen.tbds27);
-            this.f17488i.setLayoutParams(layoutParams3);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.f17484e).inflate(R.layout.official_feed_item_image, (ViewGroup) this, true);
-            this.f17485f = (TbImageView) findViewById(R.id.message_image);
-            this.f17486g = (ImageView) findViewById(R.id.message_read_icon);
-            this.f17487h = (TextView) findViewById(R.id.message_read_count);
-            this.f17488i = (TextView) findViewById(R.id.message_title);
-            this.j = findViewById(R.id.black_mask);
-            this.f17485f.setConrers(15);
-            this.f17485f.setRadius(l.g(this.f17484e, R.dimen.tbds21));
+            LayoutInflater.from(this.f52699e).inflate(R.layout.official_feed_item_image, (ViewGroup) this, true);
+            this.f52700f = (TbImageView) findViewById(R.id.message_image);
+            this.f52701g = (ImageView) findViewById(R.id.message_read_icon);
+            this.f52702h = (TextView) findViewById(R.id.message_read_count);
+            this.f52703i = (TextView) findViewById(R.id.message_title);
+            this.f52704j = findViewById(R.id.black_mask);
+            this.f52700f.setConrers(15);
+            this.f52700f.setRadius(l.g(this.f52699e, R.dimen.tbds21));
             this.k = findViewById(R.id.image_container);
             this.l = findViewById(R.id.msg_read_container);
-            c();
+            onSkinTypeChange();
         }
     }
 
-    public void c() {
+    public void adjustForSingleForum() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f52700f.setRadius(l.g(this.f52699e, R.dimen.tbds31));
+            this.f52700f.setConrers(3);
+            ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
+            layoutParams.height = l.g(this.f52699e, R.dimen.tbds579);
+            this.k.setLayoutParams(layoutParams);
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.l.getLayoutParams();
+            layoutParams2.leftMargin = l.g(this.f52699e, R.dimen.tbds27);
+            this.l.setLayoutParams(layoutParams2);
+            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f52703i.getLayoutParams();
+            layoutParams3.leftMargin = l.g(this.f52699e, R.dimen.tbds30);
+            layoutParams3.bottomMargin = l.g(this.f52699e, R.dimen.tbds27);
+            this.f52703i.setLayoutParams(layoutParams3);
+        }
+    }
+
+    public void onSkinTypeChange() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f17486g, R.drawable.icon_pure_broadcast_read16_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f52701g, R.drawable.icon_pure_broadcast_read16_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             DrawableSelector gradientLinear = TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606);
             if (this.m) {
-                gradientLinear.into(this.j);
+                gradientLinear.into(this.f52704j);
             } else {
-                gradientLinear.blRadius(l.g(getContext(), R.dimen.tbds21)).brRadius(l.g(getContext(), R.dimen.tbds21)).into(this.j);
+                gradientLinear.blRadius(l.g(getContext(), R.dimen.tbds21)).brRadius(l.g(getContext(), R.dimen.tbds21)).into(this.f52704j);
             }
-            SkinManager.setViewTextColor(this.f17487h, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.f17488i, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f52702h, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f52703i, R.color.CAM_X0101);
         }
     }
 
-    public void d(int i2) {
+    public void setData(a.C0959a c0959a, int i2, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            if (i2 > 0) {
-                this.f17487h.setText(this.f17484e.getString(R.string.person_view_num, StringHelper.numberUniformFormatExtraWithRound(i2)));
-                this.f17487h.setVisibility(0);
-                this.f17486g.setVisibility(0);
-                return;
-            }
-            this.f17487h.setVisibility(8);
-            this.f17486g.setVisibility(8);
-        }
-    }
-
-    public void setData(a.C1473a c1473a, int i2, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, c1473a, i2, bVar) == null) {
-            this.f17485f.M(c1473a.f59145c, 10, false);
-            this.f17488i.setText(c1473a.f59143a);
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, c0959a, i2, bVar) == null) {
+            this.f52700f.startLoad(c0959a.f20580c, 10, false);
+            this.f52703i.setText(c0959a.f20578a);
             if (bVar != null) {
                 i2 = bVar.i();
             }
-            d(i2);
+            updateReadCount(i2);
+        }
+    }
+
+    public void updateReadCount(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            if (i2 > 0) {
+                this.f52702h.setText(this.f52699e.getString(R.string.person_view_num, StringHelper.numberUniformFormatExtraWithRound(i2)));
+                this.f52702h.setVisibility(0);
+                this.f52701g.setVisibility(0);
+                return;
+            }
+            this.f52702h.setVisibility(8);
+            this.f52701g.setVisibility(8);
         }
     }
 
@@ -164,7 +166,7 @@ public class OfficialFeedItemImage extends RelativeLayout {
                 return;
             }
         }
-        this.f17484e = context;
-        b();
+        this.f52699e = context;
+        a();
     }
 }

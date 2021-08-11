@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class Texture {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long NOT_CREATE_INSIDE = -1;
@@ -74,10 +74,10 @@ public class Texture {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.ir : invokeV.intValue;
     }
 
-    public void setHandle(long j) {
+    public void setHandle(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.iq = j;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.iq = j2;
         }
     }
 

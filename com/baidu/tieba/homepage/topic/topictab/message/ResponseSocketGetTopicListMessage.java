@@ -1,5 +1,8 @@
 package com.baidu.tieba.homepage.topic.topictab.message;
 
+import c.a.e.k.e.n;
+import c.a.p0.f1.k.b.c.a;
+import c.a.p0.f1.k.b.c.c;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -11,15 +14,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.d.k.e.n;
-import d.a.q0.e1.k.b.c.a;
-import d.a.q0.e1.k.b.c.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewTopicList.DataRes;
 import tbclient.NewTopicList.NewTopicList;
 import tbclient.NewTopicList.NewTopicListResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,16 +69,16 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
             if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
                 a aVar = new a();
                 aVar.U = i3;
-                aVar.O(newTopicList);
+                aVar.Q(newTopicList);
                 this.mTopicDataList.add(aVar);
                 c cVar = new c();
-                cVar.f56367e = R.dimen.tbds1;
-                cVar.f56368f = R.color.CAM_X0203;
+                cVar.f17680e = R.dimen.tbds1;
+                cVar.f17681f = R.color.CAM_X0203;
                 this.mTopicDataList.add(cVar);
                 i3++;
             }
         }
         List<n> list = this.mTopicDataList;
-        ((c) ListUtils.getItem(list, list.size() - 1)).f56367e = 0;
+        ((c) ListUtils.getItem(list, list.size() - 1)).f17680e = 0;
     }
 }

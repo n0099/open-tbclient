@@ -12,7 +12,7 @@ import com.kwad.sdk.utils.q;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class URLPackage extends com.kwad.sdk.core.response.a.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_AUTHOR_ID = "authorId";
@@ -89,13 +89,13 @@ public class URLPackage extends com.kwad.sdk.core.response.a.a implements Serial
         }
     }
 
-    public void putParams(String str, long j) {
+    public void putParams(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j2) == null) {
             if (this.mJsonObjectParams == null) {
                 this.mJsonObjectParams = new JSONObject();
             }
-            q.a(this.mJsonObjectParams, str, j);
+            q.a(this.mJsonObjectParams, str, j2);
         }
     }
 }

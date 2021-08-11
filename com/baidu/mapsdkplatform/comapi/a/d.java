@@ -20,28 +20,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class d extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Animator f7589a;
+    public Animator f41857a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f7590b;
+    public long f41858b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Interpolator f7591c;
+    public Interpolator f41859c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Animation.AnimationListener f7592d;
+    public Animation.AnimationListener f41860d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7593e;
+    public int f41861e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<Animation> f7594f;
+    public ArrayList<Animation> f41862f;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -56,12 +56,12 @@ public class d extends c {
                 return;
             }
         }
-        this.f7589a = null;
-        this.f7590b = 0L;
-        this.f7591c = null;
-        this.f7592d = null;
-        this.f7593e = 0;
-        this.f7594f = new ArrayList<>();
+        this.f41857a = null;
+        this.f41858b = 0L;
+        this.f41859c = null;
+        this.f41860d = null;
+        this.f41861e = 0;
+        this.f41862f = new ArrayList<>();
     }
 
     @TargetApi(11)
@@ -94,7 +94,7 @@ public class d extends c {
     public void a() {
         Animator animator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (animator = this.f7589a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (animator = this.f41857a) == null) {
             return;
         }
         animator.start();
@@ -108,13 +108,13 @@ public class d extends c {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
-    public void a(long j) {
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            if (j < 0) {
-                j = 0;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+            if (j2 < 0) {
+                j2 = 0;
             }
-            this.f7590b = j;
+            this.f41858b = j2;
         }
     }
 
@@ -132,7 +132,7 @@ public class d extends c {
     public void a(Interpolator interpolator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, interpolator) == null) {
-            this.f7591c = interpolator;
+            this.f41859c = interpolator;
         }
     }
 
@@ -140,16 +140,16 @@ public class d extends c {
     public void a(Animation.AnimationListener animationListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, animationListener) == null) {
-            this.f7592d = animationListener;
+            this.f41860d = animationListener;
         }
     }
 
     public void a(Animation animation) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, animation) == null) || this.f7594f.contains(animation)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, animation) == null) || this.f41862f.contains(animation)) {
             return;
         }
-        this.f7594f.add(animation);
+        this.f41862f.add(animation);
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -158,8 +158,8 @@ public class d extends c {
         ObjectAnimator b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, marker, animation) == null) {
-            this.f7589a = new AnimatorSet();
-            ArrayList<Animation> arrayList = this.f7594f;
+            this.f41857a = new AnimatorSet();
+            ArrayList<Animation> arrayList = this.f41862f;
             ArrayList arrayList2 = new ArrayList();
             arrayList2.clear();
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
@@ -168,23 +168,23 @@ public class d extends c {
                     arrayList2.add(b2);
                 }
             }
-            long j = this.f7590b;
-            if (j != 0) {
-                this.f7589a.setDuration(j);
+            long j2 = this.f41858b;
+            if (j2 != 0) {
+                this.f41857a.setDuration(j2);
             }
-            Interpolator interpolator = this.f7591c;
+            Interpolator interpolator = this.f41859c;
             if (interpolator != null) {
-                this.f7589a.setInterpolator(interpolator);
+                this.f41857a.setInterpolator(interpolator);
             }
             if (arrayList2.size() != 0) {
-                int i3 = this.f7593e;
+                int i3 = this.f41861e;
                 if (i3 == 0) {
-                    ((AnimatorSet) this.f7589a).playTogether(arrayList2);
+                    ((AnimatorSet) this.f41857a).playTogether(arrayList2);
                 } else if (i3 == 1) {
-                    ((AnimatorSet) this.f7589a).playSequentially(arrayList2);
+                    ((AnimatorSet) this.f41857a).playSequentially(arrayList2);
                 }
             }
-            a(this.f7589a);
+            a(this.f41857a);
         }
     }
 
@@ -193,11 +193,11 @@ public class d extends c {
     public void b() {
         Animator animator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (animator = this.f7589a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (animator = this.f41857a) == null) {
             return;
         }
         animator.cancel();
-        this.f7589a = null;
+        this.f41857a = null;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -211,7 +211,7 @@ public class d extends c {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f7593e = i2;
+            this.f41861e = i2;
         }
     }
 }

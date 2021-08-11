@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,8 +26,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROFESSION_THREAD_ID = "5977226324";
@@ -50,13 +50,13 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
     public View mTopCorner;
     public View.OnClickListener onClickListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsProfessionIntroActivity f16050e;
+        public final /* synthetic */ FrsProfessionIntroActivity f51235e;
 
         public a(FrsProfessionIntroActivity frsProfessionIntroActivity) {
             Interceptable interceptable = $ic;
@@ -73,35 +73,35 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
                     return;
                 }
             }
-            this.f16050e = frsProfessionIntroActivity;
+            this.f51235e = frsProfessionIntroActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view != this.f16050e.mBack) {
-                    if (view != this.f16050e.mGoPublishButton) {
-                        if (view == this.f16050e.mGotItButton) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f16050e.getActivity()).createNormalCfg(FrsProfessionIntroActivity.PROFESSION_THREAD_ID, null, "frs")));
+                if (view != this.f51235e.mBack) {
+                    if (view != this.f51235e.mGoPublishButton) {
+                        if (view == this.f51235e.mGotItButton) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f51235e.getActivity()).createNormalCfg(FrsProfessionIntroActivity.PROFESSION_THREAD_ID, null, "frs")));
                             Intent intent = new Intent();
                             intent.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1);
-                            this.f16050e.setResult(-1, intent);
-                            this.f16050e.finish();
+                            this.f51235e.setResult(-1, intent);
+                            this.f51235e.finish();
                             return;
                         }
                         return;
                     }
                     Intent intent2 = new Intent();
                     intent2.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, 1);
-                    this.f16050e.setResult(-1, intent2);
-                    this.f16050e.finish();
+                    this.f51235e.setResult(-1, intent2);
+                    this.f51235e.finish();
                     return;
                 }
                 Intent intent3 = new Intent();
                 intent3.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1);
-                this.f16050e.setResult(-1, intent3);
-                this.f16050e.finish();
+                this.f51235e.setResult(-1, intent3);
+                this.f51235e.finish();
             }
         }
     }
@@ -126,7 +126,7 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             boolean z = true;
-            if (!DeviceInfoUtil.isMiNotchDevice() && !DeviceInfoUtil.isHonor30NotchDevice()) {
+            if (!DeviceInfoUtil.isMiNotchDevice() && !DeviceInfoUtil.isHonor30NotchDevice() && !DeviceInfoUtil.isHuaWeiP40() && !DeviceInfoUtil.isHuaWeiP40Pro()) {
                 z = false;
             }
             if (z) {
@@ -163,7 +163,7 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
             SkinManager.setBackgroundResource(this.mGotItButton, R.drawable.frs_profession_button_bg);
             SkinManager.setViewTextColor(this.mGoPublishButton, R.color.CAM_X0302);
             SkinManager.setBackgroundColor(this.mBottomView, R.color.CAM_X0201);
-            this.mGradientView.a(i2);
+            this.mGradientView.changeSkinType(i2);
         }
     }
 
@@ -200,7 +200,7 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
             handleNotchScreen();
             String stringExtra = getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_PATTEN_BACKGROUND);
             this.mGradientView.setGradientColor(getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_DARK_COLOR));
-            this.mBackgroundContent.M(stringExtra, 10, false);
+            this.mBackgroundContent.startLoad(stringExtra, 10, false);
         }
     }
 }

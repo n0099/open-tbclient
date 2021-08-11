@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public interface ViewOverlayImpl {
     void add(@NonNull Drawable drawable);
 

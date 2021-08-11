@@ -3,7 +3,6 @@ package com.facebook.soloader;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.StrictMode;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ApplicationSoSource extends SoSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +39,6 @@ public class ApplicationSoSource extends SoSource {
         Context applicationContext = context.getApplicationContext();
         this.applicationContext = applicationContext;
         if (applicationContext == null) {
-            Log.w("SoLoader", "context.getApplicationContext returned null, holding reference to original context.");
             this.applicationContext = context;
         }
         this.flags = i2;
@@ -66,7 +64,7 @@ public class ApplicationSoSource extends SoSource {
                 if (file.equals(file2)) {
                     return false;
                 }
-                Log.d("SoLoader", "Native library directory updated from " + file + " to " + file2);
+                String str = "Native library directory updated from " + file + " to " + file2;
                 int i2 = this.flags | 1;
                 this.flags = i2;
                 DirectorySoSource directorySoSource = new DirectorySoSource(file2, i2);

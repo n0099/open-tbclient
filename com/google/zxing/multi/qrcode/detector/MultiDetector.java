@@ -17,7 +17,7 @@ import com.google.zxing.qrcode.detector.Detector;
 import com.google.zxing.qrcode.detector.FinderPatternInfo;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class MultiDetector extends Detector {
     public static /* synthetic */ Interceptable $ic;
     public static final DetectorResult[] EMPTY_DETECTOR_RESULTS;

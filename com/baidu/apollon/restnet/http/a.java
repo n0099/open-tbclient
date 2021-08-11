@@ -29,38 +29,39 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
-import kotlin.text.Typography;
-/* loaded from: classes.dex */
-public class a implements b<String, String> {
+/* loaded from: classes5.dex */
+public class a implements c<String, String> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3882a = "Host";
+    public static final String f37829a = "Host";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3883b = "Accept";
+    public static final String f37830b = "Accept";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3884c = "Accept-Charset";
+    public static final String f37831c = "Accept-Charset";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f3885d = "Accept-Encoding";
+    public static final String f37832d = "Accept-Encoding";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f3886e = "Accept-Language";
+    public static final String f37833e = "Accept-Language";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f3887f = "Allow";
+    public static final String f37834f = "Allow";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f3888g = "Cache-Control";
+    public static final String f37835g = "Cache-Control";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f3889h = "Content-Disposition";
+    public static final String f37836h = "Content-Disposition";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f3890i = "Content-Encoding";
-    public static final String j = "Content-Length";
+    public static final String f37837i = "Content-Encoding";
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final String f37838j = "Content-Length";
     public static final String k = "Content-Type";
     public static final String l = "Date";
     public static final String m = "ETag";
@@ -346,7 +347,7 @@ public class a implements b<String, String> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? this.x.size() : invokeV.intValue;
     }
 
-    @Override // com.baidu.apollon.restnet.http.b
+    @Override // com.baidu.apollon.restnet.http.c
     public Map<String, String> t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -480,7 +481,7 @@ public class a implements b<String, String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.apollon.restnet.http.b
+    @Override // com.baidu.apollon.restnet.http.c
     /* renamed from: k */
     public String c(String str) {
         InterceptResult invokeL;
@@ -554,7 +555,7 @@ public class a implements b<String, String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.apollon.restnet.http.b
+    @Override // com.baidu.apollon.restnet.http.c
     /* renamed from: c */
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -656,7 +657,7 @@ public class a implements b<String, String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.apollon.restnet.http.b
+    @Override // com.baidu.apollon.restnet.http.c
     public void b(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, str, str2) == null) {
@@ -683,11 +684,11 @@ public class a implements b<String, String> {
             if (str != null) {
                 StringBuilder sb = new StringBuilder("form-data; name=\"");
                 sb.append(str);
-                sb.append(Typography.quote);
+                sb.append('\"');
                 if (str2 != null) {
                     sb.append("; filename=\"");
                     sb.append(str2);
-                    sb.append(Typography.quote);
+                    sb.append('\"');
                 }
                 a("Content-Disposition", sb.toString());
                 return;
@@ -728,7 +729,7 @@ public class a implements b<String, String> {
         }
     }
 
-    @Override // com.baidu.apollon.restnet.http.b
+    @Override // com.baidu.apollon.restnet.http.c
     public void a(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {

@@ -1,59 +1,87 @@
 package com.alipay.sdk.widget;
 
-import android.os.Handler;
-import com.alipay.sdk.widget.a;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import android.webkit.WebView;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
-public class c implements Runnable {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes4.dex */
+public abstract class c extends FrameLayout {
+    public static /* synthetic */ Interceptable $ic = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f35907b = "v1";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f35908c = "v2";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f2058a;
+    public Activity f35909a;
 
-    public c(a aVar) {
+    /* renamed from: d  reason: collision with root package name */
+    public final String f35910d;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(Activity activity, String str) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {activity, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f2058a = aVar;
+        this.f35909a = activity;
+        this.f35910d = str;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        a.AlertDialogC0018a alertDialogC0018a;
-        a.AlertDialogC0018a alertDialogC0018a2;
-        Handler handler;
-        a.AlertDialogC0018a alertDialogC0018a3;
+    public abstract void a();
+
+    public abstract void a(String str);
+
+    public void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            alertDialogC0018a = this.f2058a.f2051e;
-            if (alertDialogC0018a != null) {
-                alertDialogC0018a2 = this.f2058a.f2051e;
-                if (alertDialogC0018a2.isShowing()) {
-                    try {
-                        handler = this.f2058a.l;
-                        handler.removeMessages(1);
-                        alertDialogC0018a3 = this.f2058a.f2051e;
-                        alertDialogC0018a3.dismiss();
-                    } catch (Exception e2) {
-                        com.alipay.sdk.util.c.a(e2);
-                    }
-                }
-            }
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        CookieSyncManager.createInstance(this.f35909a.getApplicationContext()).sync();
+        CookieManager.getInstance().setCookie(str, str2);
+        CookieSyncManager.getInstance().sync();
+    }
+
+    public abstract boolean b();
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "v1".equals(this.f35910d) : invokeV.booleanValue;
+    }
+
+    public static void a(WebView webView) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, webView) == null) || webView == null) {
+            return;
+        }
+        try {
+            webView.resumeTimers();
+        } catch (Throwable unused) {
         }
     }
 }

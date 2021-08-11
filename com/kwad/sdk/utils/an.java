@@ -9,30 +9,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class an {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final SimpleDateFormat f36689a;
+    public static final SimpleDateFormat f73510a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SimpleDateFormat f36690b;
+    public static final SimpleDateFormat f73511b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final SimpleDateFormat f36691c;
+    public static final SimpleDateFormat f73512c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final SimpleDateFormat f36692d;
+    public static final SimpleDateFormat f73513d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final SimpleDateFormat f36693e;
+    public static final SimpleDateFormat f73514e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final SimpleDateFormat f36694f;
+    public static final SimpleDateFormat f73515f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final SimpleDateFormat f36695g;
+    public static final SimpleDateFormat f73516g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,13 +48,13 @@ public class an {
                 return;
             }
         }
-        f36689a = new SimpleDateFormat("MM/dd", Locale.US);
-        f36690b = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
-        f36691c = new SimpleDateFormat("MM月dd日", Locale.US);
-        f36692d = new SimpleDateFormat("yyyy年MM月dd日", Locale.US);
-        f36693e = new SimpleDateFormat("HH:mm", Locale.US);
-        f36694f = new SimpleDateFormat("MM-dd", Locale.US);
-        f36695g = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        f73510a = new SimpleDateFormat("MM/dd", Locale.US);
+        f73511b = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+        f73512c = new SimpleDateFormat("MM月dd日", Locale.US);
+        f73513d = new SimpleDateFormat("yyyy年MM月dd日", Locale.US);
+        f73514e = new SimpleDateFormat("HH:mm", Locale.US);
+        f73515f = new SimpleDateFormat("MM-dd", Locale.US);
+        f73516g = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
     }
 
     @Deprecated

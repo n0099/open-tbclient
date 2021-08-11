@@ -3,7 +3,6 @@ package com.baidu.mobads.container.adrequest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.mobads.container.XAdInstanceInfoExt;
 import com.baidu.mobads.container.config.AppConfigImp;
 import com.baidu.mobads.container.landingpage.XAdRemoteLandingPageExtraInfo;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class AdLandingpageOpen {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_AD_INSTANCE_INFO = "EXTRA_DATA_STRING_AD";
@@ -90,7 +89,7 @@ public class AdLandingpageOpen {
                 }
                 intent.putExtra("EXTRA_DATA", xAdRemoteLandingPageExtraInfo);
                 intent.putExtra("activityImplName", IReflectionInfo.APP_LP_ACTIVITY);
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
                 intent.addFlags(536870912);
                 this.mCxt.startActivity(intent);
             } catch (Exception e2) {

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SelectedLocationInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADDRESS = "address";
@@ -29,7 +29,7 @@ public class SelectedLocationInfo implements Parcelable {
     public double mLongitude;
     public String mName;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<SelectedLocationInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

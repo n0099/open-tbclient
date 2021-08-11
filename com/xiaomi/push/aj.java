@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class aj extends ai.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ai f40110a;
+    public final /* synthetic */ ai f76961a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f110a;
+    public final /* synthetic */ String f114a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ boolean f111a;
+    public final /* synthetic */ boolean f115a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aj(ai aiVar, ai.a aVar, boolean z, String str) {
@@ -39,9 +39,9 @@ public class aj extends ai.b {
                 return;
             }
         }
-        this.f40110a = aiVar;
-        this.f111a = z;
-        this.f110a = str;
+        this.f76961a = aiVar;
+        this.f115a = z;
+        this.f114a = str;
     }
 
     @Override // com.xiaomi.push.ai.b
@@ -56,10 +56,10 @@ public class aj extends ai.b {
     public void b() {
         SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f111a) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f115a) {
             return;
         }
-        sharedPreferences = this.f40110a.f106a;
-        sharedPreferences.edit().putLong(this.f110a, System.currentTimeMillis()).commit();
+        sharedPreferences = this.f76961a.f110a;
+        sharedPreferences.edit().putLong(this.f114a, System.currentTimeMillis()).commit();
     }
 }

@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.activitys.H5Activity;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class H implements q2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ H5Activity f39581a;
+    public final /* synthetic */ H5Activity f76417a;
 
     public H(H5Activity h5Activity) {
         Interceptable interceptable = $ic;
@@ -28,6 +28,6 @@ public class H implements q2 {
                 return;
             }
         }
-        this.f39581a = h5Activity;
+        this.f76417a = h5Activity;
     }
 }

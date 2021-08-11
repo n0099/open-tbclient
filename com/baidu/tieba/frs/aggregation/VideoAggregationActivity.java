@@ -4,6 +4,8 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import c.a.e.e.m.b;
+import c.a.o0.m0.d;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -14,9 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.m.b;
-import d.a.p0.m0.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class VideoAggregationActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.p0.m0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.o0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null && StringUtils.isNull(this.mId) && VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.mFrom)) {
-                pageStayDurationItem.y(b.f(this.mId, 0L));
+                pageStayDurationItem.A(b.f(this.mId, 0L));
             }
             return pageStayDurationItem;
         }
@@ -96,7 +96,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
             if (TextUtils.isEmpty(this.mId)) {
                 finish();
             }
-            this.mFragment = VideoAggregationFragment.Q0(this.mId, this.mFrom, stringExtra, stringExtra2);
+            this.mFragment = VideoAggregationFragment.getInstance(this.mId, this.mFrom, stringExtra, stringExtra2);
             getSupportFragmentManager().beginTransaction().replace(R.id.container, this.mFragment).commit();
         }
     }
@@ -108,7 +108,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i2, keyEvent)) == null) {
             if (keyEvent != null && (videoAggregationFragment = this.mFragment) != null) {
-                if (videoAggregationFragment.U0(i2)) {
+                if (videoAggregationFragment.onKeyDown(i2)) {
                     return true;
                 }
                 return super.onKeyDown(i2, keyEvent);

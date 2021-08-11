@@ -2,8 +2,6 @@ package com.baidu.wallet.paysdk.b;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
-import com.baidu.apollon.utils.DisplayUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,30 +10,32 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.CardData;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.paysdk.datamodel.ErrorContentResponse;
 import com.baidu.wallet.paysdk.datamodel.GetCardInfoResponse;
 import com.baidu.wallet.paysdk.ui.HalfScreenBaseActivity;
 import com.baidu.wallet.paysdk.ui.WalletSmsActivity;
+import com.dxmpay.apollon.utils.DisplayUtils;
+import com.dxmpay.wallet.base.statistics.StatServiceEvent;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.paysdk.b.i$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static i f26076a;
+        public static i f61985a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -51,7 +51,7 @@ public final class i {
                     return;
                 }
             }
-            f26076a = new i(null);
+            f61985a = new i(null);
         }
     }
 
@@ -62,7 +62,7 @@ public final class i {
     public static i a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f26076a : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f61985a : (i) invokeV.objValue;
     }
 
     public i() {
@@ -105,7 +105,7 @@ public final class i {
                         ArrayList arrayList = new ArrayList();
                         arrayList.add("1");
                         arrayList.add(Integer.toString(r2));
-                        PayStatisticsUtil.onEventWithValues(StatServiceEvent.EVENT_BANKCARD_MISSINFO, arrayList);
+                        StatisticManager.onEventWithValues(StatServiceEvent.EVENT_BANKCARD_MISSINFO, arrayList);
                     }
                 }
                 return r2;
@@ -141,7 +141,7 @@ public final class i {
                     ArrayList arrayList = new ArrayList();
                     arrayList.add("2");
                     arrayList.add(Integer.toString(i2));
-                    PayStatisticsUtil.onEventWithValues(StatServiceEvent.EVENT_BANKCARD_MISSINFO, arrayList);
+                    StatisticManager.onEventWithValues(StatServiceEvent.EVENT_BANKCARD_MISSINFO, arrayList);
                 }
                 return i2;
             }

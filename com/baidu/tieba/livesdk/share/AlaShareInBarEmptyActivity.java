@@ -4,6 +4,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import c.a.e.e.p.j;
+import c.a.p0.r1.d;
+import c.a.p0.r1.g;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -16,11 +19,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
-import d.a.q0.q1.d;
-import d.a.q0.q1.g;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,13 +30,13 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
     public ArrayList<TransmitForumData> mTransmitForumDataList;
     public String mYyAnchorBdUid;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaShareInBarEmptyActivity f18420e;
+        public final /* synthetic */ AlaShareInBarEmptyActivity f53738e;
 
         public a(AlaShareInBarEmptyActivity alaShareInBarEmptyActivity) {
             Interceptable interceptable = $ic;
@@ -53,25 +53,25 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
                     return;
                 }
             }
-            this.f18420e = alaShareInBarEmptyActivity;
+            this.f53738e = alaShareInBarEmptyActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f18420e.mPostModel.cancelLoadData();
+                this.f53738e.mPostModel.cancelLoadData();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements AlaShareInBarModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaShareInBarEmptyActivity f18421a;
+        public final /* synthetic */ AlaShareInBarEmptyActivity f53739a;
 
         public b(AlaShareInBarEmptyActivity alaShareInBarEmptyActivity) {
             Interceptable interceptable = $ic;
@@ -88,25 +88,25 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
                     return;
                 }
             }
-            this.f18421a = alaShareInBarEmptyActivity;
+            this.f53739a = alaShareInBarEmptyActivity;
         }
 
         @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.b
-        public void a(int i2, String str, d.a.q0.q1.l.b.a aVar) {
+        public void a(int i2, String str, c.a.p0.r1.l.b.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, aVar) == null) {
-                this.f18421a.closeLoadingDialog();
+                this.f53739a.closeLoadingDialog();
                 int i3 = 1;
                 if (i2 == 0 && aVar != null) {
-                    BdToast.h(this.f18421a.getPageContext().getPageActivity(), this.f18421a.getPageContext().getPageActivity().getString(g.share_alert_success), d.icon_pure_toast_succeed40_svg, 3000, true).q();
+                    BdToast.h(this.f53739a.getPageContext().getPageActivity(), this.f53739a.getPageContext().getPageActivity().getString(g.share_alert_success), d.icon_pure_toast_succeed40_svg, 3000, true).q();
                 } else {
-                    this.f18421a.showToast(str);
+                    this.f53739a.showToast(str);
                     i3 = 2;
                 }
                 Intent intent = new Intent();
                 intent.putExtra("extra_share_status", i3);
-                this.f18421a.setResult(-1, intent);
-                this.f18421a.finish();
+                this.f53739a.setResult(-1, intent);
+                this.f53739a.finish();
             }
         }
     }

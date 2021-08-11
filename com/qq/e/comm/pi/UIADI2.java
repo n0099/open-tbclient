@@ -2,16 +2,12 @@ package com.qq.e.comm.pi;
 
 import android.app.Activity;
 import com.qq.e.ads.nativ.express2.VideoOption2;
-import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
-/* loaded from: classes6.dex */
-public interface UIADI2 extends ApkDownloadComplianceInterface {
+import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
+/* loaded from: classes10.dex */
+public interface UIADI2 extends LADI {
     void closeHalfScreenAD();
 
     void destroy();
-
-    int getECPM();
-
-    String getECPMLevel();
 
     long getExpireTimestamp();
 
@@ -26,6 +22,8 @@ public interface UIADI2 extends ApkDownloadComplianceInterface {
     void loadFullScreenAD();
 
     void loadHalfScreenAD();
+
+    void setServerSideVerificationOptions(ServerSideVerificationOptions serverSideVerificationOptions);
 
     void setVideoOption(VideoOption2 videoOption2);
 

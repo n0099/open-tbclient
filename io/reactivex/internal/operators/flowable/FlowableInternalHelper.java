@@ -27,12 +27,12 @@ import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class FlowableInternalHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class BufferedReplayCallable<T> implements Callable<ConnectableFlowable<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public final class FlowableInternalHelper {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class BufferedTimedReplay<T> implements Callable<ConnectableFlowable<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,12 +77,12 @@ public final class FlowableInternalHelper {
         public final long time;
         public final TimeUnit unit;
 
-        public BufferedTimedReplay(Flowable<T> flowable, int i2, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        public BufferedTimedReplay(Flowable<T> flowable, int i2, long j2, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {flowable, Integer.valueOf(i2), Long.valueOf(j), timeUnit, scheduler};
+                Object[] objArr = {flowable, Integer.valueOf(i2), Long.valueOf(j2), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -94,7 +94,7 @@ public final class FlowableInternalHelper {
             }
             this.parent = flowable;
             this.bufferSize = i2;
-            this.time = j;
+            this.time = j2;
             this.unit = timeUnit;
             this.scheduler = scheduler;
         }
@@ -108,7 +108,7 @@ public final class FlowableInternalHelper {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class FlatMapIntoIterable<T, U> implements Function<T, Publisher<U>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -147,7 +147,7 @@ public final class FlowableInternalHelper {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class FlatMapWithCombinerInner<U, R, T> implements Function<U, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -182,7 +182,7 @@ public final class FlowableInternalHelper {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class FlatMapWithCombinerOuter<T, R, U> implements Function<T, Publisher<R>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -223,7 +223,7 @@ public final class FlowableInternalHelper {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class ItemDelayFunction<T, U> implements Function<T, Publisher<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -262,7 +262,7 @@ public final class FlowableInternalHelper {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class ReplayCallable<T> implements Callable<ConnectableFlowable<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -295,7 +295,7 @@ public final class FlowableInternalHelper {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class ReplayFunction<T, R> implements Function<Flowable<T>, Publisher<R>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -334,7 +334,7 @@ public final class FlowableInternalHelper {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class RequestMax implements Consumer<Subscription> {
         public static final /* synthetic */ RequestMax[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -400,7 +400,7 @@ public final class FlowableInternalHelper {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class SimpleBiGenerator<T, S> implements BiFunction<S, Emitter<T>, S> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -442,7 +442,7 @@ public final class FlowableInternalHelper {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class SimpleGenerator<T, S> implements BiFunction<S, Emitter<T>, S> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -484,7 +484,7 @@ public final class FlowableInternalHelper {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class SubscriberOnComplete<T> implements Action {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -517,7 +517,7 @@ public final class FlowableInternalHelper {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class SubscriberOnError<T> implements Consumer<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -551,7 +551,7 @@ public final class FlowableInternalHelper {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class SubscriberOnNext<T> implements Consumer<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -584,7 +584,7 @@ public final class FlowableInternalHelper {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class TimedReplay<T> implements Callable<ConnectableFlowable<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -593,12 +593,12 @@ public final class FlowableInternalHelper {
         public final long time;
         public final TimeUnit unit;
 
-        public TimedReplay(Flowable<T> flowable, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        public TimedReplay(Flowable<T> flowable, long j2, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {flowable, Long.valueOf(j), timeUnit, scheduler};
+                Object[] objArr = {flowable, Long.valueOf(j2), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -609,7 +609,7 @@ public final class FlowableInternalHelper {
                 }
             }
             this.parent = flowable;
-            this.time = j;
+            this.time = j2;
             this.unit = timeUnit;
             this.scheduler = scheduler;
         }
@@ -623,7 +623,7 @@ public final class FlowableInternalHelper {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class ZipIterableFunction<T, R> implements Function<List<Publisher<? extends T>>, Publisher<? extends R>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -747,15 +747,15 @@ public final class FlowableInternalHelper {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, flowable, i2)) == null) ? new BufferedReplayCallable(flowable, i2) : (Callable) invokeLI.objValue;
     }
 
-    public static <T> Callable<ConnectableFlowable<T>> replayCallable(Flowable<T> flowable, int i2, long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public static <T> Callable<ConnectableFlowable<T>> replayCallable(Flowable<T> flowable, int i2, long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{flowable, Integer.valueOf(i2), Long.valueOf(j), timeUnit, scheduler})) == null) ? new BufferedTimedReplay(flowable, i2, j, timeUnit, scheduler) : (Callable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{flowable, Integer.valueOf(i2), Long.valueOf(j2), timeUnit, scheduler})) == null) ? new BufferedTimedReplay(flowable, i2, j2, timeUnit, scheduler) : (Callable) invokeCommon.objValue;
     }
 
-    public static <T> Callable<ConnectableFlowable<T>> replayCallable(Flowable<T> flowable, long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public static <T> Callable<ConnectableFlowable<T>> replayCallable(Flowable<T> flowable, long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{flowable, Long.valueOf(j), timeUnit, scheduler})) == null) ? new TimedReplay(flowable, j, timeUnit, scheduler) : (Callable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{flowable, Long.valueOf(j2), timeUnit, scheduler})) == null) ? new TimedReplay(flowable, j2, timeUnit, scheduler) : (Callable) invokeCommon.objValue;
     }
 }

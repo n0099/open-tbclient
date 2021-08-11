@@ -21,9 +21,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class TimeToSampleBox extends AbstractFullBox {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -35,19 +36,19 @@ public class TimeToSampleBox extends AbstractFullBox {
     public transient /* synthetic */ FieldHolder $fh;
     public List<Entry> entries;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long count;
         public long delta;
 
-        public Entry(long j, long j2) {
+        public Entry(long j2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
+                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -57,8 +58,8 @@ public class TimeToSampleBox extends AbstractFullBox {
                     return;
                 }
             }
-            this.count = j;
-            this.delta = j2;
+            this.count = j2;
+            this.delta = j3;
         }
 
         public long getCount() {
@@ -73,17 +74,17 @@ public class TimeToSampleBox extends AbstractFullBox {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.delta : invokeV.longValue;
         }
 
-        public void setCount(long j) {
+        public void setCount(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-                this.count = j;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+                this.count = j2;
             }
         }
 
-        public void setDelta(long j) {
+        public void setDelta(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-                this.delta = j;
+            if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+                this.delta = j2;
             }
         }
 
@@ -91,7 +92,7 @@ public class TimeToSampleBox extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return "Entry{count=" + this.count + ", delta=" + this.delta + '}';
+                return "Entry{count=" + this.count + ", delta=" + this.delta + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -148,11 +149,11 @@ public class TimeToSampleBox extends AbstractFullBox {
             synchronized (TimeToSampleBox.class) {
                 SoftReference<long[]> softReference = cache.get(list);
                 if (softReference == null || (jArr = softReference.get()) == null) {
-                    long j = 0;
+                    long j2 = 0;
                     for (Entry entry : list) {
-                        j += entry.getCount();
+                        j2 += entry.getCount();
                     }
-                    long[] jArr2 = new long[(int) j];
+                    long[] jArr2 = new long[(int) j2];
                     int i2 = 0;
                     for (Entry entry2 : list) {
                         int i3 = 0;

@@ -6,6 +6,11 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import c.a.e.a.e;
+import c.a.e.e.p.k;
+import c.a.e.e.p.l;
+import c.a.p0.i3.f0;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -18,49 +23,46 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.e;
-import d.a.d.e.p.k;
-import d.a.d.e.p.l;
-import d.a.q0.h3.f0;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class NewFollowButton extends TBSpecificationBtn implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
-    public int B;
-    public boolean C;
-    public final int D;
-    public boolean E;
-    public int F;
-    public boolean G;
-    public d.a.p0.s.f0.n.b H;
-    public d.a.p0.s.f0.n.b I;
-    public LikeModel J;
-    public f0 K;
-    public b L;
-    public boolean M;
-    public Animation N;
-    public String s;
-    public long t;
-    public TbPageContext<?> u;
+    public boolean B;
+    public final int C;
+    public boolean D;
+    public int E;
+    public boolean F;
+    public c.a.o0.s.f0.n.b G;
+    public c.a.o0.s.f0.n.b H;
+    public LikeModel I;
+    public f0 J;
+    public b K;
+    public boolean L;
+    public Animation M;
+    public String r;
+    public long s;
+    public TbPageContext<?> t;
+    public TBSpecificationButtonConfig u;
     public TBSpecificationButtonConfig v;
-    public TBSpecificationButtonConfig w;
-    public e x;
-    public f0.a y;
-    public boolean z;
+    public e w;
+    public f0.a x;
+    public boolean y;
+    public int z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f22292a;
+        public final /* synthetic */ boolean f57885a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NewFollowButton f22293b;
+        public final /* synthetic */ NewFollowButton f57886b;
 
         public a(NewFollowButton newFollowButton, boolean z) {
             Interceptable interceptable = $ic;
@@ -77,15 +79,15 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                     return;
                 }
             }
-            this.f22293b = newFollowButton;
-            this.f22292a = z;
+            this.f57886b = newFollowButton;
+            this.f57885a = z;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f22293b.B(this.f22292a);
+                this.f57886b.updateLikeStatus(this.f57885a);
             }
         }
 
@@ -104,13 +106,13 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b extends e implements f0.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewFollowButton f22294a;
+        public final /* synthetic */ NewFollowButton f57887a;
 
         public b(NewFollowButton newFollowButton) {
             Interceptable interceptable = $ic;
@@ -127,52 +129,52 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                     return;
                 }
             }
-            this.f22294a = newFollowButton;
+            this.f57887a = newFollowButton;
         }
 
-        @Override // d.a.q0.h3.f0.a
-        public void a(String str, long j) {
+        @Override // c.a.p0.i3.f0.a
+        public void a(String str, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
-                if (this.f22294a.y != null) {
-                    this.f22294a.y.a(str, j);
+            if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) {
+                if (this.f57887a.x != null) {
+                    this.f57887a.x.a(str, j2);
                 }
-                this.f22294a.M = false;
+                this.f57887a.L = false;
             }
         }
 
-        @Override // d.a.q0.h3.f0.a
-        public void b(String str, long j) {
+        @Override // c.a.p0.i3.f0.a
+        public void b(String str, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-                NewFollowButton newFollowButton = this.f22294a;
-                newFollowButton.F(false, newFollowButton.E);
-                if (this.f22294a.y != null) {
-                    this.f22294a.y.b(str, j);
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2) == null) {
+                NewFollowButton newFollowButton = this.f57887a;
+                newFollowButton.u(false, newFollowButton.D);
+                if (this.f57887a.x != null) {
+                    this.f57887a.x.b(str, j2);
                 }
-                this.f22294a.M = false;
+                this.f57887a.L = false;
             }
         }
 
-        @Override // d.a.d.a.e
+        @Override // c.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                if (this.f22294a.J.getErrorCode() == 22) {
-                    l.M(this.f22294a.u.getPageActivity(), this.f22294a.u.getString(R.string.had_liked_forum));
-                    this.f22294a.M = false;
+                if (this.f57887a.I.getErrorCode() == 22) {
+                    l.M(this.f57887a.t.getPageActivity(), this.f57887a.t.getString(R.string.had_liked_forum));
+                    this.f57887a.L = false;
                 } else if (obj == null) {
-                    this.f22294a.M = false;
-                } else if (this.f22294a.J.getErrorCode() != 0) {
-                    l.M(this.f22294a.u.getPageActivity(), this.f22294a.J.getErrorString());
-                    this.f22294a.M = false;
+                    this.f57887a.L = false;
+                } else if (this.f57887a.I.getErrorCode() != 0) {
+                    l.M(this.f57887a.t.getPageActivity(), this.f57887a.I.getErrorString());
+                    this.f57887a.L = false;
                 } else {
-                    NewFollowButton newFollowButton = this.f22294a;
-                    newFollowButton.F(true, newFollowButton.E);
-                    if (this.f22294a.x != null) {
-                        this.f22294a.x.c(obj);
+                    NewFollowButton newFollowButton = this.f57887a;
+                    newFollowButton.u(true, newFollowButton.D);
+                    if (this.f57887a.w != null) {
+                        this.f57887a.w.c(obj);
                     }
-                    this.f22294a.M = false;
+                    this.f57887a.L = false;
                 }
             }
         }
@@ -203,122 +205,236 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         }
     }
 
-    public final void A() {
+    public NewFollowButton initConcernInfo(TbPageContext<?> tbPageContext, String str, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.M || this.u == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, str, Long.valueOf(j2)})) == null) {
+            this.t = tbPageContext;
+            this.r = str;
+            this.s = j2;
+            return this;
         }
-        if (!l.D()) {
-            UtilHelper.showToast(this.u.getPageActivity(), this.u.getString(R.string.neterror));
-        } else if (StringUtils.isNull(this.s) || this.t <= 0 || !ViewHelper.checkUpIsLogin(this.u.getPageActivity())) {
-        } else {
-            if (this.L == null) {
-                this.L = new b(this, null);
+        return (NewFollowButton) invokeCommon.objValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+            if (this.F) {
+                s();
+            } else {
+                t();
             }
-            if (this.K == null) {
-                f0 f0Var = new f0();
-                this.K = f0Var;
-                f0Var.b(this.L);
-            }
-            this.M = true;
-            this.K.c(this.s, this.t);
         }
     }
 
-    public final void B(boolean z) {
+    public final void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.L || this.t == null) {
+            return;
+        }
+        if (!l.D()) {
+            UtilHelper.showToast(this.t.getPageActivity(), this.t.getString(R.string.neterror));
+        } else if (StringUtils.isNull(this.r) || this.s <= 0 || !ViewHelper.checkUpIsLogin(this.t.getPageActivity())) {
+        } else {
+            if (this.K == null) {
+                this.K = new b(this, null);
+            }
+            if (this.I == null) {
+                LikeModel likeModel = new LikeModel(this.t);
+                this.I = likeModel;
+                likeModel.setLoadDataCallBack(this.K);
+            }
+            if (k.isForumName(this.r)) {
+                this.L = true;
+                this.I.I();
+                this.I.L(this.r, String.valueOf(this.s));
+            }
+        }
+    }
+
+    public NewFollowButton setAddIcon(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            this.B = z;
+            c.a.o0.s.f0.n.b bVar = this.G;
+            if (bVar != null) {
+                bVar.i(z ? this.C : 0, 0, TBSpecificationButtonConfig.IconType.SVG);
+            }
+            return this;
+        }
+        return (NewFollowButton) invokeZ.objValue;
+    }
+
+    public NewFollowButton setAnimationId(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+            this.E = i2;
+            return this;
+        }
+        return (NewFollowButton) invokeI.objValue;
+    }
+
+    public NewFollowButton setIconSize(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+            this.A = i2;
+            c.a.o0.s.f0.n.b bVar = this.G;
+            if (bVar != null) {
+                bVar.g(i2);
+            }
+            return this;
+        }
+        return (NewFollowButton) invokeI.objValue;
+    }
+
+    public NewFollowButton setLeftIconSpace(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+            this.z = i2;
+            c.a.o0.s.f0.n.b bVar = this.G;
+            if (bVar != null) {
+                bVar.f(i2);
+            }
+            return this;
+        }
+        return (NewFollowButton) invokeI.objValue;
+    }
+
+    public NewFollowButton setLikeConfig(TBSpecificationButtonConfig tBSpecificationButtonConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, tBSpecificationButtonConfig)) == null) {
+            this.u = tBSpecificationButtonConfig;
+            return this;
+        }
+        return (NewFollowButton) invokeL.objValue;
+    }
+
+    public NewFollowButton setLikeModelCallback(e eVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eVar)) == null) {
+            this.w = eVar;
+            return this;
+        }
+        return (NewFollowButton) invokeL.objValue;
+    }
+
+    public NewFollowButton setUnLikeCallback(f0.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, aVar)) == null) {
+            this.x = aVar;
+            return this;
+        }
+        return (NewFollowButton) invokeL.objValue;
+    }
+
+    public NewFollowButton setUnLikeConfig(TBSpecificationButtonConfig tBSpecificationButtonConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, tBSpecificationButtonConfig)) == null) {
+            this.v = tBSpecificationButtonConfig;
+            return this;
+        }
+        return (NewFollowButton) invokeL.objValue;
+    }
+
+    public NewFollowButton setUnlikeClickable(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
+            this.y = z;
+            return this;
+        }
+        return (NewFollowButton) invokeZ.objValue;
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.L || this.t == null) {
+            return;
+        }
+        if (!l.D()) {
+            UtilHelper.showToast(this.t.getPageActivity(), this.t.getString(R.string.neterror));
+        } else if (StringUtils.isNull(this.r) || this.s <= 0 || !ViewHelper.checkUpIsLogin(this.t.getPageActivity())) {
+        } else {
+            if (this.K == null) {
+                this.K = new b(this, null);
+            }
+            if (this.J == null) {
+                f0 f0Var = new f0();
+                this.J = f0Var;
+                f0Var.b(this.K);
+            }
+            this.L = true;
+            this.J.c(this.r, this.s);
+        }
+    }
+
+    public final void u(boolean z, boolean z2) {
+        Animation animation;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (z2 && this.E != 0 && this.M == null) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.t.getPageActivity(), this.E);
+                this.M = loadAnimation;
+                loadAnimation.setAnimationListener(new a(this, z));
+            }
+            if (z2 && (animation = this.M) != null) {
+                startAnimation(animation);
+            } else {
+                updateLikeStatus(z);
+            }
+        }
+    }
+
+    public final void updateLikeStatus(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             if (z) {
-                TBSpecificationButtonConfig tBSpecificationButtonConfig = this.w;
+                TBSpecificationButtonConfig tBSpecificationButtonConfig = this.v;
                 if (tBSpecificationButtonConfig == null) {
-                    if (this.I == null) {
-                        d.a.p0.s.f0.n.b bVar = new d.a.p0.s.f0.n.b();
-                        this.I = bVar;
+                    if (this.H == null) {
+                        c.a.o0.s.f0.n.b bVar = new c.a.o0.s.f0.n.b();
+                        this.H = bVar;
                         bVar.r(R.color.CAM_X0109);
-                        this.I.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
+                        this.H.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
                     }
-                    setConfig(this.I);
+                    setConfig(this.H);
                 } else {
                     setConfig(tBSpecificationButtonConfig);
                 }
-                setClickable(this.z);
+                setClickable(this.y);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
-                TBSpecificationButtonConfig tBSpecificationButtonConfig2 = this.v;
+                TBSpecificationButtonConfig tBSpecificationButtonConfig2 = this.u;
                 if (tBSpecificationButtonConfig2 == null) {
-                    if (this.H == null) {
-                        d.a.p0.s.f0.n.b bVar2 = new d.a.p0.s.f0.n.b();
-                        this.H = bVar2;
+                    if (this.G == null) {
+                        c.a.o0.s.f0.n.b bVar2 = new c.a.o0.s.f0.n.b();
+                        this.G = bVar2;
                         bVar2.q(R.color.CAM_X0302);
-                        if (this.C) {
-                            this.H.g(this.B);
-                            this.H.i(this.D, 0, TBSpecificationButtonConfig.IconType.SVG);
-                            this.H.f(this.A);
+                        if (this.B) {
+                            this.G.g(this.A);
+                            this.G.i(this.C, 0, TBSpecificationButtonConfig.IconType.SVG);
+                            this.G.f(this.z);
                         }
                     }
-                    setConfig(this.H);
+                    setConfig(this.G);
                 } else {
                     setConfig(tBSpecificationButtonConfig2);
                 }
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.attention));
             }
-            k();
-            this.G = z;
-        }
-    }
-
-    public final void F(boolean z, boolean z2) {
-        Animation animation;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (z2 && this.F != 0 && this.N == null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.u.getPageActivity(), this.F);
-                this.N = loadAnimation;
-                loadAnimation.setAnimationListener(new a(this, z));
-            }
-            if (z2 && (animation = this.N) != null) {
-                startAnimation(animation);
-            } else {
-                B(z);
-            }
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            if (this.G) {
-                z();
-            } else {
-                A();
-            }
-        }
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.M || this.u == null) {
-            return;
-        }
-        if (!l.D()) {
-            UtilHelper.showToast(this.u.getPageActivity(), this.u.getString(R.string.neterror));
-        } else if (StringUtils.isNull(this.s) || this.t <= 0 || !ViewHelper.checkUpIsLogin(this.u.getPageActivity())) {
-        } else {
-            if (this.L == null) {
-                this.L = new b(this, null);
-            }
-            if (this.J == null) {
-                LikeModel likeModel = new LikeModel(this.u);
-                this.J = likeModel;
-                likeModel.setLoadDataCallBack(this.L);
-            }
-            if (k.isForumName(this.s)) {
-                this.M = true;
-                this.J.I();
-                this.J.L(this.s, String.valueOf(this.t));
-            }
+            changeSkinType();
+            this.F = z;
         }
     }
 
@@ -362,13 +478,13 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                 return;
             }
         }
-        this.z = true;
-        this.A = UtilHelper.getDimenPixelSize(R.dimen.tbds4);
-        this.B = UtilHelper.getDimenPixelSize(R.dimen.tbds30);
-        this.C = true;
-        this.D = R.drawable.icon_pure_add12_svg;
-        this.E = false;
-        this.M = false;
+        this.y = true;
+        this.z = UtilHelper.getDimenPixelSize(R.dimen.tbds4);
+        this.A = UtilHelper.getDimenPixelSize(R.dimen.tbds30);
+        this.B = true;
+        this.C = R.drawable.icon_pure_add12_svg;
+        this.D = false;
+        this.L = false;
         setOnClickListener(this);
     }
 }

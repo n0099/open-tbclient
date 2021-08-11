@@ -10,6 +10,9 @@ import android.os.Process;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import c.a.n0.a.k;
+import c.a.n0.e.n.a.a;
+import c.a.n0.e.n.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -21,12 +24,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.k;
-import d.a.o0.e.n.a.a;
-import d.a.o0.e.n.b.c;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SwanContentProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTHORITY;
@@ -51,7 +51,7 @@ public class SwanContentProvider extends ContentProvider {
                 return;
             }
         }
-        DEBUG = k.f46335a;
+        DEBUG = k.f6803a;
         AUTHORITY = AppRuntime.getAppContext().getPackageName() + ".provider";
         sUriMatcher = new UriMatcher(-1);
         sAccreditedSet = new HashSet<>();
@@ -89,7 +89,7 @@ public class SwanContentProvider extends ContentProvider {
                 return true;
             }
             String a2 = c.a(callingPackage);
-            Set<String> a3 = d.a.o0.d.g.c.e().a();
+            Set<String> a3 = c.a.n0.d.g.c.e().a();
             z = (a3 == null || !a3.contains(a2)) ? false : false;
             if (z) {
                 sAccreditedSet.add(callingPackage);

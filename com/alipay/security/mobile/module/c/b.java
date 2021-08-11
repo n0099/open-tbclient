@@ -1,102 +1,29 @@
 package com.alipay.security.mobile.module.c;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public File f2100a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public com.alipay.security.mobile.module.http.v2.a f2101b;
-
-    public b(String str, com.alipay.security.mobile.module.http.v2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f2100a = null;
-        this.f2101b = null;
-        this.f2100a = new File(str);
-        this.f2101b = aVar;
-    }
-
     public static String a(String str) {
+        String str2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             try {
-                jSONObject.put("type", "id");
-                jSONObject.put("error", str);
-                return jSONObject.toString();
-            } catch (Exception unused) {
-                return "";
+                str2 = f.a(str);
+            } catch (Throwable unused) {
+                str2 = "";
             }
+            if (com.alipay.security.mobile.module.a.a.a(str2)) {
+                return c.a(".SystemConfig" + File.separator + str);
+            }
+            return str2;
         }
         return (String) invokeL.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            synchronized (this) {
-                if (this.f2100a == null) {
-                    return;
-                }
-                if (this.f2100a.exists() && this.f2100a.isDirectory() && this.f2100a.list().length != 0) {
-                    ArrayList arrayList = new ArrayList();
-                    for (String str : this.f2100a.list()) {
-                        arrayList.add(str);
-                    }
-                    Collections.sort(arrayList);
-                    String str2 = (String) arrayList.get(arrayList.size() - 1);
-                    int size = arrayList.size();
-                    if (str2.equals(new SimpleDateFormat("yyyyMMdd").format(Calendar.getInstance().getTime()) + ".log")) {
-                        if (arrayList.size() < 2) {
-                            return;
-                        }
-                        str2 = (String) arrayList.get(arrayList.size() - 2);
-                        size--;
-                    }
-                    if (!this.f2101b.a(a(com.alipay.security.mobile.module.a.b.a(this.f2100a.getAbsolutePath(), str2)))) {
-                        size--;
-                    }
-                    for (int i2 = 0; i2 < size; i2++) {
-                        new File(this.f2100a, (String) arrayList.get(i2)).delete();
-                    }
-                }
-            }
-        }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new Thread(new c(this)).start();
-        }
     }
 }

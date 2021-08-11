@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class EnvConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static String DEFAULT_ENVIRONMENT = "ONLINE";
@@ -21,16 +21,16 @@ public class EnvConfig {
     public static final String ENVIRONMENT_RD = "RD";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5135a = "https://jrws.baidu.com";
+    public static final String f39072a = "https://jrws.baidu.com";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f5136b = "https://jrws.baidu.com";
+    public static String f39073b = "https://jrws.baidu.com";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5137c = "https://jrws.baidu.com";
+    public static final String f39074c = "https://jrws.baidu.com";
 
     /* renamed from: d  reason: collision with root package name */
-    public static EnvConfig f5138d;
+    public static EnvConfig f39075d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -68,10 +68,10 @@ public class EnvConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (EnvConfig.class) {
-                if (f5138d == null && f5138d == null) {
-                    f5138d = new EnvConfig();
+                if (f39075d == null && f39075d == null) {
+                    f39075d = new EnvConfig();
                 }
-                envConfig = f5138d;
+                envConfig = f39075d;
             }
             return envConfig;
         }
@@ -81,9 +81,22 @@ public class EnvConfig {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            f5136b = "https://jrws.baidu.com";
+            f39073b = "https://jrws.baidu.com";
             DEFAULT_ENVIRONMENT = "ONLINE";
         }
+    }
+
+    public static synchronized EnvConfig getInstance() {
+        InterceptResult invokeV;
+        EnvConfig b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            synchronized (EnvConfig.class) {
+                b2 = b.b();
+            }
+            return b2;
+        }
+        return (EnvConfig) invokeV.objValue;
     }
 
     public static synchronized EnvConfig getInstance(Context context) {
@@ -92,7 +105,7 @@ public class EnvConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
             synchronized (EnvConfig.class) {
-                b2 = c.b();
+                b2 = b.b();
             }
             return b2;
         }
@@ -108,7 +121,7 @@ public class EnvConfig {
     public String getRimHttpsHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f5136b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f39073b : (String) invokeV.objValue;
     }
 
     public void initEnv() {
@@ -116,18 +129,5 @@ public class EnvConfig {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             b();
         }
-    }
-
-    public static synchronized EnvConfig getInstance() {
-        InterceptResult invokeV;
-        EnvConfig b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            synchronized (EnvConfig.class) {
-                b2 = c.b();
-            }
-            return b2;
-        }
-        return (EnvConfig) invokeV.objValue;
     }
 }

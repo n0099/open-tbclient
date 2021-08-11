@@ -11,39 +11,39 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.utils.y;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f35287a;
+    public int f72042a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f35288b;
+    public AdTemplate f72043b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdBaseFrameLayout f35289c;
+    public AdBaseFrameLayout f72044c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f35290d;
+    public JSONObject f72045d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f35291e;
+    public ViewGroup f72046e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WebView f35292f;
+    public WebView f72047f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public y f35293g;
+    public y f72048g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f35294h;
+    public boolean f72049h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f35295i;
+    public boolean f72050i;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class a {
                 return;
             }
         }
-        this.f35294h = true;
-        this.f35295i = true;
+        this.f72049h = true;
+        this.f72050i = true;
     }
 }

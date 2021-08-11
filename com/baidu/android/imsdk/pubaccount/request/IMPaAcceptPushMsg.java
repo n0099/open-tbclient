@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMPaAcceptPushMsg extends Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,12 +25,12 @@ public class IMPaAcceptPushMsg extends Message {
     public Context mContext;
     public long mPaId;
 
-    public IMPaAcceptPushMsg(Context context, long j, boolean z) {
+    public IMPaAcceptPushMsg(Context context, long j2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Boolean.valueOf(z)};
+            Object[] objArr = {context, Long.valueOf(j2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -43,7 +43,7 @@ public class IMPaAcceptPushMsg extends Message {
         this.mContext = null;
         initCommonParameter(context);
         this.mContext = context;
-        this.mPaId = j;
+        this.mPaId = j2;
         this.mAcceptPush = z;
         setNeedReplay(true);
         setType(105);

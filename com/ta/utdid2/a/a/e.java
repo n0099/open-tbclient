@@ -1,117 +1,135 @@
 package com.ta.utdid2.a.a;
 
+import android.content.Context;
+import android.provider.Settings;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import java.util.Random;
+/* loaded from: classes10.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: com.ta.utdid2.a.a.e$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
-    public /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    public static byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
-        a a2;
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr == null || (a2 = a("QrMgt8GGYI6T52ZY5AnhtxkLzb8egpFn3j5JELI8H6wtACbUnZ5cc3aYTsTRbmkAkRJeYbtx92LPBWm7nBO9UIl7y5i5MQNmUZNf5QENurR5tGyo7yJ2G0MBjWvy6iAtlAbacKP0SwOUeUWx5dsBdyhxa7Id1APtybSdDgicBDuNjI0mlZFUzZSS9dmN8lBD0WTVOMz0pRZbR3cysomRXOO1ghqjJdTcyDIxzpNAEszN8RMGjrzyU7Hjbmwi6YNK")) == null) {
-                return null;
-            }
-            return a(bArr, a2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
+            int nanoTime = (int) System.nanoTime();
+            int nextInt = new Random().nextInt();
+            int nextInt2 = new Random().nextInt();
+            byte[] bytes = d.getBytes(currentTimeMillis);
+            byte[] bytes2 = d.getBytes(nanoTime);
+            byte[] bytes3 = d.getBytes(nextInt);
+            byte[] bytes4 = d.getBytes(nextInt2);
+            byte[] bArr = new byte[16];
+            System.arraycopy(bytes, 0, bArr, 0, 4);
+            System.arraycopy(bytes2, 0, bArr, 4, 4);
+            System.arraycopy(bytes3, 0, bArr, 8, 4);
+            System.arraycopy(bytes4, 0, bArr, 12, 4);
+            return b.encodeToString(bArr, 2);
         }
-        return (byte[]) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int[] state;
-        public int x;
-        public int y;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.state = new int[256];
-        }
-
-        public /* synthetic */ a(AnonymousClass1 anonymousClass1) {
-            this();
-        }
-    }
-
-    public static a a(String str) {
+    public static String b(Context context) {
         InterceptResult invokeL;
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str != null) {
-                a aVar = new a(null);
-                for (int i2 = 0; i2 < 256; i2++) {
-                    aVar.state[i2] = i2;
-                }
-                aVar.x = 0;
-                aVar.y = 0;
-                int i3 = 0;
-                int i4 = 0;
-                for (int i5 = 0; i5 < 256; i5++) {
-                    try {
-                        i4 = ((str.charAt(i3) + aVar.state[i5]) + i4) % 256;
-                        int i6 = aVar.state[i5];
-                        aVar.state[i5] = aVar.state[i4];
-                        aVar.state[i4] = i6;
-                        i3 = (i3 + 1) % str.length();
-                    } catch (Exception unused) {
-                        return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            String str = "";
+            try {
+                string = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+            } catch (Throwable unused) {
+            }
+            try {
+                if (!TextUtils.isEmpty(string) && !string.equalsIgnoreCase("a5f5faddde9e9f02") && !string.equalsIgnoreCase("8e17f7422b35fbea")) {
+                    if (!string.equalsIgnoreCase("0000000000000000")) {
+                        return string;
                     }
                 }
-                return aVar;
+                return "";
+            } catch (Throwable unused2) {
+                str = string;
+                return str;
             }
-            return null;
         }
-        return (a) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static byte[] a(byte[] bArr, a aVar) {
-        InterceptResult invokeLL;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, aVar)) == null) {
-            if (bArr == null || aVar == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            try {
+                return (String) Class.forName("com.yunos.baseservice.clouduuid.CloudUUID").getMethod("getCloudUUID", new Class[0]).invoke(null, new Object[0]);
+            } catch (Exception unused) {
+                return "";
             }
-            int i2 = aVar.x;
-            int i3 = aVar.y;
-            for (int i4 = 0; i4 < bArr.length; i4++) {
-                i2 = (i2 + 1) % 256;
-                int[] iArr = aVar.state;
-                i3 = (iArr[i2] + i3) % 256;
-                int i5 = iArr[i2];
-                iArr[i2] = iArr[i3];
-                iArr[i3] = i5;
-                bArr[i4] = (byte) (iArr[(iArr[i2] + iArr[i3]) % 256] ^ bArr[i4]);
-            }
-            aVar.x = i2;
-            aVar.y = i3;
-            return bArr;
         }
-        return (byte[]) invokeLL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+            String str = null;
+            if (context != null) {
+                try {
+                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+                    if (telephonyManager != null) {
+                        str = telephonyManager.getSubscriberId();
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            return g.m63a(str) ? a() : str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = h.get("ro.aliyun.clouduuid", "");
+            if (TextUtils.isEmpty(str)) {
+                str = h.get("ro.sys.aliyun.clouduuid", "");
+            }
+            return TextUtils.isEmpty(str) ? c() : str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            String str = null;
+            if (!c.a() && context != null) {
+                try {
+                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+                    if (telephonyManager != null) {
+                        str = telephonyManager.getDeviceId();
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            if (g.m63a(str)) {
+                str = b();
+            }
+            if (g.m63a(str)) {
+                str = b(context);
+            }
+            return g.m63a(str) ? a() : str;
+        }
+        return (String) invokeL.objValue;
     }
 }

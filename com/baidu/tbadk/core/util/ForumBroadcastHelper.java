@@ -1,6 +1,8 @@
 package com.baidu.tbadk.core.util;
 
 import android.content.Context;
+import c.a.e.e.p.a;
+import c.a.p0.i3.h0.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -9,10 +11,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.a;
-import d.a.q0.h3.h0.m;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ForumBroadcastHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_PARMARS_BCAST_CONTENT = "content";
@@ -93,7 +93,7 @@ public class ForumBroadcastHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.params.put("swipeback", Boolean.FALSE);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(this.mContext, "BarBroadcastEdit", this.params)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new n(this.mContext, "BarBroadcastEdit", this.params)));
         }
     }
 

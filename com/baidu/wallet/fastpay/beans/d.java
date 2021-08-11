@@ -8,23 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.statistics.StatSettings;
 import com.baidu.wallet.core.beans.BaseBean;
 import com.baidu.wallet.core.domain.DomainConfig;
-import com.baidu.wallet.fastpay.datamodel.QueryLocationResponse;
-import com.baidu.wallet.paysdk.PayUtils;
-import java.util.ArrayList;
+import com.baidu.wallet.fastpay.datamodel.PromotionInfoResponse;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class d extends BaseBean<Object> {
+/* loaded from: classes8.dex */
+public class d extends BaseBean<PromotionInfoResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f24971a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f24972b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> d(Context context) {
@@ -44,23 +35,13 @@ public class d extends BaseBean<Object> {
                 return;
             }
         }
-        this.f24971a = "";
-        this.f24972b = "";
-    }
-
-    public void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.f24971a = str;
-            this.f24972b = str2;
-        }
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.execBean(QueryLocationResponse.class);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.execBean(PromotionInfoResponse.class);
         }
     }
 
@@ -68,40 +49,35 @@ public class d extends BaseBean<Object> {
     public List<RestNameValuePair> generateRequestParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("mobile_num", PayUtils.encrypt("phone_number", this.f24971a)));
-            arrayList.add(new RestNameValuePair("cmd", "1067"));
-            arrayList.add(new RestNameValuePair("callback", "phonePriceInfo_common"));
-            arrayList.add(new RestNameValuePair("device_token", this.f24972b));
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
         return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.apollon.beans.ApollonBean
+    public int getAuthLevel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? FastPayBeanFactory.BEAN_ID_QUERY_LOCATION : invokeV.intValue;
-    }
-
-    @Override // com.baidu.apollon.beans.ApollonBean
-    public int getHttpMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? FastPayBeanFactory.BEAN_ID_PROMOTION_INFO : invokeV.intValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return DomainConfig.getInstance().getLifeHost() + StatSettings.GET_STRATETY_URL;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return DomainConfig.getInstance().getLifeHost() + "/_u/wireless/promotion_query";
         }
         return (String) invokeV.objValue;
     }

@@ -14,26 +14,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SlidingTabStrip extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f17303e;
+    public final int f52501e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Paint f17304f;
+    public final Paint f52502f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Paint f17305g;
+    public final Paint f52503g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f17306h;
+    public int f52504h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f17307i;
-    public int j;
+    public int f52505i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f52506j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SlidingTabStrip(Context context) {
@@ -63,45 +65,45 @@ public class SlidingTabStrip extends LinearLayout {
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds64);
             int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.ds14);
             if (i2 == 0) {
-                this.f17307i = childAt.getLeft();
+                this.f52505i = childAt.getLeft();
             } else {
-                this.f17307i = childAt.getLeft() + dimensionPixelSize2;
+                this.f52505i = childAt.getLeft() + dimensionPixelSize2;
             }
-            this.j = this.f17307i + dimensionPixelSize;
+            this.f52506j = this.f52505i + dimensionPixelSize;
             if (f2 < 0.0f || i2 >= getChildCount() - 1) {
                 return;
             }
             View childAt2 = getChildAt(i2 + 1);
             float f3 = 1.0f - f2;
-            this.f17307i = (int) (((childAt2.getLeft() + dimensionPixelSize2) * f2) + (this.f17307i * f3));
-            this.j = (int) ((f2 * (childAt2.getLeft() + dimensionPixelSize2 + dimensionPixelSize)) + (f3 * this.j));
+            this.f52505i = (int) (((childAt2.getLeft() + dimensionPixelSize2) * f2) + (this.f52505i * f3));
+            this.f52506j = (int) ((f2 * (childAt2.getLeft() + dimensionPixelSize2 + dimensionPixelSize)) + (f3 * this.f52506j));
         }
     }
 
-    public void b(int i2, float f2) {
+    public final void b(Canvas canvas, int i2) {
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, i2) == null) {
+            if (this.f52506j <= 0 && (i3 = this.f52504h) >= 0 && i3 < getChildCount()) {
+                this.f52506j = getChildAt(this.f52504h).getRight() - getResources().getDimensionPixelSize(R.dimen.ds14);
+            }
+            canvas.drawRoundRect(new RectF(this.f52505i, i2 - this.f52501e, this.f52506j, i2), 10.0f, 10.0f, this.f52502f);
+        }
+    }
+
+    public void drawScrollRect(int i2, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
             a(i2, f2);
             invalidate();
         }
     }
 
-    public final void c(Canvas canvas, int i2) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, canvas, i2) == null) {
-            if (this.j <= 0 && (i3 = this.f17306h) >= 0 && i3 < getChildCount()) {
-                this.j = getChildAt(this.f17306h).getRight() - getResources().getDimensionPixelSize(R.dimen.ds14);
-            }
-            canvas.drawRoundRect(new RectF(this.f17307i, i2 - this.f17303e, this.j, i2), 10.0f, 10.0f, this.f17304f);
-        }
-    }
-
-    public void d(int i2) {
+    public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f17304f.setColor(SkinManager.getSkinColor(null, R.color.CAM_X0105));
-            this.f17305g.setColor(SkinManager.getColor(R.color.CAM_X0204));
+            this.f52502f.setColor(SkinManager.getSkinColor(null, R.color.CAM_X0105));
+            this.f52503g.setColor(SkinManager.getColor(R.color.CAM_X0204));
             invalidate();
             int childCount = getChildCount();
             if (childCount <= 0) {
@@ -111,8 +113,8 @@ public class SlidingTabStrip extends LinearLayout {
                 View childAt = getChildAt(i3);
                 if (childAt instanceof TabItemView) {
                     TabItemView tabItemView = (TabItemView) childAt;
-                    tabItemView.a();
-                    if (i3 == this.f17306h) {
+                    tabItemView.onChangeSkinType();
+                    if (i3 == this.f52504h) {
                         SkinManager.setViewTextColor(tabItemView.getTextView(), R.color.CAM_X0105, 1);
                     } else {
                         SkinManager.setViewTextColor(tabItemView.getTextView(), R.color.CAM_X0107, 1);
@@ -122,30 +124,49 @@ public class SlidingTabStrip extends LinearLayout {
         }
     }
 
-    public void e(int i2, float f2) {
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+            int childCount = getChildCount();
+            if (canvas == null || childCount <= 0) {
+                return;
+            }
+            b(canvas, getHeight());
+        }
+    }
+
+    public void performTranslate(int i2, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds14);
             View childAt = getChildAt(i2);
-            View childAt2 = getChildAt(this.f17306h);
+            View childAt2 = getChildAt(this.f52504h);
             int left = childAt.getLeft();
             float left2 = (childAt2.getLeft() - left) * f2;
-            if (this.f17306h == 0) {
-                this.f17307i = (int) (left + left2);
+            if (this.f52504h == 0) {
+                this.f52505i = (int) (left + left2);
             } else {
-                this.f17307i = (int) (left + left2 + dimensionPixelSize);
+                this.f52505i = (int) (left + left2 + dimensionPixelSize);
             }
-            this.j = this.f17307i + getResources().getDimensionPixelSize(R.dimen.ds64);
+            this.f52506j = this.f52505i + getResources().getDimensionPixelSize(R.dimen.ds64);
             invalidate();
         }
     }
 
-    public void f(int i2, int i3) {
+    public void setDrawBottomLine(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) || i2 == i3) {
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            invalidate();
+        }
+    }
+
+    public void updateTextViewColor(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) || i2 == i3) {
             return;
         }
-        this.f17306h = i2;
+        this.f52504h = i2;
         int childCount = getChildCount();
         if (i2 >= 0 && i2 < childCount) {
             View childAt = getChildAt(i2);
@@ -159,25 +180,6 @@ public class SlidingTabStrip extends LinearLayout {
         View childAt2 = getChildAt(i3);
         if (childAt2 instanceof TabItemView) {
             SkinManager.setViewTextColor(((TabItemView) childAt2).getTextView(), R.color.CAM_X0107, 1);
-        }
-    }
-
-    @Override // android.widget.LinearLayout, android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
-            int childCount = getChildCount();
-            if (canvas == null || childCount <= 0) {
-                return;
-            }
-            c(canvas, getHeight());
-        }
-    }
-
-    public void setDrawBottomLine(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            invalidate();
         }
     }
 
@@ -201,12 +203,12 @@ public class SlidingTabStrip extends LinearLayout {
             }
         }
         setWillNotDraw(false);
-        this.f17303e = getResources().getDimensionPixelSize(R.dimen.ds5);
+        this.f52501e = getResources().getDimensionPixelSize(R.dimen.ds5);
         Paint paint = new Paint();
-        this.f17304f = paint;
+        this.f52502f = paint;
         paint.setColor(SkinManager.getSkinColor(null, R.color.CAM_X0105));
         Paint paint2 = new Paint();
-        this.f17305g = paint2;
+        this.f52503g = paint2;
         paint2.setColor(SkinManager.getColor(R.color.CAM_X0204));
     }
 }

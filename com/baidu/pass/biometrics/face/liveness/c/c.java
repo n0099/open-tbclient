@@ -12,15 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final float f9267a = 0.4f;
+    public static final float f43911a = 0.4f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float f9268b = 15.0f;
+    public static final float f43912b = 15.0f;
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {

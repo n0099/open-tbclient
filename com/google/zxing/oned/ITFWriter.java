@@ -13,7 +13,7 @@ import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class ITFWriter extends OneDimensionalCodeWriter {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] END_PATTERN;

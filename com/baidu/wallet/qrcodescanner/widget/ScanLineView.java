@@ -19,42 +19,42 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.qrcodescanner.QRScanCodeActivity;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class ScanLineView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static float f27449d = 50.0f;
+    public static float f63300d = 50.0f;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f27450e = 1800;
+    public static int f63301e = 1800;
 
     /* renamed from: f  reason: collision with root package name */
-    public static float f27451f = 50.0f;
+    public static float f63302f = 50.0f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f27452a;
+    public ImageView f63303a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f27453b;
+    public a f63304b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27454c;
+    public int f63305c;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27455g;
+    public int f63306g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f27456a;
+        public boolean f63307a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ScanLineView f27457b;
+        public final /* synthetic */ ScanLineView f63308b;
 
         public a(ScanLineView scanLineView) {
             Interceptable interceptable = $ic;
@@ -71,8 +71,8 @@ public class ScanLineView extends FrameLayout {
                     return;
                 }
             }
-            this.f27457b = scanLineView;
-            this.f27456a = true;
+            this.f63308b = scanLineView;
+            this.f63307a = true;
         }
 
         @Override // android.os.Handler
@@ -81,36 +81,36 @@ public class ScanLineView extends FrameLayout {
             int i3;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int left = this.f27457b.f27452a.getLeft();
-                int top = this.f27457b.f27452a.getTop();
-                int right = this.f27457b.f27452a.getRight();
-                int bottom = this.f27457b.f27452a.getBottom();
-                this.f27457b.f27452a.getWidth();
-                this.f27457b.f27452a.getHeight();
-                if (this.f27456a) {
-                    this.f27457b.f27452a.setBackgroundResource(ResUtils.drawable(this.f27457b.getContext(), "wallet_qrscanner_line_down"));
-                    i2 = top + this.f27457b.f27454c;
-                    i3 = bottom + this.f27457b.f27454c;
+                int left = this.f63308b.f63303a.getLeft();
+                int top = this.f63308b.f63303a.getTop();
+                int right = this.f63308b.f63303a.getRight();
+                int bottom = this.f63308b.f63303a.getBottom();
+                this.f63308b.f63303a.getWidth();
+                this.f63308b.f63303a.getHeight();
+                if (this.f63307a) {
+                    this.f63308b.f63303a.setBackgroundResource(ResUtils.drawable(this.f63308b.getContext(), "wallet_qrscanner_line_down"));
+                    i2 = top + this.f63308b.f63305c;
+                    i3 = bottom + this.f63308b.f63305c;
                 } else {
-                    this.f27457b.f27452a.setBackgroundResource(ResUtils.drawable(this.f27457b.getContext(), "wallet_qrscanner_line_up"));
-                    i2 = top - this.f27457b.f27454c;
-                    i3 = bottom - this.f27457b.f27454c;
+                    this.f63308b.f63303a.setBackgroundResource(ResUtils.drawable(this.f63308b.getContext(), "wallet_qrscanner_line_up"));
+                    i2 = top - this.f63308b.f63305c;
+                    i3 = bottom - this.f63308b.f63305c;
                 }
                 int i4 = 0;
                 if (i3 < 0) {
-                    i2 = -this.f27457b.f27452a.getHeight();
-                    this.f27456a = true;
+                    i2 = -this.f63308b.f63303a.getHeight();
+                    this.f63307a = true;
                     i3 = 0;
                 }
-                if (i2 > this.f27457b.getHeight()) {
-                    i2 = -this.f27457b.f27452a.getHeight();
-                    this.f27456a = true;
+                if (i2 > this.f63308b.getHeight()) {
+                    i2 = -this.f63308b.f63303a.getHeight();
+                    this.f63307a = true;
                 } else {
                     i4 = i3;
                 }
-                this.f27457b.f27452a.layout(left, i2, right, i4);
+                this.f63308b.f63303a.layout(left, i2, right, i4);
                 removeCallbacksAndMessages(null);
-                sendEmptyMessageDelayed(1, this.f27457b.f27455g);
+                sendEmptyMessageDelayed(1, this.f63308b.f63306g);
                 super.dispatchMessage(message);
             }
         }
@@ -150,8 +150,8 @@ public class ScanLineView extends FrameLayout {
                 return;
             }
         }
-        this.f27454c = 1;
-        this.f27455g = (int) (f27450e / f27451f);
+        this.f63305c = 1;
+        this.f63306g = (int) (f63301e / f63302f);
         a();
     }
 
@@ -176,28 +176,28 @@ public class ScanLineView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            this.f27454c = (int) ((getMeasuredHeight() + DisplayUtils.dip2px(getContext(), 100.0f)) / f27449d);
+            this.f63305c = (int) ((getMeasuredHeight() + DisplayUtils.dip2px(getContext(), 100.0f)) / f63300d);
         }
     }
 
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f27453b == null) {
-                this.f27453b = new a(this);
+            if (this.f63304b == null) {
+                this.f63304b = new a(this);
             }
-            this.f27453b.removeCallbacksAndMessages(null);
-            this.f27453b.sendEmptyMessageDelayed(1, 1000L);
+            this.f63304b.removeCallbacksAndMessages(null);
+            this.f63304b.sendEmptyMessageDelayed(1, 1000L);
         }
     }
 
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f27453b == null) {
-                this.f27453b = new a(this);
+            if (this.f63304b == null) {
+                this.f63304b = new a(this);
             }
-            this.f27453b.removeCallbacksAndMessages(null);
+            this.f63304b.removeCallbacksAndMessages(null);
         }
     }
 
@@ -205,11 +205,11 @@ public class ScanLineView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             ImageView imageView = new ImageView(getContext());
-            this.f27452a = imageView;
+            this.f63303a = imageView;
             imageView.setBackgroundResource(ResUtils.drawable(getContext(), "wallet_qrscanner_line_down"));
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, DisplayUtils.dip2px(getContext(), 100.0f));
             layoutParams.topMargin = -DisplayUtils.dip2px(getContext(), 100.0f);
-            addView(this.f27452a, layoutParams);
+            addView(this.f63303a, layoutParams);
         }
     }
 
@@ -231,8 +231,8 @@ public class ScanLineView extends FrameLayout {
                 return;
             }
         }
-        this.f27454c = 1;
-        this.f27455g = (int) (f27450e / f27451f);
+        this.f63305c = 1;
+        this.f63306g = (int) (f63301e / f63302f);
         a();
     }
 }

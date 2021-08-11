@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class n implements TextWatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f23838a;
+    public final /* synthetic */ FeedbackEditActivity f59577a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f23839b;
+    public long f59578b;
 
     public n(FeedbackEditActivity feedbackEditActivity) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public final class n implements TextWatcher {
                 return;
             }
         }
-        this.f23838a = feedbackEditActivity;
-        this.f23839b = 0L;
+        this.f59577a = feedbackEditActivity;
+        this.f59578b = 0L;
     }
 
     @Override // android.text.TextWatcher
@@ -53,33 +53,33 @@ public final class n implements TextWatcher {
         EditText editText7;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-            z = this.f23838a.x;
+            z = this.f59577a.x;
             if (!z) {
-                com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f23838a);
+                com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f59577a);
                 dVar.b(dVar.b() + 1);
-                this.f23838a.x = true;
+                this.f59577a.x = true;
             }
             try {
-                editText = this.f23838a.n;
+                editText = this.f59577a.n;
                 if (editText != null) {
-                    editText4 = this.f23838a.n;
+                    editText4 = this.f59577a.n;
                     if (editText4.getText().toString().length() > 30) {
-                        if (System.currentTimeMillis() - this.f23839b > 3000) {
-                            Toast.makeText(this.f23838a, com.baidu.ufosdk.f.s.a(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS), 0).show();
-                            this.f23839b = System.currentTimeMillis();
+                        if (System.currentTimeMillis() - this.f59578b > 3000) {
+                            Toast.makeText(this.f59577a, com.baidu.ufosdk.f.s.a(EventType.GiftEventID.SEND_GIFT_TO_MULTIUSER_SUCCESS), 0).show();
+                            this.f59578b = System.currentTimeMillis();
                         }
-                        editText5 = this.f23838a.n;
-                        str = this.f23838a.R;
+                        editText5 = this.f59577a.n;
+                        str = this.f59577a.R;
                         editText5.setText(str);
-                        editText6 = this.f23838a.m;
-                        editText7 = this.f23838a.n;
+                        editText6 = this.f59577a.m;
+                        editText7 = this.f59577a.n;
                         FeedbackEditActivity.b(editText6, editText7.getText().length());
                     }
                 }
-                editText2 = this.f23838a.n;
+                editText2 = this.f59577a.n;
                 if (editText2 != null) {
-                    FeedbackEditActivity feedbackEditActivity = this.f23838a;
-                    editText3 = this.f23838a.n;
+                    FeedbackEditActivity feedbackEditActivity = this.f59577a;
+                    editText3 = this.f59577a.n;
                     feedbackEditActivity.R = editText3.getText().toString().trim();
                 }
             } catch (Exception e2) {

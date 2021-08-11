@@ -10,16 +10,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface IAdBaseAsyncController {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Type PIC_BANNER;
         public static final Type PIC_PAGE;
+        public static final Type VIDEO_FLOW;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -36,9 +37,10 @@ public interface IAdBaseAsyncController {
                 }
             }
             PIC_BANNER = new Type("PIC_BANNER", 0);
-            Type type = new Type("PIC_PAGE", 1);
-            PIC_PAGE = type;
-            $VALUES = new Type[]{PIC_BANNER, type};
+            PIC_PAGE = new Type("PIC_PAGE", 1);
+            Type type = new Type("VIDEO_FLOW", 2);
+            VIDEO_FLOW = type;
+            $VALUES = new Type[]{PIC_BANNER, PIC_PAGE, type};
         }
 
         public Type(String str, int i2) {
@@ -73,8 +75,8 @@ public interface IAdBaseAsyncController {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void a(@Nullable List<AdvertAppInfo> list);
+        void b(@Nullable List<AdvertAppInfo> list);
     }
 }

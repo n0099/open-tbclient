@@ -30,7 +30,8 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class EC3TrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MAX_FRAMES_PER_MMAP = 20;
@@ -44,7 +45,7 @@ public class EC3TrackImpl extends AbstractTrack {
     public List<Sample> samples;
     public TrackMetaData trackMetaData;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class BitStreamInfo extends EC3SpecificBox.Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +75,7 @@ public class EC3TrackImpl extends AbstractTrack {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "BitStreamInfo{frameSize=" + this.frameSize + ", substreamid=" + this.substreamid + ", bitrate=" + this.bitrate + ", samplerate=" + this.samplerate + ", strmtyp=" + this.strmtyp + ", chanmap=" + this.chanmap + '}';
+                return "BitStreamInfo{frameSize=" + this.frameSize + ", substreamid=" + this.substreamid + ", bitrate=" + this.bitrate + ", samplerate=" + this.samplerate + ", strmtyp=" + this.strmtyp + ", chanmap=" + this.chanmap + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -119,8 +120,8 @@ public class EC3TrackImpl extends AbstractTrack {
             this.sampleDescriptionBox = new SampleDescriptionBox();
             AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE9);
             audioSampleEntry.setChannelCount(2);
-            long j = i4;
-            audioSampleEntry.setSampleRate(j);
+            long j2 = i4;
+            audioSampleEntry.setSampleRate(j2);
             audioSampleEntry.setDataReferenceIndex(1);
             audioSampleEntry.setSampleSize(16);
             EC3SpecificBox eC3SpecificBox = new EC3SpecificBox();
@@ -157,7 +158,7 @@ public class EC3TrackImpl extends AbstractTrack {
             this.sampleDescriptionBox.addBox(audioSampleEntry);
             this.trackMetaData.setCreationTime(new Date());
             this.trackMetaData.setModificationTime(new Date());
-            this.trackMetaData.setTimescale(j);
+            this.trackMetaData.setTimescale(j2);
             this.trackMetaData.setVolume(1.0f);
             dataSource.position(0L);
             List<Sample> readSamples = readSamples();
@@ -493,7 +494,7 @@ public class EC3TrackImpl extends AbstractTrack {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return "EC3TrackImpl{bitrate=" + this.bitrate + ", bitStreamInfos=" + this.bitStreamInfos + '}';
+            return "EC3TrackImpl{bitrate=" + this.bitrate + ", bitStreamInfos=" + this.bitStreamInfos + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class Frame {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f33149a;
+    public long f69852a;
 
     static {
         InterceptResult invokeClinit;
@@ -47,50 +47,50 @@ public class Frame {
                 return;
             }
         }
-        this.f33149a = 0L;
-        this.f33149a = 0L;
+        this.f69852a = 0L;
+        this.f69852a = 0L;
     }
 
-    private native long nativeAcquireCameraImage(long j, long j2);
+    private native long nativeAcquireCameraImage(long j2, long j3);
 
-    private native long nativeAcquireImageMetadata(long j, long j2);
+    private native long nativeAcquireImageMetadata(long j2, long j3);
 
-    private native long[] nativeAcquireUpdatedAnchors(long j, long j2);
+    private native long[] nativeAcquireUpdatedAnchors(long j2, long j3);
 
-    public static native long nativeCreateFrame(long j);
+    public static native long nativeCreateFrame(long j2);
 
-    public static native void nativeDestroyFrame(long j);
+    public static native void nativeDestroyFrame(long j2);
 
-    private native long nativeGetAndroidCameraTimestamp(long j, long j2);
+    private native long nativeGetAndroidCameraTimestamp(long j2, long j3);
 
-    private native d.f.c.a.a nativeGetAndroidSensorPose(long j, long j2);
+    private native c.i.c.a.a nativeGetAndroidSensorPose(long j2, long j3);
 
-    private native void nativeGetLightEstimate(long j, long j2, long j3);
+    private native void nativeGetLightEstimate(long j2, long j3, long j4);
 
-    private native long nativeGetTimestamp(long j, long j2);
+    private native long nativeGetTimestamp(long j2, long j3);
 
-    private native boolean nativeHasDisplayGeometryChanged(long j, long j2);
+    private native boolean nativeHasDisplayGeometryChanged(long j2, long j3);
 
-    private native void nativeTransformCoordinates2dFloatArrayOrBuffer(long j, long j2, int i2, Object obj, int i3, Object obj2);
+    private native void nativeTransformCoordinates2dFloatArrayOrBuffer(long j2, long j3, int i2, Object obj, int i3, Object obj2);
 
-    private native void nativeTransformDisplayUvCoords(long j, long j2, FloatBuffer floatBuffer, FloatBuffer floatBuffer2);
+    private native void nativeTransformDisplayUvCoords(long j2, long j3, FloatBuffer floatBuffer, FloatBuffer floatBuffer2);
 
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.f33149a;
-            if (j != 0) {
-                nativeDestroyFrame(j);
+            long j2 = this.f69852a;
+            if (j2 != 0) {
+                nativeDestroyFrame(j2);
             }
             super.finalize();
         }
     }
 
-    public native long nativeAcquirePointCloud(long j, long j2);
+    public native long nativeAcquirePointCloud(long j2, long j3);
 
-    public native long[] nativeAcquireUpdatedTrackables(long j, long j2, int i2);
+    public native long[] nativeAcquireUpdatedTrackables(long j2, long j3, int i2);
 
-    public native long[] nativeHitTest(long j, long j2, float f2, float f3);
+    public native long[] nativeHitTest(long j2, long j3, float f2, float f3);
 
-    public native long[] nativeHitTestRay(long j, long j2, float[] fArr, int i2, float[] fArr2, int i3);
+    public native long[] nativeHitTestRay(long j2, long j3, float[] fArr, int i2, float[] fArr2, int i3);
 }

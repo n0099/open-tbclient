@@ -1,7 +1,6 @@
 package com.baidu.searchbox.dns;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.dns.c.a;
@@ -14,13 +13,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static List<String> f10225i;
-    public static boolean j;
+    public static List<String> f44902i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static boolean f44903j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,7 +48,7 @@ public class b {
                 return null;
             }
             int i2 = 0;
-            com.baidu.searchbox.dns.c.a k = new a.C0154a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
+            com.baidu.searchbox.dns.c.a k = new a.C1703a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
             com.baidu.searchbox.dns.d.a i3 = k.i();
             com.baidu.searchbox.dns.d.a.a h2 = k.h();
             int j2 = k.j();
@@ -60,7 +61,7 @@ public class b {
                         z = true;
                     }
                     if (DnsUtil.DEBUG) {
-                        Log.d(DnsUtil.TAG, "DnsEngine getIplist -> cache response hit: " + str + " ip: " + a(list));
+                        String str2 = "DnsEngine getIplist -> cache response hit: " + str + " ip: " + a(list);
                     }
                     i2 = 2000;
                 }
@@ -71,11 +72,11 @@ public class b {
                 }
                 i3.start();
                 if (DnsUtil.DEBUG) {
-                    Log.d(DnsUtil.TAG, " DnsEngine getIplist -> trasmitTask start: " + str);
+                    String str3 = " DnsEngine getIplist -> trasmitTask start: " + str;
                 }
             } else if (i3 == null) {
                 if (DnsUtil.DEBUG) {
-                    Log.d(DnsUtil.TAG, " DnsEngine getIplist -> no need start transmitTask: " + str);
+                    String str4 = " DnsEngine getIplist -> no need start transmitTask: " + str;
                 }
                 if (i2 == 0) {
                     j2 = 4;
@@ -109,7 +110,7 @@ public class b {
                             i2 = 0;
                         }
                         if (DnsUtil.DEBUG) {
-                            Log.d(DnsUtil.TAG, "DnsEngine getIplist -> wait http dns request: " + str + " ip: " + a(g2));
+                            String str2 = "DnsEngine getIplist -> wait http dns request: " + str + " ip: " + a(g2);
                         }
                         subType = i3;
                         ipList = g2;
@@ -122,12 +123,12 @@ public class b {
                             subType = 5;
                         }
                         if (DnsUtil.DEBUG) {
-                            Log.d(DnsUtil.TAG, "DnsEngine getIplist -> use local dns:" + str + " ip: " + a(ipList));
+                            String str3 = "DnsEngine getIplist -> use local dns:" + str + " ip: " + a(ipList);
                         }
                     }
                 }
                 if (DnsUtil.DEBUG) {
-                    Log.d(DnsUtil.TAG, "Dns parse result type: " + type + " subtype: " + subType);
+                    String str4 = "Dns parse result type: " + type + " subtype: " + subType;
                 }
                 return new DnsParseResult(ipList, type, subType, stackType);
             }
@@ -140,8 +141,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
             synchronized (b.class) {
-                if (f10225i != null && f10225i.size() > 0) {
-                    for (String str : f10225i) {
+                if (f44902i != null && f44902i.size() > 0) {
+                    for (String str : f44902i) {
                         b(str);
                     }
                 }
@@ -167,11 +168,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
             synchronized (b.class) {
-                if (f10225i == null) {
-                    f10225i = new ArrayList(4);
+                if (f44902i == null) {
+                    f44902i = new ArrayList(4);
                 }
-                if (!f10225i.contains(str)) {
-                    f10225i.add(str);
+                if (!f44902i.contains(str)) {
+                    f44902i.add(str);
                 }
             }
         }
@@ -184,7 +185,7 @@ public class b {
             com.baidu.searchbox.dns.d.a a2 = com.baidu.searchbox.dns.d.b.o().a(str, true, 1);
             if (a2 != null) {
                 if (DnsUtil.DEBUG) {
-                    Log.d(DnsUtil.TAG, " start update domain task: " + str);
+                    String str2 = " start update domain task: " + str;
                 }
                 a2.start();
             }
@@ -213,7 +214,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, aVar, i2)) == null) {
             if (i2 == 3) {
-                return a(aVar, j);
+                return a(aVar, f44903j);
             }
             if (i2 == 1) {
                 return a(aVar, false);

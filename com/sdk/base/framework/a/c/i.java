@@ -12,19 +12,19 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class i implements Executor {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ThreadFactory f38301a;
+    public static final ThreadFactory f75084a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BlockingQueue<Runnable> f38302b;
+    public final BlockingQueue<Runnable> f75085b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ThreadPoolExecutor f38303c;
+    public final ThreadPoolExecutor f75086c;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public final class i implements Executor {
                 return;
             }
         }
-        f38301a = new j();
+        f75084a = new j();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -75,15 +75,15 @@ public final class i implements Executor {
                 return;
             }
         }
-        this.f38302b = new l();
-        this.f38303c = new ThreadPoolExecutor(5, 256, 1L, TimeUnit.SECONDS, this.f38302b, f38301a);
+        this.f75085b = new l();
+        this.f75086c = new ThreadPoolExecutor(5, 256, 1L, TimeUnit.SECONDS, this.f75085b, f75084a);
     }
 
     @Override // java.util.concurrent.Executor
     public final void execute(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.f38303c.execute(runnable);
+            this.f75086c.execute(runnable);
         }
     }
 }

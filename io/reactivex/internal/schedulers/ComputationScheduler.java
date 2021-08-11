@@ -19,7 +19,7 @@ import io.reactivex.internal.schedulers.SchedulerMultiWorkerSupport;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ComputationScheduler extends Scheduler implements SchedulerMultiWorkerSupport {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_COMPUTATION_PRIORITY = "rx2.computation-priority";
@@ -33,7 +33,7 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
     public final AtomicReference<FixedSchedulerPool> pool;
     public final ThreadFactory threadFactory;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class FixedSchedulerPool implements SchedulerMultiWorkerSupport {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,9 +95,9 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
                     return ComputationScheduler.SHUTDOWN_WORKER;
                 }
                 PoolWorker[] poolWorkerArr = this.eventLoops;
-                long j = this.n;
-                this.n = 1 + j;
-                return poolWorkerArr[(int) (j % i2)];
+                long j2 = this.n;
+                this.n = 1 + j2;
+                return poolWorkerArr[(int) (j2 % i2)];
             }
             return (PoolWorker) invokeV.objValue;
         }
@@ -112,7 +112,7 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class PoolWorker extends NewThreadWorker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -205,18 +205,18 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
 
     @Override // io.reactivex.Scheduler
     @NonNull
-    public Disposable scheduleDirect(@NonNull Runnable runnable, long j, TimeUnit timeUnit) {
+    public Disposable scheduleDirect(@NonNull Runnable runnable, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) ? this.pool.get().getEventLoop().scheduleDirect(runnable, j, timeUnit) : (Disposable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) ? this.pool.get().getEventLoop().scheduleDirect(runnable, j2, timeUnit) : (Disposable) invokeCommon.objValue;
     }
 
     @Override // io.reactivex.Scheduler
     @NonNull
-    public Disposable schedulePeriodicallyDirect(@NonNull Runnable runnable, long j, long j2, TimeUnit timeUnit) {
+    public Disposable schedulePeriodicallyDirect(@NonNull Runnable runnable, long j2, long j3, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) ? this.pool.get().getEventLoop().schedulePeriodicallyDirect(runnable, j, j2, timeUnit) : (Disposable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) ? this.pool.get().getEventLoop().schedulePeriodicallyDirect(runnable, j2, j3, timeUnit) : (Disposable) invokeCommon.objValue;
     }
 
     @Override // io.reactivex.Scheduler
@@ -268,7 +268,7 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
         start();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class EventLoopWorker extends Scheduler.Worker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -335,14 +335,14 @@ public final class ComputationScheduler extends Scheduler implements SchedulerMu
 
         @Override // io.reactivex.Scheduler.Worker
         @NonNull
-        public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
+        public Disposable schedule(@NonNull Runnable runnable, long j2, @NonNull TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
                 if (this.disposed) {
                     return EmptyDisposable.INSTANCE;
                 }
-                return this.poolWorker.scheduleActual(runnable, j, timeUnit, this.timed);
+                return this.poolWorker.scheduleActual(runnable, j2, timeUnit, this.timed);
             }
             return (Disposable) invokeCommon.objValue;
         }

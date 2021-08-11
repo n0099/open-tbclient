@@ -27,35 +27,36 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes10.dex */
 public class da {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40231a = "/MiPushLog";
+    public static String f77083a = "/MiPushLog";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f212a;
+    public int f216a;
     @SuppressLint({"SimpleDateFormat"})
 
     /* renamed from: a  reason: collision with other field name */
-    public final SimpleDateFormat f213a;
+    public final SimpleDateFormat f217a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ArrayList<File> f214a;
+    public ArrayList<File> f218a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f215a;
+    public boolean f219a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40232b;
+    public int f77084b;
 
     /* renamed from: b  reason: collision with other field name */
-    public String f216b;
+    public String f220b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f40233c;
+    public String f77085c;
 
     static {
         InterceptResult invokeClinit;
@@ -85,9 +86,9 @@ public class da {
                 return;
             }
         }
-        this.f213a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        this.f40232b = 2097152;
-        this.f214a = new ArrayList<>();
+        this.f217a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        this.f77084b = 2097152;
+        this.f218a = new ArrayList<>();
     }
 
     private void a(BufferedReader bufferedReader, BufferedWriter bufferedWriter, Pattern pattern) {
@@ -106,28 +107,28 @@ public class da {
                         break;
                     }
                     int start = matcher.start();
-                    String substring = str.substring(start, this.f216b.length() + start);
-                    if (this.f215a) {
-                        if (substring.compareTo(this.f40233c) > 0) {
+                    String substring = str.substring(start, this.f220b.length() + start);
+                    if (this.f219a) {
+                        if (substring.compareTo(this.f77085c) > 0) {
                             read = start;
                             z = true;
                             break;
                         }
-                    } else if (substring.compareTo(this.f216b) >= 0) {
-                        this.f215a = true;
+                    } else if (substring.compareTo(this.f220b) >= 0) {
+                        this.f219a = true;
                         i3 = start;
                     }
                     int indexOf = str.indexOf(10, start);
                     if (indexOf == -1) {
-                        indexOf = this.f216b.length();
+                        indexOf = this.f220b.length();
                     }
                     i2 = start + indexOf;
                 }
-                if (this.f215a) {
+                if (this.f219a) {
                     int i4 = read - i3;
-                    this.f212a += i4;
+                    this.f216a += i4;
                     bufferedWriter.write(cArr, i3, i4);
-                    if (z || this.f212a > this.f40232b) {
+                    if (z || this.f216a > this.f77084b) {
                         return;
                     }
                 }
@@ -149,9 +150,9 @@ public class da {
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
                 try {
-                    bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bi.m612a() + "; lng :" + Locale.getDefault().toString() + "; sdk :43; andver :" + Build.VERSION.SDK_INT + "\n");
-                    this.f212a = 0;
-                    Iterator<File> it = this.f214a.iterator();
+                    bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bi.m615a() + "; lng :" + Locale.getDefault().toString() + "; sdk :43; andver :" + Build.VERSION.SDK_INT + StringUtils.LF);
+                    this.f216a = 0;
+                    Iterator<File> it = this.f218a.iterator();
                     while (it.hasNext()) {
                         bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(it.next())));
                         try {
@@ -211,12 +212,12 @@ public class da {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public da m239a(File file) {
+    public da m242a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
             if (file.exists()) {
-                this.f214a.add(file);
+                this.f218a.add(file);
             }
             return this;
         }
@@ -229,13 +230,13 @@ public class da {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, date, date2)) == null) {
             if (date.after(date2)) {
-                this.f216b = this.f213a.format(date2);
-                format = this.f213a.format(date);
+                this.f220b = this.f217a.format(date2);
+                format = this.f217a.format(date);
             } else {
-                this.f216b = this.f213a.format(date);
-                format = this.f213a.format(date2);
+                this.f220b = this.f217a.format(date);
+                format = this.f217a.format(date2);
             }
-            this.f40233c = format;
+            this.f77085c = format;
             return this;
         }
         return (da) invokeLL.objValue;
@@ -252,14 +253,14 @@ public class da {
                 if (!file2.exists()) {
                     file2 = context.getFilesDir();
                 }
-                m239a(new File(file2, "xmsf.log.1"));
+                m242a(new File(file2, "xmsf.log.1"));
                 file3 = new File(file2, "xmsf.log");
             } else {
-                file2 = new File(context.getExternalFilesDir(null) + f40231a);
-                m239a(new File(file2, "log0.txt"));
+                file2 = new File(context.getExternalFilesDir(null) + f77083a);
+                m242a(new File(file2, "log0.txt"));
                 file3 = new File(file2, "log1.txt");
             }
-            m239a(file3);
+            m242a(file3);
             if (file2.isDirectory()) {
                 File file4 = new File(file, date.getTime() + "-" + date2.getTime() + ".zip");
                 if (file4.exists()) {
@@ -291,6 +292,6 @@ public class da {
         if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || i2 == 0) {
             return;
         }
-        this.f40232b = i2;
+        this.f77084b = i2;
     }
 }

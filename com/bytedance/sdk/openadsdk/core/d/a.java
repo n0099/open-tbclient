@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +30,7 @@ import com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressView;
 import com.bytedance.sdk.openadsdk.core.nativeexpress.k;
 import com.bytedance.sdk.openadsdk.img.ImageLoaderWrapper;
 import com.bytedance.sdk.openadsdk.q.s;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a extends BackupView {
     public static /* synthetic */ Interceptable $ic;
     public static k[] l;
@@ -79,7 +80,7 @@ public class a extends BackupView {
             }
         }
         this.p = 1;
-        this.f30478a = context;
+        this.f66397a = context;
     }
 
     private void b() {
@@ -88,30 +89,30 @@ public class a extends BackupView {
             this.t = a(this.n.getExpectExpressWidth(), this.n.getExpectExpressHeight());
             if (this.n.getExpectExpressWidth() > 0 && this.n.getExpectExpressHeight() > 0) {
                 if (this.n.getExpectExpressWidth() > this.n.getExpectExpressHeight()) {
-                    this.f30483f = s.d(this.f30478a, this.n.getExpectExpressHeight() * this.t.f30593c);
-                    this.f30484g = s.d(this.f30478a, this.n.getExpectExpressHeight());
+                    this.f66402f = s.d(this.f66397a, this.n.getExpectExpressHeight() * this.t.f66515c);
+                    this.f66403g = s.d(this.f66397a, this.n.getExpectExpressHeight());
                 } else {
-                    this.f30483f = s.d(this.f30478a, this.n.getExpectExpressWidth());
-                    this.f30484g = s.d(this.f30478a, this.n.getExpectExpressWidth() / this.t.f30593c);
+                    this.f66402f = s.d(this.f66397a, this.n.getExpectExpressWidth());
+                    this.f66403g = s.d(this.f66397a, this.n.getExpectExpressWidth() / this.t.f66515c);
                 }
             } else {
-                this.f30483f = s.d(this.f30478a, this.t.f30594d);
-                this.f30484g = s.d(this.f30478a, this.t.f30595e);
+                this.f66402f = s.d(this.f66397a, this.t.f66516d);
+                this.f66403g = s.d(this.f66397a, this.t.f66517e);
             }
-            int i2 = this.f30483f;
-            if (i2 > 0 && i2 > s.c(this.f30478a)) {
-                float c2 = s.c(this.f30478a) / this.f30483f;
-                this.f30483f = s.c(this.f30478a);
-                this.f30484g = Float.valueOf(this.f30484g * c2).intValue();
+            int i2 = this.f66402f;
+            if (i2 > 0 && i2 > s.c(this.f66397a)) {
+                float c2 = s.c(this.f66397a) / this.f66402f;
+                this.f66402f = s.c(this.f66397a);
+                this.f66403g = Float.valueOf(this.f66403g * c2).intValue();
             }
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams == null) {
-                layoutParams = new ViewGroup.LayoutParams(this.f30483f, this.f30484g);
+                layoutParams = new ViewGroup.LayoutParams(this.f66402f, this.f66403g);
             }
-            layoutParams.width = this.f30483f;
-            layoutParams.height = this.f30484g;
+            layoutParams.width = this.f66402f;
+            layoutParams.height = this.f66403g;
             setLayoutParams(layoutParams);
-            int i3 = this.t.f30591a;
+            int i3 = this.t.f66513a;
             if (i3 == 1) {
                 c();
             } else if (i3 == 2) {
@@ -127,18 +128,18 @@ public class a extends BackupView {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            View inflate = LayoutInflater.from(this.f30478a).inflate(t.f(this.f30478a, "tt_backup_insert_layout1"), (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(this.f66397a).inflate(t.f(this.f66397a, "tt_backup_insert_layout1"), (ViewGroup) this, true);
             this.m = inflate;
-            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(t.e(this.f30478a, "tt_ad_container"));
-            ImageView imageView = (ImageView) this.m.findViewById(t.e(this.f30478a, "tt_bu_img"));
-            this.u = (ImageView) this.m.findViewById(t.e(this.f30478a, "tt_bu_close"));
-            ImageView imageView2 = (ImageView) this.m.findViewById(t.e(this.f30478a, "tt_bu_icon"));
-            this.r = (TextView) this.m.findViewById(t.e(this.f30478a, "tt_bu_title"));
-            this.s = (TextView) this.m.findViewById(t.e(this.f30478a, "tt_bu_desc"));
-            TextView textView = (TextView) this.m.findViewById(t.e(this.f30478a, "tt_bu_download"));
-            TextView textView2 = (TextView) this.m.findViewById(t.e(this.f30478a, "tt_bu_dislike"));
-            s.a((TextView) this.m.findViewById(t.e(this.f30478a, "tt_ad_logo")), this.f30479b);
-            int b2 = (int) s.b(this.f30478a, 15.0f);
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(t.e(this.f66397a, "tt_ad_container"));
+            ImageView imageView = (ImageView) this.m.findViewById(t.e(this.f66397a, "tt_bu_img"));
+            this.u = (ImageView) this.m.findViewById(t.e(this.f66397a, "tt_bu_close"));
+            ImageView imageView2 = (ImageView) this.m.findViewById(t.e(this.f66397a, "tt_bu_icon"));
+            this.r = (TextView) this.m.findViewById(t.e(this.f66397a, "tt_bu_title"));
+            this.s = (TextView) this.m.findViewById(t.e(this.f66397a, "tt_bu_desc"));
+            TextView textView = (TextView) this.m.findViewById(t.e(this.f66397a, "tt_bu_download"));
+            TextView textView2 = (TextView) this.m.findViewById(t.e(this.f66397a, "tt_bu_dislike"));
+            s.a((TextView) this.m.findViewById(t.e(this.f66397a, "tt_ad_logo")), this.f66398b);
+            int b2 = (int) s.b(this.f66397a, 15.0f);
             s.a(this.u, b2, b2, b2, b2);
             b(this.u);
             textView2.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.d.a.1
@@ -146,7 +147,7 @@ public class a extends BackupView {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f30007a;
+                public final /* synthetic */ a f65906a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -163,25 +164,25 @@ public class a extends BackupView {
                             return;
                         }
                     }
-                    this.f30007a = this;
+                    this.f65906a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f30007a.a();
+                        this.f65906a.a();
                     }
                 }
             });
-            if (!TextUtils.isEmpty(this.f30479b.aj())) {
-                textView.setText(this.f30479b.aj());
+            if (!TextUtils.isEmpty(this.f66398b.aj())) {
+                textView.setText(this.f66398b.aj());
             }
-            if (this.f30479b.V() != null) {
+            if (this.f66398b.V() != null) {
                 View videoView = getVideoView();
                 if (videoView != null) {
                     frameLayout.removeAllViews();
-                    int i2 = this.f30483f;
+                    int i2 = this.f66402f;
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i2, (i2 * 9) / 16);
                     layoutParams.gravity = 17;
                     frameLayout.addView(videoView, 0, layoutParams);
@@ -193,7 +194,7 @@ public class a extends BackupView {
                 s.a((View) imageView, 0);
                 s.a((View) frameLayout, 8);
             }
-            ImageLoaderWrapper.from(this.f30479b.Y()).to(imageView2);
+            ImageLoaderWrapper.from(this.f66398b.Y()).to(imageView2);
             this.r.setText(getTitle());
             this.s.setText(getDescription());
             a((View) this, true);
@@ -206,18 +207,18 @@ public class a extends BackupView {
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            View inflate = LayoutInflater.from(this.f30478a).inflate(t.f(this.f30478a, "tt_backup_insert_layout2"), (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(this.f66397a).inflate(t.f(this.f66397a, "tt_backup_insert_layout2"), (ViewGroup) this, true);
             this.m = inflate;
-            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(t.e(this.f30478a, "tt_ad_container"));
-            ImageView imageView = (ImageView) this.m.findViewById(t.e(this.f30478a, "tt_bu_img"));
-            this.u = (ImageView) this.m.findViewById(t.e(this.f30478a, "tt_bu_close"));
-            ImageView imageView2 = (ImageView) this.m.findViewById(t.e(this.f30478a, "tt_bu_icon"));
-            this.r = (TextView) this.m.findViewById(t.e(this.f30478a, "tt_bu_title"));
-            this.s = (TextView) this.m.findViewById(t.e(this.f30478a, "tt_bu_desc"));
-            TextView textView = (TextView) this.m.findViewById(t.e(this.f30478a, "tt_bu_download"));
-            TextView textView2 = (TextView) this.m.findViewById(t.e(this.f30478a, "tt_bu_dislike"));
-            s.a((TextView) this.m.findViewById(t.e(this.f30478a, "tt_ad_logo")), this.f30479b);
-            int b2 = (int) s.b(this.f30478a, 15.0f);
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(t.e(this.f66397a, "tt_ad_container"));
+            ImageView imageView = (ImageView) this.m.findViewById(t.e(this.f66397a, "tt_bu_img"));
+            this.u = (ImageView) this.m.findViewById(t.e(this.f66397a, "tt_bu_close"));
+            ImageView imageView2 = (ImageView) this.m.findViewById(t.e(this.f66397a, "tt_bu_icon"));
+            this.r = (TextView) this.m.findViewById(t.e(this.f66397a, "tt_bu_title"));
+            this.s = (TextView) this.m.findViewById(t.e(this.f66397a, "tt_bu_desc"));
+            TextView textView = (TextView) this.m.findViewById(t.e(this.f66397a, "tt_bu_download"));
+            TextView textView2 = (TextView) this.m.findViewById(t.e(this.f66397a, "tt_bu_dislike"));
+            s.a((TextView) this.m.findViewById(t.e(this.f66397a, "tt_ad_logo")), this.f66398b);
+            int b2 = (int) s.b(this.f66397a, 15.0f);
             s.a(this.u, b2, b2, b2, b2);
             b(this.u);
             textView2.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.d.a.3
@@ -225,7 +226,7 @@ public class a extends BackupView {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f30009a;
+                public final /* synthetic */ a f65908a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -242,25 +243,25 @@ public class a extends BackupView {
                             return;
                         }
                     }
-                    this.f30009a = this;
+                    this.f65908a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f30009a.a();
+                        this.f65908a.a();
                     }
                 }
             });
-            if (!TextUtils.isEmpty(this.f30479b.aj())) {
-                textView.setText(this.f30479b.aj());
+            if (!TextUtils.isEmpty(this.f66398b.aj())) {
+                textView.setText(this.f66398b.aj());
             }
-            if (this.f30479b.V() != null) {
+            if (this.f66398b.V() != null) {
                 View videoView = getVideoView();
                 if (videoView != null) {
                     frameLayout.removeAllViews();
-                    int i2 = this.f30483f;
+                    int i2 = this.f66402f;
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i2, (i2 * 9) / 16);
                     layoutParams.gravity = 17;
                     frameLayout.addView(videoView, 0, layoutParams);
@@ -272,7 +273,7 @@ public class a extends BackupView {
                 s.a((View) imageView, 0);
                 s.a((View) frameLayout, 8);
             }
-            ImageLoaderWrapper.from(this.f30479b.Y()).to(imageView2);
+            ImageLoaderWrapper.from(this.f66398b.Y()).to(imageView2);
             this.r.setText(getTitle());
             this.s.setText(getDescription());
             a((View) this, true);
@@ -285,15 +286,15 @@ public class a extends BackupView {
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            View inflate = LayoutInflater.from(this.f30478a).inflate(t.f(this.f30478a, "tt_backup_insert_layout3"), (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(this.f66397a).inflate(t.f(this.f66397a, "tt_backup_insert_layout3"), (ViewGroup) this, true);
             this.m = inflate;
-            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(t.e(this.f30478a, "tt_ad_container"));
-            ImageView imageView = (ImageView) this.m.findViewById(t.e(this.f30478a, "tt_bu_img"));
-            this.u = (ImageView) this.m.findViewById(t.e(this.f30478a, "tt_bu_close"));
-            this.s = (TextView) this.m.findViewById(t.e(this.f30478a, "tt_bu_desc"));
-            TextView textView = (TextView) this.m.findViewById(t.e(this.f30478a, "tt_bu_dislike"));
-            s.a((TextView) this.m.findViewById(t.e(this.f30478a, "tt_ad_logo")), this.f30479b);
-            int b2 = (int) s.b(this.f30478a, 15.0f);
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(t.e(this.f66397a, "tt_ad_container"));
+            ImageView imageView = (ImageView) this.m.findViewById(t.e(this.f66397a, "tt_bu_img"));
+            this.u = (ImageView) this.m.findViewById(t.e(this.f66397a, "tt_bu_close"));
+            this.s = (TextView) this.m.findViewById(t.e(this.f66397a, "tt_bu_desc"));
+            TextView textView = (TextView) this.m.findViewById(t.e(this.f66397a, "tt_bu_dislike"));
+            s.a((TextView) this.m.findViewById(t.e(this.f66397a, "tt_ad_logo")), this.f66398b);
+            int b2 = (int) s.b(this.f66397a, 15.0f);
             s.a(this.u, b2, b2, b2, b2);
             b(this.u);
             textView.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.d.a.4
@@ -301,7 +302,7 @@ public class a extends BackupView {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f30010a;
+                public final /* synthetic */ a f65909a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -318,22 +319,22 @@ public class a extends BackupView {
                             return;
                         }
                     }
-                    this.f30010a = this;
+                    this.f65909a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f30010a.a();
+                        this.f65909a.a();
                     }
                 }
             });
-            if (this.f30479b.V() != null) {
+            if (this.f66398b.V() != null) {
                 View videoView = getVideoView();
                 if (videoView != null) {
                     frameLayout.removeAllViews();
-                    int d2 = this.f30483f - s.d(this.f30478a, 12.0f);
+                    int d2 = this.f66402f - s.d(this.f66397a, 12.0f);
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(d2, (d2 * 9) / 16);
                     layoutParams.gravity = 17;
                     frameLayout.addView(videoView, 0, layoutParams);
@@ -356,7 +357,7 @@ public class a extends BackupView {
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            if (this.t.f30591a == 3) {
+            if (this.t.f66513a == 3) {
                 this.s.setTextColor(Color.parseColor("#3E3E3E"));
                 this.u.setImageResource(t.d(getContext(), "tt_titlebar_close_press_for_dark"));
                 return;
@@ -370,7 +371,7 @@ public class a extends BackupView {
     private void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            if (this.t.f30591a == 3) {
+            if (this.t.f66513a == 3) {
                 TextView textView = this.s;
                 if (textView != null) {
                     textView.setTextColor(-1);
@@ -400,11 +401,11 @@ public class a extends BackupView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, mVar, nativeExpressView, aVar) == null) {
             setBackgroundColor(-1);
-            this.f30479b = mVar;
+            this.f66398b = mVar;
             this.n = nativeExpressView;
             this.o = aVar;
-            this.f30482e = "interaction";
-            b(this.f30485h);
+            this.f66401e = ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE;
+            b(this.f66404h);
             this.n.addView(this, new ViewGroup.LayoutParams(-2, -2));
             b();
             c(h.d().A());
@@ -414,7 +415,7 @@ public class a extends BackupView {
     private void a(ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, imageView) == null) {
-            ImageLoaderWrapper.from(this.f30479b.ad().get(0)).to(imageView);
+            ImageLoaderWrapper.from(this.f66398b.ad().get(0)).to(imageView);
         }
     }
 
@@ -428,7 +429,7 @@ public class a extends BackupView {
                 k kVar = l[0];
                 float f2 = Float.MAX_VALUE;
                 for (k kVar2 : l) {
-                    float abs = Math.abs(kVar2.f30593c - floatValue);
+                    float abs = Math.abs(kVar2.f66515c - floatValue);
                     if (abs <= f2) {
                         kVar = kVar2;
                         f2 = abs;
@@ -471,7 +472,7 @@ public class a extends BackupView {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f30008a;
+            public final /* synthetic */ a f65907a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -488,16 +489,16 @@ public class a extends BackupView {
                         return;
                     }
                 }
-                this.f30008a = this;
+                this.f65907a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) || this.f30008a.q == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) || this.f65907a.q == null) {
                     return;
                 }
-                this.f30008a.q.dismiss();
+                this.f65907a.q.dismiss();
             }
         });
     }

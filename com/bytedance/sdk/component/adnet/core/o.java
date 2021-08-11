@@ -15,15 +15,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f28137a = false;
+    public static boolean f63980a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f28138b = "VNetLog";
+    public static String f63981b = "VNetLog";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,34 +39,34 @@ public class o {
                 return;
             }
         }
-        f28137a = Log.isLoggable("VNetLog", 2);
+        f63980a = Log.isLoggable("VNetLog", 2);
     }
 
     public static void a(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, objArr) == null) && f28137a) {
-            Log.v(f28138b, e(str, objArr));
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, objArr) == null) && f63980a) {
+            e(str, objArr);
         }
     }
 
     public static void b(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, str, objArr) == null) {
-            Log.d(f28138b, e(str, objArr));
+            e(str, objArr);
         }
     }
 
     public static void c(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, objArr) == null) {
-            Log.e(f28138b, e(str, objArr));
+            e(str, objArr);
         }
     }
 
     public static void d(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, objArr) == null) {
-            Log.wtf(f28138b, e(str, objArr));
+            Log.wtf(f63981b, e(str, objArr));
         }
     }
 
@@ -101,45 +101,45 @@ public class o {
     public static void a(Throwable th, String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, th, str, objArr) == null) {
-            Log.e(f28138b, e(str, objArr), th);
+            e(str, objArr);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final boolean f28139a;
+        public static final boolean f63982a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<C0316a> f28140b;
+        public final List<C1876a> f63983b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f28141c;
+        public boolean f63984c;
 
         /* renamed from: com.bytedance.sdk.component.adnet.core.o$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public static class C0316a {
+        /* loaded from: classes9.dex */
+        public static class C1876a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final String f28142a;
+            public final String f63985a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final long f28143b;
+            public final long f63986b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final long f28144c;
+            public final long f63987c;
 
-            public C0316a(String str, long j, long j2) {
+            public C1876a(String str, long j2, long j3) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {str, Long.valueOf(j), Long.valueOf(j2)};
+                    Object[] objArr = {str, Long.valueOf(j2), Long.valueOf(j3)};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -149,9 +149,9 @@ public class o {
                         return;
                     }
                 }
-                this.f28142a = str;
-                this.f28143b = j;
-                this.f28144c = j2;
+                this.f63985a = str;
+                this.f63986b = j2;
+                this.f63987c = j3;
             }
         }
 
@@ -168,7 +168,7 @@ public class o {
                     return;
                 }
             }
-            f28139a = o.f28137a;
+            f63982a = o.f63980a;
         }
 
         public a() {
@@ -184,16 +184,16 @@ public class o {
                     return;
                 }
             }
-            this.f28140b = new ArrayList();
-            this.f28141c = false;
+            this.f63983b = new ArrayList();
+            this.f63984c = false;
         }
 
-        public synchronized void a(String str, long j) {
+        public synchronized void a(String str, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2) == null) {
                 synchronized (this) {
-                    if (!this.f28141c) {
-                        this.f28140b.add(new C0316a(str, j, SystemClock.elapsedRealtime()));
+                    if (!this.f63984c) {
+                        this.f63983b.add(new C1876a(str, j2, SystemClock.elapsedRealtime()));
                     } else {
                         throw new IllegalStateException("Marker added to finished log");
                     }
@@ -203,7 +203,7 @@ public class o {
 
         public void finalize() throws Throwable {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f28141c) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f63984c) {
                 return;
             }
             a("Request on the loose");
@@ -214,17 +214,17 @@ public class o {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 synchronized (this) {
-                    this.f28141c = true;
+                    this.f63984c = true;
                     long a2 = a();
                     if (a2 <= 0) {
                         return;
                     }
-                    long j = this.f28140b.get(0).f28144c;
+                    long j2 = this.f63983b.get(0).f63987c;
                     o.b("(%-4d ms) %s", Long.valueOf(a2), str);
-                    for (C0316a c0316a : this.f28140b) {
-                        long j2 = c0316a.f28144c;
-                        o.b("(+%-4d) [%2d] %s", Long.valueOf(j2 - j), Long.valueOf(c0316a.f28143b), c0316a.f28142a);
-                        j = j2;
+                    for (C1876a c1876a : this.f63983b) {
+                        long j3 = c1876a.f63987c;
+                        o.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c1876a.f63986b), c1876a.f63985a);
+                        j2 = j3;
                     }
                 }
             }
@@ -234,12 +234,12 @@ public class o {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-                if (this.f28140b.size() == 0) {
+                if (this.f63983b.size() == 0) {
                     return 0L;
                 }
-                long j = this.f28140b.get(0).f28144c;
-                List<C0316a> list = this.f28140b;
-                return list.get(list.size() - 1).f28144c - j;
+                long j2 = this.f63983b.get(0).f63987c;
+                List<C1876a> list = this.f63983b;
+                return list.get(list.size() - 1).f63987c - j2;
             }
             return invokeV.longValue;
         }

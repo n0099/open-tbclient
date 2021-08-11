@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Type;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ThrowableDeserializer extends JavaBeanDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -150,7 +150,7 @@ public class ThrowableDeserializer extends JavaBeanDeserializer {
     /* JADX WARN: Code restructure failed: missing block: B:88:0x015c, code lost:
         throw new com.alibaba.fastjson.JSONException("create instance error", r13);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:90:0x0177, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:90:0x0178, code lost:
         throw new com.alibaba.fastjson.JSONException("type not match, not Throwable. " + r14.getName());
      */
     @Override // com.alibaba.fastjson.parser.deserializer.JavaBeanDeserializer, com.alibaba.fastjson.parser.deserializer.ObjectDeserializer

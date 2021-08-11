@@ -19,32 +19,72 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class HotUserRankImageOverlayView extends ViewGroup {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int STROCK_STYLE_CIRCLE = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14876e;
+    public int f50066e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14877f;
+    public int f50067f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14878g;
+    public int f50068g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14879h;
+    public int f50069h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f14880i;
-    public int j;
-    public ImageOverlayView.a k;
+    public int f50070i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f50071j;
+    public ImageOverlayView.b k;
     public int l;
     public boolean m;
+    public final View.OnClickListener mPhotoOnClickListener;
     public Paint n;
     public int o;
     public int p;
+
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ HotUserRankImageOverlayView f50072e;
+
+        public a(HotUserRankImageOverlayView hotUserRankImageOverlayView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hotUserRankImageOverlayView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f50072e = hotUserRankImageOverlayView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50072e.k == null) {
+                return;
+            }
+            this.f50072e.k.a();
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotUserRankImageOverlayView(Context context) {
@@ -67,28 +107,16 @@ public class HotUserRankImageOverlayView extends ViewGroup {
         this.l = 10;
         this.m = false;
         this.p = 1;
+        this.mPhotoOnClickListener = new a(this);
         c();
-    }
-
-    public void a(int i2, int i3, int i4, int i5, int i6, int i7) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
-            this.f14876e = i2;
-            this.f14877f = i3;
-            this.f14878g = i4;
-            this.f14879h = i5;
-            this.f14880i = i6;
-            this.j = i7;
-            b();
-        }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (int i2 = 0; i2 < this.f14876e; i2++) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (int i2 = 0; i2 < this.f50066e; i2++) {
                 HeadImageView headImageView = new HeadImageView(getContext());
-                headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.f14877f, this.f14878g));
+                headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.f50067f, this.f50068g));
                 headImageView.setIsRound(true);
                 headImageView.setBorderSurroundContent(true);
                 headImageView.setDrawBorder(true);
@@ -103,7 +131,7 @@ public class HotUserRankImageOverlayView extends ViewGroup {
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Paint paint = new Paint();
             this.n = paint;
             paint.setAntiAlias(true);
@@ -111,34 +139,21 @@ public class HotUserRankImageOverlayView extends ViewGroup {
         }
     }
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.n.setColor(SkinManager.getColor(this.f14880i));
-            for (int i2 = 0; i2 < getChildCount(); i2++) {
-                View childAt = getChildAt(i2);
-                if (childAt instanceof HeadImageView) {
-                    ((HeadImageView) childAt).setPlaceHolder(1);
-                }
-            }
-        }
-    }
-
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            this.n.setColor(SkinManager.getColor(this.f14880i));
-            this.n.setStrokeWidth(this.f14879h);
+            this.n.setColor(SkinManager.getColor(this.f50070i));
+            this.n.setStrokeWidth(this.f50069h);
             int i2 = this.o;
             if (i2 <= 0) {
-                i2 = this.f14880i;
+                i2 = this.f50070i;
             }
             this.o = i2;
-            float f2 = this.f14879h * 0.5f;
-            float f3 = this.f14877f / 2.0f;
-            float acos = ((float) ((Math.acos((((f3 * 2.0f) - this.j) / 2.0f) / f3) / 3.141592653589793d) * 180.0d)) - 180.0f;
+            float f2 = this.f50069h * 0.5f;
+            float f3 = this.f50067f / 2.0f;
+            float acos = ((float) ((Math.acos((((f3 * 2.0f) - this.f50071j) / 2.0f) / f3) / 3.141592653589793d) * 180.0d)) - 180.0f;
             float abs = Math.abs(2.0f * acos);
             int i3 = 0;
             int childCount = this.m ? 0 : getChildCount() - 1;
@@ -152,11 +167,37 @@ public class HotUserRankImageOverlayView extends ViewGroup {
                     if (i3 == childCount) {
                         this.n.setColor(SkinManager.getColor(this.o));
                     } else {
-                        this.n.setColor(SkinManager.getColor(this.f14880i));
+                        this.n.setColor(SkinManager.getColor(this.f50070i));
                     }
                     canvas.drawArc(left, top, right, bottom, i3 == childCount ? 0.0f : acos, i3 == childCount ? 360.0f : abs, false, this.n);
                 }
                 i3++;
+            }
+        }
+    }
+
+    public void init(int i2, int i3, int i4, int i5, int i6, int i7) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
+            this.f50066e = i2;
+            this.f50067f = i3;
+            this.f50068g = i4;
+            this.f50069h = i5;
+            this.f50070i = i6;
+            this.f50071j = i7;
+            b();
+        }
+    }
+
+    public void onChangeSkinType() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.n.setColor(SkinManager.getColor(this.f50070i));
+            for (int i2 = 0; i2 < getChildCount(); i2++) {
+                View childAt = getChildAt(i2);
+                if (childAt instanceof HeadImageView) {
+                    ((HeadImageView) childAt).setPlaceHolder(1);
+                }
             }
         }
     }
@@ -166,11 +207,11 @@ public class HotUserRankImageOverlayView extends ViewGroup {
         View childAt;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            int paddingLeft = getPaddingLeft() + ((this.f14876e - 1) * (this.f14877f - this.j)) + this.f14879h;
-            int paddingTop = getPaddingTop() + this.f14879h;
-            for (int i6 = 0; i6 < this.f14876e && i6 < getChildCount() && (childAt = getChildAt(i6)) != null; i6++) {
-                childAt.layout(paddingLeft, paddingTop, this.f14877f + paddingLeft, this.f14878g + paddingTop);
-                paddingLeft -= this.f14877f - this.j;
+            int paddingLeft = getPaddingLeft() + ((this.f50066e - 1) * (this.f50067f - this.f50071j)) + this.f50069h;
+            int paddingTop = getPaddingTop() + this.f50069h;
+            for (int i6 = 0; i6 < this.f50066e && i6 < getChildCount() && (childAt = getChildAt(i6)) != null; i6++) {
+                childAt.layout(paddingLeft, paddingTop, this.f50067f + paddingLeft, this.f50068g + paddingTop);
+                paddingLeft -= this.f50067f - this.f50071j;
             }
         }
     }
@@ -179,13 +220,13 @@ public class HotUserRankImageOverlayView extends ViewGroup {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            int i4 = this.f14879h;
+            int i4 = this.f50069h;
             if (this.p == 1) {
                 i4 *= 2;
             }
             int paddingLeft = getPaddingLeft() + getPaddingRight() + i4;
-            int i5 = this.f14876e;
-            setMeasuredDimension(ViewGroup.resolveSize((paddingLeft + (this.f14877f * i5)) - ((i5 - 1) * this.j), i2), ViewGroup.resolveSize(getPaddingTop() + getPaddingBottom() + this.f14878g + (this.f14879h * 2), i3));
+            int i5 = this.f50066e;
+            setMeasuredDimension(ViewGroup.resolveSize((paddingLeft + (this.f50067f * i5)) - ((i5 - 1) * this.f50071j), i2), ViewGroup.resolveSize(getPaddingTop() + getPaddingBottom() + this.f50068g + (this.f50069h * 2), i3));
         }
     }
 
@@ -196,7 +237,7 @@ public class HotUserRankImageOverlayView extends ViewGroup {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        for (int i2 = this.f14876e - 1; i2 >= 0; i2--) {
+        for (int i2 = this.f50066e - 1; i2 >= 0; i2--) {
             HeadImageView headImageView = (HeadImageView) getChildAt(i2);
             if (headImageView == null) {
                 return;
@@ -213,9 +254,9 @@ public class HotUserRankImageOverlayView extends ViewGroup {
             } else {
                 headImageView.setVisibility(0);
                 if (this.l == 12) {
-                    headImageView.J(str, 12, this.f14877f, this.f14878g, false);
+                    headImageView.startLoad(str, 12, this.f50067f, this.f50068g, false);
                 } else {
-                    headImageView.J(str, 10, this.f14877f, this.f14878g, false);
+                    headImageView.startLoad(str, 10, this.f50067f, this.f50068g, false);
                 }
             }
         }
@@ -228,10 +269,10 @@ public class HotUserRankImageOverlayView extends ViewGroup {
         }
     }
 
-    public void setImageClickListener(ImageOverlayView.a aVar) {
+    public void setImageClickListener(ImageOverlayView.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            this.k = aVar;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
+            this.k = bVar;
         }
     }
 
@@ -271,6 +312,7 @@ public class HotUserRankImageOverlayView extends ViewGroup {
         this.l = 10;
         this.m = false;
         this.p = 1;
+        this.mPhotoOnClickListener = new a(this);
         c();
     }
 
@@ -296,6 +338,7 @@ public class HotUserRankImageOverlayView extends ViewGroup {
         this.l = 10;
         this.m = false;
         this.p = 1;
+        this.mPhotoOnClickListener = new a(this);
         c();
     }
 }

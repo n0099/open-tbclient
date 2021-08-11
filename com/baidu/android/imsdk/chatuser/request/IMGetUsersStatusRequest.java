@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMGetUsersStatusRequest extends Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -115,9 +115,9 @@ public class IMGetUsersStatusRequest extends Message {
                             try {
                                 JSONObject jSONObject2 = jSONArray.getJSONObject(i4);
                                 if (jSONObject2.has("uid") && jSONObject2.has("status")) {
-                                    long j = jSONObject2.getLong("uid");
+                                    long j2 = jSONObject2.getLong("uid");
                                     int i5 = jSONObject2.getInt("status");
-                                    arrayList2.add(new UserStatus(j, i5 == 1, jSONObject2.has("last_operate_time") ? jSONObject2.getLong("last_operate_time") : 0L));
+                                    arrayList2.add(new UserStatus(j2, i5 == 1, jSONObject2.has("last_operate_time") ? jSONObject2.getLong("last_operate_time") : 0L));
                                 }
                             } catch (Exception e2) {
                                 e = e2;

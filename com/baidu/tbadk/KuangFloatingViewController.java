@@ -10,7 +10,8 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
+import c.a.e.e.p.l;
+import c.a.p0.u3.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -31,9 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.q0.t3.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KuangFloatingViewController {
     public static /* synthetic */ Interceptable $ic = null;
     public static String STORY_PACKAGE = "com.baidu.tieba.story";
@@ -230,7 +229,7 @@ public class KuangFloatingViewController {
                             TiebaStatic.log(new StatisticItem("c12264").param("obj_source", 1));
                             Intent launchIntentForPackage = TbadkCoreApplication.getInst().getPackageManager().getLaunchIntentForPackage("com.baidu.searchbox");
                             if (launchIntentForPackage != null) {
-                                launchIntentForPackage.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                                launchIntentForPackage.addFlags(268435456);
                                 TbadkCoreApplication.getInst().startActivity(launchIntentForPackage);
                                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FLOATING_VIEW_CLICK_KEY).param("obj_type", 1));
                             }

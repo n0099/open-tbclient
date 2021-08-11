@@ -1,5 +1,6 @@
 package com.google.common.hash;
 
+import c.i.d.d.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -9,14 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.d.d.h;
 import java.lang.reflect.Field;
 import java.security.AccessController;
 import java.security.PrivilegedActionException;
 import java.security.PrivilegedExceptionAction;
 import sun.misc.Unsafe;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class LittleEndianByteArray$UnsafeByteArray {
     public static final /* synthetic */ LittleEndianByteArray$UnsafeByteArray[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -26,7 +26,7 @@ public abstract class LittleEndianByteArray$UnsafeByteArray {
     public static final Unsafe theUnsafe;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a implements PrivilegedExceptionAction<Unsafe> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,10 +112,10 @@ public abstract class LittleEndianByteArray$UnsafeByteArray {
             }
 
             @Override // com.google.common.hash.LittleEndianByteArray$UnsafeByteArray
-            public void putLongLittleEndian(byte[] bArr, int i2, long j) {
+            public void putLongLittleEndian(byte[] bArr, int i2, long j2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                    LittleEndianByteArray$UnsafeByteArray.theUnsafe.putLong(bArr, i2 + LittleEndianByteArray$UnsafeByteArray.BYTE_ARRAY_BASE_OFFSET, j);
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+                    LittleEndianByteArray$UnsafeByteArray.theUnsafe.putLong(bArr, i2 + LittleEndianByteArray$UnsafeByteArray.BYTE_ARRAY_BASE_OFFSET, j2);
                 }
             }
         };
@@ -152,10 +152,10 @@ public abstract class LittleEndianByteArray$UnsafeByteArray {
             }
 
             @Override // com.google.common.hash.LittleEndianByteArray$UnsafeByteArray
-            public void putLongLittleEndian(byte[] bArr, int i2, long j) {
+            public void putLongLittleEndian(byte[] bArr, int i2, long j2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                    LittleEndianByteArray$UnsafeByteArray.theUnsafe.putLong(bArr, i2 + LittleEndianByteArray$UnsafeByteArray.BYTE_ARRAY_BASE_OFFSET, Long.reverseBytes(j));
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+                    LittleEndianByteArray$UnsafeByteArray.theUnsafe.putLong(bArr, i2 + LittleEndianByteArray$UnsafeByteArray.BYTE_ARRAY_BASE_OFFSET, Long.reverseBytes(j2));
                 }
             }
         };
@@ -219,7 +219,7 @@ public abstract class LittleEndianByteArray$UnsafeByteArray {
 
     public abstract /* synthetic */ long getLongLittleEndian(byte[] bArr, int i2);
 
-    public abstract /* synthetic */ void putLongLittleEndian(byte[] bArr, int i2, long j);
+    public abstract /* synthetic */ void putLongLittleEndian(byte[] bArr, int i2, long j2);
 
     public /* synthetic */ LittleEndianByteArray$UnsafeByteArray(String str, int i2, h hVar) {
         this(str, i2);

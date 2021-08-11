@@ -8,7 +8,6 @@ import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.graphics.PorterDuff;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.Xml;
 import android.view.InflateException;
 import android.view.Menu;
@@ -212,8 +211,8 @@ public class SupportMenuInflater extends MenuInflater {
                     Constructor<?> constructor = Class.forName(str, false, this.this$0.mContext.getClassLoader()).getConstructor(clsArr);
                     constructor.setAccessible(true);
                     return (T) constructor.newInstance(objArr);
-                } catch (Exception e2) {
-                    Log.w(SupportMenuInflater.LOG_TAG, "Cannot instantiate class: " + str, e2);
+                } catch (Exception unused) {
+                    String str2 = "Cannot instantiate class: " + str;
                     return null;
                 }
             }
@@ -249,12 +248,8 @@ public class SupportMenuInflater extends MenuInflater {
                     z = true;
                 }
                 int i3 = this.itemActionViewLayout;
-                if (i3 > 0) {
-                    if (!z) {
-                        menuItem.setActionView(i3);
-                    } else {
-                        Log.w(SupportMenuInflater.LOG_TAG, "Ignoring attribute 'itemActionViewLayout'. Action view already specified.");
-                    }
+                if (i3 > 0 && !z) {
+                    menuItem.setActionView(i3);
                 }
                 ActionProvider actionProvider = this.itemActionProvider;
                 if (actionProvider != null) {
@@ -342,13 +337,9 @@ public class SupportMenuInflater extends MenuInflater {
                 this.itemActionViewClassName = obtainStyledAttributes.getString(R.styleable.MenuItem_actionViewClass);
                 String string = obtainStyledAttributes.getString(R.styleable.MenuItem_actionProviderClass);
                 this.itemActionProviderClassName = string;
-                boolean z = string != null;
-                if (z && this.itemActionViewLayout == 0 && this.itemActionViewClassName == null) {
+                if ((string != null) && this.itemActionViewLayout == 0 && this.itemActionViewClassName == null) {
                     this.itemActionProvider = (ActionProvider) newInstance(this.itemActionProviderClassName, SupportMenuInflater.ACTION_PROVIDER_CONSTRUCTOR_SIGNATURE, this.this$0.mActionProviderConstructorArguments);
                 } else {
-                    if (z) {
-                        Log.w(SupportMenuInflater.LOG_TAG, "Ignoring attribute 'actionProviderClass'. Action view already specified.");
-                    }
                     this.itemActionProvider = null;
                 }
                 this.itemContentDescription = obtainStyledAttributes.getText(R.styleable.MenuItem_contentDescription);

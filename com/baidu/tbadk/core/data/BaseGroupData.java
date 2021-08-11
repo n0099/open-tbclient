@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BaseGroupData extends AbstractImageProvider implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5616188082014345808L;
@@ -189,10 +189,10 @@ public class BaseGroupData extends AbstractImageProvider implements Serializable
         }
     }
 
-    public void setAuthorId(long j) {
+    public void setAuthorId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
-            this.authorId = j;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
+            this.authorId = j2;
         }
     }
 
@@ -238,10 +238,10 @@ public class BaseGroupData extends AbstractImageProvider implements Serializable
         }
     }
 
-    public void setGroupId(long j) {
+    public void setGroupId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048605, this, j) == null) {
-            this.groupId = j;
+        if (interceptable == null || interceptable.invokeJ(1048605, this, j2) == null) {
+            this.groupId = j2;
         }
     }
 

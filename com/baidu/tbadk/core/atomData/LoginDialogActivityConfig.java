@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
+import c.a.o0.s.q.t0;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.DialogLoginHelper;
@@ -9,8 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.q.s0;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LoginDialogActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOGIN_DIALOG_DATA_LOCATE = "login_dialog_data_locate";
@@ -24,18 +24,18 @@ public class LoginDialogActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LoginDialogActivityConfig(s0 s0Var, @NonNull String str) {
-        this(s0Var);
+    public LoginDialogActivityConfig(t0 t0Var, @NonNull String str) {
+        this(t0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s0Var, str};
+            Object[] objArr = {t0Var, str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                this((s0) newInitContext.callArgs[0]);
+                this((t0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -46,18 +46,18 @@ public class LoginDialogActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LoginDialogActivityConfig(s0 s0Var, @NonNull String str, @NonNull String str2, @NonNull String str3) {
-        this(s0Var);
+    public LoginDialogActivityConfig(t0 t0Var, @NonNull String str, @NonNull String str2, @NonNull String str3) {
+        this(t0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s0Var, str, str2, str3};
+            Object[] objArr = {t0Var, str, str2, str3};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                this((s0) newInitContext.callArgs[0]);
+                this((t0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -70,13 +70,13 @@ public class LoginDialogActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LoginDialogActivityConfig(s0 s0Var) {
-        super(s0Var.a());
+    public LoginDialogActivityConfig(t0 t0Var) {
+        super(t0Var.a());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s0Var};
+            Object[] objArr = {t0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -87,11 +87,11 @@ public class LoginDialogActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra(LOGIN_DIALOG_DATA_LOCATE, s0Var.b());
-        if (s0Var.c() != null) {
-            getIntent().putExtra("login_dialog_login_listener", s0Var.c());
+        getIntent().putExtra(LOGIN_DIALOG_DATA_LOCATE, t0Var.b());
+        if (t0Var.c() != null) {
+            getIntent().putExtra("login_dialog_login_listener", t0Var.c());
         }
-        String b2 = s0Var.b();
+        String b2 = t0Var.b();
         char c2 = 65535;
         switch (b2.hashCode()) {
             case -1723264065:
@@ -159,7 +159,7 @@ public class LoginDialogActivityConfig extends IntentConfig {
                 setIntentAction(IntentAction.ActivityForResult);
                 return;
             case 5:
-                getIntent().putExtra(LOGIN_DIALOG_DATA_URL, s0Var.d());
+                getIntent().putExtra(LOGIN_DIALOG_DATA_URL, t0Var.d());
                 return;
             case 6:
                 setRequestCode(25059);

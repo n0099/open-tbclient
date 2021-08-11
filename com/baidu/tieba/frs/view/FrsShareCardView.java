@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.k;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,27 +21,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FrsShareCardView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f16254e;
+    public LinearLayout f51453e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f16255f;
+    public Context f51454f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EditText f16256g;
+    public EditText f51455g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HeadImageView f16257h;
+    public HeadImageView f51456h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f16258i;
-    public TextView j;
+    public TextView f51457i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public TextView f51458j;
     public TextView k;
     public ShareFromFrsMsgData l;
 
@@ -63,78 +65,60 @@ public class FrsShareCardView extends LinearLayout {
                 return;
             }
         }
-        this.f16255f = context;
-        c(context);
+        this.f51454f = context;
+        b(context);
     }
 
     public final String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return k.cutString(str, 18) + this.f16255f.getString(R.string.forum);
+            return k.cutString(str, 18) + this.f51454f.getString(R.string.forum);
         }
         return (String) invokeL.objValue;
     }
 
-    public void b() {
+    public final void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f16254e.setFocusable(true);
-            this.f16254e.setFocusableInTouchMode(true);
-            this.f16254e.requestFocus();
-        }
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.frs_share_card_view, this);
             setOrientation(1);
-            this.f16254e = (LinearLayout) findViewById(R.id.share_content);
-            this.f16258i = (TextView) findViewById(R.id.frs_card_name);
-            this.f16256g = (EditText) findViewById(R.id.chat_msg);
-            this.f16257h = (HeadImageView) findViewById(R.id.frs_card_img);
+            this.f51453e = (LinearLayout) findViewById(R.id.share_content);
+            this.f51457i = (TextView) findViewById(R.id.frs_card_name);
+            this.f51455g = (EditText) findViewById(R.id.chat_msg);
+            this.f51456h = (HeadImageView) findViewById(R.id.frs_card_img);
             this.k = (TextView) findViewById(R.id.frs_card_member_num);
-            this.j = (TextView) findViewById(R.id.frs_card_post_num);
-            SkinManager.setViewTextColor(this.f16258i, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.f16256g, R.color.CAM_X0105, 2);
-            this.f16256g.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-            this.f16256g.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
-            b();
+            this.f51458j = (TextView) findViewById(R.id.frs_card_post_num);
+            SkinManager.setViewTextColor(this.f51457i, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.f51455g, R.color.CAM_X0105, 2);
+            this.f51455g.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+            this.f51455g.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+            hideEditTextCursor();
         }
     }
 
-    public void d(String str, boolean z) {
-        HeadImageView headImageView;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048579, this, str, z) == null) || (headImageView = this.f16257h) == null) {
-            return;
-        }
-        headImageView.M(str, 15, false);
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f16258i.setText(a(this.l.getName()));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f51457i.setText(a(this.l.getName()));
             BdLog.e("mData.getImageUrl()的图片URL" + this.l.getImageUrl());
-            this.f16257h.M(this.l.getImageUrl(), 15, false);
+            this.f51456h.startLoad(this.l.getImageUrl(), 15, false);
             this.k.setText(StringHelper.numFormatOver10000((long) this.l.getMemberNum()));
-            this.j.setText(StringHelper.numFormatOver10000((long) this.l.getPostNum()));
+            this.f51458j.setText(StringHelper.numFormatOver10000((long) this.l.getPostNum()));
         }
     }
 
     public EditText getChatMsgView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f16256g : (EditText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f51455g : (EditText) invokeV.objValue;
     }
 
     public String getLeaveMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            EditText editText = this.f16256g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            EditText editText = this.f51455g;
             if (editText != null) {
                 return k.charSequence2String(editText.getText(), null);
             }
@@ -143,18 +127,36 @@ public class FrsShareCardView extends LinearLayout {
         return (String) invokeV.objValue;
     }
 
+    public void hideEditTextCursor() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.f51453e.setFocusable(true);
+            this.f51453e.setFocusableInTouchMode(true);
+            this.f51453e.requestFocus();
+        }
+    }
+
+    public void loadImageIcon(String str, boolean z) {
+        HeadImageView headImageView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z) == null) || (headImageView = this.f51456h) == null) {
+            return;
+        }
+        headImageView.startLoad(str, 15, false);
+    }
+
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, shareFromFrsMsgData) == null) {
             this.l = shareFromFrsMsgData;
-            e();
+            c();
         }
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
-            this.f16257h.setPageId(bdUniqueId);
+            this.f51456h.setPageId(bdUniqueId);
         }
     }
 
@@ -163,7 +165,7 @@ public class FrsShareCardView extends LinearLayout {
     public LinearLayout.LayoutParams generateDefaultLayoutParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new LinearLayout.LayoutParams(-1, -2) : (LinearLayout.LayoutParams) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new LinearLayout.LayoutParams(-1, -2) : (LinearLayout.LayoutParams) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -184,7 +186,7 @@ public class FrsShareCardView extends LinearLayout {
                 return;
             }
         }
-        this.f16255f = context;
-        c(context);
+        this.f51454f = context;
+        b(context);
     }
 }

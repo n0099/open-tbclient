@@ -5,27 +5,27 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import c.a.n0.a.v2.v;
+import c.a.n0.e.l.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.v2.v;
-import d.a.o0.e.l.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SwanEntryActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAUNCHER_URI = "SWAN_URI";
     public static final String SWAN_ACTION = "com.baidu.swan.launcher";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanEntryActivity f13968e;
+        public final /* synthetic */ SwanEntryActivity f49092e;
 
         public a(SwanEntryActivity swanEntryActivity) {
             Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class SwanEntryActivity extends Activity {
                     return;
                 }
             }
-            this.f13968e = swanEntryActivity;
+            this.f49092e = swanEntryActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f13968e.finish();
+                this.f49092e.finish();
             }
         }
     }
@@ -91,7 +91,7 @@ public class SwanEntryActivity extends Activity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            d.a.d.a.a.b(this);
+            c.a.e.a.a.b(this);
             super.onCreate(bundle);
             if (v.a(this)) {
                 return;
@@ -122,7 +122,7 @@ public class SwanEntryActivity extends Activity {
     public void setRequestedOrientation(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            if (d.a.d.a.a.d(this) && d.a.d.a.a.a(i2)) {
+            if (c.a.e.a.a.d(this) && c.a.e.a.a.a(i2)) {
                 return;
             }
             super.setRequestedOrientation(i2);

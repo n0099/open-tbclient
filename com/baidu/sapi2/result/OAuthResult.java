@@ -5,7 +5,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes5.dex */
 public class OAuthResult extends SapiResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_MSG_UNKNOWN = "授权失败";
@@ -41,7 +42,7 @@ public class OAuthResult extends SapiResult {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "OAuthResult{accessToken='" + this.accessToken + "', expiresIn=" + this.expiresIn + ", refreshToken='" + this.refreshToken + "', scope='" + this.scope + "', sessionKey='" + this.sessionKey + "', sessionSecret='" + this.sessionSecret + "', extra='" + this.extra + "'}";
+            return "OAuthResult{accessToken='" + this.accessToken + ExtendedMessageFormat.QUOTE + ", expiresIn=" + this.expiresIn + ", refreshToken='" + this.refreshToken + ExtendedMessageFormat.QUOTE + ", scope='" + this.scope + ExtendedMessageFormat.QUOTE + ", sessionKey='" + this.sessionKey + ExtendedMessageFormat.QUOTE + ", sessionSecret='" + this.sessionSecret + ExtendedMessageFormat.QUOTE + ", extra='" + this.extra + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

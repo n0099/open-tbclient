@@ -1,7 +1,6 @@
 package com.baidu.mobads.container.widget.player;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callback, ISurfaceView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +104,7 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                     defaultSize2 = (i4 * defaultSize) / i5;
                 }
             }
-            Log.d("BaseSurfaceView", String.format("onMeasure.  measure size(%sx%s)", Integer.valueOf(this.mVideoWidth), Integer.valueOf(this.mVideoHeight)));
+            String.format("onMeasure.  measure size(%sx%s)", Integer.valueOf(this.mVideoWidth), Integer.valueOf(this.mVideoHeight));
             setMeasuredDimension(defaultSize, defaultSize2);
         }
     }

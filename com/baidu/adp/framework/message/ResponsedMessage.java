@@ -1,6 +1,8 @@
 package com.baidu.adp.framework.message;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.c.e.c.h;
+import c.a.e.c.i.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,9 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.c.e.c.h;
-import d.a.d.c.i.a;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class ResponsedMessage<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -121,15 +121,15 @@ public abstract class ResponsedMessage<T> {
 
     public void onDecodeFailedInBackGround(int i2, T t, int i3) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), t, Integer.valueOf(i3)}) == null) && i3 == h.f41435c) {
+        if ((interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), t, Integer.valueOf(i3)}) == null) && i3 == h.f1970c) {
             setError(TbErrInfo.ERR_SOKCET_SWITCH_HTTP);
         }
     }
 
-    public void setCostTime(long j) {
+    public void setCostTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            this.mCostTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
+            this.mCostTime = j2;
         }
     }
 
@@ -161,17 +161,17 @@ public abstract class ResponsedMessage<T> {
         }
     }
 
-    public void setProcessTime(long j) {
+    public void setProcessTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
-            this.mProcessTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j2) == null) {
+            this.mProcessTime = j2;
         }
     }
 
-    public void setStartTime(long j) {
+    public void setStartTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
-            this.mStartTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
+            this.mStartTime = j2;
         }
     }
 

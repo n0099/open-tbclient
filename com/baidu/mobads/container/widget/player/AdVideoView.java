@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.SoftReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class AdVideoView extends RelativeLayout implements IAdVideoView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AdVideoView";
@@ -63,7 +63,7 @@ public class AdVideoView extends RelativeLayout implements IAdVideoView {
     public AdVideoViewListener mVideoViewListener;
     public Context mViewContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class ScreenBroadcastReceiver extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +107,7 @@ public class AdVideoView extends RelativeLayout implements IAdVideoView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class UpdateProgressRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -17,31 +17,31 @@ import com.kwad.sdk.core.response.model.SdkConfigData;
 import com.kwad.sdk.utils.g;
 import com.kwai.video.ksvodplayerkit.KSVodPlayerCoreInitConfig;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f34689a;
+    public static boolean f71432a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f34690b;
+    public static volatile boolean f71433b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f34691c;
+    public static Context f71434c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f34692d;
+    public static a f71435d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a();
 
         void a(@NonNull SdkConfigData sdkConfigData);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,13 +64,13 @@ public class c {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                com.kwad.sdk.core.config.c.a(c.f34691c);
-                if (c.f34692d != null) {
-                    c.f34692d.a();
+                com.kwad.sdk.core.config.c.a(c.f71434c);
+                if (c.f71435d != null) {
+                    c.f71435d.a();
                 }
-                if (!c.f34689a) {
-                    com.kwad.sdk.core.report.d.b(c.f34691c);
-                    boolean unused = c.f34689a = true;
+                if (!c.f71432a) {
+                    com.kwad.sdk.core.report.d.b(c.f71434c);
+                    boolean unused = c.f71432a = true;
                 }
                 c.a();
             }
@@ -137,9 +137,9 @@ public class c {
                         sdkConfigData.parseJson(jSONObject);
                         try {
                             boolean k = com.kwad.sdk.core.config.c.k();
-                            String j = com.kwad.sdk.core.config.c.j();
-                            if (k && !TextUtils.isEmpty(j)) {
-                                KSVodPlayerCoreInitConfig.updatePlayerConfig(j);
+                            String j2 = com.kwad.sdk.core.config.c.j();
+                            if (k && !TextUtils.isEmpty(j2)) {
+                                KSVodPlayerCoreInitConfig.updatePlayerConfig(j2);
                             }
                         } catch (Throwable th) {
                             com.kwad.sdk.core.d.a.a(th);
@@ -191,11 +191,11 @@ public class c {
                 public void a(@NonNull com.kwad.sdk.core.g.b bVar, @NonNull SdkConfigData sdkConfigData) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bVar, sdkConfigData) == null) {
-                        com.kwad.sdk.core.config.b.a(c.f34691c);
+                        com.kwad.sdk.core.config.b.a(c.f71434c);
                         com.kwad.sdk.core.config.c.a(sdkConfigData);
-                        com.kwad.sdk.core.config.c.a(c.f34691c, sdkConfigData);
-                        if (c.f34692d != null) {
-                            c.f34692d.a(sdkConfigData);
+                        com.kwad.sdk.core.config.c.a(c.f71434c, sdkConfigData);
+                        if (c.f71435d != null) {
+                            c.f71435d.a(sdkConfigData);
                         }
                     }
                 }
@@ -207,13 +207,13 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, aVar) == null) {
             synchronized (c.class) {
-                if (f34690b) {
+                if (f71433b) {
                     com.kwad.sdk.core.d.a.a("ConfigRequestManager", "config request manager has init-ed");
                     return;
                 }
-                f34690b = true;
-                f34691c = context;
-                f34692d = aVar;
+                f71433b = true;
+                f71434c = context;
+                f71435d = aVar;
                 g.a(new b());
             }
         }

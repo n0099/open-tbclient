@@ -15,18 +15,18 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class attr {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int cardBackgroundColor = 0x7f040106;
-        public static final int cardCornerRadius = 0x7f040107;
-        public static final int cardElevation = 0x7f040108;
-        public static final int cardMaxElevation = 0x7f04010a;
-        public static final int cardPreventCornerOverlap = 0x7f04010b;
-        public static final int cardUseCompatPadding = 0x7f04010c;
-        public static final int cardViewStyle = 0x7f04010d;
-        public static final int contentPadding = 0x7f040164;
-        public static final int contentPaddingBottom = 0x7f040165;
-        public static final int contentPaddingLeft = 0x7f040166;
-        public static final int contentPaddingRight = 0x7f040167;
-        public static final int contentPaddingTop = 0x7f040168;
+        public static final int cardBackgroundColor = 0x7f04010a;
+        public static final int cardCornerRadius = 0x7f04010b;
+        public static final int cardElevation = 0x7f04010c;
+        public static final int cardMaxElevation = 0x7f04010e;
+        public static final int cardPreventCornerOverlap = 0x7f04010f;
+        public static final int cardUseCompatPadding = 0x7f040110;
+        public static final int cardViewStyle = 0x7f040111;
+        public static final int contentPadding = 0x7f040168;
+        public static final int contentPaddingBottom = 0x7f040169;
+        public static final int contentPaddingLeft = 0x7f04016a;
+        public static final int contentPaddingRight = 0x7f04016b;
+        public static final int contentPaddingTop = 0x7f04016c;
         public transient /* synthetic */ FieldHolder $fh;
 
         public attr() {
@@ -47,10 +47,10 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int cardview_dark_background = 0x7f0602ea;
-        public static final int cardview_light_background = 0x7f0602eb;
-        public static final int cardview_shadow_end_color = 0x7f0602ec;
-        public static final int cardview_shadow_start_color = 0x7f0602ed;
+        public static final int cardview_dark_background = 0x7f06036d;
+        public static final int cardview_light_background = 0x7f06036e;
+        public static final int cardview_shadow_end_color = 0x7f06036f;
+        public static final int cardview_shadow_start_color = 0x7f060370;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {

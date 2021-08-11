@@ -10,99 +10,98 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes10.dex */
 public class b implements g {
 
     /* renamed from: d  reason: collision with root package name */
-    public long f37492d = 60;
+    public long f74334d = 60;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37493e = 10;
+    public int f74335e = 10;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f37497i = false;
+    public boolean f74339i = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public SimpleDateFormat f37489a = new SimpleDateFormat("MM-dd HH:mm:ss");
+    public SimpleDateFormat f74331a = new SimpleDateFormat("MM-dd HH:mm:ss");
 
     /* renamed from: b  reason: collision with root package name */
-    public List<a> f37490b = Collections.synchronizedList(new ArrayList());
+    public List<a> f74332b = Collections.synchronizedList(new ArrayList());
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f37491c = new Handler(Looper.getMainLooper());
+    public Handler f74333c = new Handler(Looper.getMainLooper());
 
     /* renamed from: g  reason: collision with root package name */
-    public String f37495g = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/defaultLog";
+    public String f74337g = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/defaultLog";
 
     /* renamed from: f  reason: collision with root package name */
-    public e f37494f = new e();
+    public e f74336f = new e();
 
     /* renamed from: h  reason: collision with root package name */
-    public String f37496h = String.valueOf(Process.myPid());
+    public String f74338h = String.valueOf(Process.myPid());
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f37500a;
+        public String f74342a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37501b;
+        public String f74343b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f37502c;
+        public String f74344c;
 
         public a(String str, String str2, String str3) {
-            StringBuffer stringBuffer = new StringBuffer(b.this.f37489a.format(new Date()));
+            StringBuffer stringBuffer = new StringBuffer(b.this.f74331a.format(new Date()));
             stringBuffer.append(" ");
-            stringBuffer.append(b.this.f37496h);
+            stringBuffer.append(b.this.f74338h);
             stringBuffer.append("-");
             stringBuffer.append(String.valueOf(Thread.currentThread().getId()));
             stringBuffer.append(" ");
             stringBuffer.append(str);
             stringBuffer.append("/");
-            this.f37500a = stringBuffer.toString();
-            this.f37501b = str2;
-            this.f37502c = str3;
+            this.f74342a = stringBuffer.toString();
+            this.f74343b = str2;
+            this.f74344c = str3;
         }
     }
 
     private void a(a aVar) {
         try {
-            this.f37490b.add(aVar);
+            this.f74332b.add(aVar);
         } catch (Exception e2) {
-            Log.e("Logger", "add logInfo error " + e2.getMessage());
+            String str = "add logInfo error " + e2.getMessage();
         }
     }
 
     private void b() {
-        if (this.f37490b.size() == 0) {
-            this.f37491c.postDelayed(new Runnable() { // from class: com.meizu.cloud.pushsdk.base.b.1
+        if (this.f74332b.size() == 0) {
+            this.f74333c.postDelayed(new Runnable() { // from class: com.meizu.cloud.pushsdk.base.b.1
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.a(true);
                 }
-            }, this.f37492d * 1000);
+            }, this.f74334d * 1000);
         }
     }
 
     private void c() {
-        if (this.f37490b.size() == this.f37493e) {
+        if (this.f74332b.size() == this.f74335e) {
             a(true);
         }
     }
 
     @Override // com.meizu.cloud.pushsdk.base.g
     public void a(String str) {
-        this.f37495g = str;
+        this.f74337g = str;
     }
 
     @Override // com.meizu.cloud.pushsdk.base.g
     public void a(String str, String str2) {
-        if (this.f37497i) {
-            Log.d(str, str2);
-        }
-        synchronized (this.f37490b) {
+        boolean z = this.f74339i;
+        synchronized (this.f74332b) {
             b();
             a(new a("D", str, str2));
             c();
@@ -111,12 +110,10 @@ public class b implements g {
 
     @Override // com.meizu.cloud.pushsdk.base.g
     public void a(String str, String str2, Throwable th) {
-        if (this.f37497i) {
-            Log.e(str, str2, th);
-        }
-        synchronized (this.f37490b) {
+        boolean z = this.f74339i;
+        synchronized (this.f74332b) {
             b();
-            a(new a("E", str, str2 + "\n" + Log.getStackTraceString(th)));
+            a(new a("E", str, str2 + StringUtils.LF + Log.getStackTraceString(th)));
             c();
         }
     }
@@ -128,16 +125,16 @@ public class b implements g {
             public void run() {
                 b bVar;
                 ArrayList<a> arrayList = new ArrayList();
-                synchronized (b.this.f37490b) {
-                    b.this.f37491c.removeCallbacksAndMessages(null);
-                    arrayList.addAll(b.this.f37490b);
-                    b.this.f37490b.clear();
+                synchronized (b.this.f74332b) {
+                    b.this.f74333c.removeCallbacksAndMessages(null);
+                    arrayList.addAll(b.this.f74332b);
+                    b.this.f74332b.clear();
                 }
                 try {
                     try {
-                        b.this.f37494f.a(b.this.f37495g);
+                        b.this.f74336f.a(b.this.f74337g);
                         for (a aVar : arrayList) {
-                            b.this.f37494f.a(aVar.f37500a, aVar.f37501b, aVar.f37502c);
+                            b.this.f74336f.a(aVar.f74342a, aVar.f74343b, aVar.f74344c);
                         }
                         bVar = b.this;
                     } catch (Exception unused) {
@@ -147,12 +144,12 @@ public class b implements g {
                     bVar = b.this;
                 } catch (Throwable th) {
                     try {
-                        b.this.f37494f.a();
+                        b.this.f74336f.a();
                     } catch (Exception unused3) {
                     }
                     throw th;
                 }
-                bVar.f37494f.a();
+                bVar.f74336f.a();
             }
         };
         if (z) {
@@ -164,15 +161,13 @@ public class b implements g {
 
     @Override // com.meizu.cloud.pushsdk.base.g
     public boolean a() {
-        return this.f37497i;
+        return this.f74339i;
     }
 
     @Override // com.meizu.cloud.pushsdk.base.g
     public void b(String str, String str2) {
-        if (this.f37497i) {
-            Log.i(str, str2);
-        }
-        synchronized (this.f37490b) {
+        boolean z = this.f74339i;
+        synchronized (this.f74332b) {
             b();
             a(new a("I", str, str2));
             c();
@@ -181,15 +176,13 @@ public class b implements g {
 
     @Override // com.meizu.cloud.pushsdk.base.g
     public void b(boolean z) {
-        this.f37497i = z;
+        this.f74339i = z;
     }
 
     @Override // com.meizu.cloud.pushsdk.base.g
     public void c(String str, String str2) {
-        if (this.f37497i) {
-            Log.w(str, str2);
-        }
-        synchronized (this.f37490b) {
+        boolean z = this.f74339i;
+        synchronized (this.f74332b) {
             b();
             a(new a("W", str, str2));
             c();
@@ -198,10 +191,8 @@ public class b implements g {
 
     @Override // com.meizu.cloud.pushsdk.base.g
     public void d(String str, String str2) {
-        if (this.f37497i) {
-            Log.e(str, str2);
-        }
-        synchronized (this.f37490b) {
+        boolean z = this.f74339i;
+        synchronized (this.f74332b) {
             b();
             a(new a("E", str, str2));
             c();

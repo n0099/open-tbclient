@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.os.Build;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.graphics.BitmapCompat;
@@ -114,7 +113,7 @@ public final class RoundedBitmapDrawableFactory {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, resources, str)) == null) {
             RoundedBitmapDrawable create = create(resources, BitmapFactory.decodeFile(str));
             if (create.getBitmap() == null) {
-                Log.w(TAG, "RoundedBitmapDrawable cannot decode " + str);
+                String str2 = "RoundedBitmapDrawable cannot decode " + str;
             }
             return create;
         }
@@ -128,7 +127,7 @@ public final class RoundedBitmapDrawableFactory {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, resources, inputStream)) == null) {
             RoundedBitmapDrawable create = create(resources, BitmapFactory.decodeStream(inputStream));
             if (create.getBitmap() == null) {
-                Log.w(TAG, "RoundedBitmapDrawable cannot decode " + inputStream);
+                String str = "RoundedBitmapDrawable cannot decode " + inputStream;
             }
             return create;
         }

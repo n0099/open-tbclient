@@ -12,7 +12,7 @@ import com.yy.hiidostatis.message.storage.MessageSupplierProxy;
 import com.yy.hiidostatis.provider.GlobalProvider;
 import com.yy.hiidostatis.provider.MessageConfig;
 import com.yy.hiidostatis.provider.Provider;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class MessageSupplierProvider implements Provider<MessageSupplier> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

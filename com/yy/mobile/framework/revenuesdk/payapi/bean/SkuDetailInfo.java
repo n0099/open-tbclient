@@ -5,7 +5,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class SkuDetailInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +44,7 @@ public class SkuDetailInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SkuDetailInfo{description=" + this.description + ", freeTrialPeriod=" + this.freeTrialPeriod + ", introductoryPrice=" + this.introductoryPrice + ", introductoryPriceAmountMicros=" + this.introductoryPriceAmountMicros + ", introductoryPriceCycles=" + this.introductoryPriceCycles + ", introductoryPricePeriod=" + this.introductoryPricePeriod + ", originalPriceAmountMicros=" + this.originalPriceAmountMicros + ", price=" + this.price + ", priceAmountMicros=" + this.priceAmountMicros + ", priceCurrencyCode=" + this.priceCurrencyCode + ", subscriptionPeriod=" + this.subscriptionPeriod + ", title=" + this.title + ", type=" + this.type + ", isRewarded=" + this.isRewarded + '}';
+            return "SkuDetailInfo{description=" + this.description + ", freeTrialPeriod=" + this.freeTrialPeriod + ", introductoryPrice=" + this.introductoryPrice + ", introductoryPriceAmountMicros=" + this.introductoryPriceAmountMicros + ", introductoryPriceCycles=" + this.introductoryPriceCycles + ", introductoryPricePeriod=" + this.introductoryPricePeriod + ", originalPriceAmountMicros=" + this.originalPriceAmountMicros + ", price=" + this.price + ", priceAmountMicros=" + this.priceAmountMicros + ", priceCurrencyCode=" + this.priceCurrencyCode + ", subscriptionPeriod=" + this.subscriptionPeriod + ", title=" + this.title + ", type=" + this.type + ", isRewarded=" + this.isRewarded + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

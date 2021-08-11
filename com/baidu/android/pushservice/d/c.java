@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class c extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,11 +38,11 @@ public abstract class c extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a2 = com.baidu.android.pushservice.k.a(((a) this).f3041a).a();
+            String a2 = com.baidu.android.pushservice.k.a(((a) this).f36926a).a();
             if (TextUtils.isEmpty(a2)) {
                 a2 = "channel";
             }
-            this.f3043c += a2;
+            this.f36928c += a2;
             return super.c();
         }
         return invokeV.booleanValue;

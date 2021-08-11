@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public final class MathUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_EPSILON = 1.0E-4f;

@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.Closeable;
@@ -18,7 +17,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ag {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,26 +27,26 @@ public class ag {
     /* JADX WARN: Type inference failed for: r2v2 */
     /* JADX WARN: Type inference failed for: r2v3 */
     /* JADX WARN: Type inference failed for: r2v5, types: [java.io.Closeable] */
-    public static boolean a(Context context, String str, long j) {
+    public static boolean a(Context context, String str, long j2) {
         InterceptResult invokeCommon;
         RandomAccessFile randomAccessFile;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, str, Long.valueOf(j)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, str, Long.valueOf(j2)})) != null) {
             return invokeCommon.booleanValue;
         }
         ?? r2 = 23;
-        if (Build.VERSION.SDK_INT >= 23 && !g.c(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
+        if (Build.VERSION.SDK_INT >= 23 && !g.c(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
             return true;
         }
         FileLock fileLock = null;
         try {
             try {
                 File file = new File(new File(Environment.getExternalStorageDirectory(), "/.vdevdir/"), "lcfp.lock");
-                y.m643a(file);
+                y.m646a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
-                    boolean b2 = b(context, str, j);
+                    boolean b2 = b(context, str, j2);
                     if (fileLock != null && fileLock.isValid()) {
                         try {
                             fileLock.release();
@@ -98,14 +97,14 @@ public class ag {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean b(Context context, String str, long j) {
+    public static boolean b(Context context, String str, long j2) {
         InterceptResult invokeCommon;
         Closeable closeable;
         BufferedReader bufferedReader;
         BufferedWriter bufferedWriter;
         BufferedWriter bufferedWriter2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, Long.valueOf(j)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, Long.valueOf(j2)})) != null) {
             return invokeCommon.booleanValue;
         }
         File file = new File(new File(Environment.getExternalStorageDirectory(), "/.vdevdir/"), "lcfp");
@@ -129,7 +128,7 @@ public class ag {
                                     String[] split2 = split[1].split(",");
                                     if (split2.length == 2) {
                                         long parseLong = Long.parseLong(split2[1]);
-                                        if (!TextUtils.equals(split2[0], context.getPackageName()) && ((float) Math.abs(currentTimeMillis - parseLong)) < ((float) (1000 * j)) * 0.9f) {
+                                        if (!TextUtils.equals(split2[0], context.getPackageName()) && ((float) Math.abs(currentTimeMillis - parseLong)) < ((float) (1000 * j2)) * 0.9f) {
                                             y.a(bufferedReader);
                                             return false;
                                         }
@@ -157,7 +156,7 @@ public class ag {
                     y.a(closeable);
                     throw th;
                 }
-            } else if (!y.m643a(file)) {
+            } else if (!y.m646a(file)) {
                 return true;
             }
             arrayList.add(str2);

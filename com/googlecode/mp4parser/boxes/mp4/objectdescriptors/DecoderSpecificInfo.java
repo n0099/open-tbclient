@@ -11,8 +11,9 @@ import com.coremedia.iso.Hex;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(tags = {5})
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class DecoderSpecificInfo extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +92,7 @@ public class DecoderSpecificInfo extends BaseDescriptor {
             sb.append("{bytes=");
             byte[] bArr = this.bytes;
             sb.append(bArr == null ? StringUtil.NULL_STRING : Hex.encodeHex(bArr));
-            sb.append('}');
+            sb.append(ExtendedMessageFormat.END_FE);
             return sb.toString();
         }
         return (String) invokeV.objValue;

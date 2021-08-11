@@ -1,14 +1,14 @@
 package com.ss.android.socialbase.downloader.downloader;
 
+import c.p.a.e.b.g.e;
+import c.p.a.e.b.g.p;
+import c.p.a.e.b.g.v;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.l.a.e.b.g.e;
-import d.l.a.e.b.g.p;
-import d.l.a.e.b.g.v;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class IndependentProcessDownloadService extends DownloadService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class IndependentProcessDownloadService extends DownloadService {
                 e.L(new v());
             }
             p O0 = e.O0();
-            this.f38698a = O0;
+            this.f75512a = O0;
             O0.c(new WeakReference(this));
         }
     }

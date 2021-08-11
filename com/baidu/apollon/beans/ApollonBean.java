@@ -7,6 +7,7 @@ import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.apollon.restnet.RestResponseEntity;
 import com.baidu.apollon.restnet.RestTemplate;
 import com.baidu.apollon.taskmanager.TaskManager;
+import com.baidu.apollon.utils.DxmApplicationContextImpl;
 import com.baidu.apollon.utils.JsonUtils;
 import com.baidu.apollon.utils.NetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class ApollonBean<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BEAN_TASK_MGR_KEY = "BeanTaskManager";
@@ -42,7 +43,7 @@ public abstract class ApollonBean<T> {
             }
         }
         this.mTskKey = "";
-        this.mContext = context.getApplicationContext();
+        this.mContext = DxmApplicationContextImpl.getApplicationContext(context);
     }
 
     public void destroyBean() {
@@ -136,13 +137,13 @@ public abstract class ApollonBean<T> {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Class f3685a;
+                public final /* synthetic */ Class f37597a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Class f3686b;
+                public final /* synthetic */ Class f37598b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ ApollonBean f3687c;
+                public final /* synthetic */ ApollonBean f37599c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -159,9 +160,9 @@ public abstract class ApollonBean<T> {
                             return;
                         }
                     }
-                    this.f3687c = this;
-                    this.f3685a = cls;
-                    this.f3686b = cls2;
+                    this.f37599c = this;
+                    this.f37597a = cls;
+                    this.f37598b = cls2;
                 }
 
                 @Override // java.lang.Runnable
@@ -170,13 +171,13 @@ public abstract class ApollonBean<T> {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             try {
-                                this.f3687c.prepareRestTemplate();
-                                this.f3687c.executeAndHandleResponse(this.f3685a, this.f3686b);
+                                this.f37599c.prepareRestTemplate();
+                                this.f37599c.executeAndHandleResponse(this.f37597a, this.f37598b);
                             } catch (Exception e2) {
-                                this.f3687c.handleCommonErrors(e2);
+                                this.f37599c.handleCommonErrors(e2);
                             }
                         } finally {
-                            this.f3687c.mRspCallback = null;
+                            this.f37599c.mRspCallback = null;
                         }
                     }
                 }
@@ -188,7 +189,7 @@ public abstract class ApollonBean<T> {
             TaskManager taskManager = TaskManager.getInstance("BeanTaskManager");
             this.mTskKey = "BeanTask_" + getBeanId() + "_" + System.currentTimeMillis();
             taskManager.getClass();
-            taskManager.a(new TaskManager.c(taskManager, 0L, 0L, false, this.mTskKey, runnable), "ApollonBeanTask");
+            taskManager.addTask(new TaskManager.Task(taskManager, 0L, 0L, false, this.mTskKey, runnable), "ApollonBeanTask");
         }
     }
 }

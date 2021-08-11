@@ -16,7 +16,7 @@ import com.yy.gslbsdk.util.GlobalTools;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class HttpsLevelMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpsLevelMgr";

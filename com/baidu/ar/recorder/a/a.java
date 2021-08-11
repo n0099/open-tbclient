@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "a";
@@ -30,8 +30,8 @@ public class a {
     public d un;
 
     /* renamed from: com.baidu.ar.recorder.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public class C0080a {
+    /* loaded from: classes5.dex */
+    public class C1627a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ByteBuffer uE;
@@ -39,12 +39,12 @@ public class a {
         public long uG;
         public final /* synthetic */ a uH;
 
-        public C0080a(a aVar, ByteBuffer byteBuffer, int i2, long j) {
+        public C1627a(a aVar, ByteBuffer byteBuffer, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, byteBuffer, Integer.valueOf(i2), Long.valueOf(j)};
+                Object[] objArr = {aVar, byteBuffer, Integer.valueOf(i2), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -57,11 +57,11 @@ public class a {
             this.uH = aVar;
             this.uE = byteBuffer;
             this.uF = i2;
-            this.uG = j;
+            this.uG = j2;
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,8 +100,8 @@ public class a {
                         this.uH.fK();
                         return;
                     case 1003:
-                        C0080a c0080a = (C0080a) message.obj;
-                        this.uH.b(c0080a.uE, c0080a.uF, c0080a.uG);
+                        C1627a c1627a = (C1627a) message.obj;
+                        this.uH.b(c1627a.uE, c1627a.uF, c1627a.uG);
                         return;
                     case 1004:
                         this.uH.fL();
@@ -176,12 +176,12 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(ByteBuffer byteBuffer, int i2, long j) {
+    public void b(ByteBuffer byteBuffer, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j)}) == null) || Build.VERSION.SDK_INT < 18) {
+        if (!(interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || Build.VERSION.SDK_INT < 18) {
             return;
         }
-        this.uD.a(false, byteBuffer, i2, j);
+        this.uD.a(false, byteBuffer, i2, j2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -231,17 +231,17 @@ public class a {
         }
     }
 
-    public void a(ByteBuffer byteBuffer, int i2, long j) {
+    public void a(ByteBuffer byteBuffer, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j)}) == null) || byteBuffer == null || i2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || byteBuffer == null || i2 <= 0) {
             return;
         }
-        C0080a c0080a = new C0080a(this, byteBuffer, i2, j);
+        C1627a c1627a = new C1627a(this, byteBuffer, i2, j2);
         if (this.uC == null || !this.ua) {
             return;
         }
         Handler handler = this.uC;
-        handler.sendMessage(handler.obtainMessage(1003, c0080a));
+        handler.sendMessage(handler.obtainMessage(1003, c1627a));
     }
 
     public boolean a(EncoderParams encoderParams, d dVar, c cVar) {

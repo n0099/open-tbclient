@@ -1,5 +1,6 @@
 package com.baidu.tieba.frs.game.strategy.message;
 
+import c.a.o0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -8,10 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.b1.w;
 import tbclient.GameForumGuideTab.DataReq;
 import tbclient.GameForumGuideTab.GameForumGuideTabReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FrsGameStrategyRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,13 +21,13 @@ public class FrsGameStrategyRequestMessage extends NetMessage {
     public int mTabId;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsGameStrategyRequestMessage(long j, int i2, int i3, int i4) {
+    public FrsGameStrategyRequestMessage(long j2, int i2, int i3, int i4) {
         super(CmdConfigHttp.CMD_FRS_GAME_STRATEGY, 309478);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -40,7 +40,7 @@ public class FrsGameStrategyRequestMessage extends NetMessage {
             }
         }
         this.mPn = 0;
-        this.mFid = j;
+        this.mFid = j2;
         this.mPn = i2;
         this.mTabId = i3;
         this.mLabelId = i4;

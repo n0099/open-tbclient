@@ -11,28 +11,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BdBaseViewPagerContainerHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public RelativeLayout f12832a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f12833b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f12834c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public IndicatorView f12835d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public View f12836e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public BdBaseViewPager f12837f;
+    public View divilerLine;
+    public IndicatorView mIndicatorView;
+    public TextView mMoreView;
+    public BdBaseViewPager mViewPager;
+    public int skinType;
+    public TextView title;
+    public RelativeLayout topArea;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdBaseViewPagerContainerHolder(View view, Context context) {
@@ -52,16 +41,17 @@ public class BdBaseViewPagerContainerHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f12833b = null;
-        this.f12834c = null;
-        this.f12835d = null;
-        this.f12836e = null;
-        this.f12837f = null;
-        this.f12832a = (RelativeLayout) view.findViewById(R.id.top_area);
-        this.f12833b = (TextView) view.findViewById(R.id.theme_title);
-        this.f12834c = (TextView) view.findViewById(R.id.more_textview);
-        this.f12835d = (IndicatorView) view.findViewById(R.id.tab_indicator);
-        this.f12836e = view.findViewById(R.id.bottom_divider_line);
-        this.f12837f = (BdBaseViewPager) view.findViewById(R.id.bd_base_view_pager);
+        this.skinType = 3;
+        this.title = null;
+        this.mMoreView = null;
+        this.mIndicatorView = null;
+        this.divilerLine = null;
+        this.mViewPager = null;
+        this.topArea = (RelativeLayout) view.findViewById(R.id.top_area);
+        this.title = (TextView) view.findViewById(R.id.theme_title);
+        this.mMoreView = (TextView) view.findViewById(R.id.more_textview);
+        this.mIndicatorView = (IndicatorView) view.findViewById(R.id.tab_indicator);
+        this.divilerLine = view.findViewById(R.id.bottom_divider_line);
+        this.mViewPager = (BdBaseViewPager) view.findViewById(R.id.bd_base_view_pager);
     }
 }

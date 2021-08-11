@@ -15,26 +15,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ShadowLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f13208e;
+    public Paint f48223e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RectF f13209f;
+    public RectF f48224f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13210g;
+    public int f48225g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13211h;
+    public int f48226h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13212i;
-    public int j;
+    public int f48227i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f48228j;
     public int k;
     public int l;
 
@@ -65,25 +67,25 @@ public class ShadowLayout extends FrameLayout {
             setWillNotDraw(false);
             setLayerType(1, null);
             int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
-            this.f13210g = dimensionPixelSize;
+            this.f48225g = dimensionPixelSize;
             setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
             this.l = getContext().getResources().getDimensionPixelSize(R.dimen.tbds25);
-            this.f13211h = getContext().getResources().getDimensionPixelSize(R.dimen.tbds10);
-            this.f13212i = getContext().getResources().getDimensionPixelSize(R.dimen.tbds2);
-            this.j = getContext().getResources().getDimensionPixelSize(R.dimen.tbds5);
+            this.f48226h = getContext().getResources().getDimensionPixelSize(R.dimen.tbds10);
+            this.f48227i = getContext().getResources().getDimensionPixelSize(R.dimen.tbds2);
+            this.f48228j = getContext().getResources().getDimensionPixelSize(R.dimen.tbds5);
             this.k = SkinManager.getColor(R.color.plugin_button_shadow_blue);
             Paint paint = new Paint();
-            this.f13208e = paint;
+            this.f48223e = paint;
             paint.setColor(0);
-            this.f13208e.setShadowLayer(this.f13211h, this.f13212i, this.j, this.k);
-            this.f13209f = new RectF();
+            this.f48223e.setShadowLayer(this.f48226h, this.f48227i, this.f48228j, this.k);
+            this.f48224f = new RectF();
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f13208e.setShadowLayer(this.f13211h, this.f13212i, this.j, this.k);
+            this.f48223e.setShadowLayer(this.f48226h, this.f48227i, this.f48228j, this.k);
             postInvalidate();
         }
     }
@@ -93,13 +95,13 @@ public class ShadowLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f13209f.left = getPaddingLeft();
-            this.f13209f.right = getWidth() - getPaddingRight();
-            this.f13209f.bottom = getHeight() - getPaddingBottom();
-            this.f13209f.top = getPaddingTop();
-            RectF rectF = this.f13209f;
+            this.f48224f.left = getPaddingLeft();
+            this.f48224f.right = getWidth() - getPaddingRight();
+            this.f48224f.bottom = getHeight() - getPaddingBottom();
+            this.f48224f.top = getPaddingTop();
+            RectF rectF = this.f48224f;
             int i2 = this.l;
-            canvas.drawRoundRect(rectF, i2, i2, this.f13208e);
+            canvas.drawRoundRect(rectF, i2, i2, this.f48223e);
         }
     }
 

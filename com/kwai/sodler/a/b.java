@@ -2,7 +2,6 @@ package com.kwai.sodler.a;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,12 +20,12 @@ import com.kwai.sodler.lib.j;
 import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f37145a;
+    public static boolean f73975a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,7 +47,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
             synchronized (b.class) {
-                if (f37145a) {
+                if (f73975a) {
                     return;
                 }
                 j.a().a(context, new c.a().a("sodler").a(3).a(false).a());
@@ -76,7 +75,7 @@ public class b {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, fVar, file) == null) {
                             long currentTimeMillis = System.currentTimeMillis();
-                            Log.d("Sodler.helper", "==============start download:" + fVar);
+                            String str = "==============start download:" + fVar;
                             try {
                                 e.a(fVar.q(), file, null, 0);
                                 if (!TextUtils.isEmpty(fVar.p()) && !TextUtils.equals(com.kwai.sodler.lib.c.a.f(file), fVar.p())) {
@@ -101,7 +100,7 @@ public class b {
                         }
                     }
                 });
-                f37145a = true;
+                f73975a = true;
             }
         }
     }

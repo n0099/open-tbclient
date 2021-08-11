@@ -40,7 +40,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.codec.digest4util.PureJavaCrc32C;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class AACTrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public static Map<Integer, String> audioObjectTypes;
@@ -56,7 +57,7 @@ public class AACTrackImpl extends AbstractTrack {
     public List<Sample> samples;
     public TrackMetaData trackMetaData;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class AdtsHeader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -223,14 +224,14 @@ public class AACTrackImpl extends AbstractTrack {
             double size = this.samples.size() / d2;
             LinkedList linkedList = new LinkedList();
             Iterator<Sample> it = this.samples.iterator();
-            long j = 0;
+            long j2 = 0;
             while (true) {
                 int i2 = 0;
                 if (!it.hasNext()) {
                     break;
                 }
                 int size2 = (int) it.next().getSize();
-                j += size2;
+                j2 += size2;
                 linkedList.add(Integer.valueOf(size2));
                 while (linkedList.size() > d2) {
                     linkedList.pop();
@@ -246,7 +247,7 @@ public class AACTrackImpl extends AbstractTrack {
                     }
                 }
             }
-            this.avgBitRate = (int) ((j * 8) / size);
+            this.avgBitRate = (int) ((j2 * 8) / size);
             this.bufferSizeDB = PureJavaCrc32C.T8_6_start;
             this.sampleDescriptionBox = new SampleDescriptionBox();
             AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE3);
@@ -444,7 +445,7 @@ public class AACTrackImpl extends AbstractTrack {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "AACTrackImpl{sampleRate=" + this.firstHeader.sampleRate + ", channelconfig=" + this.firstHeader.channelconfig + '}';
+            return "AACTrackImpl{sampleRate=" + this.firstHeader.sampleRate + ", channelconfig=" + this.firstHeader.channelconfig + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

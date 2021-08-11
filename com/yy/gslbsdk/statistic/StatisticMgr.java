@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class StatisticMgr {
     public static /* synthetic */ Interceptable $ic;
     public static StatisticMgr sInstance;
@@ -24,7 +24,7 @@ public class StatisticMgr {
     public Map<String, StatisticInfo> mMapStatistic;
     public IGslbStatistic mStatistic;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface IGslbStatistic {
         void onStatistic(Map<String, String> map);
     }
@@ -148,10 +148,10 @@ public class StatisticMgr {
         return invokeLL.booleanValue;
     }
 
-    public void addTask(ThreadInfo threadInfo, long j) {
+    public void addTask(ThreadInfo threadInfo, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo, j) == null) {
-            this.mExecutor.schedule(threadInfo, j, TimeUnit.MILLISECONDS);
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo, j2) == null) {
+            this.mExecutor.schedule(threadInfo, j2, TimeUnit.MILLISECONDS);
         }
     }
 }

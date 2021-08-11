@@ -2,7 +2,6 @@ package com.baidu.spswitch.utils;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class UIUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -100,7 +99,7 @@ public class UIUtils {
                         get = true;
                     }
                     if (DEBUG) {
-                        Log.d(TAG, "status bar util: " + statusBarHeight);
+                        String str = "status bar util: " + statusBarHeight;
                     }
                 }
                 i2 = statusBarHeight;

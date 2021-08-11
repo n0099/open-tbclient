@@ -1,24 +1,22 @@
 package com.qq.e.ads;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.comm.a;
-import com.qq.e.comm.managers.GDTADManager;
-import com.qq.e.comm.pi.POFactory;
-import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes6.dex */
-public abstract class LiteAbstractAD<T> {
+import com.qq.e.comm.compliance.DownloadConfirmCallBack;
+import com.qq.e.comm.compliance.DownloadConfirmListener;
+import com.qq.e.comm.pi.LADI;
+/* loaded from: classes10.dex */
+public abstract class LiteAbstractAD<T extends LADI> extends AbstractAD<T> implements DownloadConfirmListener, LADI {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public T f37875a;
+    /* renamed from: b  reason: collision with root package name */
+    public DownloadConfirmListener f74726b;
 
     public LiteAbstractAD() {
         Interceptable interceptable = $ic;
@@ -34,129 +32,70 @@ public abstract class LiteAbstractAD<T> {
         }
     }
 
-    public abstract T a(Context context, POFactory pOFactory, String str, String str2);
-
-    public abstract void a(int i2);
-
-    public final void a(Context context, String str, String str2) {
+    @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
+    public String getApkInfoUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2) == null) {
-            if (a.a(context)) {
-                GDTADManager.INIT_EXECUTOR.execute(new Runnable(this, context, str, str2) { // from class: com.qq.e.ads.LiteAbstractAD.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f37876a;
-
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f37877b;
-
-                    /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ String f37878c;
-
-                    /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ LiteAbstractAD f37879d;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, context, str, str2};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f37879d = this;
-                        this.f37876a = context;
-                        this.f37877b = str;
-                        this.f37878c = str2;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        LiteAbstractAD liteAbstractAD;
-                        int i2;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            if (GDTADManager.getInstance().initWith(this.f37876a, this.f37877b)) {
-                                try {
-                                    new Handler(Looper.getMainLooper()).post(new Runnable(this, GDTADManager.getInstance().getPM().getPOFactory()) { // from class: com.qq.e.ads.LiteAbstractAD.1.1
-                                        public static /* synthetic */ Interceptable $ic;
-                                        public transient /* synthetic */ FieldHolder $fh;
-
-                                        /* renamed from: a  reason: collision with root package name */
-                                        public /* synthetic */ POFactory f37880a;
-
-                                        /* renamed from: b  reason: collision with root package name */
-                                        public /* synthetic */ AnonymousClass1 f37881b;
-
-                                        {
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 != null) {
-                                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                                newInitContext.initArgs = r2;
-                                                Object[] objArr = {this, r7};
-                                                interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i3 = newInitContext.flag;
-                                                if ((i3 & 1) != 0) {
-                                                    int i4 = i3 & 2;
-                                                    newInitContext.thisArg = this;
-                                                    interceptable3.invokeInitBody(65536, newInitContext);
-                                                    return;
-                                                }
-                                            }
-                                            this.f37881b = this;
-                                            this.f37880a = r7;
-                                        }
-
-                                        /* JADX DEBUG: Multi-variable search result rejected for r0v10, resolved type: com.qq.e.ads.LiteAbstractAD */
-                                        /* JADX WARN: Multi-variable type inference failed */
-                                        @Override // java.lang.Runnable
-                                        public void run() {
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                try {
-                                                    if (this.f37880a == null) {
-                                                        this.f37881b.f37879d.a(200102);
-                                                        return;
-                                                    }
-                                                    this.f37881b.f37879d.f37875a = this.f37881b.f37879d.a(this.f37881b.f37876a, this.f37880a, this.f37881b.f37877b, this.f37881b.f37878c);
-                                                    this.f37881b.f37879d.a((LiteAbstractAD) this.f37881b.f37879d.f37875a);
-                                                } catch (Throwable th) {
-                                                    GDTLogger.e("Exception while init Core", th);
-                                                    this.f37881b.f37879d.a(2001);
-                                                }
-                                            }
-                                        }
-                                    });
-                                    return;
-                                } catch (Throwable th) {
-                                    GDTLogger.e("Exception while init plugin", th);
-                                    liteAbstractAD = this.f37879d;
-                                    i2 = 200102;
-                                }
-                            } else {
-                                GDTLogger.e("Fail to init ADManager");
-                                liteAbstractAD = this.f37879d;
-                                i2 = 200101;
-                            }
-                            liteAbstractAD.a(i2);
-                        }
-                    }
-                });
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            T t = this.f74712a;
+            if (t != 0) {
+                return ((LADI) t).getApkInfoUrl();
             }
-            GDTLogger.e("Required Activity/Service/Permission not declared in AndroidManifest.xml");
-            a(4002);
+            a("getApkInfoUrl");
+            return null;
         }
+        return (String) invokeV.objValue;
     }
 
-    public abstract void a(T t);
+    @Override // com.qq.e.comm.pi.LADI
+    public int getECPM() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            T t = this.f74712a;
+            if (t != 0) {
+                return ((LADI) t).getECPM();
+            }
+            a("getECPM");
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.qq.e.comm.pi.LADI
+    public String getECPMLevel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            T t = this.f74712a;
+            if (t != 0) {
+                return ((LADI) t).getECPMLevel();
+            }
+            a("getECPMLevel");
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.qq.e.comm.compliance.DownloadConfirmListener
+    public void onDownloadConfirm(Activity activity, int i2, String str, DownloadConfirmCallBack downloadConfirmCallBack) {
+        DownloadConfirmListener downloadConfirmListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLILL(1048579, this, activity, i2, str, downloadConfirmCallBack) == null) || (downloadConfirmListener = this.f74726b) == null) {
+            return;
+        }
+        downloadConfirmListener.onDownloadConfirm(activity, i2, str, downloadConfirmCallBack);
+    }
+
+    @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
+    public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, downloadConfirmListener) == null) {
+            this.f74726b = downloadConfirmListener;
+            T t = this.f74712a;
+            if (t != 0) {
+                ((LADI) t).setDownloadConfirmListener(this);
+            }
+        }
+    }
 }

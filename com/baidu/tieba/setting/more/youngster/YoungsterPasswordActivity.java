@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
+import c.a.e.e.m.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.YoungsterPasswordActivityConfig;
@@ -14,8 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.m.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class YoungsterPasswordActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,13 +27,13 @@ public class YoungsterPasswordActivity extends BaseActivity {
     public String mPassword;
     public YoungsterPasswordView mYoungsterPasswordView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ YoungsterPasswordActivity f20948e;
+        public final /* synthetic */ YoungsterPasswordActivity f56423e;
 
         public a(YoungsterPasswordActivity youngsterPasswordActivity) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class YoungsterPasswordActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f20948e = youngsterPasswordActivity;
+            this.f56423e = youngsterPasswordActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f20948e.finish();
+                this.f56423e.finish();
             }
         }
     }
@@ -97,7 +97,7 @@ public class YoungsterPasswordActivity extends BaseActivity {
                     this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_setting));
                     break;
             }
-            this.mYoungsterPasswordView.i(i2);
+            this.mYoungsterPasswordView.initByType(i2);
         }
     }
 
@@ -107,7 +107,7 @@ public class YoungsterPasswordActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.onChangeSkinType(i2);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
-            this.mYoungsterPasswordView.j();
+            this.mYoungsterPasswordView.onChangeSkinType();
         }
     }
 
@@ -117,7 +117,7 @@ public class YoungsterPasswordActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
             super.onClick(view);
             if (view == this.mBack) {
-                this.mYoungsterPasswordView.g();
+                this.mYoungsterPasswordView.hideSoftKeyboard();
                 e.a().postDelayed(this.finishWithResult, 200L);
             }
         }
@@ -168,7 +168,7 @@ public class YoungsterPasswordActivity extends BaseActivity {
             super.onResume();
             YoungsterPasswordView youngsterPasswordView = this.mYoungsterPasswordView;
             if (youngsterPasswordView != null) {
-                youngsterPasswordView.k();
+                youngsterPasswordView.showSoftKeyboard();
             }
         }
     }

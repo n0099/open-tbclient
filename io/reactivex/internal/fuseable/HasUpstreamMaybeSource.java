@@ -1,7 +1,7 @@
 package io.reactivex.internal.fuseable;
 
 import io.reactivex.MaybeSource;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface HasUpstreamMaybeSource<T> {
     MaybeSource<T> source();
 }

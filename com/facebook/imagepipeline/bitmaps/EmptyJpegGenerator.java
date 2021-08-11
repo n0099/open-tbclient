@@ -17,7 +17,7 @@ import com.facebook.common.references.CloseableReference;
 import io.flutter.plugin.common.StandardMessageCodec;
 import java.io.IOException;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class EmptyJpegGenerator {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] EMPTY_JPEG_PREFIX;

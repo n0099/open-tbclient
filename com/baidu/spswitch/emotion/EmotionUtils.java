@@ -5,7 +5,6 @@ import android.graphics.BitmapFactory;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -36,7 +35,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class EmotionUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean CACHE_DEBUG = false;
@@ -60,7 +59,7 @@ public class EmotionUtils {
     public Semaphore mSync;
 
     /* renamed from: com.baidu.spswitch.emotion.EmotionUtils$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$spswitch$emotion$EmotionType;
         public static /* synthetic */ Interceptable $ic;
@@ -88,7 +87,7 @@ public class EmotionUtils {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class EmotionClassic {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -200,7 +199,7 @@ public class EmotionUtils {
         this.mEmotionPanelList = new CopyOnWriteArrayList(arrayList);
         this.mSync.release();
         if (DEBUG) {
-            Log.d(TAG, "thread:" + Thread.currentThread() + "-------initEmotionBitmapCache, release signal-------");
+            String str2 = "thread:" + Thread.currentThread() + "-------initEmotionBitmapCache, release signal-------";
         }
     }
 
@@ -464,24 +463,24 @@ public class EmotionUtils {
         this.mMediaPlayer.start();
     }
 
-    public void waitForEmotionLoadedIfNeeded(long j) {
+    public void waitForEmotionLoadedIfNeeded(long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048587, this, j) == null) || isEmotionLoaded(EmotionType.EMOTION_CLASSIC_TYPE)) {
+        if (!(interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) || isEmotionLoaded(EmotionType.EMOTION_CLASSIC_TYPE)) {
             return;
         }
-        if (j <= 0) {
-            j = 350;
+        if (j2 <= 0) {
+            j2 = 350;
         }
         if (DEBUG) {
-            Log.d(TAG, "thread:" + Thread.currentThread() + "-------waitForEmotionLoaded begin-------");
+            String str = "thread:" + Thread.currentThread() + "-------waitForEmotionLoaded begin-------";
         }
         try {
-            this.mSync.tryAcquire(j, TimeUnit.MILLISECONDS);
+            this.mSync.tryAcquire(j2, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e2) {
             e2.printStackTrace();
         }
         if (DEBUG) {
-            Log.d(TAG, "thread:" + Thread.currentThread() + "-------waitForEmotionLoaded end-------");
+            String str2 = "thread:" + Thread.currentThread() + "-------waitForEmotionLoaded end-------";
         }
     }
 

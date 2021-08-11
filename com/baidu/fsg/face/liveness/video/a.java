@@ -15,25 +15,25 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class a extends h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f6065b;
+    public static volatile boolean f40037b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f6066c;
+    public static volatile boolean f40038c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f6067a;
+    public g f40039a;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6068d;
+    public int f40040d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CountDownLatch f6069e;
+    public CountDownLatch f40041e;
     public String t;
 
     static {
@@ -78,18 +78,18 @@ public class a extends h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int a2 = this.j.a();
-            int b2 = this.j.b();
+            int a2 = this.f40069j.a();
+            int b2 = this.f40069j.b();
             LogUtil.i("previewSize:" + a2 + "," + b2);
-            f6065b = false;
-            f6066c = false;
-            int c2 = this.j.c();
+            f40037b = false;
+            f40038c = false;
+            int c2 = this.f40069j.c();
             try {
                 MediaMuxer mediaMuxer = new MediaMuxer(this.t, 0);
                 mediaMuxer.setOrientationHint(c2);
-                this.f6069e = new CountDownLatch(1);
-                g gVar = new g(a2, b2, this.s, this.q, this.r, null, mediaMuxer, this.f6069e);
-                this.f6067a = gVar;
+                this.f40041e = new CountDownLatch(1);
+                g gVar = new g(a2, b2, this.s, this.q, this.r, null, mediaMuxer, this.f40041e);
+                this.f40039a = gVar;
                 gVar.a(this);
                 this.o.d(c2);
                 this.o.a(this.t);
@@ -107,22 +107,22 @@ public class a extends h {
     @Override // com.baidu.fsg.face.liveness.video.h
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f6094i) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f40068i) {
             i();
-            this.f6094i = false;
-            this.f6067a.c();
-            this.f6068d += this.f6067a.e();
+            this.f40068i = false;
+            this.f40039a.c();
+            this.f40040d += this.f40039a.e();
         }
     }
 
     @Override // com.baidu.fsg.face.liveness.video.h
     public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f6094i) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f40068i) {
             i();
-            this.f6094i = false;
-            this.f6067a.c();
-            this.f6068d += this.f6067a.e();
+            this.f40068i = false;
+            this.f40039a.c();
+            this.f40040d += this.f40039a.e();
         }
     }
 
@@ -135,7 +135,7 @@ public class a extends h {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f6070a;
+                public final /* synthetic */ a f40042a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -152,17 +152,17 @@ public class a extends h {
                             return;
                         }
                     }
-                    this.f6070a = this;
+                    this.f40042a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f6070a.e();
-                        this.f6070a.n = System.currentTimeMillis();
-                        VideoInfo.a(this.f6070a.o.a(), this.f6070a.o);
-                        this.f6070a.f6068d = 0;
+                        this.f40042a.e();
+                        this.f40042a.n = System.currentTimeMillis();
+                        VideoInfo.a(this.f40042a.o.a(), this.f40042a.o);
+                        this.f40042a.f40040d = 0;
                     }
                 }
             });
@@ -176,32 +176,32 @@ public class a extends h {
         }
         long currentTimeMillis = System.currentTimeMillis();
         int i2 = -1;
-        long j = 0;
-        long j2 = 1000;
+        long j2 = 0;
+        long j3 = 1000;
         while (true) {
             boolean z = false;
             try {
-                z = !this.f6069e.await(j2, TimeUnit.MILLISECONDS);
+                z = !this.f40041e.await(j3, TimeUnit.MILLISECONDS);
             } catch (InterruptedException unused) {
             }
-            j2 = 5000;
+            j3 = 5000;
             if (!z) {
                 if (this.p) {
                     return;
                 }
                 return;
-            } else if (!this.f6067a.isAlive()) {
-                if (this.p || this.f6067a.b()) {
+            } else if (!this.f40039a.isAlive()) {
+                if (this.p || this.f40039a.b()) {
                     return;
                 }
                 long currentTimeMillis2 = System.currentTimeMillis();
                 a(new RuntimeException("wait record stop" + (currentTimeMillis2 - currentTimeMillis) + "ms,timeout"));
                 return;
-            } else if (i2 != this.f6067a.f()) {
-                i2 = this.f6067a.f();
-                j = System.currentTimeMillis();
-            } else if (System.currentTimeMillis() - j > 10000) {
-                String str = (System.currentTimeMillis() - j) + "ms cannot write finish, record fail";
+            } else if (i2 != this.f40039a.f()) {
+                i2 = this.f40039a.f();
+                j2 = System.currentTimeMillis();
+            } else if (System.currentTimeMillis() - j2 > 10000) {
+                String str = (System.currentTimeMillis() - j2) + "ms cannot write finish, record fail";
                 LogUtil.e(str);
                 a(new RuntimeException(str));
                 return;
@@ -216,20 +216,20 @@ public class a extends h {
             this.p = false;
             h();
             if (a()) {
-                this.f6067a.start();
+                this.f40039a.start();
                 this.m = System.currentTimeMillis();
-                this.f6094i = true;
+                this.f40068i = true;
             }
         }
     }
 
     @Override // com.baidu.fsg.face.liveness.video.e
-    public void a(byte[] bArr, long j) {
+    public void a(byte[] bArr, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, j) == null) || !this.f6094i || bArr == null || this.k) {
+        if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, j2) == null) || !this.f40068i || bArr == null || this.k) {
             return;
         }
-        this.f6067a.a(bArr, j);
+        this.f40039a.a(bArr, j2);
     }
 
     @Override // com.baidu.fsg.face.liveness.video.d
@@ -248,7 +248,7 @@ public class a extends h {
                 LogUtil.e(th.toString());
                 th.printStackTrace();
             }
-            if (this.f6094i) {
+            if (this.f40068i) {
                 LogUtil.i("stopRecordAndCancel");
                 c();
             }

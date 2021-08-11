@@ -12,7 +12,6 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +36,7 @@ import io.flutter.view.FlutterNativeView;
 import io.flutter.view.FlutterRunArguments;
 import io.flutter.view.FlutterView;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class FlutterActivityDelegate implements FlutterActivityEvents, FlutterView.Provider, PluginRegistry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SPLASH_SCREEN_META_DATA_KEY = "io.flutter.app.android.SplashScreenUntilFirstFrame";
@@ -49,7 +48,7 @@ public final class FlutterActivityDelegate implements FlutterActivityEvents, Flu
     public View launchView;
     public final ViewFactory viewFactory;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ViewFactory {
         FlutterNativeView createFlutterNativeView();
 
@@ -253,7 +252,6 @@ public final class FlutterActivityDelegate implements FlutterActivityEvents, Flu
                 try {
                     return this.activity.getResources().getDrawable(typedValue.resourceId);
                 } catch (Resources.NotFoundException unused) {
-                    Log.e(TAG, "Referenced launch screen windowBackground resource does not exist");
                     return null;
                 }
             }

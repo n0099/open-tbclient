@@ -1,5 +1,7 @@
 package com.baidu.tieba.enterForum.recommend.model;
 
+import c.a.e.a.f;
+import c.a.e.e.p.j;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -15,29 +17,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.f;
-import d.a.d.e.p.j;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RecommendModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.q0.l0.k.a f14821e;
+    public c.a.p0.m0.k.a f50004e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.d.c.g.a f14822f;
+    public c.a.e.c.g.a f50005f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f14823g;
+    public boolean f50006g;
 
-    /* loaded from: classes4.dex */
-    public class a extends d.a.d.c.g.a {
+    /* loaded from: classes7.dex */
+    public class a extends c.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RecommendModel f14824a;
+        public final /* synthetic */ RecommendModel f50007a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(RecommendModel recommendModel, int i2, int i3) {
@@ -58,22 +58,22 @@ public class RecommendModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f14824a = recommendModel;
+            this.f50007a = recommendModel;
         }
 
-        @Override // d.a.d.c.g.a
+        @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f14824a.f14823g = false;
-                if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.f14824a.unique_id != responsedMessage.getOrginalMessage().getTag() || this.f14824a.f14821e == null) {
+                this.f50007a.f50006g = false;
+                if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.f50007a.unique_id != responsedMessage.getOrginalMessage().getTag() || this.f50007a.f50004e == null) {
                     return;
                 }
-                d.a.q0.l0.k.c.a recommendData = responsedMessage instanceof ResponseHttpRecommendMessage ? ((ResponseHttpRecommendMessage) responsedMessage).getRecommendData() : null;
+                c.a.p0.m0.k.c.a recommendData = responsedMessage instanceof ResponseHttpRecommendMessage ? ((ResponseHttpRecommendMessage) responsedMessage).getRecommendData() : null;
                 if (responsedMessage instanceof ResponseSocketRecommendMessage) {
                     recommendData = ((ResponseSocketRecommendMessage) responsedMessage).getRecommendData();
                 }
-                this.f14824a.f14821e.f(responsedMessage.getError(), recommendData);
+                this.f50007a.f50004e.netCallback(responsedMessage.getError(), recommendData);
             }
         }
     }
@@ -96,13 +96,13 @@ public class RecommendModel extends BdBaseModel {
                 return;
             }
         }
-        this.f14822f = new a(this, CmdConfigHttp.CMD_RECOMMEND_FORUM, 309630);
+        this.f50005f = new a(this, CmdConfigHttp.CMD_RECOMMEND_FORUM, 309630);
     }
 
-    public void A(d.a.q0.l0.k.a aVar) {
+    public void A(c.a.p0.m0.k.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f14821e = aVar;
+            this.f50004e = aVar;
         }
     }
 
@@ -130,8 +130,8 @@ public class RecommendModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f14822f);
-            this.f14823g = false;
+            MessageManager.getInstance().unRegisterListener(this.f50005f);
+            this.f50006g = false;
         }
     }
 
@@ -140,8 +140,8 @@ public class RecommendModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
             super.setUniqueId(bdUniqueId);
-            this.f14822f.setTag(bdUniqueId);
-            registerListener(this.f14822f);
+            this.f50005f.setTag(bdUniqueId);
+            registerListener(this.f50005f);
         }
     }
 
@@ -149,17 +149,17 @@ public class RecommendModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (!j.A()) {
-                d.a.q0.l0.k.a aVar = this.f14821e;
+                c.a.p0.m0.k.a aVar = this.f50004e;
                 if (aVar != null) {
-                    aVar.f(-1, null);
+                    aVar.netCallback(-1, null);
                 }
-            } else if (this.f14823g) {
+            } else if (this.f50006g) {
             } else {
                 cancelLoadData();
                 RequestRecommendMessage requestRecommendMessage = new RequestRecommendMessage();
                 requestRecommendMessage.setTag(this.unique_id);
                 if (MessageManager.getInstance().sendMessage(requestRecommendMessage)) {
-                    this.f14823g = true;
+                    this.f50006g = true;
                 }
             }
         }

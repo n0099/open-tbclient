@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public final class FeatureCodes {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ADVANCE_BEAUTY = 1600;
@@ -60,7 +60,7 @@ public final class FeatureCodes {
             arrayList.add(Integer.valueOf((int) ADVANCE_BEAUTY));
             arrayList.add(Integer.valueOf((int) BODY_SEG));
             arrayList.add(1800);
-            arrayList.add(Integer.valueOf((int) SKY_SEG));
+            arrayList.add(1900);
             arrayList.add(Integer.valueOf((int) FACE_MULTI));
             arrayList.add(Integer.valueOf((int) FACE_CHANGING));
             arrayList.add(Integer.valueOf((int) BEAUTY_MAKEUP));

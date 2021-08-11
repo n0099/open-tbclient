@@ -6,64 +6,64 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class CouponList implements NoProguard, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3899635839202556799L;
     public transient /* synthetic */ FieldHolder $fh;
+    public int count;
     public Coupon[] coupons;
-    public String expire_message;
-    public String label;
+    public String desc;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class Coupon implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int CRAD_TYPE_BFB = 1;
-        public static final int CRAD_TYPE_EXTERN = 2;
-        public static final int CRAD_TYPE_POS = 3;
-        public static final int CRAD_TYPE_YUANQUAN = 4;
-        public static final int TEMPLATE_TYPE_DEDUCTION = 1;
-        public static final int TEMPLATE_TYPE_DISCOUNT = 2;
-        public static final int TEMPLATE_TYPE_OTHER = 3;
+        public static final int TEMPLATE_BFB_NORMAL = 4;
+        public static final int TEMPLATE_BFB_SPECIAL = 44;
+        public static final int TEMPLATE_CASH_NORMAL = 5;
+        public static final int TEMPLATE_CASH_SPECIAL = 55;
+        public static final int TEMPLATE_COMMON = 100;
+        public static final int TEMPLATE_CREDIT_NORMAL = 1;
+        public static final int TEMPLATE_CREDIT_SPECIAL = 11;
+        public static final int TEMPLATE_DARK_COMMON = 8;
+        public static final int TEMPLATE_FINANCE_NORMAL = 2;
+        public static final int TEMPLATE_FINANCE_SPECIAL = 22;
+        public static final int TEMPLATE_GIFT_NORMAL = 6;
+        public static final int TEMPLATE_GIFT_SPECIAL = 66;
+        public static final int TEMPLATE_INSURANCE_NORMAL = 3;
+        public static final int TEMPLATE_INSURANCE_SPECIAL = 33;
+        public static final int TEMPLATE_LIGHT_COMMON = 7;
         public static final long serialVersionUID = -3899635839289305699L;
         public transient /* synthetic */ FieldHolder $fh;
         public AppSceneService app_scene_service;
-        public String background_color;
         public int card_type;
+        public String coupon_color;
+        public String coupon_color_bg;
+        public int coupon_list_show_formwork;
+        public String coupon_name;
         public String coupon_num;
         public int coupon_receive_timestamp;
+        public String coupon_title_desc;
+        public String coupon_title_head;
         public String date_message;
-        public String date_message_expire;
-        public String date_message_v2;
-        public String date_not_started;
-        public String discount_content;
-        public String discount_content_v2;
-        public String discount_content_v2_unit;
-        public boolean isLabel;
-        public String labelValue;
-        public int label_status;
-        public String logo_title;
-        public String logo_url;
+        public String groupDesc;
+        public String icon_url;
+        public String list_scene_service_label;
+        public String list_scene_service_label_URL;
         public String marketing_label;
-        public String scene_service;
-        public String scene_service_label;
-        public int source_type;
-        public int status;
-        public String status_desc;
+        public String marketing_label_bgpic;
         public String sub_title;
+        public String sub_title2;
         public String template_num;
-        public String template_title;
-        public int template_type;
         public String use_limit;
-        public String use_limit_v2;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         public static class AppSceneService implements NoProguard, Serializable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: android  reason: collision with root package name */
-            public int f27247android;
+            public int f63060android;
             public String url;
 
             public AppSceneService() {
@@ -91,10 +91,8 @@ public class CouponList implements NoProguard, Serializable {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.isLabel = false;
         }
     }
 

@@ -3,7 +3,6 @@ package com.bytedance.sdk.openadsdk.q;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Base64;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,12 +12,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f32531a;
+    public static String f68493a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Removed duplicated region for block: B:57:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -136,7 +135,7 @@ public class p {
                     if (TextUtils.isEmpty(z)) {
                         return str;
                     }
-                    Log.d("TestHelperUtils", "AnyDoorId=" + z);
+                    String str2 = "AnyDoorId=" + z;
                     return Uri.parse(str).buildUpon().appendQueryParameter(b(), z).appendQueryParameter("aid", "5001121").toString();
                 }
                 return str;
@@ -151,10 +150,10 @@ public class p {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (TextUtils.isEmpty(f32531a)) {
-                f32531a = new String(Base64.decode("ZGV2aWNlX2lk", 0));
+            if (TextUtils.isEmpty(f68493a)) {
+                f68493a = new String(Base64.decode("ZGV2aWNlX2lk", 0));
             }
-            return f32531a;
+            return f68493a;
         }
         return (String) invokeV.objValue;
     }

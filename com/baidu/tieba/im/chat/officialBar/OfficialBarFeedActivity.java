@@ -2,6 +2,8 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.os.Bundle;
 import android.util.LongSparseArray;
+import c.a.p0.j1.h.o.a;
+import c.a.p0.j1.l.c.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -15,10 +17,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.i1.h.o.a;
-import d.a.q0.i1.l.c.b;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivity> implements OfficialBarFeedMsglistModel.IFeedHeadLoadCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     public void onListDataLoad(List<b> list, List<a> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) {
-            this.mCurrentMsgListView.l(list, list2);
+            this.mCurrentMsgListView.j(list, list2);
         }
     }
 
@@ -123,10 +123,10 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     }
 
     @Override // com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.IFeedHeadLoadCallback
-    public void onReadCountLoad(LongSparseArray<d.a.q0.i1.i.a.b.b> longSparseArray) {
+    public void onReadCountLoad(LongSparseArray<c.a.p0.j1.i.a.b.b> longSparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, longSparseArray) == null) {
-            this.mCurrentMsgListView.m(longSparseArray);
+            this.mCurrentMsgListView.k(longSparseArray);
         }
     }
 

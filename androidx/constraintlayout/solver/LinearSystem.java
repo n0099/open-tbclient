@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.HashMap;
+import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes.dex */
 public class LinearSystem {
     public static /* synthetic */ Interceptable $ic = null;
@@ -279,9 +280,9 @@ public class LinearSystem {
             displaySolverVariables();
             String str = "";
             for (int i2 = 0; i2 < this.mNumRows; i2++) {
-                str = (str + this.mRows[i2]) + "\n";
+                str = (str + this.mRows[i2]) + StringUtils.LF;
             }
-            System.out.println(str + this.mGoal + "\n");
+            System.out.println(str + this.mGoal + StringUtils.LF);
         }
     }
 
@@ -833,7 +834,7 @@ public class LinearSystem {
                 str = (str + this.mRows[i2].toReadableString()) + "\n #  ";
             }
             if (this.mGoal != null) {
-                str = str + this.mGoal + "\n";
+                str = str + this.mGoal + StringUtils.LF;
             }
             System.out.println(str);
         }
@@ -890,10 +891,10 @@ public class LinearSystem {
             String str = "";
             for (int i2 = 0; i2 < this.mNumRows; i2++) {
                 if (this.mRows[i2].variable.mType == SolverVariable.Type.UNRESTRICTED) {
-                    str = (str + this.mRows[i2].toReadableString()) + "\n";
+                    str = (str + this.mRows[i2].toReadableString()) + StringUtils.LF;
                 }
             }
-            System.out.println(str + this.mGoal + "\n");
+            System.out.println(str + this.mGoal + StringUtils.LF);
         }
     }
 

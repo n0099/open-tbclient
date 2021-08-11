@@ -48,9 +48,10 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.cookie.ClientCookie;
 import org.w3c.dom.Node;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class MiscCodec implements ObjectSerializer, ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public static boolean FILE_RELATIVE_PATH_SUPPORT;
@@ -348,7 +349,7 @@ public class MiscCodec implements ObjectSerializer, ObjectDeserializer {
                 if (key instanceof String) {
                     String str = (String) key;
                     if (value instanceof String) {
-                        serializeWriter.writeFieldValueStringWithDoubleQuoteCheck('{', str, (String) value);
+                        serializeWriter.writeFieldValueStringWithDoubleQuoteCheck(ExtendedMessageFormat.START_FE, str, (String) value);
                     } else {
                         serializeWriter.write(123);
                         serializeWriter.writeFieldName(str);

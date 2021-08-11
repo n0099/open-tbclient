@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,15 +22,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public final class GlobalUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static LayoutInflater f4089a = null;
+    public static LayoutInflater f38014a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<Toast> f4090b = null;
+    public static WeakReference<Toast> f38015b = null;
     public static String showStr = "";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -70,8 +69,7 @@ public final class GlobalUtils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             try {
                 return (String) Class.forName("android.os.SystemProperties").getMethod("get", String.class, String.class).invoke(null, str, str2);
-            } catch (Exception e2) {
-                Log.e("getProperties", "Exception while getting system property: ", e2);
+            } catch (Exception unused) {
                 return str2;
             }
         }
@@ -114,10 +112,10 @@ public final class GlobalUtils {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f4091a;
+                public final /* synthetic */ Context f38016a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ View f4092b;
+                public final /* synthetic */ View f38017b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -134,15 +132,15 @@ public final class GlobalUtils {
                             return;
                         }
                     }
-                    this.f4091a = context;
-                    this.f4092b = view;
+                    this.f38016a = context;
+                    this.f38017b = view;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ((InputMethodManager) this.f4091a.getSystemService("input_method")).showSoftInput(this.f4092b, 0);
+                        ((InputMethodManager) this.f38016a.getSystemService("input_method")).showSoftInput(this.f38017b, 0);
                     }
                 }
             }, 100L);
@@ -173,18 +171,18 @@ public final class GlobalUtils {
         TextView textView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(65544, null, context, charSequence, i2, i3) == null) {
-            Context applicationContext = context.getApplicationContext();
+            Context applicationContext = DxmApplicationContextImpl.getApplicationContext(context);
             if (TextUtils.isEmpty(charSequence)) {
                 return;
             }
-            WeakReference<Toast> weakReference = f4090b;
+            WeakReference<Toast> weakReference = f38015b;
             if (weakReference != null && weakReference.get() != null) {
-                f4090b.get().cancel();
+                f38015b.get().cancel();
             }
-            if (f4089a == null) {
-                f4089a = LayoutInflater.from(applicationContext);
+            if (f38014a == null) {
+                f38014a = LayoutInflater.from(applicationContext);
             }
-            View inflate = f4089a.inflate(ResUtils.layout(applicationContext, "wallet_base_toast"), (ViewGroup) null);
+            View inflate = f38014a.inflate(ResUtils.layout(applicationContext, "wallet_base_toast"), (ViewGroup) null);
             if (inflate == null || (textView = (TextView) inflate.findViewById(ResUtils.id(applicationContext, "wallet_base_toast_message"))) == null) {
                 return;
             }
@@ -198,7 +196,7 @@ public final class GlobalUtils {
             toast.setDuration(i3);
             toast.setGravity(17, 0, 0);
             toast.setView(inflate);
-            f4090b = new WeakReference<>(toast);
+            f38015b = new WeakReference<>(toast);
             toast.show();
         }
     }

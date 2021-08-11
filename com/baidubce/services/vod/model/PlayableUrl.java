@@ -6,9 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class PlayableUrl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +72,7 @@ public class PlayableUrl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "PlayableUrl { \n   transcodingPresetName = " + this.transcodingPresetName + "\n   url = " + this.url + "\n  }\n";
+            return "PlayableUrl { \n   transcodingPresetName = " + this.transcodingPresetName + StringUtils.LF + "   url = " + this.url + StringUtils.LF + "  }\n";
         }
         return (String) invokeV.objValue;
     }

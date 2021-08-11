@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ac implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.b.a.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class ac implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.b.a.a> 
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        aVar.f35311a = jSONObject.optInt("closeDelaySeconds");
+        aVar.f72066a = jSONObject.optInt("closeDelaySeconds");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,7 +45,7 @@ public class ac implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.b.a.a> 
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "closeDelaySeconds", aVar.f35311a);
+            com.kwad.sdk.utils.q.a(jSONObject, "closeDelaySeconds", aVar.f72066a);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

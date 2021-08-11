@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import c.a.e.e.p.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -19,33 +20,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GameRankHorizontalLayout extends HorizontalScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f15768e;
+    public LinearLayout f50936e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f15769f;
+    public b f50937f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.q0.x0.a f15770e;
+        public final /* synthetic */ c.a.p0.y0.a f50938e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f15771f;
+        public final /* synthetic */ int f50939f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ GameRankHorizontalLayout f15772g;
+        public final /* synthetic */ GameRankHorizontalLayout f50940g;
 
-        public a(GameRankHorizontalLayout gameRankHorizontalLayout, d.a.q0.x0.a aVar, int i2) {
+        public a(GameRankHorizontalLayout gameRankHorizontalLayout, c.a.p0.y0.a aVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,27 +60,27 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f15772g = gameRankHorizontalLayout;
-            this.f15770e = aVar;
-            this.f15771f = i2;
+            this.f50940g = gameRankHorizontalLayout;
+            this.f50938e = aVar;
+            this.f50939f = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f15772g.f15769f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50940g.f50937f == null) {
                 return;
             }
-            this.f15772g.f15769f.a(this.f15770e, this.f15771f);
-            if (d.a.p0.s.d0.b.j().k("game_rank_list_show_times", 0) != 0) {
-                d.a.p0.s.d0.b.j().v("game_rank_list_show_times", 0);
+            this.f50940g.f50937f.a(this.f50938e, this.f50939f);
+            if (c.a.o0.s.d0.b.j().k("game_rank_list_show_times", 0) != 0) {
+                c.a.o0.s.d0.b.j().v("game_rank_list_show_times", 0);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface b {
-        void a(d.a.q0.x0.a aVar, int i2);
+        void a(c.a.p0.y0.a aVar, int i2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -110,12 +110,12 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
             setFillViewport(true);
             setHorizontalScrollBarEnabled(false);
             LinearLayout linearLayout = new LinearLayout(context);
-            this.f15768e = linearLayout;
+            this.f50936e = linearLayout;
             addView(linearLayout, -1, -1);
         }
     }
 
-    public final View c(d.a.q0.x0.a aVar, int i2) {
+    public final View c(c.a.p0.y0.a aVar, int i2) {
         InterceptResult invokeLI;
         RoundAngleRelativeLayout roundAngleRelativeLayout;
         Interceptable interceptable = $ic;
@@ -128,15 +128,15 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                 roundAngleRelativeLayout.setRadius(4.0f);
                 HeadImageView headImageView = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.head_img);
                 headImageView.setIsRound(true);
-                headImageView.M(aVar.b(), 10, false);
-                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.week_card_bg)).M(aVar.b(), 10, false);
+                headImageView.startLoad(aVar.b(), 10, false);
+                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.week_card_bg)).startLoad(aVar.b(), 10, false);
             } else {
                 roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.game_rank_normal_card, (ViewGroup) null);
                 roundAngleRelativeLayout.setRadius(4.0f);
                 HeadImageView headImageView2 = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.head_img);
                 headImageView2.setIsRound(true);
-                headImageView2.M(aVar.f(), 10, false);
-                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.normal_card_bg)).M(aVar.f(), 10, false);
+                headImageView2.startLoad(aVar.f(), 10, false);
+                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.normal_card_bg)).startLoad(aVar.f(), 10, false);
                 ((TextView) roundAngleRelativeLayout.findViewById(R.id.user_name)).setText(aVar.e());
                 ((TextView) roundAngleRelativeLayout.findViewById(R.id.rank_title)).setText(aVar.g());
                 ((TextView) roundAngleRelativeLayout.findViewById(R.id.user_rank)).setText(getContext().getString(R.string.game_rank_no, aVar.d()));
@@ -150,10 +150,10 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
         return (View) invokeLI.objValue;
     }
 
-    public void setData(d.a.q0.x0.b bVar) {
+    public void setData(c.a.p0.y0.b bVar) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (linearLayout = this.f15768e) == null || bVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (linearLayout = this.f50936e) == null || bVar == null) {
             return;
         }
         linearLayout.removeAllViews();
@@ -174,14 +174,14 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                 layoutParams.rightMargin = 0;
             }
             c2.setLayoutParams(layoutParams);
-            this.f15768e.addView(c2);
+            this.f50936e.addView(c2);
         }
     }
 
     public void setOnCardClickListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f15769f = bVar;
+            this.f50937f = bVar;
         }
     }
 

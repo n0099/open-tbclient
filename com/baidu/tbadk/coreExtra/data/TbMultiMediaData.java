@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TbMultiMediaData extends MultiMediaData implements Parcelable, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TbMultiMediaData> CREATOR;
@@ -21,10 +21,10 @@ public class TbMultiMediaData extends MultiMediaData implements Parcelable, Seri
     public int coverSource;
     public float lastCoverPercent;
     public String orignalCoverPath;
-    public int videoInfoType;
+    public int videoInfoSource;
     public float videoRatio;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<TbMultiMediaData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,8 +88,10 @@ public class TbMultiMediaData extends MultiMediaData implements Parcelable, Seri
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.videoInfoSource = 2;
     }
 
     @Override // com.baidu.ugc.editvideo.data.MultiMediaData, android.os.Parcelable
@@ -112,7 +114,7 @@ public class TbMultiMediaData extends MultiMediaData implements Parcelable, Seri
             parcel.writeString(this.orignalCoverPath);
             parcel.writeInt(this.coverSource);
             parcel.writeFloat(this.lastCoverPercent);
-            parcel.writeInt(this.videoInfoType);
+            parcel.writeInt(this.videoInfoSource);
         }
     }
 
@@ -134,11 +136,12 @@ public class TbMultiMediaData extends MultiMediaData implements Parcelable, Seri
                 return;
             }
         }
+        this.videoInfoSource = 2;
         this.videoRatio = parcel.readFloat();
         this.coverPath = parcel.readString();
         this.orignalCoverPath = parcel.readString();
         this.coverSource = parcel.readInt();
         this.lastCoverPercent = parcel.readFloat();
-        this.videoInfoType = parcel.readInt();
+        this.videoInfoSource = parcel.readInt();
     }
 }

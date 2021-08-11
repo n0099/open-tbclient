@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.datepicker.CalendarConstraints;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class DateValidatorPointForward implements CalendarConstraints.DateValidator {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<DateValidatorPointForward> CREATOR;
@@ -75,10 +75,10 @@ public class DateValidatorPointForward implements CalendarConstraints.DateValida
     }
 
     @NonNull
-    public static DateValidatorPointForward from(long j) {
+    public static DateValidatorPointForward from(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) ? new DateValidatorPointForward(j) : (DateValidatorPointForward) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) ? new DateValidatorPointForward(j2) : (DateValidatorPointForward) invokeJ.objValue;
     }
 
     @NonNull
@@ -117,10 +117,10 @@ public class DateValidatorPointForward implements CalendarConstraints.DateValida
     }
 
     @Override // com.google.android.material.datepicker.CalendarConstraints.DateValidator
-    public boolean isValid(long j) {
+    public boolean isValid(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? j >= this.point : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? j2 >= this.point : invokeJ.booleanValue;
     }
 
     @Override // android.os.Parcelable
@@ -131,12 +131,12 @@ public class DateValidatorPointForward implements CalendarConstraints.DateValida
         }
     }
 
-    public DateValidatorPointForward(long j) {
+    public DateValidatorPointForward(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -146,6 +146,6 @@ public class DateValidatorPointForward implements CalendarConstraints.DateValida
                 return;
             }
         }
-        this.point = j;
+        this.point = j2;
     }
 }

@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class f implements OnNmeaMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f6751a;
+    public final /* synthetic */ e f40986a;
 
     public f(e eVar) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class f implements OnNmeaMessageListener {
                 return;
             }
         }
-        this.f6751a = eVar;
+        this.f40986a = eVar;
     }
 
     @Override // android.location.OnNmeaMessageListener
-    public void onNmeaMessage(String str, long j) {
+    public void onNmeaMessage(String str, long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) && this.f6751a.b(str)) {
-            this.f6751a.a(str);
+        if ((interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) && this.f40986a.b(str)) {
+            this.f40986a.a(str);
         }
     }
 }

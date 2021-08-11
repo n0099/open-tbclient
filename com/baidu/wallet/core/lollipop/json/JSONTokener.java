@@ -10,7 +10,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.client.result.ResultParser;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.CharUtils;
+/* loaded from: classes8.dex */
 public class JSONTokener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -177,7 +178,7 @@ public class JSONTokener {
                             }
                             return '\t';
                         }
-                        return '\r';
+                        return CharUtils.CR;
                     }
                     return '\n';
                 }

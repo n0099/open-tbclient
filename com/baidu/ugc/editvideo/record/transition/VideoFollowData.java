@@ -2,6 +2,7 @@ package com.baidu.ugc.editvideo.record.transition;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.v0.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,9 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.w0.j.b;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class VideoFollowData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUDIO_TYPE_FOLLOW = 0;

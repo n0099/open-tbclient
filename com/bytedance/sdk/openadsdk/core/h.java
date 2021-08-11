@@ -34,7 +34,7 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public static volatile h v;
@@ -43,35 +43,37 @@ public class h {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile String f30320a;
+    public volatile String f66234a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30321b;
+    public String f66235b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f30322c;
+    public boolean f66236c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30323d;
+    public String f66237d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30324e;
+    public String f66238e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30325f;
+    public int f66239f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f30326g;
+    public boolean f66240g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f30327h;
+    public boolean f66241h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TTGlobalAppDownloadListener f30328i;
-    public final Set<Integer> j;
+    public TTGlobalAppDownloadListener f66242i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public final Set<Integer> f66243j;
     public boolean k;
     public Bitmap l;
     public com.bytedance.sdk.openadsdk.q.a m;
@@ -132,10 +134,10 @@ public class h {
                 return;
             }
         }
-        this.f30325f = 0;
-        this.f30326g = true;
-        this.f30327h = false;
-        this.j = Collections.synchronizedSet(new HashSet());
+        this.f66239f = 0;
+        this.f66240g = true;
+        this.f66241h = false;
+        this.f66243j = Collections.synchronizedSet(new HashSet());
         this.k = false;
         this.l = null;
         this.m = new com.bytedance.sdk.openadsdk.q.a();
@@ -145,7 +147,7 @@ public class h {
         if (a2 != null) {
             com.bytedance.sdk.openadsdk.n.g.a.a(a2);
         }
-        this.j.add(4);
+        this.f66243j.add(4);
         if (a2 instanceof Application) {
             ((Application) a2).registerActivityLifecycleCallbacks(this.m);
         } else if (a2 != null && a2.getApplicationContext() != null) {
@@ -229,8 +231,8 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            if (l.f30442b != null) {
-                return l.f30442b;
+            if (l.f66360b != null) {
+                return l.f66360b;
             }
             TTCustomController tTCustomController = this.q;
             return tTCustomController == null ? y : tTCustomController;
@@ -255,13 +257,13 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            if (!TextUtils.isEmpty(this.f30320a)) {
-                return this.f30320a;
+            if (!TextUtils.isEmpty(this.f66234a)) {
+                return this.f66234a;
             }
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 return com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "app_id", (String) null);
             }
-            return this.f30320a;
+            return this.f66234a;
         }
         return (String) invokeV.objValue;
     }
@@ -288,7 +290,7 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 return com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "name", (String) null);
             }
-            return this.f30321b;
+            return this.f66235b;
         }
         return (String) invokeV.objValue;
     }
@@ -300,7 +302,7 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 return com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "is_paid", false);
             }
-            return this.f30322c;
+            return this.f66236c;
         }
         return invokeV.booleanValue;
     }
@@ -313,7 +315,7 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 return com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "keywords", (String) null);
             }
-            return this.f30323d;
+            return this.f66237d;
         }
         return (String) invokeV.objValue;
     }
@@ -326,7 +328,7 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 return com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "extra_data", (String) null);
             }
-            return this.f30324e;
+            return this.f66238e;
         }
         return (String) invokeV.objValue;
     }
@@ -354,7 +356,7 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 return com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "title_bar_theme", 0);
             }
-            return this.f30325f;
+            return this.f66239f;
         }
         return invokeV.intValue;
     }
@@ -366,7 +368,7 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 return com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "allow_show_notify", true);
             }
-            return this.f30326g;
+            return this.f66240g;
         }
         return invokeV.booleanValue;
     }
@@ -447,7 +449,7 @@ public class h {
     public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? "5001121".equals(this.f30320a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? "5001121".equals(this.f66234a) : invokeV.booleanValue;
     }
 
     public boolean y() {
@@ -489,7 +491,7 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "name", str);
             }
-            this.f30321b = str;
+            this.f66235b = str;
         }
     }
 
@@ -500,7 +502,7 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "keywords", str);
             }
-            this.f30323d = str;
+            this.f66237d = str;
         }
     }
 
@@ -573,7 +575,7 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "is_paid", Boolean.valueOf(z));
             }
-            this.f30322c = z;
+            this.f66236c = z;
         }
     }
 
@@ -583,7 +585,7 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "allow_show_notify", Boolean.valueOf(z));
             }
-            this.f30326g = z;
+            this.f66240g = z;
         }
     }
 
@@ -614,11 +616,11 @@ public class h {
                 }
             }
             if ((jSONArray2.length() == 0 && hashMap.isEmpty()) || jSONArray2.length() != 0) {
-                this.f30324e = jSONArray2.toString();
+                this.f66238e = jSONArray2.toString();
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                     com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "extra_data", jSONArray2.toString());
                 }
-                this.f30324e = jSONArray2.toString();
+                this.f66238e = jSONArray2.toString();
             }
             if (hashMap.isEmpty()) {
                 return;
@@ -645,7 +647,7 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "app_id", str);
             }
-            this.f30320a = str;
+            this.f66234a = str;
         }
     }
 
@@ -669,7 +671,7 @@ public class h {
                 }
                 return false;
             }
-            return this.j.contains(Integer.valueOf(i2));
+            return this.f66243j.contains(Integer.valueOf(i2));
         }
         return invokeI.booleanValue;
     }
@@ -691,14 +693,14 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "title_bar_theme", Integer.valueOf(i2));
             }
-            this.f30325f = i2;
+            this.f66239f = i2;
         }
     }
 
     public void a(TTGlobalAppDownloadListener tTGlobalAppDownloadListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, tTGlobalAppDownloadListener) == null) {
-            this.f30328i = tTGlobalAppDownloadListener;
+            this.f66242i = tTGlobalAppDownloadListener;
         }
     }
 
@@ -747,14 +749,14 @@ public class h {
             return;
         }
         try {
-            this.j.clear();
+            this.f66243j.clear();
             for (int i2 : iArr) {
-                this.j.add(Integer.valueOf(i2));
+                this.f66243j.add(Integer.valueOf(i2));
             }
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                if (!this.j.isEmpty()) {
+                if (!this.f66243j.isEmpty()) {
                     StringBuilder sb = new StringBuilder();
-                    for (Integer num : this.j) {
+                    for (Integer num : this.f66243j) {
                         sb.append(num);
                         sb.append(",");
                     }
@@ -784,7 +786,7 @@ public class h {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "allow_lp_when_screen_lock", Boolean.valueOf(z));
             }
-            this.f30327h = z;
+            this.f66241h = z;
         }
     }
 
@@ -867,25 +869,25 @@ public class h {
         }
     }
 
-    public static String a(String str, long j) {
+    public static String a(String str, long j2) {
         InterceptResult invokeLJ;
-        JSONObject j2;
+        JSONObject j3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j2)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
             try {
-                j2 = j(str);
+                j3 = j(str);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            if (j2 == null) {
+            if (j3 == null) {
                 com.bytedance.sdk.component.utils.k.b("GlobalInfo", "without cache key=", str);
                 return null;
             }
-            if (System.currentTimeMillis() - j2.getLong("time") <= j) {
-                String string = j2.getString("value");
+            if (System.currentTimeMillis() - j3.getLong("time") <= j2) {
+                String string = j3.getString("value");
                 com.bytedance.sdk.component.utils.k.b("GlobalInfo", "use cache key=", str, " value = ", string);
                 return string;
             }

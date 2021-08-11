@@ -3,7 +3,6 @@ package com.bytedance.sdk.openadsdk.preload.geckox.model;
 import android.os.Build;
 import androidx.annotation.Keep;
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import com.bytedance.sdk.openadsdk.preload.a.a.c;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class Common {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +28,7 @@ public class Common {
     public String deviceModel;
     @c(a = "device_platform")
     public String devicePlatform;
-    @c(a = IAdRequestParam.OS)
+    @c(a = "os")
     public int os;
     @c(a = HttpConstants.OS_VERSION)
     public String osVersion;
@@ -40,12 +39,12 @@ public class Common {
     @c(a = "uid")
     public String uid;
 
-    public Common(long j, String str, String str2, String str3, String str4) {
+    public Common(long j2, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), str, str2, str3, str4};
+            Object[] objArr = {Long.valueOf(j2), str, str2, str3, str4};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -60,19 +59,19 @@ public class Common {
         this.deviceModel = Build.MODEL;
         this.devicePlatform = "android";
         this.sdkVersion = "2.0.3-rc.9-pangle";
-        this.aid = j;
+        this.aid = j2;
         this.appVersion = str;
         this.deviceId = str2;
         this.appName = str3;
         this.ac = str4;
     }
 
-    public Common(long j, String str, String str2, String str3, String str4, String str5, String str6) {
+    public Common(long j2, String str, String str2, String str3, String str4, String str5, String str6) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), str, str2, str3, str4, str5, str6};
+            Object[] objArr = {Long.valueOf(j2), str, str2, str3, str4, str5, str6};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -87,7 +86,7 @@ public class Common {
         this.deviceModel = Build.MODEL;
         this.devicePlatform = "android";
         this.sdkVersion = "2.0.3-rc.9-pangle";
-        this.aid = j;
+        this.aid = j2;
         this.appVersion = str;
         this.deviceId = str2;
         this.appName = str3;

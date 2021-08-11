@@ -15,18 +15,18 @@ import com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, a> f32501a;
+    public static final Map<String, a> f68463a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static IListenerManager f32502b;
+    public static IListenerManager f68464b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a();
 
@@ -46,7 +46,7 @@ public class d {
                 return;
             }
         }
-        f32501a = Collections.synchronizedMap(new HashMap());
+        f68463a = Collections.synchronizedMap(new HashMap());
     }
 
     public static a b(String str) {
@@ -56,7 +56,7 @@ public class d {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return f32501a.remove(str);
+            return f68463a.remove(str);
         }
         return (a) invokeL.objValue;
     }
@@ -74,10 +74,10 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (f32502b == null) {
-                f32502b = IListenerManager.Stub.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(com.bytedance.sdk.openadsdk.core.o.a()).a(4));
+            if (f68464b == null) {
+                f68464b = IListenerManager.Stub.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(com.bytedance.sdk.openadsdk.core.o.a()).a(4));
             }
-            return f32502b;
+            return f68464b;
         }
         return (IListenerManager) invokeV.objValue;
     }
@@ -93,7 +93,7 @@ public class d {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f32503a;
+                public final /* synthetic */ String f68465a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -114,7 +114,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f32503a = str;
+                    this.f68465a = str;
                 }
 
                 @Override // java.lang.Runnable
@@ -122,8 +122,8 @@ public class d {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            com.bytedance.sdk.component.utils.k.b("MultiProcess", "handleYes-1，key=" + this.f32503a);
-                            d.b().broadcastPermissionListener(this.f32503a, null);
+                            com.bytedance.sdk.component.utils.k.b("MultiProcess", "handleYes-1，key=" + this.f68465a);
+                            d.b().broadcastPermissionListener(this.f68465a, null);
                         } catch (Throwable unused) {
                         }
                     }
@@ -149,10 +149,10 @@ public class d {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f32504a;
+                public final /* synthetic */ String f68466a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f32505b;
+                public final /* synthetic */ String f68467b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -173,8 +173,8 @@ public class d {
                             return;
                         }
                     }
-                    this.f32504a = str;
-                    this.f32505b = str2;
+                    this.f68466a = str;
+                    this.f68467b = str2;
                 }
 
                 @Override // java.lang.Runnable
@@ -182,8 +182,8 @@ public class d {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            com.bytedance.sdk.component.utils.k.b("MultiProcess", "handleNo-1，key=" + this.f32504a + "，permission=" + this.f32505b);
-                            d.b().broadcastPermissionListener(this.f32504a, this.f32505b);
+                            com.bytedance.sdk.component.utils.k.b("MultiProcess", "handleNo-1，key=" + this.f68466a + "，permission=" + this.f68467b);
+                            d.b().broadcastPermissionListener(this.f68466a, this.f68467b);
                         } catch (Throwable unused) {
                         }
                     }
@@ -209,10 +209,10 @@ public class d {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f32506a;
+                public final /* synthetic */ String f68468a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f32507b;
+                public final /* synthetic */ a f68469b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -232,8 +232,8 @@ public class d {
                             return;
                         }
                     }
-                    this.f32506a = str;
-                    this.f32507b = aVar;
+                    this.f68468a = str;
+                    this.f68469b = aVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -242,7 +242,7 @@ public class d {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             com.bytedance.sdk.component.utils.k.f("MultiProcess", "getListenerManager().registerPermissionListener...");
-                            d.b().registerPermissionListener(this.f32506a, new com.bytedance.sdk.openadsdk.multipro.aidl.b.b(this.f32507b));
+                            d.b().registerPermissionListener(this.f68468a, new com.bytedance.sdk.openadsdk.multipro.aidl.b.b(this.f68469b));
                         } catch (Throwable th) {
                             th.printStackTrace();
                             com.bytedance.sdk.component.utils.k.f("MultiProcess", th.toString());
@@ -251,7 +251,7 @@ public class d {
                 }
             }, 5);
         } else {
-            f32501a.put(str, aVar);
+            f68463a.put(str, aVar);
         }
     }
 }

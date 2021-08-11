@@ -1,10 +1,10 @@
 package com.baidu.mobads.container.video;
 
 import android.media.MediaPlayer;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface ICustomVideoView {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface VideoPlayCallbackImpl {
         void onClickAd();
 

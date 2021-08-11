@@ -20,9 +20,8 @@ import com.google.zxing.common.detector.WhiteRectangleDetector;
 import com.google.zxing.common.reedsolomon.GenericGF;
 import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
-import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import kotlin.text.Typography;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class Detector {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] EXPECTED_CORNER_BITS;
@@ -34,7 +33,7 @@ public final class Detector {
     public int nbLayers;
     public int shift;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Point {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,34 +152,34 @@ public final class Detector {
     }
 
     private void extractParameters(ResultPoint[] resultPointArr) throws NotFoundException {
-        long j;
         long j2;
+        long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, resultPointArr) == null) {
             if (isValid(resultPointArr[0]) && isValid(resultPointArr[1]) && isValid(resultPointArr[2]) && isValid(resultPointArr[3])) {
                 int i2 = this.nbCenterLayers * 2;
                 int[] iArr = {sampleLine(resultPointArr[0], resultPointArr[1], i2), sampleLine(resultPointArr[1], resultPointArr[2], i2), sampleLine(resultPointArr[2], resultPointArr[3], i2), sampleLine(resultPointArr[3], resultPointArr[0], i2)};
                 this.shift = getRotation(iArr, i2);
-                long j3 = 0;
+                long j4 = 0;
                 for (int i3 = 0; i3 < 4; i3++) {
                     int i4 = iArr[(this.shift + i3) % 4];
                     if (this.compact) {
-                        j = j3 << 7;
-                        j2 = (i4 >> 1) & 127;
+                        j2 = j4 << 7;
+                        j3 = (i4 >> 1) & 127;
                     } else {
-                        j = j3 << 10;
-                        j2 = ((i4 >> 2) & 992) + ((i4 >> 1) & 31);
+                        j2 = j4 << 10;
+                        j3 = ((i4 >> 2) & 992) + ((i4 >> 1) & 31);
                     }
-                    j3 = j + j2;
+                    j4 = j2 + j3;
                 }
-                int correctedParameterData = getCorrectedParameterData(j3, this.compact);
+                int correctedParameterData = getCorrectedParameterData(j4, this.compact);
                 if (this.compact) {
                     this.nbLayers = (correctedParameterData >> 6) + 1;
                     this.nbDataBlocks = (correctedParameterData & 63) + 1;
                     return;
                 }
                 this.nbLayers = (correctedParameterData >> 11) + 1;
-                this.nbDataBlocks = (correctedParameterData & RevenueServerConst.GetUserCouponStoreResponse) + 1;
+                this.nbDataBlocks = (correctedParameterData & 2047) + 1;
                 return;
             }
             throw NotFoundException.getNotFoundInstance();
@@ -255,12 +254,12 @@ public final class Detector {
         return invokeLL.intValue;
     }
 
-    public static int getCorrectedParameterData(long j, boolean z) throws NotFoundException {
+    public static int getCorrectedParameterData(long j2, boolean z) throws NotFoundException {
         InterceptResult invokeCommon;
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
             if (z) {
                 i2 = 7;
                 i3 = 2;
@@ -271,8 +270,8 @@ public final class Detector {
             int i4 = i2 - i3;
             int[] iArr = new int[i2];
             for (int i5 = i2 - 1; i5 >= 0; i5--) {
-                iArr[i5] = ((int) j) & 15;
-                j >>= 4;
+                iArr[i5] = ((int) j2) & 15;
+                j2 >>= 4;
             }
             try {
                 new ReedSolomonDecoder(GenericGF.AZTEC_PARAM).decode(iArr, i4);

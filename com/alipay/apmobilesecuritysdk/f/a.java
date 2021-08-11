@@ -3,7 +3,7 @@ package com.alipay.apmobilesecuritysdk.f;
 import android.content.Context;
 import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.security.mobile.module.b.e;
+import com.alipay.security.mobile.module.c.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,7 @@ public class a {
                 if (com.alipay.security.mobile.module.a.a.a(str) || com.alipay.security.mobile.module.a.a.a(str2)) {
                     return null;
                 }
-                String a2 = com.alipay.security.mobile.module.b.b.a(str);
+                String a2 = com.alipay.security.mobile.module.c.b.a(str);
                 if (com.alipay.security.mobile.module.a.a.a(a2)) {
                     return null;
                 }
@@ -98,7 +98,7 @@ public class a {
                     return;
                 }
                 try {
-                    String a2 = com.alipay.security.mobile.module.b.b.a(str);
+                    String a2 = com.alipay.security.mobile.module.c.b.a(str);
                     JSONObject jSONObject = new JSONObject();
                     if (com.alipay.security.mobile.module.a.a.b(a2)) {
                         try {
@@ -113,9 +113,9 @@ public class a {
                         System.clearProperty(str);
                     } catch (Throwable unused2) {
                     }
-                    if (com.alipay.security.mobile.module.b.c.a()) {
+                    if (com.alipay.security.mobile.module.c.c.a()) {
                         String str4 = ".SystemConfig" + File.separator + str;
-                        if (com.alipay.security.mobile.module.b.c.a()) {
+                        if (com.alipay.security.mobile.module.c.c.a()) {
                             File file = new File(Environment.getExternalStorageDirectory(), str4);
                             if (file.exists() && file.isFile()) {
                                 file.delete();

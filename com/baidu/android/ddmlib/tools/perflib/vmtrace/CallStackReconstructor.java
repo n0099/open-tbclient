@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class CallStackReconstructor {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -40,12 +40,12 @@ public class CallStackReconstructor {
         }
     }
 
-    public CallStackReconstructor(long j) {
+    public CallStackReconstructor(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -57,13 +57,13 @@ public class CallStackReconstructor {
         }
         this.mTopLevelCalls = new ArrayList();
         this.mCallStack = new Stack<>();
-        this.mTopLevelCallId = j;
+        this.mTopLevelCallId = j2;
     }
 
-    private void enterMethod(long j, int i2, int i3) {
+    private void enterMethod(long j2, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            Call.Builder builder = new Call.Builder(j);
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            Call.Builder builder = new Call.Builder(j2);
             builder.setMethodEntryTime(i2, i3);
             if (this.mCallStack.isEmpty()) {
                 this.mTopLevelCalls.add(builder);
@@ -74,18 +74,18 @@ public class CallStackReconstructor {
         }
     }
 
-    private void exitMethod(long j, int i2, int i3) {
+    private void exitMethod(long j2, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             if (!this.mCallStack.isEmpty()) {
                 Call.Builder pop = this.mCallStack.pop();
-                if (pop.getMethodId() == j) {
+                if (pop.getMethodId() == j2) {
                     pop.setMethodExitTime(i2, i3);
                     return;
                 }
-                throw new RuntimeException(String.format("Error during call stack reconstruction. Attempt to exit from method 0x%1$x while in method 0x%2$x", Long.valueOf(pop.getMethodId()), Long.valueOf(j)));
+                throw new RuntimeException(String.format("Error during call stack reconstruction. Attempt to exit from method 0x%1$x while in method 0x%2$x", Long.valueOf(pop.getMethodId()), Long.valueOf(j2)));
             }
-            Call.Builder builder = new Call.Builder(j);
+            Call.Builder builder = new Call.Builder(j2);
             for (Call.Builder builder2 : this.mTopLevelCalls) {
                 builder.addCallee(builder2);
             }
@@ -115,13 +115,13 @@ public class CallStackReconstructor {
         }
     }
 
-    public void addTraceAction(long j, TraceAction traceAction, int i2, int i3) {
+    public void addTraceAction(long j2, TraceAction traceAction, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), traceAction, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), traceAction, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             if (traceAction == TraceAction.METHOD_ENTER) {
-                enterMethod(j, i2, i3);
+                enterMethod(j2, i2, i3);
             } else {
-                exitMethod(j, i2, i3);
+                exitMethod(j2, i2, i3);
             }
         }
     }
@@ -136,11 +136,11 @@ public class CallStackReconstructor {
         return (Call) invokeV.objValue;
     }
 
-    private void exitMethod(long j, int i2, int i3, @Nullable List<Call.Builder> list) {
+    private void exitMethod(long j2, int i2, int i3, @Nullable List<Call.Builder> list) {
         int i4;
         int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), list}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), list}) == null) {
             if (list == null || list.isEmpty()) {
                 int i6 = i3 + 1;
                 i4 = i2 + 1;
@@ -150,7 +150,7 @@ public class CallStackReconstructor {
                 i4 = builder.getMethodExitThreadTime() + 1;
                 i5 = builder.getMethodExitGlobalTime() + 1;
             }
-            exitMethod(j, i4, i5);
+            exitMethod(j2, i4, i5);
         }
     }
 }

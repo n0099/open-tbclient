@@ -2,7 +2,7 @@ package com.baidu.wallet.paysdk.fingerprint;
 
 import com.baidu.wallet.paysdk.fingerprint.IFingerprintPay;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface FingerprintCallback extends Serializable {
     public static final int FP_AUTHENCIATE_CANCLE = 1;
     public static final int FP_AUTHENCIATE_FAILED = 2;

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ShaderConfig implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ShaderConfig> CREATOR;
@@ -28,7 +28,7 @@ public class ShaderConfig implements Parcelable, Cloneable {
     public List<ShaderParams> vParams;
     public String vertexShader;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Parcelable.Creator<ShaderConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,10 +122,46 @@ public class ShaderConfig implements Parcelable, Cloneable {
         return (ShaderConfig) invokeV.objValue;
     }
 
+    public static ShaderConfig getGaussianBlurHShaderConfig(float f2) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(AdIconUtil.AD_TEXT_ID, null, f2)) == null) {
+            ShaderConfig shaderConfig = new ShaderConfig();
+            shaderConfig.vertexShader = "defaultGaussianBlur";
+            ArrayList arrayList = new ArrayList();
+            shaderConfig.vParams = arrayList;
+            arrayList.add(new ShaderParams(ShaderParams.IMAGE_WIDTH));
+            shaderConfig.vParams.add(new ShaderParams(ShaderParams.IMAGE_HEIGHT));
+            shaderConfig.vParams.add(new ShaderParams("wRatio", ShaderParams.VALUE_TYPE_FLOAT, new float[]{f2}));
+            shaderConfig.vParams.add(new ShaderParams("hRatio", ShaderParams.VALUE_TYPE_FLOAT, new float[]{0.0f}));
+            shaderConfig.fragmentShader = "defaultGaussianBlur";
+            return shaderConfig;
+        }
+        return (ShaderConfig) invokeF.objValue;
+    }
+
+    public static ShaderConfig getGaussianBlurVShaderConfig(float f2) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(AdIconUtil.BAIDU_LOGO_ID, null, f2)) == null) {
+            ShaderConfig shaderConfig = new ShaderConfig();
+            shaderConfig.vertexShader = "defaultGaussianBlur";
+            ArrayList arrayList = new ArrayList();
+            shaderConfig.vParams = arrayList;
+            arrayList.add(new ShaderParams(ShaderParams.IMAGE_WIDTH));
+            shaderConfig.vParams.add(new ShaderParams(ShaderParams.IMAGE_HEIGHT));
+            shaderConfig.vParams.add(new ShaderParams("wRatio", ShaderParams.VALUE_TYPE_FLOAT, new float[]{0.0f}));
+            shaderConfig.vParams.add(new ShaderParams("hRatio", ShaderParams.VALUE_TYPE_FLOAT, new float[]{f2}));
+            shaderConfig.fragmentShader = "defaultGaussianBlur";
+            return shaderConfig;
+        }
+        return (ShaderConfig) invokeF.objValue;
+    }
+
     public static ShaderConfig getLutShaderConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             ShaderConfig shaderConfig = new ShaderConfig();
             shaderConfig.resourcePath = "";
             shaderConfig.fragmentShader = "defaultLut";
@@ -137,7 +173,7 @@ public class ShaderConfig implements Parcelable, Cloneable {
     public static ShaderConfig getStickerShaderConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             ShaderConfig shaderConfig = new ShaderConfig();
             shaderConfig.resourcePath = "";
             shaderConfig.fragmentShader = "defaultSticker";

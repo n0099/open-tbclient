@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class BeanActivity extends BaseActivity implements IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5173a = "BaseActivity";
+    public static final String f39112a = "BaseActivity";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f5174b;
+    public Handler f39113b;
     public BeanActivity mAct;
 
     public BeanActivity() {
@@ -38,17 +38,17 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                 return;
             }
         }
-        this.f5174b = null;
+        this.f39113b = null;
     }
 
     private Handler a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (this.f5174b == null) {
-                this.f5174b = new Handler(getMainLooper());
+            if (this.f39113b == null) {
+                this.f39113b = new Handler(getMainLooper());
             }
-            return this.f5174b;
+            return this.f39113b;
         }
         return (Handler) invokeV.objValue;
     }
@@ -56,11 +56,7 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
     public void handleFailure(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
-            if (i3 == -2) {
-                RimGlobalUtils.toastWithTextId(getActivity(), ResUtils.string(this.mAct, "rim_base_get_data_fail"));
-            } else if (i3 == -3) {
-                RimGlobalUtils.toastWithTextId(getActivity(), ResUtils.string(this.mAct, "rim_base_get_data_fail"));
-            } else if (i3 == -4) {
+            if (i3 == -2 || i3 == -3 || i3 == -4) {
                 RimGlobalUtils.toastWithTextId(getActivity(), ResUtils.string(this.mAct, "rim_base_get_data_fail"));
             } else if (i3 == -8) {
                 RimGlobalUtils.toastWithTextId(getActivity(), ResUtils.string(this.mAct, "rim_base__no_network"));
@@ -93,7 +89,54 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048580, this, i2, i3, str) == null) {
             LogUtil.i("BeanActivity", "onBeanExecFailure. bean id = " + i2 + ", err code = " + i3 + ", err msg = " + str);
-            a().post(new b(this, i2, i3, str));
+            a().post(new Runnable(this, i2, i3, str) { // from class: com.baidu.fsg.base.activity.BeanActivity.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ int f39119a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ int f39120b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ String f39121c;
+
+                /* renamed from: d  reason: collision with root package name */
+                public final /* synthetic */ BeanActivity f39122d;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(i2), Integer.valueOf(i3), str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i4 = newInitContext.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f39122d = this;
+                    this.f39119a = i2;
+                    this.f39120b = i3;
+                    this.f39121c = str;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        BeanActivity beanActivity = this.f39122d;
+                        if (beanActivity.mAct != null) {
+                            beanActivity.handleFailure(this.f39119a, this.f39120b, this.f39121c);
+                        }
+                    }
+                }
+            });
         }
     }
 
@@ -101,7 +144,59 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
     public void onBeanExecSuccess(int i2, Object obj, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), obj, str, str2}) == null) {
-            a().post(new a(this, i2, obj, str, str2));
+            a().post(new Runnable(this, i2, obj, str, str2) { // from class: com.baidu.fsg.base.activity.BeanActivity.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ int f39114a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ Object f39115b;
+
+                /* renamed from: c  reason: collision with root package name */
+                public final /* synthetic */ String f39116c;
+
+                /* renamed from: d  reason: collision with root package name */
+                public final /* synthetic */ String f39117d;
+
+                /* renamed from: e  reason: collision with root package name */
+                public final /* synthetic */ BeanActivity f39118e;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(i2), obj, str, str2};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f39118e = this;
+                    this.f39114a = i2;
+                    this.f39115b = obj;
+                    this.f39116c = str;
+                    this.f39117d = str2;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        BeanActivity beanActivity = this.f39118e;
+                        if (beanActivity.mAct != null) {
+                            beanActivity.handleResponse(this.f39114a, this.f39115b, this.f39116c);
+                            this.f39118e.handleResponse(this.f39114a, this.f39115b, this.f39116c, this.f39117d);
+                        }
+                    }
+                }
+            });
         }
     }
 

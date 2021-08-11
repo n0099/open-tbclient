@@ -17,27 +17,27 @@ import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.paysdk.PayUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class EbpayHttpRequestInterceptor implements RestHttpRequestInterceptor {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24844a = "EbpayClientHttpRequestInterceptor";
+    public static final String f60557a = "EbpayClientHttpRequestInterceptor";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f24845b = "wims";
+    public static final String f60558b = "wims";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f24846c = "wloc";
+    public static final String f60559c = "wloc";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f24847d = "wssn";
+    public static final String f60560d = "wssn";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f24848e = "cuid_1";
+    public static final String f60561e = "cuid_1";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f24849f = "wmip";
+    public static final String f60562f = "wmip";
     public transient /* synthetic */ FieldHolder $fh;
 
     public EbpayHttpRequestInterceptor() {
@@ -57,10 +57,12 @@ public class EbpayHttpRequestInterceptor implements RestHttpRequestInterceptor {
     private void a(StringBuffer stringBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, stringBuffer) == null) {
-            stringBuffer.append("BDUSS=");
+            stringBuffer.append("BDUSS");
+            stringBuffer.append("=");
             stringBuffer.append(WalletLoginHelper.getInstance().getLoginToken());
             stringBuffer.append(";");
-            stringBuffer.append("OPENBDUSS=");
+            stringBuffer.append(BeanConstants.COOKIE_OPENBDUSS);
+            stringBuffer.append("=");
             stringBuffer.append(WalletLoginHelper.getInstance().getOpenLoginToken());
             LogUtil.d("EbpayClientHttpRequestInterceptor", "setToken():" + ((Object) stringBuffer));
         }

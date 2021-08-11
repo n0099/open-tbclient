@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.SendGiftAndroid.DataReq;
 import tbclient.SendGiftAndroid.SendGiftAndroidReqIdl;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RequestSendGiftNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_PERSON_CENTER = 1;
@@ -63,14 +63,14 @@ public class RequestSendGiftNetMessage extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public void setParams(long j, int i2, int i3, int i4, long j2, String str) {
+    public void setParams(long j2, int i2, int i3, int i4, long j3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2), str}) == null) {
-            this.mReceiverId = j;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j3), str}) == null) {
+            this.mReceiverId = j2;
             this.mGiftId = i2;
             this.mPrice = i3;
             this.mNum = i4;
-            this.mFrom = j2;
+            this.mFrom = j3;
             this.mPassword = str;
         }
     }

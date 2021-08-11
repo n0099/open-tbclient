@@ -6,14 +6,13 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import android.widget.Toast;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.win.opensdk.activitys.H5OpenActivity;
 import com.win.opensdk.core.Info;
 import org.json.JSONException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class Q1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +49,7 @@ public class Q1 {
             } else if (a(context, Uri.parse(str), info)) {
             } else {
                 if (info.getOpent() == 1) {
-                    if (O.f39604d.f39607c) {
+                    if (O.f76440d.f76443c) {
                         Toast.makeText(context, context.getString(R.string.win_wdownload_loading), 1).show();
                         Z0.a(context).b(new a1(info), 5).a();
                         return;
@@ -63,29 +62,29 @@ public class Q1 {
                     a1 a1Var = new a1(info);
                     String open = info.getOpen();
                     try {
-                        a2.f39714b = Z0.a("wdtr", a1Var);
+                        a2.f76554b = Z0.a("wdtr", a1Var);
                         a2.a("msg", Z0.a(open));
                     } catch (JSONException unused2) {
                     }
                     a2.a();
                     if (g2Var != null) {
-                        g2Var.f39812c = info;
-                        WebView webView2 = g2Var.f39811b;
+                        g2Var.f76653c = info;
+                        WebView webView2 = g2Var.f76652b;
                         if (webView2 == null) {
                             return;
                         }
                         webView2.loadUrl(info.getOpen());
-                        webView = g2Var.f39811b;
+                        webView = g2Var.f76652b;
                         f2Var = new f2(g2Var);
                     } else {
                         g2 g2Var2 = new g2(context);
-                        g2Var2.f39812c = info;
-                        WebView webView3 = g2Var2.f39811b;
+                        g2Var2.f76653c = info;
+                        WebView webView3 = g2Var2.f76652b;
                         if (webView3 == null) {
                             return;
                         }
                         webView3.loadUrl(info.getOpen());
-                        webView = g2Var2.f39811b;
+                        webView = g2Var2.f76652b;
                         f2Var = new f2(g2Var2);
                     }
                     webView.setDownloadListener(f2Var);
@@ -95,7 +94,7 @@ public class Q1 {
                     Intent intent = new Intent(context, H5OpenActivity.class);
                     info.setOph5Url(str);
                     intent.putExtra("Key_H5OpenActData", info);
-                    intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                    intent.setFlags(268435456);
                     context.startActivity(intent);
                     return;
                 }
@@ -138,9 +137,9 @@ public class Q1 {
         return invokeLLL.booleanValue;
     }
 
-    public static boolean a(Info info, long j) {
+    public static boolean a(Info info, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, info, j)) == null) ? info != null && System.currentTimeMillis() - j > 1000 : invokeLJ.booleanValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, info, j2)) == null) ? info != null && System.currentTimeMillis() - j2 > 1000 : invokeLJ.booleanValue;
     }
 }

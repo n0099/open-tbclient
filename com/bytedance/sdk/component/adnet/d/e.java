@@ -3,11 +3,10 @@ package com.bytedance.sdk.component.adnet.d;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +26,7 @@ public class e {
                     }
                 }
             } catch (Throwable th) {
-                Log.e("ignored", th.toString());
+                th.toString();
             }
             return false;
         }

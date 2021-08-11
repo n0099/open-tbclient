@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,15 +17,15 @@ public class a {
     public int y;
 
     /* renamed from: com.baidu.searchbox.dns.c.a$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.searchbox.dns.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0154a {
+    /* loaded from: classes5.dex */
+    public static class C1703a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long A;
@@ -35,12 +35,12 @@ public class a {
         public final com.baidu.searchbox.dns.d.a x;
         public final com.baidu.searchbox.dns.d.a.a z;
 
-        public C0154a(long j, com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2) {
+        public C1703a(long j2, com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), aVar, aVar2};
+                Object[] objArr = {Long.valueOf(j2), aVar, aVar2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -52,7 +52,7 @@ public class a {
             }
             this.B = -1;
             this.D = -1L;
-            this.A = j;
+            this.A = j2;
             this.z = aVar2;
             this.x = aVar;
             if (aVar2 != null) {
@@ -75,13 +75,13 @@ public class a {
                 if (this.C.equals("ok")) {
                     int i2 = this.B;
                     if (i2 >= 0) {
-                        long j = this.D;
-                        if (j > 0) {
-                            long j2 = this.A;
-                            if (j2 - j > i2) {
+                        long j2 = this.D;
+                        if (j2 > 0) {
+                            long j3 = this.A;
+                            if (j3 - j2 > i2) {
                                 return new a(this.x, null, 1003, null);
                             }
-                            if (j2 - j >= 180000) {
+                            if (j3 - j2 >= 180000) {
                                 com.baidu.searchbox.dns.d.a aVar = this.x;
                                 if (aVar != null) {
                                     return new a(aVar, this.z, 1001, null);
@@ -92,9 +92,9 @@ public class a {
                         }
                     }
                     if (this.B < 0) {
-                        long j3 = this.D;
-                        if (j3 > 0) {
-                            if (this.A - j3 > 60000) {
+                        long j4 = this.D;
+                        if (j4 > 0) {
+                            if (this.A - j4 > 60000) {
                                 return new a(this.x, null, 1007, null);
                             }
                             return new a(null, this.z, 2003, null);

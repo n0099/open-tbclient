@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class EditTextPasteFilterUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EDITTEXT_PASTE_INTERCEPTOR_KEY = "textPasteInteceptor";
@@ -72,20 +72,6 @@ public class EditTextPasteFilterUtils {
         return (List) invokeL.objValue;
     }
 
-    public static List<String> regxParse(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Matcher matcher = Pattern.compile(str2).matcher(str);
-            while (matcher.find()) {
-                arrayList.add(matcher.group());
-            }
-            return arrayList;
-        }
-        return (List) invokeLL.objValue;
-    }
-
     public static List<IEditTextPasteFilter> parseEditTextPasteFilter(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -108,5 +94,19 @@ public class EditTextPasteFilterUtils {
             return arrayList;
         }
         return (List) invokeL.objValue;
+    }
+
+    public static List<String> regxParse(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Matcher matcher = Pattern.compile(str2).matcher(str);
+            while (matcher.find()) {
+                arrayList.add(matcher.group());
+            }
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
     }
 }

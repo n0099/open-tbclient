@@ -1,5 +1,5 @@
 package com.baidu.rtc.logreport;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface SLIReportInterface {
-    void onStuckData(long j, long j2);
+    void onStuckData(long j2, long j3);
 }

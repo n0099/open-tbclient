@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class PooledByteArrayBufferedInputStream extends InputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PooledByteInputStream";
@@ -126,21 +126,21 @@ public class PooledByteArrayBufferedInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public long skip(long j) throws IOException {
+    public long skip(long j2) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
             Preconditions.checkState(this.mBufferOffset <= this.mBufferedSize);
             ensureNotClosed();
             int i2 = this.mBufferedSize;
             int i3 = this.mBufferOffset;
-            long j2 = i2 - i3;
-            if (j2 >= j) {
-                this.mBufferOffset = (int) (i3 + j);
-                return j;
+            long j3 = i2 - i3;
+            if (j3 >= j2) {
+                this.mBufferOffset = (int) (i3 + j2);
+                return j2;
             }
             this.mBufferOffset = i2;
-            return j2 + this.mInputStream.skip(j - j2);
+            return j3 + this.mInputStream.skip(j2 - j3);
         }
         return invokeJ.longValue;
     }

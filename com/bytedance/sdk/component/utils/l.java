@@ -7,7 +7,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,22 +17,22 @@ public class l {
         StringBuilder sb;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            long j = 0;
+            long j2 = 0;
             try {
                 if (!TextUtils.isEmpty(str)) {
                     StatFs statFs = new StatFs(str);
-                    j = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                    j2 = statFs.getAvailableBlocks() * statFs.getBlockSize();
                 }
                 sb = new StringBuilder();
             } catch (Throwable unused) {
                 sb = new StringBuilder();
             }
             sb.append("getAvailableSize=");
-            sb.append(j);
+            sb.append(j2);
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append(String.valueOf(str));
             k.b("MemorySize", sb.toString());
-            return j;
+            return j2;
         }
         return invokeL.longValue;
     }

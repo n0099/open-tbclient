@@ -12,15 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class bq extends bn {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f8901a = "__Baidu_Stat_SDK_SendRem";
+    public static final String f43210a = "__Baidu_Stat_SDK_SendRem";
 
     /* renamed from: b  reason: collision with root package name */
-    public static bq f8902b;
+    public static bq f43211b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class bq extends bn {
                 return;
             }
         }
-        f8902b = new bq();
+        f43211b = new bq();
     }
 
     public bq() {
@@ -56,7 +56,7 @@ public class bq extends bn {
     public static bq a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f8902b : (bq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f43211b : (bq) invokeV.objValue;
     }
 
     public int b(Context context) {
@@ -171,7 +171,7 @@ public class bq extends bn {
     public SharedPreferences a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? context.getSharedPreferences(f8901a, 0) : (SharedPreferences) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? context.getSharedPreferences(f43210a, 0) : (SharedPreferences) invokeL.objValue;
     }
 
     public void b(Context context, int i2) {
@@ -267,10 +267,10 @@ public class bq extends bn {
         }
     }
 
-    public void c(Context context, long j) {
+    public void c(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048587, this, context, j) == null) {
-            b(context, "autotrace_config_fetch_time", j);
+        if (interceptable == null || interceptable.invokeLJ(1048587, this, context, j2) == null) {
+            b(context, "autotrace_config_fetch_time", j2);
         }
     }
 
@@ -295,10 +295,10 @@ public class bq extends bn {
         }
     }
 
-    public void a(Context context, long j) {
+    public void a(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, context, j) == null) {
-            b(context, "autotrace_track_js_fetch_time", j);
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, context, j2) == null) {
+            b(context, "autotrace_track_js_fetch_time", j2);
         }
     }
 
@@ -309,10 +309,10 @@ public class bq extends bn {
         }
     }
 
-    public void b(Context context, long j) {
+    public void b(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048583, this, context, j) == null) {
-            b(context, "autotrace_track_js_fetch_interval", j);
+        if (interceptable == null || interceptable.invokeLJ(1048583, this, context, j2) == null) {
+            b(context, "autotrace_track_js_fetch_interval", j2);
         }
     }
 }

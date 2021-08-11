@@ -19,8 +19,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(tags = {4})
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class DecoderConfigDescriptor extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public static Logger log;
@@ -215,10 +216,10 @@ public class DecoderConfigDescriptor extends BaseDescriptor {
         }
     }
 
-    public void setAvgBitRate(long j) {
+    public void setAvgBitRate(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.avgBitRate = j;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+            this.avgBitRate = j2;
         }
     }
 
@@ -229,10 +230,10 @@ public class DecoderConfigDescriptor extends BaseDescriptor {
         }
     }
 
-    public void setMaxBitRate(long j) {
+    public void setMaxBitRate(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.maxBitRate = j;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
+            this.maxBitRate = j2;
         }
     }
 
@@ -289,7 +290,7 @@ public class DecoderConfigDescriptor extends BaseDescriptor {
             sb.append(", profileLevelIndicationDescriptors=");
             List<ProfileLevelIndicationDescriptor> list = this.profileLevelIndicationDescriptors;
             sb.append(list == null ? StringUtil.NULL_STRING : Arrays.asList(list).toString());
-            sb.append('}');
+            sb.append(ExtendedMessageFormat.END_FE);
             return sb.toString();
         }
         return (String) invokeV.objValue;

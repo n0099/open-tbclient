@@ -13,13 +13,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.lollipop.json.JSONException;
 import com.baidu.wallet.core.lollipop.json.JSONObject;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class b implements a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f24863i = "https://www.baifubao.com";
-    public static final String j = "https:/chong.baidu.com";
+    public static final String f60578i = "https://www.baifubao.com";
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final String f60579j = "https:/chong.baidu.com";
     public static final String k = "https://xinyongka.baidu.com";
     public static final String l = "https://zhifu.duxiaoman.com";
     public static final String m = "https://comet.baifubao.com";
@@ -137,7 +139,7 @@ public class b implements a {
     public String getNfcHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? !TextUtils.isEmpty(this.w) ? this.w : j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? !TextUtils.isEmpty(this.w) ? this.w : f60579j : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.core.domain.a
@@ -175,7 +177,7 @@ public class b implements a {
             } else {
                 this.u = "";
             }
-            String optString2 = jSONObject.optString(a.f24856b);
+            String optString2 = jSONObject.optString(a.f60571b);
             if (!TextUtils.isEmpty(optString2) && t.matcher(optString2).matches()) {
                 this.v = optString2;
             } else {
@@ -195,13 +197,13 @@ public class b implements a {
                 this.x = "";
                 com.baidu.apollon.heartbeat.a.c().a("https://www.baifubao.com");
             }
-            String optString5 = jSONObject.optString(a.f24859e);
+            String optString5 = jSONObject.optString(a.f60574e);
             if (!TextUtils.isEmpty(optString5) && t.matcher(optString5).matches()) {
                 this.y = optString5;
             } else {
                 this.y = "";
             }
-            String optString6 = jSONObject.optString(a.f24860f);
+            String optString6 = jSONObject.optString(a.f60575f);
             if (!TextUtils.isEmpty(optString6) && t.matcher(optString6).matches()) {
                 this.z = optString6;
             } else {

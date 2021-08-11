@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Looper;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
@@ -12,6 +11,7 @@ import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,41 +29,41 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static long a(long j, com.bytedance.sdk.openadsdk.core.e.m mVar, String str) {
+    public static long a(long j2, com.bytedance.sdk.openadsdk.core.e.m mVar, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), mVar, str})) == null) {
-            if (j > 0) {
-                a((System.currentTimeMillis() - j) + "", mVar, str);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j2), mVar, str})) == null) {
+            if (j2 > 0) {
+                a((System.currentTimeMillis() - j2) + "", mVar, str);
                 return 0L;
             }
-            return j;
+            return j2;
         }
         return invokeCommon.longValue;
     }
 
-    public static long a(long j, boolean z, com.bytedance.sdk.openadsdk.core.e.m mVar, String str) {
+    public static long a(long j2, boolean z, com.bytedance.sdk.openadsdk.core.e.m mVar, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z), mVar, str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), mVar, str})) == null) {
             if (z) {
                 return System.currentTimeMillis();
             }
-            a((System.currentTimeMillis() - j) + "", mVar, str);
+            a((System.currentTimeMillis() - j2) + "", mVar, str);
             return 0L;
         }
         return invokeCommon.longValue;
     }
 
-    public static void a(long j, String str, String str2) {
+    public static void a(long j2, String str, String str2) {
         com.bytedance.sdk.openadsdk.core.e.m mVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), str, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), str, str2}) == null) {
             try {
                 mVar = com.bytedance.sdk.openadsdk.core.b.a(new JSONObject(str2));
             } catch (Throwable unused) {
@@ -72,21 +72,21 @@ public class d {
             if (mVar == null) {
                 return;
             }
-            a(com.bytedance.sdk.openadsdk.core.o.a(), mVar, str, "open_appback", Long.valueOf(j));
+            a(com.bytedance.sdk.openadsdk.core.o.a(), mVar, str, "open_appback", Long.valueOf(j2));
             com.bytedance.sdk.openadsdk.q.e.a(0L);
             com.bytedance.sdk.openadsdk.q.e.c("");
         }
     }
 
-    public static void a(Context context, long j, com.bytedance.sdk.openadsdk.core.e.m mVar) {
+    public static void a(Context context, long j2, com.bytedance.sdk.openadsdk.core.e.m mVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, Long.valueOf(j), mVar}) == null) || context == null || mVar == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, Long.valueOf(j2), mVar}) == null) || context == null || mVar == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("skip_duration", j);
+            jSONObject2.put("skip_duration", j2);
             jSONObject.put("ad_extra_data", jSONObject2.toString());
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -116,13 +116,13 @@ public class d {
         }
     }
 
-    public static void a(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, long j) {
+    public static void a(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, long j2) {
         String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, mVar, str, Long.valueOf(j)}) == null) && context != null && com.bytedance.sdk.openadsdk.core.o.h().v()) {
+        if ((interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, mVar, str, Long.valueOf(j2)}) == null) && context != null && com.bytedance.sdk.openadsdk.core.o.h().v()) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("duration", System.currentTimeMillis() - j);
+                jSONObject.put("duration", System.currentTimeMillis() - j2);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -159,7 +159,7 @@ public class d {
                     }
                     break;
                 case 1844104722:
-                    if (str.equals("interaction")) {
+                    if (str.equals(ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE)) {
                         c2 = 1;
                         break;
                     }
@@ -215,11 +215,11 @@ public class d {
         }
         HashMap hashMap = new HashMap();
         hashMap.put("color_percent", Integer.valueOf(i2));
-        String j = mVar.V() != null ? mVar.V().j() : null;
-        if (TextUtils.isEmpty(j)) {
-            j = com.bytedance.sdk.openadsdk.core.e.o.e(mVar);
+        String j2 = mVar.V() != null ? mVar.V().j() : null;
+        if (TextUtils.isEmpty(j2)) {
+            j2 = com.bytedance.sdk.openadsdk.core.e.o.e(mVar);
         }
-        hashMap.put("playable_url", j);
+        hashMap.put("playable_url", j2);
         hashMap.put("memory_total", Integer.valueOf(com.bytedance.sdk.openadsdk.q.q.m()));
         hashMap.put("memory_use", Integer.valueOf(com.bytedance.sdk.openadsdk.q.q.o() - com.bytedance.sdk.openadsdk.q.q.n()));
         hashMap.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, com.bytedance.sdk.openadsdk.q.q.h(mVar.ao()));
@@ -228,13 +228,13 @@ public class d {
         j(context, mVar, str, str2, hashMap);
     }
 
-    public static void a(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, long j, int i2, Map<String, Object> map) {
+    public static void a(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, long j2, int i2, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, mVar, str, str2, Long.valueOf(j), Integer.valueOf(i2), map}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, mVar, str, str2, Long.valueOf(j2), Integer.valueOf(i2), map}) == null) {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject.put("duration", j);
+                jSONObject.put("duration", j2);
                 jSONObject.put(SapiOptions.KEY_CACHE_PERCENT, i2);
                 if (map != null) {
                     for (Map.Entry<String, Object> entry : map.entrySet()) {
@@ -249,14 +249,14 @@ public class d {
         }
     }
 
-    public static void a(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, long j, JSONObject jSONObject) {
+    public static void a(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, String str2, long j2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, mVar, str, str2, Long.valueOf(j), jSONObject}) == null) || context == null || mVar == null || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, mVar, str, str2, Long.valueOf(j2), jSONObject}) == null) || context == null || mVar == null || jSONObject == null) {
             return;
         }
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject2.put("duration", j);
+            jSONObject2.put("duration", j2);
             jSONObject2.put("ad_extra_data", jSONObject.toString());
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -343,19 +343,19 @@ public class d {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f31432a;
+                public final /* synthetic */ Context f67373a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f31433b;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f67374b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f31434c;
+                public final /* synthetic */ String f67375c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ Map f31435d;
+                public final /* synthetic */ Map f67376d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ float f31436e;
+                public final /* synthetic */ float f67377e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -375,18 +375,18 @@ public class d {
                             return;
                         }
                     }
-                    this.f31432a = context;
-                    this.f31433b = mVar;
-                    this.f31434c = str;
-                    this.f31435d = map;
-                    this.f31436e = floatValue;
+                    this.f67373a = context;
+                    this.f67374b = mVar;
+                    this.f67375c = str;
+                    this.f67376d = map;
+                    this.f67377e = floatValue;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        d.b(this.f31432a, this.f31433b, this.f31434c, this.f31435d, this.f31436e);
+                        d.b(this.f67373a, this.f67374b, this.f67375c, this.f67376d, this.f67377e);
                     }
                 }
             });
@@ -395,10 +395,10 @@ public class d {
         }
     }
 
-    public static void a(Context context, String str, long j) {
+    public static void a(Context context, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
-            com.bytedance.sdk.openadsdk.core.c.c.a(context, str, j);
+        if (interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{context, str, Long.valueOf(j2)}) == null) {
+            com.bytedance.sdk.openadsdk.core.c.c.a(context, str, j2);
         }
     }
 
@@ -416,28 +416,28 @@ public class d {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f31440a;
+                public final /* synthetic */ Context f67381a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f31441b;
+                public final /* synthetic */ String f67382b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f31442c;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f67383c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.f f31443d;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.f f67384d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f31444e;
+                public final /* synthetic */ String f67385e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ boolean f31445f;
+                public final /* synthetic */ boolean f67386f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ Map f31446g;
+                public final /* synthetic */ Map f67387g;
 
                 /* renamed from: h  reason: collision with root package name */
-                public final /* synthetic */ float f31447h;
+                public final /* synthetic */ float f67388h;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -457,21 +457,21 @@ public class d {
                             return;
                         }
                     }
-                    this.f31440a = context;
-                    this.f31441b = str;
-                    this.f31442c = mVar;
-                    this.f31443d = fVar;
-                    this.f31444e = str2;
-                    this.f31445f = z;
-                    this.f31446g = map;
-                    this.f31447h = floatValue;
+                    this.f67381a = context;
+                    this.f67382b = str;
+                    this.f67383c = mVar;
+                    this.f67384d = fVar;
+                    this.f67385e = str2;
+                    this.f67386f = z;
+                    this.f67387g = map;
+                    this.f67388h = floatValue;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        d.b(this.f31440a, this.f31441b, this.f31442c, this.f31443d, this.f31444e, this.f31445f, this.f31446g, this.f31447h);
+                        d.b(this.f67381a, this.f67382b, this.f67383c, this.f67384d, this.f67385e, this.f67386f, this.f67387g, this.f67388h);
                     }
                 }
             });
@@ -520,22 +520,22 @@ public class d {
         }
     }
 
-    public static void a(com.bytedance.sdk.openadsdk.core.e.m mVar, String str, long j) {
+    public static void a(com.bytedance.sdk.openadsdk.core.e.m mVar, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65559, null, new Object[]{mVar, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65559, null, new Object[]{mVar, str, Long.valueOf(j2)}) == null) {
             if (Looper.getMainLooper() == Looper.myLooper()) {
-                com.bytedance.sdk.component.d.e.b(new com.bytedance.sdk.component.d.g("onDownloadCreativeDuration", mVar, str, j) { // from class: com.bytedance.sdk.openadsdk.e.d.2
+                com.bytedance.sdk.component.d.e.b(new com.bytedance.sdk.component.d.g("onDownloadCreativeDuration", mVar, str, j2) { // from class: com.bytedance.sdk.openadsdk.e.d.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f31437a;
+                    public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.m f67378a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f31438b;
+                    public final /* synthetic */ String f67379b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ long f31439c;
+                    public final /* synthetic */ long f67380c;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -544,7 +544,7 @@ public class d {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {r7, mVar, str, Long.valueOf(j)};
+                            Object[] objArr = {r7, mVar, str, Long.valueOf(j2)};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -555,21 +555,21 @@ public class d {
                                 return;
                             }
                         }
-                        this.f31437a = mVar;
-                        this.f31438b = str;
-                        this.f31439c = j;
+                        this.f67378a = mVar;
+                        this.f67379b = str;
+                        this.f67380c = j2;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            d.c(this.f31437a, this.f31438b, this.f31439c);
+                            d.c(this.f67378a, this.f67379b, this.f67380c);
                         }
                     }
                 });
             } else {
-                c(mVar, str, j);
+                c(mVar, str, j2);
             }
         }
     }
@@ -613,35 +613,35 @@ public class d {
         c(com.bytedance.sdk.openadsdk.core.o.a(), mVar, str2, "ad_show_time", jSONObject);
     }
 
-    public static void a(String str, String str2, String str3, long j, long j2, JSONObject jSONObject) {
+    public static void a(String str, String str2, String str3, long j2, long j3, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65563, null, new Object[]{str, str2, str3, Long.valueOf(j), Long.valueOf(j2), jSONObject}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65563, null, new Object[]{str, str2, str3, Long.valueOf(j2), Long.valueOf(j3), jSONObject}) == null) {
             float floatValue = Double.valueOf((System.currentTimeMillis() / 1000) - com.bytedance.sdk.openadsdk.q.q.g(jSONObject.optString("log_extra"))).floatValue();
             if (Looper.getMainLooper() == Looper.myLooper()) {
-                com.bytedance.sdk.component.d.e.b(new com.bytedance.sdk.component.d.g("sendJsAdEvent", str, str2, str3, j, j2, jSONObject, floatValue) { // from class: com.bytedance.sdk.openadsdk.e.d.4
+                com.bytedance.sdk.component.d.e.b(new com.bytedance.sdk.component.d.g("sendJsAdEvent", str, str2, str3, j2, j3, jSONObject, floatValue) { // from class: com.bytedance.sdk.openadsdk.e.d.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f31448a;
+                    public final /* synthetic */ String f67389a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f31449b;
+                    public final /* synthetic */ String f67390b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ String f31450c;
+                    public final /* synthetic */ String f67391c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ long f31451d;
+                    public final /* synthetic */ long f67392d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ long f31452e;
+                    public final /* synthetic */ long f67393e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ JSONObject f31453f;
+                    public final /* synthetic */ JSONObject f67394f;
 
                     /* renamed from: g  reason: collision with root package name */
-                    public final /* synthetic */ float f31454g;
+                    public final /* synthetic */ float f67395g;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -650,7 +650,7 @@ public class d {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r3;
-                            Object[] objArr = {r8, str, str2, str3, Long.valueOf(j), Long.valueOf(j2), jSONObject, Float.valueOf(floatValue)};
+                            Object[] objArr = {r8, str, str2, str3, Long.valueOf(j2), Long.valueOf(j3), jSONObject, Float.valueOf(floatValue)};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -661,25 +661,25 @@ public class d {
                                 return;
                             }
                         }
-                        this.f31448a = str;
-                        this.f31449b = str2;
-                        this.f31450c = str3;
-                        this.f31451d = j;
-                        this.f31452e = j2;
-                        this.f31453f = jSONObject;
-                        this.f31454g = floatValue;
+                        this.f67389a = str;
+                        this.f67390b = str2;
+                        this.f67391c = str3;
+                        this.f67392d = j2;
+                        this.f67393e = j3;
+                        this.f67394f = jSONObject;
+                        this.f67395g = floatValue;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            d.b(this.f31448a, this.f31449b, this.f31450c, this.f31451d, this.f31452e, this.f31453f, this.f31454g);
+                            d.b(this.f67389a, this.f67390b, this.f67391c, this.f67392d, this.f67393e, this.f67394f, this.f67395g);
                         }
                     }
                 });
             } else {
-                b(str, str2, str3, j, j2, jSONObject, floatValue);
+                b(str, str2, str3, j2, j3, jSONObject, floatValue);
             }
         }
     }
@@ -690,16 +690,16 @@ public class d {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65565, null, str, mVar)) == null) ? !TextUtils.isEmpty(str) && mVar != null && str.equals("feed_video_middle_page") && mVar.aD() == 1 : invokeLL.booleanValue;
     }
 
-    public static void b(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, long j) {
+    public static void b(Context context, com.bytedance.sdk.openadsdk.core.e.m mVar, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{context, mVar, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{context, mVar, str, Long.valueOf(j2)}) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.putOpt("render_type", "h5");
                 jSONObject2.putOpt("render_type_2", 0);
                 jSONObject.putOpt("ad_extra_data", jSONObject2);
-                jSONObject.put("duration", Math.min(j, (long) TTAdConstant.AD_MAX_EVENT_TIME));
+                jSONObject.put("duration", Math.min(j2, (long) TTAdConstant.AD_MAX_EVENT_TIME));
             } catch (Exception unused) {
             }
             d(context, mVar, str, "load", jSONObject);
@@ -818,9 +818,9 @@ public class d {
         }
     }
 
-    public static void b(String str, String str2, String str3, long j, long j2, JSONObject jSONObject, float f2) {
+    public static void b(String str, String str2, String str3, long j2, long j3, JSONObject jSONObject, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65573, null, new Object[]{str, str2, str3, Long.valueOf(j), Long.valueOf(j2), jSONObject, Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65573, null, new Object[]{str, str2, str3, Long.valueOf(j2), Long.valueOf(j3), jSONObject, Float.valueOf(f2)}) == null) {
             if (jSONObject != null) {
                 JSONObject jSONObject2 = new JSONObject();
                 try {
@@ -840,7 +840,7 @@ public class d {
                 } catch (JSONException unused) {
                 }
             }
-            com.bytedance.sdk.openadsdk.core.o.c().a(com.bytedance.sdk.openadsdk.e.a.a(str, str2, str3, j, j2, jSONObject));
+            com.bytedance.sdk.openadsdk.core.o.c().a(com.bytedance.sdk.openadsdk.e.a.a(str, str2, str3, j2, j3, jSONObject));
             if (com.bytedance.sdk.component.utils.k.c()) {
                 com.bytedance.sdk.component.utils.k.c("AdEvent", "sendJsAdEvent");
             }
@@ -899,14 +899,14 @@ public class d {
         }
     }
 
-    public static void c(com.bytedance.sdk.openadsdk.core.e.m mVar, String str, long j) {
+    public static void c(com.bytedance.sdk.openadsdk.core.e.m mVar, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65577, null, new Object[]{mVar, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65577, null, new Object[]{mVar, str, Long.valueOf(j2)}) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("device", com.bytedance.sdk.openadsdk.core.k.c.e(com.bytedance.sdk.openadsdk.core.o.a()).toString());
-                jSONObject2.put("download_creative_duration", j);
+                jSONObject2.put("download_creative_duration", j2);
                 jSONObject.put("ad_extra_data", jSONObject2.toString());
                 jSONObject.putOpt("log_extra", mVar.ao());
             } catch (JSONException unused) {
@@ -1044,7 +1044,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1060,8 +1060,7 @@ public class d {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("ad_extra_data", jSONObject.toString());
                     d.c(com.bytedance.sdk.openadsdk.core.o.a(), mVar, a2 + "_landingpage", str, jSONObject2);
-                } catch (Throwable th) {
-                    Log.d("AdEvent", "Gecko.loadEvent error", th);
+                } catch (Throwable unused) {
                 }
             }
         }
@@ -1080,8 +1079,7 @@ public class d {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("ad_extra_data", jSONObject.toString());
                     d.c(com.bytedance.sdk.openadsdk.core.o.a(), mVar, a2 + "_landingpage", "local_res_hit_rate", jSONObject2);
-                } catch (Throwable th) {
-                    Log.d("AdEvent", "Gecko.localResHitRate error", th);
+                } catch (Throwable unused) {
                 }
             }
         }

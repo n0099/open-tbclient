@@ -20,18 +20,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class bm {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40923a;
+    public static String f77799a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static SimpleDateFormat f940a;
+    public static SimpleDateFormat f944a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static AtomicLong f941a;
+    public static AtomicLong f945a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,16 +47,16 @@ public class bm {
                 return;
             }
         }
-        f941a = new AtomicLong(0L);
+        f945a = new AtomicLong(0L);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        f940a = simpleDateFormat;
-        f40923a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
+        f944a = simpleDateFormat;
+        f77799a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
     }
 
     public static ie a(String str, String str2, hi hiVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, hiVar)) == null) ? new ie("-1", false).d(str).b(str2).a(com.xiaomi.push.y.a(ip.a(hiVar))).c(hp.B.f509a) : (ie) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, hiVar)) == null) ? new ie("-1", false).d(str).b(str2).a(com.xiaomi.push.y.a(ip.a(hiVar))).c(hp.B.f513a) : (ie) invokeLLL.objValue;
     }
 
     public static synchronized String a() {
@@ -65,12 +65,12 @@ public class bm {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (bm.class) {
-                String format = f940a.format(Long.valueOf(System.currentTimeMillis()));
-                if (!TextUtils.equals(f40923a, format)) {
-                    f941a.set(0L);
-                    f40923a = format;
+                String format = f944a.format(Long.valueOf(System.currentTimeMillis()));
+                if (!TextUtils.equals(f77799a, format)) {
+                    f945a.set(0L);
+                    f77799a = format;
                 }
-                str = format + "-" + f941a.incrementAndGet();
+                str = format + "-" + f945a.incrementAndGet();
             }
             return str;
         }
@@ -97,23 +97,23 @@ public class bm {
                 for (int i5 = 0; i5 < list.size(); i5++) {
                     hj hjVar = list.get(i5);
                     if (hjVar != null) {
-                        if (hjVar.m376a() == null || !hjVar.m376a().containsKey("item_size")) {
+                        if (hjVar.m379a() == null || !hjVar.m379a().containsKey("item_size")) {
                             i3 = 0;
                         } else {
-                            String str4 = hjVar.m376a().get("item_size");
+                            String str4 = hjVar.m379a().get("item_size");
                             if (!TextUtils.isEmpty(str4)) {
                                 try {
                                     i3 = Integer.parseInt(str4);
                                 } catch (Exception unused) {
                                 }
-                                if (hjVar.m376a().size() != 1) {
+                                if (hjVar.m379a().size() != 1) {
                                     hjVar.a((Map<String, String>) null);
                                 } else {
-                                    hjVar.m376a().remove("item_size");
+                                    hjVar.m379a().remove("item_size");
                                 }
                             }
                             i3 = 0;
-                            if (hjVar.m376a().size() != 1) {
+                            if (hjVar.m379a().size() != 1) {
                             }
                         }
                         if (i3 <= 0) {
@@ -145,13 +145,13 @@ public class bm {
         return (ArrayList) invokeLLLI.objValue;
     }
 
-    public static void a(Context context, String str, String str2, long j, String str3) {
+    public static void a(Context context, String str, String str2, long j2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, Long.valueOf(j), str3}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, Long.valueOf(j2), str3}) == null) {
             hj hjVar = new hj();
             hjVar.d(str);
             hjVar.c(str2);
-            hjVar.a(j);
+            hjVar.a(j2);
             hjVar.b(str3);
             hjVar.a("push_sdk_channel");
             hjVar.g(context.getPackageName());
@@ -170,24 +170,24 @@ public class bm {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, null, hjVar, z)) == null) {
             if (hjVar == null) {
                 str = "item is null, verfiy ClientUploadDataItem failed.";
-            } else if (!z && TextUtils.isEmpty(hjVar.f481a)) {
+            } else if (!z && TextUtils.isEmpty(hjVar.f485a)) {
                 str = "item.channel is null or empty, verfiy ClientUploadDataItem failed.";
-            } else if (TextUtils.isEmpty(hjVar.f488d)) {
+            } else if (TextUtils.isEmpty(hjVar.f492d)) {
                 str = "item.category is null or empty, verfiy ClientUploadDataItem failed.";
-            } else if (TextUtils.isEmpty(hjVar.f487c)) {
+            } else if (TextUtils.isEmpty(hjVar.f491c)) {
                 str = "item.name is null or empty, verfiy ClientUploadDataItem failed.";
-            } else if (!com.xiaomi.push.bm.m181a(hjVar.f488d)) {
+            } else if (!com.xiaomi.push.bm.m184a(hjVar.f492d)) {
                 str = "item.category can only contain ascii char, verfiy ClientUploadDataItem failed.";
-            } else if (com.xiaomi.push.bm.m181a(hjVar.f487c)) {
-                String str2 = hjVar.f486b;
+            } else if (com.xiaomi.push.bm.m184a(hjVar.f491c)) {
+                String str2 = hjVar.f490b;
                 if (str2 == null || str2.length() <= 10240) {
                     return false;
                 }
-                str = "item.data is too large(" + hjVar.f486b.length() + "), max size for data is 10240 , verfiy ClientUploadDataItem failed.";
+                str = "item.data is too large(" + hjVar.f490b.length() + "), max size for data is 10240 , verfiy ClientUploadDataItem failed.";
             } else {
                 str = "item.name can only contain ascii char, verfiy ClientUploadDataItem failed.";
             }
-            com.xiaomi.channel.commonutils.logger.b.m70a(str);
+            com.xiaomi.channel.commonutils.logger.b.m73a(str);
             return true;
         }
         return invokeLZ.booleanValue;
@@ -196,6 +196,6 @@ public class bm {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? !com.xiaomi.push.t.m641b() || Constants.HYBRID_PACKAGE_NAME.equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? !com.xiaomi.push.t.m644b() || Constants.HYBRID_PACKAGE_NAME.equals(str) : invokeL.booleanValue;
     }
 }

@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -63,11 +62,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         }
         this.mBounds = new Rect();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(ATTRS);
-        Drawable drawable = obtainStyledAttributes.getDrawable(0);
-        this.mDivider = drawable;
-        if (drawable == null) {
-            Log.w(TAG, "@android:attr/listDivider was not set in the theme used for this DividerItemDecoration. Please set that attribute all call setDrawable()");
-        }
+        this.mDivider = obtainStyledAttributes.getDrawable(0);
         obtainStyledAttributes.recycle();
         setOrientation(i2);
     }

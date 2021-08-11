@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class bw extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bu f40184a;
+    public final /* synthetic */ bu f77035a;
 
     public bw(bu buVar) {
         Interceptable interceptable = $ic;
@@ -32,12 +32,12 @@ public class bw extends ai.a {
                 return;
             }
         }
-        this.f40184a = buVar;
+        this.f77035a = buVar;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo184a() {
+    public String mo187a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "10054" : (String) invokeV.objValue;
@@ -51,12 +51,12 @@ public class bw extends ai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             com.xiaomi.channel.commonutils.logger.b.c("exec== DbSizeControlJob");
-            c2 = this.f40184a.c();
-            context = this.f40184a.f160a;
+            c2 = this.f77035a.c();
+            context = this.f77035a.f164a;
             bz bzVar = new bz(c2, new WeakReference(context));
-            context2 = this.f40184a.f160a;
+            context2 = this.f77035a.f164a;
             cg.a(context2).a(bzVar);
-            this.f40184a.b("check_time");
+            this.f77035a.b("check_time");
         }
     }
 }

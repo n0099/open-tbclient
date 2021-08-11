@@ -2,6 +2,8 @@ package com.baidu.tbadk.game;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.m.b;
+import c.a.o0.i0.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.GameCenterCoreUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,8 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.m.b;
-import d.a.p0.i0.b.a;
 import java.io.Serializable;
 import java.util.List;
 import tbclient.GameInfo;
@@ -18,7 +18,7 @@ import tbclient.GetGameCenter.RecommendGame;
 import tbclient.GetGameDetailNew.CodeInfo;
 import tbclient.GetGameDetailNew.GiftPkgInfo;
 import tbclient.GetNewGameList.NewGameInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class GameInfoData implements Serializable, a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_TYPE = 1;
@@ -605,17 +605,17 @@ public class GameInfoData implements Serializable, a {
         }
     }
 
-    public void setDeadline(long j) {
+    public void setDeadline(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048632, this, j) == null) {
-            this.deadline = j;
+        if (interceptable == null || interceptable.invokeJ(1048632, this, j2) == null) {
+            this.deadline = j2;
         }
     }
 
-    public void setDownloadTime(long j) {
+    public void setDownloadTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048633, this, j) == null) {
-            this.downloadTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048633, this, j2) == null) {
+            this.downloadTime = j2;
         }
     }
 
@@ -710,10 +710,10 @@ public class GameInfoData implements Serializable, a {
         }
     }
 
-    public void setInstallTime(long j) {
+    public void setInstallTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048647, this, j) == null) {
-            this.installTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048647, this, j2) == null) {
+            this.installTime = j2;
         }
     }
 
@@ -745,10 +745,10 @@ public class GameInfoData implements Serializable, a {
         }
     }
 
-    public void setOrderTime(long j) {
+    public void setOrderTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048652, this, j) == null) {
-            this.orderTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048652, this, j2) == null) {
+            this.orderTime = j2;
         }
     }
 

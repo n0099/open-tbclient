@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Queue;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ExceptionCatchingInputStream extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public static final Queue<ExceptionCatchingInputStream> QUEUE;
@@ -160,12 +160,12 @@ public class ExceptionCatchingInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public long skip(long j) {
+    public long skip(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
             try {
-                return this.wrapped.skip(j);
+                return this.wrapped.skip(j2);
             } catch (IOException e2) {
                 this.exception = e2;
                 return 0L;

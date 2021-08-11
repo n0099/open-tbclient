@@ -41,7 +41,8 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class H264TrackImpl extends AbstractTrack {
     public static /* synthetic */ int[] $SWITCH_TABLE$com$googlecode$mp4parser$authoring$tracks$H264TrackImpl$NALActions;
     public static /* synthetic */ Interceptable $ic;
@@ -74,7 +75,7 @@ public class H264TrackImpl extends AbstractTrack {
     public int width;
 
     /* renamed from: com.googlecode.mp4parser.authoring.tracks.H264TrackImpl$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$googlecode$mp4parser$authoring$tracks$H264TrackImpl$NALActions;
         public static /* synthetic */ Interceptable $ic;
@@ -114,7 +115,7 @@ public class H264TrackImpl extends AbstractTrack {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class LookAhead {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -175,10 +176,10 @@ public class H264TrackImpl extends AbstractTrack {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                long j = this.start;
-                long j2 = this.bufferStartPos;
-                if (j >= j2) {
-                    this.buffer.position((int) (j - j2));
+                long j2 = this.start;
+                long j3 = this.bufferStartPos;
+                if (j2 >= j3) {
+                    this.buffer.position((int) (j2 - j3));
                     ByteBuffer slice = this.buffer.slice();
                     slice.limit((int) (this.inBufferPos - (this.start - this.bufferStartPos)));
                     return slice;
@@ -228,7 +229,7 @@ public class H264TrackImpl extends AbstractTrack {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class NALActions {
         public static /* synthetic */ Interceptable $ic;
         public static final NALActions BUFFER;
@@ -298,7 +299,7 @@ public class H264TrackImpl extends AbstractTrack {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class SEIMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -479,13 +480,13 @@ public class H264TrackImpl extends AbstractTrack {
                         }
                     }
                 }
-                return String.valueOf(str) + '}';
+                return String.valueOf(str) + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class SliceHeader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -501,7 +502,7 @@ public class H264TrackImpl extends AbstractTrack {
         public SliceType slice_type;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes6.dex */
+        /* loaded from: classes10.dex */
         public static final class SliceType {
             public static /* synthetic */ Interceptable $ic;
             public static final SliceType B;
@@ -643,7 +644,7 @@ public class H264TrackImpl extends AbstractTrack {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "SliceHeader{first_mb_in_slice=" + this.first_mb_in_slice + ", slice_type=" + this.slice_type + ", pic_parameter_set_id=" + this.pic_parameter_set_id + ", colour_plane_id=" + this.colour_plane_id + ", frame_num=" + this.frame_num + ", field_pic_flag=" + this.field_pic_flag + ", bottom_field_flag=" + this.bottom_field_flag + ", idr_pic_id=" + this.idr_pic_id + ", pic_order_cnt_lsb=" + this.pic_order_cnt_lsb + ", delta_pic_order_cnt_bottom=" + this.delta_pic_order_cnt_bottom + '}';
+                return "SliceHeader{first_mb_in_slice=" + this.first_mb_in_slice + ", slice_type=" + this.slice_type + ", pic_parameter_set_id=" + this.pic_parameter_set_id + ", colour_plane_id=" + this.colour_plane_id + ", frame_num=" + this.frame_num + ", field_pic_flag=" + this.field_pic_flag + ", bottom_field_flag=" + this.bottom_field_flag + ", idr_pic_id=" + this.idr_pic_id + ", pic_order_cnt_lsb=" + this.pic_order_cnt_lsb + ", delta_pic_order_cnt_bottom=" + this.delta_pic_order_cnt_bottom + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -692,12 +693,12 @@ public class H264TrackImpl extends AbstractTrack {
         BUFFER = 67107840;
     }
 
-    public H264TrackImpl(DataSource dataSource, String str, long j, int i2) throws IOException {
+    public H264TrackImpl(DataSource dataSource, String str, long j2, int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dataSource, str, Long.valueOf(j), Integer.valueOf(i2)};
+            Object[] objArr = {dataSource, str, Long.valueOf(j2), Integer.valueOf(i2)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -718,10 +719,10 @@ public class H264TrackImpl extends AbstractTrack {
         this.lang = "eng";
         this.sixtyFourK = ByteBuffer.allocate(1);
         this.lang = str;
-        this.timescale = j;
+        this.timescale = j2;
         this.frametick = i2;
         this.dataSource = dataSource;
-        if (j > 0 && i2 > 0) {
+        if (j2 > 0 && i2 > 0) {
             this.determineFrameRate = false;
         }
         parse(new LookAhead(this, this.dataSource));
@@ -732,11 +733,11 @@ public class H264TrackImpl extends AbstractTrack {
         if ((interceptable == null || interceptable.invokeV(65543, this) == null) && this.determineFrameRate) {
             VUIParameters vUIParameters = this.seqParameterSet.vuiParams;
             if (vUIParameters != null) {
-                long j = vUIParameters.time_scale >> 1;
-                this.timescale = j;
+                long j2 = vUIParameters.time_scale >> 1;
+                this.timescale = j2;
                 int i2 = vUIParameters.num_units_in_tick;
                 this.frametick = i2;
-                if (j == 0 || i2 == 0) {
+                if (j2 == 0 || i2 == 0) {
                     System.err.println("Warning: vuiParams contain invalid values: time_scale: " + this.timescale + " and frame_tick: " + this.frametick + ". Setting frame rate to 25fps");
                     this.timescale = SapiWebView.DEFAULT_TIMEOUT_MILLIS;
                     this.frametick = 3600;
@@ -1057,7 +1058,7 @@ public class H264TrackImpl extends AbstractTrack {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.trackMetaData : (TrackMetaData) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class ByteBufferBackedInputStream extends InputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1120,7 +1121,7 @@ public class H264TrackImpl extends AbstractTrack {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new VideoMediaHeaderBox() : (AbstractMediaHeaderBox) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class CleanInputStream extends FilterInputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

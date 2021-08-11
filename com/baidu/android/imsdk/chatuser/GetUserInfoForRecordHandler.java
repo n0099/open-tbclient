@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class GetUserInfoForRecordHandler extends GetChatObjectInfoForRecordHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,10 +36,10 @@ public class GetUserInfoForRecordHandler extends GetChatObjectInfoForRecordHandl
     }
 
     @Override // com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler
-    public void getChatObjectInfo(long j, CallBack callBack) {
+    public void getChatObjectInfo(long j2, CallBack callBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048576, this, j, callBack) == null) {
-            ChatUserManagerImpl.getInstance(this.mContext).getUser(j, 0, new IGetUserListener(this, callBack) { // from class: com.baidu.android.imsdk.chatuser.GetUserInfoForRecordHandler.1
+        if (interceptable == null || interceptable.invokeJL(1048576, this, j2, callBack) == null) {
+            ChatUserManagerImpl.getInstance(this.mContext).getUser(j2, 0, new IGetUserListener(this, callBack) { // from class: com.baidu.android.imsdk.chatuser.GetUserInfoForRecordHandler.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ GetUserInfoForRecordHandler this$0;
@@ -65,9 +65,9 @@ public class GetUserInfoForRecordHandler extends GetChatObjectInfoForRecordHandl
                 }
 
                 @Override // com.baidu.android.imsdk.chatuser.IGetUserListener
-                public void onGetUserResult(int i2, long j2, ChatUser chatUser) {
+                public void onGetUserResult(int i2, long j3, ChatUser chatUser) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), chatUser}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j3), chatUser}) == null) {
                         LogUtils.d("GetUserInfoForRecordHandler", "getChatObjectInfo getUser error:" + i2);
                         if (i2 == 0 && chatUser != null) {
                             this.this$0.deleteUUid();
@@ -80,7 +80,7 @@ public class GetUserInfoForRecordHandler extends GetChatObjectInfoForRecordHandl
                         }
                         CallBack callBack3 = this.val$callBack;
                         if (callBack3 != null) {
-                            callBack3.onError(0, 0, j2);
+                            callBack3.onError(0, 0, j3);
                         }
                     }
                 }

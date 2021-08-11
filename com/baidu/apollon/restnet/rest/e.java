@@ -3,7 +3,7 @@ package com.baidu.apollon.restnet.rest;
 import com.baidu.apollon.restnet.http.HttpStatus;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public interface e {
     int a() throws IOException;
 

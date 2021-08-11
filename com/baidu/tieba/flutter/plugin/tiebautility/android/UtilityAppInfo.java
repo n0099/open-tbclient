@@ -1,6 +1,8 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import android.text.TextUtils;
+import c.a.o0.b1.s0;
+import c.a.o0.t.c.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
@@ -9,9 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.b1.p0;
-import d.a.p0.t.c.n;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class UtilityAppInfo implements TiebaUtilityAppInfoAuto.HostUtilityAppInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class UtilityAppInfo implements TiebaUtilityAppInfoAuto.HostUtilityAppInf
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, result) == null) {
             TiebaUtilityAppInfoAuto.AppInfoStringResult appInfoStringResult = new TiebaUtilityAppInfoAuto.AppInfoStringResult();
-            appInfoStringResult.setResult(p0.b());
+            appInfoStringResult.setResult(s0.b());
             result.success(appInfoStringResult);
         }
     }

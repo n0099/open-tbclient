@@ -7,18 +7,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class c extends d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5650a = "1.3.7";
+    public static final String f39608a = "1.3.7";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5651b = 32;
+    public static final int f39609b = 32;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f5652c;
+    public static c f39610c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {
@@ -39,14 +39,14 @@ public class c extends d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f5652c == null) {
+            if (f39610c == null) {
                 synchronized (c.class) {
-                    if (f5652c == null) {
-                        f5652c = new c();
+                    if (f39610c == null) {
+                        f39610c = new c();
                     }
                 }
             }
-            return f5652c;
+            return f39610c;
         }
         return (c) invokeV.objValue;
     }
@@ -59,7 +59,7 @@ public class c extends d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f5653a;
+            public final /* synthetic */ c f39611a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -76,7 +76,7 @@ public class c extends d {
                         return;
                     }
                 }
-                this.f5653a = this;
+                this.f39611a = this;
             }
 
             @Override // com.baidu.fsg.face.base.b

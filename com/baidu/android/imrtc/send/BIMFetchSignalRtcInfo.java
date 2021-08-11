@@ -9,8 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMFetchSignalRtcInfo";
@@ -46,10 +47,10 @@ public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLimit : invokeV.intValue;
     }
 
-    public void setFetchTime(long j) {
+    public void setFetchTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.mFetchTime = j;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+            this.mFetchTime = j2;
         }
     }
 
@@ -103,7 +104,7 @@ public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "BIMFetchSignalRtcInfo{" + super.toString() + "mLimit=" + this.mLimit + ", mFetchTime=" + this.mFetchTime + '}';
+            return "BIMFetchSignalRtcInfo{" + super.toString() + "mLimit=" + this.mLimit + ", mFetchTime=" + this.mFetchTime + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

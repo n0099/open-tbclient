@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f9207b = null;
+    public static a f43848b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f9208c = "request_data";
+    public static final String f43849c = "request_data";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, PassBiometricDto> f9209a;
+    public HashMap<String, PassBiometricDto> f43850a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -35,17 +35,17 @@ public class a {
                 return;
             }
         }
-        this.f9209a = new HashMap<>();
+        this.f43850a = new HashMap<>();
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f9207b == null) {
-                f9207b = new a();
+            if (f43848b == null) {
+                f43848b = new a();
             }
-            return f9207b;
+            return f43848b;
         }
         return (a) invokeV.objValue;
     }
@@ -54,7 +54,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            HashMap<String, PassBiometricDto> hashMap = this.f9209a;
+            HashMap<String, PassBiometricDto> hashMap = this.f43850a;
             if (hashMap != null) {
                 return hashMap.get(str);
             }
@@ -66,20 +66,20 @@ public class a {
     public void a(String str, PassBiometricDto passBiometricDto) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, passBiometricDto) == null) {
-            if (this.f9209a == null) {
-                this.f9209a = new HashMap<>();
+            if (this.f43850a == null) {
+                this.f43850a = new HashMap<>();
             }
-            this.f9209a.put(str, passBiometricDto);
+            this.f43850a.put(str, passBiometricDto);
         }
     }
 
     public void a() {
         HashMap<String, PassBiometricDto> hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (hashMap = this.f9209a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (hashMap = this.f43850a) == null) {
             return;
         }
         hashMap.clear();
-        this.f9209a = null;
+        this.f43850a = null;
     }
 }

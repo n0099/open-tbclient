@@ -8,7 +8,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,7 +26,7 @@ import java.io.FileNotFoundException;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class MaterialLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IMAGE_CACHE_PATH = "img_download/";
@@ -45,7 +44,7 @@ public class MaterialLoader {
     public MaterialLoadingListener emptyListener;
     public Context mContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class FlushedInputStream extends FilterInputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,22 +70,22 @@ public class MaterialLoader {
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream
-        public long skip(long j) throws IOException {
+        public long skip(long j2) throws IOException {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-                long j2 = 0;
-                while (j2 < j) {
-                    long skip = ((FilterInputStream) this).in.skip(j - j2);
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
+                long j3 = 0;
+                while (j3 < j2) {
+                    long skip = ((FilterInputStream) this).in.skip(j2 - j3);
                     if (skip == 0) {
                         if (read() < 0) {
                             break;
                         }
                         skip = 1;
                     }
-                    j2 += skip;
+                    j3 += skip;
                 }
-                return j2;
+                return j3;
             }
             return invokeJ.longValue;
         }
@@ -206,8 +205,8 @@ public class MaterialLoader {
                 public void onFail(String str2, int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLI(1048576, this, str2, i2) == null) {
-                        String str3 = MaterialLoader.TAG;
-                        Log.e(str3, "素材请求失败，onFail: " + str2);
+                        String unused = MaterialLoader.TAG;
+                        String str3 = "素材请求失败，onFail: " + str2;
                         this.val$listener.onLoadingFailed(this.val$url, this.val$imageView, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
                     }
                 }
@@ -343,13 +342,13 @@ public class MaterialLoader {
                                 byteArrayOutputStream.close();
                                 return;
                             }
-                            Log.e(MaterialLoader.TAG, "素材请求失败，无数据流");
+                            String unused = MaterialLoader.TAG;
                             this.val$listener.onLoadingFailed(this.val$url, this.val$imageView, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
-                        } catch (OutOfMemoryError unused) {
-                            Log.e(MaterialLoader.TAG, "素材请求失败，OOM");
+                        } catch (OutOfMemoryError unused2) {
+                            String unused3 = MaterialLoader.TAG;
                             this.val$listener.onLoadingFailed(this.val$url, this.val$imageView, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
-                        } catch (Throwable unused2) {
-                            Log.e(MaterialLoader.TAG, "素材请求失败，解析异常");
+                        } catch (Throwable unused4) {
+                            String unused5 = MaterialLoader.TAG;
                             this.val$listener.onLoadingFailed(this.val$url, this.val$imageView, MaterialLoadErrorCode.ERROR_CODE_REQUEST_ERROR);
                         }
                     }

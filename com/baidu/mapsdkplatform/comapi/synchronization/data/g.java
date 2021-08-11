@@ -29,38 +29,40 @@ import java.util.concurrent.LinkedBlockingQueue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7933a = "g";
+    public static final String f42213a = "g";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public RoleOptions f7934b;
+    public RoleOptions f42214b;
 
     /* renamed from: c  reason: collision with root package name */
-    public DisplayOptions f7935c;
+    public DisplayOptions f42215c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BlockingQueue<SyncResponseResult> f7936d;
+    public BlockingQueue<SyncResponseResult> f42216d;
 
     /* renamed from: e  reason: collision with root package name */
-    public i f7937e;
+    public i f42217e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f7938f;
+    public String f42218f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f7939g;
+    public String f42219g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.synchronization.c.a f7940h;
+    public com.baidu.mapsdkplatform.comapi.synchronization.c.a f42220h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HandlerThread f7941i;
-    public b j;
+    public HandlerThread f42221i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public b f42222j;
     public volatile int k;
     public k l;
     public boolean m;
@@ -68,12 +70,12 @@ public final class g {
     public long o;
     public int p;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final g f7942a;
+        public static final g f42223a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -89,17 +91,17 @@ public final class g {
                     return;
                 }
             }
-            f7942a = new g(null);
+            f42223a = new g(null);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f7943a;
+        public final /* synthetic */ g f42224a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(g gVar, Looper looper) {
@@ -119,7 +121,7 @@ public final class g {
                     return;
                 }
             }
-            this.f7943a = gVar;
+            this.f42224a = gVar;
         }
 
         @Override // android.os.Handler
@@ -128,20 +130,20 @@ public final class g {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 switch (message.what) {
                     case 100000:
-                        SyncResponseResult b2 = this.f7943a.b((String) message.obj);
+                        SyncResponseResult b2 = this.f42224a.b((String) message.obj);
                         if (b2 == null) {
-                            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(g.f7933a, "parser response data is null");
+                            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(g.f42213a, "parser response data is null");
                             return;
                         }
-                        this.f7943a.a(b2);
-                        this.f7943a.j();
-                        this.f7943a.b(b2);
+                        this.f42224a.a(b2);
+                        this.f42224a.j();
+                        this.f42224a.b(b2);
                         return;
                     case CustomerServiceMenu.TRANSFER_RECORD /* 100001 */:
-                        this.f7943a.k();
+                        this.f42224a.k();
                         return;
                     default:
-                        com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(g.f7933a, "Undefined message type");
+                        com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(g.f42213a, "Undefined message type");
                         return;
                 }
             }
@@ -176,10 +178,10 @@ public final class g {
                 return;
             }
         }
-        this.f7936d = new LinkedBlockingQueue();
-        this.f7938f = String.valueOf(0);
-        this.f7939g = String.valueOf(0);
-        this.f7940h = new com.baidu.mapsdkplatform.comapi.synchronization.c.a();
+        this.f42216d = new LinkedBlockingQueue();
+        this.f42218f = String.valueOf(0);
+        this.f42219g = String.valueOf(0);
+        this.f42220h = new com.baidu.mapsdkplatform.comapi.synchronization.c.a();
         this.k = 0;
         this.m = false;
         this.n = 0.0f;
@@ -195,21 +197,21 @@ public final class g {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2)) == null) {
-            if (this.f7934b == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7933a, "RoleOptions is null");
+            if (this.f42214b == null) {
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42213a, "RoleOptions is null");
                 return null;
             }
             f fVar = new f();
-            fVar.a(this.f7934b.getOrderId());
-            fVar.b(this.f7934b.getDriverId());
-            fVar.c(this.f7934b.getUserId());
+            fVar.a(this.f42214b.getOrderId());
+            fVar.b(this.f42214b.getDriverId());
+            fVar.c(this.f42214b.getUserId());
             fVar.a(i2);
             if (this.m) {
-                this.f7938f = String.valueOf(0);
-                this.f7939g = String.valueOf(0);
+                this.f42218f = String.valueOf(0);
+                this.f42219g = String.valueOf(0);
             }
-            fVar.d(this.f7938f);
-            fVar.e(this.f7939g);
+            fVar.d(this.f42218f);
+            fVar.e(this.f42219g);
             return fVar;
         }
         return (f) invokeI.objValue;
@@ -218,24 +220,24 @@ public final class g {
     public static g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a.f7942a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a.f42223a : (g) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(SyncResponseResult syncResponseResult) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, syncResponseResult) == null) {
-            if (this.f7936d == null) {
-                this.f7936d = new LinkedBlockingQueue();
+            if (this.f42216d == null) {
+                this.f42216d = new LinkedBlockingQueue();
             }
             if (this.m) {
                 this.m = false;
-                this.f7936d.clear();
+                this.f42216d.clear();
             }
             try {
-                this.f7936d.put(syncResponseResult);
+                this.f42216d.put(syncResponseResult);
             } catch (InterruptedException e2) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7933a, "InterruptedException happened when put item into queue", e2);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42213a, "InterruptedException happened when put item into queue", e2);
                 Thread.currentThread().interrupt();
             }
         }
@@ -244,9 +246,9 @@ public final class g {
     private void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, str) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.c.a aVar = this.f7940h;
+            com.baidu.mapsdkplatform.comapi.synchronization.c.a aVar = this.f42220h;
             if (aVar == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7933a, "HttpClient cannot be null");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42213a, "HttpClient cannot be null");
             } else {
                 aVar.a(str, new h(this));
             }
@@ -259,19 +261,19 @@ public final class g {
         if (interceptable == null || interceptable.invokeLL(65547, this, str, syncResponseResult) == null) {
             String[] split = str.split(";");
             if (split.length == 0) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7933a, "There's no section route data");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42213a, "There's no section route data");
                 return;
             }
             String[] split2 = split[0].split(",");
             if (2 != split2.length) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7933a, "Section start position latlng invalid: " + split[0]);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42213a, "Section start position latlng invalid: " + split[0]);
                 return;
             }
             LatLng latLng2 = null;
             try {
                 latLng = new LatLng(Double.valueOf(split2[1]).doubleValue(), Double.valueOf(split2[0]).doubleValue());
             } catch (NumberFormatException e2) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7933a, "Get startPosition failed", e2);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42213a, "Get startPosition failed", e2);
                 latLng = null;
             }
             for (int i2 = 1; i2 < split.length; i2++) {
@@ -279,12 +281,12 @@ public final class g {
                 routeSectionInfo.a(latLng);
                 String[] split3 = split[i2].split(",");
                 if (2 != split3.length) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7933a, "Section position latlng invalid: " + split[i2]);
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42213a, "Section position latlng invalid: " + split[i2]);
                 } else {
                     try {
                         latLng2 = new LatLng(Double.valueOf(split3[1]).doubleValue(), Double.valueOf(split3[0]).doubleValue());
                     } catch (NumberFormatException e3) {
-                        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7933a, "Get endPosition failed", e3);
+                        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42213a, "Get endPosition failed", e3);
                     }
                     routeSectionInfo.b(latLng2);
                     syncResponseResult.a().a(routeSectionInfo);
@@ -300,51 +302,51 @@ public final class g {
         if (interceptable == null || interceptable.invokeLL(65548, this, jSONArray, syncResponseResult) == null) {
             JSONObject optJSONObject = jSONArray.optJSONObject(jSONArray.length() - 1);
             if (optJSONObject == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7933a, "Invalid driver position data");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42213a, "Invalid driver position data");
                 return;
             }
             syncResponseResult.c().setTimeStamp(optJSONObject.optString("t"));
             String optString = optJSONObject.optString("p");
             if (optString == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7933a, "No position info data");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42213a, "No position info data");
                 return;
             }
             String[] split = optString.split(";");
             if (split.length == 0) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7933a, "Position info array is empty");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42213a, "Position info array is empty");
                 return;
             }
             int i2 = 0;
             String[] split2 = split[0].split(",");
             if (2 != split2.length) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7933a, "Position latlng invalid");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42213a, "Position latlng invalid");
                 return;
             }
             LatLng latLng = null;
             try {
                 latLng = new LatLng(Double.valueOf(split2[1]).doubleValue(), Double.valueOf(split2[0]).doubleValue());
             } catch (NumberFormatException e2) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7933a, "Get driver position failed", e2);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42213a, "Get driver position failed", e2);
             }
             syncResponseResult.c().setPoint(latLng);
             double d3 = 0.0d;
             try {
                 d2 = Double.valueOf(split[1]).doubleValue();
             } catch (NumberFormatException e3) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7933a, "Get angle failed", e3);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42213a, "Get angle failed", e3);
                 d2 = 0.0d;
             }
             syncResponseResult.c().setAngle(d2);
             try {
                 d3 = Double.valueOf(split[2]).doubleValue();
             } catch (NumberFormatException e4) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7933a, "Get speed failed", e4);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42213a, "Get speed failed", e4);
             }
             syncResponseResult.c().setSpeed(d3);
             try {
                 i2 = Integer.valueOf(split[3]).intValue();
             } catch (NumberFormatException e5) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7933a, "Get orderStateInPosition failed", e5);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42213a, "Get orderStateInPosition failed", e5);
             }
             syncResponseResult.c().setOrderStateInPosition(i2);
         }
@@ -355,29 +357,29 @@ public final class g {
         if (interceptable == null || interceptable.invokeLL(65549, this, jSONObject, syncResponseResult) == null) {
             JSONObject optJSONObject = jSONObject.optJSONObject(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE);
             if (optJSONObject != null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7933a, "parser route data");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42213a, "parser route data");
                 b(optJSONObject, syncResponseResult);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("traffic");
             if (optJSONObject2 != null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7933a, "parser traffic data");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42213a, "parser traffic data");
                 c(optJSONObject2, syncResponseResult);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("positions");
             if (optJSONArray == null || optJSONArray.length() == 0) {
                 this.l.c(2004, SynchronizationConstants.LBS_STATUS_MESSAGE_QUERY_TRACK_DRIVER_POSITION_FAILED);
             } else {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7933a, "parser driver position data");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42213a, "parser driver position data");
                 a(optJSONArray, syncResponseResult);
             }
             String optString = jSONObject.optString("run");
             if (!TextUtils.isEmpty(optString)) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7933a, "parser travelled distance and elapsed time data");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42213a, "parser travelled distance and elapsed time data");
                 c(optString, syncResponseResult);
             }
             String optString2 = jSONObject.optString("remain");
             if (!TextUtils.isEmpty(optString2)) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7933a, "parser remain distance and estimated time data");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42213a, "parser remain distance and estimated time data");
                 d(optString2, syncResponseResult);
             }
             syncResponseResult.a(jSONObject.optInt("s"));
@@ -428,14 +430,14 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7933a, "Response result is null");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42213a, "Response result is null");
                 return null;
             }
             SyncResponseResult syncResponseResult = new SyncResponseResult();
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (!a(jSONObject)) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7933a, "Response result is invalid");
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42213a, "Response result is invalid");
                     return null;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
@@ -443,10 +445,10 @@ public final class g {
                     a(optJSONObject, syncResponseResult);
                     return syncResponseResult;
                 }
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7933a, "No route and traffic and driver data");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42213a, "No route and traffic and driver data");
                 return null;
             } catch (JSONException unused) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7933a, "JSONException happened when parser");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42213a, "JSONException happened when parser");
                 return null;
             }
         }
@@ -484,7 +486,7 @@ public final class g {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0078 A[LOOP:1: B:28:0x0074->B:30:0x0078, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0077 A[LOOP:1: B:28:0x0073->B:30:0x0077, LOOP_END] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -497,14 +499,14 @@ public final class g {
         if (interceptable == null || interceptable.invokeLL(65555, this, str, syncResponseResult) == null) {
             String[] split = str.split(";");
             if (split.length == 0) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7933a, "There's no section traffic data");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42213a, "There's no section traffic data");
                 return;
             }
             ArrayList<Integer> arrayList = new ArrayList<>();
             for (String str2 : split) {
                 String[] split2 = str2.split(",");
                 if (3 != split2.length) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7933a, "section traffic data is invalid: " + str2);
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42213a, "section traffic data is invalid: " + str2);
                 } else {
                     try {
                         i2 = Integer.valueOf(split2[0]).intValue();
@@ -513,7 +515,7 @@ public final class g {
                         } catch (NumberFormatException e2) {
                             e = e2;
                             i3 = 0;
-                            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7933a, "Get traffic status info failed", e);
+                            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42213a, "Get traffic status info failed", e);
                             i4 = 0;
                             while (i5 < i2 + i3) {
                             }
@@ -527,7 +529,7 @@ public final class g {
                         i4 = Integer.valueOf(split2[2]).intValue();
                     } catch (NumberFormatException e4) {
                         e = e4;
-                        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7933a, "Get traffic status info failed", e);
+                        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42213a, "Get traffic status info failed", e);
                         i4 = 0;
                         while (i5 < i2 + i3) {
                         }
@@ -546,8 +548,8 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65556, this, jSONObject, syncResponseResult) == null) {
             syncResponseResult.a().a(jSONObject.optInt("c") != 0);
-            this.f7938f = jSONObject.optString("f");
-            syncResponseResult.a().a(this.f7938f);
+            this.f42218f = jSONObject.optString("f");
+            syncResponseResult.a().a(this.f42218f);
             String optString = jSONObject.optString("d");
             if (TextUtils.isEmpty(optString)) {
                 return;
@@ -561,23 +563,23 @@ public final class g {
         if (interceptable == null || interceptable.invokeLL(65558, this, str, syncResponseResult) == null) {
             String[] split = str.split(";");
             if (2 != split.length) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7933a, "The travelled data is null or invalid");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42213a, "The travelled data is null or invalid");
                 return;
             }
             float f2 = 0.0f;
             try {
                 f2 = Float.valueOf(split[0]).floatValue();
             } catch (NumberFormatException e2) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7933a, "Get travelledDistance failed", e2);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42213a, "Get travelledDistance failed", e2);
             }
             syncResponseResult.a(f2);
-            long j = 0;
+            long j2 = 0;
             try {
-                j = Long.valueOf(split[1]).longValue();
+                j2 = Long.valueOf(split[1]).longValue();
             } catch (NumberFormatException e3) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7933a, "Get elapsedTime failed", e3);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42213a, "Get elapsedTime failed", e3);
             }
-            syncResponseResult.a(j);
+            syncResponseResult.a(j2);
         }
     }
 
@@ -585,8 +587,8 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65559, this, jSONObject, syncResponseResult) == null) {
             syncResponseResult.b().a(jSONObject.optInt("c") != 0);
-            this.f7939g = jSONObject.optString("f");
-            syncResponseResult.b().a(this.f7939g);
+            this.f42219g = jSONObject.optString("f");
+            syncResponseResult.b().a(this.f42219g);
             String optString = jSONObject.optString("d");
             if (TextUtils.isEmpty(optString)) {
                 return;
@@ -600,23 +602,23 @@ public final class g {
         if (interceptable == null || interceptable.invokeLL(65561, this, str, syncResponseResult) == null) {
             String[] split = str.split(";");
             if (2 != split.length) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7933a, "The remain data is null or invalid: ");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f42213a, "The remain data is null or invalid: ");
                 return;
             }
             float f2 = 0.0f;
             try {
                 f2 = Float.valueOf(split[0]).floatValue();
             } catch (NumberFormatException e2) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7933a, "Get remainDistance failed", e2);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42213a, "Get remainDistance failed", e2);
             }
             syncResponseResult.b(f2);
-            long j = 0;
+            long j2 = 0;
             try {
-                j = Long.valueOf(split[1]).longValue();
+                j2 = Long.valueOf(split[1]).longValue();
             } catch (NumberFormatException e3) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7933a, "Get estimatedTime failed", e3);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f42213a, "Get estimatedTime failed", e3);
             }
-            syncResponseResult.b(j);
+            syncResponseResult.b(j2);
         }
     }
 
@@ -624,7 +626,7 @@ public final class g {
     public void j() {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65563, this) == null) || (iVar = this.f7937e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65563, this) == null) || (iVar = this.f42217e) == null) {
             return;
         }
         iVar.a();
@@ -634,7 +636,7 @@ public final class g {
     public void k() {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65564, this) == null) || (iVar = this.f7937e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65564, this) == null) || (iVar = this.f42217e) == null) {
             return;
         }
         iVar.b();
@@ -649,7 +651,7 @@ public final class g {
             this.p = i2;
             f a2 = a(i2);
             if (a2 == null) {
-                str = f7933a;
+                str = f42213a;
                 str2 = "Data request option is null";
             } else {
                 String a3 = new m(a2).a();
@@ -657,7 +659,7 @@ public final class g {
                     a(a3);
                     return;
                 } else {
-                    str = f7933a;
+                    str = f42213a;
                     str2 = "send url string is null";
                 }
             }
@@ -669,8 +671,8 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
             synchronized (this) {
-                if (this.f7935c != null) {
-                    this.f7935c.setStartPositionInfoWindowView(view);
+                if (this.f42215c != null) {
+                    this.f42215c.setStartPositionInfoWindowView(view);
                     return;
                 }
                 if (this.l != null) {
@@ -684,7 +686,7 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, displayOptions) == null) {
             synchronized (this) {
-                this.f7935c = displayOptions;
+                this.f42215c = displayOptions;
             }
         }
     }
@@ -693,7 +695,7 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, roleOptions) == null) {
             synchronized (this) {
-                this.f7934b = roleOptions;
+                this.f42214b = roleOptions;
             }
         }
     }
@@ -701,7 +703,7 @@ public final class g {
     public void a(i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, iVar) == null) {
-            this.f7937e = iVar;
+            this.f42217e = iVar;
         }
     }
 
@@ -716,9 +718,9 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             HandlerThread handlerThread = new HandlerThread("SyncDataStorage");
-            this.f7941i = handlerThread;
+            this.f42221i = handlerThread;
             handlerThread.start();
-            this.j = new b(this, this.f7941i.getLooper());
+            this.f42222j = new b(this, this.f42221i.getLooper());
         }
     }
 
@@ -726,8 +728,8 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view) == null) {
             synchronized (this) {
-                if (this.f7935c != null) {
-                    this.f7935c.setEndPositionInfoWindowView(view);
+                if (this.f42215c != null) {
+                    this.f42215c.setEndPositionInfoWindowView(view);
                     return;
                 }
                 if (this.l != null) {
@@ -739,18 +741,18 @@ public final class g {
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f7937e == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f42217e == null) {
             return;
         }
-        this.f7937e = null;
+        this.f42217e = null;
     }
 
     public synchronized void c(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
             synchronized (this) {
-                if (this.f7935c != null) {
-                    this.f7935c.setCarInfoWindowView(view);
+                if (this.f42215c != null) {
+                    this.f42215c.setCarInfoWindowView(view);
                     return;
                 }
                 if (this.l != null) {
@@ -769,19 +771,19 @@ public final class g {
     public RoleOptions e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f7934b : (RoleOptions) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f42214b : (RoleOptions) invokeV.objValue;
     }
 
     public DisplayOptions f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f7935c : (DisplayOptions) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f42215c : (DisplayOptions) invokeV.objValue;
     }
 
     public BlockingQueue<SyncResponseResult> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f7936d : (BlockingQueue) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f42216d : (BlockingQueue) invokeV.objValue;
     }
 
     public void h() {
@@ -790,8 +792,8 @@ public final class g {
             this.m = false;
             this.n = 0.0f;
             this.o = 0L;
-            this.j.removeCallbacksAndMessages(null);
-            this.f7941i.quit();
+            this.f42222j.removeCallbacksAndMessages(null);
+            this.f42221i.quit();
         }
     }
 }

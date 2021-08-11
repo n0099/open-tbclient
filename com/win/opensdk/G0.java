@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class G0 implements ViewTreeObserver.OnScrollChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ N0 f39579a;
+    public final /* synthetic */ N0 f76415a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ O0 f39580b;
+    public final /* synthetic */ O0 f76416b;
 
     public G0(O0 o0, N0 n0) {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public class G0 implements ViewTreeObserver.OnScrollChangedListener {
                 return;
             }
         }
-        this.f39580b = o0;
-        this.f39579a = n0;
+        this.f76416b = o0;
+        this.f76415a = n0;
     }
 
     @Override // android.view.ViewTreeObserver.OnScrollChangedListener
@@ -40,15 +40,15 @@ public class G0 implements ViewTreeObserver.OnScrollChangedListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (this.f39580b.f39609b || !this.f39580b.a(this.f39580b.f39608a)) {
+                if (this.f76416b.f76445b || !this.f76416b.a(this.f76416b.f76444a)) {
                     return;
                 }
-                this.f39580b.f39612e.removeMessages(1101);
-                this.f39580b.f39608a.getViewTreeObserver().removeOnScrollChangedListener(this);
-                if (this.f39579a != null) {
-                    this.f39579a.a();
+                this.f76416b.f76448e.removeMessages(1101);
+                this.f76416b.f76444a.getViewTreeObserver().removeOnScrollChangedListener(this);
+                if (this.f76415a != null) {
+                    this.f76415a.a();
                 }
-                this.f39580b.f39609b = true;
+                this.f76416b.f76445b = true;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

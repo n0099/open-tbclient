@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat;
 
-import d.a.q0.i1.f.b;
-/* loaded from: classes4.dex */
+import c.a.p0.j1.f.b;
+/* loaded from: classes7.dex */
 public interface ISendVoiceView extends b {
     void refreshSendVoiceText(boolean z);
 }

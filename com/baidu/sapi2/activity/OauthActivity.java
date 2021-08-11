@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
+import c.a.b0.a.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.CoreViewRouter;
@@ -31,13 +32,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.constant.WBConstants;
-import d.a.c0.a.f;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class OauthActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String E = "extra_calling_app_id";
@@ -151,7 +151,7 @@ public class OauthActivity extends BaseActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ OauthActivity f9867a;
+                    public final /* synthetic */ OauthActivity f44529a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -168,7 +168,7 @@ public class OauthActivity extends BaseActivity {
                                 return;
                             }
                         }
-                        this.f9867a = this;
+                        this.f44529a = this;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -216,7 +216,7 @@ public class OauthActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ OauthActivity f9868a;
+                public final /* synthetic */ OauthActivity f44530a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -233,7 +233,7 @@ public class OauthActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9868a = this;
+                    this.f44530a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
@@ -241,7 +241,7 @@ public class OauthActivity extends BaseActivity {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        this.f9868a.a();
+                        this.f44530a.a();
                         return false;
                     }
                     return invokeV.booleanValue;
@@ -252,7 +252,7 @@ public class OauthActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ OauthActivity f9869a;
+                public final /* synthetic */ OauthActivity f44531a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -269,16 +269,16 @@ public class OauthActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9869a = this;
+                    this.f44531a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        OauthActivity oauthActivity = this.f9869a;
+                        OauthActivity oauthActivity = this.f44531a;
                         oauthActivity.setResult(0, oauthActivity.a(-205));
-                        this.f9869a.finish();
+                        this.f44531a.finish();
                     }
                 }
             });
@@ -287,7 +287,7 @@ public class OauthActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ OauthActivity f9870a;
+                public final /* synthetic */ OauthActivity f44532a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -304,7 +304,7 @@ public class OauthActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9870a = this;
+                    this.f44532a = this;
                 }
 
                 @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
@@ -318,7 +318,7 @@ public class OauthActivity extends BaseActivity {
                 public void onSuccess() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.f9870a.c();
+                        this.f44532a.c();
                         SapiAccountManager.getGlobalCallback().onLoginStatusChange();
                     }
                 }
@@ -328,7 +328,7 @@ public class OauthActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ OauthActivity f9871a;
+                public final /* synthetic */ OauthActivity f44533a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -345,7 +345,7 @@ public class OauthActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9871a = this;
+                    this.f44533a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.BdOauthCallback
@@ -353,10 +353,10 @@ public class OauthActivity extends BaseActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
                         Intent intent = new Intent();
-                        if (this.f9871a.B == 0) {
+                        if (this.f44533a.B == 0) {
                             Map<String, String> urlParamsToMap = SapiUtils.urlParamsToMap(str.substring(str.indexOf("#") + 1, str.length()));
                             if (urlParamsToMap.containsKey("error")) {
-                                OauthActivity oauthActivity = this.f9871a;
+                                OauthActivity oauthActivity = this.f44533a;
                                 oauthActivity.setResult(0, oauthActivity.a(-204, urlParamsToMap.get("error")));
                             } else {
                                 JSONObject jSONObject = new JSONObject();
@@ -369,10 +369,10 @@ public class OauthActivity extends BaseActivity {
                                     jSONObject.put("code", urlParamsToMap.get("code"));
                                     jSONObject.put("state", urlParamsToMap.get("state"));
                                     intent.putExtra(OauthActivity.F, jSONObject.toString());
-                                    this.f9871a.setResult(-1, intent);
+                                    this.f44533a.setResult(-1, intent);
                                 } catch (JSONException e2) {
                                     Log.e(e2);
-                                    OauthActivity oauthActivity2 = this.f9871a;
+                                    OauthActivity oauthActivity2 = this.f44533a;
                                     oauthActivity2.setResult(0, oauthActivity2.a(-201));
                                 }
                             }
@@ -387,25 +387,25 @@ public class OauthActivity extends BaseActivity {
                                         jSONObject3.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_ACCESS_TOKEN, jSONObject2.optString("access_token"));
                                         jSONObject3.put("openid", jSONObject2.optString("openid"));
                                         jSONObject3.put("expiresIn", jSONObject2.optString("expires_in"));
-                                        jSONObject3.put("scope", this.f9871a.w);
+                                        jSONObject3.put("scope", this.f44533a.w);
                                         jSONObject3.put("code", jSONObject2.optString("authorization_code"));
                                         jSONObject2.put("state", jSONObject2.optString("state"));
                                         intent.putExtra(OauthActivity.F, jSONObject3.toString());
-                                        this.f9871a.setResult(-1, intent);
+                                        this.f44533a.setResult(-1, intent);
                                     }
-                                    this.f9871a.d();
+                                    this.f44533a.d();
                                     return;
                                 }
-                                this.f9871a.setResult(0, this.f9871a.a(-205));
-                                this.f9871a.finish();
+                                this.f44533a.setResult(0, this.f44533a.a(-205));
+                                this.f44533a.finish();
                                 return;
                             } catch (JSONException e3) {
                                 Log.e(e3);
-                                OauthActivity oauthActivity3 = this.f9871a;
+                                OauthActivity oauthActivity3 = this.f44533a;
                                 oauthActivity3.setResult(0, oauthActivity3.a(-201));
                             }
                         }
-                        this.f9871a.finish();
+                        this.f44533a.finish();
                     }
                 }
             };
@@ -449,7 +449,7 @@ public class OauthActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ OauthActivity f9875a;
+                public final /* synthetic */ OauthActivity f44537a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -466,14 +466,14 @@ public class OauthActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9875a = this;
+                    this.f44537a = this;
                 }
 
                 @Override // com.baidu.sapi2.callback.SsoHashCallback, com.baidu.sapi2.callback.SapiCallback
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        OauthActivity oauthActivity = this.f9875a;
+                        OauthActivity oauthActivity = this.f44537a;
                         ViewUtility.dismissDialog(oauthActivity, oauthActivity.A);
                     }
                 }
@@ -482,12 +482,12 @@ public class OauthActivity extends BaseActivity {
                 public void onStart() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        OauthActivity oauthActivity = this.f9875a;
+                        OauthActivity oauthActivity = this.f44537a;
                         oauthActivity.A = new LoadingDialog.Builder(oauthActivity).setMessage("正在加载中...").setCancelable(false).setCancelOutside(false).createDialog();
-                        if (this.f9875a.isFinishing() || this.f9875a.A.isShowing()) {
+                        if (this.f44537a.isFinishing() || this.f44537a.A.isShowing()) {
                             return;
                         }
-                        this.f9875a.A.show();
+                        this.f44537a.A.show();
                     }
                 }
 
@@ -501,30 +501,30 @@ public class OauthActivity extends BaseActivity {
                         hashMap.put("client", "android");
                         hashMap.put("clientfrom", "native");
                         hashMap.put("suppcheck", "1");
-                        if (this.f9875a.B == 0) {
-                            if (SapiUtils.versionCompareTo(this.f9875a.y, OauthActivity.N) >= 0) {
+                        if (this.f44537a.B == 0) {
+                            if (SapiUtils.versionCompareTo(this.f44537a.y, OauthActivity.N) >= 0) {
                                 hashMap.put(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, "sso_auth_code");
-                                hashMap.put("state", this.f9875a.x);
+                                hashMap.put("state", this.f44537a.x);
                             } else {
                                 hashMap.put(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, "sso_token");
                             }
                             hashMap.put("display", "mobile");
-                            hashMap.put("scope", this.f9875a.w);
+                            hashMap.put("scope", this.f44537a.w);
                             hashMap.put("sso_hash", ssoHashResult.ssoHash);
-                            hashMap.put("client_id", this.f9875a.u);
-                            hashMap.put(WBConstants.AUTH_PARAMS_REDIRECT_URL, this.f9875a.v);
+                            hashMap.put("client_id", this.f44537a.u);
+                            hashMap.put(WBConstants.AUTH_PARAMS_REDIRECT_URL, this.f44537a.v);
                             str = (SapiAccountManager.getInstance().getConfignation().environment.getDeviceUrl() + "/oauth/2.0/authorize") + SapiUtils.mapToUrlParams(hashMap, false);
                         } else {
                             hashMap.put("oauth_sso_hash", ssoHashResult.ssoHash);
-                            hashMap.put("oauth_redirect_uri", this.f9875a.v);
-                            if (SapiUtils.versionCompareTo(this.f9875a.y, OauthActivity.N) >= 0) {
+                            hashMap.put("oauth_redirect_uri", this.f44537a.v);
+                            if (SapiUtils.versionCompareTo(this.f44537a.y, OauthActivity.N) >= 0) {
                                 hashMap.put("getauthorizationcode", "1");
                             } else {
                                 hashMap.put("getaccesstoken", "1");
                             }
-                            str = this.f9875a.C + SapiUtils.mapToUrlParams(hashMap, true);
+                            str = this.f44537a.C + SapiUtils.mapToUrlParams(hashMap, true);
                         }
-                        this.f9875a.sapiWebView.loadUrl(str);
+                        this.f44537a.sapiWebView.loadUrl(str);
                     }
                 }
             }, this.t, this.u);
@@ -548,10 +548,10 @@ public class OauthActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ boolean f9872a;
+                public final /* synthetic */ boolean f44534a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ OauthActivity f9873b;
+                public final /* synthetic */ OauthActivity f44535b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -568,8 +568,8 @@ public class OauthActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9873b = this;
-                    this.f9872a = z;
+                    this.f44535b = this;
+                    this.f44534a = z;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -578,16 +578,16 @@ public class OauthActivity extends BaseActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
                         if (webAuthResult.getResultCode() == -301) {
-                            OauthActivity oauthActivity = this.f9873b;
+                            OauthActivity oauthActivity = this.f44535b;
                             oauthActivity.setResult(0, oauthActivity.a(-205));
-                            this.f9873b.finish();
+                            this.f44535b.finish();
                         } else {
-                            OauthActivity oauthActivity2 = this.f9873b;
+                            OauthActivity oauthActivity2 = this.f44535b;
                             oauthActivity2.setResult(0, oauthActivity2.a(-201));
-                            this.f9873b.finish();
+                            this.f44535b.finish();
                         }
                         LoginActivity.supportShareLogin = true;
-                        SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.f9872a;
+                        SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.f44534a;
                     }
                 }
 
@@ -596,16 +596,16 @@ public class OauthActivity extends BaseActivity {
                 public void onSuccess(WebAuthResult webAuthResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, webAuthResult) == null) {
-                        this.f9873b.c();
+                        this.f44535b.c();
                         SapiAccountManager.getGlobalCallback().onLoginStatusChange();
                         LoginActivity.supportShareLogin = true;
-                        SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.f9872a;
+                        SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.f44534a;
                         new Handler().postDelayed(new Runnable(this) { // from class: com.baidu.sapi2.activity.OauthActivity.6.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass6 f9874a;
+                            public final /* synthetic */ AnonymousClass6 f44536a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -622,14 +622,14 @@ public class OauthActivity extends BaseActivity {
                                         return;
                                     }
                                 }
-                                this.f9874a = this;
+                                this.f44536a = this;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    SapiUtils.hideSoftInput(this.f9874a.f9873b);
+                                    SapiUtils.hideSoftInput(this.f44536a.f44535b);
                                 }
                             }
                         }, 300L);

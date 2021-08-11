@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.network.NetworkInfoUtils;
-import com.baidu.mobstat.Config;
 import com.baidu.pass.permissions.PassPermissions;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import java.net.NetworkInterface;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SapiDeviceUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -159,11 +158,11 @@ public class SapiDeviceUtils {
                             return sb.toString().toLowerCase();
                         }
                     }
-                    return Config.DEF_MAC_ID;
+                    return "02:00:00:00:00:00";
                 }
                 return ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
             }
-            return Config.DEF_MAC_ID;
+            return "02:00:00:00:00:00";
         }
         return (String) invokeL.objValue;
     }

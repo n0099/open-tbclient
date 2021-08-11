@@ -15,7 +15,6 @@ import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
 import com.baidu.sapi2.result.GetTplStokenResult;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLIENT = "android";
@@ -120,7 +119,7 @@ public abstract class BaseRequest {
                 add(baseRequest.buildCookie("cuid", SapiUtils.getClientId(baseRequest.configuration.context)));
                 if (this.this$0.account != null) {
                     BaseRequest baseRequest2 = this.this$0;
-                    add(baseRequest2.buildCookie(HttpRequest.BDUSS, baseRequest2.account.bduss));
+                    add(baseRequest2.buildCookie("BDUSS", baseRequest2.account.bduss));
                     BaseRequest baseRequest3 = this.this$0;
                     add(baseRequest3.buildCookie("STOKEN", baseRequest3.getPPSToken()));
                 }

@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class i extends t {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public t f28192a;
+    public t f64035a;
 
     public i(t tVar) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class i extends t {
             }
         }
         if (tVar != null) {
-            this.f28192a = tVar;
+            this.f64035a = tVar;
             return;
         }
         throw new IllegalArgumentException("delegate == null");
@@ -42,49 +42,49 @@ public class i extends t {
     public final t a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28192a : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64035a : (t) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.b.a.t
     public long b_() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28192a.b_() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f64035a.b_() : invokeV.longValue;
     }
 
     @Override // com.bytedance.sdk.component.b.a.t
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28192a.c() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f64035a.c() : invokeV.booleanValue;
     }
 
     @Override // com.bytedance.sdk.component.b.a.t
     public long c_() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28192a.c_() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f64035a.c_() : invokeV.longValue;
     }
 
     @Override // com.bytedance.sdk.component.b.a.t
     public t e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f28192a.e() : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f64035a.e() : (t) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.b.a.t
     public t f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f28192a.f() : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f64035a.f() : (t) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.b.a.t
     public void g() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f28192a.g();
+            this.f64035a.g();
         }
     }
 
@@ -93,7 +93,7 @@ public class i extends t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tVar)) == null) {
             if (tVar != null) {
-                this.f28192a = tVar;
+                this.f64035a = tVar;
                 return this;
             }
             throw new IllegalArgumentException("delegate == null");
@@ -102,16 +102,16 @@ public class i extends t {
     }
 
     @Override // com.bytedance.sdk.component.b.a.t
-    public t a(long j, TimeUnit timeUnit) {
+    public t a(long j2, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j, timeUnit)) == null) ? this.f28192a.a(j, timeUnit) : (t) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j2, timeUnit)) == null) ? this.f64035a.a(j2, timeUnit) : (t) invokeJL.objValue;
     }
 
     @Override // com.bytedance.sdk.component.b.a.t
-    public t a(long j) {
+    public t a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? this.f28192a.a(j) : (t) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? this.f64035a.a(j2) : (t) invokeJ.objValue;
     }
 }

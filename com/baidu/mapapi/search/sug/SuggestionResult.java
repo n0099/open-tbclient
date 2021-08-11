@@ -17,14 +17,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SuggestionResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SuggestionResult> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<SuggestionInfo> suggestionList;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class SuggestionInfo implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SuggestionInfo> CREATOR;

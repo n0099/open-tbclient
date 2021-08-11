@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class RectangleShapeParser {
     public static /* synthetic */ Interceptable $ic;
     public static JsonReader.Options NAMES;
@@ -36,7 +36,7 @@ public class RectangleShapeParser {
                 return;
             }
         }
-        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "p", "s", r.f7788a, "hd");
+        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "p", "s", r.f42062a, "hd");
     }
 
     public RectangleShapeParser() {

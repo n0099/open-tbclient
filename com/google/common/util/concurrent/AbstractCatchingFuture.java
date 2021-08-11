@@ -1,5 +1,7 @@
 package com.google.common.util.concurrent;
 
+import c.i.d.a.g;
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,12 +10,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.util.concurrent.FluentFuture;
-import d.f.d.a.g;
-import d.f.d.a.n;
 import java.lang.Throwable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractCatchingFuture<V, X extends Throwable, F, T> extends FluentFuture.TrustedFuture<V> implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public abstract class AbstractCatchingFuture<V, X extends Throwable, F, T> exten
     public F fallback;
     public ListenableFuture<? extends V> inputFuture;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class AsyncCatchingFuture<V, X extends Throwable> extends AbstractCatchingFuture<V, X, AsyncFunction<? super X, ? extends V>, ListenableFuture<? extends V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +78,7 @@ public abstract class AbstractCatchingFuture<V, X extends Throwable, F, T> exten
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class CatchingFuture<V, X extends Throwable> extends AbstractCatchingFuture<V, X, g<? super X, ? extends V>, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,7 +152,7 @@ public abstract class AbstractCatchingFuture<V, X extends Throwable, F, T> exten
     public static <V, X extends Throwable> ListenableFuture<V> create(ListenableFuture<? extends V> listenableFuture, Class<X> cls, g<? super X, ? extends V> gVar, Executor executor) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, listenableFuture, cls, gVar, executor)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, listenableFuture, cls, gVar, executor)) == null) {
             CatchingFuture catchingFuture = new CatchingFuture(listenableFuture, cls, gVar);
             listenableFuture.addListener(catchingFuture, MoreExecutors.rejectionPropagatingExecutor(executor, catchingFuture));
             return catchingFuture;
@@ -263,7 +263,7 @@ public abstract class AbstractCatchingFuture<V, X extends Throwable, F, T> exten
     public static <X extends Throwable, V> ListenableFuture<V> create(ListenableFuture<? extends V> listenableFuture, Class<X> cls, AsyncFunction<? super X, ? extends V> asyncFunction, Executor executor) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, listenableFuture, cls, asyncFunction, executor)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, listenableFuture, cls, asyncFunction, executor)) == null) {
             AsyncCatchingFuture asyncCatchingFuture = new AsyncCatchingFuture(listenableFuture, cls, asyncFunction);
             listenableFuture.addListener(asyncCatchingFuture, MoreExecutors.rejectionPropagatingExecutor(executor, asyncCatchingFuture));
             return asyncCatchingFuture;

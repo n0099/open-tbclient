@@ -14,7 +14,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.queue.SpscLinkedArrayQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpst
     public final long time;
     public final TimeUnit unit;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class SkipLastTimedObserver<T> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5677354903406201275L;
@@ -40,12 +40,12 @@ public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpst
         public final long time;
         public final TimeUnit unit;
 
-        public SkipLastTimedObserver(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler scheduler, int i2, boolean z) {
+        public SkipLastTimedObserver(Observer<? super T> observer, long j2, TimeUnit timeUnit, Scheduler scheduler, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i2), Boolean.valueOf(z)};
+                Object[] objArr = {observer, Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i2), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -56,7 +56,7 @@ public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpst
                 }
             }
             this.actual = observer;
-            this.time = j;
+            this.time = j2;
             this.unit = timeUnit;
             this.scheduler = scheduler;
             this.queue = new SpscLinkedArrayQueue<>(i2);
@@ -84,14 +84,14 @@ public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpst
                 boolean z = this.delayError;
                 TimeUnit timeUnit = this.unit;
                 Scheduler scheduler = this.scheduler;
-                long j = this.time;
+                long j2 = this.time;
                 int i2 = 1;
                 while (!this.cancelled) {
                     boolean z2 = this.done;
                     Long l = (Long) spscLinkedArrayQueue.peek();
                     boolean z3 = l == null;
                     long now = scheduler.now(timeUnit);
-                    if (!z3 && l.longValue() > now - j) {
+                    if (!z3 && l.longValue() > now - j2) {
                         z3 = true;
                     }
                     if (z2) {
@@ -176,13 +176,13 @@ public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpst
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableSkipLastTimed(ObservableSource<T> observableSource, long j, TimeUnit timeUnit, Scheduler scheduler, int i2, boolean z) {
+    public ObservableSkipLastTimed(ObservableSource<T> observableSource, long j2, TimeUnit timeUnit, Scheduler scheduler, int i2, boolean z) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {observableSource, Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -193,7 +193,7 @@ public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpst
                 return;
             }
         }
-        this.time = j;
+        this.time = j2;
         this.unit = timeUnit;
         this.scheduler = scheduler;
         this.bufferSize = i2;

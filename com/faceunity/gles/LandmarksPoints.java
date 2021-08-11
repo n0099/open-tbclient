@@ -9,13 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.StatusCode;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class LandmarksPoints {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COORDS_PER_VERTEX = 2;
@@ -99,7 +98,7 @@ public class LandmarksPoints {
             int glGetAttribLocation = GLES20.glGetAttribLocation(this.mProgram, "vPosition");
             this.mPositionHandle = glGetAttribLocation;
             GLES20.glEnableVertexAttribArray(glGetAttribLocation);
-            GLES20.glVertexAttribPointer(this.mPositionHandle, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 8, (Buffer) this.vertexBuffer);
+            GLES20.glVertexAttribPointer(this.mPositionHandle, 2, 5126, false, 8, (Buffer) this.vertexBuffer);
             int glGetUniformLocation = GLES20.glGetUniformLocation(this.mProgram, "vColor");
             this.mColorHandle = glGetUniformLocation;
             GLES20.glUniform4fv(glGetUniformLocation, 1, this.color, 0);

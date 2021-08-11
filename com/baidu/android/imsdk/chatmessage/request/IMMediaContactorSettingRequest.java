@@ -19,7 +19,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMMediaContactorSettingRequest extends IMMediaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMMediaContactorSettingRequest";
@@ -31,12 +31,12 @@ public class IMMediaContactorSettingRequest extends IMMediaBaseHttpRequest {
     public String mKey;
     public int mOperation;
 
-    public IMMediaContactorSettingRequest(Context context, long j, int i2, String str) {
+    public IMMediaContactorSettingRequest(Context context, long j2, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i2), str};
+            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2), str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -49,7 +49,7 @@ public class IMMediaContactorSettingRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
-        this.mContacter = j;
+        this.mContacter = j2;
         this.mOperation = i2;
         this.mKey = str;
     }
@@ -164,12 +164,12 @@ public class IMMediaContactorSettingRequest extends IMMediaBaseHttpRequest {
         return super.shouldAbort();
     }
 
-    public IMMediaContactorSettingRequest(Context context, long j, int i2, long j2, String str, int i3, String str2) {
+    public IMMediaContactorSettingRequest(Context context, long j2, int i2, long j3, String str, int i3, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), str, Integer.valueOf(i3), str2};
+            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, Integer.valueOf(i3), str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -182,11 +182,11 @@ public class IMMediaContactorSettingRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
-        this.mContacter = j;
+        this.mContacter = j2;
         this.mOperation = i3;
         this.mKey = str2;
         this.mContactorType = i2;
-        this.mContactorPauid = j2;
+        this.mContactorPauid = j3;
         this.mContactorThirdid = str;
     }
 }

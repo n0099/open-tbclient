@@ -1,6 +1,5 @@
 package com.baidu.searchbox.cloudcontrol.data;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class CloudControlUBCData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_COUNT = "count";
@@ -50,7 +49,7 @@ public class CloudControlUBCData {
                 this.controlJsonObject.put("items", jSONArray);
             } catch (JSONException e2) {
                 if (AppConfig.isDebug()) {
-                    Log.d(TAG, "collectDegradegInfo is error" + e2.toString());
+                    String str = "collectDegradegInfo is error" + e2.toString();
                 }
             }
         }

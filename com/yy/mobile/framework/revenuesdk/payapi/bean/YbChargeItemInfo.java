@@ -5,7 +5,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class YbChargeItemInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +39,7 @@ public class YbChargeItemInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "YbChargeItemInfo{comment=" + this.comment + ", date=" + this.date + ", status=" + this.status + ", other=" + this.other + ", tradeType=" + this.tradeType + ", tips=" + this.tips + ", balance=" + this.balance + ", moneyType=" + this.moneyType + ", income=" + this.income + ", outgo=" + this.outgo + '}';
+            return "YbChargeItemInfo{comment=" + this.comment + ", date=" + this.date + ", status=" + this.status + ", other=" + this.other + ", tradeType=" + this.tradeType + ", tips=" + this.tips + ", balance=" + this.balance + ", moneyType=" + this.moneyType + ", income=" + this.income + ", outgo=" + this.outgo + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

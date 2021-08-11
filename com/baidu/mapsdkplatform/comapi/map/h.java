@@ -1,6 +1,5 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,37 +8,39 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f7747a;
+    public static final h f42019a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h f7748b;
+    public static final h f42020b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final h f7749c;
+    public static final h f42021c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final h f7750d;
+    public static final h f42022d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final h f7751e;
+    public static final h f42023e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final h f7752f;
+    public static final h f42024f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final h f7753g;
+    public static final h f42025g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final h f7754h;
+    public static final h f42026h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final h f7755i;
-    public static final h j;
+    public static final h f42027i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final h f42028j;
     public static final /* synthetic */ h[] k;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,18 +57,18 @@ public final class h {
                 return;
             }
         }
-        f7747a = new h("logo", 0);
-        f7748b = new h("popup", 1);
-        f7749c = new h("marker", 2);
-        f7750d = new h("ground", 3);
-        f7751e = new h("text", 4);
-        f7752f = new h("arc", 5);
-        f7753g = new h("dot", 6);
-        f7754h = new h(Config.TRACE_CIRCLE, 7);
-        f7755i = new h("polyline", 8);
+        f42019a = new h("logo", 0);
+        f42020b = new h("popup", 1);
+        f42021c = new h("marker", 2);
+        f42022d = new h("ground", 3);
+        f42023e = new h("text", 4);
+        f42024f = new h("arc", 5);
+        f42025g = new h("dot", 6);
+        f42026h = new h("circle", 7);
+        f42027i = new h("polyline", 8);
         h hVar = new h("polygon", 9);
-        j = hVar;
-        k = new h[]{f7747a, f7748b, f7749c, f7750d, f7751e, f7752f, f7753g, f7754h, f7755i, hVar};
+        f42028j = hVar;
+        k = new h[]{f42019a, f42020b, f42021c, f42022d, f42023e, f42024f, f42025g, f42026h, f42027i, hVar};
     }
 
     public h(String str, int i2) {

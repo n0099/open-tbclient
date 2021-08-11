@@ -15,7 +15,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.ReadableByteChannel;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class Decoder implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static final ByteBuffer EMPTY_BUFER;
@@ -27,12 +27,12 @@ public class Decoder implements INoProGuard {
     public final ReadableByteChannel source;
 
     /* renamed from: com.baidu.webkit.internal.brotli.Decoder$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f27586a;
+        public static final /* synthetic */ int[] f63414a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,21 +49,21 @@ public class Decoder implements INoProGuard {
                 }
             }
             int[] iArr = new int[DecoderJNI.a.values().length];
-            f27586a = iArr;
+            f63414a = iArr;
             try {
-                iArr[DecoderJNI.a.f27588b.ordinal()] = 1;
+                iArr[DecoderJNI.a.f63416b.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f27586a[DecoderJNI.a.f27591e.ordinal()] = 2;
+                f63414a[DecoderJNI.a.f63419e.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f27586a[DecoderJNI.a.f27589c.ordinal()] = 3;
+                f63414a[DecoderJNI.a.f63417c.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f27586a[DecoderJNI.a.f27590d.ordinal()] = 4;
+                f63414a[DecoderJNI.a.f63418d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -120,8 +120,8 @@ public class Decoder implements INoProGuard {
                 wrapper.getInputBuffer().put(bArr);
                 wrapper.push(bArr.length);
                 int i2 = 0;
-                while (wrapper.getStatus() != DecoderJNI.a.f27588b) {
-                    int i3 = AnonymousClass1.f27586a[wrapper.getStatus().ordinal()];
+                while (wrapper.getStatus() != DecoderJNI.a.f63416b) {
+                    int i3 = AnonymousClass1.f63414a[wrapper.getStatus().ordinal()];
                     if (i3 == 2) {
                         wrapper.push(0);
                     } else if (i3 != 4) {
@@ -206,7 +206,7 @@ public class Decoder implements INoProGuard {
                 }
                 this.buffer = null;
             }
-            int i2 = AnonymousClass1.f27586a[this.decoder.getStatus().ordinal()];
+            int i2 = AnonymousClass1.f63414a[this.decoder.getStatus().ordinal()];
             if (i2 == 1) {
                 return -1;
             }

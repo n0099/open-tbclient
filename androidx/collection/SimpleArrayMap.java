@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ConcurrentModificationException;
 import java.util.Map;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes.dex */
 public class SimpleArrayMap<K, V> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -587,7 +588,7 @@ public class SimpleArrayMap<K, V> {
                 return StringUtil.EMPTY_ARRAY;
             }
             StringBuilder sb = new StringBuilder(this.mSize * 28);
-            sb.append('{');
+            sb.append(ExtendedMessageFormat.START_FE);
             for (int i2 = 0; i2 < this.mSize; i2++) {
                 if (i2 > 0) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
@@ -598,7 +599,7 @@ public class SimpleArrayMap<K, V> {
                 } else {
                     sb.append("(this Map)");
                 }
-                sb.append(a.f1923h);
+                sb.append(a.f35773h);
                 V valueAt = valueAt(i2);
                 if (valueAt != this) {
                     sb.append(valueAt);
@@ -606,7 +607,7 @@ public class SimpleArrayMap<K, V> {
                     sb.append("(this Map)");
                 }
             }
-            sb.append('}');
+            sb.append(ExtendedMessageFormat.END_FE);
             return sb.toString();
         }
         return (String) invokeV.objValue;

@@ -11,22 +11,21 @@ import com.baidu.android.lbspay.LBSPayBack;
 import com.baidu.android.lbspay.LBSPayInner;
 import com.baidu.android.lbspay.LBSPayResult;
 import com.baidu.android.lbspay.beans.GetPayBean;
-import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.api.BaiduWalletDelegate;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.payresult.datamodel.H5ResultParams;
 import com.baidu.wallet.paysdk.payresult.presenter.H5LifeCycleCallback;
 import com.baidu.wallet.paysdk.payresult.presenter.H5PayResultProcess;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
-import com.baidu.wallet.statistics.api.StatisticManager;
+import com.dxmpay.apollon.restnet.RestNameValuePair;
+import com.dxmpay.wallet.api.BaiduWalletDelegate;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class JuheH5PayResultProcess extends H5PayResultProcess {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +100,7 @@ public class JuheH5PayResultProcess extends H5PayResultProcess {
             if (callBack != null) {
                 try {
                     if (this.mContext != null) {
-                        StatisticManager.onEvent(StatServiceEvent.EVENT_API_ONPAYRESULT);
+                        StatisticManager.onEvent("#onPayResult");
                     }
                     callBack.onPayResult(0, this.mCallbackParam);
                 } catch (Exception e2) {
@@ -140,7 +139,7 @@ public class JuheH5PayResultProcess extends H5PayResultProcess {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ JuheH5PayResultProcess f2695a;
+                    public final /* synthetic */ JuheH5PayResultProcess f36570a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -157,7 +156,7 @@ public class JuheH5PayResultProcess extends H5PayResultProcess {
                                 return;
                             }
                         }
-                        this.f2695a = this;
+                        this.f36570a = this;
                     }
 
                     @Override // com.baidu.wallet.paysdk.payresult.presenter.H5LifeCycleCallback, android.app.Application.ActivityLifecycleCallbacks
@@ -165,7 +164,7 @@ public class JuheH5PayResultProcess extends H5PayResultProcess {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, activity) == null) {
                             BaiduWalletDelegate.getInstance().removeH5LifeCycleCb(activity, this);
-                            this.f2695a.afterShow();
+                            this.f36570a.afterShow();
                         }
                     }
                 };

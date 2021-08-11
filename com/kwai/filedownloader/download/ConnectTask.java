@@ -13,40 +13,40 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ConnectTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f36934a;
+    public final int f73761a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f36935b;
+    public final String f73762b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.kwai.filedownloader.d.b f36936c;
+    public final com.kwai.filedownloader.d.b f73763c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwai.filedownloader.download.a f36937d;
+    public com.kwai.filedownloader.download.a f73764d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f36938e;
+    public String f73765e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, List<String>> f36939f;
+    public Map<String, List<String>> f73766f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<String> f36940g;
+    public List<String> f73767g;
 
     /* renamed from: com.kwai.filedownloader.download.ConnectTask$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class Reconnect extends Throwable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2940866805654257562L;
@@ -72,25 +72,25 @@ public class ConnectTask {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Integer f36941a;
+        public Integer f73768a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f36942b;
+        public String f73769b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f36943c;
+        public String f73770c;
 
         /* renamed from: d  reason: collision with root package name */
-        public com.kwai.filedownloader.d.b f36944d;
+        public com.kwai.filedownloader.d.b f73771d;
 
         /* renamed from: e  reason: collision with root package name */
-        public com.kwai.filedownloader.download.a f36945e;
+        public com.kwai.filedownloader.download.a f73772e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public class ConnectTask {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.f36941a = Integer.valueOf(i2);
+                this.f73768a = Integer.valueOf(i2);
                 return this;
             }
             return (a) invokeI.objValue;
@@ -120,7 +120,7 @@ public class ConnectTask {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
-                this.f36944d = bVar;
+                this.f73771d = bVar;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -130,7 +130,7 @@ public class ConnectTask {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
-                this.f36945e = aVar;
+                this.f73772e = aVar;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -140,7 +140,7 @@ public class ConnectTask {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f36942b = str;
+                this.f73769b = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -151,11 +151,11 @@ public class ConnectTask {
             com.kwai.filedownloader.download.a aVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                Integer num = this.f36941a;
-                if (num == null || (aVar = this.f36945e) == null || this.f36942b == null) {
+                Integer num = this.f73768a;
+                if (num == null || (aVar = this.f73772e) == null || this.f73769b == null) {
                     throw new IllegalArgumentException();
                 }
-                return new ConnectTask(aVar, num.intValue(), this.f36942b, this.f36943c, this.f36944d, null);
+                return new ConnectTask(aVar, num.intValue(), this.f73769b, this.f73770c, this.f73771d, null);
             }
             return (ConnectTask) invokeV.objValue;
         }
@@ -164,7 +164,7 @@ public class ConnectTask {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.f36943c = str;
+                this.f73770c = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -186,11 +186,11 @@ public class ConnectTask {
                 return;
             }
         }
-        this.f36934a = i2;
-        this.f36935b = str;
-        this.f36938e = str2;
-        this.f36936c = bVar;
-        this.f36937d = aVar;
+        this.f73761a = i2;
+        this.f73762b = str;
+        this.f73765e = str2;
+        this.f73763c = bVar;
+        this.f73764d = aVar;
     }
 
     public /* synthetic */ ConnectTask(com.kwai.filedownloader.download.a aVar, int i2, String str, String str2, com.kwai.filedownloader.d.b bVar, AnonymousClass1 anonymousClass1) {
@@ -201,11 +201,11 @@ public class ConnectTask {
         com.kwai.filedownloader.d.b bVar2;
         HashMap<String, List<String>> a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, this, bVar) == null) || (bVar2 = this.f36936c) == null || (a2 = bVar2.a()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, this, bVar) == null) || (bVar2 = this.f73763c) == null || (a2 = bVar2.a()) == null) {
             return;
         }
-        if (com.kwai.filedownloader.f.d.f37034a) {
-            com.kwai.filedownloader.f.d.e(this, "%d add outside header: %s", Integer.valueOf(this.f36934a), a2);
+        if (com.kwai.filedownloader.f.d.f73864a) {
+            com.kwai.filedownloader.f.d.e(this, "%d add outside header: %s", Integer.valueOf(this.f73761a), a2);
         }
         for (Map.Entry<String, List<String>> entry : a2.entrySet()) {
             String key = entry.getKey();
@@ -220,20 +220,20 @@ public class ConnectTask {
 
     private void b(com.kwai.filedownloader.a.b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, bVar) == null) || bVar.a(this.f36938e, this.f36937d.f36963a)) {
+        if (!(interceptable == null || interceptable.invokeL(65539, this, bVar) == null) || bVar.a(this.f73765e, this.f73764d.f73791a)) {
             return;
         }
-        if (!TextUtils.isEmpty(this.f36938e)) {
-            bVar.a(Util.IF_MATCH, this.f36938e);
+        if (!TextUtils.isEmpty(this.f73765e)) {
+            bVar.a(Util.IF_MATCH, this.f73765e);
         }
-        com.kwai.filedownloader.download.a aVar = this.f36937d;
-        bVar.a("Range", aVar.f36965c == 0 ? com.kwai.filedownloader.f.f.a("bytes=%d-", Long.valueOf(aVar.f36964b)) : com.kwai.filedownloader.f.f.a("bytes=%d-%d", Long.valueOf(aVar.f36964b), Long.valueOf(this.f36937d.f36965c)));
+        com.kwai.filedownloader.download.a aVar = this.f73764d;
+        bVar.a("Range", aVar.f73793c == 0 ? com.kwai.filedownloader.f.f.a("bytes=%d-", Long.valueOf(aVar.f73792b)) : com.kwai.filedownloader.f.f.a("bytes=%d-%d", Long.valueOf(aVar.f73792b), Long.valueOf(this.f73764d.f73793c)));
     }
 
     private void c(com.kwai.filedownloader.a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, bVar) == null) {
-            com.kwai.filedownloader.d.b bVar2 = this.f36936c;
+            com.kwai.filedownloader.d.b bVar2 = this.f73763c;
             if (bVar2 == null || bVar2.a().get("User-Agent") == null) {
                 bVar.a("User-Agent", com.kwai.filedownloader.f.f.e());
             }
@@ -244,18 +244,18 @@ public class ConnectTask {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            com.kwai.filedownloader.a.b a2 = b.a().a(this.f36935b);
+            com.kwai.filedownloader.a.b a2 = b.a().a(this.f73762b);
             a(a2);
             b(a2);
             c(a2);
-            this.f36939f = a2.b();
-            if (com.kwai.filedownloader.f.d.f37034a) {
-                com.kwai.filedownloader.f.d.c(this, "%s request header %s", Integer.valueOf(this.f36934a), this.f36939f);
+            this.f73766f = a2.b();
+            if (com.kwai.filedownloader.f.d.f73864a) {
+                com.kwai.filedownloader.f.d.c(this, "%s request header %s", Integer.valueOf(this.f73761a), this.f73766f);
             }
             a2.d();
             ArrayList arrayList = new ArrayList();
-            this.f36940g = arrayList;
-            return com.kwai.filedownloader.a.d.a(this.f36939f, a2, arrayList);
+            this.f73767g = arrayList;
+            return com.kwai.filedownloader.a.d.a(this.f73766f, a2, arrayList);
         }
         return (com.kwai.filedownloader.a.b) invokeV.objValue;
     }
@@ -263,18 +263,18 @@ public class ConnectTask {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36937d.f36964b > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73764d.f73792b > 0 : invokeV.booleanValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<String> list = this.f36940g;
+            List<String> list = this.f73767g;
             if (list == null || list.isEmpty()) {
                 return null;
             }
-            List<String> list2 = this.f36940g;
+            List<String> list2 = this.f73767g;
             return list2.get(list2.size() - 1);
         }
         return (String) invokeV.objValue;
@@ -283,12 +283,12 @@ public class ConnectTask {
     public Map<String, List<String>> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36939f : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f73766f : (Map) invokeV.objValue;
     }
 
     public com.kwai.filedownloader.download.a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36937d : (com.kwai.filedownloader.download.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f73764d : (com.kwai.filedownloader.download.a) invokeV.objValue;
     }
 }

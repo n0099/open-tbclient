@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RemoveFansController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class RemoveFansController {
     public TbPageContext mPageContext;
     public BdUniqueId mUniqueId;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface IResultCallBack {
-        void onResultCallBack(int i2, String str, long j, boolean z);
+        void onResultCallBack(int i2, String str, long j2, boolean z);
     }
 
     public RemoveFansController(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -106,13 +106,13 @@ public class RemoveFansController {
         }
     }
 
-    public void removeFans(long j) {
+    public void removeFans(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_REMOVE_FANS);
-            httpMessage.addParam("fans_uid", j);
+            httpMessage.addParam("fans_uid", j2);
             httpMessage.setTag(this.mUniqueId);
-            httpMessage.setExtra(Long.valueOf(j));
+            httpMessage.setExtra(Long.valueOf(j2));
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }

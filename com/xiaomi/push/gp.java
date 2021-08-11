@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.al;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class gp extends al.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Runnable f40496a;
+    public final /* synthetic */ Runnable f77355a;
 
     public gp(Runnable runnable) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public final class gp extends al.b {
                 return;
             }
         }
-        this.f40496a = runnable;
+        this.f77355a = runnable;
     }
 
     @Override // com.xiaomi.push.al.b
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f40496a.run();
+            this.f77355a.run();
         }
     }
 }

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.location.Address;
 import android.text.TextUtils;
+import c.a.e.e.i.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.wallet.pay.ShareUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,12 +17,11 @@ import com.baidu.wallet.api.ILightappInvokerCallback;
 import com.baidu.wallet.api.ILocationCallback;
 import com.baidu.wallet.lightapp.base.LightappConstants;
 import com.baidu.wallet.lightapp.base.datamodel.LightAppLocationModel;
-import d.a.d.e.i.a;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LightAppListenerImpl implements ILightAppListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +98,7 @@ public class LightAppListenerImpl implements ILightAppListener {
                     this.val$callback = iLocationCallback;
                 }
 
-                @Override // d.a.d.e.i.a.c
+                @Override // c.a.e.e.i.a.c
                 public void onLocationGeted(int i2, String str, Address address) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str, address) == null) {

@@ -24,15 +24,15 @@ import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URL;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class bo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Proxy f8898a;
+    public static final Proxy f43207a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Proxy f8899b;
+    public static final Proxy f43208b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,8 +48,8 @@ public final class bo {
                 return;
             }
         }
-        f8898a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
-        f8899b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
+        f43207a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
+        f43208b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
     }
 
     public static String a() {
@@ -278,10 +278,10 @@ public final class bo {
                     String lowerCase = extraInfo != null ? extraInfo.toLowerCase() : "";
                     if (!lowerCase.startsWith(ConectivityUtils.APN_CMWAP) && !lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) && !lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
                         if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
-                            httpURLConnection = (HttpURLConnection) url.openConnection(f8899b);
+                            httpURLConnection = (HttpURLConnection) url.openConnection(f43208b);
                         }
                     } else {
-                        httpURLConnection = (HttpURLConnection) url.openConnection(f8898a);
+                        httpURLConnection = (HttpURLConnection) url.openConnection(f43207a);
                     }
                 }
                 httpURLConnection = null;

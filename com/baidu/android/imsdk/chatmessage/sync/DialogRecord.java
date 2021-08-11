@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class DialogRecord {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_COMPLETE = 1;
@@ -91,21 +91,21 @@ public class DialogRecord {
         return (DialogRecord) invokeI.objValue;
     }
 
-    public DialogRecord setContacter(long j) {
+    public DialogRecord setContacter(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
-            this.contacter = j;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2)) == null) {
+            this.contacter = j2;
             return this;
         }
         return (DialogRecord) invokeJ.objValue;
     }
 
-    public DialogRecord setDialogueMsgid(long j) {
+    public DialogRecord setDialogueMsgid(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
-            this.dialogueMsgid = j;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j2)) == null) {
+            this.dialogueMsgid = j2;
             return this;
         }
         return (DialogRecord) invokeJ.objValue;
@@ -121,12 +121,12 @@ public class DialogRecord {
         return (DialogRecord) invokeI.objValue;
     }
 
-    public DialogRecord setMaxMsgid(long j) {
+    public DialogRecord setMaxMsgid(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            if (j > this.maxMsgid) {
-                this.maxMsgid = j;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
+            if (j2 > this.maxMsgid) {
+                this.maxMsgid = j2;
             }
             return this;
         }
@@ -143,11 +143,11 @@ public class DialogRecord {
         return (DialogRecord) invokeI.objValue;
     }
 
-    public DialogRecord setUpdateTime(long j) {
+    public DialogRecord setUpdateTime(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048589, this, j)) == null) {
-            this.updateTime = j;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048589, this, j2)) == null) {
+            this.updateTime = j2;
             return this;
         }
         return (DialogRecord) invokeJ.objValue;

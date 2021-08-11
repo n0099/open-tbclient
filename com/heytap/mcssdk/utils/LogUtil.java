@@ -1,6 +1,5 @@
 package com.heytap.mcssdk.utils;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class LogUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "mcssdk---";
@@ -56,14 +55,14 @@ public class LogUtil {
     public static void d(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && sD && sIsDebug) {
-            Log.d(TAG, special + sSeparator + str);
+            String str2 = special + sSeparator + str;
         }
     }
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && sD && sIsDebug) {
-            Log.d(str, special + sSeparator + str2);
+            String str3 = special + sSeparator + str2;
         }
     }
 
@@ -77,21 +76,21 @@ public class LogUtil {
     public static void e(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) && sE && sIsDebug) {
-            Log.e(TAG, special + sSeparator + str);
+            String str2 = special + sSeparator + str;
         }
     }
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) && sE && sIsDebug) {
-            Log.e(str, special + sSeparator + str2);
+            String str3 = special + sSeparator + str2;
         }
     }
 
     public static void e(String str, Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65543, null, str, th) == null) && sE) {
-            Log.e(str, th.toString());
+            th.toString();
         }
     }
 
@@ -110,14 +109,14 @@ public class LogUtil {
     public static void i(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65546, null, str) == null) && sI && sIsDebug) {
-            Log.i(TAG, special + sSeparator + str);
+            String str2 = special + sSeparator + str;
         }
     }
 
     public static void i(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) && sI && sIsDebug) {
-            Log.i(str, special + sSeparator + str2);
+            String str3 = special + sSeparator + str2;
         }
     }
 
@@ -222,28 +221,28 @@ public class LogUtil {
     public static void v(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65562, null, str) == null) && sV && sIsDebug) {
-            Log.v(TAG, special + sSeparator + str);
+            String str2 = special + sSeparator + str;
         }
     }
 
     public static void v(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65563, null, str, str2) == null) && sV && sIsDebug) {
-            Log.v(str, special + sSeparator + str2);
+            String str3 = special + sSeparator + str2;
         }
     }
 
     public static void w(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65564, null, str) == null) && sW && sIsDebug) {
-            Log.w(TAG, special + sSeparator + str);
+            String str2 = special + sSeparator + str;
         }
     }
 
     public static void w(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65565, null, str, str2) == null) && sW && sIsDebug) {
-            Log.w(str, special + sSeparator + str2);
+            String str3 = special + sSeparator + str2;
         }
     }
 }

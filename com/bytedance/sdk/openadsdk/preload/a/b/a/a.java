@@ -15,19 +15,19 @@ import java.lang.reflect.Array;
 import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class a<E> extends v<Object> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f32022a;
+    public static final w f67974a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<E> f32023b;
+    public final Class<E> f67975b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final v<E> f32024c;
+    public final v<E> f67976c;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public final class a<E> extends v<Object> {
                 return;
             }
         }
-        f32022a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.a.1
+        f67974a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -92,8 +92,8 @@ public final class a<E> extends v<Object> {
                 return;
             }
         }
-        this.f32024c = new m(fVar, vVar, cls);
-        this.f32023b = cls;
+        this.f67976c = new m(fVar, vVar, cls);
+        this.f67975b = cls;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: com.bytedance.sdk.openadsdk.preload.a.v<E> */
@@ -109,7 +109,7 @@ public final class a<E> extends v<Object> {
             cVar.b();
             int length = Array.getLength(obj);
             for (int i2 = 0; i2 < length; i2++) {
-                this.f32024c.a(cVar, Array.get(obj, i2));
+                this.f67976c.a(cVar, Array.get(obj, i2));
             }
             cVar.c();
         }
@@ -120,18 +120,18 @@ public final class a<E> extends v<Object> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f32229i) {
+            if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f68184i) {
                 aVar.j();
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             aVar.a();
             while (aVar.e()) {
-                arrayList.add(this.f32024c.b(aVar));
+                arrayList.add(this.f67976c.b(aVar));
             }
             aVar.b();
             int size = arrayList.size();
-            Object newInstance = Array.newInstance((Class<?>) this.f32023b, size);
+            Object newInstance = Array.newInstance((Class<?>) this.f67975b, size);
             for (int i2 = 0; i2 < size; i2++) {
                 Array.set(newInstance, i2, arrayList.get(i2));
             }

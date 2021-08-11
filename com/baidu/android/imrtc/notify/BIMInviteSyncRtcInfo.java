@@ -11,8 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMInviteRtcInfo";
@@ -150,10 +151,10 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
         }
     }
 
-    public void setRtcUserId(long j) {
+    public void setRtcUserId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            this.mRtcUserId = j;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
+            this.mRtcUserId = j2;
         }
     }
 
@@ -188,7 +189,7 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return "BIMInviteSyncRtcInfo{" + super.toString() + ", mRtcRoomName='" + this.mRtcRoomName + "', mRtcRoomToken='" + this.mRtcRoomToken + "', mRtcRoomDes='" + this.mRtcRoomDes + "', mRtcRoomType=" + this.mRtcRoomType + ", mMediaType=" + this.mMediaType + ", mInitiatorUk=" + this.mInitiatorUk + ", mInviteId=" + this.mInviteId + ", mRtcUserId=" + this.mRtcUserId + ", ext=" + this.mRtcExt + '}';
+            return "BIMInviteSyncRtcInfo{" + super.toString() + ", mRtcRoomName='" + this.mRtcRoomName + ExtendedMessageFormat.QUOTE + ", mRtcRoomToken='" + this.mRtcRoomToken + ExtendedMessageFormat.QUOTE + ", mRtcRoomDes='" + this.mRtcRoomDes + ExtendedMessageFormat.QUOTE + ", mRtcRoomType=" + this.mRtcRoomType + ", mMediaType=" + this.mMediaType + ", mInitiatorUk=" + this.mInitiatorUk + ", mInviteId=" + this.mInviteId + ", mRtcUserId=" + this.mRtcUserId + ", ext=" + this.mRtcExt + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
@@ -314,19 +313,16 @@ public final class ActivityRecreator {
                                     if (e2.getClass() == RuntimeException.class && e2.getMessage() != null && e2.getMessage().startsWith("Unable to stop")) {
                                         throw e2;
                                     }
-                                } catch (Throwable th) {
-                                    Log.e(ActivityRecreator.LOG_TAG, "Exception while invoking performStopActivity", th);
+                                } catch (Throwable unused) {
                                 }
                             }
                         }
                     });
                     return true;
                 }
-                return false;
-            } catch (Throwable th) {
-                Log.e(LOG_TAG, "Exception while fetching field values", th);
-                return false;
+            } catch (Throwable unused) {
             }
+            return false;
         }
         return invokeLIL.booleanValue;
     }

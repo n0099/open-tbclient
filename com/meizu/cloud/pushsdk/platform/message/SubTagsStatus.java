@@ -1,19 +1,20 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
+import c.l.a.a.a;
 import com.heytap.mcssdk.mode.CommandMessage;
-import d.h.a.a.a;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class SubTagsStatus extends BasicPushStatus {
     public String pushId;
     public List<Tag> tagList;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class Tag implements Serializable {
         public int tagId;
         public String tagName;
@@ -38,7 +39,7 @@ public class SubTagsStatus extends BasicPushStatus {
         }
 
         public String toString() {
-            return "Tag{tagId=" + this.tagId + ", tagName='" + this.tagName + "'}";
+            return "Tag{tagId=" + this.tagId + ", tagName='" + this.tagName + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
     }
 
@@ -92,6 +93,6 @@ public class SubTagsStatus extends BasicPushStatus {
 
     @Override // com.meizu.cloud.pushsdk.platform.message.BasicPushStatus
     public String toString() {
-        return super.toString() + " SubTagsStatus{pushId='" + this.pushId + "', tagList=" + this.tagList + '}';
+        return super.toString() + " SubTagsStatus{pushId='" + this.pushId + ExtendedMessageFormat.QUOTE + ", tagList=" + this.tagList + ExtendedMessageFormat.END_FE;
     }
 }

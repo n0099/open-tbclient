@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.util;
 
 import android.os.Build;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class MinSdkChecker {
     public static boolean isSupportBigTextStyleAndAction() {
         return Build.VERSION.SDK_INT >= 16;

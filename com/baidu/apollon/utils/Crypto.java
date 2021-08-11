@@ -20,30 +20,30 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class Crypto {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f4079a = 16;
+    public static final int f38004a = 16;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f4080b = 8;
+    public static final int f38005b = 8;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f4081c = 128;
+    public static final int f38006c = 128;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f4082d = 64;
+    public static final int f38007d = 64;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f4083e = 8;
+    public static final int f38008e = 8;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f4084f = 1000;
+    public static final int f38009f = 1000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SecureRandom f4085g;
+    public static SecureRandom f38010g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,7 +59,7 @@ public class Crypto {
                 return;
             }
         }
-        f4085g = new SecureRandom();
+        f38010g = new SecureRandom();
     }
 
     public Crypto() {
@@ -81,7 +81,7 @@ public class Crypto {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             byte[] bArr = new byte[i2];
-            f4085g.nextBytes(bArr);
+            f38010g.nextBytes(bArr);
             return bArr;
         }
         return (byte[]) invokeI.objValue;

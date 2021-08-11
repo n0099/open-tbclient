@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class LinkedCaseInsensitiveMap<V> extends LinkedHashMap<String, V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -35,6 +35,68 @@ public class LinkedCaseInsensitiveMap<V> extends LinkedHashMap<String, V> {
                 return;
             }
         }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public LinkedCaseInsensitiveMap(int i2) {
+        this(i2, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), (Locale) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public LinkedCaseInsensitiveMap(int i2, Locale locale) {
+        super(i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), locale};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.caseInsensitiveKeys = new HashMap(i2);
+        this.locale = locale == null ? Locale.getDefault() : locale;
+    }
+
+    public LinkedCaseInsensitiveMap(Locale locale) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {locale};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.caseInsensitiveKeys = new HashMap();
+        this.locale = locale == null ? Locale.getDefault() : locale;
     }
 
     @Override // java.util.LinkedHashMap, java.util.HashMap, java.util.AbstractMap, java.util.Map
@@ -79,6 +141,16 @@ public class LinkedCaseInsensitiveMap<V> extends LinkedHashMap<String, V> {
         return put((String) obj, (String) obj2);
     }
 
+    public V put(String str, V v) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, v)) == null) {
+            this.caseInsensitiveKeys.put(convertKey(str), str);
+            return (V) super.put((LinkedCaseInsensitiveMap<V>) str, (String) v);
+        }
+        return (V) invokeLL.objValue;
+    }
+
     @Override // java.util.HashMap, java.util.AbstractMap, java.util.Map
     public void putAll(Map<? extends String, ? extends V> map) {
         Interceptable interceptable = $ic;
@@ -103,77 +175,5 @@ public class LinkedCaseInsensitiveMap<V> extends LinkedHashMap<String, V> {
             return null;
         }
         return (V) invokeL.objValue;
-    }
-
-    public LinkedCaseInsensitiveMap(Locale locale) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {locale};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.caseInsensitiveKeys = new HashMap();
-        this.locale = locale == null ? Locale.getDefault() : locale;
-    }
-
-    public V put(String str, V v) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, v)) == null) {
-            this.caseInsensitiveKeys.put(convertKey(str), str);
-            return (V) super.put((LinkedCaseInsensitiveMap<V>) str, (String) v);
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LinkedCaseInsensitiveMap(int i2) {
-        this(i2, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), (Locale) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LinkedCaseInsensitiveMap(int i2, Locale locale) {
-        super(i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), locale};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.caseInsensitiveKeys = new HashMap(i2);
-        this.locale = locale == null ? Locale.getDefault() : locale;
     }
 }

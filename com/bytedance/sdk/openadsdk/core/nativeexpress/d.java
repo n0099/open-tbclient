@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.e.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class d extends com.bytedance.sdk.openadsdk.core.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.e.k f30575a;
+    public com.bytedance.sdk.openadsdk.core.e.k f66497a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(@NonNull Context context, @NonNull com.bytedance.sdk.openadsdk.core.e.m mVar, @NonNull String str, int i2) {
@@ -40,7 +40,7 @@ public class d extends com.bytedance.sdk.openadsdk.core.b.a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.b.b
-    public com.bytedance.sdk.openadsdk.core.e.f a(int i2, int i3, int i4, int i5, long j, long j2, View view, View view2, String str) {
+    public com.bytedance.sdk.openadsdk.core.e.f a(int i2, int i3, int i4, int i5, long j2, long j3, View view, View view2, String str) {
         InterceptResult invokeCommon;
         int i6;
         int i7;
@@ -49,10 +49,10 @@ public class d extends com.bytedance.sdk.openadsdk.core.b.a {
         int i10;
         int i11;
         int i12;
-        long j3;
         long j4;
+        long j5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j), Long.valueOf(j2), view, view2, str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j2), Long.valueOf(j3), view, view2, str})) == null) {
             this.z = 1;
             this.A = 0;
             this.B = 0;
@@ -67,21 +67,21 @@ public class d extends com.bytedance.sdk.openadsdk.core.b.a {
             } else {
                 i10 = a2[0];
                 i11 = a2[1];
-                i6 = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f29938b, i2)) + i10;
-                i7 = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f29938b, i3)) + i11;
-                i8 = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f29938b, i4)) + i10;
-                i9 = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f29938b, i5)) + i11;
+                i6 = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f65833b, i2)) + i10;
+                i7 = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f65833b, i3)) + i11;
+                i8 = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f65833b, i4)) + i10;
+                i9 = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f65833b, i5)) + i11;
             }
             int[] iArr = new int[2];
             int[] iArr2 = new int[2];
-            com.bytedance.sdk.openadsdk.core.e.k kVar = this.f30575a;
+            com.bytedance.sdk.openadsdk.core.e.k kVar = this.f66497a;
             if (kVar != null) {
-                j3 = kVar.f30164e;
-                j4 = kVar.f30165f;
-                iArr[0] = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f29938b, kVar.f30166g)) + i10;
-                iArr[1] = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f29938b, this.f30575a.f30167h)) + i11;
-                int b2 = (int) com.bytedance.sdk.openadsdk.q.s.b(this.f29938b, this.f30575a.f30168i);
-                int b3 = (int) com.bytedance.sdk.openadsdk.q.s.b(this.f29938b, this.f30575a.j);
+                j4 = kVar.f66070e;
+                j5 = kVar.f66071f;
+                iArr[0] = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f65833b, kVar.f66072g)) + i10;
+                iArr[1] = ((int) com.bytedance.sdk.openadsdk.q.s.b(this.f65833b, this.f66497a.f66073h)) + i11;
+                int b2 = (int) com.bytedance.sdk.openadsdk.q.s.b(this.f65833b, this.f66497a.f66074i);
+                int b3 = (int) com.bytedance.sdk.openadsdk.q.s.b(this.f65833b, this.f66497a.f66075j);
                 iArr2[0] = b2;
                 i12 = 1;
                 iArr2[1] = b3;
@@ -91,10 +91,10 @@ public class d extends com.bytedance.sdk.openadsdk.core.b.a {
                 }
             } else {
                 i12 = 1;
-                j3 = j;
                 j4 = j2;
+                j5 = j3;
             }
-            f.a h2 = new f.a().e(i6).d(i7).c(i8).b(i9).b(j3).a(j4).b(a2).a(iArr).c(com.bytedance.sdk.openadsdk.q.s.c(view)).d(iArr2).f(this.z).g(this.A).h(this.B);
+            f.a h2 = new f.a().e(i6).d(i7).c(i8).b(i9).b(j4).a(j5).b(a2).a(iArr).c(com.bytedance.sdk.openadsdk.q.s.c(view)).d(iArr2).f(this.z).g(this.A).h(this.B);
             if (!com.bytedance.sdk.openadsdk.core.h.d().b()) {
                 i12 = 2;
             }
@@ -106,7 +106,7 @@ public class d extends com.bytedance.sdk.openadsdk.core.b.a {
     public void a(com.bytedance.sdk.openadsdk.core.e.k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kVar) == null) {
-            this.f30575a = kVar;
+            this.f66497a = kVar;
         }
     }
 }

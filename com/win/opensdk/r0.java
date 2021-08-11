@@ -10,22 +10,22 @@ import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class r0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte[] f39923a;
+    public final byte[] f76771a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ByteBuffer f39924b;
+    public ByteBuffer f76772b;
 
     /* renamed from: c  reason: collision with root package name */
-    public q0 f39925c;
+    public q0 f76773c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f39926d;
+    public int f76774d;
 
     public r0() {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class r0 {
                 return;
             }
         }
-        this.f39923a = new byte[256];
-        this.f39926d = 0;
+        this.f76771a = new byte[256];
+        this.f76774d = 0;
     }
 
     public r0 a(byte[] bArr) {
@@ -50,17 +50,17 @@ public class r0 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
             if (bArr != null) {
                 ByteBuffer wrap = ByteBuffer.wrap(bArr);
-                this.f39924b = null;
-                Arrays.fill(this.f39923a, (byte) 0);
-                this.f39925c = new q0();
-                this.f39926d = 0;
+                this.f76772b = null;
+                Arrays.fill(this.f76771a, (byte) 0);
+                this.f76773c = new q0();
+                this.f76774d = 0;
                 ByteBuffer asReadOnlyBuffer = wrap.asReadOnlyBuffer();
-                this.f39924b = asReadOnlyBuffer;
+                this.f76772b = asReadOnlyBuffer;
                 asReadOnlyBuffer.position(0);
-                this.f39924b.order(ByteOrder.LITTLE_ENDIAN);
+                this.f76772b.order(ByteOrder.LITTLE_ENDIAN);
             } else {
-                this.f39924b = null;
-                this.f39925c.f39914b = 2;
+                this.f76772b = null;
+                this.f76773c.f76761b = 2;
             }
             return this;
         }
@@ -70,7 +70,7 @@ public class r0 {
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39925c.f39914b != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76773c.f76761b != 0 : invokeV.booleanValue;
     }
 
     public final int[] a(int i2) {
@@ -80,7 +80,7 @@ public class r0 {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
             byte[] bArr = new byte[i2 * 3];
             try {
-                this.f39924b.get(bArr);
+                this.f76772b.get(bArr);
                 iArr = new int[256];
                 int i3 = 0;
                 int i4 = 0;
@@ -94,7 +94,7 @@ public class r0 {
                         i4 = i7;
                         i3 = i8;
                     } catch (BufferUnderflowException unused) {
-                        this.f39925c.f39914b = 1;
+                        this.f76773c.f76761b = 1;
                         return iArr;
                     }
                 }
@@ -111,9 +111,9 @@ public class r0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                return this.f39924b.get() & 255;
+                return this.f76772b.get() & 255;
             } catch (Exception unused) {
-                this.f39925c.f39914b = 1;
+                this.f76773c.f76761b = 1;
                 return 0;
             }
         }
@@ -125,16 +125,16 @@ public class r0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             int b2 = b();
-            this.f39926d = b2;
+            this.f76774d = b2;
             int i2 = 0;
             if (b2 > 0) {
-                while (i2 < this.f39926d) {
+                while (i2 < this.f76774d) {
                     try {
-                        int i3 = this.f39926d - i2;
-                        this.f39924b.get(this.f39923a, i2, i3);
+                        int i3 = this.f76774d - i2;
+                        this.f76772b.get(this.f76771a, i2, i3);
                         i2 += i3;
                     } catch (Exception unused) {
-                        this.f39925c.f39914b = 1;
+                        this.f76773c.f76761b = 1;
                     }
                 }
             }
@@ -150,7 +150,7 @@ public class r0 {
             do {
                 try {
                     b2 = b();
-                    this.f39924b.position(this.f39924b.position() + b2);
+                    this.f76772b.position(this.f76772b.position() + b2);
                 } catch (IllegalArgumentException unused) {
                     return;
                 }

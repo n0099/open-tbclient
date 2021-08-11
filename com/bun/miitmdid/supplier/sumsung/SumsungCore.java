@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.util.Log;
 import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.samsung.android.deviceidservice.a;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class SumsungCore {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DBG = false;
@@ -72,7 +71,7 @@ public class SumsungCore {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ SumsungCore f27820a;
+            public final /* synthetic */ SumsungCore f63653a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -89,7 +88,7 @@ public class SumsungCore {
                         return;
                     }
                 }
-                this.f27820a = this;
+                this.f63653a = this;
             }
 
             @Override // android.content.ServiceConnection
@@ -97,9 +96,9 @@ public class SumsungCore {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                     synchronized (this) {
-                        this.f27820a.mDeviceidInterface = a.AbstractBinderC0483a.a(iBinder);
-                        if (this.f27820a.mCallerCallBack != null) {
-                            this.f27820a.mCallerCallBack.a(true);
+                        this.f63653a.mDeviceidInterface = a.AbstractBinderC2042a.a(iBinder);
+                        if (this.f63653a.mCallerCallBack != null) {
+                            this.f63653a.mCallerCallBack.a(true);
                         }
                         com.bun.miitmdid.utils.a.a(SumsungCore.TAG, "Service onServiceConnected");
                     }
@@ -110,7 +109,7 @@ public class SumsungCore {
             public void onServiceDisconnected(ComponentName componentName) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                    this.f27820a.mDeviceidInterface = null;
+                    this.f63653a.mDeviceidInterface = null;
                     com.bun.miitmdid.utils.a.a(SumsungCore.TAG, "Service onServiceDisconnected");
                 }
             }
@@ -141,16 +140,14 @@ public class SumsungCore {
                 throw new IllegalArgumentException("Context is null, must be new SumsungCore first");
             }
             String packageName = context.getPackageName();
-            String str3 = TAG;
-            com.bun.miitmdid.utils.a.a(str3, "liufeng, getAAID package：" + packageName);
+            com.bun.miitmdid.utils.a.a(TAG, "liufeng, getAAID package：" + packageName);
             if (packageName == null || packageName.equals("")) {
                 str = TAG;
                 str2 = "input package is null!";
             } else {
                 try {
                     if (this.mDeviceidInterface != null) {
-                        String str4 = SAMSUNGTAG;
-                        Log.d(str4, "getAAID Package: " + packageName);
+                        String str3 = "getAAID Package: " + packageName;
                         return this.mDeviceidInterface.b(packageName);
                     }
                     return null;
@@ -175,7 +172,6 @@ public class SumsungCore {
             }
             try {
                 if (this.mDeviceidInterface != null) {
-                    Log.d(SAMSUNGTAG, "getOAID call");
                     return this.mDeviceidInterface.a();
                 }
                 return null;
@@ -204,16 +200,14 @@ public class SumsungCore {
                 throw new IllegalArgumentException("Context is null, must be new SumsungCore first");
             }
             String packageName = context.getPackageName();
-            String str = TAG;
-            com.bun.miitmdid.utils.a.a(str, "liufeng, getVAID package：" + packageName);
+            com.bun.miitmdid.utils.a.a(TAG, "liufeng, getVAID package：" + packageName);
             if (packageName == null || packageName.equals("")) {
                 com.bun.miitmdid.utils.a.a(TAG, "input package is null!");
                 return null;
             }
             try {
                 if (this.mDeviceidInterface != null) {
-                    String str2 = SAMSUNGTAG;
-                    Log.d(str2, "getVAID Package: " + packageName);
+                    String str = "getVAID Package: " + packageName;
                     return this.mDeviceidInterface.a(packageName);
                 }
                 return null;

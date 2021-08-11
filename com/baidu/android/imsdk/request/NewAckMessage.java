@@ -17,7 +17,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class NewAckMessage extends Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class NewAckMessage extends Message {
     public long mTriggerId;
     public List<Tripule> tripules;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class Tripule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,12 +51,12 @@ public class NewAckMessage extends Message {
         public long ukFromUser;
         public long ukToUser;
 
-        public Tripule(long j, String str, long j2, String str2, int i2, String str3, long j3, long j4, long j5, int i3, int i4, int i5, String str4, String str5, String str6) {
+        public Tripule(long j2, String str, long j3, String str2, int i2, String str3, long j4, long j5, long j6, int i3, int i4, int i5, String str4, String str5, String str6) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), str, Long.valueOf(j2), str2, Integer.valueOf(i2), str3, Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str4, str5, str6};
+                Object[] objArr = {Long.valueOf(j2), str, Long.valueOf(j3), str2, Integer.valueOf(i2), str3, Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str4, str5, str6};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i6 = newInitContext.flag;
                 if ((i6 & 1) != 0) {
@@ -68,16 +68,16 @@ public class NewAckMessage extends Message {
             }
             this.jack = null;
             this.isReliable = false;
-            this.msgid = j;
+            this.msgid = j2;
             this.msgkey = str;
-            this.msgReceiveTime = j2;
+            this.msgReceiveTime = j3;
             this.msgPage = str2;
             this.osName = "android";
             this.contentType = i2;
             this.accountType = str3;
-            this.ukFromUser = j3;
-            this.ukToUser = j4;
-            this.paId = j5;
+            this.ukFromUser = j4;
+            this.ukToUser = j5;
+            this.paId = j6;
             this.paType = i3;
             this.subPaType = i4;
             this.paClassType = i5;
@@ -93,17 +93,17 @@ public class NewAckMessage extends Message {
             }
         }
 
-        public void setFromUser(long j) {
+        public void setFromUser(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                this.fromUser = j;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+                this.fromUser = j2;
             }
         }
 
-        public void setMcastId(long j) {
+        public void setMcastId(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-                this.mcastId = j;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+                this.mcastId = j2;
             }
         }
 
@@ -160,12 +160,12 @@ public class NewAckMessage extends Message {
         }
     }
 
-    public NewAckMessage(Context context, long j, long j2) {
+    public NewAckMessage(Context context, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -178,8 +178,8 @@ public class NewAckMessage extends Message {
         this.mJsonArray = null;
         this.mContext = null;
         initCommonParameter(context);
-        this.mUk = j;
-        this.mTriggerId = j2;
+        this.mUk = j2;
+        this.mTriggerId = j3;
         this.mContext = context;
         this.tripules = new LinkedList();
         setNeedReplay(true);
@@ -289,13 +289,13 @@ public class NewAckMessage extends Message {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NewAckMessage(Context context, long j, long j2, boolean z) {
-        this(context, j, j2);
+    public NewAckMessage(Context context, long j2, long j3, boolean z) {
+        this(context, j2, j3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r8;
-            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)};
+            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -26,7 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = SchemeUsageStatisticsListener.STATISTIC_SWITCH_ACTION, module = "scheme")
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -174,8 +173,7 @@ public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
             }
             if (!TextUtils.equals(actionData.version, getLocalVersion(context, str, str2)) && actionData.data != null) {
                 if (DEBUG) {
-                    String str3 = TAG;
-                    Log.d(str3, "value.data " + actionData.data);
+                    String str3 = "value.data " + actionData.data;
                 }
                 JSONArray optJSONArray = actionData.data.optJSONArray(SCHEME_SWITCH_LIST);
                 setDataList(optJSONArray, schemeList);

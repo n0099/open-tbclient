@@ -33,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class XSecurityDexLoader implements Observer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SECURITY_SETTING_URL = "https://mobads.baidu.com/ads/sec.php";
@@ -54,7 +54,7 @@ public class XSecurityDexLoader implements Observer {
     public String optimizedDirectory;
     public String outputFolder;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class MyTask extends BaseTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

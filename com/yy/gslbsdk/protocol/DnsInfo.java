@@ -11,7 +11,7 @@ import com.yy.gslbsdk.util.GlobalTools;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.LinkedList;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class DnsInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DnsInfo";
@@ -193,10 +193,10 @@ public class DnsInfo {
         }
     }
 
-    public void setEndTime(long j) {
+    public void setEndTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.endTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
+            this.endTime = j2;
         }
     }
 
@@ -238,10 +238,10 @@ public class DnsInfo {
         }
     }
 
-    public void setProbeTime(long j) {
+    public void setProbeTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
-            this.probeTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
+            this.probeTime = j2;
         }
     }
 

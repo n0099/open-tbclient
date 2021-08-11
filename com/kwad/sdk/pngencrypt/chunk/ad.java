@@ -4,17 +4,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ad extends aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f35966h;
+    public int f72747h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f35967i;
-    public int j;
+    public int f72748i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f72749j;
     public int k;
     public int[] l;
 
@@ -44,18 +46,18 @@ public class ad extends aa {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            com.kwad.sdk.pngencrypt.k kVar = this.f35959e;
-            if (kVar.f36043f) {
-                this.f35966h = com.kwad.sdk.pngencrypt.n.b(dVar.f35981d, 0);
-            } else if (!kVar.f36044g) {
-                this.f35967i = com.kwad.sdk.pngencrypt.n.b(dVar.f35981d, 0);
-                this.j = com.kwad.sdk.pngencrypt.n.b(dVar.f35981d, 2);
-                this.k = com.kwad.sdk.pngencrypt.n.b(dVar.f35981d, 4);
+            com.kwad.sdk.pngencrypt.k kVar = this.f72739e;
+            if (kVar.f72837f) {
+                this.f72747h = com.kwad.sdk.pngencrypt.n.b(dVar.f72763d, 0);
+            } else if (!kVar.f72838g) {
+                this.f72748i = com.kwad.sdk.pngencrypt.n.b(dVar.f72763d, 0);
+                this.f72749j = com.kwad.sdk.pngencrypt.n.b(dVar.f72763d, 2);
+                this.k = com.kwad.sdk.pngencrypt.n.b(dVar.f72763d, 4);
             } else {
-                int length = dVar.f35981d.length;
+                int length = dVar.f72763d.length;
                 this.l = new int[length];
                 for (int i2 = 0; i2 < length; i2++) {
-                    this.l[i2] = dVar.f35981d[i2] & 255;
+                    this.l[i2] = dVar.f72763d[i2] & 255;
                 }
             }
         }

@@ -3,7 +3,6 @@ package com.baidu.mobads.container.components.net;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.executor.BaseTask;
@@ -26,7 +25,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class OAdURLConnection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_TYPE_APPLICATION_JSON = "application/json";
@@ -51,7 +50,7 @@ public class OAdURLConnection {
     public boolean mUseCaches;
     public String mUserAgent;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class LoadUrlRunnable extends BaseTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,14 +87,14 @@ public class OAdURLConnection {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnAdRequestListener {
         void onFail(String str, int i2);
 
         void onSuccess(String str, String str2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnImageRequestListener {
         void onFail(String str, int i2);
 
@@ -341,7 +340,7 @@ public class OAdURLConnection {
                 inputStream.close();
             }
         } catch (Exception e2) {
-            Log.e(TAG, e2.toString());
+            e2.toString();
         }
     }
 

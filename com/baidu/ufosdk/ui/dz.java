@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class dz implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f23746a;
+    public final /* synthetic */ FeedbackReportActivity f59483a;
 
     public dz(FeedbackReportActivity feedbackReportActivity) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class dz implements View.OnClickListener {
                 return;
             }
         }
-        this.f23746a = feedbackReportActivity;
+        this.f59483a = feedbackReportActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -37,15 +37,15 @@ public final class dz implements View.OnClickListener {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            z = this.f23746a.B;
+            z = this.f59483a.B;
             if (z) {
                 return;
             }
-            this.f23746a.f23576a = ((Integer) view.getTag()).intValue();
+            this.f59483a.f59311a = ((Integer) view.getTag()).intValue();
             if (Build.VERSION.SDK_INT >= 23) {
                 com.baidu.ufosdk.f.c.d(" CommonUtil.getAPILevel() >= 23 ");
             }
-            FeedbackReportActivity.D(this.f23746a);
+            FeedbackReportActivity.D(this.f59483a);
         }
     }
 }

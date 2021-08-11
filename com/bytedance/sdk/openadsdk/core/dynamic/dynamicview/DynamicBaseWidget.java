@@ -21,38 +21,40 @@ import com.bytedance.sdk.openadsdk.core.dynamic.d.a;
 import com.bytedance.sdk.openadsdk.q.s;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class DynamicBaseWidget extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f30080a;
+    public float f65982a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f30081b;
+    public float f65983b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f30082c;
+    public float f65984c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f30083d;
+    public float f65985d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f30084e;
+    public int f65986e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30085f;
+    public int f65987f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f30086g;
+    public int f65988g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f30087h;
+    public int f65989h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f30088i;
-    public e j;
+    public Context f65990i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public e f65991j;
     public f k;
     public List<DynamicBaseWidget> l;
     public DynamicRootView m;
@@ -79,19 +81,19 @@ public abstract class DynamicBaseWidget extends ViewGroup {
             }
         }
         this.p = true;
-        this.f30088i = context;
+        this.f65990i = context;
         this.m = dynamicRootView;
         this.k = fVar;
-        this.f30080a = fVar.a();
-        this.f30081b = fVar.b();
-        this.f30082c = fVar.c();
-        this.f30083d = fVar.d();
-        this.f30086g = (int) s.b(this.f30088i, this.f30080a);
-        this.f30087h = (int) s.b(this.f30088i, this.f30081b);
-        this.f30084e = (int) s.b(this.f30088i, this.f30082c);
-        this.f30085f = (int) s.b(this.f30088i, this.f30083d);
+        this.f65982a = fVar.a();
+        this.f65983b = fVar.b();
+        this.f65984c = fVar.c();
+        this.f65985d = fVar.d();
+        this.f65988g = (int) s.b(this.f65990i, this.f65982a);
+        this.f65989h = (int) s.b(this.f65990i, this.f65983b);
+        this.f65986e = (int) s.b(this.f65990i, this.f65984c);
+        this.f65987f = (int) s.b(this.f65990i, this.f65985d);
         e eVar = new e(fVar.e());
-        this.j = eVar;
+        this.f65991j = eVar;
         this.o = eVar.l() > 0;
     }
 
@@ -126,11 +128,11 @@ public abstract class DynamicBaseWidget extends ViewGroup {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             boolean b2 = b();
             try {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f30084e, this.f30085f);
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f65986e, this.f65987f);
                 k.f("DynamicBaseWidget", "widget mDynamicView:" + this.n);
-                k.f("DynamicBaseWidget", "mDynamicView x,y,w,h:" + this.f30080a + "," + this.f30081b + "," + this.f30084e + "," + this.f30085f);
-                layoutParams.topMargin = this.f30087h;
-                layoutParams.leftMargin = this.f30086g;
+                k.f("DynamicBaseWidget", "mDynamicView x,y,w,h:" + this.f65982a + "," + this.f65983b + "," + this.f65986e + "," + this.f65987f);
+                layoutParams.topMargin = this.f65989h;
+                layoutParams.leftMargin = this.f65988g;
                 this.m.addView(this, layoutParams);
                 return b2;
             } catch (Exception unused) {
@@ -144,7 +146,7 @@ public abstract class DynamicBaseWidget extends ViewGroup {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            e eVar = this.j;
+            e eVar = this.f65991j;
             return (eVar == null || eVar.q() == 0) ? false : true;
         }
         return invokeV.booleanValue;
@@ -156,9 +158,9 @@ public abstract class DynamicBaseWidget extends ViewGroup {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(s.b(this.f30088i, this.j.m()));
-            gradientDrawable.setColor(this.j.r());
-            gradientDrawable.setStroke((int) s.b(this.f30088i, this.j.o()), this.j.n());
+            gradientDrawable.setCornerRadius(s.b(this.f65990i, this.f65991j.m()));
+            gradientDrawable.setColor(this.f65991j.r());
+            gradientDrawable.setStroke((int) s.b(this.f65990i, this.f65991j.o()), this.f65991j.n());
             return gradientDrawable;
         }
         return (Drawable) invokeV.objValue;
@@ -167,7 +169,7 @@ public abstract class DynamicBaseWidget extends ViewGroup {
     public int getClickArea() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.j.q() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f65991j.q() : invokeV.intValue;
     }
 
     public a getDynamicClickListener() {
@@ -215,7 +217,7 @@ public abstract class DynamicBaseWidget extends ViewGroup {
     public void a(int i2) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.l == null || (eVar = this.j) == null || !eVar.a(i2)) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.l == null || (eVar = this.f65991j) == null || !eVar.a(i2)) {
             return;
         }
         b();

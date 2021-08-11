@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.IBinder;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,14 +16,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.pi.SVSD;
 import com.qq.e.comm.util.GDTLogger;
-import com.qq.e.comm.util.StringUtil;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class DownloadService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SVSD f38117a;
+    public SVSD f74895a;
 
     public DownloadService() {
         Interceptable interceptable = $ic;
@@ -38,33 +38,31 @@ public class DownloadService extends Service {
         }
     }
 
-    private boolean a(String str) {
-        InterceptResult invokeL;
+    private boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
-            if (this.f38117a == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            if (this.f74895a == null) {
                 try {
-                    if (GDTADManager.getInstance().initWith(getApplicationContext(), str)) {
+                    if (GDTADManager.getInstance().isInitialized()) {
                         SVSD aPKDownloadServiceDelegate = GDTADManager.getInstance().getPM().getPOFactory().getAPKDownloadServiceDelegate(this);
-                        this.f38117a = aPKDownloadServiceDelegate;
+                        this.f74895a = aPKDownloadServiceDelegate;
                         aPKDownloadServiceDelegate.onCreate();
-                    } else {
-                        GDTLogger.report("Init GDTADManager fail in DownloadService.oncreate");
                     }
                 } catch (Throwable th) {
-                    th.printStackTrace();
+                    GDTLogger.e("初始化Service发生异常", th);
                 }
             }
-            return this.f38117a != null;
+            return this.f74895a != null;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
     public static void enterAPPDownloadListPage(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             if (context == null) {
-                GDTLogger.e("context is null");
+                GDTLogger.e("enterAPPDownloadListPage 调用异常，context为空");
                 return;
             }
             Intent intent = new Intent(context, DownloadService.class);
@@ -80,16 +78,16 @@ public class DownloadService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
             GDTLogger.d("DownloadService.onBind");
-            SVSD svsd = this.f38117a;
+            SVSD svsd = this.f74895a;
             if (svsd != null) {
                 return svsd.onBind(intent);
             }
             String stringExtra = intent.getStringExtra("GDT_APPID");
             GDTLogger.d("DownloadService.onBind,appID=" + stringExtra);
-            if (StringUtil.isEmpty(stringExtra) || !a(stringExtra)) {
+            if (TextUtils.isEmpty(stringExtra) || !a()) {
                 return null;
             }
-            return this.f38117a.onBind(intent);
+            return this.f74895a.onBind(intent);
         }
         return (IBinder) invokeL.objValue;
     }
@@ -98,7 +96,7 @@ public class DownloadService extends Service {
     public void onConfigurationChanged(Configuration configuration) {
         SVSD svsd;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, configuration) == null) || (svsd = this.f38117a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, configuration) == null) || (svsd = this.f74895a) == null) {
             return;
         }
         svsd.onConfigurationChanged(configuration);
@@ -116,7 +114,7 @@ public class DownloadService extends Service {
     public void onDestroy() {
         SVSD svsd;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (svsd = this.f38117a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (svsd = this.f74895a) == null) {
             return;
         }
         svsd.onDestroy();
@@ -126,7 +124,7 @@ public class DownloadService extends Service {
     public void onLowMemory() {
         SVSD svsd;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (svsd = this.f38117a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (svsd = this.f74895a) == null) {
             return;
         }
         svsd.onLowMemory();
@@ -136,7 +134,7 @@ public class DownloadService extends Service {
     public void onRebind(Intent intent) {
         SVSD svsd;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, intent) == null) || (svsd = this.f38117a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, intent) == null) || (svsd = this.f74895a) == null) {
             return;
         }
         svsd.onRebind(intent);
@@ -150,13 +148,12 @@ public class DownloadService extends Service {
             if (intent == null) {
                 stopSelf(i3);
                 return 2;
-            }
-            String stringExtra = intent.getStringExtra("GDT_APPID");
-            if (StringUtil.isEmpty(stringExtra) || !a(stringExtra)) {
-                GDTLogger.w("Failto Start new download Service");
+            } else if (TextUtils.isEmpty(intent.getStringExtra("GDT_APPID")) || !a()) {
+                GDTLogger.w("Service onStartCommand 出现异常");
                 return 2;
+            } else {
+                return this.f74895a.onStartCommand(intent, i2, i3);
             }
-            return this.f38117a.onStartCommand(intent, i2, i3);
         }
         return invokeLII.intValue;
     }
@@ -165,7 +162,7 @@ public class DownloadService extends Service {
     public void onTaskRemoved(Intent intent) {
         SVSD svsd;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, intent) == null) || (svsd = this.f38117a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, intent) == null) || (svsd = this.f74895a) == null) {
             return;
         }
         svsd.onTaskRemoved(intent);
@@ -175,7 +172,7 @@ public class DownloadService extends Service {
     public void onTrimMemory(int i2) {
         SVSD svsd;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (svsd = this.f38117a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (svsd = this.f74895a) == null) {
             return;
         }
         svsd.onTrimMemory(i2);
@@ -186,7 +183,7 @@ public class DownloadService extends Service {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, intent)) == null) {
-            SVSD svsd = this.f38117a;
+            SVSD svsd = this.f74895a;
             return svsd != null ? svsd.onUnbind(intent) : super.onUnbind(intent);
         }
         return invokeL.booleanValue;

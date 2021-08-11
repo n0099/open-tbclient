@@ -1,6 +1,10 @@
 package com.baidu.tieba.themeCenter.background;
 
 import android.os.Bundle;
+import c.a.p0.o3.e.b;
+import c.a.p0.o3.e.c;
+import c.a.p0.o3.e.d;
+import c.a.p0.o3.h.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
@@ -11,12 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.n3.e.b;
-import d.a.q0.n3.e.c;
-import d.a.q0.n3.e.d;
-import d.a.q0.n3.h.e;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,13 +26,13 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     public TbPageContext<?> mPageContext;
     public c mView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements BackgroundGroupModel.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BackgroundGroupActivity f21540a;
+        public final /* synthetic */ BackgroundGroupActivity f57088a;
 
         public a(BackgroundGroupActivity backgroundGroupActivity) {
             Interceptable interceptable = $ic;
@@ -49,22 +49,22 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
                     return;
                 }
             }
-            this.f21540a = backgroundGroupActivity;
+            this.f57088a = backgroundGroupActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.c
         public void a(int i2, String str, e eVar, List<b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, eVar, list}) == null) {
-                BackgroundGroupActivity backgroundGroupActivity = this.f21540a;
+                BackgroundGroupActivity backgroundGroupActivity = this.f57088a;
                 backgroundGroupActivity.hideLoadingView(backgroundGroupActivity.mView.d());
-                this.f21540a.mView.i();
+                this.f57088a.mView.i();
                 if (i2 == 0) {
-                    this.f21540a.mView.k(eVar, list, this.f21540a.mModel.F());
+                    this.f57088a.mView.k(eVar, list, this.f57088a.mModel.F());
                     return;
                 }
-                this.f21540a.showToast(str);
-                this.f21540a.mView.j();
+                this.f57088a.showToast(str);
+                this.f57088a.mView.j();
             }
         }
     }
@@ -85,7 +85,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         this.mCallback = new a(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.p0.m0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -93,17 +93,17 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public d.a.p0.m0.d getPageStayDurationItem() {
+    public c.a.o0.m0.d getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            d.a.p0.m0.d pageStayDurationItem = super.getPageStayDurationItem();
+            c.a.o0.m0.d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.f52762a = true;
+                pageStayDurationItem.f13335a = true;
             }
             return pageStayDurationItem;
         }
-        return (d.a.p0.m0.d) invokeV.objValue;
+        return (c.a.o0.m0.d) invokeV.objValue;
     }
 
     public int getPropId() {

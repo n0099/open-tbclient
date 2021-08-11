@@ -5,19 +5,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
-public class b extends a.AbstractRunnableC0119a {
+/* loaded from: classes5.dex */
+public class b extends a.AbstractRunnableC1667a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f7861a;
+    public final /* synthetic */ e f42138a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f7862b;
+    public final /* synthetic */ String f42139b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ a f7863c;
+    public final /* synthetic */ a f42140c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, e eVar, String str) {
@@ -37,23 +37,23 @@ public class b extends a.AbstractRunnableC0119a {
                 return;
             }
         }
-        this.f7863c = aVar;
-        this.f7861a = eVar;
-        this.f7862b = str;
+        this.f42140c = aVar;
+        this.f42138a = eVar;
+        this.f42139b = str;
     }
 
-    @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.a.AbstractRunnableC0119a
+    @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.a.AbstractRunnableC1667a
     public void a() {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c cVar = new c("GET", this.f7861a);
-            i2 = this.f7863c.f7858a;
+            c cVar = new c("GET", this.f42138a);
+            i2 = this.f42140c.f42135a;
             cVar.b(i2);
-            i3 = this.f7863c.f7859b;
+            i3 = this.f42140c.f42136b;
             cVar.a(i3);
-            cVar.a(this.f7862b);
+            cVar.a(this.f42139b);
         }
     }
 }

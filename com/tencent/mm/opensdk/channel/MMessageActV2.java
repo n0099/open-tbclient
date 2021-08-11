@@ -3,7 +3,6 @@ package com.tencent.mm.opensdk.channel;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +13,7 @@ import com.tencent.mm.opensdk.constants.Build;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class MMessageActV2 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_ENTRY_CLASS_NAME = ".wxapi.WXEntryActivity";
@@ -23,7 +22,7 @@ public class MMessageActV2 {
     public static final String TAG = "MicroMsg.SDK.MMessageAct";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class Args {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int INVALID_FLAGS = -1;
@@ -103,13 +102,13 @@ public class MMessageActV2 {
                 intent.putExtra(ConstantsAPI.TOKEN, args.token);
                 int i2 = args.flags;
                 if (i2 == -1) {
-                    intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT).addFlags(134217728);
+                    intent.addFlags(268435456).addFlags(134217728);
                 } else {
                     intent.setFlags(i2);
                 }
                 try {
                     context.startActivity(intent);
-                    Log.d(TAG, "send mm message, intent=" + intent);
+                    Log.d(TAG, "send mm message, intent=".concat(String.valueOf(intent)));
                     return true;
                 } catch (Exception e2) {
                     str = "send fail, ex = " + e2.getMessage();

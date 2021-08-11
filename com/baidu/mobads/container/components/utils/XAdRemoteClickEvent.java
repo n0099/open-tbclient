@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class XAdRemoteClickEvent extends XAdRemoteEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AD_CLICK_THRU = "AdClickThru";

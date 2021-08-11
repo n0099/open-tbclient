@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.apollon.utils.DxmApplicationContextImpl;
 import com.baidu.apollon.utils.GlobalUtils;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,7 @@ import com.baidu.wallet.base.widget.WalletBaseEmptyView;
 import com.baidu.wallet.base.widget.dialog.PromptDialog;
 import com.baidu.wallet.core.beans.BeanActivity;
 import com.baidu.wallet.core.utils.WalletGlobalUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public abstract class BaseActionBarActivity extends BeanActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,16 +29,16 @@ public abstract class BaseActionBarActivity extends BeanActivity {
     public View mContentView;
     public IErrorViewDelegate mErrorViewDelegate;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class ErrorViewDelegate implements IErrorViewDelegate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WalletBaseEmptyView f24801a;
+        public WalletBaseEmptyView f60513a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ BaseActionBarActivity f24802b;
+        public final /* synthetic */ BaseActionBarActivity f60514b;
 
         public ErrorViewDelegate(BaseActionBarActivity baseActionBarActivity) {
             Interceptable interceptable = $ic;
@@ -54,19 +55,19 @@ public abstract class BaseActionBarActivity extends BeanActivity {
                     return;
                 }
             }
-            this.f24802b = baseActionBarActivity;
+            this.f60514b = baseActionBarActivity;
             WalletBaseEmptyView walletBaseEmptyView = new WalletBaseEmptyView(baseActionBarActivity.getActivity());
-            this.f24801a = walletBaseEmptyView;
+            this.f60513a = walletBaseEmptyView;
             walletBaseEmptyView.setVisibility(8);
-            baseActionBarActivity.mContentLayout.addView(this.f24801a);
+            baseActionBarActivity.mContentLayout.addView(this.f60513a);
         }
 
         @Override // com.baidu.wallet.core.BaseActionBarActivity.IErrorViewDelegate
         public void showContentView() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f24802b.mContentView.setVisibility(0);
-                this.f24801a.setVisibility(8);
+                this.f60514b.mContentView.setVisibility(0);
+                this.f60513a.setVisibility(8);
             }
         }
 
@@ -74,9 +75,9 @@ public abstract class BaseActionBarActivity extends BeanActivity {
         public void showLocalNetError(WalletBaseEmptyView.EmptyBtnClickListener emptyBtnClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emptyBtnClickListener) == null) {
-                this.f24801a.setVisibility(0);
-                this.f24802b.mContentView.setVisibility(8);
-                this.f24801a.showTip1_Tip2_NextBtn(ResUtils.drawable(this.f24802b.mAct, "wallet_base_no_net"), ResUtils.getString(this.f24802b.mAct, "wallet_base_no_network"), ResUtils.getString(this.f24802b.mAct, "wallet_base_no_network_reason"), ResUtils.getString(this.f24802b.getActivity(), "bd_wallet_reload"), emptyBtnClickListener);
+                this.f60513a.setVisibility(0);
+                this.f60514b.mContentView.setVisibility(8);
+                this.f60513a.showTip1_Tip2_NextBtn(ResUtils.drawable(this.f60514b.mAct, "wallet_base_no_net"), ResUtils.getString(this.f60514b.mAct, "wallet_base_no_network"), ResUtils.getString(this.f60514b.mAct, "wallet_base_no_network_reason"), ResUtils.getString(this.f60514b.getActivity(), "bd_wallet_reload"), emptyBtnClickListener);
             }
         }
 
@@ -84,14 +85,14 @@ public abstract class BaseActionBarActivity extends BeanActivity {
         public void showServerNetError(String str, WalletBaseEmptyView.EmptyBtnClickListener emptyBtnClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, emptyBtnClickListener) == null) {
-                this.f24801a.setVisibility(0);
-                this.f24802b.mContentView.setVisibility(8);
-                this.f24801a.showTip1_NextBtn(ResUtils.drawable(this.f24802b.mAct, "wallet_base_no_net"), ResUtils.getString(this.f24802b.mAct, "wallet_base_no_network"), ResUtils.getString(this.f24802b.getActivity(), "bd_wallet_reload"), emptyBtnClickListener);
+                this.f60513a.setVisibility(0);
+                this.f60514b.mContentView.setVisibility(8);
+                this.f60513a.showTip1_NextBtn(ResUtils.drawable(this.f60514b.mAct, "wallet_base_no_net"), ResUtils.getString(this.f60514b.mAct, "wallet_base_no_network"), ResUtils.getString(this.f60514b.getActivity(), "bd_wallet_reload"), emptyBtnClickListener);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface IErrorViewDelegate {
         void showContentView();
 
@@ -165,7 +166,7 @@ public abstract class BaseActionBarActivity extends BeanActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BaseActionBarActivity f24794a;
+            public final /* synthetic */ BaseActionBarActivity f60506a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -182,15 +183,15 @@ public abstract class BaseActionBarActivity extends BeanActivity {
                         return;
                     }
                 }
-                this.f24794a = this;
+                this.f60506a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    GlobalUtils.hideKeyboard(this.f24794a.getActivity());
-                    this.f24794a.onBackPressed();
+                    GlobalUtils.hideKeyboard(this.f60506a.getActivity());
+                    this.f60506a.onBackPressed();
                 }
             }
         });
@@ -209,9 +210,9 @@ public abstract class BaseActionBarActivity extends BeanActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(ResUtils.layout(getApplicationContext(), "wallet_base_title_activity"));
-            this.mBdActionBar = (BdActionBar) findViewByIdExt(ResUtils.id(getApplicationContext(), "bdactionbar"));
-            this.mContentLayout = (FrameLayout) findViewByIdExt(ResUtils.id(getApplicationContext(), "content_frame_layout"));
+            setContentView(ResUtils.layout(DxmApplicationContextImpl.getApplicationContext(this), "wallet_base_title_activity"));
+            this.mBdActionBar = (BdActionBar) findViewByIdExt(ResUtils.id(DxmApplicationContextImpl.getApplicationContext(this), "bdactionbar"));
+            this.mContentLayout = (FrameLayout) findViewByIdExt(ResUtils.id(DxmApplicationContextImpl.getApplicationContext(this), "content_frame_layout"));
             View inflate = LayoutInflater.from(this).inflate(onBindLayoutId(), (ViewGroup) null);
             this.mContentView = inflate;
             this.mContentLayout.addView(inflate);
@@ -238,13 +239,13 @@ public abstract class BaseActionBarActivity extends BeanActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View.OnClickListener f24795a;
+                public final /* synthetic */ View.OnClickListener f60507a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PromptDialog f24796b;
+                public final /* synthetic */ PromptDialog f60508b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ BaseActionBarActivity f24797c;
+                public final /* synthetic */ BaseActionBarActivity f60509c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -261,20 +262,20 @@ public abstract class BaseActionBarActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f24797c = this;
-                    this.f24795a = onClickListener;
-                    this.f24796b = promptDialog;
+                    this.f60509c = this;
+                    this.f60507a = onClickListener;
+                    this.f60508b = promptDialog;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        View.OnClickListener onClickListener3 = this.f24795a;
+                        View.OnClickListener onClickListener3 = this.f60507a;
                         if (onClickListener3 != null) {
                             onClickListener3.onClick(view);
                         }
-                        this.f24796b.dismiss();
+                        this.f60508b.dismiss();
                     }
                 }
             });
@@ -283,13 +284,13 @@ public abstract class BaseActionBarActivity extends BeanActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View.OnClickListener f24798a;
+                public final /* synthetic */ View.OnClickListener f60510a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PromptDialog f24799b;
+                public final /* synthetic */ PromptDialog f60511b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ BaseActionBarActivity f24800c;
+                public final /* synthetic */ BaseActionBarActivity f60512c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -306,20 +307,20 @@ public abstract class BaseActionBarActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f24800c = this;
-                    this.f24798a = onClickListener2;
-                    this.f24799b = promptDialog;
+                    this.f60512c = this;
+                    this.f60510a = onClickListener2;
+                    this.f60511b = promptDialog;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        View.OnClickListener onClickListener3 = this.f24798a;
+                        View.OnClickListener onClickListener3 = this.f60510a;
                         if (onClickListener3 != null) {
                             onClickListener3.onClick(view);
                         }
-                        this.f24799b.dismiss();
+                        this.f60511b.dismiss();
                     }
                 }
             });

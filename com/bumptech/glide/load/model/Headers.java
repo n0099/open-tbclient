@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.model.LazyHeaders;
 import java.util.Collections;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface Headers {
     @Deprecated
     public static final Headers NONE = new Headers() { // from class: com.bumptech.glide.load.model.Headers.1

@@ -5,7 +5,6 @@ import android.net.http.SslError;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.paysdk.datamodel.SdkInitResponse;
 import java.io.ByteArrayInputStream;
 import java.security.MessageDigest;
@@ -21,12 +19,12 @@ import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class HttpsCertVerifyUtil {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24900a = ",";
+    public static final String f60617a = ",";
     public transient /* synthetic */ FieldHolder $fh;
 
     public HttpsCertVerifyUtil() {
@@ -91,13 +89,11 @@ public class HttpsCertVerifyUtil {
                     }
                     for (String str : a2) {
                         if (Arrays.equals(a3, a(str.toLowerCase()))) {
-                            DXMSdkSAUtils.onEventWithValues(StatServiceEvent.CERTIFICATE_WHITE_LIST_PASSED, Arrays.asList(primaryError + "", sslError.getUrl(), str));
-                            PayStatisticsUtil.onEventWithValues(StatServiceEvent.CERTIFICATE_WHITE_LIST_PASSED, Arrays.asList(primaryError + "", sslError.getUrl(), str));
+                            DXMSdkSAUtils.onEventWithValues("#certificate_white_list_passed", Arrays.asList(primaryError + "", sslError.getUrl(), str));
                             return true;
                         }
                     }
-                    DXMSdkSAUtils.onEventWithValues(StatServiceEvent.CERTIFICATE_WHITE_LIST_FAILED, Arrays.asList(primaryError + "", sslError.getUrl(), a(a3)));
-                    PayStatisticsUtil.onEventWithValues(StatServiceEvent.CERTIFICATE_WHITE_LIST_FAILED, Arrays.asList(primaryError + "", sslError.getUrl(), a(a3)));
+                    DXMSdkSAUtils.onEventWithValues("#certificate_white_list_failed", Arrays.asList(primaryError + "", sslError.getUrl(), a(a3)));
                     return false;
                 }
                 LogUtil.d("certWhiteList is null or 0.");

@@ -6,6 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import c.a.e.e.p.j;
+import c.a.e.e.p.l;
+import c.a.e.k.e.n;
+import c.a.e.k.e.w;
+import c.a.p0.b4.q.c;
+import c.a.p0.q1.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -25,35 +31,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
-import d.a.d.e.p.l;
-import d.a.d.k.e.n;
-import d.a.d.k.e.w;
-import d.a.q0.a4.q.c;
-import d.a.q0.p1.a;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.RecommendForumListForBottle.ForumInfo;
-/* loaded from: classes4.dex */
-public class TransmitSelectAdapter extends d.a.d.k.e.a<c, TransmitSelectViewHolder> {
+/* loaded from: classes7.dex */
+public class TransmitSelectAdapter extends c.a.e.k.e.a<c, TransmitSelectViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d.a.q0.p1.a m;
+    public c.a.p0.q1.a m;
     public ArrayList<HotTopicBussinessData> n;
     public List<TransmitForumData> o;
     public w p;
     public a.b q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class TransmitSelectViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public TextView f22782a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public ImageView f22783b;
+        public ImageView mAddIcon;
+        public TextView mSelectBySelf;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public TransmitSelectViewHolder(View view) {
@@ -73,18 +69,18 @@ public class TransmitSelectAdapter extends d.a.d.k.e.a<c, TransmitSelectViewHold
                     return;
                 }
             }
-            this.f22782a = (TextView) view.findViewById(R.id.select_by_self);
-            this.f22783b = (ImageView) view.findViewById(R.id.add_icon);
+            this.mSelectBySelf = (TextView) view.findViewById(R.id.select_by_self);
+            this.mAddIcon = (ImageView) view.findViewById(R.id.add_icon);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitSelectAdapter f22784e;
+        public final /* synthetic */ TransmitSelectAdapter f58438e;
 
         public a(TransmitSelectAdapter transmitSelectAdapter) {
             Interceptable interceptable = $ic;
@@ -101,36 +97,36 @@ public class TransmitSelectAdapter extends d.a.d.k.e.a<c, TransmitSelectViewHold
                     return;
                 }
             }
-            this.f22784e = transmitSelectAdapter;
+            this.f58438e = transmitSelectAdapter;
         }
 
-        @Override // d.a.d.k.e.w
-        public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
+        @Override // c.a.e.k.e.w
+        public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
                 if (!j.z()) {
-                    l.L(this.f22784e.f42341e, R.string.neterror);
+                    l.L(this.f58438e.f2904e, R.string.neterror);
                 }
                 TiebaStatic.log(new StatisticItem("c12053"));
-                if (!ListUtils.isEmpty(this.f22784e.n)) {
-                    this.f22784e.t0();
+                if (!ListUtils.isEmpty(this.f58438e.n)) {
+                    this.f58438e.t0();
                     return;
                 }
-                TransmitSelectAdapter transmitSelectAdapter = this.f22784e;
-                transmitSelectAdapter.m = new d.a.q0.p1.a(transmitSelectAdapter.f42345i);
-                this.f22784e.m.g(this.f22784e.q);
-                this.f22784e.m.f();
+                TransmitSelectAdapter transmitSelectAdapter = this.f58438e;
+                transmitSelectAdapter.m = new c.a.p0.q1.a(transmitSelectAdapter.f2908i);
+                this.f58438e.m.g(this.f58438e.q);
+                this.f58438e.m.f();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TransmitSelectAdapter f22785a;
+        public final /* synthetic */ TransmitSelectAdapter f58439a;
 
         public b(TransmitSelectAdapter transmitSelectAdapter) {
             Interceptable interceptable = $ic;
@@ -147,10 +143,10 @@ public class TransmitSelectAdapter extends d.a.d.k.e.a<c, TransmitSelectViewHold
                     return;
                 }
             }
-            this.f22785a = transmitSelectAdapter;
+            this.f58439a = transmitSelectAdapter;
         }
 
-        @Override // d.a.q0.p1.a.b
+        @Override // c.a.p0.q1.a.b
         public void a(boolean z, int i2, String str, List<ForumInfo> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str, list}) == null) {
@@ -159,13 +155,13 @@ public class TransmitSelectAdapter extends d.a.d.k.e.a<c, TransmitSelectViewHold
                     int size = list.size();
                     for (int i3 = 0; i3 < size; i3++) {
                         ForumInfo forumInfo = list.get(i3);
-                        if (forumInfo != null && forumInfo.forum_id != null && !StringUtils.isNull(forumInfo.forum_name) && !this.f22785a.r0(forumInfo.forum_id.longValue())) {
+                        if (forumInfo != null && forumInfo.forum_id != null && !StringUtils.isNull(forumInfo.forum_name) && !this.f58439a.s0(forumInfo.forum_id.longValue())) {
                             arrayList.add(new HotTopicBussinessData(forumInfo.forum_id.longValue(), forumInfo.forum_name, forumInfo.avatar, null, forumInfo.thread_count.longValue(), 0L, 0L, false, null, 0));
                         }
                     }
-                    if (this.f22785a.n == null) {
-                        this.f22785a.n = arrayList;
-                        this.f22785a.t0();
+                    if (this.f58439a.n == null) {
+                        this.f58439a.n = arrayList;
+                        this.f58439a.t0();
                     }
                 }
             }
@@ -193,19 +189,19 @@ public class TransmitSelectAdapter extends d.a.d.k.e.a<c, TransmitSelectViewHold
         }
         this.p = new a(this);
         this.q = new b(this);
-        a0(this.p);
+        d0(this.p);
         this.o = list;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // d.a.d.k.e.a
-    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, c cVar, TransmitSelectViewHolder transmitSelectViewHolder) {
-        w0(i2, view, viewGroup, cVar, transmitSelectViewHolder);
+    @Override // c.a.e.k.e.a
+    public /* bridge */ /* synthetic */ View a0(int i2, View view, ViewGroup viewGroup, c cVar, TransmitSelectViewHolder transmitSelectViewHolder) {
+        v0(i2, view, viewGroup, cVar, transmitSelectViewHolder);
         return view;
     }
 
-    public void o0() {
-        d.a.q0.p1.a aVar;
+    public void q0() {
+        c.a.p0.q1.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.m) == null) {
             return;
@@ -213,7 +209,7 @@ public class TransmitSelectAdapter extends d.a.d.k.e.a<c, TransmitSelectViewHold
         aVar.e();
     }
 
-    public HotTopicBussinessData p0(int i2) {
+    public HotTopicBussinessData r0(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
@@ -225,16 +221,16 @@ public class TransmitSelectAdapter extends d.a.d.k.e.a<c, TransmitSelectViewHold
         return (HotTopicBussinessData) invokeI.objValue;
     }
 
-    public final boolean r0(long j) {
+    public final boolean s0(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
             List<TransmitForumData> list = this.o;
             if (list == null) {
                 return false;
             }
             for (TransmitForumData transmitForumData : list) {
-                if (transmitForumData != null && transmitForumData.forumId == j) {
+                if (transmitForumData != null && transmitForumData.forumId == j2) {
                     return true;
                 }
             }
@@ -246,27 +242,27 @@ public class TransmitSelectAdapter extends d.a.d.k.e.a<c, TransmitSelectViewHold
     public final void t0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.f42341e, 25005, this.n);
+            HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.f2904e, 25005, this.n);
             hotTopicChangeActivityConfig.setUseOriginList(true);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicChangeActivityConfig));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.d.k.e.a
+    @Override // c.a.e.k.e.a
     /* renamed from: u0 */
-    public TransmitSelectViewHolder Q(ViewGroup viewGroup) {
+    public TransmitSelectViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) ? new TransmitSelectViewHolder(LayoutInflater.from(this.f42341e).inflate(R.layout.transmit_select_layout, (ViewGroup) null)) : (TransmitSelectViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) ? new TransmitSelectViewHolder(LayoutInflater.from(this.f2904e).inflate(R.layout.transmit_select_layout, (ViewGroup) null)) : (TransmitSelectViewHolder) invokeL.objValue;
     }
 
-    public View w0(int i2, View view, ViewGroup viewGroup, c cVar, TransmitSelectViewHolder transmitSelectViewHolder) {
+    public View v0(int i2, View view, ViewGroup viewGroup, c cVar, TransmitSelectViewHolder transmitSelectViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), view, viewGroup, cVar, transmitSelectViewHolder})) == null) {
-            SkinManager.setViewTextColor(transmitSelectViewHolder.f22782a, R.color.CAM_X0302);
-            SkinManager.setImageResource(transmitSelectViewHolder.f22783b, R.drawable.icon_post_add_ba_n);
+            SkinManager.setViewTextColor(transmitSelectViewHolder.mSelectBySelf, R.color.CAM_X0302);
+            SkinManager.setImageResource(transmitSelectViewHolder.mAddIcon, R.drawable.icon_post_add_ba_n);
             return view;
         }
         return (View) invokeCommon.objValue;

@@ -18,36 +18,36 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ImageBase64Utils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5407a = "ImageBase64Utils";
+    public static final String f39351a = "ImageBase64Utils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f5408b = 70;
+    public static int f39352b = 70;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ImageBase64Utils f5409c;
+    public static ImageBase64Utils f39353c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class ImageBase64AsyncTask extends AsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImageBase64Utils f5410a;
+        public final /* synthetic */ ImageBase64Utils f39354a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageBase64Listener f5411b;
+        public ImageBase64Listener f39355b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f5412c;
+        public String f39356c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f5413d;
+        public int f39357d;
 
         public ImageBase64AsyncTask(ImageBase64Utils imageBase64Utils, ImageBase64Listener imageBase64Listener, String str, int i2) {
             Interceptable interceptable = $ic;
@@ -64,10 +64,10 @@ public class ImageBase64Utils {
                     return;
                 }
             }
-            this.f5410a = imageBase64Utils;
-            this.f5411b = imageBase64Listener;
-            this.f5412c = str;
-            this.f5413d = i2;
+            this.f39354a = imageBase64Utils;
+            this.f39355b = imageBase64Listener;
+            this.f39356c = str;
+            this.f39357d = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class ImageBase64Utils {
         public String doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) ? ImageBase64Utils.b(this.f5412c, this.f5413d) : (String) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) ? ImageBase64Utils.b(this.f39356c, this.f39357d) : (String) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -86,7 +86,7 @@ public class ImageBase64Utils {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 super.onPostExecute(str);
-                ImageBase64Listener imageBase64Listener = this.f5411b;
+                ImageBase64Listener imageBase64Listener = this.f39355b;
                 if (imageBase64Listener != null) {
                     imageBase64Listener.onBase64Result(str);
                 }
@@ -94,7 +94,7 @@ public class ImageBase64Utils {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface ImageBase64Listener {
         void onBase64Result(String str);
     }
@@ -147,7 +147,7 @@ public class ImageBase64Utils {
                     options.inJustDecodeBounds = false;
                     Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    decodeFile.compress(Bitmap.CompressFormat.JPEG, f5408b, byteArrayOutputStream);
+                    decodeFile.compress(Bitmap.CompressFormat.JPEG, f39352b, byteArrayOutputStream);
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
                     LogUtil.d("ImageBase64Utils", "compress size:\t" + byteArray.length + "\tsampleSize" + computeSampleSize + "\twidth" + decodeFile.getWidth());
                     decodeFile.recycle();
@@ -235,10 +235,10 @@ public class ImageBase64Utils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (f5409c == null) {
-                f5409c = new ImageBase64Utils();
+            if (f39353c == null) {
+                f39353c = new ImageBase64Utils();
             }
-            return f5409c;
+            return f39353c;
         }
         return (ImageBase64Utils) invokeV.objValue;
     }

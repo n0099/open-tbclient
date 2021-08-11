@@ -3,7 +3,6 @@ package com.baidu.searchbox.afx.recode;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaMetadataRetriever;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -20,14 +19,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class Mp4Composer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Mp4Composer";
     public transient /* synthetic */ FieldHolder $fh;
     public ExecutorService mExecutorService;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface Listener {
         void onCompleted();
 
@@ -143,15 +142,22 @@ public class Mp4Composer {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, mediaMetadataRetriever)) == null) {
             try {
                 mediaMetadataRetriever.extractMetadata(12);
-                return new Mp4Info(Integer.valueOf(mediaMetadataRetriever.extractMetadata(18)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(19)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(24)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(20)).intValue(), 1000 * Long.valueOf(mediaMetadataRetriever.extractMetadata(9)).longValue());
-            } finally {
+                Mp4Info mp4Info = new Mp4Info(Integer.valueOf(mediaMetadataRetriever.extractMetadata(18)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(19)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(24)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(20)).intValue(), 1000 * Long.valueOf(mediaMetadataRetriever.extractMetadata(9)).longValue());
                 if (mediaMetadataRetriever != null) {
                     try {
                         mediaMetadataRetriever.release();
-                    } catch (RuntimeException e2) {
-                        Log.e(TAG, "Failed to release mediaMetadataRetriever.", e2);
+                    } catch (RuntimeException unused) {
                     }
                 }
+                return mp4Info;
+            } catch (Throwable th) {
+                if (mediaMetadataRetriever != null) {
+                    try {
+                        mediaMetadataRetriever.release();
+                    } catch (RuntimeException unused2) {
+                    }
+                }
+                throw th;
             }
         }
         return (Mp4Info) invokeL.objValue;

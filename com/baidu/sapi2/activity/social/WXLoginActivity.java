@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class WXLoginActivity extends BaseSSOLoginActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String q;
@@ -39,13 +39,13 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
     public String o;
     public int p;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WXLoginActivity f9949a;
+        public final /* synthetic */ WXLoginActivity f44612a;
 
         public a(WXLoginActivity wXLoginActivity) {
             Interceptable interceptable = $ic;
@@ -62,15 +62,15 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
             }
-            this.f9949a = wXLoginActivity;
+            this.f44612a = wXLoginActivity;
         }
 
         @Override // com.baidu.sapi2.activity.social.WXLoginActivity.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Toast.makeText(this.f9949a, "微信未安装", 1).show();
-                this.f9949a.a(WXLoginActivity.v);
+                Toast.makeText(this.f44612a, "微信未安装", 1).show();
+                this.f44612a.a(WXLoginActivity.v);
             }
         }
 
@@ -78,12 +78,12 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f9949a.finish();
+                this.f44612a.finish();
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a();
 
@@ -131,16 +131,16 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            ((BaseSSOLoginActivity) this).f9926g = v;
-            ((BaseSSOLoginActivity) this).f9924e = w;
-            ((BaseSSOLoginActivity) this).f9925f = x;
+            ((BaseSSOLoginActivity) this).f44588g = v;
+            ((BaseSSOLoginActivity) this).f44586e = w;
+            ((BaseSSOLoginActivity) this).f44587f = x;
             w = null;
             x = false;
             this.o = getIntent().getStringExtra("code");
             this.n = getIntent().getStringExtra("state");
             int intExtra = getIntent().getIntExtra("error_code", -1);
             this.p = intExtra;
-            if (!((BaseSSOLoginActivity) this).f9925f) {
+            if (!((BaseSSOLoginActivity) this).f44587f) {
                 if (intExtra == 0) {
                     a(ParamsUtil.getUrlWeixinBind(this.configuration, this.o, this.n, false), "授权微信帐号登录中");
                     return;
@@ -170,8 +170,8 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
             }
             if (!getIntent().getBooleanExtra(r, false)) {
                 v = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2001);
-                w = ((BaseSSOLoginActivity) this).f9924e;
-                x = ((BaseSSOLoginActivity) this).f9925f;
+                w = ((BaseSSOLoginActivity) this).f44586e;
+                x = ((BaseSSOLoginActivity) this).f44587f;
                 a(new a(this));
                 return;
             }

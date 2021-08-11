@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.banner.BannerBaseItemInfo;
 import com.baidu.wallet.home.storage.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public abstract class WalletBannerItem extends BannerBaseItemInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,18 +31,18 @@ public abstract class WalletBannerItem extends BannerBaseItemInfo {
 
     public abstract String getCornerAddr();
 
-    public long getNum(String str, long j) {
+    public long getNum(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return j;
+                return j2;
             }
             try {
                 return Long.parseLong(str);
             } catch (NumberFormatException e2) {
                 e2.printStackTrace();
-                return j;
+                return j2;
             }
         }
         return invokeLJ.longValue;

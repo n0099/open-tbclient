@@ -24,7 +24,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes7.dex */
 public class PatchInstallInfo {
     public File mPatchDir;
     public FileLock mShareFileLock;
@@ -308,7 +309,7 @@ public class PatchInstallInfo {
                     fileWriter.write(file2.getName());
                     fileWriter.write(":");
                     fileWriter.write(bytesToHex);
-                    fileWriter.write("\n");
+                    fileWriter.write(StringUtils.LF);
                 }
             }
             fileWriter.flush();
@@ -330,7 +331,7 @@ public class PatchInstallInfo {
 
     public boolean shareLock() {
         try {
-            FileLock tryLock = new RandomAccessFile(getLockFile(), r.f7788a).getChannel().tryLock(0L, 0L, true);
+            FileLock tryLock = new RandomAccessFile(getLockFile(), r.f42062a).getChannel().tryLock(0L, 0L, true);
             this.mShareFileLock = tryLock;
             return tryLock != null;
         } catch (IOException unused) {

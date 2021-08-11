@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.imageloader.cache.disc.naming;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface FileNameGenerator {
     String generate(String str);
 }

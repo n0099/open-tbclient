@@ -13,13 +13,13 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class BoundaryInterfaceReflectionUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @TargetApi(19)
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class InvocationHandlerWithDelegateGetter implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

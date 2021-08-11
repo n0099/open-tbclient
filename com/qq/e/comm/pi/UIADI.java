@@ -3,12 +3,13 @@ package com.qq.e.comm.pi;
 import android.app.Activity;
 import com.qq.e.ads.cfg.DownAPPConfirmPolicy;
 import com.qq.e.ads.cfg.VideoOption;
+import com.qq.e.ads.interstitial2.ADRewardListener;
 import com.qq.e.ads.interstitial2.UnifiedInterstitialMediaListener;
-import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
+import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
-public interface UIADI extends ApkDownloadComplianceInterface {
+/* loaded from: classes10.dex */
+public interface UIADI extends LADI {
     public static final Map<String, String> ext = new HashMap();
 
     void close();
@@ -18,10 +19,6 @@ public interface UIADI extends ApkDownloadComplianceInterface {
     String getAdNetWorkName();
 
     int getAdPatternType();
-
-    int getECPM();
-
-    String getECPMLevel();
 
     int getVideoDuration();
 
@@ -38,6 +35,10 @@ public interface UIADI extends ApkDownloadComplianceInterface {
     void setMediaListener(UnifiedInterstitialMediaListener unifiedInterstitialMediaListener);
 
     void setMinVideoDuration(int i2);
+
+    void setRewardListener(ADRewardListener aDRewardListener);
+
+    void setServerSideVerificationOptions(ServerSideVerificationOptions serverSideVerificationOptions);
 
     void setVideoOption(VideoOption videoOption);
 

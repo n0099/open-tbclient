@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class f<T> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5280a = "f";
+    public static final String f39221a = "f";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<T> f5281b;
+    public final Class<T> f39222b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.baidu.fsg.base.restnet.a.a<?> f5282c;
+    public final com.baidu.fsg.base.restnet.a.a<?> f39223c;
 
     static {
         InterceptResult invokeClinit;
@@ -56,12 +56,11 @@ public class f<T> {
         if (cls == null) {
             throw new IllegalArgumentException("'responseType' must not be null");
         }
-        if (aVar != null) {
-            this.f5281b = cls;
-            this.f5282c = aVar;
-            return;
+        if (aVar == null) {
+            throw new IllegalArgumentException("'messageConverters' must not be empty");
         }
-        throw new IllegalArgumentException("'messageConverters' must not be empty");
+        this.f39222b = cls;
+        this.f39223c = aVar;
     }
 
     private boolean b(e eVar) throws Exception {
@@ -79,10 +78,10 @@ public class f<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
             if (b(eVar)) {
-                if (eVar.d().i() == null && Log.isLoggable(f5280a, 3)) {
-                    Log.d(f5280a, "No Content-Type header found, defaulting to application/octet-stream");
+                if (eVar.d().i() == null) {
+                    Log.isLoggable(f39221a, 3);
                 }
-                return (T) this.f5282c.a(this.f5281b, eVar);
+                return (T) this.f39223c.a(this.f39222b, eVar);
             }
             return null;
         }

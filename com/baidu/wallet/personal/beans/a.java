@@ -1,86 +1,107 @@
 package com.baidu.wallet.personal.beans;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.restnet.RestNameValuePair;
-import com.baidu.mapapi.UIMsg;
-import com.baidu.tbadk.core.atomData.AlaPersonCenterFansActivityConfig;
+import com.baidu.apollon.beans.IBeanFactory;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.BaseBean;
-import com.baidu.wallet.core.domain.DomainConfig;
-import com.baidu.wallet.personal.datamodel.ApplyCouponResponse;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class a extends BaseBean<ApplyCouponResponse> {
+import com.baidu.wallet.core.beans.BeanManager;
+/* loaded from: classes8.dex */
+public final class a implements IBeanFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f27219a;
+    /* renamed from: com.baidu.wallet.personal.beans.a$1  reason: invalid class name */
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f27220b;
+    /* renamed from: com.baidu.wallet.personal.beans.a$a  reason: collision with other inner class name */
+    /* loaded from: classes8.dex */
+    public static class C1854a {
+        public static /* synthetic */ Interceptable $ic;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(Context context) {
-        super(context);
+        /* renamed from: a  reason: collision with root package name */
+        public static a f63055a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(299254928, "Lcom/baidu/wallet/personal/beans/a$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(299254928, "Lcom/baidu/wallet/personal/beans/a$a;");
+                    return;
+                }
+            }
+            f63055a = new a(null);
+        }
+    }
+
+    public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
-    public void execBean() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.execBean(ApplyCouponResponse.class);
-        }
+    public /* synthetic */ a(AnonymousClass1 anonymousClass1) {
+        this();
     }
 
-    @Override // com.baidu.wallet.core.beans.NetworkBean
-    public List<RestNameValuePair> generateRequestParam() {
+    public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("activity_id", this.f27219a));
-            arrayList.add(new RestNameValuePair(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE, this.f27220b));
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1854a.f63055a : (a) invokeV.objValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
-    public int getBeanId() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x001c  */
+    @Override // com.baidu.apollon.beans.IBeanFactory
+    /* renamed from: a */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public BaseBean<?> getBean(Context context, int i2, String str) {
+        InterceptResult invokeLIL;
+        BaseBean<?> queryCouponListBean;
+        BaseBean<?> baseBean;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? UIMsg.m_AppUI.MSG_SET_SENSOR_STATUS : invokeV.intValue;
-    }
-
-    @Override // com.baidu.apollon.beans.ApollonBean
-    public String getUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return DomainConfig.getInstance().getMyHost() + "/yqcard/card/issuepushedcoupon";
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, context, i2, str)) == null) {
+            if (i2 == 515) {
+                queryCouponListBean = new QueryCouponListBean(context);
+            } else if (i2 != 516) {
+                baseBean = null;
+                if (baseBean != null) {
+                    BeanManager.getInstance().addBean(str, baseBean);
+                }
+                return baseBean;
+            } else {
+                queryCouponListBean = new b(context);
+            }
+            baseBean = queryCouponListBean;
+            if (baseBean != null) {
+            }
+            return baseBean;
         }
-        return (String) invokeV.objValue;
+        return (BaseBean) invokeLIL.objValue;
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class MainThreadUtil {
     public static /* synthetic */ Interceptable $ic;
     public static volatile Handler sMainHandler;
@@ -55,11 +55,11 @@ public class MainThreadUtil {
         }
     }
 
-    public static void runOnUiThread(@NonNull Runnable runnable, long j) {
+    public static void runOnUiThread(@NonNull Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65539, null, runnable, j) == null) {
-            if (j > 0) {
-                getMainHandler().postDelayed(runnable, j);
+        if (interceptable == null || interceptable.invokeLJ(65539, null, runnable, j2) == null) {
+            if (j2 > 0) {
+                getMainHandler().postDelayed(runnable, j2);
             } else {
                 runOnUiThread(runnable);
             }

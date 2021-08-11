@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.zip.Checksum;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class XXHash32 implements Checksum {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUF_SIZE = 16;
@@ -50,11 +50,11 @@ public class XXHash32 implements Checksum {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, bArr, i2, i3)) == null) {
             if (i3 <= 8) {
-                long j = 0;
+                long j2 = 0;
                 for (int i4 = 0; i4 < i3; i4++) {
-                    j |= (bArr[i2 + i4] & 255) << (i4 * 8);
+                    j2 |= (bArr[i2 + i4] & 255) << (i4 * 8);
                 }
-                return j;
+                return j2;
             }
             throw new IllegalArgumentException("can't read more than eight bytes into a long value");
         }

@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class dn implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ dl f23729a;
+    public final /* synthetic */ dl f59466a;
 
     public dn(dl dlVar) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public final class dn implements Runnable {
                 return;
             }
         }
-        this.f23729a = dlVar;
+        this.f59466a = dlVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Context applicationContext = this.f23729a.f23727a.getApplicationContext();
+            Context applicationContext = this.f59466a.f59464a.getApplicationContext();
             String str = UfoSDK.clientid;
             com.baidu.ufosdk.e.a.b(applicationContext);
         }

@@ -11,25 +11,25 @@ import com.xiaomi.push.ie;
 import com.xiaomi.push.ip;
 import com.xiaomi.push.service.bk;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class aa extends bk.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f40845a;
+    public final /* synthetic */ XMPushService f77720a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ l f871a;
+    public final /* synthetic */ l f875a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aa(String str, long j, XMPushService xMPushService, l lVar) {
-        super(str, j);
+    public aa(String str, long j2, XMPushService xMPushService, l lVar) {
+        super(str, j2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), xMPushService, lVar};
+            Object[] objArr = {str, Long.valueOf(j2), xMPushService, lVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -41,29 +41,29 @@ public final class aa extends bk.a {
                 return;
             }
         }
-        this.f40845a = xMPushService;
-        this.f871a = lVar;
+        this.f77720a = xMPushService;
+        this.f875a = lVar;
     }
 
     @Override // com.xiaomi.push.service.bk.a
     public void a(bk bkVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bkVar) == null) {
-            com.xiaomi.push.ax a2 = com.xiaomi.push.ax.a(this.f40845a);
+            com.xiaomi.push.ax a2 = com.xiaomi.push.ax.a(this.f77720a);
             String a3 = bkVar.a("MSAID", "msaid");
-            String str = a2.a() + a2.mo149b() + a2.c() + a2.d();
+            String str = a2.a() + a2.mo152b() + a2.c() + a2.d();
             if (TextUtils.isEmpty(str) || TextUtils.equals(a3, str)) {
                 return;
             }
             bkVar.a("MSAID", "msaid", str);
             ie ieVar = new ie();
-            ieVar.b(this.f871a.f40962d);
-            ieVar.c(hp.f40579g.f509a);
+            ieVar.b(this.f875a.f77838d);
+            ieVar.c(hp.f77442g.f513a);
             ieVar.a(at.a());
             ieVar.a(new HashMap());
-            a2.a(ieVar.m466a());
-            byte[] a4 = ip.a(y.a(this.f40845a.getPackageName(), this.f871a.f40962d, ieVar, hf.f40530i));
-            XMPushService xMPushService = this.f40845a;
+            a2.a(ieVar.m469a());
+            byte[] a4 = ip.a(y.a(this.f77720a.getPackageName(), this.f875a.f77838d, ieVar, hf.f77389i));
+            XMPushService xMPushService = this.f77720a;
             xMPushService.a(xMPushService.getPackageName(), a4, true);
         }
     }

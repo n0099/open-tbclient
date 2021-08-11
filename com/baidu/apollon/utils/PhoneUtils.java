@@ -24,7 +24,7 @@ import android.telephony.TelephonyManager;
 import android.telephony.gsm.GsmCellLocation;
 import android.text.TextUtils;
 import android.text.format.Formatter;
-import android.util.Log;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.util.devices.IDevices;
@@ -54,45 +54,49 @@ import java.io.InputStreamReader;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
-import java.net.SocketException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public final class PhoneUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f4109a;
+    public static final Pattern f38034a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f4110b;
+    public static final Pattern f38035b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f4111c;
+    public static final Pattern f38036c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f4112d;
+    public static final Pattern f38037d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f4113e = "PhoneUtils";
+    public static final String f38038e = "PhoneUtils";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f4114f = "_pay.preferences";
+    public static final String f38039f = "_pay.preferences";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f4115g = "cuid_1";
+    public static final String f38040g = "cuid_1";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f4116h = "cuid_2";
+    public static final String f38041h = "cuid_2";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f4117i = "wime";
-    public static final String j = "identity_code";
+    public static final String f38042i = "wime";
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final String f38043j = "identity_code";
     public static final String k = "phone_number";
     public static final String l = "card_no";
     public static final String m = "valid_date";
@@ -106,7 +110,7 @@ public final class PhoneUtils {
     public static String u;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public static class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
@@ -118,10 +122,10 @@ public final class PhoneUtils {
         public static final String PROCESSOR_ARM_PREFIX = "armv";
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f4118a = "processor";
+        public static final String f38044a = "processor";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f4119b = "features";
+        public static final String f38045b = "features";
         public transient /* synthetic */ FieldHolder $fh;
         public String features;
         public String processor;
@@ -150,7 +154,7 @@ public final class PhoneUtils {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public class a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -191,10 +195,10 @@ public final class PhoneUtils {
             }
         }
         q = new ArrayList<>();
-        f4109a = Pattern.compile("((\\d|[A-F]){32}).*");
-        f4110b = Pattern.compile("((\\d|[a-f]){32}).*");
-        f4111c = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
-        f4112d = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
+        f38034a = Pattern.compile("((\\d|[A-F]){32}).*");
+        f38035b = Pattern.compile("((\\d|[a-f]){32}).*");
+        f38036c = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
+        f38037d = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
         q.add("card_no");
         q.add("valid_date");
         q.add("cvv2");
@@ -348,11 +352,11 @@ public final class PhoneUtils {
             if (cuid == null) {
                 return null;
             }
-            if (f4111c.matcher(cuid).matches()) {
+            if (f38036c.matcher(cuid).matches()) {
                 str2 = matcher.group(1) + matcher.group(3);
             }
             if (str2 == null) {
-                if (f4112d.matcher(cuid).matches()) {
+                if (f38037d.matcher(cuid).matches()) {
                     str = matcher2.group(1) + matcher2.group(3);
                 } else {
                     str = "";
@@ -387,7 +391,7 @@ public final class PhoneUtils {
             }
             return format;
         } catch (Exception e2) {
-            Log.d("getLocation", "exception is " + e2);
+            String str = "exception is " + e2;
         }
         return format;
     }
@@ -436,7 +440,7 @@ public final class PhoneUtils {
                 }
             } catch (Exception e2) {
                 if (ApollonConstants.DEBUG) {
-                    Log.d("PhoneUtils", "getIpInfo fail!" + e2.toString());
+                    String str2 = "getIpInfo fail!" + e2.toString();
                 }
             }
             return TextUtils.isEmpty(str) ? "" : str;
@@ -444,10 +448,71 @@ public final class PhoneUtils {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
+    public static Location getLastKnownLocation(Context context, @Nullable Comparator<Location> comparator) {
+        InterceptResult invokeLL;
+        LocationManager locationManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, comparator)) == null) {
+            if (hasPermission(context, "android.permission.ACCESS_FINE_LOCATION") && (locationManager = (LocationManager) context.getApplicationContext().getSystemService("location")) != null) {
+                List<String> allProviders = locationManager.getAllProviders();
+                Location[] locationArr = new Location[allProviders.size()];
+                for (int i2 = 0; i2 < allProviders.size(); i2++) {
+                    locationArr[i2] = locationManager.getLastKnownLocation(allProviders.get(i2));
+                }
+                if (comparator == null) {
+                    comparator = new Comparator<Location>() { // from class: com.baidu.apollon.utils.PhoneUtils.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                }
+                            }
+                        }
+
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // java.util.Comparator
+                        /* renamed from: a */
+                        public int compare(Location location, Location location2) {
+                            InterceptResult invokeLL2;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, location, location2)) == null) {
+                                if (location == null) {
+                                    return location2 == null ? 0 : -1;
+                                } else if (location2 == null) {
+                                    return 1;
+                                } else {
+                                    if (location.getTime() == location2.getTime()) {
+                                        return Float.compare(location.getAccuracy(), location2.getAccuracy());
+                                    }
+                                    return Long.valueOf(location.getTime()).compareTo(Long.valueOf(location2.getTime()));
+                                }
+                            }
+                            return invokeLL2.intValue;
+                        }
+                    };
+                }
+                Arrays.sort(locationArr, comparator);
+                return locationArr[allProviders.size() - 1];
+            }
+            return null;
+        }
+        return (Location) invokeLL.objValue;
+    }
+
     public static String getLinkedWay(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
             try {
                 NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
                 if (activeNetworkInfo != null) {
@@ -466,7 +531,7 @@ public final class PhoneUtils {
         InterceptResult invokeV;
         InputStreamReader inputStreamReader;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65553, null)) != null) {
+        if (interceptable != null && (invokeV = interceptable.invokeV(65554, null)) != null) {
             return (String) invokeV.objValue;
         }
         StringBuffer stringBuffer = new StringBuffer();
@@ -526,7 +591,7 @@ public final class PhoneUtils {
     public static String getMetaData(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, context, str)) == null) {
             try {
                 ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
                 if (applicationInfo != null) {
@@ -544,7 +609,7 @@ public final class PhoneUtils {
                 }
                 return "";
             } catch (PackageManager.NameNotFoundException e2) {
-                Log.e("PhoneUtils", "exception is " + e2);
+                String str2 = "exception is " + e2;
                 return "";
             }
         }
@@ -554,7 +619,7 @@ public final class PhoneUtils {
     public static int getNumCores() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
             try {
                 File[] listFiles = new File("/sys/devices/system/cpu/").listFiles(new a());
                 LogUtil.d("PhoneUtils", "CPU Count: " + listFiles.length);
@@ -572,7 +637,7 @@ public final class PhoneUtils {
     public static String getPhisicalMac(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             byte[] bArr = null;
             try {
@@ -594,7 +659,7 @@ public final class PhoneUtils {
                         }
                     }
                 }
-            } catch (SocketException e2) {
+            } catch (Exception e2) {
                 e2.printStackTrace();
             }
             if (bArr != null) {
@@ -612,7 +677,7 @@ public final class PhoneUtils {
     public static CPUInfo getSystemCPUInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
             CPUInfo cPUInfo = p;
             if (cPUInfo != null) {
                 return cPUInfo;
@@ -651,7 +716,7 @@ public final class PhoneUtils {
     public static long getTotalInternalMemorySize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getBlockCount() * statFs.getBlockSize();
         }
@@ -661,14 +726,13 @@ public final class PhoneUtils {
     public static String getTotalMemory(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, context)) == null) {
             long j2 = 0;
             try {
                 BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
-                String readLine = bufferedReader.readLine();
-                String[] split = readLine.split("\\s+");
+                String[] split = bufferedReader.readLine().split("\\s+");
                 for (String str : split) {
-                    Log.i(readLine, str + TrackUI.SEPERATOR);
+                    String str2 = str + TrackUI.SEPERATOR;
                 }
                 j2 = Long.valueOf(split[1]).longValue() * 1024;
                 bufferedReader.close();
@@ -682,7 +746,7 @@ public final class PhoneUtils {
     public static String getWCPParams(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("wime", "");
@@ -702,7 +766,7 @@ public final class PhoneUtils {
     public static String getWifiLocation(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) {
             String str = "";
             try {
                 if (hasPermission(context, "android.permission.ACCESS_WIFI_STATE")) {
@@ -724,11 +788,11 @@ public final class PhoneUtils {
                             str = String.format("%s_%s", scanResult2.BSSID.replace(":", "").toLowerCase(Locale.ENGLISH), Integer.valueOf(Math.abs(scanResult2.level)));
                         }
                         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-                        Log.d("PhoneUtils", String.format("[active]%s %s_%s", connectionInfo.getSSID(), connectionInfo.getMacAddress(), Integer.valueOf(Math.abs(connectionInfo.getRssi()))));
+                        String.format("[active]%s %s_%s", connectionInfo.getSSID(), connectionInfo.getMacAddress(), Integer.valueOf(Math.abs(connectionInfo.getRssi())));
                     }
                 }
             } catch (Exception e2) {
-                Log.d("PhoneUtils", "getWifiLocation " + e2);
+                String str2 = "getWifiLocation " + e2;
             }
             return str;
         }
@@ -738,7 +802,7 @@ public final class PhoneUtils {
     public static String getWifiMacAddress(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
             try {
                 WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                 if (wifiManager != null) {
@@ -749,7 +813,7 @@ public final class PhoneUtils {
                 return "";
             } catch (Exception e2) {
                 if (ApollonConstants.DEBUG) {
-                    Log.d("PhoneUtils", e2.toString());
+                    e2.toString();
                     return "";
                 }
                 return "";
@@ -761,7 +825,7 @@ public final class PhoneUtils {
     public static boolean hasPermission(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, context, str)) == null) {
             if (context == null) {
                 return false;
             }
@@ -773,12 +837,20 @@ public final class PhoneUtils {
     public static boolean isIntentAvailable(Context context, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, context, intent)) == null) ? context.getPackageManager().queryIntentActivities(intent, 1).size() > 0 : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65565, null, context, intent)) == null) {
+            try {
+                return context.getPackageManager().queryIntentActivities(intent, 1).size() > 0;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 
     public static void sdkError(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65565, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65566, null, str) == null) {
             LogUtil.w("PhoneUtils", str);
             LogUtil.w("PhoneUtils", "SDK install error:" + str);
         }
@@ -787,7 +859,7 @@ public final class PhoneUtils {
     @TargetApi(9)
     public static void showInstalledAppOrDetails(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65566, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65567, null, context, str) == null) {
             Intent intent = new Intent();
             int i2 = Build.VERSION.SDK_INT;
             if (i2 >= 9) {
@@ -821,10 +893,10 @@ public final class PhoneUtils {
             if (deviceID == null) {
                 return null;
             }
-            Matcher matcher = f4109a.matcher(deviceID);
+            Matcher matcher = f38034a.matcher(deviceID);
             String group = matcher.matches() ? matcher.group(1) : null;
             if (group == null) {
-                Matcher matcher2 = f4110b.matcher(deviceID);
+                Matcher matcher2 = f38035b.matcher(deviceID);
                 return matcher2.matches() ? matcher2.group(1) : "";
             }
             return group;

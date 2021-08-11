@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -39,7 +38,7 @@ import okhttp3.Dns;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class AbstractHttpManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpManager";
@@ -325,8 +324,7 @@ public abstract class AbstractHttpManager {
                 if (HttpRuntime.getHttpContext() != null && HttpRuntime.getHttpContext().getEventListener() != null) {
                     builder.eventListener(HttpRuntime.getHttpContext().getEventListener());
                 }
-            } catch (IllegalArgumentException e2) {
-                Log.e("HttpManager", " set timeout illegal exception, we will use the 10_000 mills default", e2);
+            } catch (IllegalArgumentException unused) {
             }
             return builder.build();
         }

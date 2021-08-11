@@ -1,7 +1,6 @@
 package com.baidu.android.imsdk.internal;
 
 import com.baidu.android.imsdk.IMListener;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ListenerManager {
     public static /* synthetic */ Interceptable $ic;
     public static ListenerManager sInstance;
@@ -57,7 +56,7 @@ public class ListenerManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             synchronized (this) {
-                str = Config.APP_KEY + System.currentTimeMillis() + this.mOpenCounter.incrementAndGet();
+                str = "k" + System.currentTimeMillis() + this.mOpenCounter.incrementAndGet();
             }
             return str;
         }

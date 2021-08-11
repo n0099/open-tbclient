@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import com.baidu.apollon.utils.DxmApplicationContextImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,12 +14,12 @@ import com.baidu.wallet.core.utils.LogUtil;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class NetUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f27524a = "NetUtils";
+    public static final String f63354a = "NetUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
     public NetUtils() {
@@ -40,7 +41,7 @@ public final class NetUtils {
         WifiManager wifiManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (context != null && (wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi")) != null && wifiManager.isWifiEnabled()) {
+            if (context != null && (wifiManager = (WifiManager) DxmApplicationContextImpl.getApplicationContext(context).getSystemService("wifi")) != null && wifiManager.isWifiEnabled()) {
                 try {
                     WifiInfo connectionInfo = wifiManager.getConnectionInfo();
                     if (connectionInfo == null) {
@@ -64,7 +65,7 @@ public final class NetUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
             JSONObject jSONObject = new JSONObject();
-            WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
+            WifiManager wifiManager = (WifiManager) DxmApplicationContextImpl.getApplicationContext(context).getSystemService("wifi");
             try {
                 jSONObject.put("cuid", str);
                 if (wifiManager != null && wifiManager.isWifiEnabled()) {

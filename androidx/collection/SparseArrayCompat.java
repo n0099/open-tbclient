@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes.dex */
 public class SparseArrayCompat<E> implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
@@ -353,13 +354,13 @@ public class SparseArrayCompat<E> implements Cloneable {
                 return StringUtil.EMPTY_ARRAY;
             }
             StringBuilder sb = new StringBuilder(this.mSize * 28);
-            sb.append('{');
+            sb.append(ExtendedMessageFormat.START_FE);
             for (int i2 = 0; i2 < this.mSize; i2++) {
                 if (i2 > 0) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }
                 sb.append(keyAt(i2));
-                sb.append(a.f1923h);
+                sb.append(a.f35773h);
                 E valueAt = valueAt(i2);
                 if (valueAt != this) {
                     sb.append(valueAt);
@@ -367,7 +368,7 @@ public class SparseArrayCompat<E> implements Cloneable {
                     sb.append("(this Map)");
                 }
             }
-            sb.append('}');
+            sb.append(ExtendedMessageFormat.END_FE);
             return sb.toString();
         }
         return (String) invokeV.objValue;

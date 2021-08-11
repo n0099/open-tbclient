@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.arplay.c.e;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class d extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -135,11 +134,9 @@ public class d extends BroadcastReceiver {
         fT = this;
         if ("android.net.conn.CONNECTIVITY_CHANGE".equalsIgnoreCase(intent.getAction()) || "com.baidu.ar.baiduarsdk.CONNECTIVITY_CHANGE".equalsIgnoreCase(intent.getAction())) {
             if (e.f(context)) {
-                Log.e(d.class.getName(), "<--- network connected --->");
                 fQ = true;
                 fR = e.g(context);
             } else {
-                Log.e(d.class.getName(), "<--- network disconnected --->");
                 fQ = false;
             }
             bl();

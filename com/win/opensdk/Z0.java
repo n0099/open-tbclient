@@ -2,7 +2,6 @@ package com.win.opensdk;
 
 import android.content.Context;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,21 +10,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONStringer;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class Z0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a */
-    public static final String[] f39719a;
+    public static final String[] f76559a;
 
     /* renamed from: b */
-    public static final String[] f39720b;
+    public static final String[] f76560b;
 
     /* renamed from: c */
-    public static final String[] f39721c;
+    public static final String[] f76561c;
 
     /* renamed from: d */
-    public static final String[] f39722d;
+    public static final String[] f76562d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,10 +40,10 @@ public class Z0 {
                 return;
             }
         }
-        f39719a = new String[]{"as", "ac", "ao", "scb", "wdin", "asr", "wbas", "wbao"};
-        f39720b = new String[]{"ins", Config.DEVICE_BRAND, "wdtr", "witr"};
-        f39721c = new String[]{"be", "bce", "bpe", "ps", "scbe", "wdst", "wde", "wie", "dplop", "wbe"};
-        f39722d = new String[]{"Ld", "wdin", "wiin", "wdre", "wiop", "wii"};
+        f76559a = new String[]{"as", "ac", "ao", "scb", "wdin", "asr", "wbas", "wbao"};
+        f76560b = new String[]{"ins", "bd", "wdtr", "witr"};
+        f76561c = new String[]{"be", "bce", "bpe", "ps", "scbe", "wdst", "wde", "wie", "dplop", "wbe"};
+        f76562d = new String[]{"Ld", "wdin", "wiin", "wdre", "wiop", "wii"};
     }
 
     public Z0() {
@@ -71,21 +70,21 @@ public class Z0 {
         JSONStringer d2 = d();
         d2.key("e").value(str).key("timeis").value(c());
         if (a1Var != null) {
-            d2.key("pid").value(a1Var.f39726a);
-            if (a1Var.f39727b != null) {
+            d2.key("pid").value(a1Var.f76566a);
+            if (a1Var.f76567b != null) {
                 JSONStringer key = d2.key("traceid");
-                String traceid = a1Var.f39727b.getTraceid();
+                String traceid = a1Var.f76567b.getTraceid();
                 try {
                     traceid = N.a(traceid);
                 } catch (Exception unused) {
                 }
                 JSONStringer key2 = key.value(traceid).key(IAdRequestParam.CELL_ID);
-                String id = a1Var.f39727b.getId();
+                String id = a1Var.f76567b.getId();
                 try {
                     id = N.a(id);
                 } catch (Exception unused2) {
                 }
-                key2.value(id).key("type").value(a1Var.f39727b.getType());
+                key2.value(id).key("type").value(a1Var.f76567b.getType());
             }
         }
         return d2;

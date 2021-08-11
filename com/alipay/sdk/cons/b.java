@@ -4,37 +4,39 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1874a = "https";
+    public static final String f35718a = "https";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1875b = "user_agent";
+    public static final String f35719b = "user_agent";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f1876c = "tid";
+    public static final String f35720c = "tid";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f1877d = "external_info";
+    public static final String f35721d = "external_info";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f1878e = "has_alipay";
+    public static final String f35722e = "has_alipay";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f1879f = "has_msp_app";
+    public static final String f35723f = "has_msp_app";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f1880g = "utdid";
+    public static final String f35724g = "utdid";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f1881h = "app_key";
+    public static final String f35725h = "app_key";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f1882i = "trideskey";
-    public static final String j = "new_client_key";
+    public static final String f35726i = "trideskey";
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final String f35727j = "new_client_key";
     public static final String k = "pa";
     public transient /* synthetic */ FieldHolder $fh;
 

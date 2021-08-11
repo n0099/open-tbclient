@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.SerializationException;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class GenericFastJsonRedisSerializer implements RedisSerializer<Object> {
     public static /* synthetic */ Interceptable $ic;
     public static final ParserConfig defaultRedisConfig;

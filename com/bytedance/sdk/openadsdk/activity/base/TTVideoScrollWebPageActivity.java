@@ -13,13 +13,13 @@ import com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.c;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.g;
 import com.bytedance.sdk.openadsdk.core.widget.TTScrollView;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public TTScrollView f29308d;
+    public TTScrollView f65183d;
 
     public TTVideoScrollWebPageActivity() {
         Interceptable interceptable = $ic;
@@ -41,13 +41,13 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             TTScrollView tTScrollView = (TTScrollView) findViewById(t.e(getApplicationContext(), "tt_scroll_view"));
-            this.f29308d = tTScrollView;
+            this.f65183d = tTScrollView;
             tTScrollView.setListener(new TTScrollView.a(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoScrollWebPageActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTVideoScrollWebPageActivity f29309a;
+                public final /* synthetic */ TTVideoScrollWebPageActivity f65184a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -64,7 +64,7 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
                             return;
                         }
                     }
-                    this.f29309a = this;
+                    this.f65184a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.widget.TTScrollView.a
@@ -72,11 +72,11 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
                         try {
-                            if (this.f29309a.f29313c != null && (this.f29309a.f29313c instanceof g)) {
-                                if (z && !this.f29309a.f29313c.x()) {
-                                    ((g) this.f29309a.f29313c).f(false);
+                            if (this.f65184a.f65188c != null && (this.f65184a.f65188c instanceof g)) {
+                                if (z && !this.f65184a.f65188c.x()) {
+                                    ((g) this.f65184a.f65188c).f(false);
                                 } else {
-                                    this.f29309a.f29313c.i();
+                                    this.f65184a.f65188c.i();
                                 }
                             }
                         } catch (Throwable th) {
@@ -85,18 +85,18 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
                     }
                 }
             });
-            c cVar = this.f29313c;
+            c cVar = this.f65188c;
             if (cVar != null) {
                 cVar.d(false);
             }
-            NativeVideoTsView nativeVideoTsView = this.f29312b;
+            NativeVideoTsView nativeVideoTsView = this.f65187b;
             if (nativeVideoTsView != null) {
                 nativeVideoTsView.setVideoAdInteractionListener(new c.b(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoScrollWebPageActivity.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ TTVideoScrollWebPageActivity f29310a;
+                    public final /* synthetic */ TTVideoScrollWebPageActivity f65185a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -113,24 +113,24 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
                                 return;
                             }
                         }
-                        this.f29310a = this;
+                        this.f65185a = this;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.b
-                    public void a(long j, long j2) {
+                    public void a(long j2, long j3) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
                         }
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.b
                     public void e_() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f29310a.f29308d == null || this.f29310a.f29308d.a()) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f65185a.f65183d == null || this.f65185a.f65183d.a()) {
                             return;
                         }
                         k.b("TTVideoScrollWebPageActivity", "video start play but video is hidden so pause");
-                        c cVar2 = this.f29310a.f29313c;
+                        c cVar2 = this.f65185a.f65188c;
                         if (cVar2 != null) {
                             cVar2.j();
                         }

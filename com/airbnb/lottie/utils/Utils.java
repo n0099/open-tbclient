@@ -35,7 +35,7 @@ import java.net.UnknownHostException;
 import java.net.UnknownServiceException;
 import java.nio.channels.ClosedChannelException;
 import javax.net.ssl.SSLException;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float INV_SQRT_2;

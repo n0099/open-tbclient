@@ -4,22 +4,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.f;
-import h.j;
-import h.o.a.a;
+import i.f;
+import i.j;
+import i.o.a.a;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class OperatorBufferWithSize$BufferSkip<T> extends j<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f73678e;
+    public final int f78980e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f73679f;
+    public final int f78981f;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public final class BufferSkipProducer extends AtomicBoolean implements f {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3428177408082367154L;
@@ -44,19 +44,19 @@ public final class OperatorBufferWithSize$BufferSkip<T> extends j<T> {
             this.this$0 = operatorBufferWithSize$BufferSkip;
         }
 
-        @Override // h.f
-        public void request(long j) {
+        @Override // i.f
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+                int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
                 if (i2 < 0) {
-                    throw new IllegalArgumentException("n >= 0 required but it was " + j);
+                    throw new IllegalArgumentException("n >= 0 required but it was " + j2);
                 } else if (i2 != 0) {
                     OperatorBufferWithSize$BufferSkip operatorBufferWithSize$BufferSkip = this.this$0;
                     if (get() || !compareAndSet(false, true)) {
-                        operatorBufferWithSize$BufferSkip.request(a.c(j, operatorBufferWithSize$BufferSkip.f73679f));
+                        operatorBufferWithSize$BufferSkip.request(a.c(j2, operatorBufferWithSize$BufferSkip.f78981f));
                     } else {
-                        operatorBufferWithSize$BufferSkip.request(a.a(a.c(j, operatorBufferWithSize$BufferSkip.f73678e), a.c(operatorBufferWithSize$BufferSkip.f73679f - operatorBufferWithSize$BufferSkip.f73678e, j - 1)));
+                        operatorBufferWithSize$BufferSkip.request(a.a(a.c(j2, operatorBufferWithSize$BufferSkip.f78980e), a.c(operatorBufferWithSize$BufferSkip.f78981f - operatorBufferWithSize$BufferSkip.f78980e, j2 - 1)));
                     }
                 }
             }

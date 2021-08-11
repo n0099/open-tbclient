@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f34618a;
+    public Context f71359a;
 
     public i(Context context) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class i {
                 return;
             }
         }
-        this.f34618a = context;
+        this.f71359a = context;
     }
 
     public String a() {
@@ -40,7 +40,7 @@ public class i {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                str = (String) cls.getMethod("getOAID", Context.class).invoke(cls.newInstance(), this.f34618a);
+                str = (String) cls.getMethod("getOAID", Context.class).invoke(cls.newInstance(), this.f71359a);
             } catch (Exception e3) {
                 str = "";
                 e2 = e3;

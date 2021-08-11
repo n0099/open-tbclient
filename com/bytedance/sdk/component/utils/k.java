@@ -1,6 +1,5 @@
 package com.bytedance.sdk.component.utils;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -8,15 +7,15 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f28999a = false;
+    public static boolean f64865a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f29000b = 4;
+    public static int f64866b = 4;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,14 +36,14 @@ public class k {
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, null, i2) == null) {
-            f29000b = i2;
+            f64866b = i2;
         }
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            f28999a = true;
+            f64865a = true;
             a(3);
         }
     }
@@ -52,135 +51,128 @@ public class k {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? f28999a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? f64865a : invokeV.booleanValue;
     }
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65554, null, str, str2) == null) || !f28999a || str2 == null || f29000b > 5) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65554, null, str, str2) == null) && f64865a && str2 != null) {
+            int i2 = f64866b;
         }
-        Log.w(str, str2);
     }
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65555, null, str, str2) == null) || str2 == null) {
-            return;
+        if ((interceptable != null && interceptable.invokeLL(65555, null, str, str2) != null) || str2 == null) {
         }
-        if (str == null) {
-            str = "Logger";
-        }
-        Log.i(str, str2);
     }
 
     public static void f(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65556, null, str, str2) == null) || !f28999a || str2 == null || f29000b > 6) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65556, null, str, str2) == null) && f64865a && str2 != null) {
+            int i2 = f64866b;
         }
-        Log.e(str, str2);
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f29000b <= 3 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f64866b <= 3 : invokeV.booleanValue;
     }
 
     public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65550, null, str, str2) == null) || !f28999a || str2 == null || f29000b > 4) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65550, null, str, str2) == null) && f64865a && str2 != null) {
+            int i2 = f64866b;
         }
-        Log.i(str, str2);
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || !f28999a || str2 == null || f29000b > 2) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f64865a && str2 != null) {
+            int i2 = f64866b;
         }
-        Log.v(str, str2);
     }
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) || !f28999a || str2 == null || f29000b > 3) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && f64865a && str2 != null) {
+            int i2 = f64866b;
         }
-        Log.d(str, str2);
     }
 
     public static void c(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65549, null, str) == null) && f28999a) {
+        if ((interceptable == null || interceptable.invokeL(65549, null, str) == null) && f64865a) {
             f("Logger", str);
         }
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && f28999a) {
+        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && f64865a) {
             b("Logger", str);
         }
     }
 
     public static void b(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65548, null, str, objArr) == null) || !f28999a || objArr == null || f29000b > 4) {
+        if (!(interceptable == null || interceptable.invokeLL(65548, null, str, objArr) == null) || !f64865a || objArr == null || f64866b > 4) {
             return;
         }
-        Log.v(str, a(objArr));
+        a(objArr);
     }
 
     public static void c(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65551, null, str, str2, th) == null) && f28999a) {
-            if (!(str2 == null && th == null) && f29000b <= 6) {
-                Log.e(str, str2, th);
+        if ((interceptable == null || interceptable.invokeLLL(65551, null, str, str2, th) == null) && f64865a) {
+            if (str2 == null && th == null) {
+                return;
             }
+            int i2 = f64866b;
         }
     }
 
     public static void a(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, th) == null) && f28999a) {
-            if (!(str2 == null && th == null) && f29000b <= 3) {
-                Log.d(str, str2, th);
+        if ((interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, th) == null) && f64865a) {
+            if (str2 == null && th == null) {
+                return;
             }
+            int i2 = f64866b;
         }
     }
 
     public static void b(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && f28999a) {
+        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && f64865a) {
             d("Logger", str);
         }
     }
 
     public static void c(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65552, null, str, objArr) == null) || !f28999a || objArr == null || f29000b > 6) {
+        if (!(interceptable == null || interceptable.invokeLL(65552, null, str, objArr) == null) || !f64865a || objArr == null || f64866b > 6) {
             return;
         }
-        Log.v(str, a(objArr));
+        a(objArr);
     }
 
     public static void a(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, objArr) == null) || !f28999a || objArr == null || f29000b > 3) {
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, objArr) == null) || !f64865a || objArr == null || f64866b > 3) {
             return;
         }
-        Log.v(str, a(objArr));
+        a(objArr);
     }
 
     public static void b(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65547, null, str, str2, th) == null) && f28999a) {
-            if (!(str2 == null && th == null) && f29000b <= 5) {
-                Log.w(str, str2, th);
+        if ((interceptable == null || interceptable.invokeLLL(65547, null, str, str2, th) == null) && f64865a) {
+            if (str2 == null && th == null) {
+                return;
             }
+            int i2 = f64866b;
         }
     }
 

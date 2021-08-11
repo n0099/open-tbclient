@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class Sonic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f73618a;
+    public long f78920a;
 
     static {
         InterceptResult invokeClinit;
@@ -47,64 +47,64 @@ public class Sonic {
                 return;
             }
         }
-        this.f73618a = 0L;
+        this.f78920a = 0L;
         b();
-        this.f73618a = initNative(i2, i3);
+        this.f78920a = initNative(i2, i3);
     }
 
-    private native int availableBytesNative(long j);
+    private native int availableBytesNative(long j2);
 
-    private native void closeNative(long j);
+    private native void closeNative(long j2);
 
-    private native void flushNative(long j);
+    private native void flushNative(long j2);
 
-    private native boolean getChordPitchNative(long j);
+    private native boolean getChordPitchNative(long j2);
 
-    private native int getNumChannelsNative(long j);
+    private native int getNumChannelsNative(long j2);
 
-    private native float getPitchNative(long j);
+    private native float getPitchNative(long j2);
 
-    private native float getRateNative(long j);
+    private native float getRateNative(long j2);
 
-    private native int getSampleRateNative(long j);
+    private native int getSampleRateNative(long j2);
 
-    private native float getSpeedNative(long j);
+    private native float getSpeedNative(long j2);
 
-    private native float getVolumeNative(long j);
+    private native float getVolumeNative(long j2);
 
     private native long initNative(int i2, int i3);
 
-    private native boolean putBytesNative(long j, byte[] bArr, int i2);
+    private native boolean putBytesNative(long j2, byte[] bArr, int i2);
 
-    private native int receiveBytesNative(long j, byte[] bArr, int i2);
+    private native int receiveBytesNative(long j2, byte[] bArr, int i2);
 
-    private native void setChordPitchNative(long j, boolean z);
+    private native void setChordPitchNative(long j2, boolean z);
 
-    private native void setNumChannelsNative(long j, int i2);
+    private native void setNumChannelsNative(long j2, int i2);
 
-    private native void setPitchNative(long j, float f2);
+    private native void setPitchNative(long j2, float f2);
 
-    private native void setRateNative(long j, float f2);
+    private native void setRateNative(long j2, float f2);
 
-    private native void setSampleRateNative(long j, int i2);
+    private native void setSampleRateNative(long j2, int i2);
 
-    private native void setSpeedNative(long j, float f2);
+    private native void setSpeedNative(long j2, float f2);
 
-    private native void setVolumeNative(long j, float f2);
+    private native void setVolumeNative(long j2, float f2);
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? availableBytesNative(this.f73618a) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? availableBytesNative(this.f78920a) : invokeV.intValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j = this.f73618a;
-            if (j != 0) {
-                closeNative(j);
-                this.f73618a = 0L;
+            long j2 = this.f78920a;
+            if (j2 != 0) {
+                closeNative(j2);
+                this.f78920a = 0L;
             }
         }
     }
@@ -112,26 +112,26 @@ public class Sonic {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            flushNative(this.f73618a);
+            flushNative(this.f78920a);
         }
     }
 
     public boolean d(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, bArr, i2)) == null) ? putBytesNative(this.f73618a, bArr, i2) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, bArr, i2)) == null) ? putBytesNative(this.f78920a, bArr, i2) : invokeLI.booleanValue;
     }
 
     public int e(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, bArr, i2)) == null) ? receiveBytesNative(this.f73618a, bArr, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, bArr, i2)) == null) ? receiveBytesNative(this.f78920a, bArr, i2) : invokeLI.intValue;
     }
 
     public void f(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            setSpeedNative(this.f73618a, f2);
+            setSpeedNative(this.f78920a, f2);
         }
     }
 

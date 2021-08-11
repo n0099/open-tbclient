@@ -5,23 +5,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class k implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f31403a;
+    public String f67343a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f31404b;
+    public long f67344b;
 
-    public k(String str, long j) {
+    public k(String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j)};
+            Object[] objArr = {str, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -31,8 +31,8 @@ public class k implements c {
                 return;
             }
         }
-        this.f31403a = str;
-        this.f31404b = j;
+        this.f67343a = str;
+        this.f67344b = j2;
     }
 
     @Override // com.bytedance.sdk.openadsdk.e.b.c
@@ -42,8 +42,8 @@ public class k implements c {
             return;
         }
         try {
-            jSONObject.put("preload_url", this.f31403a);
-            jSONObject.put("preload_size", this.f31404b);
+            jSONObject.put("preload_url", this.f67343a);
+            jSONObject.put("preload_size", this.f67344b);
         } catch (Throwable th) {
             th.printStackTrace();
         }

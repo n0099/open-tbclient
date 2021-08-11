@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class InitDelayThread extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public InitDelayCallback mCallback;
     public WeakReference<Context> mContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface InitDelayCallback extends NoProguard {
         void callBack();
     }
@@ -54,13 +54,13 @@ public class InitDelayThread extends Thread {
                 return;
             }
             String rimAllConfig = BdWalletUtils.getRimAllConfig(this.mContext.get());
-            long j = 0;
+            long j2 = 0;
             if (!TextUtils.isEmpty(rimAllConfig)) {
                 try {
                     GetFPResponse.RimConfig rimConfig = (GetFPResponse.RimConfig) JsonUtils.fromJson(rimAllConfig, GetFPResponse.RimConfig.class);
-                    if (rimConfig != null && rimConfig.f5250common != null) {
+                    if (rimConfig != null && rimConfig.f39189common != null) {
                         try {
-                            j = Long.parseLong(rimConfig.f5250common.init_delay);
+                            j2 = Long.parseLong(rimConfig.f39189common.init_delay);
                         } catch (NumberFormatException e2) {
                             e2.printStackTrace();
                         }
@@ -69,7 +69,41 @@ public class InitDelayThread extends Thread {
                     e3.printStackTrace();
                 }
             }
-            new Handler(Looper.myLooper()).postDelayed(new b(this), j);
+            new Handler(Looper.myLooper()).postDelayed(new Runnable(this) { // from class: com.baidu.fsg.base.InitDelayThread.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ InitDelayThread f39076a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f39076a = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    InitDelayCallback initDelayCallback;
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (initDelayCallback = this.f39076a.mCallback) == null) {
+                        return;
+                    }
+                    initDelayCallback.callBack();
+                }
+            }, j2);
         }
     }
 }

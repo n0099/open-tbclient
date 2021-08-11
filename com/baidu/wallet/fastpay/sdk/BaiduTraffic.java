@@ -1,11 +1,6 @@
 package com.baidu.wallet.fastpay.sdk;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.pay.PayCallBack;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,127 +8,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.api.ResultPageStateListener;
-import com.baidu.wallet.fastpay.datamodel.GetTrafficOrderResponse;
-import com.baidu.wallet.fastpay.sdk.a;
-import com.baidu.wallet.paysdk.ui.WalletMobileResultActivity;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 @SuppressLint({"UseSparseArrays", "StaticFieldLeak"})
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class BaiduTraffic {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24982a = "BaiduTraffic";
+    public static final String f60697a = "BaiduTraffic";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f24983b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final Map<Integer, a> f24984c;
+    public final Map<Integer, Object> f60698b;
 
     /* renamed from: com.baidu.wallet.fastpay.sdk.BaiduTraffic$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
-    public class AnonymousClass1 implements PayCallBack {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GetTrafficOrderResponse f24985a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f24986b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ BaiduTraffic f24987c;
-
-        @Override // com.baidu.android.pay.PayCallBack
-        public boolean isHideLoadingDialog() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.android.pay.PayCallBack
-        public void onPayResult(int i2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                if (i2 != 0 && i2 != 1) {
-                    a a2 = this.f24987c.a(this.f24986b);
-                    if (a2 != null) {
-                        a2.a(this.f24986b, 0, new a.C0265a(i2, ""));
-                        this.f24987c.b(this.f24986b);
-                        return;
-                    }
-                    return;
-                }
-                GetTrafficOrderResponse getTrafficOrderResponse = this.f24985a;
-                if (getTrafficOrderResponse != null && !TextUtils.isEmpty(getTrafficOrderResponse.orderNo) && this.f24985a.isGotoResultActivity()) {
-                    GetTrafficOrderResponse.Params params = this.f24985a.params;
-                    WalletMobileResultActivity.gotoBusniessResultPage(this.f24987c.f24983b, false, this.f24985a.orderNo, params != null ? params.pay_desc : "", i2 == 1, new ResultPageStateListener(this, i2) { // from class: com.baidu.wallet.fastpay.sdk.BaiduTraffic.1.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ int f24988a;
-
-                        /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass1 f24989b;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, Integer.valueOf(i2)};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.f24989b = this;
-                            this.f24988a = i2;
-                        }
-
-                        @Override // com.baidu.wallet.api.ResultPageStateListener
-                        public void onConfirm() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                PayStateTrafficModle payStateTrafficModle = new PayStateTrafficModle(this.f24988a);
-                                AnonymousClass1 anonymousClass1 = this.f24989b;
-                                a a3 = anonymousClass1.f24987c.a(anonymousClass1.f24986b);
-                                if (a3 != null) {
-                                    a3.a(this.f24989b.f24986b, 1, payStateTrafficModle);
-                                    AnonymousClass1 anonymousClass12 = this.f24989b;
-                                    anonymousClass12.f24987c.b(anonymousClass12.f24986b);
-                                }
-                            }
-                        }
-                    });
-                    return;
-                }
-                PayStateTrafficModle payStateTrafficModle = new PayStateTrafficModle(i2);
-                a a3 = this.f24987c.a(this.f24986b);
-                if (a3 != null) {
-                    a3.a(this.f24986b, 1, payStateTrafficModle);
-                    this.f24987c.b(this.f24986b);
-                }
-            }
-        }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class PayStateTrafficModle implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int PAY_STATUS_CANCEL = 2;
@@ -162,35 +60,28 @@ public class BaiduTraffic {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(int i2, int i3, a.C0265a c0265a);
-
-        void a(int i2, int i3, Object obj);
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
+    /* loaded from: classes8.dex */
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static BaiduTraffic f24990a;
+        public static BaiduTraffic f60699a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1637807269, "Lcom/baidu/wallet/fastpay/sdk/BaiduTraffic$b;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1637807300, "Lcom/baidu/wallet/fastpay/sdk/BaiduTraffic$a;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1637807269, "Lcom/baidu/wallet/fastpay/sdk/BaiduTraffic$b;");
+                    classClinitInterceptable.invokePostClinit(-1637807300, "Lcom/baidu/wallet/fastpay/sdk/BaiduTraffic$a;");
                     return;
                 }
             }
-            f24990a = new BaiduTraffic(null);
+            f60699a = new BaiduTraffic(null);
         }
     }
 
@@ -213,13 +104,10 @@ public class BaiduTraffic {
         this();
     }
 
-    public void b(int i2) {
-        Map<Integer, a> map;
+    public static BaiduTraffic a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (map = this.f24984c) == null || map.size() <= 0) {
-            return;
-        }
-        this.f24984c.remove(Integer.valueOf(i2));
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f60699a : (BaiduTraffic) invokeV.objValue;
     }
 
     public BaiduTraffic() {
@@ -235,31 +123,12 @@ public class BaiduTraffic {
                 return;
             }
         }
-        this.f24984c = new HashMap();
-    }
-
-    public static BaiduTraffic a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b.f24990a : (BaiduTraffic) invokeV.objValue;
+        this.f60698b = new HashMap();
     }
 
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? Pattern.compile("^1[0-9]{10}$").matcher(str).matches() : invokeL.booleanValue;
-    }
-
-    public a a(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            Map<Integer, a> map = this.f24984c;
-            if (map == null || map.size() <= 0) {
-                return null;
-            }
-            return this.f24984c.get(Integer.valueOf(i2));
-        }
-        return (a) invokeI.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? Pattern.compile("^1[0-9]{10}$").matcher(str).matches() : invokeL.booleanValue;
     }
 }

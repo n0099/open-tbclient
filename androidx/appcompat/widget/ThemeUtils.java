@@ -5,7 +5,6 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import androidx.annotation.NonNull;
@@ -84,7 +83,7 @@ public class ThemeUtils {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(R.styleable.AppCompatTheme);
             try {
                 if (!obtainStyledAttributes.hasValue(R.styleable.AppCompatTheme_windowActionBar)) {
-                    Log.e(TAG, "View " + view.getClass() + " is an AppCompat widget that can only be used with a Theme.AppCompat theme (or descendant).");
+                    String str = "View " + view.getClass() + " is an AppCompat widget that can only be used with a Theme.AppCompat theme (or descendant).";
                 }
             } finally {
                 obtainStyledAttributes.recycle();

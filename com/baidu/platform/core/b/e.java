@@ -13,7 +13,6 @@ import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobstat.Config;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.searchbox.perfframe.ioc.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +25,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class e extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +58,7 @@ public class e extends com.baidu.platform.base.d {
             parentPoiInfo.setParentPoiName(jSONObject.optString("name"));
             parentPoiInfo.setParentPoiTag(jSONObject.optString("tag"));
             parentPoiInfo.setParentPoiUid(jSONObject.optString("uid"));
-            parentPoiInfo.setParentPoiLocation(c(jSONObject, Config.EVENT_HEAT_POINT));
+            parentPoiInfo.setParentPoiLocation(c(jSONObject, "point"));
             return parentPoiInfo;
         }
         return (PoiInfo.ParentPoiInfo) invokeL.objValue;
@@ -108,7 +107,7 @@ public class e extends com.baidu.platform.base.d {
                     poiInfo.setUid(optJSONObject.optString("uid"));
                     poiInfo.setPostCode(optJSONObject.optString("zip"));
                     poiInfo.setName(optJSONObject.optString("name"));
-                    poiInfo.setLocation(c(optJSONObject, Config.EVENT_HEAT_POINT));
+                    poiInfo.setLocation(c(optJSONObject, "point"));
                     poiInfo.setCity(str2);
                     poiInfo.setDirection(optJSONObject.optString("direction"));
                     poiInfo.setDistance(optJSONObject.optInt("distance"));

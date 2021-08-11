@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class InviteMsgData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5185744948511601466L;
@@ -92,17 +92,17 @@ public class InviteMsgData extends OrmObject implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.toUid : invokeV.longValue;
     }
 
-    public void setFromUid(long j) {
+    public void setFromUid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.fromUid = j;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+            this.fromUid = j2;
         }
     }
 
-    public void setGroupId(long j) {
+    public void setGroupId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            this.groupId = j;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
+            this.groupId = j2;
         }
     }
 
@@ -113,10 +113,10 @@ public class InviteMsgData extends OrmObject implements Serializable {
         }
     }
 
-    public void setGroupOwnerId(long j) {
+    public void setGroupOwnerId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            this.groupOwnerId = j;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
+            this.groupOwnerId = j2;
         }
     }
 
@@ -148,10 +148,10 @@ public class InviteMsgData extends OrmObject implements Serializable {
         }
     }
 
-    public void setToUid(long j) {
+    public void setToUid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            this.toUid = j;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
+            this.toUid = j2;
         }
     }
 }

@@ -7,7 +7,6 @@ import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.district.DistrictResult;
 import com.baidu.mapapi.search.district.OnGetDistricSearchResultListener;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,16 +17,16 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class b extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f9449b;
+    public boolean f44098b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9450c;
+    public String f44099c;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -42,8 +41,8 @@ public class b extends com.baidu.platform.base.d {
                 return;
             }
         }
-        this.f9449b = false;
-        this.f9450c = null;
+        this.f44098b = false;
+        this.f44099c = null;
     }
 
     private boolean a(String str, DistrictResult districtResult) {
@@ -75,7 +74,7 @@ public class b extends com.baidu.platform.base.d {
                         int i3 = 0;
                         while (i3 < optJSONArray.length()) {
                             JSONObject optJSONObject5 = optJSONArray.optJSONObject(i3);
-                            if (optJSONObject5 == null || (optJSONArray2 = optJSONObject5.optJSONArray(Config.EVENT_HEAT_POINT)) == null || (length = optJSONArray2.length()) <= 0) {
+                            if (optJSONObject5 == null || (optJSONArray2 = optJSONObject5.optJSONArray("point")) == null || (length = optJSONArray2.length()) <= 0) {
                                 jSONArray = optJSONArray;
                             } else {
                                 ArrayList arrayList2 = new ArrayList();
@@ -117,7 +116,7 @@ public class b extends com.baidu.platform.base.d {
                         }
                     }
                     districtResult.setCityName(optJSONObject.optString("uid"));
-                    this.f9450c = optJSONObject.optString("cname");
+                    this.f44099c = optJSONObject.optString("cname");
                     districtResult.setCenterPt(CoordUtil.decodeLocation(optJSONObject.optString("geo")));
                     districtResult.setCityCode(optJSONObject.optInt("code"));
                     return false;
@@ -150,7 +149,7 @@ public class b extends com.baidu.platform.base.d {
                         return false;
                     }
                     ArrayList arrayList = new ArrayList();
-                    if (this.f9450c != null) {
+                    if (this.f44099c != null) {
                         try {
                             decodeLocationList2D = CoordUtil.decodeLocationList2D(optJSONObject2.optString("geo"));
                         } catch (Exception e2) {
@@ -168,9 +167,9 @@ public class b extends com.baidu.platform.base.d {
                         if (arrayList.size() > 0) {
                             districtResult.setPolylines(arrayList);
                         }
-                        districtResult.setCityName(this.f9450c);
+                        districtResult.setCityName(this.f44099c);
                         districtResult.error = SearchResult.ERRORNO.NO_ERROR;
-                        this.f9450c = null;
+                        this.f44099c = null;
                         return true;
                     }
                     decodeLocationList2D = null;
@@ -178,9 +177,9 @@ public class b extends com.baidu.platform.base.d {
                     }
                     if (arrayList.size() > 0) {
                     }
-                    districtResult.setCityName(this.f9450c);
+                    districtResult.setCityName(this.f44099c);
                     districtResult.error = SearchResult.ERRORNO.NO_ERROR;
-                    this.f9450c = null;
+                    this.f44099c = null;
                     return true;
                 } catch (JSONException e3) {
                     e3.printStackTrace();
@@ -212,7 +211,7 @@ public class b extends com.baidu.platform.base.d {
                         }
                     }
                     if (!a(str, districtResult, false)) {
-                        if (this.f9449b) {
+                        if (this.f44098b) {
                             b(str, districtResult);
                         } else if (!a(str, districtResult)) {
                             districtResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
@@ -239,7 +238,7 @@ public class b extends com.baidu.platform.base.d {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f9449b = z;
+            this.f44098b = z;
         }
     }
 }

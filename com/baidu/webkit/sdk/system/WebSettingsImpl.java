@@ -15,7 +15,7 @@ import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class WebSettingsImpl extends WebSettings {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -540,10 +540,10 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    public final void setAppCacheMaxSize(long j) {
+    public final void setAppCacheMaxSize(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048629, this, j) == null) {
-            this.mSettings.setAppCacheMaxSize(j);
+        if (interceptable == null || interceptable.invokeJ(1048629, this, j2) == null) {
+            this.mSettings.setAppCacheMaxSize(j2);
         }
     }
 

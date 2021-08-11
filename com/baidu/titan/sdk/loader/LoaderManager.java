@@ -3,7 +3,6 @@ package com.baidu.titan.sdk.loader;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.titan.sdk.common.TitanConstant;
 import com.baidu.titan.sdk.initer.TitanIniter;
 import com.baidu.titan.sdk.internal.util.Closes;
@@ -28,7 +27,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LoaderManager {
     public static final boolean DEBUG = false;
     public static final int LOAD_STATE_ERROR_ASYNC_LOAD = -7;
@@ -155,8 +154,7 @@ public class LoaderManager {
             }
             loaderTimeStat.apply = System.currentTimeMillis() - currentTimeMillis7;
             return 0;
-        } catch (Throwable th) {
-            Log.e("LoaderManager", "[load] uncatched exception", th);
+        } catch (Throwable unused) {
             return -5;
         }
     }

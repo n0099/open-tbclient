@@ -46,7 +46,7 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class Cache implements Closeable, Flushable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ENTRY_BODY = 1;
@@ -62,7 +62,7 @@ public final class Cache implements Closeable, Flushable {
     public int writeAbortCount;
     public int writeSuccessCount;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public final class CacheRequestImpl implements CacheRequest {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +166,7 @@ public final class Cache implements Closeable, Flushable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class CacheResponseBody extends ResponseBody {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -274,13 +274,13 @@ public final class Cache implements Closeable, Flushable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public Cache(File file, long j) {
-        this(file, j, FileSystem.SYSTEM);
+    public Cache(File file, long j2) {
+        this(file, j2, FileSystem.SYSTEM);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file, Long.valueOf(j)};
+            Object[] objArr = {file, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -658,12 +658,12 @@ public final class Cache implements Closeable, Flushable {
         return invokeV.intValue;
     }
 
-    public Cache(File file, long j, FileSystem fileSystem) {
+    public Cache(File file, long j2, FileSystem fileSystem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file, Long.valueOf(j), fileSystem};
+            Object[] objArr = {file, Long.valueOf(j2), fileSystem};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -742,10 +742,10 @@ public final class Cache implements Closeable, Flushable {
                 }
             }
         };
-        this.cache = DiskLruCache.create(fileSystem, file, VERSION, 2, j);
+        this.cache = DiskLruCache.create(fileSystem, file, VERSION, 2, j2);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class Entry {
         public static /* synthetic */ Interceptable $ic;
         public static final String RECEIVED_MILLIS;

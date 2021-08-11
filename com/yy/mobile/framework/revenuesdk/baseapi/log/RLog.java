@@ -1,6 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.log;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class RLog {
     public static /* synthetic */ Interceptable $ic;
     public static CopyOnWriteArrayList<IRLogDelegate> logDelegates;
@@ -66,7 +65,8 @@ public class RLog {
                 return;
             }
             try {
-                Log.d(obj.toString(), String.format(str, objArr));
+                obj.toString();
+                String.format(str, objArr);
             } catch (Exception unused) {
             }
         }
@@ -82,7 +82,8 @@ public class RLog {
                 }
             } else {
                 try {
-                    Log.e(obj.toString(), String.format(str, objArr));
+                    obj.toString();
+                    String.format(str, objArr);
                 } catch (Exception unused) {
                 }
             }
@@ -103,7 +104,8 @@ public class RLog {
                 }
             } else {
                 try {
-                    Log.i(obj.toString(), String.format(str, objArr));
+                    obj.toString();
+                    String.format(str, objArr);
                 } catch (Exception unused) {
                 }
             }
@@ -124,7 +126,8 @@ public class RLog {
                 }
             } else {
                 try {
-                    Log.v(obj.toString(), String.format(str, objArr));
+                    obj.toString();
+                    String.format(str, objArr);
                 } catch (Exception unused) {
                 }
             }
@@ -145,7 +148,8 @@ public class RLog {
                 }
             } else {
                 try {
-                    Log.w(obj.toString(), String.format(str, objArr));
+                    obj.toString();
+                    String.format(str, objArr);
                 } catch (Exception unused) {
                 }
             }
@@ -166,7 +170,7 @@ public class RLog {
                 }
                 return;
             }
-            Log.d(obj.toString(), str);
+            obj.toString();
         }
     }
 
@@ -179,7 +183,7 @@ public class RLog {
                     it.next().error(obj, str, th);
                 }
             } else {
-                Log.e(obj.toString(), str, th);
+                obj.toString();
             }
             try {
                 String obj2 = obj.toString();
@@ -198,7 +202,7 @@ public class RLog {
                     it.next().info(obj, str);
                 }
             } else {
-                Log.i(obj.toString(), str);
+                obj.toString();
             }
             try {
                 CloudLogUtil.addLogContent(obj.toString(), str);
@@ -216,7 +220,7 @@ public class RLog {
                     it.next().verbose(obj, str);
                 }
             } else {
-                Log.v(obj.toString(), str);
+                obj.toString();
             }
             try {
                 CloudLogUtil.addLogContent(obj.toString(), str);
@@ -234,7 +238,7 @@ public class RLog {
                     it.next().warn(obj, str);
                 }
             } else {
-                Log.w(obj.toString(), str);
+                obj.toString();
             }
             try {
                 CloudLogUtil.addLogContent(obj.toString(), str);
@@ -253,7 +257,7 @@ public class RLog {
                 }
                 return;
             }
-            Log.d(obj.toString(), str, th);
+            obj.toString();
         }
     }
 }

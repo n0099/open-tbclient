@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMRtcCreateRoomRequest";
@@ -181,7 +181,7 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onSuccess(byte[] bArr) {
-        long j;
+        long j2;
         JSONException jSONException;
         String str;
         String str2;
@@ -192,13 +192,13 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
             String str5 = new String(bArr);
             LogUtils.e(TAG, "onSuccess :" + str5);
             int i2 = -1;
-            long j2 = -1;
+            long j3 = -1;
             try {
                 JSONObject jSONObject = new JSONObject(str5);
                 int optInt = jSONObject.optInt("error_code", -1);
                 str2 = jSONObject.optString("error_msg", "");
-                j2 = jSONObject.optLong("rtc_userid", -1L);
-                RtcUtility.setRtcUserId(this.mContext, j2);
+                j3 = jSONObject.optLong("rtc_userid", -1L);
+                RtcUtility.setRtcUserId(this.mContext, j3);
                 String optString = jSONObject.optString("rtc_room_id", "");
                 this.mRtcRoomId = optString;
                 RtcUtility.setRtcRoomId(this.mContext, optString);
@@ -209,7 +209,7 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
                     RtcUtility.setRtcAppId(this.mContext, str4);
                     i2 = optInt;
                 } catch (JSONException e2) {
-                    j = j2;
+                    j2 = j3;
                     jSONException = e2;
                     str = str4;
                     str4 = str3;
@@ -217,19 +217,19 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
                     str2 = "ERROR_MSG_JSON_PARSE_EXCEPTION";
                     str3 = str4;
                     str4 = str;
-                    j2 = j;
+                    j3 = j2;
                     if (this.mListener == null) {
                     }
                 }
             } catch (JSONException e3) {
-                j = j2;
+                j2 = j3;
                 jSONException = e3;
                 str = "";
             }
             if (this.mListener == null) {
                 BIMRtcTokenListener.BIMRTCGetTokeResult bIMRTCGetTokeResult = new BIMRtcTokenListener.BIMRTCGetTokeResult();
                 bIMRTCGetTokeResult.roomId = this.mRtcRoomId;
-                bIMRTCGetTokeResult.useId = j2;
+                bIMRTCGetTokeResult.useId = j3;
                 bIMRTCGetTokeResult.token = str3;
                 bIMRTCGetTokeResult.rtcAppId = str4;
                 report(-10, i2);

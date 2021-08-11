@@ -3,7 +3,7 @@ package com.baidu.ar.face;
 import android.graphics.PointF;
 import android.os.Parcelable;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public interface IFaceResultData extends Parcelable {
     int getAlgoImageHeight();
 

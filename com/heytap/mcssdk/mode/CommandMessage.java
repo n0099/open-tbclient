@@ -13,10 +13,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.utils.LogUtil;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class CommandMessage extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APP_KEY = "appKey";
@@ -288,7 +289,7 @@ public class CommandMessage extends Message {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return "CommandMessage{, mRegisterID='" + this.mRegisterID + "', mSdkVersion='" + this.mSdkVersion + "', mCommand=" + this.mCommand + ", mContent='" + this.mContent + "', mResponseCode=" + this.mResponseCode + '}';
+            return "CommandMessage{, mRegisterID='" + this.mRegisterID + ExtendedMessageFormat.QUOTE + ", mSdkVersion='" + this.mSdkVersion + ExtendedMessageFormat.QUOTE + ", mCommand=" + this.mCommand + ", mContent='" + this.mContent + ExtendedMessageFormat.QUOTE + ", mResponseCode=" + this.mResponseCode + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

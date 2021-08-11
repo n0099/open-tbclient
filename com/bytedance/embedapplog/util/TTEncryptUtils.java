@@ -1,12 +1,12 @@
 package com.bytedance.embedapplog.util;
 
+import c.b.a.h0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import d.b.a.h0;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class TTEncryptUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

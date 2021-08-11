@@ -21,12 +21,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.Iterator;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f31101a;
+    public static Object f67039a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class a {
                 return;
             }
         }
-        f31101a = new Object();
+        f67039a = new Object();
     }
 
     public static void a() {
@@ -151,7 +151,7 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ v f31102a;
+                public final /* synthetic */ v f67040a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -171,15 +171,15 @@ public class a {
                             return;
                         }
                     }
-                    this.f31102a = vVar;
+                    this.f67040a = vVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (a.f31101a) {
-                            c.a().a(this.f31102a);
+                        synchronized (a.f67039a) {
+                            c.a().a(this.f67040a);
                         }
                     }
                 }

@@ -39,6 +39,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.a.f;
+import c.a.e.a.g;
+import c.a.e.a.i;
+import c.a.e.h.f.a;
+import c.a.e.h.j.g.d;
+import c.a.e.k.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -49,17 +55,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.f;
-import d.a.d.a.g;
-import d.a.d.a.i;
-import d.a.d.h.f.a;
-import d.a.d.h.j.g.d;
-import d.a.d.k.e.q;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class PluginBaseActivity extends PluginContextWrapper implements LayoutInflater.Factory, KeyEvent.Callback, View.OnCreateContextMenuListener, ComponentCallbacks, i, Handler.Callback, g {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_KEYS_DIALER = 1;
@@ -424,7 +424,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         return (String) invokeV.objValue;
     }
 
-    @Override // d.a.d.a.g
+    @Override // c.a.e.a.g
     public f getPageContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

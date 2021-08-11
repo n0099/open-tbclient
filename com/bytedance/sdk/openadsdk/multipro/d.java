@@ -15,7 +15,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,23 +51,19 @@ public class d {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0056 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x0077 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x0035 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:56:0x0050 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0053 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x0074 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:47:0x0032 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:57:0x004d */
     /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: java.io.RandomAccessFile */
     /* JADX DEBUG: Multi-variable search result rejected for r0v7, resolved type: java.io.RandomAccessFile */
     /* JADX DEBUG: Multi-variable search result rejected for r0v8, resolved type: java.io.RandomAccessFile */
     /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: java.io.RandomAccessFile */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x007a A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r0v10, types: [java.io.RandomAccessFile] */
     /* JADX WARN: Type inference failed for: r0v11, types: [java.io.RandomAccessFile] */
     /* JADX WARN: Type inference failed for: r0v4, types: [java.lang.String] */
     @RequiresApi(api = 24)
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static void a(Context context, String str) {
         String str2;
         Throwable th;
@@ -92,60 +88,57 @@ public class d {
                 try {
                     try {
                         randomAccessFile = new RandomAccessFile(file, "rw");
-                        try {
-                            FileLock tryLock = randomAccessFile.getChannel().tryLock();
-                            if (tryLock != null) {
-                                tryLock.close();
-                            } else {
-                                file.delete();
-                                file.createNewFile();
-                            }
-                        } catch (FileNotFoundException e3) {
-                            e2 = e3;
-                            e2.printStackTrace();
-                            if (randomAccessFile == 0) {
-                                return;
-                            }
-                            randomAccessFile.close();
-                        } catch (IOException unused) {
-                            randomAccessFile2 = randomAccessFile;
-                            file.delete();
-                            try {
-                                file.createNewFile();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
-                            }
-                            if (randomAccessFile2 != null) {
-                                randomAccessFile2.close();
-                                return;
-                            }
-                            return;
-                        }
                     } catch (Throwable th2) {
                         th = th2;
                         if (randomAccessFile != 0) {
                             try {
                                 randomAccessFile.close();
-                            } catch (Exception unused2) {
+                            } catch (Exception unused) {
                             }
                         }
                         throw th;
                     }
-                } catch (Exception unused3) {
+                } catch (Exception unused2) {
                     return;
                 }
-            } catch (FileNotFoundException e5) {
+            } catch (FileNotFoundException e3) {
                 randomAccessFile = 0;
-                e2 = e5;
+                e2 = e3;
+            } catch (IOException unused3) {
+            }
+            try {
+                FileLock tryLock = randomAccessFile.getChannel().tryLock();
+                if (tryLock != null) {
+                    tryLock.close();
+                } else {
+                    file.delete();
+                    file.createNewFile();
+                }
+            } catch (FileNotFoundException e4) {
+                e2 = e4;
+                e2.printStackTrace();
+                if (randomAccessFile == 0) {
+                    return;
+                }
+                randomAccessFile.close();
             } catch (IOException unused4) {
+                randomAccessFile2 = randomAccessFile;
+                file.delete();
+                try {
+                    file.createNewFile();
+                } catch (IOException e5) {
+                    e5.printStackTrace();
+                }
+                if (randomAccessFile2 != null) {
+                    randomAccessFile2.close();
+                    return;
+                }
+                return;
             }
             randomAccessFile.close();
         } catch (Throwable th3) {
             randomAccessFile = randomAccessFile2;
             th = th3;
-            if (randomAccessFile != 0) {
-            }
-            throw th;
         }
     }
 }

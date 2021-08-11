@@ -15,47 +15,49 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicInteger f28120a;
+    public final AtomicInteger f63962a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<Request<?>> f28121b;
+    public final Set<Request<?>> f63963b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final PriorityBlockingQueue<Request<?>> f28122c;
+    public final PriorityBlockingQueue<Request<?>> f63964c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final PriorityBlockingQueue<Request<?>> f28123d;
+    public final PriorityBlockingQueue<Request<?>> f63965d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.bytedance.sdk.component.adnet.face.a f28124e;
+    public final com.bytedance.sdk.component.adnet.face.a f63966e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.bytedance.sdk.component.adnet.face.b f28125f;
+    public final com.bytedance.sdk.component.adnet.face.b f63967f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final com.bytedance.sdk.component.adnet.face.c f28126g;
+    public final com.bytedance.sdk.component.adnet.face.c f63968g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final h[] f28127h;
+    public final h[] f63969h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f28128i;
-    public final List<b> j;
+    public d f63970i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public final List<b> f63971j;
     public final List<a> k;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(Request<?> request, int i2);
     }
 
     @Deprecated
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface b<T> {
         void a(Request<T> request);
     }
@@ -75,30 +77,30 @@ public class l {
                 return;
             }
         }
-        this.f28120a = new AtomicInteger();
-        this.f28121b = new HashSet();
-        this.f28122c = new PriorityBlockingQueue<>();
-        this.f28123d = new PriorityBlockingQueue<>();
-        this.j = new ArrayList();
+        this.f63962a = new AtomicInteger();
+        this.f63963b = new HashSet();
+        this.f63964c = new PriorityBlockingQueue<>();
+        this.f63965d = new PriorityBlockingQueue<>();
+        this.f63971j = new ArrayList();
         this.k = new ArrayList();
-        this.f28124e = aVar;
-        this.f28125f = bVar;
-        this.f28127h = new h[i2];
-        this.f28126g = cVar;
+        this.f63966e = aVar;
+        this.f63967f = bVar;
+        this.f63969h = new h[i2];
+        this.f63968g = cVar;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             b();
-            d dVar = new d(this.f28122c, this.f28123d, this.f28124e, this.f28126g);
-            this.f28128i = dVar;
+            d dVar = new d(this.f63964c, this.f63965d, this.f63966e, this.f63968g);
+            this.f63970i = dVar;
             dVar.setName("tt_pangle_thread_CacheDispatcher");
-            this.f28128i.start();
-            for (int i2 = 0; i2 < this.f28127h.length; i2++) {
-                h hVar = new h(this.f28123d, this.f28125f, this.f28124e, this.f28126g);
+            this.f63970i.start();
+            for (int i2 = 0; i2 < this.f63969h.length; i2++) {
+                h hVar = new h(this.f63965d, this.f63967f, this.f63966e, this.f63968g);
                 hVar.setName("tt_pangle_thread_NetworkDispatcher" + i2);
-                this.f28127h[i2] = hVar;
+                this.f63969h[i2] = hVar;
                 hVar.start();
             }
         }
@@ -108,11 +110,11 @@ public class l {
         h[] hVarArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            d dVar = this.f28128i;
+            d dVar = this.f63970i;
             if (dVar != null) {
                 dVar.a();
             }
-            for (h hVar : this.f28127h) {
+            for (h hVar : this.f63969h) {
                 if (hVar != null) {
                     hVar.a();
                 }
@@ -123,17 +125,17 @@ public class l {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28120a.incrementAndGet() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f63962a.incrementAndGet() : invokeV.intValue;
     }
 
     public <T> void c(Request<T> request) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, request) == null) {
-            synchronized (this.f28121b) {
-                this.f28121b.remove(request);
+            synchronized (this.f63963b) {
+                this.f63963b.remove(request);
             }
-            synchronized (this.j) {
-                for (b bVar : this.j) {
+            synchronized (this.f63971j) {
+                for (b bVar : this.f63971j) {
                     bVar.a(request);
                 }
             }
@@ -163,17 +165,17 @@ public class l {
             b(request);
             request.setStartTime();
             request.setRequestQueue(this);
-            synchronized (this.f28121b) {
-                this.f28121b.add(request);
+            synchronized (this.f63963b) {
+                this.f63963b.add(request);
             }
             request.setSequence(c());
             request.addMarker("add-to-queue");
             a(request, 0);
             if (!request.shouldCache()) {
-                this.f28123d.add(request);
+                this.f63965d.add(request);
                 return request;
             }
-            this.f28122c.add(request);
+            this.f63964c.add(request);
             return request;
         }
         return (Request) invokeL.objValue;

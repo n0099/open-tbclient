@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class u {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HandlerThread f6689a;
+    public static HandlerThread f40920a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,12 +35,12 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (u.class) {
-                if (f6689a == null) {
+                if (f40920a == null) {
                     HandlerThread handlerThread2 = new HandlerThread("ServiceStartArguments", 10);
-                    f6689a = handlerThread2;
+                    f40920a = handlerThread2;
                     handlerThread2.start();
                 }
-                handlerThread = f6689a;
+                handlerThread = f40920a;
             }
             return handlerThread;
         }

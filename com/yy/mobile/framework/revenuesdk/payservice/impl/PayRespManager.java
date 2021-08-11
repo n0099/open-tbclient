@@ -38,7 +38,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServe
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.response.IResponse;
 import com.yy.mobile.framework.revenuesdk.payservice.utils.JsonDataParerUtil;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class PayRespManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AppPayServiceImpl-RespM";
@@ -401,17 +401,17 @@ public class PayRespManager {
             if (request != null) {
                 ChargeCurrencyReqParams chargeCurrencyReqParams = (ChargeCurrencyReqParams) request.getExtParam();
                 HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
-                long j = 0;
+                long j2 = 0;
                 if (chargeCurrencyReqParams != null) {
                     cReportResponse.mPaysource = chargeCurrencyReqParams.getFrom();
                     cReportResponse.mUid = chargeCurrencyReqParams.getUid();
-                    j = System.currentTimeMillis() - chargeCurrencyReqParams.getRequestTime();
-                    cReportResponse.mDelay = j + "";
+                    j2 = System.currentTimeMillis() - chargeCurrencyReqParams.getRequestTime();
+                    cReportResponse.mDelay = j2 + "";
                     cReportResponse.mCmd = i2;
                     cReportResponse.mServiceName = this.mDefalutServiceName;
                     cReportResponse.mFunctionName = this.mDefalutFunctionName;
                 }
-                long j2 = j;
+                long j3 = j2;
                 RLog.info("AppPayServiceImpl", "onOrderProduct---mDefalutServiceName:" + this.mDefalutServiceName + "---mDefalutFunctionName:" + this.mDefalutFunctionName + "---mRealFunctionName:" + cReportResponse.mServiceName + "---mRealFunctionName:" + cReportResponse.mFunctionName);
                 if (payOrderResult != null) {
                     cReportResponse.mOrderId = payOrderResult.getOrderId();
@@ -423,11 +423,11 @@ public class PayRespManager {
                             this.payInnerLogic.showVerifyViewWithInfoString(challengeExtension, chargeCurrencyReqParams, iResponse, request);
                             return;
                         } else {
-                            this.payInnerLogic.dealOnOrderInter(iResponse, chargeCurrencyReqParams, payOrderResult, request, cReportResponse, j2);
+                            this.payInnerLogic.dealOnOrderInter(iResponse, chargeCurrencyReqParams, payOrderResult, request, cReportResponse, j3);
                             return;
                         }
                     }
-                    this.payInnerLogic.dealOnOrderInter(iResponse, chargeCurrencyReqParams, null, request, cReportResponse, j2);
+                    this.payInnerLogic.dealOnOrderInter(iResponse, chargeCurrencyReqParams, null, request, cReportResponse, j3);
                 }
             }
         }

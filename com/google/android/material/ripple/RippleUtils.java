@@ -4,7 +4,6 @@ import android.annotation.TargetApi;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
-import android.util.Log;
 import android.util.StateSet;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
@@ -22,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class RippleUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] ENABLED_PRESSED_STATE_SET;
@@ -130,8 +129,8 @@ public class RippleUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, colorStateList)) == null) {
             if (colorStateList != null) {
                 int i2 = Build.VERSION.SDK_INT;
-                if (i2 >= 22 && i2 <= 27 && Color.alpha(colorStateList.getDefaultColor()) == 0 && Color.alpha(colorStateList.getColorForState(ENABLED_PRESSED_STATE_SET, 0)) != 0) {
-                    Log.w(LOG_TAG, TRANSPARENT_DEFAULT_COLOR_WARNING);
+                if (i2 >= 22 && i2 <= 27 && Color.alpha(colorStateList.getDefaultColor()) == 0) {
+                    Color.alpha(colorStateList.getColorForState(ENABLED_PRESSED_STATE_SET, 0));
                 }
                 return colorStateList;
             }

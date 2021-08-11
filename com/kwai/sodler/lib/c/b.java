@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.utils.w;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f37180a = "plugin.signature";
+    public static String f74011a = "plugin.signature";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,9 +43,9 @@ public class b {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures;
             } catch (PackageManager.NameNotFoundException e2) {
-                String str = f37180a;
+                String str = f74011a;
                 com.kwai.sodler.lib.a.e(str, "Can not get signature, error = " + e2.getLocalizedMessage());
-                com.kwai.sodler.lib.a.a(f37180a, e2);
+                com.kwai.sodler.lib.a.a(f74011a, e2);
                 return null;
             }
         }
@@ -63,7 +63,7 @@ public class b {
                 }
                 return "";
             } catch (Exception e2) {
-                com.kwai.sodler.lib.a.a(f37180a, e2);
+                com.kwai.sodler.lib.a.a(f74011a, e2);
                 return "";
             }
         }

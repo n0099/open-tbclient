@@ -22,7 +22,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,9 +76,9 @@ public class a {
                     outputStream2.flush();
                 }
                 int responseCode = httpURLConnection.getResponseCode();
-                cVar.f34859a = responseCode;
+                cVar.f71602a = responseCode;
                 if (responseCode == 200) {
-                    cVar.f34860b = a(httpURLConnection.getInputStream());
+                    cVar.f71603b = a(httpURLConnection.getInputStream());
                 }
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -174,7 +174,7 @@ public class a {
                     httpURLConnection2.setRequestMethod("GET");
                     httpURLConnection2.setRequestProperty("Accept", "application/json");
                     httpURLConnection2.setRequestProperty("User-Agent", k.a());
-                    cVar.f34859a = httpURLConnection2.getResponseCode();
+                    cVar.f71602a = httpURLConnection2.getResponseCode();
                     StringBuilder sb = new StringBuilder();
                     if (z) {
                         inputStream2 = httpURLConnection2.getInputStream();
@@ -187,7 +187,7 @@ public class a {
                             sb.append(new String(bArr, 0, read));
                         }
                     }
-                    cVar.f34860b = sb.toString();
+                    cVar.f71603b = sb.toString();
                     if (httpURLConnection2 != null) {
                         httpURLConnection2.disconnect();
                     }
@@ -344,10 +344,10 @@ public class a {
     public static void a(@NonNull c cVar, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, cVar, exc) == null) {
-            f fVar = exc instanceof SocketTimeoutException ? f.f34862a : f.f34863b;
-            cVar.f34859a = fVar.m;
-            cVar.f34860b = fVar.n;
-            if (com.kwad.sdk.b.f34059b.booleanValue()) {
+            f fVar = exc instanceof SocketTimeoutException ? f.f71605a : f.f71606b;
+            cVar.f71602a = fVar.m;
+            cVar.f71603b = fVar.n;
+            if (com.kwad.sdk.b.f70787b.booleanValue()) {
                 com.kwad.sdk.core.d.a.b(exc);
             }
         }

@@ -8,7 +8,7 @@ import com.kwad.sdk.core.config.c;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.reward.b.c.b.b;
 import com.kwad.sdk.reward.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -3,6 +3,10 @@ package com.baidu.wallet.base.statistics;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.apollon.restnet.a;
+import com.baidu.apollon.restnet.b;
+import com.baidu.apollon.restnet.http.b;
 import com.baidu.apollon.utils.PhoneUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,27 +22,26 @@ import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.core.utils.UAFilterUtil;
 import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import dxm.sasdk.DxmSdkSensorsDataAPI;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public final class DXMSdkSAUtils {
+/* loaded from: classes8.dex */
+public final class DXMSdkSAUtils implements a.b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24277a = "DXMSdkSAUtils";
+    public static final String f59946a = "DXMSdkSAUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f24278b = "https://bi-sensors.duxiaoman.com/sa?project=production";
+    public static final String f59947b = "https://bi-sensors.duxiaoman.com/sa?project=production";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final DxmSdkSensorsDataAPI.DebugMode f24279c;
+    public static final DxmSdkSensorsDataAPI.DebugMode f59948c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f24280d = "DXMSDK";
+    public static final String f59949d = "DXMSDK";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,7 +57,7 @@ public final class DXMSdkSAUtils {
                 return;
             }
         }
-        f24279c = DxmSdkSensorsDataAPI.DebugMode.DEBUG_OFF;
+        f59948c = DxmSdkSensorsDataAPI.DebugMode.DEBUG_OFF;
     }
 
     public DXMSdkSAUtils() {
@@ -87,7 +90,7 @@ public final class DXMSdkSAUtils {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            LogUtil.d(f24277a, "commonParams = " + jSONObject.toString());
+            LogUtil.d(f59946a, "commonParams = " + jSONObject.toString());
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;
@@ -96,8 +99,8 @@ public final class DXMSdkSAUtils {
     public static void initSensorStat(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            LogUtil.d(f24277a, "initSensorStat");
-            DxmSdkSensorsDataAPI.J(context, f24278b, f24279c);
+            LogUtil.d(f59946a, "initSensorStat");
+            DxmSdkSensorsDataAPI.J(context, f59947b, f59948c);
             onChangeProperties(a(context));
         }
     }
@@ -124,7 +127,7 @@ public final class DXMSdkSAUtils {
     public static void onEventEnd(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, str, i2) == null) {
-            LogUtil.d(f24277a, "onEventEnd. id = " + str + " , retCode = " + i2);
+            LogUtil.d(f59946a, "onEventEnd. id = " + str + " , retCode = " + i2);
             if (TextUtils.isEmpty(str)) {
                 return;
             }
@@ -136,29 +139,58 @@ public final class DXMSdkSAUtils {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            DxmSdkSensorsDataAPI.H().O(f24280d, jSONObject);
+            DxmSdkSensorsDataAPI.H().O(f59949d, jSONObject);
         }
     }
 
     public static void onEventEndWithValues(String str, int i2, Collection<String> collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65543, null, str, i2, collection) == null) {
-            LogUtil.d(f24277a, "onEventEndWithValues. id = " + str + " , retCode = " + i2 + " , values = " + collection);
+            LogUtil.d(f59946a, "onEventEndWithValues. id = " + str + " , retCode = " + i2 + " , values = " + collection);
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            if (collection == null) {
-                collection = new ArrayList<>();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("event_key", str);
+                jSONObject.put("value0", String.valueOf(i2));
+                JSONArray jSONArray = new JSONArray((Collection) collection);
+                if (jSONArray.length() > 0) {
+                    jSONObject.put("value1", jSONArray.get(0));
+                }
+                if (jSONArray.length() > 1) {
+                    jSONObject.put("value2", jSONArray.get(1));
+                }
+                if (jSONArray.length() > 2) {
+                    jSONObject.put("value3", jSONArray.get(2));
+                }
+                if (jSONArray.length() > 3) {
+                    jSONObject.put("value4", jSONArray.get(3));
+                }
+                if (jSONArray.length() > 4) {
+                    jSONObject.put("value5", jSONArray.get(4));
+                }
+                if (jSONArray.length() > 5) {
+                    jSONObject.put("value6", jSONArray.get(5));
+                }
+                if (jSONArray.length() > 6) {
+                    jSONObject.put("value7", jSONArray.get(6));
+                }
+                if (jSONArray.length() > 7) {
+                    jSONObject.put("value8", jSONArray.get(7));
+                }
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
-            collection.add(String.valueOf(i2));
-            onEventWithValues(str, collection);
+            refreshUnionIDProperty();
+            DxmSdkSensorsDataAPI.H().O(f59949d, jSONObject);
         }
     }
 
     public static void onEventStart(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            LogUtil.d(f24277a, "onEventStart. id = " + str);
+            LogUtil.d(f59946a, "onEventStart. id = " + str);
             if (TextUtils.isEmpty(str)) {
                 return;
             }
@@ -170,7 +202,7 @@ public final class DXMSdkSAUtils {
     public static void onEventWithValues(String str, Collection<String> collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, str, collection) == null) {
-            LogUtil.d(f24277a, "onEventWithValues. id = " + str + ", values = " + collection);
+            LogUtil.d(f59946a, "onEventWithValues. id = " + str + ", values = " + collection);
             if (TextUtils.isEmpty(str)) {
                 return;
             }
@@ -206,7 +238,7 @@ public final class DXMSdkSAUtils {
                     jSONObject.put("value8", jSONArray.get(8));
                 }
                 refreshUnionIDProperty();
-                DxmSdkSensorsDataAPI.H().M(f24280d, jSONObject);
+                DxmSdkSensorsDataAPI.H().M(f59949d, jSONObject);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -217,11 +249,55 @@ public final class DXMSdkSAUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
             String unionId = WalletLoginHelper.getInstance().getUnionId();
-            LogUtil.d(f24277a, "refreshUnionIDProperty union_id = " + unionId);
+            LogUtil.d(f59946a, "refreshUnionIDProperty union_id = " + unionId);
             if (!TextUtils.isEmpty(unionId)) {
                 DxmSdkSensorsDataAPI.H().C(unionId);
             } else {
                 DxmSdkSensorsDataAPI.H().D();
+            }
+        }
+    }
+
+    @Override // com.baidu.apollon.restnet.a.b
+    public void send(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("event_key", "network_stat");
+                jSONObject.put("host", bVar.a());
+                jSONObject.put("$url_path", bVar.b());
+                jSONObject.put("totalTime", bVar.c());
+                String str = "1";
+                jSONObject.put("value0", bVar.d() ? "1" : "0");
+                jSONObject.put("value1", bVar.e() ? "1" : "0");
+                jSONObject.put("value2", bVar.g());
+                jSONObject.put("value3", bVar.h());
+                jSONObject.put("value4", bVar.f() ? "1" : "0");
+                if (!bVar.i()) {
+                    str = "0";
+                }
+                jSONObject.put("value5", str);
+                jSONObject.put("value6", String.valueOf(bVar.j()));
+                LogUtil.d("okhttp", "network_stat: " + jSONObject.toString());
+                refreshUnionIDProperty();
+                DxmSdkSensorsDataAPI.H().M(f59949d, jSONObject);
+            } catch (JSONException unused) {
+            }
+        }
+    }
+
+    @Override // com.baidu.apollon.restnet.a.b
+    public void send(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("event_key", "network_metrics").put("host", jSONObject.optString("host")).put("$url_path", jSONObject.optString("path")).put("value0", jSONObject.optString("proxy")).put("value1", jSONObject.optString(b.InterfaceC1611b.l)).put("value2", jSONObject.optString("protocol")).put("value3", jSONObject.optString("location")).put("value4", jSONObject.optString(b.InterfaceC1611b.k)).put("value5", jSONObject.optString(b.InterfaceC1611b.m)).put(b.InterfaceC1611b.f37852a, jSONObject.optLong(b.InterfaceC1611b.f37852a)).put(b.InterfaceC1611b.f37853b, jSONObject.optLong(b.InterfaceC1611b.f37853b)).put(b.InterfaceC1611b.f37854c, jSONObject.optLong(b.InterfaceC1611b.f37854c)).put(b.InterfaceC1611b.f37855d, jSONObject.optLong(b.InterfaceC1611b.f37855d)).put(b.InterfaceC1611b.f37856e, jSONObject.optLong(b.InterfaceC1611b.f37856e));
+                LogUtil.d("okhttp", "network_metrics: " + jSONObject2.toString());
+                refreshUnionIDProperty();
+                DxmSdkSensorsDataAPI.H().M(f59949d, jSONObject2);
+            } catch (JSONException unused) {
             }
         }
     }

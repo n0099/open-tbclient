@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_COOKIE = "Cookie";
@@ -34,7 +34,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     public String mUserAgent;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class SORT {
         public static final /* synthetic */ SORT[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -95,13 +95,13 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Comparator<Map.Entry<String, Object>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public SORT f2175e;
+        public SORT f36026e;
 
         public a(SORT sort) {
             Interceptable interceptable = $ic;
@@ -118,8 +118,8 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                     return;
                 }
             }
-            this.f2175e = null;
-            this.f2175e = sort;
+            this.f36026e = null;
+            this.f36026e = sort;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -129,7 +129,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entry, entry2)) == null) {
-                if (this.f2175e == SORT.ASCEND) {
+                if (this.f36026e == SORT.ASCEND) {
                     return entry.getKey().compareTo(entry2.getKey());
                 }
                 return entry2.getKey().compareTo(entry.getKey());
@@ -201,7 +201,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                     Object value = entry.getValue();
                     String str2 = StringUtil.NULL_STRING;
                     sb.append(key == null ? StringUtil.NULL_STRING : key.toString());
-                    sb.append(com.alipay.sdk.encrypt.a.f1923h);
+                    sb.append(com.alipay.sdk.encrypt.a.f35773h);
                     if (value != null) {
                         str2 = value.toString();
                     }
@@ -249,7 +249,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                     addHeader("Cookie", map2KVString(";", parseKVString));
                     return str3;
                 }
-                addHeader("Cookie", str + com.alipay.sdk.encrypt.a.f1923h + str2 + ';');
+                addHeader("Cookie", str + com.alipay.sdk.encrypt.a.f35773h + str2 + ';');
             }
             return null;
         }
@@ -335,10 +335,10 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     }
 
     @Override // com.baidu.adp.framework.message.Message
-    public void setClientLogID(long j) {
+    public void setClientLogID(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            super.setClientLogID(j);
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
+            super.setClientLogID(j2);
         }
     }
 
@@ -433,14 +433,14 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         return invokeLI.objValue;
     }
 
-    public Object addParam(String str, long j) {
+    public Object addParam(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j2)) == null) {
             if (str == null) {
                 return null;
             }
-            return this.mParams.put(str, String.valueOf(j));
+            return this.mParams.put(str, String.valueOf(j2));
         }
         return invokeLJ.objValue;
     }

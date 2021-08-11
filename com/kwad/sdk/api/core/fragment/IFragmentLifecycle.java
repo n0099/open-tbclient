@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface IFragmentLifecycle {
     void onActivityCreated(@Nullable Bundle bundle);
 

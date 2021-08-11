@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class SyncStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_AOUNT_EACH_FETCH = 100;
@@ -52,7 +52,7 @@ public abstract class SyncStrategy {
     public int mTriggerReason;
 
     @FunctionalInterface
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface CompleteListener {
         void onComplete(DialogRecord dialogRecord);
     }
@@ -102,11 +102,11 @@ public abstract class SyncStrategy {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? SyncGroupMessageService.getInstance().getState(this.mContext) == 1 && SyncAllMessage.getInstance(this.mContext).getState() == 1 : invokeV.booleanValue;
     }
 
-    private void sync(Context context, boolean z, long j) {
-        long j2;
+    private void sync(Context context, boolean z, long j2) {
         long j3;
+        long j4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{context, Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{context, Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
             LogUtils.d(TAG, "sync state: " + this.mState);
             this.mState = 1;
             long startMsgid = getStartMsgid();
@@ -119,20 +119,20 @@ public abstract class SyncStrategy {
                 this.mState = 2;
                 commitDeviceMaxNotifyMsgid();
             } else {
-                if (j == -1 || j >= startMsgid) {
-                    j2 = startMsgid + 1;
-                    j3 = Long.MAX_VALUE;
+                if (j2 == -1 || j2 >= startMsgid) {
+                    j3 = startMsgid + 1;
+                    j4 = Long.MAX_VALUE;
                 } else {
-                    j2 = j;
                     j3 = j2;
+                    j4 = j3;
                 }
                 if (getJumpToRecent() == 1) {
                     this.mAmountEachFetch = 200;
                 } else {
                     this.mAmountEachFetch = 100;
                 }
-                LogUtils.i(TAG, "sync startId : " + j2 + " endId : " + j3);
-                ChatMsgManagerImpl.getInstance(context).fetchMsgidByMsgid(context, this.mCategory, this.mContacter, j2, j3, this.mAmountEachFetch, this.mTriggerReason, getJumpToRecent(), new IFetchMsgByIdListener(this) { // from class: com.baidu.android.imsdk.chatmessage.sync.SyncStrategy.1
+                LogUtils.i(TAG, "sync startId : " + j3 + " endId : " + j4);
+                ChatMsgManagerImpl.getInstance(context).fetchMsgidByMsgid(context, this.mCategory, this.mContacter, j3, j4, this.mAmountEachFetch, this.mTriggerReason, getJumpToRecent(), new IFetchMsgByIdListener(this) { // from class: com.baidu.android.imsdk.chatmessage.sync.SyncStrategy.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SyncStrategy this$0;
@@ -156,12 +156,12 @@ public abstract class SyncStrategy {
                     }
 
                     @Override // com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener
-                    public void onFetchMsgByIdResult(int i2, String str, String str2, int i3, long j4, long j5, long j6, int i4, int i5, long j7, ArrayList<ChatMsg> arrayList) {
+                    public void onFetchMsgByIdResult(int i2, String str, String str2, int i3, long j5, long j6, long j7, int i4, int i5, long j8, ArrayList<ChatMsg> arrayList) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, Integer.valueOf(i3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j7), arrayList}) == null) {
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, Integer.valueOf(i3), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(j7), Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j8), arrayList}) == null) {
                             String str3 = SyncStrategy.TAG;
-                            LogUtils.i(str3, "onFetchMsgByIdResult errorCode: " + i2 + ", maxMsgid :" + j7 + ",contacter: " + j4 + ",mContacter: " + this.this$0.mContacter + ",beginId: " + j5 + ",endId: " + j6 + ",realCount : " + i5);
-                            this.this$0.deal(i2, i4, i5, j7, str2, arrayList, i3, j4);
+                            LogUtils.i(str3, "onFetchMsgByIdResult errorCode: " + i2 + ", maxMsgid :" + j8 + ",contacter: " + j5 + ",mContacter: " + this.this$0.mContacter + ",beginId: " + j6 + ",endId: " + j7 + ",realCount : " + i5);
+                            this.this$0.deal(i2, i4, i5, j8, str2, arrayList, i3, j5);
                         }
                     }
                 });
@@ -171,16 +171,16 @@ public abstract class SyncStrategy {
 
     public abstract boolean commitDeviceMaxNotifyMsgid();
 
-    public void deal(int i2, int i3, int i4, long j, String str, ArrayList<ChatMsg> arrayList, int i5, long j2) {
+    public void deal(int i2, int i3, int i4, long j2, String str, ArrayList<ChatMsg> arrayList, int i5, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), str, arrayList, Integer.valueOf(i5), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2), str, arrayList, Integer.valueOf(i5), Long.valueOf(j3)}) == null) {
             String str2 = TAG;
-            LogUtils.d(str2, "deal maxMsgid" + j + " , contactor : " + j2 + ",fetchedMsgs: " + arrayList);
+            LogUtils.d(str2, "deal maxMsgid" + j2 + " , contactor : " + j3 + ",fetchedMsgs: " + arrayList);
             if (arrayList != null && !arrayList.isEmpty()) {
                 String str3 = TAG;
                 LogUtils.d(str3, "deal size" + arrayList.size());
                 String str4 = TAG;
-                LogUtils.d(str4, "deal maxMsgid" + j + " , contactor : " + j2);
+                LogUtils.d(str4, "deal maxMsgid" + j2 + " , contactor : " + j3);
                 String str5 = TAG;
                 StringBuilder sb = new StringBuilder();
                 sb.append("deal realCount");
@@ -193,7 +193,7 @@ public abstract class SyncStrategy {
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                         LogUtils.e(LogUtils.TAG, e2.getMessage(), e2);
                     }
-                } else if (GroupMessageDAOImpl.isActiveGroup(this.mContext, String.valueOf(j2))) {
+                } else if (GroupMessageDAOImpl.isActiveGroup(this.mContext, String.valueOf(j3))) {
                     try {
                         Dispatcher.dispatchMessage(this.mContext, this.mTriggerReason, arrayList);
                     } catch (Exception e3) {
@@ -202,11 +202,11 @@ public abstract class SyncStrategy {
                     }
                 }
             }
-            updateData(this.mContext, j);
+            updateData(this.mContext, j2);
             if (i2 == 0) {
                 updateJumpToRecent();
             } else if (i2 == 603 || i2 == 607) {
-                DialogRecordDBManager.getInstance(this.mContext).delete(i5, j2);
+                DialogRecordDBManager.getInstance(this.mContext).delete(i5, j3);
             }
             if (syncNotifyMessageStopCondition(i2, i3, i4, arrayList)) {
                 commitDeviceMaxNotifyMsgid();
@@ -269,11 +269,11 @@ public abstract class SyncStrategy {
         return (SyncStrategy) invokeI.objValue;
     }
 
-    public SyncStrategy setContacter(long j) {
+    public SyncStrategy setContacter(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
-            this.mContacter = j;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
+            this.mContacter = j2;
             return this;
         }
         return (SyncStrategy) invokeJ.objValue;
@@ -319,13 +319,13 @@ public abstract class SyncStrategy {
         return invokeCommon.booleanValue;
     }
 
-    public abstract void updateData(Context context, long j);
+    public abstract void updateData(Context context, long j2);
 
     public abstract boolean updateJumpToRecent();
 
-    public void start(int i2, long j) {
+    public void start(int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             String str = TAG;
             LogUtils.d(str, "******************start sync !************** " + this.mState);
             ChatMessageDBManager.getInstance(this.mContext).getMaxMsgid();
@@ -339,7 +339,7 @@ public abstract class SyncStrategy {
             this.mTriggerReason = i2;
             String str2 = TAG;
             LogUtils.d(str2, "----start sync category:" + this.mCategory + " contacter:" + this.mContacter);
-            sync(this.mContext, true, j);
+            sync(this.mContext, true, j2);
         }
     }
 }

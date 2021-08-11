@@ -50,11 +50,11 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
         }
     }
 
-    public static String makeFragmentName(int i2, long j) {
+    public static String makeFragmentName(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
-            return "android:switcher:" + i2 + ":" + j;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+            return "android:switcher:" + i2 + ":" + j2;
         }
         return (String) invokeCommon.objValue;
     }

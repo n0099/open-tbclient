@@ -11,7 +11,6 @@ import android.text.TextUtils;
 import android.webkit.WebSettings;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.apollon.statistics.g;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
@@ -23,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
-import e.a.k;
+import f.a.k;
 import java.lang.reflect.Constructor;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,18 +33,18 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SensorsDataUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f72707a;
+    public static String f77939a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SimpleDateFormat f72708b;
+    public static final SimpleDateFormat f77940b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final List<String> f72709c;
+    public static final List<String> f77941c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,7 +60,7 @@ public final class SensorsDataUtils {
                 return;
             }
         }
-        f72708b = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA);
+        f77940b = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA);
         new HashMap<String, String>() { // from class: dxm.sasdk.util.SensorsDataUtils.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +90,7 @@ public final class SensorsDataUtils {
                 put("46011", "中国电信");
             }
         };
-        f72709c = new ArrayList<String>() { // from class: dxm.sasdk.util.SensorsDataUtils.2
+        f77941c = new ArrayList<String>() { // from class: dxm.sasdk.util.SensorsDataUtils.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -149,15 +148,15 @@ public final class SensorsDataUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (!TextUtils.isEmpty(f72707a)) {
-                return f72707a;
+            if (!TextUtils.isEmpty(f77939a)) {
+                return f77939a;
             }
             try {
-                f72707a = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+                f77939a = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            return f72707a;
+            return f77939a;
         }
         return (String) invokeL.objValue;
     }
@@ -237,7 +236,7 @@ public final class SensorsDataUtils {
     public static boolean g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? (TextUtils.isEmpty(str) || f72709c.contains(str.toLowerCase())) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? (TextUtils.isEmpty(str) || f77941c.contains(str.toLowerCase())) ? false : true : invokeL.booleanValue;
     }
 
     public static void h(JSONObject jSONObject, JSONObject jSONObject2) throws JSONException {
@@ -248,8 +247,8 @@ public final class SensorsDataUtils {
                 String next = keys.next();
                 Object obj = jSONObject.get(next);
                 if (obj instanceof Date) {
-                    synchronized (f72708b) {
-                        jSONObject2.put(next, f72708b.format((Date) obj));
+                    synchronized (f77940b) {
+                        jSONObject2.put(next, f77940b.format((Date) obj));
                     }
                 } else {
                     jSONObject2.put(next, obj);
@@ -266,28 +265,31 @@ public final class SensorsDataUtils {
             if (a(context, DefaultConnectivityMonitorFactory.NETWORK_PERMISSION)) {
                 ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
                 if (connectivityManager == null || (networkInfo = connectivityManager.getNetworkInfo(1)) == null || !networkInfo.isConnectedOrConnecting()) {
-                    switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
-                        case 1:
-                        case 2:
-                        case 4:
-                        case 7:
-                        case 11:
-                            return "2G";
-                        case 3:
-                        case 5:
-                        case 6:
-                        case 8:
-                        case 9:
-                        case 10:
-                        case 12:
-                        case 14:
-                        case 15:
-                            return g.f4012b;
-                        case 13:
-                            return "4G";
-                        default:
-                            return "NULL";
+                    if (Build.VERSION.SDK_INT < 30 || a(context, "android.permission.READ_PHONE_STATE")) {
+                        switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
+                            case 1:
+                            case 2:
+                            case 4:
+                            case 7:
+                            case 11:
+                                return "2G";
+                            case 3:
+                            case 5:
+                            case 6:
+                            case 8:
+                            case 9:
+                            case 10:
+                            case 12:
+                            case 14:
+                            case 15:
+                                return "3G";
+                            case 13:
+                                return "4G";
+                            default:
+                                return "NULL";
+                        }
                     }
+                    return "NULL";
                 }
                 return CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
             }

@@ -3,7 +3,6 @@ package com.faceunity.encoder;
 import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class MediaMuxerWrapper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaMuxerWrapper";
@@ -52,7 +51,7 @@ public class MediaMuxerWrapper {
             synchronized (this) {
                 if (!this.mIsStarted) {
                     addTrack = this.mMediaMuxer.addTrack(mediaFormat);
-                    Log.i(TAG, "addTrack:trackNum=" + this.mEncoderCount + ",trackIx=" + addTrack + ",format=" + mediaFormat);
+                    String str = "addTrack:trackNum=" + this.mEncoderCount + ",trackIx=" + addTrack + ",format=" + mediaFormat;
                 } else {
                     throw new IllegalStateException("muxer already started");
                 }
@@ -81,14 +80,12 @@ public class MediaMuxerWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                Log.v(TAG, "start:");
                 int i2 = this.mStatredCount + 1;
                 this.mStatredCount = i2;
                 if (this.mEncoderCount > 0 && i2 == this.mEncoderCount) {
                     this.mMediaMuxer.start();
                     this.mIsStarted = true;
                     notifyAll();
-                    Log.v(TAG, "MediaMuxer started:");
                 }
                 z = this.mIsStarted;
             }
@@ -101,14 +98,13 @@ public class MediaMuxerWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                Log.v(TAG, "stop:mStatredCount=" + this.mStatredCount);
-                int i2 = this.mStatredCount + (-1);
+                String str = "stop:mStatredCount=" + this.mStatredCount;
+                int i2 = this.mStatredCount - 1;
                 this.mStatredCount = i2;
                 if (this.mEncoderCount > 0 && i2 <= 0) {
                     this.mMediaMuxer.stop();
                     this.mMediaMuxer.release();
                     this.mIsStarted = false;
-                    Log.v(TAG, "MediaMuxer stopped:");
                 }
             }
         }

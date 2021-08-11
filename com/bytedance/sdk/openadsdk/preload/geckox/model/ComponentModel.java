@@ -11,7 +11,7 @@ import com.bytedance.sdk.openadsdk.preload.a.a.c;
 import java.util.List;
 import java.util.Map;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ComponentModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,22 +20,22 @@ public class ComponentModel {
     @c(a = "universal_strategies")
     public Map<String, b> universalStrategies;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @c(a = "c")
 
         /* renamed from: a  reason: collision with root package name */
-        public String f32442a;
+        public String f68403a;
         @c(a = "clean_type")
 
         /* renamed from: b  reason: collision with root package name */
-        public int f32443b;
+        public int f68404b;
         @c(a = "version")
 
         /* renamed from: c  reason: collision with root package name */
-        public List<Long> f32444c;
+        public List<Long> f68405c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -52,14 +52,14 @@ public class ComponentModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @c(a = "specified_clean")
 
         /* renamed from: a  reason: collision with root package name */
-        public List<a> f32445a;
+        public List<a> f68406a;
 
         public b() {
             Interceptable interceptable = $ic;

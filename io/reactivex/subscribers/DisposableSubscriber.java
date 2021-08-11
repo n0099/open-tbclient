@@ -12,7 +12,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.EndConsumerHelper;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public abstract class DisposableSubscriber<T> implements FlowableSubscriber<T>, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,10 +71,10 @@ public abstract class DisposableSubscriber<T> implements FlowableSubscriber<T>, 
         }
     }
 
-    public final void request(long j) {
+    public final void request(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.s.get().request(j);
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            this.s.get().request(j2);
         }
     }
 }

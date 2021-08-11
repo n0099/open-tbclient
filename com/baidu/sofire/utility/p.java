@@ -15,18 +15,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.io.CharArrayWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.UUID;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class p {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f10550a = "";
+    public static String f45234a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -62,11 +61,11 @@ public final class p {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(f10550a)) {
+            if (TextUtils.isEmpty(f45234a)) {
                 new p();
-                f10550a = b(context);
+                f45234a = b(context);
             }
-            return f10550a;
+            return f45234a;
         }
         return (String) invokeL.objValue;
     }
@@ -108,7 +107,7 @@ public final class p {
                         if (!z || TextUtils.isEmpty(d(context))) {
                             a(context, "com.q.zi.i", c2);
                         }
-                        if (b(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION) && (z2 || TextUtils.isEmpty(e(context)))) {
+                        if (b(context, "android.permission.WRITE_EXTERNAL_STORAGE") && (z2 || TextUtils.isEmpty(e(context)))) {
                             FileWriter fileWriter2 = null;
                             try {
                                 try {
@@ -171,7 +170,7 @@ public final class p {
             if (!z) {
             }
             a(context, "com.q.zi.i", c2);
-            if (b(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
+            if (b(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
                 FileWriter fileWriter22 = null;
                 if (Build.VERSION.SDK_INT < 29) {
                     file = new File(Environment.getExternalStorageDirectory(), ".zp");
@@ -197,7 +196,7 @@ public final class p {
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
                 String o = a2.o();
                 if (TextUtils.isEmpty(o)) {
-                    String string = a2.f10438c.getString("rpnewuid", "");
+                    String string = a2.f45119c.getString("rpnewuid", "");
                     if (TextUtils.isEmpty(string)) {
                         return "";
                     }

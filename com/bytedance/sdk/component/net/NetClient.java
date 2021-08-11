@@ -20,7 +20,7 @@ import com.bytedance.sdk.component.net.utils.ProcessUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class NetClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,13 +29,13 @@ public class NetClient {
     public TncHostInterceptor tncHostInterceptor;
 
     /* renamed from: com.bytedance.sdk.component.net.NetClient$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,15 +65,15 @@ public class NetClient {
             this.writeTimeout = 10000;
         }
 
-        public static int checkDuration(String str, long j, TimeUnit timeUnit) {
+        public static int checkDuration(String str, long j2, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), timeUnit})) == null) {
-                int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j2), timeUnit})) == null) {
+                int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
                 if (i2 < 0) {
                     throw new IllegalArgumentException(str + " < 0");
                 } else if (timeUnit != null) {
-                    long millis = timeUnit.toMillis(j);
+                    long millis = timeUnit.toMillis(j2);
                     if (millis > 2147483647L) {
                         throw new IllegalArgumentException(str + " too large.");
                     } else if (millis != 0 || i2 <= 0) {
@@ -94,11 +94,11 @@ public class NetClient {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new NetClient(this, null) : (NetClient) invokeV.objValue;
         }
 
-        public Builder connectTimeout(long j, TimeUnit timeUnit) {
+        public Builder connectTimeout(long j2, TimeUnit timeUnit) {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, timeUnit)) == null) {
-                this.connectTimeout = checkDuration("timeout", j, timeUnit);
+            if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2, timeUnit)) == null) {
+                this.connectTimeout = checkDuration("timeout", j2, timeUnit);
                 return this;
             }
             return (Builder) invokeJL.objValue;
@@ -114,21 +114,21 @@ public class NetClient {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder readTimeout(long j, TimeUnit timeUnit) {
+        public Builder readTimeout(long j2, TimeUnit timeUnit) {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j, timeUnit)) == null) {
-                this.readTimeout = checkDuration("timeout", j, timeUnit);
+            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j2, timeUnit)) == null) {
+                this.readTimeout = checkDuration("timeout", j2, timeUnit);
                 return this;
             }
             return (Builder) invokeJL.objValue;
         }
 
-        public Builder writeTimeout(long j, TimeUnit timeUnit) {
+        public Builder writeTimeout(long j2, TimeUnit timeUnit) {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j, timeUnit)) == null) {
-                this.writeTimeout = checkDuration("timeout", j, timeUnit);
+            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j2, timeUnit)) == null) {
+                this.writeTimeout = checkDuration("timeout", j2, timeUnit);
                 return this;
             }
             return (Builder) invokeJL.objValue;
@@ -142,7 +142,7 @@ public class NetClient {
     public static void openDeubg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            c.a(c.a.f28147a);
+            c.a(c.a.f63990a);
         }
     }
 

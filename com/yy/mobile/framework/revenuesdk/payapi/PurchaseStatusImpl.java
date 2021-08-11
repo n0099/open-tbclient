@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Properties;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class PurchaseStatusImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PURCHASE_CHORDERID = "chorderid";
@@ -112,16 +112,16 @@ public class PurchaseStatusImpl {
         }
     }
 
-    public static void deletePurchaseStatus(Activity activity, String str, long j, String str2) {
+    public static void deletePurchaseStatus(Activity activity, String str, long j2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{activity, str, Long.valueOf(j), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{activity, str, Long.valueOf(j2), str2}) == null) {
             if (activity == null) {
                 RLog.error(TAG, "delete purchaseStatus fai, err: %d", "activity == null");
                 return;
             }
             Application application = activity.getApplication();
             if (application != null && application.getCacheDir() != null) {
-                ThreadPool.getDefault().diskIO().execute(new Runnable(str, str2, j, application) { // from class: com.yy.mobile.framework.revenuesdk.payapi.PurchaseStatusImpl.2
+                ThreadPool.getDefault().diskIO().execute(new Runnable(str, str2, j2, application) { // from class: com.yy.mobile.framework.revenuesdk.payapi.PurchaseStatusImpl.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ Application val$application;
@@ -134,7 +134,7 @@ public class PurchaseStatusImpl {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {str, str2, Long.valueOf(j), application};
+                            Object[] objArr = {str, str2, Long.valueOf(j2), application};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -146,7 +146,7 @@ public class PurchaseStatusImpl {
                         }
                         this.val$productId = str;
                         this.val$orderId = str2;
-                        this.val$uid = j;
+                        this.val$uid = j2;
                         this.val$application = application;
                     }
 

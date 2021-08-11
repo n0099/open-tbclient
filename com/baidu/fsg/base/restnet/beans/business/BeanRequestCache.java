@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class BeanRequestCache implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public static BeanRequestCache mRequestCache;

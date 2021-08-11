@@ -18,7 +18,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPoolAdapter;
 import java.util.concurrent.locks.Lock;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class DrawableToBitmapConverter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BitmapPool NO_RECYCLE_BITMAP_POOL;
@@ -110,12 +110,12 @@ public final class DrawableToBitmapConverter {
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, bitmapPool, drawable, i2, i3)) == null) {
             if (i2 == Integer.MIN_VALUE && drawable.getIntrinsicWidth() <= 0) {
                 if (Log.isLoggable(TAG, 5)) {
-                    Log.w(TAG, "Unable to draw " + drawable + " to Bitmap with Target.SIZE_ORIGINAL because the Drawable has no intrinsic width");
+                    String str = "Unable to draw " + drawable + " to Bitmap with Target.SIZE_ORIGINAL because the Drawable has no intrinsic width";
                 }
                 return null;
             } else if (i3 == Integer.MIN_VALUE && drawable.getIntrinsicHeight() <= 0) {
                 if (Log.isLoggable(TAG, 5)) {
-                    Log.w(TAG, "Unable to draw " + drawable + " to Bitmap with Target.SIZE_ORIGINAL because the Drawable has no intrinsic height");
+                    String str2 = "Unable to draw " + drawable + " to Bitmap with Target.SIZE_ORIGINAL because the Drawable has no intrinsic height";
                 }
                 return null;
             } else {

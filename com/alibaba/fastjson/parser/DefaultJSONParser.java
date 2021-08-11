@@ -54,8 +54,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
-import kotlin.text.Typography;
-/* loaded from: classes.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes4.dex */
 public class DefaultJSONParser implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NONE = 0;
@@ -82,7 +82,7 @@ public class DefaultJSONParser implements Closeable {
     public List<ResolveTask> resolveTaskList;
     public final SymbolTable symbolTable;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class ResolveTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -733,7 +733,7 @@ public class DefaultJSONParser implements Closeable {
                     }
                     boolean z5 = true;
                     if (current3 == '\"') {
-                        parse = jSONLexer.scanSymbol(this.symbolTable, Typography.quote);
+                        parse = jSONLexer.scanSymbol(this.symbolTable, '\"');
                         jSONLexer.skipWhitespace();
                         if (jSONLexer.getCurrent() != ':') {
                             throw new JSONException("expect ':' at " + jSONLexer.pos() + ", name " + parse);
@@ -755,7 +755,7 @@ public class DefaultJSONParser implements Closeable {
                         return map;
                     } else if (current3 == '\'') {
                         if (jSONLexer.isEnabled(Feature.AllowSingleQuotes)) {
-                            parse = jSONLexer.scanSymbol(this.symbolTable, '\'');
+                            parse = jSONLexer.scanSymbol(this.symbolTable, ExtendedMessageFormat.QUOTE);
                             jSONLexer.skipWhitespace();
                             if (jSONLexer.getCurrent() != ':') {
                                 throw new JSONException("expect ':' at " + jSONLexer.pos());
@@ -819,7 +819,7 @@ public class DefaultJSONParser implements Closeable {
                                 current = jSONLexer.getCurrent();
                                 jSONLexer.resetStringPosition();
                                 if (parse != JSON.DEFAULT_TYPE_KEY && !jSONLexer.isEnabled(Feature.DisableSpecialKeyDetect)) {
-                                    String scanSymbol = jSONLexer.scanSymbol(this.symbolTable, Typography.quote);
+                                    String scanSymbol = jSONLexer.scanSymbol(this.symbolTable, '\"');
                                     if (!jSONLexer.isEnabled(Feature.IgnoreAutoType)) {
                                         if (map != null && map.getClass().getName().equals(scanSymbol)) {
                                             cls = map.getClass();
@@ -1690,7 +1690,7 @@ public class DefaultJSONParser implements Closeable {
                     }
                 }
                 if (current == '\"') {
-                    scanSymbolUnQuoted = this.lexer.scanSymbol(this.symbolTable, Typography.quote);
+                    scanSymbolUnQuoted = this.lexer.scanSymbol(this.symbolTable, '\"');
                     this.lexer.skipWhitespace();
                     if (this.lexer.getCurrent() != ':') {
                         throw new JSONException("expect ':' at " + this.lexer.pos());
@@ -1702,7 +1702,7 @@ public class DefaultJSONParser implements Closeable {
                     return propertyProcessable;
                 } else if (current == '\'') {
                     if (this.lexer.isEnabled(Feature.AllowSingleQuotes)) {
-                        scanSymbolUnQuoted = this.lexer.scanSymbol(this.symbolTable, '\'');
+                        scanSymbolUnQuoted = this.lexer.scanSymbol(this.symbolTable, ExtendedMessageFormat.QUOTE);
                         this.lexer.skipWhitespace();
                         if (this.lexer.getCurrent() != ':') {
                             throw new JSONException("expect ':' at " + this.lexer.pos());
@@ -1726,7 +1726,7 @@ public class DefaultJSONParser implements Closeable {
                 this.lexer.resetStringPosition();
                 Object obj3 = null;
                 if (scanSymbolUnQuoted == JSON.DEFAULT_TYPE_KEY && !this.lexer.isEnabled(Feature.DisableSpecialKeyDetect)) {
-                    Class<?> checkAutoType = this.config.checkAutoType(this.lexer.scanSymbol(this.symbolTable, Typography.quote), null, this.lexer.getFeatures());
+                    Class<?> checkAutoType = this.config.checkAutoType(this.lexer.scanSymbol(this.symbolTable, '\"'), null, this.lexer.getFeatures());
                     if (Map.class.isAssignableFrom(checkAutoType)) {
                         this.lexer.nextToken(16);
                         if (this.lexer.token() == 13) {

@@ -2,6 +2,12 @@ package com.baidu.tbadk.core.util.httpNet;
 
 import android.os.Build;
 import android.text.TextUtils;
+import c.a.e.e.p.j;
+import c.a.o0.h0.f;
+import c.a.o0.s.d0.b;
+import c.a.o0.s.l.c;
+import c.a.o0.s.l.e;
+import c.a.o0.t.b.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,13 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
-import d.a.p0.h0.f;
-import d.a.p0.s.d0.b;
-import d.a.p0.s.l.c;
-import d.a.p0.s.l.e;
-import d.a.p0.t.b.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class HttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BDUSS = "BDUSS";
@@ -98,7 +98,7 @@ public class HttpRequest {
             if (TextUtils.isEmpty(b2) || !this.mIsUseCurrentBDUSS) {
                 return;
             }
-            iNetWorkCore.addPostData(BDUSS, b2);
+            iNetWorkCore.addPostData("BDUSS", b2);
             String a2 = e.a(currentAccountInfo);
             if (StringUtils.isNull(a2)) {
                 return;
@@ -150,8 +150,8 @@ public class HttpRequest {
                 }
                 z = false;
             }
-            d.a.d.e.j.b.a.s(z);
-            d.a.d.e.j.b.a.n(a2);
+            c.a.e.e.j.b.a.s(z);
+            c.a.e.e.j.b.a.n(a2);
             if (this.mIsNeedTbs) {
                 if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
                     iNetWorkCore.addPostData(TBS, f.d());
@@ -173,7 +173,7 @@ public class HttpRequest {
             iNetWorkCore.addPostData(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime()));
             iNetWorkCore.addPostData("event_day", TbSingleton.getInstance().getData());
             iNetWorkCore.addPostData("cmode", PermissionUtil.isAgreePrivacyPolicy() ? "1" : "2");
-            iNetWorkCore.addPostData("is_teenager", d.a.p0.e1.b.e.d() ? "1" : "0");
+            iNetWorkCore.addPostData("is_teenager", c.a.o0.e1.b.e.d() ? "1" : "0");
         }
     }
 

@@ -328,9 +328,9 @@ public class AlertController {
                         }
 
                         @Override // android.widget.AdapterView.OnItemClickListener
-                        public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j) {
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j)}) == null) {
+                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
                                 this.this$0.mOnClickListener.onClick(this.val$dialog.mDialog, i4);
                                 if (this.this$0.mIsSingleChoice) {
                                     return;
@@ -368,9 +368,9 @@ public class AlertController {
                         }
 
                         @Override // android.widget.AdapterView.OnItemClickListener
-                        public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j) {
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j)}) == null) {
+                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
                                 boolean[] zArr = this.this$0.mCheckedItems;
                                 if (zArr != null) {
                                     zArr[i4] = this.val$listView.isItemChecked(i4);

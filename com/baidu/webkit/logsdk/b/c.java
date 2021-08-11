@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27670a;
+    public String f63500a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashSet<String> f27671b;
+    public HashSet<String> f63501b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashSet<String> f27672c;
+    public HashSet<String> f63502c;
 
     public c(String str) {
         Interceptable interceptable = $ic;
@@ -38,10 +38,10 @@ public final class c {
                 return;
             }
         }
-        this.f27670a = "full";
-        this.f27670a = str;
-        this.f27671b = new HashSet<>();
-        this.f27672c = new HashSet<>();
+        this.f63500a = "full";
+        this.f63500a = str;
+        this.f63501b = new HashSet<>();
+        this.f63502c = new HashSet<>();
     }
 
     public final void a(JSONArray jSONArray) throws JSONException {
@@ -52,7 +52,7 @@ public final class c {
         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             String string = jSONArray.getString(i2);
             if (!TextUtils.isEmpty(string)) {
-                this.f27671b.add(string);
+                this.f63501b.add(string);
             }
         }
     }
@@ -65,7 +65,7 @@ public final class c {
         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             String string = jSONArray.getString(i2);
             if (!TextUtils.isEmpty(string)) {
-                this.f27672c.add(string);
+                this.f63502c.add(string);
             }
         }
     }

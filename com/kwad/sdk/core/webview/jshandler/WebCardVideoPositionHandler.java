@@ -12,24 +12,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.core.webview.a f35328a;
+    public final com.kwad.sdk.core.webview.a f72083a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VideoPosition f35329b;
+    public VideoPosition f72084b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f35330c;
+    public a f72085c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f35331d;
+    public Handler f72086d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class VideoPosition extends com.kwad.sdk.core.response.a.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3445790097441569428L;
@@ -54,7 +54,7 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(VideoPosition videoPosition);
     }
@@ -74,10 +74,10 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.
                 return;
             }
         }
-        this.f35329b = new VideoPosition();
-        this.f35331d = new Handler(Looper.getMainLooper());
-        this.f35328a = aVar;
-        this.f35330c = aVar2;
+        this.f72084b = new VideoPosition();
+        this.f72086d = new Handler(Looper.getMainLooper());
+        this.f72083a = aVar;
+        this.f72085c = aVar2;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -93,14 +93,14 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
             try {
-                this.f35329b.parseJson(new JSONObject(str));
-                if (this.f35330c != null) {
-                    this.f35331d.post(new Runnable(this) { // from class: com.kwad.sdk.core.webview.jshandler.WebCardVideoPositionHandler.1
+                this.f72084b.parseJson(new JSONObject(str));
+                if (this.f72085c != null) {
+                    this.f72086d.post(new Runnable(this) { // from class: com.kwad.sdk.core.webview.jshandler.WebCardVideoPositionHandler.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ WebCardVideoPositionHandler f35332a;
+                        public final /* synthetic */ WebCardVideoPositionHandler f72087a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -117,14 +117,14 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.
                                     return;
                                 }
                             }
-                            this.f35332a = this;
+                            this.f72087a = this;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.f35332a.f35330c.a(this.f35332a.f35329b);
+                                this.f72087a.f72085c.a(this.f72087a.f72084b);
                             }
                         }
                     });
@@ -140,7 +140,7 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f35331d.removeCallbacksAndMessages(null);
+            this.f72086d.removeCallbacksAndMessages(null);
         }
     }
 }

@@ -7,10 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.core.beans.BeanConstants;
 import com.baidu.wallet.lightapp.business.LightappBusinessClient;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class Constants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BDL_KEY_BANKINFO_EXTRA = "baidu.wallet.listbankcard.extra";
@@ -60,7 +59,7 @@ public final class Constants {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static final class InterfaceId {
         public static final /* synthetic */ InterfaceId[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -95,7 +94,7 @@ public final class Constants {
             startWallet = new InterfaceId("startWallet", 1);
             initWallet = new InterfaceId("initWallet", 2);
             doPay = new InterfaceId("doPay", 3);
-            doRemotePay = new InterfaceId(StatServiceEvent.REMOTE_DO_REMOTE_PAY, 4);
+            doRemotePay = new InterfaceId("doRemotePay", 4);
             accessWalletService = new InterfaceId(LightappBusinessClient.METHOD_ACCESS_WALLET_SERVICE, 5);
             lbsPayWallet = new InterfaceId("lbsPayWallet", 6);
             doNFCBusCardCharge = new InterfaceId("doNFCBusCardCharge", 7);

@@ -1,6 +1,5 @@
 package com.google.zxing.oned;
 
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public final class CodaBarWriter extends OneDimensionalCodeWriter {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] ALT_START_END_CHARS;
@@ -33,7 +33,7 @@ public final class CodaBarWriter extends OneDimensionalCodeWriter {
         char[] cArr = {'A', 'B', 'C', 'D'};
         START_END_CHARS = cArr;
         ALT_START_END_CHARS = new char[]{'T', 'N', '*', 'E'};
-        CHARS_WHICH_ARE_TEN_LENGTH_EACH_AFTER_DECODED = new char[]{'/', ':', '+', IStringUtil.EXTENSION_SEPARATOR};
+        CHARS_WHICH_ARE_TEN_LENGTH_EACH_AFTER_DECODED = new char[]{'/', ':', '+', '.'};
         DEFAULT_GUARD = cArr[0];
     }
 
@@ -85,7 +85,7 @@ public final class CodaBarWriter extends OneDimensionalCodeWriter {
                 if (Character.isDigit(str.charAt(i4)) || str.charAt(i4) == '-' || str.charAt(i4) == '$') {
                     i3 += 9;
                 } else if (!CodaBarReader.arrayContains(CHARS_WHICH_ARE_TEN_LENGTH_EACH_AFTER_DECODED, str.charAt(i4))) {
-                    throw new IllegalArgumentException("Cannot encode : '" + str.charAt(i4) + '\'');
+                    throw new IllegalArgumentException("Cannot encode : '" + str.charAt(i4) + ExtendedMessageFormat.QUOTE);
                 } else {
                     i3 += 10;
                 }

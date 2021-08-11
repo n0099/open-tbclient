@@ -28,28 +28,28 @@ import com.bytedance.sdk.openadsdk.e.d;
 import com.bytedance.sdk.openadsdk.q.q;
 import com.bytedance.sdk.openadsdk.q.s;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class TTMiddlePageActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f29257a;
+    public LinearLayout f65131a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TTNativeExpressAd f29258b;
+    public TTNativeExpressAd f65132b;
 
     /* renamed from: c  reason: collision with root package name */
-    public m f29259c;
+    public m f65133c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdSlot f29260d;
+    public AdSlot f65134d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f29261e;
+    public b f65135e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f29262f;
+    public boolean f65136f;
 
     public TTMiddlePageActivity() {
         Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class TTMiddlePageActivity extends Activity {
                 return;
             }
         }
-        this.f29262f = false;
+        this.f65136f = false;
     }
 
     @Override // android.app.Activity
@@ -78,15 +78,15 @@ public class TTMiddlePageActivity extends Activity {
             if (intent != null) {
                 try {
                     m a2 = com.bytedance.sdk.openadsdk.core.b.a(new JSONObject(intent.getStringExtra("middle_page_material_meta")));
-                    this.f29259c = a2;
+                    this.f65133c = a2;
                     AdSlot b2 = b(a2);
-                    this.f29260d = b2;
-                    this.f29258b = new com.bytedance.sdk.openadsdk.core.nativeexpress.t(this, this.f29259c, b2);
+                    this.f65134d = b2;
+                    this.f65132b = new com.bytedance.sdk.openadsdk.core.nativeexpress.t(this, this.f65133c, b2);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
-            TTNativeExpressAd tTNativeExpressAd = this.f29258b;
+            TTNativeExpressAd tTNativeExpressAd = this.f65132b;
             if (tTNativeExpressAd == null) {
                 finish();
                 return;
@@ -96,25 +96,25 @@ public class TTMiddlePageActivity extends Activity {
                 finish();
                 return;
             }
-            this.f29257a = (LinearLayout) findViewById(t.e(this, "tt_middle_page_layout"));
+            this.f65131a = (LinearLayout) findViewById(t.e(this, "tt_middle_page_layout"));
             if (expressAdView instanceof NativeExpressVideoView) {
-                this.f29261e = ((NativeExpressVideoView) expressAdView).getClickListener();
+                this.f65135e = ((NativeExpressVideoView) expressAdView).getClickListener();
             } else if (expressAdView instanceof NativeExpressView) {
-                this.f29261e = ((NativeExpressView) expressAdView).getClickListener();
+                this.f65135e = ((NativeExpressView) expressAdView).getClickListener();
             }
-            m mVar = this.f29259c;
+            m mVar = this.f65133c;
             if (mVar != null && mVar.aD() == 2 && (expressAdView instanceof NativeExpressView) && (jsObject = ((NativeExpressView) expressAdView).getJsObject()) != null) {
-                jsObject.a(this.f29260d);
+                jsObject.a(this.f65134d);
             }
-            this.f29258b.setCanInterruptVideoPlay(true);
-            this.f29257a.removeAllViews();
-            this.f29257a.addView(expressAdView);
-            this.f29258b.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTMiddlePageActivity.1
+            this.f65132b.setCanInterruptVideoPlay(true);
+            this.f65131a.removeAllViews();
+            this.f65131a.addView(expressAdView);
+            this.f65132b.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener(this) { // from class: com.bytedance.sdk.openadsdk.activity.base.TTMiddlePageActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTMiddlePageActivity f29263a;
+                public final /* synthetic */ TTMiddlePageActivity f65137a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -131,7 +131,7 @@ public class TTMiddlePageActivity extends Activity {
                             return;
                         }
                     }
-                    this.f29263a = this;
+                    this.f65137a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
@@ -151,26 +151,26 @@ public class TTMiddlePageActivity extends Activity {
                 @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
                 public void onRenderFail(View view, String str, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view, str, i2) == null) || this.f29263a.f29262f) {
+                    if (!(interceptable2 == null || interceptable2.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view, str, i2) == null) || this.f65137a.f65136f) {
                         return;
                     }
-                    if (this.f29263a.f29259c != null && this.f29263a.f29259c.aD() == 1 && this.f29263a.f29261e != null) {
-                        this.f29263a.f29262f = true;
-                        this.f29263a.f29261e.e();
+                    if (this.f65137a.f65133c != null && this.f65137a.f65133c.aD() == 1 && this.f65137a.f65135e != null) {
+                        this.f65137a.f65136f = true;
+                        this.f65137a.f65135e.e();
                     }
-                    this.f29263a.finish();
+                    this.f65137a.finish();
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
                 public void onRenderSuccess(View view, float f2, float f3) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.f29263a.isFinishing() || this.f29263a.f29259c == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.f65137a.isFinishing() || this.f65137a.f65133c == null) {
                         return;
                     }
-                    d.b(o.a(), this.f29263a.f29259c, "feed_video_middle_page", "middle_page_show");
+                    d.b(o.a(), this.f65137a.f65133c, "feed_video_middle_page", "middle_page_show");
                 }
             });
-            this.f29258b.render();
+            this.f65132b.render();
         }
     }
 
@@ -179,11 +179,11 @@ public class TTMiddlePageActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            if (this.f29258b != null) {
-                this.f29258b = null;
+            if (this.f65132b != null) {
+                this.f65132b = null;
             }
-            if (this.f29259c != null) {
-                this.f29259c = null;
+            if (this.f65133c != null) {
+                this.f65133c = null;
             }
         }
     }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public abstract class e {
             try {
                 b a2 = b.a(bArr, i2, i3);
                 a(a2);
-                a2.m162a(0);
+                a2.m165a(0);
                 return this;
             } catch (d e2) {
                 throw e2;
@@ -57,7 +57,7 @@ public abstract class e {
     public abstract void a(c cVar);
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m280a(byte[] bArr, int i2, int i3) {
+    public void m283a(byte[] bArr, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i2, i3) == null) {
             try {
@@ -73,17 +73,17 @@ public abstract class e {
     public boolean a(b bVar, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, bVar, i2)) == null) ? bVar.m164a(i2) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, bVar, i2)) == null) ? bVar.m167a(i2) : invokeLI.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m281a() {
+    public byte[] m284a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             int b2 = b();
             byte[] bArr = new byte[b2];
-            m280a(bArr, 0, b2);
+            m283a(bArr, 0, b2);
             return bArr;
         }
         return (byte[]) invokeV.objValue;

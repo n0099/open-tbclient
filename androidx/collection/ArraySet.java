@@ -18,6 +18,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes.dex */
 public final class ArraySet<E> implements Collection<E>, Set<E> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -608,7 +609,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
                 return StringUtil.EMPTY_ARRAY;
             }
             StringBuilder sb = new StringBuilder(this.mSize * 14);
-            sb.append('{');
+            sb.append(ExtendedMessageFormat.START_FE);
             for (int i2 = 0; i2 < this.mSize; i2++) {
                 if (i2 > 0) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
@@ -620,7 +621,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
                     sb.append("(this Set)");
                 }
             }
-            sb.append('}');
+            sb.append(ExtendedMessageFormat.END_FE);
             return sb.toString();
         }
         return (String) invokeV.objValue;

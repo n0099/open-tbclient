@@ -1,8 +1,9 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class UnRegisterStatus extends BasicPushStatus {
     public boolean isUnRegisterSuccess;
 
@@ -31,6 +32,6 @@ public class UnRegisterStatus extends BasicPushStatus {
 
     @Override // com.meizu.cloud.pushsdk.platform.message.BasicPushStatus
     public String toString() {
-        return super.toString() + " UnRegisterStatus{isUnRegisterSuccess=" + this.isUnRegisterSuccess + '}';
+        return super.toString() + " UnRegisterStatus{isUnRegisterSuccess=" + this.isUnRegisterSuccess + ExtendedMessageFormat.END_FE;
     }
 }

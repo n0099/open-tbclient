@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,12 +27,12 @@ import java.util.Date;
 import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class y {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f40991a;
+    public static final String[] f77867a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,7 +48,7 @@ public class y {
                 return;
             }
         }
-        f40991a = new String[]{"jpg", "png", "bmp", "gif", "webp"};
+        f77867a = new String[]{"jpg", "png", "bmp", "gif", OvalActionButton.WEBP};
     }
 
     /* JADX WARN: Not initialized variable reg: 2, insn: 0x0066: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:24:0x0066 */
@@ -113,12 +114,12 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m642a(File file) {
+    public static void m645a(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, file) == null) {
             if (file.isDirectory()) {
                 for (File file2 : file.listFiles()) {
-                    m642a(file2);
+                    m645a(file2);
                 }
             } else if (!file.exists()) {
                 return;
@@ -152,7 +153,7 @@ public class y {
             } catch (IOException e3) {
                 e = e3;
                 zipOutputStream2 = zipOutputStream;
-                com.xiaomi.channel.commonutils.logger.b.m70a("zip file failure + " + e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m73a("zip file failure + " + e.getMessage());
                 a(zipOutputStream2);
             } catch (Throwable th2) {
                 th = th2;
@@ -266,7 +267,7 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m643a(File file) {
+    public static boolean m646a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {

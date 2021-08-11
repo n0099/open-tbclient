@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.s.f0.t.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
@@ -12,17 +13,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.f0.t.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String s;
-    public String t;
-    public d.a.p0.s.f0.n.b u;
-    public d.a.p0.s.f0.n.b v;
-    public View.OnClickListener w;
-    public View.OnClickListener x;
+    public View.OnClickListener afterClickListener;
+    public String mStrAlreadyFollowed;
+    public String mStrFollow;
+    public c.a.o0.s.f0.n.b r;
+    public c.a.o0.s.f0.n.b s;
+    public View.OnClickListener t;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbFirstFloorUserLikeButton(Context context) {
@@ -42,126 +42,99 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
                 return;
             }
         }
-        m();
+        f();
     }
 
-    private void m() {
+    private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.s = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-            this.t = TbadkCoreApplication.getInst().getString(R.string.attention);
+            this.mStrAlreadyFollowed = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+            this.mStrFollow = TbadkCoreApplication.getInst().getString(R.string.attention);
             setTextSize(R.dimen.T_X08);
-            setText(this.t);
-            d.a.p0.s.f0.n.b bVar = new d.a.p0.s.f0.n.b();
-            this.u = bVar;
-            bVar.q(R.color.CAM_X0302);
-            d.a.p0.s.f0.n.b bVar2 = new d.a.p0.s.f0.n.b();
-            this.v = bVar2;
+            setText(this.mStrFollow);
+            c.a.o0.s.f0.n.b bVar = new c.a.o0.s.f0.n.b();
+            this.r = bVar;
+            bVar.q(R.color.CAM_X0304);
+            c.a.o0.s.f0.n.b bVar2 = new c.a.o0.s.f0.n.b();
+            this.s = bVar2;
             bVar2.r(R.color.CAM_X0109);
-            setConfig(this.u);
+            setConfig(this.r);
         }
     }
 
-    public void a(View view) {
+    @Override // c.a.o0.s.f0.t.b
+    public void bindOnClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
+            setOnClickListener(onClickListener);
+        }
+    }
+
+    public void onChangeSkinType(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            changeSkinType();
+        }
+    }
+
+    public void onClickEvent(View view) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (onClickListener = this.w) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (onClickListener = this.afterClickListener) == null) {
             return;
         }
         onClickListener.onClick(view);
     }
 
-    @Override // d.a.p0.s.f0.t.b
-    public void b(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            setOnClickListener(onClickListener);
-        }
-    }
-
-    @Override // d.a.p0.s.f0.t.b
-    public void c(boolean z, int i2, boolean z2) {
-        View.OnClickListener onClickListener;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
-            s(z);
-            setVisibility(0);
-            if (!z || (onClickListener = this.x) == null) {
-                return;
-            }
-            onClickListener.onClick(this);
-        }
-    }
-
-    @Override // d.a.p0.s.f0.t.b
-    public void d(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-        }
-    }
-
-    @Override // d.a.p0.s.f0.t.b
-    public void e(boolean z, int i2) {
-        View.OnClickListener onClickListener;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            s(z);
-            if (!z || (onClickListener = this.x) == null) {
-                return;
-            }
-            onClickListener.onClick(this);
-        }
-    }
-
-    public void r(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            k();
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            Object obj = this.f12726e;
-            if ((obj instanceof Boolean) && ((Boolean) obj).booleanValue() == z) {
-                return;
-            }
-            this.f12726e = Boolean.valueOf(z);
-            if (z) {
-                setVisibility(8);
-                setClickable(false);
-                setText(this.s);
-                setConfig(this.v);
-            } else {
-                setVisibility(0);
-                setClickable(true);
-                setText(this.t);
-                setConfig(this.u);
-            }
-            r(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
     public void setAfterStatusUpdateListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
-            this.x = onClickListener;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.t = onClickListener;
         }
     }
 
     public void setFollowIconSize(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.u.g(i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            this.r.g(i2);
         }
     }
 
     @Override // android.view.View
     public void setVisibility(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             super.setVisibility(i2);
+        }
+    }
+
+    @Override // c.a.o0.s.f0.t.b
+    public void updateFansNum(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        }
+    }
+
+    public void updateLikeStatus(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            Object obj = this.btnState;
+            if ((obj instanceof Boolean) && ((Boolean) obj).booleanValue() == z) {
+                return;
+            }
+            this.btnState = Boolean.valueOf(z);
+            if (z) {
+                setVisibility(8);
+                setClickable(false);
+                setText(this.mStrAlreadyFollowed);
+                setConfig(this.s);
+            } else {
+                setVisibility(0);
+                setClickable(true);
+                setText(this.mStrFollow);
+                setConfig(this.r);
+            }
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -184,7 +157,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
                 return;
             }
         }
-        m();
+        f();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -206,6 +179,33 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
                 return;
             }
         }
-        m();
+        f();
+    }
+
+    @Override // c.a.o0.s.f0.t.b
+    public void updateLikeStatus(boolean z, int i2) {
+        View.OnClickListener onClickListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            updateLikeStatus(z);
+            if (!z || (onClickListener = this.t) == null) {
+                return;
+            }
+            onClickListener.onClick(this);
+        }
+    }
+
+    @Override // c.a.o0.s.f0.t.b
+    public void updateLikeStatus(boolean z, int i2, boolean z2) {
+        View.OnClickListener onClickListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
+            updateLikeStatus(z);
+            setVisibility(0);
+            if (!z || (onClickListener = this.t) == null) {
+                return;
+            }
+            onClickListener.onClick(this);
+        }
     }
 }

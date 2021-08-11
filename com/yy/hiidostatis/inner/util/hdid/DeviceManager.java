@@ -22,7 +22,7 @@ import java.io.File;
 import java.util.Random;
 import java.util.UUID;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class DeviceManager {
     public static final /* synthetic */ DeviceManager[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;

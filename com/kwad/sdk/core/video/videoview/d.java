@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.video.videoview;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface d {
     void a();
 

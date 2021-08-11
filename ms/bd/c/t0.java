@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import ms.bd.c.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class t0 extends b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +26,9 @@ public final class t0 extends b.a {
     }
 
     @Override // ms.bd.c.b.a
-    public Object b(int i2, long j, String str, Object obj) throws Throwable {
+    public Object b(int i2, long j2, String str, Object obj) throws Throwable {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) ? y1.a(a.c().a()).e() : invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), str, obj})) == null) ? y1.a(a.c().a()).e() : invokeCommon.objValue;
     }
 }

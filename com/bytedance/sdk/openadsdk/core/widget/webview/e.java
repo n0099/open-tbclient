@@ -16,9 +16,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,31 +40,31 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class e extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashSet<String> f31147a;
+    public static final HashSet<String> f67085a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final w f31148b;
+    public final w f67086b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Context f31149c;
+    public final Context f67087c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f31150d;
+    public final String f67088d;
 
     /* renamed from: e  reason: collision with root package name */
-    public j f31151e;
+    public j f67089e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f31152f;
+    public boolean f67090f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f31153g;
+    public boolean f67091g;
 
     static {
         InterceptResult invokeClinit;
@@ -80,13 +80,13 @@ public class e extends WebViewClient {
             }
         }
         HashSet<String> hashSet = new HashSet<>();
-        f31147a = hashSet;
+        f67085a = hashSet;
         hashSet.add("png");
-        f31147a.add("ico");
-        f31147a.add("jpg");
-        f31147a.add("gif");
-        f31147a.add("svg");
-        f31147a.add("jpeg");
+        f67085a.add("ico");
+        f67085a.add("jpg");
+        f67085a.add("gif");
+        f67085a.add(OvalActionButton.SVG);
+        f67085a.add("jpeg");
     }
 
     public e(Context context, w wVar, String str) {
@@ -104,11 +104,11 @@ public class e extends WebViewClient {
                 return;
             }
         }
-        this.f31152f = true;
-        this.f31153g = true;
-        this.f31149c = context;
-        this.f31148b = wVar;
-        this.f31150d = str;
+        this.f67090f = true;
+        this.f67091g = true;
+        this.f67087c = context;
+        this.f67086b = wVar;
+        this.f67088d = str;
     }
 
     public static String a(String str) {
@@ -117,7 +117,7 @@ public class e extends WebViewClient {
         String substring;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null || (lastIndexOf = str.lastIndexOf(46)) < 0 || lastIndexOf == str.length() - 1 || (substring = str.substring(lastIndexOf)) == null || !f31147a.contains(substring.toLowerCase(Locale.getDefault()))) {
+            if (str == null || (lastIndexOf = str.lastIndexOf(46)) < 0 || lastIndexOf == str.length() - 1 || (substring = str.substring(lastIndexOf)) == null || !f67085a.contains(substring.toLowerCase(Locale.getDefault()))) {
                 return null;
             }
             return FileUtils.IMAGE_FILE_START + substring;
@@ -140,13 +140,13 @@ public class e extends WebViewClient {
             if (k.a()) {
                 k.a("WebChromeClient", "onPageFinished " + str);
             }
-            j jVar = this.f31151e;
+            j jVar = this.f67089e;
             if (jVar != null) {
                 jVar.a(webView, str);
             }
-            if (webView != null && this.f31152f) {
+            if (webView != null && this.f67090f) {
                 try {
-                    String a2 = c.a(o.h().j(), this.f31150d);
+                    String a2 = c.a(o.h().j(), this.f67088d);
                     if (!TextUtils.isEmpty(a2)) {
                         com.bytedance.sdk.component.utils.j.a(webView, a2);
                     }
@@ -162,12 +162,12 @@ public class e extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
             super.onPageStarted(webView, str, bitmap);
-            j jVar = this.f31151e;
+            j jVar = this.f67089e;
             if (jVar != null) {
                 jVar.a(webView, str, bitmap);
             }
-            if (this.f31153g) {
-                c.a(this.f31149c).a(Build.VERSION.SDK_INT >= 19).a(webView);
+            if (this.f67091g) {
+                c.a(this.f67087c).a(Build.VERSION.SDK_INT >= 19).a(webView);
             }
         }
     }
@@ -177,7 +177,7 @@ public class e extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(1048579, this, webView, i2, str, str2) == null) {
             super.onReceivedError(webView, i2, str, str2);
-            j jVar = this.f31151e;
+            j jVar = this.f67089e;
             if (jVar != null) {
                 jVar.a(i2, str, str2, a(str2));
             }
@@ -190,7 +190,7 @@ public class e extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, webView, webResourceRequest, webResourceResponse) == null) {
             super.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
-            if (this.f31151e == null || webResourceResponse == null) {
+            if (this.f67089e == null || webResourceResponse == null) {
                 return;
             }
             Uri url = webResourceRequest.getUrl();
@@ -202,7 +202,7 @@ public class e extends WebViewClient {
             } else if (requestHeaders.containsKey(BOSTokenRequest.ACCEPT)) {
                 str = requestHeaders.get(BOSTokenRequest.ACCEPT);
             }
-            this.f31151e.a(webResourceResponse.getStatusCode(), String.valueOf(webResourceResponse.getReasonPhrase()), uri, str);
+            this.f67089e.a(webResourceResponse.getStatusCode(), String.valueOf(webResourceResponse.getReasonPhrase()), uri, str);
         }
     }
 
@@ -211,7 +211,7 @@ public class e extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, webView, sslErrorHandler, sslError) == null) {
             super.onReceivedSslError(webView, sslErrorHandler, sslError);
-            if (this.f31151e != null) {
+            if (this.f67089e != null) {
                 int i2 = 0;
                 String str = "SslError: unknown";
                 String str2 = null;
@@ -223,7 +223,7 @@ public class e extends WebViewClient {
                     } catch (Throwable unused) {
                     }
                 }
-                this.f31151e.a(i2, str, str2, a(str2));
+                this.f67089e.a(i2, str, str2, a(str2));
             }
         }
     }
@@ -234,7 +234,7 @@ public class e extends WebViewClient {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, webResourceRequest)) == null) {
-            j jVar = this.f31151e;
+            j jVar = this.f67089e;
             if (jVar != null) {
                 jVar.a(webView, webResourceRequest);
             }
@@ -256,47 +256,47 @@ public class e extends WebViewClient {
                 lowerCase = parse.getScheme().toLowerCase();
             } catch (Exception e2) {
                 k.b("WebChromeClient", "shouldOverrideUrlLoading", e2);
-                w wVar = this.f31148b;
+                w wVar = this.f67086b;
                 if (wVar != null && wVar.e()) {
                     return true;
                 }
             }
             if ("bytedance".equals(lowerCase)) {
-                i.a(parse, this.f31148b);
+                i.a(parse, this.f67086b);
                 return true;
             }
-            if (d.l.a.a.a.g.a.a(parse) && this.f31148b != null && this.f31148b.d() != null) {
-                String p = this.f31148b.p();
-                m d2 = this.f31148b.d();
-                boolean c2 = g.d().p().c(this.f31149c, parse, com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(p, d2, null).h(), com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(d2, this.f31148b.p()).d(), com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(d2).d());
+            if (c.p.a.a.a.g.a.a(parse) && this.f67086b != null && this.f67086b.d() != null) {
+                String p = this.f67086b.p();
+                m d2 = this.f67086b.d();
+                boolean c2 = g.d().p().c(this.f67087c, parse, com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(p, d2, null).h(), com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(d2, this.f67086b.p()).d(), com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(d2).d());
                 com.bytedance.sdk.openadsdk.q.e.a(true);
                 if (c2) {
                     return true;
                 }
             }
-            if (!n.a(str) && this.f31148b != null && this.f31148b.d() != null) {
-                String p2 = this.f31148b.p();
+            if (!n.a(str) && this.f67086b != null && this.f67086b.d() != null) {
+                String p2 = this.f67086b.p();
                 k.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading tag " + p2);
-                m d3 = this.f31148b.d();
+                m d3 = this.f67086b.d();
                 Intent intent = new Intent("android.intent.action.VIEW");
                 intent.setData(parse);
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-                com.bytedance.sdk.openadsdk.e.d.a(this.f31149c, d3, p2, "lp_open_dpl", lowerCase);
-                if (q.k(this.f31149c)) {
-                    if (q.a(this.f31149c, intent)) {
+                intent.addFlags(268435456);
+                com.bytedance.sdk.openadsdk.e.d.a(this.f67087c, d3, p2, "lp_open_dpl", lowerCase);
+                if (q.k(this.f67087c)) {
+                    if (q.a(this.f67087c, intent)) {
                         k.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading 该app已经安装 tag " + p2 + " URL " + str);
-                        com.bytedance.sdk.component.utils.b.a(this.f31149c, intent, new b.a(this, d3, p2) { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.e.1
+                        com.bytedance.sdk.component.utils.b.a(this.f67087c, intent, new b.a(this, d3, p2) { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.e.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ m f31154a;
+                            public final /* synthetic */ m f67092a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ String f31155b;
+                            public final /* synthetic */ String f67093b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ e f31156c;
+                            public final /* synthetic */ e f67094c;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -313,9 +313,9 @@ public class e extends WebViewClient {
                                         return;
                                     }
                                 }
-                                this.f31156c = this;
-                                this.f31154a = d3;
-                                this.f31155b = p2;
+                                this.f67094c = this;
+                                this.f67092a = d3;
+                                this.f67093b = p2;
                             }
 
                             @Override // com.bytedance.sdk.component.utils.b.a
@@ -323,8 +323,8 @@ public class e extends WebViewClient {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                     k.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading startActivitySuccess ");
-                                    com.bytedance.sdk.openadsdk.e.d.b(this.f31156c.f31149c, this.f31154a, this.f31155b, "lp_openurl");
-                                    com.bytedance.sdk.openadsdk.e.d.b(o.a(), this.f31154a, this.f31155b, "lp_deeplink_success_realtime");
+                                    com.bytedance.sdk.openadsdk.e.d.b(this.f67094c.f67087c, this.f67092a, this.f67093b, "lp_openurl");
+                                    com.bytedance.sdk.openadsdk.e.d.b(o.a(), this.f67092a, this.f67093b, "lp_deeplink_success_realtime");
                                 }
                             }
 
@@ -333,8 +333,8 @@ public class e extends WebViewClient {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
                                     k.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading 调起该app失败 ");
-                                    com.bytedance.sdk.openadsdk.e.d.b(this.f31156c.f31149c, this.f31154a, this.f31155b, "lp_openurl_failed");
-                                    com.bytedance.sdk.openadsdk.e.d.b(o.a(), this.f31154a, this.f31155b, "lp_deeplink_fail_realtime");
+                                    com.bytedance.sdk.openadsdk.e.d.b(this.f67094c.f67087c, this.f67092a, this.f67093b, "lp_openurl_failed");
+                                    com.bytedance.sdk.openadsdk.e.d.b(o.a(), this.f67092a, this.f67093b, "lp_deeplink_fail_realtime");
                                 }
                             }
                         });
@@ -342,13 +342,13 @@ public class e extends WebViewClient {
                         com.bytedance.sdk.openadsdk.e.k.a().a(d3, p2, true);
                     } else {
                         k.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading 该app没有安装 tag " + p2 + " url " + str);
-                        com.bytedance.sdk.openadsdk.e.d.b(this.f31149c, d3, p2, "lp_openurl_failed");
+                        com.bytedance.sdk.openadsdk.e.d.b(this.f67087c, d3, p2, "lp_openurl_failed");
                         com.bytedance.sdk.openadsdk.e.d.b(o.a(), d3, p2, "lp_deeplink_fail_realtime");
                     }
                 } else {
-                    this.f31149c.startActivity(intent);
+                    this.f67087c.startActivity(intent);
                     k.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading startActivitySuccess ");
-                    com.bytedance.sdk.openadsdk.e.d.b(this.f31149c, d3, p2, "lp_openurl");
+                    com.bytedance.sdk.openadsdk.e.d.b(this.f67087c, d3, p2, "lp_openurl");
                     com.bytedance.sdk.openadsdk.e.k.a().a(d3, p2, true);
                 }
                 return true;
@@ -364,7 +364,7 @@ public class e extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, webResourceRequest, webResourceError) == null) {
             super.onReceivedError(webView, webResourceRequest, webResourceError);
-            if (this.f31151e == null || webResourceError == null) {
+            if (this.f67089e == null || webResourceError == null) {
                 return;
             }
             Uri url = webResourceRequest.getUrl();
@@ -376,7 +376,7 @@ public class e extends WebViewClient {
             } else if (requestHeaders.containsKey(BOSTokenRequest.ACCEPT)) {
                 str = requestHeaders.get(BOSTokenRequest.ACCEPT);
             }
-            this.f31151e.a(webResourceError.getErrorCode(), String.valueOf(webResourceError.getDescription()), uri, str);
+            this.f67089e.a(webResourceError.getErrorCode(), String.valueOf(webResourceError.getDescription()), uri, str);
         }
     }
 
@@ -402,11 +402,11 @@ public class e extends WebViewClient {
                 return;
             }
         }
-        this.f31152f = true;
-        this.f31153g = true;
-        this.f31149c = context;
-        this.f31148b = wVar;
-        this.f31150d = str;
-        this.f31151e = jVar;
+        this.f67090f = true;
+        this.f67091g = true;
+        this.f67087c = context;
+        this.f67086b = wVar;
+        this.f67088d = str;
+        this.f67089e = jVar;
     }
 }

@@ -3,9 +3,10 @@ package com.meizu.cloud.pushsdk.notification.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ActVideoSetting implements Parcelable {
     public static final String ACT_URL = "au";
     public static final String ACT_VIDEO_SETTING = "acts";
@@ -43,7 +44,7 @@ public class ActVideoSetting implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                d.h.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+                c.l.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -68,7 +69,7 @@ public class ActVideoSetting implements Parcelable {
             return actVideoSetting;
         }
         str = "no such tag ActVideoSetting";
-        d.h.a.a.a.b(TAG, str);
+        c.l.a.a.a.b(TAG, str);
         return actVideoSetting;
     }
 
@@ -94,7 +95,7 @@ public class ActVideoSetting implements Parcelable {
     }
 
     public String toString() {
-        return "ActVideoSetting{wifiDisplay=" + this.wifiDisplay + ", actUrl='" + this.actUrl + "'}";
+        return "ActVideoSetting{wifiDisplay=" + this.wifiDisplay + ", actUrl='" + this.actUrl + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable

@@ -1,7 +1,6 @@
 package com.baidu.rtc.logreport;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -18,8 +17,9 @@ import com.bytedance.sdk.component.net.tnc.TNCManager;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.commons.lang3.StringUtils;
 import org.webrtc.StatsReport;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class HUDStatistics {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLAG_STATES_STREAMING_ALL = 31;
@@ -171,7 +171,7 @@ public class HUDStatistics {
                     this.mAudioJitterBufferMs = Integer.valueOf(str).intValue();
                 }
             } catch (NumberFormatException e2) {
-                Log.e("HUDStatistic", "parseAudioRecvStatsReport" + e2);
+                String str2 = "parseAudioRecvStatsReport" + e2;
             }
             this.mAudioCurrentDelay = map.get("googCurrentDelayMs");
             this.mAudioRecvCodec = map.get("googCodecName");
@@ -200,7 +200,7 @@ public class HUDStatistics {
                 this.mAvailableSendBW = RTCBitrateTracker.bitrateStringForBitrate(Double.parseDouble(map.get("googAvailableSendBandwidth")));
                 this.mAvailableRevBW = RTCBitrateTracker.bitrateStringForBitrate(Double.parseDouble(map.get("googAvailableReceiveBandwidth")));
             } catch (NumberFormatException e2) {
-                Log.e("HUDStatistics", "parseBweStatsReport: " + e2);
+                String str = "parseBweStatsReport: " + e2;
             }
         }
     }
@@ -216,7 +216,7 @@ public class HUDStatistics {
                 this.mConnSendBitrateTradker.updataBitrateWidhCurrentByteCount(Long.parseLong(map.get("bytesSent")));
                 this.mConnSendBitrate = this.mConnSendBitrateTradker.bitRateString();
             } catch (NumberFormatException e2) {
-                Log.e("HUDStatistics", "parseConnectionStatsReport" + e2);
+                String str3 = "parseConnectionStatsReport" + e2;
             }
             this.mConnRtt = map.get("googRtt");
             this.mLocalCandType = map.get("googLocalCandidateType");
@@ -251,6 +251,7 @@ public class HUDStatistics {
     }
 
     private void parseVideoSendStatsReport(Map<String, String> map) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, map) == null) {
             this.mVideoEncodeMs = map.get("googAvgEncodeMs");
@@ -264,8 +265,7 @@ public class HUDStatistics {
             this.mVideoSendPacketLost = map.get("packetsLost");
             this.mVideoPacketSend = map.get("packetsSent");
             try {
-                String str = map.get("bytesSent");
-                if (str != null) {
+                if (map.get("bytesSent") != null) {
                     this.mVideoSendBitrateTracker.updataBitrateWidhCurrentByteCount(Integer.parseInt(str));
                 }
                 this.mVideoSendBitrate = this.mVideoSendBitrateTracker.bitRateString();
@@ -280,22 +280,22 @@ public class HUDStatistics {
                     this.mFrameEncoded = Integer.parseInt(str3);
                 }
             } catch (NumberFormatException e2) {
-                Log.e("HUDStatistic", "parseVideoSendStatsReport: " + e2);
+                String str4 = "parseVideoSendStatsReport: " + e2;
             }
         }
     }
 
-    public void addAudioStuckData(long j, long j2) {
+    public void addAudioStuckData(long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.audioStuckList.add(Long.valueOf(j2 - j));
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            this.audioStuckList.add(Long.valueOf(j3 - j2));
         }
     }
 
-    public void addVideoStuckData(long j, long j2) {
+    public void addVideoStuckData(long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.videoStuckList.add(Long.valueOf(j2 - j));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            this.videoStuckList.add(Long.valueOf(j3 - j2));
         }
     }
 
@@ -323,7 +323,7 @@ public class HUDStatistics {
                 }
                 return -1;
             } catch (NumberFormatException unused) {
-                Log.e("HUDStatistics", "getEndTOEndTime error format :" + this.mEndToEndTime);
+                String str = "getEndTOEndTime error format :" + this.mEndToEndTime;
                 return -1;
             }
         }
@@ -370,48 +370,42 @@ public class HUDStatistics {
 
     public void getStatsRecvInfo(Map<String, Integer> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, map) == null) {
-            if (this.mVideoRecvBitrate == null || this.mVideoRecvPacketLost == null || this.mVideoRecvFps == null || map == null) {
-                Log.e("HUDStatistics", "getStatsRecvInfo null");
-                return;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, map) == null) || this.mVideoRecvBitrate == null || this.mVideoRecvPacketLost == null || this.mVideoRecvFps == null || map == null) {
+            return;
+        }
+        try {
+            new Long(0L);
+            if (Long.parseLong(this.mVideoPacketRecv) != 0) {
+                this.mVideoRecvPacketLostRatio = Long.valueOf((Long.parseLong(this.mVideoRecvPacketLost) * 1000) / Long.parseLong(this.mVideoPacketRecv)).intValue();
             }
-            try {
-                new Long(0L);
-                if (Long.parseLong(this.mVideoPacketRecv) != 0) {
-                    this.mVideoRecvPacketLostRatio = Long.valueOf((Long.parseLong(this.mVideoRecvPacketLost) * 1000) / Long.parseLong(this.mVideoPacketRecv)).intValue();
-                }
-                map.put("bitrate_r", Integer.valueOf(RTCBitrateTracker.bitrateToString(this.mVideoRecvBitrate) / 1000));
-                map.put("packetlost", Integer.valueOf(Integer.parseInt(this.mVideoRecvPacketLost)));
-                map.put("packetloss_r", Integer.valueOf(this.mVideoRecvPacketLostRatio));
-                map.put("fps_r", Integer.valueOf(this.mVideoRecvFps));
-            } catch (NumberFormatException e2) {
-                Log.e("HUDStatistics", "getStatsRecvInfo: " + e2);
-            }
+            map.put("bitrate_r", Integer.valueOf(RTCBitrateTracker.bitrateToString(this.mVideoRecvBitrate) / 1000));
+            map.put("packetlost", Integer.valueOf(Integer.parseInt(this.mVideoRecvPacketLost)));
+            map.put("packetloss_r", Integer.valueOf(this.mVideoRecvPacketLostRatio));
+            map.put("fps_r", Integer.valueOf(this.mVideoRecvFps));
+        } catch (NumberFormatException e2) {
+            String str = "getStatsRecvInfo: " + e2;
         }
     }
 
     public void getStatsSendInfo(Map<String, Integer> map) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, map) == null) {
-            String str = this.mVideoSendBitrate;
-            if (str == null || this.mVideoSendFps == null || this.mVideoInputFps == null || this.mVideoSendHeight == null || map == null) {
-                Log.e("HUDStatistics", "getStatsSendInfo null");
-                return;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, map) == null) || (str = this.mVideoSendBitrate) == null || this.mVideoSendFps == null || this.mVideoInputFps == null || this.mVideoSendHeight == null || map == null) {
+            return;
+        }
+        map.put("bitrate_s", Integer.valueOf(RTCBitrateTracker.bitrateToString(str) / 1000));
+        try {
+            Long l = new Long(0L);
+            if (Long.parseLong(this.mVideoPacketSend) != 0) {
+                l = Long.valueOf((Long.parseLong(this.mVideoSendPacketLost) * 1000) / Long.parseLong(this.mVideoPacketSend));
             }
-            map.put("bitrate_s", Integer.valueOf(RTCBitrateTracker.bitrateToString(str) / 1000));
-            try {
-                Long l = new Long(0L);
-                if (Long.parseLong(this.mVideoPacketSend) != 0) {
-                    l = Long.valueOf((Long.parseLong(this.mVideoSendPacketLost) * 1000) / Long.parseLong(this.mVideoPacketSend));
-                }
-                map.put("packetlost", Integer.valueOf(Integer.parseInt(this.mVideoSendPacketLost)));
-                map.put("packesend", Integer.valueOf(Integer.parseInt(this.mVideoPacketSend)));
-                map.put("packetloss_s", Integer.valueOf(l.intValue()));
-                map.put("fps_s", Integer.valueOf(this.mVideoSendFps));
-                map.put("fps_i", Integer.valueOf(this.mVideoInputFps));
-            } catch (NumberFormatException e2) {
-                Log.e("HUDStatistics", "getStatsSendInfo: " + e2);
-            }
+            map.put("packetlost", Integer.valueOf(Integer.parseInt(this.mVideoSendPacketLost)));
+            map.put("packesend", Integer.valueOf(Integer.parseInt(this.mVideoPacketSend)));
+            map.put("packetloss_s", Integer.valueOf(l.intValue()));
+            map.put("fps_s", Integer.valueOf(this.mVideoSendFps));
+            map.put("fps_i", Integer.valueOf(this.mVideoInputFps));
+        } catch (NumberFormatException e2) {
+            String str2 = "getStatsSendInfo: " + e2;
         }
     }
 
@@ -433,17 +427,17 @@ public class HUDStatistics {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mHasVideo : invokeV.booleanValue;
     }
 
-    public void setFirstFrameTime(long j) {
+    public void setFirstFrameTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.firstFrameTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
+            this.firstFrameTime = j2;
         }
     }
 
-    public void setRequestSubscribeTime(long j) {
+    public void setRequestSubscribeTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.requestSubscribeTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
+            this.requestSubscribeTime = j2;
         }
     }
 
@@ -467,7 +461,7 @@ public class HUDStatistics {
                 sb.append(this.mConnRecvBitrate);
                 sb.append(" | remote ->");
                 sb.append(this.mRemoteIp);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             }
             if ((i2 & 8) != 0) {
                 int calculateAvgQP = calculateAvgQP();
@@ -496,12 +490,12 @@ public class HUDStatistics {
                 sb.append(this.mVideoEncodeMs);
                 sb.append("ms  |  ");
                 sb.append(this.mVideoSendCodec);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
                 sb.append("AvgQP (past ");
                 sb.append(this.mFrameEncoded);
                 sb.append(" encoded frames) = ");
                 sb.append(calculateAvgQP);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             }
             if ((i2 & 2) != 0) {
                 sb.append("VideoRecv: ");
@@ -531,7 +525,7 @@ public class HUDStatistics {
                 sb.append(this.mAudioSendBitrate);
                 sb.append(" | ");
                 sb.append(this.mAudioSendCodec);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             }
             if ((i2 & 1) != 0) {
                 sb.append("AudioRecv: ");
@@ -545,7 +539,7 @@ public class HUDStatistics {
                 sb.append("| (buffer)");
                 sb.append(this.mAudioJitterBufferMs);
                 sb.append("ms");
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             }
             return sb.toString();
         }

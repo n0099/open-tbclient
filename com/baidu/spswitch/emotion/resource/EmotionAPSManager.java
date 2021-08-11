@@ -2,7 +2,6 @@ package com.baidu.spswitch.emotion.resource;
 
 import android.os.Environment;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.Closeables;
@@ -28,7 +27,7 @@ import java.io.InputStream;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class EmotionAPSManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -47,12 +46,12 @@ public class EmotionAPSManager {
     public volatile boolean mLoaded;
     public Map<String, EmotionResourceInfo> mResourceMap;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface EmotionInstallResultCb {
         void onResult(int i2, String str);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final EmotionAPSManager sINSTANCE;
@@ -214,7 +213,7 @@ public class EmotionAPSManager {
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             String path = AppRuntime.getAppContext().getFilesDir().getPath();
             if (DEBUG) {
-                Log.d(TAG, "getEmotionRootDir = " + path);
+                String str = "getEmotionRootDir = " + path;
             }
             return new File(path, EMOTION_ROOT_DIR_NAME);
         }
@@ -233,9 +232,7 @@ public class EmotionAPSManager {
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             File emotionRootDir = getEmotionRootDir();
             if (!emotionRootDir.exists()) {
-                if (DEBUG) {
-                    Log.d(TAG, "getRestoreFileList return, emotionRootDir.exists = false");
-                }
+                boolean z = DEBUG;
                 return null;
             }
             File[] listFiles = emotionRootDir.listFiles(new FileFilter() { // from class: com.baidu.spswitch.emotion.resource.EmotionAPSManager.3
@@ -264,9 +261,7 @@ public class EmotionAPSManager {
                 }
             });
             if (listFiles == null || listFiles.length <= 0) {
-                if (DEBUG) {
-                    Log.d(TAG, "getRestoreFileList return, emotionRootDir.listFiles = empty");
-                }
+                boolean z2 = DEBUG;
                 return null;
             }
             return listFiles;
@@ -432,20 +427,14 @@ public class EmotionAPSManager {
             if (!emotionResourceInfo.isAvailable()) {
                 removeTargetResources(emotionResourceInfo.mPkgName, emotionResourceInfo.mVersion);
                 emotionInstallResultCb.onResult(1, "emotion resource is not available.");
-                if (DEBUG) {
-                    Log.d(TAG, "saveEmotionResource failed, emotion resource is not available");
-                    return;
-                }
+                boolean z3 = DEBUG;
                 return;
             }
             IResourceProvider build = new EmotionResourceProvider.Builder(AppRuntime.getAppContext()).setZipInputPath(emotionResourceInfo.mEmotionResSavePath).build();
             if (build == null) {
                 removeTargetResources(emotionResourceInfo.mPkgName, emotionResourceInfo.mVersion);
                 emotionInstallResultCb.onResult(1, "failed to build provider.");
-                if (DEBUG) {
-                    Log.d(TAG, "saveEmotionResource failed, failed to build provider");
-                    return;
-                }
+                boolean z4 = DEBUG;
                 return;
             }
             emotionResourceInfo.mProvider = build;
@@ -463,7 +452,7 @@ public class EmotionAPSManager {
                         this.mResourceMap.put(emotionResourceInfo.mPkgName, emotionResourceInfo);
                         this.mLoaded = true;
                         if (DEBUG) {
-                            Log.d(TAG, "loadToMem success, pkgName = " + emotionResourceInfo.mPkgName);
+                            String str = "loadToMem success, pkgName = " + emotionResourceInfo.mPkgName;
                         }
                     }
                 }
@@ -472,7 +461,7 @@ public class EmotionAPSManager {
                     saveEmotionResourceInfo(emotionResourceInfo);
                     emotionInstallResultCb.onResult(0, "emotion install success, loadToMem = " + z);
                     if (DEBUG) {
-                        Log.d(TAG, "emotion install success, loadToMem = " + z);
+                        String str2 = "emotion install success, loadToMem = " + z;
                         return;
                     }
                     return;
@@ -480,17 +469,14 @@ public class EmotionAPSManager {
                 build.releaseResource();
                 removeTargetResources(emotionResourceInfo.mPkgName, emotionResourceInfo.mVersion);
                 emotionInstallResultCb.onResult(1, "failed to load EmotionInfo.");
-                if (DEBUG) {
-                    Log.d(TAG, "saveEmotionResource failed, failed to load EmotionInfo");
-                    return;
-                }
+                boolean z5 = DEBUG;
                 return;
             }
             removeOldResources(emotionResourceInfo);
             saveEmotionResourceInfo(emotionResourceInfo);
             emotionInstallResultCb.onResult(0, "emotion install success, loadToMem = " + z);
             if (DEBUG) {
-                Log.d(TAG, "emotion install success, loadToMem = " + z);
+                String str3 = "emotion install success, loadToMem = " + z;
             }
         }
     }
@@ -514,8 +500,8 @@ public class EmotionAPSManager {
                 return false;
             }
             String name = file.getName();
-            for (long j : jArr) {
-                if (TextUtils.equals(name, String.valueOf(j))) {
+            for (long j2 : jArr) {
+                if (TextUtils.equals(name, String.valueOf(j2))) {
                     return true;
                 }
             }
@@ -532,8 +518,8 @@ public class EmotionAPSManager {
                 return false;
             }
             String name = file.getName();
-            for (long j : jArr) {
-                if (TextUtils.equals(name, String.valueOf(j))) {
+            for (long j2 : jArr) {
+                if (TextUtils.equals(name, String.valueOf(j2))) {
                     return false;
                 }
             }
@@ -548,20 +534,18 @@ public class EmotionAPSManager {
             if (emotionResourceInfo != null && emotionInstallResultCb != null) {
                 if (!emotionResourceInfo.isValid()) {
                     emotionInstallResultCb.onResult(1, "emotionInfo invalid.");
-                    if (DEBUG) {
-                        Log.d(TAG, "doAPSProcess failed, emotionInfo invalid");
-                    }
+                    boolean z2 = DEBUG;
+                    return;
                 } else if (makeEmotionRootDirIfNeeded() && copyEmotionResourceFile(emotionResourceInfo, emotionInstallResultCb)) {
                     saveEmotionResource(emotionResourceInfo, emotionInstallResultCb, z);
+                    return;
                 } else {
                     emotionInstallResultCb.onResult(1, "failed to make emotion root dir or copyEmotionResourceFile.");
-                    if (DEBUG) {
-                        Log.d(TAG, "doAPSProcess failed, failed to make praise root dir or copyEmotionResourceFile");
-                    }
+                    boolean z3 = DEBUG;
+                    return;
                 }
-            } else if (DEBUG) {
-                Log.d(TAG, "doAPSProcess failed, both emotionInfo and callback must not be null");
             }
+            boolean z4 = DEBUG;
         }
     }
 
@@ -654,10 +638,7 @@ public class EmotionAPSManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (this.mLoaded) {
-                if (DEBUG) {
-                    Log.d(TAG, "loadResourcesIfNeeded return, mLoaded = true");
-                    return;
-                }
+                boolean z = DEBUG;
                 return;
             }
             File[] restoreFileList = getRestoreFileList();
@@ -683,21 +664,21 @@ public class EmotionAPSManager {
                                 this.mResourceMap.put(restoreEmotionResourceInfo.mPkgName, restoreEmotionResourceInfo);
                                 this.mLoaded = true;
                                 if (DEBUG) {
-                                    Log.d(TAG, "loadResourcesIfNeeded success, pkgName = " + restoreEmotionResourceInfo.mPkgName);
+                                    String str = "loadResourcesIfNeeded success, pkgName = " + restoreEmotionResourceInfo.mPkgName;
                                 }
                             } else {
                                 build.releaseResource();
                                 removeTargetResources(restoreEmotionResourceInfo.mPkgName, restoreEmotionResourceInfo.mVersion);
                                 FileUtils.deleteFile(file);
                                 if (DEBUG) {
-                                    Log.d(TAG, "loadResourcesIfNeeded failed1, pkgName = " + restoreEmotionResourceInfo.mPkgName);
+                                    String str2 = "loadResourcesIfNeeded failed1, pkgName = " + restoreEmotionResourceInfo.mPkgName;
                                 }
                             }
                         } else {
                             removeTargetResources(restoreEmotionResourceInfo.mPkgName, restoreEmotionResourceInfo.mVersion);
                             FileUtils.deleteFile(file);
                             if (DEBUG) {
-                                Log.d(TAG, "loadResourcesIfNeeded failed2, pkgName = " + restoreEmotionResourceInfo.mPkgName);
+                                String str3 = "loadResourcesIfNeeded failed2, pkgName = " + restoreEmotionResourceInfo.mPkgName;
                             }
                         }
                     } else {
@@ -705,13 +686,13 @@ public class EmotionAPSManager {
                     }
                     i2++;
                 }
-                if (this.mLoaded || !DEBUG) {
+                if (this.mLoaded) {
                     return;
                 }
-                Log.d(TAG, "loadResourcesIfNeeded failed totally");
-            } else if (DEBUG) {
-                Log.d(TAG, "loadResourcesIfNeeded return, emotionRootDir.listFiles = empty");
+                boolean z2 = DEBUG;
+                return;
             }
+            boolean z3 = DEBUG;
         }
     }
 

@@ -9,7 +9,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
-/* loaded from: classes5.dex */
+import java.io.Serializable;
+/* loaded from: classes8.dex */
 public class LangbridgeSettings implements NoProguard, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static String MW_JSHOOK_HISTORY_NAME = "mw_history.js";
@@ -19,6 +20,8 @@ public class LangbridgeSettings implements NoProguard, Cloneable {
     public int MW_BHM_LIMIT;
     public boolean MW_BHM_ON;
     public int MW_BHM_RECORD_TIME;
+    public ConsoleMsgBehaviour[] MW_CONSOLE_MESSAGE_BEHAVAIOUR;
+    public boolean MW_HOLDLINK_ON;
     public boolean MW_INJECTJS_FOR_HS;
     public boolean MW_INJECTJS_FOR_SS;
     public String MW_JSCALL_ONACTIVE;
@@ -29,11 +32,36 @@ public class LangbridgeSettings implements NoProguard, Cloneable {
     public double MW_LANG_RAM_LIMIT;
     public boolean MW_MULTI_ON;
     public boolean MW_ON;
+    public int MW_PRELOAD_AUTO_TEST_INTERVAL;
     public int MW_PRELOAD_CHECK_TIME;
     public int MW_PRELOAD_LIFE_TIME;
     public int MW_PRELOAD_POOL_SUM;
+    public int MW_PRELOAD_TEST_CHECK_MAX_TIMES;
+    public boolean MW_START_PRELOAD_AUTO_TEST_NEW;
     public boolean MW_USE_OLD;
     public int MW_WEBVIEW_POOL_SIZE;
+
+    /* loaded from: classes8.dex */
+    public static class ConsoleMsgBehaviour implements NoProguard, Serializable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String mConsoleString;
+        public String mScore;
+
+        public ConsoleMsgBehaviour() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -65,10 +93,14 @@ public class LangbridgeSettings implements NoProguard, Cloneable {
         }
         this.MW_ON = false;
         this.MW_MULTI_ON = false;
+        this.MW_HOLDLINK_ON = false;
         this.MW_INJECTJS_FOR_SS = false;
         this.MW_INJECTJS_FOR_HS = false;
         this.MW_USE_OLD = true;
         this.MW_BHM_ON = true;
+        this.MW_START_PRELOAD_AUTO_TEST_NEW = false;
+        this.MW_PRELOAD_TEST_CHECK_MAX_TIMES = 3;
+        this.MW_PRELOAD_AUTO_TEST_INTERVAL = 60;
         this.MW_BHM_LIMIT = 10;
         this.MW_BHM_COLD_TIME = 259200;
         this.MW_BHM_RECORD_TIME = 86400;
@@ -97,14 +129,14 @@ public class LangbridgeSettings implements NoProguard, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "\n\tMW_ON: " + this.MW_ON + "\n\tMW_USE_OLD: " + this.MW_USE_OLD + "\n\tMW_BHM_ON: " + this.MW_BHM_ON + "\n\tMW_BHM_LIMIT: " + this.MW_BHM_LIMIT + "\n\tMW_BHM_COLD_TIME: " + this.MW_BHM_COLD_TIME + "\n\tMW_BHM_RECORD_TIME: " + this.MW_BHM_RECORD_TIME + "\n\tMW_WEBVIEW_POOL_SIZE: " + this.MW_WEBVIEW_POOL_SIZE + "\n\tMW_PRELOAD_POOL_SUM: " + this.MW_PRELOAD_POOL_SUM + "\n\tMW_PRELOAD_LIFE_TIME: " + this.MW_PRELOAD_LIFE_TIME + "\n\tMW_PRELOAD_CHECK_TIME: " + this.MW_PRELOAD_CHECK_TIME + "\n\tMW_LANG_CELL_LIMIT: " + this.MW_LANG_CELL_LIMIT + "\n\tMW_LANG_RAM_LIMIT: " + this.MW_LANG_RAM_LIMIT + "\n\tMW_JSHOOK_HISTORY: " + this.MW_JSHOOK_HISTORY + "\n\tMW_JSHOOK_SESSION: " + this.MW_JSHOOK_SESSION + "\n\tMW_JSCALL_ONACTIVE: " + this.MW_JSCALL_ONACTIVE + "\n\tMW_JSCALL_ONNEGATIVE: " + this.MW_JSCALL_ONNEGATIVE;
+            return "\n\tMW_ON: " + this.MW_ON + "\n\tMW_USE_OLD: " + this.MW_USE_OLD + "\n\tMW_MULTI_ON: " + this.MW_MULTI_ON + "\n\tMW_HOLDLINK_ON: " + this.MW_HOLDLINK_ON + "\n\tMW_BHM_ON: " + this.MW_BHM_ON + "\n\tMW_BHM_LIMIT: " + this.MW_BHM_LIMIT + "\n\tMW_BHM_COLD_TIME: " + this.MW_BHM_COLD_TIME + "\n\tMW_BHM_RECORD_TIME: " + this.MW_BHM_RECORD_TIME + "\n\tMW_WEBVIEW_POOL_SIZE: " + this.MW_WEBVIEW_POOL_SIZE + "\n\tMW_PRELOAD_POOL_SUM: " + this.MW_PRELOAD_POOL_SUM + "\n\tMW_PRELOAD_LIFE_TIME: " + this.MW_PRELOAD_LIFE_TIME + "\n\tMW_PRELOAD_CHECK_TIME: " + this.MW_PRELOAD_CHECK_TIME + "\n\tMW_LANG_CELL_LIMIT: " + this.MW_LANG_CELL_LIMIT + "\n\tMW_LANG_RAM_LIMIT: " + this.MW_LANG_RAM_LIMIT + "\n\tMW_JSHOOK_HISTORY: " + this.MW_JSHOOK_HISTORY + "\n\tMW_JSHOOK_SESSION: " + this.MW_JSHOOK_SESSION + "\n\tMW_JSCALL_ONACTIVE: " + this.MW_JSCALL_ONACTIVE + "\n\tMW_JSCALL_ONNEGATIVE: " + this.MW_JSCALL_ONNEGATIVE + "\n\tMW_CONSOLE_MESSAGE_BEHAVAIOUR" + this.MW_CONSOLE_MESSAGE_BEHAVAIOUR + "\n\tMW_START_PRELOAD_AUTO_TEST" + this.MW_START_PRELOAD_AUTO_TEST_NEW + "\n\tMW_PRELOAD_TEST_CHECK_MAX_TIMES" + this.MW_PRELOAD_TEST_CHECK_MAX_TIMES + "\n\tMW_PRELOAD_AUTO_TEST_INTERVAL" + this.MW_PRELOAD_AUTO_TEST_INTERVAL;
         }
         return (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public LangbridgeSettings m41clone() {
+    public LangbridgeSettings m46clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

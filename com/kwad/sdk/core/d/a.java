@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.d;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -13,18 +12,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.b;
 import com.kwad.sdk.utils.ar;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f34404a = true;
+    public static boolean f71141a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f34405b = "[KSAdSDK_3.3.11]";
+    public static String f71142b = "[KSAdSDK_3.3.11]";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f34406c;
+    public static boolean f71143c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,51 +44,51 @@ public class a {
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f34405b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f71142b : (String) invokeV.objValue;
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            Log.v(a(), str);
+            a();
         }
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f34404a && b.f34059b.booleanValue()) {
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f71141a && b.f70787b.booleanValue()) {
             b(a(), f(str, str2));
         }
     }
 
     public static void a(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) && f34404a) {
-            Log.e(str, str2, th);
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) {
+            boolean z = f71141a;
         }
     }
 
     public static void a(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, null, str, z) == null) {
-            f34405b = PreferencesUtil.LEFT_MOUNT + str + PreferencesUtil.RIGHT_MOUNT;
-            f34404a = z;
+            f71142b = PreferencesUtil.LEFT_MOUNT + str + PreferencesUtil.RIGHT_MOUNT;
+            f71141a = z;
         }
     }
 
     public static void a(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, th) == null) {
-            if (f34404a && th != null) {
+            if (f71141a && th != null) {
                 th.printStackTrace();
             }
-            if (b.f34059b.booleanValue()) {
+            if (b.f70787b.booleanValue()) {
                 ar.a(new Runnable(th) { // from class: com.kwad.sdk.core.d.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Throwable f34407a;
+                    public final /* synthetic */ Throwable f71144a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -106,14 +105,14 @@ public class a {
                                 return;
                             }
                         }
-                        this.f34407a = th;
+                        this.f71144a = th;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            throw new RuntimeException(this.f34407a);
+                            throw new RuntimeException(this.f71144a);
                         }
                     }
                 });
@@ -127,7 +126,7 @@ public class a {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f34406c) {
+            if (f71143c) {
                 StackTraceElement[] stackTrace = new Throwable().getStackTrace();
                 if (stackTrace.length > 3) {
                     str = stackTrace[3].getFileName();
@@ -145,41 +144,41 @@ public class a {
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
-            if (str2.length() <= 4000) {
-                Log.d(str, str2);
-                return;
-            }
-            Log.d(str, str2.substring(0, 4000));
-            b(str, str2.substring(4000));
+        if (!(interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) || str2.length() <= 4000) {
+            return;
         }
+        str2.substring(0, 4000);
+        b(str, str2.substring(4000));
     }
 
     public static void b(Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, th) == null) && b.f34059b.booleanValue() && th != null) {
+        if ((interceptable == null || interceptable.invokeL(65545, null, th) == null) && b.f70787b.booleanValue() && th != null) {
             th.printStackTrace();
         }
     }
 
     public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && f34404a) {
-            Log.i(a(), f(str, str2));
+        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && f71141a) {
+            a();
+            f(str, str2);
         }
     }
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) && f34404a) {
-            Log.w(a(), f(str, str2));
+        if ((interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) && f71141a) {
+            a();
+            f(str, str2);
         }
     }
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65548, null, str, str2) == null) && f34404a) {
-            Log.e(a(), f(str, str2));
+        if ((interceptable == null || interceptable.invokeLL(65548, null, str, str2) == null) && f71141a) {
+            a();
+            f(str, str2);
         }
     }
 

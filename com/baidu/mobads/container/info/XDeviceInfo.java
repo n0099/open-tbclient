@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class XDeviceInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ABILITY_BANNER_CLOSE = "BANNER_CLOSE";

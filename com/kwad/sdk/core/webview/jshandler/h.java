@@ -11,22 +11,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class h implements com.kwad.sdk.core.webview.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f35391a;
+    public Handler f72148a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f35392b;
+    public a f72149b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a.c f35393c;
+    public com.kwad.sdk.core.webview.a.c f72150c;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         @MainThread
         void a();
@@ -47,15 +47,15 @@ public class h implements com.kwad.sdk.core.webview.a.a {
                 return;
             }
         }
-        this.f35392b = aVar;
-        this.f35391a = new Handler(Looper.getMainLooper());
+        this.f72149b = aVar;
+        this.f72148a = new Handler(Looper.getMainLooper());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (aVar = this.f35392b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (aVar = this.f72149b) == null) {
             return;
         }
         aVar.a();
@@ -73,13 +73,13 @@ public class h implements com.kwad.sdk.core.webview.a.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            this.f35393c = cVar;
-            this.f35391a.post(new Runnable(this) { // from class: com.kwad.sdk.core.webview.jshandler.h.1
+            this.f72150c = cVar;
+            this.f72148a.post(new Runnable(this) { // from class: com.kwad.sdk.core.webview.jshandler.h.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ h f35394a;
+                public final /* synthetic */ h f72151a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -96,16 +96,16 @@ public class h implements com.kwad.sdk.core.webview.a.a {
                             return;
                         }
                     }
-                    this.f35394a = this;
+                    this.f72151a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f35394a.c();
-                        if (this.f35394a.f35393c != null) {
-                            this.f35394a.f35393c.a(null);
+                        this.f72151a.c();
+                        if (this.f72151a.f72150c != null) {
+                            this.f72151a.f72150c.a(null);
                         }
                     }
                 }
@@ -117,9 +117,9 @@ public class h implements com.kwad.sdk.core.webview.a.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f35392b = null;
-            this.f35393c = null;
-            this.f35391a.removeCallbacksAndMessages(null);
+            this.f72149b = null;
+            this.f72150c = null;
+            this.f72148a.removeCallbacksAndMessages(null);
         }
     }
 }

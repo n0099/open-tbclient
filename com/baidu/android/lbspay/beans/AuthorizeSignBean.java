@@ -4,18 +4,18 @@ import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.datamodel.AuthorizeData;
 import com.baidu.android.lbspay.network.AuthorizeSignContent;
-import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.domain.DomainConfig;
-import com.baidu.wallet.paysdk.beans.PayBaseBean;
+import com.dxmpay.apollon.restnet.RestNameValuePair;
+import com.dxmpay.wallet.core.beans.BaseBean;
+import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
-public class AuthorizeSignBean extends PayBaseBean<AuthorizeSignContent> {
+/* loaded from: classes4.dex */
+public class AuthorizeSignBean extends BaseBean<AuthorizeSignContent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AuthorizeData mAuthSignData;
@@ -40,7 +40,7 @@ public class AuthorizeSignBean extends PayBaseBean<AuthorizeSignContent> {
         }
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -48,7 +48,7 @@ public class AuthorizeSignBean extends PayBaseBean<AuthorizeSignContent> {
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.NetworkBean
+    @Override // com.dxmpay.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class AuthorizeSignBean extends PayBaseBean<AuthorizeSignContent> {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class AuthorizeSignBean extends PayBaseBean<AuthorizeSignContent> {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public int getHttpMethod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -83,17 +83,17 @@ public class AuthorizeSignBean extends PayBaseBean<AuthorizeSignContent> {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return DomainConfig.getInstance().getZhiFuHost() + "/proxy/authorize/sign";
+            return DomainConfig.getInstance().getZhiFuHost() + "/epic/authorize/sign";
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.wallet.core.beans.NetworkBean
+    @Override // com.dxmpay.wallet.core.beans.NetworkBean
     public boolean isLbsPayBean() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -11,7 +11,7 @@ import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.fuseable.QueueSubscription;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ScalarSubscription<T> extends AtomicInteger implements QueueSubscription<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CANCELLED = 2;
@@ -97,9 +97,9 @@ public final class ScalarSubscription<T> extends AtomicInteger implements QueueS
 
     /* JADX DEBUG: Type inference failed for r6v1. Raw type applied. Possible types: T, ? super T */
     @Override // org.reactivestreams.Subscription
-    public void request(long j) {
+    public void request(long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && SubscriptionHelper.validate(j) && compareAndSet(0, 1)) {
+        if ((interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) && SubscriptionHelper.validate(j2) && compareAndSet(0, 1)) {
             Subscriber<? super T> subscriber = this.subscriber;
             subscriber.onNext((T) this.value);
             if (get() != 2) {

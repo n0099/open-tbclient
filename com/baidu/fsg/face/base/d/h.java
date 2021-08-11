@@ -15,7 +15,6 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.security.MD5Util;
@@ -37,37 +36,39 @@ import java.util.Enumeration;
 import java.util.Random;
 import java.util.UUID;
 import org.apache.http.conn.util.InetAddressUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5679a = "armeabi";
+    public static final String f39637a = "armeabi";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5680b = "armeabi-v7a";
+    public static final String f39638b = "armeabi-v7a";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5681c = "x86";
+    public static final String f39639c = "x86";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5682d = "arm64-v8a";
+    public static final String f39640d = "arm64-v8a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f5683e = 480;
+    public static final int f39641e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5684f = 480;
+    public static final int f39642f = 480;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f5685g = 192;
+    public static final int f39643g = 192;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f5686h = 480;
+    public static final int f39644h = 480;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f5687i = 620;
-    public static final int j = 728;
+    public static final int f39645i = 620;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final int f39646j = 728;
     public static final int k = 750;
     public static final int l = 1335;
     public static final String m = "SapiBiometricUtil";
@@ -202,7 +203,7 @@ public class h {
             try {
                 return ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             } catch (Exception e2) {
-                Log.w("getActiveNetworkInfo", " getActiveNetworkInfo NullPointerException--- \n" + e2.getMessage());
+                String str = " getActiveNetworkInfo NullPointerException--- \n" + e2.getMessage();
                 return null;
             }
         }
@@ -217,7 +218,7 @@ public class h {
             try {
                 networkInfo = f(context);
             } catch (NullPointerException e2) {
-                Log.w("getActiveNetworkInfo", " getActiveNetworkInfo NullPointerException--- \n" + e2.getMessage());
+                String str = " getActiveNetworkInfo NullPointerException--- \n" + e2.getMessage();
                 networkInfo = null;
             }
             return networkInfo != null && networkInfo.getType() == 1;
@@ -469,7 +470,7 @@ public class h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, context)) == null) {
-            return str + "-" + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f5650a;
+            return str + "-" + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f39608a;
         }
         return (String) invokeLL.objValue;
     }

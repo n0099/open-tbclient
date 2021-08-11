@@ -8,25 +8,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class d<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f28868a;
+    public Map<String, String> f64730a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28869b;
+    public int f64731b;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f28870c;
+    public T f64732c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28871d;
+    public String f64733d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f28872e;
+    public e f64734e;
 
     public d(int i2, T t, @Nullable String str) {
         Interceptable interceptable = $ic;
@@ -43,45 +43,45 @@ public class d<T> {
                 return;
             }
         }
-        this.f28869b = i2;
-        this.f28870c = t;
-        this.f28871d = str;
+        this.f64731b = i2;
+        this.f64732c = t;
+        this.f64733d = str;
     }
 
     public e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28872e : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64734e : (e) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28869b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64731b : invokeV.intValue;
     }
 
     public T c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28870c : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64732c : (T) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28871d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f64733d : (String) invokeV.objValue;
     }
 
     public Map<String, String> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28868a : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f64730a : (Map) invokeV.objValue;
     }
 
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-            this.f28872e = eVar;
+            this.f64734e = eVar;
         }
     }
 
@@ -104,6 +104,6 @@ public class d<T> {
                 return;
             }
         }
-        this.f28868a = map;
+        this.f64730a = map;
     }
 }

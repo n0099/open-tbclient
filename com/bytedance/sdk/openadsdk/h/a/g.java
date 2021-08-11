@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.a.r;
 import com.bytedance.sdk.openadsdk.core.w;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class g extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f31584a;
+    public String f67527a;
 
     /* renamed from: b  reason: collision with root package name */
-    public w f31585b;
+    public w f67528b;
 
     public g(String str, w wVar) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class g extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
                 return;
             }
         }
-        this.f31585b = wVar;
-        this.f31584a = str;
+        this.f67528b = wVar;
+        this.f67527a = str;
     }
 
     public static void a(r rVar, w wVar) {
@@ -86,10 +86,10 @@ public class g extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, fVar)) == null) {
             w.a aVar = new w.a();
-            aVar.f30927a = NotificationCompat.CATEGORY_CALL;
-            aVar.f30929c = this.f31584a;
-            aVar.f30930d = jSONObject;
-            return this.f31585b.a(aVar, 3);
+            aVar.f66857a = NotificationCompat.CATEGORY_CALL;
+            aVar.f66859c = this.f67527a;
+            aVar.f66860d = jSONObject;
+            return this.f67528b.a(aVar, 3);
         }
         return (JSONObject) invokeLL.objValue;
     }

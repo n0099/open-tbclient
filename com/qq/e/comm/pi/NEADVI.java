@@ -2,14 +2,9 @@ package com.qq.e.comm.pi;
 
 import com.qq.e.ads.nativ.ADSize;
 import com.qq.e.comm.adevent.ADListener;
-import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
-/* loaded from: classes6.dex */
-public interface NEADVI extends ApkDownloadComplianceInterface {
+/* loaded from: classes10.dex */
+public interface NEADVI extends LADI {
     void destroy();
-
-    int getECPM();
-
-    String getECPMLevel();
 
     void preloadVideo();
 

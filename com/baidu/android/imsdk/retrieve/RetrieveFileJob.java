@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class RetrieveFileJob extends IRetrieveJob {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FETCH_FILE_ZIP = ".im_fetch_file_zip";
@@ -43,7 +43,7 @@ public class RetrieveFileJob extends IRetrieveJob {
     public final AtomicInteger mRetryCount;
 
     /* renamed from: com.baidu.android.imsdk.retrieve.RetrieveFileJob$2  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class AnonymousClass2 implements IGenBosObjectUrlListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -267,7 +267,7 @@ public class RetrieveFileJob extends IRetrieveJob {
         String replace;
         File[] listFiles;
         File[] fileArr;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65543, this, list, jSONObject, retrieveFileBean, context)) == null) {
             String str3 = Constants.PATH_INTERNAL;
@@ -275,8 +275,8 @@ public class RetrieveFileJob extends IRetrieveJob {
             String str5 = null;
             try {
                 ArrayList arrayList = new ArrayList(list.size());
-                long j2 = 0;
-                long j3 = retrieveFileBean.mMaxFileSize * 1000;
+                long j3 = 0;
+                long j4 = retrieveFileBean.mMaxFileSize * 1000;
                 Iterator<String> it2 = list.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
@@ -313,8 +313,8 @@ public class RetrieveFileJob extends IRetrieveJob {
                                 generateMetaInfo(replace, "1", replace + " not exist", null, null, true, jSONObject);
                             } else {
                                 if (file.isFile()) {
-                                    j2 += file.length();
-                                    if (j2 > j3) {
+                                    j3 += file.length();
+                                    if (j3 > j4) {
                                         generateMetaInfo(replace, "3", replace + " size exceed maxFileSize ", null, null, true, jSONObject);
                                         break;
                                     }
@@ -335,20 +335,20 @@ public class RetrieveFileJob extends IRetrieveJob {
                                     int i2 = 0;
                                     while (i2 < length) {
                                         File file2 = listFiles[i2];
-                                        long length2 = j2 + file2.length();
+                                        long length2 = j3 + file2.length();
                                         if (file2.exists()) {
                                             fileArr = listFiles;
-                                            j = length2;
+                                            j2 = length2;
                                             arrayList2.add(new FileZipUtil.ZipSrc(file2, file2.getName()));
                                         } else {
                                             fileArr = listFiles;
-                                            j = length2;
+                                            j2 = length2;
                                         }
                                         i2++;
                                         listFiles = fileArr;
-                                        j2 = j;
+                                        j3 = j2;
                                     }
-                                    if (j2 > j3) {
+                                    if (j3 > j4) {
                                         generateMetaInfo(replace, "3", file.getPath() + "size exceed maxFileSize ", null, null, true, jSONObject);
                                         break;
                                     }

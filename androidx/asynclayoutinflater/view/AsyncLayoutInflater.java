@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -227,12 +226,10 @@ public final class AsyncLayoutInflater {
                     InflateRequest take = this.mQueue.take();
                     try {
                         take.view = take.inflater.mInflater.inflate(take.resid, take.parent, false);
-                    } catch (RuntimeException e2) {
-                        Log.w(AsyncLayoutInflater.TAG, "Failed to inflate resource in the background! Retrying on the UI thread", e2);
+                    } catch (RuntimeException unused) {
                     }
                     Message.obtain(take.inflater.mHandler, 0, take).sendToTarget();
-                } catch (InterruptedException e3) {
-                    Log.w(AsyncLayoutInflater.TAG, e3);
+                } catch (InterruptedException unused2) {
                 }
             }
         }

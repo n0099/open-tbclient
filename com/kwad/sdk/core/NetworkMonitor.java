@@ -20,25 +20,25 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class NetworkMonitor {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f34332a;
+    public static volatile boolean f71066a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<WeakReference<a>> f34333b;
+    public List<WeakReference<a>> f71067b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f34334c;
+    public boolean f71068c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final BroadcastReceiver f34335d;
+    public final BroadcastReceiver f71069d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Holder {
         public static final /* synthetic */ Holder[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -105,7 +105,7 @@ public class NetworkMonitor {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class NetworkState {
         public static final /* synthetic */ NetworkState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -166,7 +166,7 @@ public class NetworkMonitor {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(NetworkState networkState);
     }
@@ -199,14 +199,14 @@ public class NetworkMonitor {
                 return;
             }
         }
-        this.f34333b = Collections.synchronizedList(new LinkedList());
-        this.f34334c = false;
-        this.f34335d = new BroadcastReceiver(this) { // from class: com.kwad.sdk.core.NetworkMonitor.1
+        this.f71067b = Collections.synchronizedList(new LinkedList());
+        this.f71068c = false;
+        this.f71069d = new BroadcastReceiver(this) { // from class: com.kwad.sdk.core.NetworkMonitor.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ NetworkMonitor f34336a;
+            public final /* synthetic */ NetworkMonitor f71070a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -223,7 +223,7 @@ public class NetworkMonitor {
                         return;
                     }
                 }
-                this.f34336a = this;
+                this.f71070a = this;
             }
 
             @Override // android.content.BroadcastReceiver
@@ -237,16 +237,16 @@ public class NetworkMonitor {
                         if ((ContextCompat.checkSelfPermission(context, DefaultConnectivityMonitorFactory.NETWORK_PERMISSION) == 0) && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null) {
                             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
                             if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
-                                networkMonitor = this.f34336a;
+                                networkMonitor = this.f71070a;
                                 networkState = NetworkState.NETWORK_NONE;
                             } else if (1 == activeNetworkInfo.getType()) {
-                                networkMonitor = this.f34336a;
+                                networkMonitor = this.f71070a;
                                 networkState = NetworkState.NETWORK_WIFI;
                             } else if (activeNetworkInfo.getType() == 0) {
-                                networkMonitor = this.f34336a;
+                                networkMonitor = this.f71070a;
                                 networkState = NetworkState.NETWORK_MOBILE;
                             } else {
-                                networkMonitor = this.f34336a;
+                                networkMonitor = this.f71070a;
                                 networkState = NetworkState.NETWORK_NONE;
                             }
                             networkMonitor.a(networkState);
@@ -264,7 +264,7 @@ public class NetworkMonitor {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, networkState) == null) {
-            Iterator<WeakReference<a>> it = this.f34333b.iterator();
+            Iterator<WeakReference<a>> it = this.f71067b.iterator();
             while (it.hasNext()) {
                 WeakReference<a> next = it.next();
                 if (next == null || (aVar = next.get()) == null) {

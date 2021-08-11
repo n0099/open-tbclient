@@ -9,7 +9,6 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +20,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.InputDeviceCompat;
+import c.a.n0.a.k;
+import c.a.n0.f.j.h;
+import c.a.n0.f.j.i;
+import c.a.n0.f.j.j;
 import com.airbnb.lottie.LottieAnimationView;
 import com.airbnb.lottie.LottieComposition;
 import com.baidu.android.imsdk.internal.Constants;
@@ -33,47 +36,45 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.constant.WBConstants;
-import d.a.o0.a.k;
-import d.a.o0.f.j.h;
-import d.a.o0.f.j.i;
-import d.a.o0.f.j.j;
 import java.util.HashMap;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000r\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0007\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B1\b\u0016\u0012\u0006\u0010>\u001a\u00020=\u0012\u0006\u0010?\u001a\u00020)\u0012\u0006\u0010@\u001a\u000201\u0012\u0006\u0010A\u001a\u00020,\u0012\u0006\u0010B\u001a\u00020,¢\u0006\u0004\bC\u0010DB\u0019\b\u0016\u0012\u0006\u0010>\u001a\u00020=\u0012\u0006\u0010F\u001a\u00020E¢\u0006\u0004\bC\u0010GB!\b\u0016\u0012\u0006\u0010>\u001a\u00020=\u0012\u0006\u0010F\u001a\u00020E\u0012\u0006\u0010H\u001a\u00020\u000e¢\u0006\u0004\bC\u0010IJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\b\u0010\tJ\u0017\u0010\f\u001a\u00020\u00072\u0006\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\f\u0010\rJ\r\u0010\u000f\u001a\u00020\u000e¢\u0006\u0004\b\u000f\u0010\u0010J\u000f\u0010\u0011\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\u0011\u0010\tJ!\u0010\u0015\u001a\u00020\u00072\u0010\u0010\u0014\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010\u0013\u0018\u00010\u0012H\u0016¢\u0006\u0004\b\u0015\u0010\u0016J\u000f\u0010\u0017\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\u0017\u0010\tJ\u0015\u0010\u001a\u001a\u00020\u00072\u0006\u0010\u0019\u001a\u00020\u0018¢\u0006\u0004\b\u001a\u0010\u001bJ\u0019\u0010\u001e\u001a\u00020\u00072\b\u0010\u001d\u001a\u0004\u0018\u00010\u001cH\u0002¢\u0006\u0004\b\u001e\u0010\u001fJ\u0015\u0010 \u001a\u00020\u00072\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b \u0010!J\r\u0010\"\u001a\u00020\u0007¢\u0006\u0004\b\"\u0010\tJ\u000f\u0010#\u001a\u00020\u0007H\u0002¢\u0006\u0004\b#\u0010\tJ\r\u0010$\u001a\u00020\u0007¢\u0006\u0004\b$\u0010\tJ\u0017\u0010%\u001a\u00020\u00072\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b%\u0010!J\u000f\u0010&\u001a\u00020\u0007H\u0002¢\u0006\u0004\b&\u0010\tR\u0016\u0010'\u001a\u00020\u000e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b'\u0010(R\u0018\u0010*\u001a\u0004\u0018\u00010)8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b*\u0010+R\u0016\u0010-\u001a\u00020,8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b-\u0010.R\u0016\u0010/\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b/\u00100R\u0018\u00102\u001a\u0004\u0018\u0001018\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b2\u00103R\u0016\u00104\u001a\u00020,8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u0010.R\u001c\u00105\u001a\u00020\u000e8B@\u0002X\u0082\u000e¢\u0006\f\n\u0004\b5\u0010(\u001a\u0004\b6\u0010\u0010R\u001c\u00107\u001a\u00020\u00188B@\u0002X\u0082\u000e¢\u0006\f\n\u0004\b7\u00108\u001a\u0004\b9\u0010:R\u001c\u0010;\u001a\u00020\u00188B@\u0002X\u0082\u000e¢\u0006\f\n\u0004\b;\u00108\u001a\u0004\b<\u0010:¨\u0006J"}, d2 = {"Lcom/baidu/swan/game/guide/view/GameGuideView;", "Landroid/widget/FrameLayout;", "", "gameTime", "", "checkGameTimeAvailable", "(J)Z", "", "checkIsShowTips", "()V", "Landroid/view/View;", "coinView", "doCoinScaleAnim", "(Landroid/view/View;)V", "", "getCurrentStatus", "()I", "init", "Landroid/util/SparseArray;", "Landroid/os/Parcelable;", "container", "restoreHierarchyState", "(Landroid/util/SparseArray;)V", "restoreTailingView", "", "currentProgress", "reviseViewLayout", "(F)V", "Lcom/airbnb/lottie/LottieAnimationView;", "view", "setSaveDisable", "(Lcom/airbnb/lottie/LottieAnimationView;)V", "startTime", "(J)V", "stopTime", "translateTailingView", "updateStatusWhenClick", "updateViewStatusByGameTimeWhenStart", "updateWhenOneProgressEnd", "currentStatus", "I", "Lcom/airbnb/lottie/LottieComposition;", "doneComposition", "Lcom/airbnb/lottie/LottieComposition;", "", "firstDoneTips", "Ljava/lang/String;", "isOnTiming", "Z", "Landroid/graphics/Bitmap;", "normalIconImg", "Landroid/graphics/Bitmap;", WBConstants.TRANS_PROGRESS_COLOR, "progressViewWidth", "getProgressViewWidth", "tailingViewOriginCenterX", "F", "getTailingViewOriginCenterX", "()F", "tailingViewOriginCenterY", "getTailingViewOriginCenterY", "Landroid/content/Context;", "context", "composition", "normalImg", "proColor", "tips", "<init>", "(Landroid/content/Context;Lcom/airbnb/lottie/LottieComposition;Landroid/graphics/Bitmap;Ljava/lang/String;Ljava/lang/String;)V", "Landroid/util/AttributeSet;", "attributeSet", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "gameguide_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class GameGuideView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11866e;
+    public int f46757e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11867f;
+    public int f46758f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f11868g;
+    public float f46759g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f11869h;
+    public float f46760h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f11870i;
-    public LottieComposition j;
+    public boolean f46761i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public LottieComposition f46762j;
     public String k;
     public String l;
     public Bitmap m;
     public HashMap n;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f11871e;
+        public final /* synthetic */ View f46763e;
 
         public a(View view) {
             Interceptable interceptable = $ic;
@@ -90,7 +91,7 @@ public final class GameGuideView extends FrameLayout {
                     return;
                 }
             }
-            this.f11871e = view;
+            this.f46763e = view;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -101,8 +102,8 @@ public final class GameGuideView extends FrameLayout {
                 Object animatedValue = it.getAnimatedValue();
                 if (animatedValue != null) {
                     float floatValue = ((Float) animatedValue).floatValue();
-                    this.f11871e.setScaleX(floatValue);
-                    this.f11871e.setScaleY(floatValue);
+                    this.f46763e.setScaleX(floatValue);
+                    this.f46763e.setScaleY(floatValue);
                     return;
                 }
                 throw new NullPointerException("null cannot be cast to non-null type kotlin.Float");
@@ -110,13 +111,13 @@ public final class GameGuideView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class b implements GameGuideProgressView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GameGuideView f11872a;
+        public final /* synthetic */ GameGuideView f46764a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public b(GameGuideView gameGuideView) {
@@ -134,14 +135,14 @@ public final class GameGuideView extends FrameLayout {
                     return;
                 }
             }
-            this.f11872a = gameGuideView;
+            this.f46764a = gameGuideView;
         }
 
         @Override // com.baidu.swan.game.guide.view.GameGuideProgressView.a
         public void a(float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
-                this.f11872a.n(f2);
+                this.f46764a.reviseViewLayout(f2);
             }
         }
 
@@ -149,7 +150,7 @@ public final class GameGuideView extends FrameLayout {
         public void b(float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-                this.f11872a.n(f2);
+                this.f46764a.reviseViewLayout(f2);
             }
         }
 
@@ -157,10 +158,10 @@ public final class GameGuideView extends FrameLayout {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.f11872a.f11870i && (this.f11872a.f11867f == 0 || this.f11872a.f11867f == 1)) {
-                    ((GameGuideProgressView) this.f11872a.a(h.progress_view)).i(0.0f);
+                if (this.f46764a.f46761i && (this.f46764a.f46758f == 0 || this.f46764a.f46758f == 1)) {
+                    ((GameGuideProgressView) this.f46764a._$_findCachedViewById(h.progress_view)).startProcess(0.0f);
                 }
-                this.f11872a.t();
+                this.f46764a.h();
             }
         }
 
@@ -172,13 +173,13 @@ public final class GameGuideView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class c implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GameGuideView f11873e;
+        public final /* synthetic */ GameGuideView f46765e;
 
         public c(GameGuideView gameGuideView) {
             Interceptable interceptable = $ic;
@@ -195,7 +196,7 @@ public final class GameGuideView extends FrameLayout {
                     return;
                 }
             }
-            this.f11873e = gameGuideView;
+            this.f46765e = gameGuideView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -206,13 +207,13 @@ public final class GameGuideView extends FrameLayout {
                 Object animatedValue = it.getAnimatedValue();
                 if (animatedValue != null) {
                     float floatValue = ((Float) animatedValue).floatValue();
-                    LottieAnimationView tailing_view = (LottieAnimationView) this.f11873e.a(h.tailing_view);
+                    LottieAnimationView tailing_view = (LottieAnimationView) this.f46765e._$_findCachedViewById(h.tailing_view);
                     Intrinsics.checkNotNullExpressionValue(tailing_view, "tailing_view");
                     ViewGroup.LayoutParams layoutParams = tailing_view.getLayoutParams();
                     if (layoutParams != null) {
                         ConstraintLayout.LayoutParams layoutParams2 = (ConstraintLayout.LayoutParams) layoutParams;
                         ((ViewGroup.MarginLayoutParams) layoutParams2).rightMargin = (int) floatValue;
-                        LottieAnimationView tailing_view2 = (LottieAnimationView) this.f11873e.a(h.tailing_view);
+                        LottieAnimationView tailing_view2 = (LottieAnimationView) this.f46765e._$_findCachedViewById(h.tailing_view);
                         Intrinsics.checkNotNullExpressionValue(tailing_view2, "tailing_view");
                         tailing_view2.setLayoutParams(layoutParams2);
                         return;
@@ -224,13 +225,13 @@ public final class GameGuideView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class d implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GameGuideView f11874e;
+        public final /* synthetic */ GameGuideView f46766e;
 
         public d(GameGuideView gameGuideView) {
             Interceptable interceptable = $ic;
@@ -247,7 +248,7 @@ public final class GameGuideView extends FrameLayout {
                     return;
                 }
             }
-            this.f11874e = gameGuideView;
+            this.f46766e = gameGuideView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -258,13 +259,13 @@ public final class GameGuideView extends FrameLayout {
                 Object animatedValue = it.getAnimatedValue();
                 if (animatedValue != null) {
                     float floatValue = ((Float) animatedValue).floatValue();
-                    LottieAnimationView tailing_view = (LottieAnimationView) this.f11874e.a(h.tailing_view);
+                    LottieAnimationView tailing_view = (LottieAnimationView) this.f46766e._$_findCachedViewById(h.tailing_view);
                     Intrinsics.checkNotNullExpressionValue(tailing_view, "tailing_view");
                     ViewGroup.LayoutParams layoutParams = tailing_view.getLayoutParams();
                     if (layoutParams != null) {
                         ConstraintLayout.LayoutParams layoutParams2 = (ConstraintLayout.LayoutParams) layoutParams;
                         ((ViewGroup.MarginLayoutParams) layoutParams2).bottomMargin = (int) floatValue;
-                        LottieAnimationView tailing_view2 = (LottieAnimationView) this.f11874e.a(h.tailing_view);
+                        LottieAnimationView tailing_view2 = (LottieAnimationView) this.f46766e._$_findCachedViewById(h.tailing_view);
                         Intrinsics.checkNotNullExpressionValue(tailing_view2, "tailing_view");
                         tailing_view2.setLayoutParams(layoutParams2);
                         return;
@@ -276,19 +277,19 @@ public final class GameGuideView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class e extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GameGuideView f11875e;
+        public final /* synthetic */ GameGuideView f46767e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Ref.BooleanRef f11876f;
+        public final /* synthetic */ Ref.BooleanRef f46768f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ double f11877g;
+        public final /* synthetic */ double f46769g;
 
         public e(GameGuideView gameGuideView, Ref.BooleanRef booleanRef, double d2) {
             Interceptable interceptable = $ic;
@@ -305,9 +306,9 @@ public final class GameGuideView extends FrameLayout {
                     return;
                 }
             }
-            this.f11875e = gameGuideView;
-            this.f11876f = booleanRef;
-            this.f11877g = d2;
+            this.f46767e = gameGuideView;
+            this.f46768f = booleanRef;
+            this.f46769g = d2;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -315,78 +316,78 @@ public final class GameGuideView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 super.onAnimationEnd(animator);
-                if (this.f11875e.f11870i) {
-                    Ref.BooleanRef booleanRef = this.f11876f;
+                if (this.f46767e.f46761i) {
+                    Ref.BooleanRef booleanRef = this.f46768f;
                     if (booleanRef.element) {
                         return;
                     }
                     booleanRef.element = true;
-                    LottieAnimationView tailing_view = (LottieAnimationView) this.f11875e.a(h.tailing_view);
+                    LottieAnimationView tailing_view = (LottieAnimationView) this.f46767e._$_findCachedViewById(h.tailing_view);
                     Intrinsics.checkNotNullExpressionValue(tailing_view, "tailing_view");
-                    tailing_view.setRotation(90 - ((float) this.f11877g));
-                    this.f11875e.m();
-                    LottieAnimationView tailing_view2 = (LottieAnimationView) this.f11875e.a(h.tailing_view);
+                    tailing_view.setRotation(90 - ((float) this.f46769g));
+                    this.f46767e.e();
+                    LottieAnimationView tailing_view2 = (LottieAnimationView) this.f46767e._$_findCachedViewById(h.tailing_view);
                     Intrinsics.checkNotNullExpressionValue(tailing_view2, "tailing_view");
                     tailing_view2.setVisibility(8);
-                    int i2 = this.f11875e.f11867f;
+                    int i2 = this.f46767e.f46758f;
                     if (i2 == 0) {
-                        LottieAnimationView done_coin_1 = (LottieAnimationView) this.f11875e.a(h.done_coin_1);
+                        LottieAnimationView done_coin_1 = (LottieAnimationView) this.f46767e._$_findCachedViewById(h.done_coin_1);
                         Intrinsics.checkNotNullExpressionValue(done_coin_1, "done_coin_1");
                         done_coin_1.setVisibility(0);
-                        ImageView normal_coin_1 = (ImageView) this.f11875e.a(h.normal_coin_1);
+                        ImageView normal_coin_1 = (ImageView) this.f46767e._$_findCachedViewById(h.normal_coin_1);
                         Intrinsics.checkNotNullExpressionValue(normal_coin_1, "normal_coin_1");
                         normal_coin_1.setVisibility(4);
-                        ((LottieAnimationView) this.f11875e.a(h.done_coin_1)).playAnimation();
-                        this.f11875e.f11867f = 1;
-                        GameGuideView gameGuideView = this.f11875e;
-                        LottieAnimationView done_coin_12 = (LottieAnimationView) gameGuideView.a(h.done_coin_1);
+                        ((LottieAnimationView) this.f46767e._$_findCachedViewById(h.done_coin_1)).playAnimation();
+                        this.f46767e.f46758f = 1;
+                        GameGuideView gameGuideView = this.f46767e;
+                        LottieAnimationView done_coin_12 = (LottieAnimationView) gameGuideView._$_findCachedViewById(h.done_coin_1);
                         Intrinsics.checkNotNullExpressionValue(done_coin_12, "done_coin_1");
-                        gameGuideView.k(done_coin_12);
-                        this.f11875e.j();
+                        gameGuideView.c(done_coin_12);
+                        this.f46767e.b();
                     } else if (i2 == 1) {
-                        LottieAnimationView done_coin_2 = (LottieAnimationView) this.f11875e.a(h.done_coin_2);
+                        LottieAnimationView done_coin_2 = (LottieAnimationView) this.f46767e._$_findCachedViewById(h.done_coin_2);
                         Intrinsics.checkNotNullExpressionValue(done_coin_2, "done_coin_2");
                         done_coin_2.setVisibility(0);
-                        ImageView normal_coin_2 = (ImageView) this.f11875e.a(h.normal_coin_2);
+                        ImageView normal_coin_2 = (ImageView) this.f46767e._$_findCachedViewById(h.normal_coin_2);
                         Intrinsics.checkNotNullExpressionValue(normal_coin_2, "normal_coin_2");
                         normal_coin_2.setVisibility(4);
-                        ((LottieAnimationView) this.f11875e.a(h.done_coin_2)).playAnimation();
-                        this.f11875e.f11867f = 2;
-                        GameGuideView gameGuideView2 = this.f11875e;
-                        LottieAnimationView done_coin_22 = (LottieAnimationView) gameGuideView2.a(h.done_coin_2);
+                        ((LottieAnimationView) this.f46767e._$_findCachedViewById(h.done_coin_2)).playAnimation();
+                        this.f46767e.f46758f = 2;
+                        GameGuideView gameGuideView2 = this.f46767e;
+                        LottieAnimationView done_coin_22 = (LottieAnimationView) gameGuideView2._$_findCachedViewById(h.done_coin_2);
                         Intrinsics.checkNotNullExpressionValue(done_coin_22, "done_coin_2");
-                        gameGuideView2.k(done_coin_22);
+                        gameGuideView2.c(done_coin_22);
                     } else if (i2 != 2) {
                     } else {
-                        LottieAnimationView done_coin_3 = (LottieAnimationView) this.f11875e.a(h.done_coin_3);
+                        LottieAnimationView done_coin_3 = (LottieAnimationView) this.f46767e._$_findCachedViewById(h.done_coin_3);
                         Intrinsics.checkNotNullExpressionValue(done_coin_3, "done_coin_3");
                         done_coin_3.setVisibility(0);
-                        ImageView normal_coin_3 = (ImageView) this.f11875e.a(h.normal_coin_3);
+                        ImageView normal_coin_3 = (ImageView) this.f46767e._$_findCachedViewById(h.normal_coin_3);
                         Intrinsics.checkNotNullExpressionValue(normal_coin_3, "normal_coin_3");
                         normal_coin_3.setVisibility(4);
-                        ((LottieAnimationView) this.f11875e.a(h.done_coin_3)).playAnimation();
-                        this.f11875e.f11867f = 3;
-                        ((LottieAnimationView) this.f11875e.a(h.spark_view)).cancelAnimation();
-                        LottieAnimationView spark_view = (LottieAnimationView) this.f11875e.a(h.spark_view);
+                        ((LottieAnimationView) this.f46767e._$_findCachedViewById(h.done_coin_3)).playAnimation();
+                        this.f46767e.f46758f = 3;
+                        ((LottieAnimationView) this.f46767e._$_findCachedViewById(h.spark_view)).cancelAnimation();
+                        LottieAnimationView spark_view = (LottieAnimationView) this.f46767e._$_findCachedViewById(h.spark_view);
                         Intrinsics.checkNotNullExpressionValue(spark_view, "spark_view");
                         spark_view.setVisibility(8);
-                        GameGuideView gameGuideView3 = this.f11875e;
-                        LottieAnimationView done_coin_32 = (LottieAnimationView) gameGuideView3.a(h.done_coin_3);
+                        GameGuideView gameGuideView3 = this.f46767e;
+                        LottieAnimationView done_coin_32 = (LottieAnimationView) gameGuideView3._$_findCachedViewById(h.done_coin_3);
                         Intrinsics.checkNotNullExpressionValue(done_coin_32, "done_coin_3");
-                        gameGuideView3.k(done_coin_32);
+                        gameGuideView3.c(done_coin_32);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class f extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GameGuideView f11878e;
+        public final /* synthetic */ GameGuideView f46770e;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public f(GameGuideView gameGuideView) {
@@ -404,7 +405,7 @@ public final class GameGuideView extends FrameLayout {
                     return;
                 }
             }
-            this.f11878e = gameGuideView;
+            this.f46770e = gameGuideView;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -412,7 +413,7 @@ public final class GameGuideView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 super.onAnimationEnd(animator);
-                LottieAnimationView bomb_view = (LottieAnimationView) this.f11878e.a(h.bomb_view);
+                LottieAnimationView bomb_view = (LottieAnimationView) this.f46770e._$_findCachedViewById(h.bomb_view);
                 Intrinsics.checkNotNullExpressionValue(bomb_view, "bomb_view");
                 bomb_view.setVisibility(8);
             }
@@ -444,23 +445,23 @@ public final class GameGuideView extends FrameLayout {
         Intrinsics.checkNotNullParameter(tips, "tips");
         this.k = "";
         this.l = "";
-        this.j = composition;
+        this.f46762j = composition;
         this.k = proColor;
         this.l = tips;
         this.m = normalImg;
-        l();
+        d();
     }
 
     private final int getProgressViewWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            if (this.f11866e == 0) {
-                GameGuideProgressView progress_view = (GameGuideProgressView) a(h.progress_view);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
+            if (this.f46757e == 0) {
+                GameGuideProgressView progress_view = (GameGuideProgressView) _$_findCachedViewById(h.progress_view);
                 Intrinsics.checkNotNullExpressionValue(progress_view, "progress_view");
-                this.f11866e = progress_view.getWidth();
+                this.f46757e = progress_view.getWidth();
             }
-            return this.f11866e;
+            return this.f46757e;
         }
         return invokeV.intValue;
     }
@@ -468,13 +469,13 @@ public final class GameGuideView extends FrameLayout {
     private final float getTailingViewOriginCenterX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            if (this.f11868g == 0.0f) {
-                GameGuideProgressView progress_view = (GameGuideProgressView) a(h.progress_view);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            if (this.f46759g == 0.0f) {
+                GameGuideProgressView progress_view = (GameGuideProgressView) _$_findCachedViewById(h.progress_view);
                 Intrinsics.checkNotNullExpressionValue(progress_view, "progress_view");
-                this.f11868g = progress_view.getX() + getProgressViewWidth();
+                this.f46759g = progress_view.getX() + getProgressViewWidth();
             }
-            return this.f11868g;
+            return this.f46759g;
         }
         return invokeV.floatValue;
     }
@@ -482,23 +483,23 @@ public final class GameGuideView extends FrameLayout {
     private final float getTailingViewOriginCenterY() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            if (this.f11869h == 0.0f) {
-                GameGuideProgressView progress_view = (GameGuideProgressView) a(h.progress_view);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
+            if (this.f46760h == 0.0f) {
+                GameGuideProgressView progress_view = (GameGuideProgressView) _$_findCachedViewById(h.progress_view);
                 Intrinsics.checkNotNullExpressionValue(progress_view, "progress_view");
                 float y = progress_view.getY();
-                GameGuideProgressView progress_view2 = (GameGuideProgressView) a(h.progress_view);
+                GameGuideProgressView progress_view2 = (GameGuideProgressView) _$_findCachedViewById(h.progress_view);
                 Intrinsics.checkNotNullExpressionValue(progress_view2, "progress_view");
-                this.f11869h = y + (progress_view2.getHeight() / 2);
+                this.f46760h = y + (progress_view2.getHeight() / 2);
             }
-            return this.f11869h;
+            return this.f46760h;
         }
         return invokeV.floatValue;
     }
 
     private final void setSaveDisable(LottieAnimationView lottieAnimationView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, this, lottieAnimationView) == null) {
+        if (interceptable == null || interceptable.invokeL(65550, this, lottieAnimationView) == null) {
             if (lottieAnimationView != null) {
                 lottieAnimationView.setSaveEnabled(false);
             }
@@ -508,10 +509,19 @@ public final class GameGuideView extends FrameLayout {
         }
     }
 
-    public View a(int i2) {
+    public void _$_clearFindViewByIdCache() {
+        HashMap hashMap;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this.n) == null) {
+            return;
+        }
+        hashMap.clear();
+    }
+
+    public View _$_findCachedViewById(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             if (this.n == null) {
                 this.n = new HashMap();
             }
@@ -526,48 +536,36 @@ public final class GameGuideView extends FrameLayout {
         return (View) invokeI.objValue;
     }
 
-    public final int getCurrentStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11867f : invokeV.intValue;
-    }
-
-    public final boolean i(long j) {
+    public final boolean a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            if (j < 0) {
-                if (k.f46335a) {
-                    Log.d("GameTimeView", "传入的时间不能小于0");
-                }
-                return false;
-            } else if (j <= SapiWebView.DEFAULT_TIMEOUT_MILLIS || !k.f46335a) {
-                return true;
-            } else {
-                Log.d("GameTimeView", "传入的时间大于最大值 90000");
-                return false;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
+            if (j2 >= 0) {
+                return j2 <= SapiWebView.DEFAULT_TIMEOUT_MILLIS || !k.f6803a;
             }
+            boolean z = k.f6803a;
+            return false;
         }
         return invokeJ.booleanValue;
     }
 
-    public final void j() {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || d.a.o0.f.j.b.o.L()) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || c.a.n0.f.j.b.o.L()) {
             return;
         }
         if (this.l.length() > 0) {
-            TextView tips = (TextView) a(h.tips);
+            TextView tips = (TextView) _$_findCachedViewById(h.tips);
             Intrinsics.checkNotNullExpressionValue(tips, "tips");
             tips.setVisibility(0);
-            TextView tips2 = (TextView) a(h.tips);
+            TextView tips2 = (TextView) _$_findCachedViewById(h.tips);
             Intrinsics.checkNotNullExpressionValue(tips2, "tips");
             tips2.setText(this.l);
-            d.a.o0.f.j.b.o.b0();
+            c.a.n0.f.j.b.o.b0();
         }
     }
 
-    public final void k(View view) {
+    public final void c(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
             ValueAnimator valueAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
@@ -579,70 +577,70 @@ public final class GameGuideView extends FrameLayout {
         }
     }
 
-    public final void l() {
+    public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             setSaveFromParentEnabled(false);
             setSaveEnabled(false);
             setLayerType(1, null);
             LayoutInflater.from(AppRuntime.getAppContext()).inflate(i.aiapps_game_guide_view, this);
-            LottieComposition lottieComposition = this.j;
+            LottieComposition lottieComposition = this.f46762j;
             if (lottieComposition != null) {
-                ((LottieAnimationView) a(h.done_coin_1)).setComposition(lottieComposition);
-                ((LottieAnimationView) a(h.done_coin_2)).setComposition(lottieComposition);
-                ((LottieAnimationView) a(h.done_coin_3)).setComposition(lottieComposition);
-                LottieAnimationView done_coin_1 = (LottieAnimationView) a(h.done_coin_1);
+                ((LottieAnimationView) _$_findCachedViewById(h.done_coin_1)).setComposition(lottieComposition);
+                ((LottieAnimationView) _$_findCachedViewById(h.done_coin_2)).setComposition(lottieComposition);
+                ((LottieAnimationView) _$_findCachedViewById(h.done_coin_3)).setComposition(lottieComposition);
+                LottieAnimationView done_coin_1 = (LottieAnimationView) _$_findCachedViewById(h.done_coin_1);
                 Intrinsics.checkNotNullExpressionValue(done_coin_1, "done_coin_1");
                 done_coin_1.setRepeatCount(-1);
-                LottieAnimationView done_coin_2 = (LottieAnimationView) a(h.done_coin_2);
+                LottieAnimationView done_coin_2 = (LottieAnimationView) _$_findCachedViewById(h.done_coin_2);
                 Intrinsics.checkNotNullExpressionValue(done_coin_2, "done_coin_2");
                 done_coin_2.setRepeatCount(-1);
-                LottieAnimationView done_coin_3 = (LottieAnimationView) a(h.done_coin_3);
+                LottieAnimationView done_coin_3 = (LottieAnimationView) _$_findCachedViewById(h.done_coin_3);
                 Intrinsics.checkNotNullExpressionValue(done_coin_3, "done_coin_3");
                 done_coin_3.setRepeatCount(-1);
             }
             Bitmap bitmap = this.m;
             if (bitmap != null) {
-                ((ImageView) a(h.normal_coin_1)).setImageBitmap(bitmap);
-                ((ImageView) a(h.normal_coin_2)).setImageBitmap(bitmap);
-                ((ImageView) a(h.normal_coin_3)).setImageBitmap(bitmap);
+                ((ImageView) _$_findCachedViewById(h.normal_coin_1)).setImageBitmap(bitmap);
+                ((ImageView) _$_findCachedViewById(h.normal_coin_2)).setImageBitmap(bitmap);
+                ((ImageView) _$_findCachedViewById(h.normal_coin_3)).setImageBitmap(bitmap);
             }
             if (this.k.length() > 0) {
                 try {
-                    ((GameGuideProgressView) a(h.progress_view)).setProgressColor(Color.parseColor(this.k));
+                    ((GameGuideProgressView) _$_findCachedViewById(h.progress_view)).setProgressColor(Color.parseColor(this.k));
                 } catch (Exception e2) {
-                    if (k.f46335a) {
+                    if (k.f6803a) {
                         throw e2;
                     }
                 }
             }
-            ((LottieAnimationView) a(h.spark_view)).setAnimation(j.aiapps_game_guide_view_spark_view);
-            LottieAnimationView spark_view = (LottieAnimationView) a(h.spark_view);
+            ((LottieAnimationView) _$_findCachedViewById(h.spark_view)).setAnimation(j.aiapps_game_guide_view_spark_view);
+            LottieAnimationView spark_view = (LottieAnimationView) _$_findCachedViewById(h.spark_view);
             Intrinsics.checkNotNullExpressionValue(spark_view, "spark_view");
             spark_view.setRepeatCount(-1);
-            ((LottieAnimationView) a(h.bomb_view)).setAnimation(j.aiapps_game_guide_view_bomb_view);
-            ((LottieAnimationView) a(h.tailing_view)).setAnimation(j.aiapps_game_guide_view_tailing_view);
-            ((GameGuideProgressView) a(h.progress_view)).setProgressListener(new b(this));
-            setSaveDisable((LottieAnimationView) a(h.done_coin_1));
-            setSaveDisable((LottieAnimationView) a(h.done_coin_2));
-            setSaveDisable((LottieAnimationView) a(h.done_coin_2));
-            setSaveDisable((LottieAnimationView) a(h.spark_view));
-            setSaveDisable((LottieAnimationView) a(h.bomb_view));
-            setSaveDisable((LottieAnimationView) a(h.tailing_view));
+            ((LottieAnimationView) _$_findCachedViewById(h.bomb_view)).setAnimation(j.aiapps_game_guide_view_bomb_view);
+            ((LottieAnimationView) _$_findCachedViewById(h.tailing_view)).setAnimation(j.aiapps_game_guide_view_tailing_view);
+            ((GameGuideProgressView) _$_findCachedViewById(h.progress_view)).setProgressListener(new b(this));
+            setSaveDisable((LottieAnimationView) _$_findCachedViewById(h.done_coin_1));
+            setSaveDisable((LottieAnimationView) _$_findCachedViewById(h.done_coin_2));
+            setSaveDisable((LottieAnimationView) _$_findCachedViewById(h.done_coin_2));
+            setSaveDisable((LottieAnimationView) _$_findCachedViewById(h.spark_view));
+            setSaveDisable((LottieAnimationView) _$_findCachedViewById(h.bomb_view));
+            setSaveDisable((LottieAnimationView) _$_findCachedViewById(h.tailing_view));
         }
     }
 
-    public final void m() {
+    public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            LottieAnimationView tailing_view = (LottieAnimationView) a(h.tailing_view);
+            LottieAnimationView tailing_view = (LottieAnimationView) _$_findCachedViewById(h.tailing_view);
             Intrinsics.checkNotNullExpressionValue(tailing_view, "tailing_view");
             ViewGroup.LayoutParams layoutParams = tailing_view.getLayoutParams();
             if (layoutParams != null) {
                 ConstraintLayout.LayoutParams layoutParams2 = (ConstraintLayout.LayoutParams) layoutParams;
                 ((ViewGroup.MarginLayoutParams) layoutParams2).rightMargin = 0;
                 ((ViewGroup.MarginLayoutParams) layoutParams2).bottomMargin = 0;
-                LottieAnimationView tailing_view2 = (LottieAnimationView) a(h.tailing_view);
+                LottieAnimationView tailing_view2 = (LottieAnimationView) _$_findCachedViewById(h.tailing_view);
                 Intrinsics.checkNotNullExpressionValue(tailing_view2, "tailing_view");
                 tailing_view2.setLayoutParams(layoutParams2);
                 return;
@@ -651,136 +649,74 @@ public final class GameGuideView extends FrameLayout {
         }
     }
 
-    public final void n(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
-            float progressViewWidth = getProgressViewWidth() * f2;
-            LottieAnimationView spark_view = (LottieAnimationView) a(h.spark_view);
-            Intrinsics.checkNotNullExpressionValue(spark_view, "spark_view");
-            ViewGroup.LayoutParams layoutParams = spark_view.getLayoutParams();
-            if (layoutParams != null) {
-                ConstraintLayout.LayoutParams layoutParams2 = (ConstraintLayout.LayoutParams) layoutParams;
-                layoutParams2.setMarginStart((int) progressViewWidth);
-                LottieAnimationView spark_view2 = (LottieAnimationView) a(h.spark_view);
-                Intrinsics.checkNotNullExpressionValue(spark_view2, "spark_view");
-                spark_view2.setLayoutParams(layoutParams2);
-                return;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type androidx.constraintlayout.widget.ConstraintLayout.LayoutParams");
-        }
-    }
-
-    public final void o(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) && i(j)) {
-            if (this.f11870i) {
-                if (k.f46335a) {
-                    Log.e("GameTimeView", "已经在计时当中");
-                    return;
-                }
-                return;
-            }
-            s(j);
-            if (j >= SapiWebView.DEFAULT_TIMEOUT_MILLIS) {
-                if (k.f46335a) {
-                    Log.d("GameTimeView", "已经达到了最大的计时");
-                }
-                ((GameGuideProgressView) a(h.progress_view)).i(1.0f);
-                return;
-            }
-            this.f11870i = true;
-            ((GameGuideProgressView) a(h.progress_view)).i(((float) (j % 30000)) / ((float) 30000));
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f11870i = false;
-            ((GameGuideProgressView) a(h.progress_view)).j();
-            ((LottieAnimationView) a(h.done_coin_1)).cancelAnimation();
-            ((LottieAnimationView) a(h.done_coin_2)).cancelAnimation();
-            ((LottieAnimationView) a(h.done_coin_3)).cancelAnimation();
-            ((LottieAnimationView) a(h.spark_view)).cancelAnimation();
-            ((LottieAnimationView) a(h.tailing_view)).cancelAnimation();
-            ((LottieAnimationView) a(h.bomb_view)).cancelAnimation();
-            LottieAnimationView tailing_view = (LottieAnimationView) a(h.tailing_view);
-            Intrinsics.checkNotNullExpressionValue(tailing_view, "tailing_view");
-            tailing_view.setVisibility(4);
-            LottieAnimationView bomb_view = (LottieAnimationView) a(h.bomb_view);
-            Intrinsics.checkNotNullExpressionValue(bomb_view, "bomb_view");
-            bomb_view.setVisibility(8);
-        }
-    }
-
-    public final void q() {
+    public final void f() {
         float width;
         float height;
-        long j;
+        long j2;
         float f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            int i2 = this.f11867f;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            int i2 = this.f46758f;
             if (i2 == 0) {
-                ImageView normal_coin_1 = (ImageView) a(h.normal_coin_1);
+                ImageView normal_coin_1 = (ImageView) _$_findCachedViewById(h.normal_coin_1);
                 Intrinsics.checkNotNullExpressionValue(normal_coin_1, "normal_coin_1");
                 float x = normal_coin_1.getX();
-                ImageView normal_coin_12 = (ImageView) a(h.normal_coin_1);
+                ImageView normal_coin_12 = (ImageView) _$_findCachedViewById(h.normal_coin_1);
                 Intrinsics.checkNotNullExpressionValue(normal_coin_12, "normal_coin_1");
                 width = x + (normal_coin_12.getWidth() / 2);
-                ImageView normal_coin_13 = (ImageView) a(h.normal_coin_1);
+                ImageView normal_coin_13 = (ImageView) _$_findCachedViewById(h.normal_coin_1);
                 Intrinsics.checkNotNullExpressionValue(normal_coin_13, "normal_coin_1");
                 float y = normal_coin_13.getY();
-                ImageView normal_coin_14 = (ImageView) a(h.normal_coin_1);
+                ImageView normal_coin_14 = (ImageView) _$_findCachedViewById(h.normal_coin_1);
                 Intrinsics.checkNotNullExpressionValue(normal_coin_14, "normal_coin_1");
                 height = y + (normal_coin_14.getHeight() / 2);
-                j = 700;
+                j2 = 700;
                 f2 = 1.0f;
             } else if (i2 == 1) {
-                ImageView normal_coin_2 = (ImageView) a(h.normal_coin_2);
+                ImageView normal_coin_2 = (ImageView) _$_findCachedViewById(h.normal_coin_2);
                 Intrinsics.checkNotNullExpressionValue(normal_coin_2, "normal_coin_2");
                 float x2 = normal_coin_2.getX();
-                ImageView normal_coin_22 = (ImageView) a(h.normal_coin_2);
+                ImageView normal_coin_22 = (ImageView) _$_findCachedViewById(h.normal_coin_2);
                 Intrinsics.checkNotNullExpressionValue(normal_coin_22, "normal_coin_2");
                 width = x2 + (normal_coin_22.getWidth() / 2);
-                ImageView normal_coin_23 = (ImageView) a(h.normal_coin_2);
+                ImageView normal_coin_23 = (ImageView) _$_findCachedViewById(h.normal_coin_2);
                 Intrinsics.checkNotNullExpressionValue(normal_coin_23, "normal_coin_2");
                 float y2 = normal_coin_23.getY();
-                ImageView normal_coin_24 = (ImageView) a(h.normal_coin_2);
+                ImageView normal_coin_24 = (ImageView) _$_findCachedViewById(h.normal_coin_2);
                 Intrinsics.checkNotNullExpressionValue(normal_coin_24, "normal_coin_2");
                 height = y2 + (normal_coin_24.getHeight() / 2);
-                j = 500;
+                j2 = 500;
                 f2 = 1.4f;
             } else if (i2 != 2) {
                 return;
             } else {
-                ImageView normal_coin_3 = (ImageView) a(h.normal_coin_3);
+                ImageView normal_coin_3 = (ImageView) _$_findCachedViewById(h.normal_coin_3);
                 Intrinsics.checkNotNullExpressionValue(normal_coin_3, "normal_coin_3");
                 float x3 = normal_coin_3.getX();
-                ImageView normal_coin_32 = (ImageView) a(h.normal_coin_3);
+                ImageView normal_coin_32 = (ImageView) _$_findCachedViewById(h.normal_coin_3);
                 Intrinsics.checkNotNullExpressionValue(normal_coin_32, "normal_coin_3");
                 width = x3 + (normal_coin_32.getWidth() / 2);
-                ImageView normal_coin_33 = (ImageView) a(h.normal_coin_3);
+                ImageView normal_coin_33 = (ImageView) _$_findCachedViewById(h.normal_coin_3);
                 Intrinsics.checkNotNullExpressionValue(normal_coin_33, "normal_coin_3");
                 float y3 = normal_coin_33.getY();
-                ImageView normal_coin_34 = (ImageView) a(h.normal_coin_3);
+                ImageView normal_coin_34 = (ImageView) _$_findCachedViewById(h.normal_coin_3);
                 Intrinsics.checkNotNullExpressionValue(normal_coin_34, "normal_coin_3");
                 height = y3 + (normal_coin_34.getHeight() / 2);
-                j = 300;
+                j2 = 300;
                 f2 = 0.33333334f;
             }
             double atan2 = (180 * ((float) Math.atan2(getTailingViewOriginCenterY() - height, getTailingViewOriginCenterX() - width))) / 3.141592653589793d;
-            LottieAnimationView tailing_view = (LottieAnimationView) a(h.tailing_view);
+            LottieAnimationView tailing_view = (LottieAnimationView) _$_findCachedViewById(h.tailing_view);
             Intrinsics.checkNotNullExpressionValue(tailing_view, "tailing_view");
             tailing_view.setVisibility(0);
-            m();
-            LottieAnimationView tailing_view2 = (LottieAnimationView) a(h.tailing_view);
+            e();
+            LottieAnimationView tailing_view2 = (LottieAnimationView) _$_findCachedViewById(h.tailing_view);
             Intrinsics.checkNotNullExpressionValue(tailing_view2, "tailing_view");
             tailing_view2.setRotation(((float) atan2) - 90);
-            LottieAnimationView tailing_view3 = (LottieAnimationView) a(h.tailing_view);
+            LottieAnimationView tailing_view3 = (LottieAnimationView) _$_findCachedViewById(h.tailing_view);
             Intrinsics.checkNotNullExpressionValue(tailing_view3, "tailing_view");
             tailing_view3.setSpeed(f2);
-            ((LottieAnimationView) a(h.tailing_view)).playAnimation();
+            ((LottieAnimationView) _$_findCachedViewById(h.tailing_view)).playAnimation();
             Ref.BooleanRef booleanRef = new Ref.BooleanRef();
             booleanRef.element = false;
             ValueAnimator xValueAnimator = ValueAnimator.ofFloat(0.0f, getTailingViewOriginCenterX() - width);
@@ -792,173 +728,236 @@ public final class GameGuideView extends FrameLayout {
             Intrinsics.checkNotNullExpressionValue(yValueAnimator, "yValueAnimator");
             yValueAnimator.setInterpolator(new LinearInterpolator());
             AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.setDuration(j);
+            animatorSet.setDuration(j2);
             animatorSet.play(xValueAnimator).with(yValueAnimator);
             animatorSet.addListener(new e(this, booleanRef, atan2));
             animatorSet.start();
         }
     }
 
-    public final void r() {
+    public final void g(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            TextView tips = (TextView) a(h.tips);
-            Intrinsics.checkNotNullExpressionValue(tips, "tips");
-            if (tips.getVisibility() == 0) {
-                TextView tips2 = (TextView) a(h.tips);
-                Intrinsics.checkNotNullExpressionValue(tips2, "tips");
-                tips2.setVisibility(8);
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            LottieAnimationView tailing_view = (LottieAnimationView) _$_findCachedViewById(h.tailing_view);
+            Intrinsics.checkNotNullExpressionValue(tailing_view, "tailing_view");
+            tailing_view.setVisibility(8);
+            if (0 <= j2 && 30000 > j2) {
+                LottieAnimationView done_coin_1 = (LottieAnimationView) _$_findCachedViewById(h.done_coin_1);
+                Intrinsics.checkNotNullExpressionValue(done_coin_1, "done_coin_1");
+                done_coin_1.setVisibility(8);
+                ImageView normal_coin_1 = (ImageView) _$_findCachedViewById(h.normal_coin_1);
+                Intrinsics.checkNotNullExpressionValue(normal_coin_1, "normal_coin_1");
+                normal_coin_1.setVisibility(0);
+                ((LottieAnimationView) _$_findCachedViewById(h.done_coin_1)).cancelAnimation();
+                LottieAnimationView done_coin_2 = (LottieAnimationView) _$_findCachedViewById(h.done_coin_2);
+                Intrinsics.checkNotNullExpressionValue(done_coin_2, "done_coin_2");
+                done_coin_2.setVisibility(8);
+                ImageView normal_coin_2 = (ImageView) _$_findCachedViewById(h.normal_coin_2);
+                Intrinsics.checkNotNullExpressionValue(normal_coin_2, "normal_coin_2");
+                normal_coin_2.setVisibility(0);
+                ((LottieAnimationView) _$_findCachedViewById(h.done_coin_2)).cancelAnimation();
+                LottieAnimationView done_coin_3 = (LottieAnimationView) _$_findCachedViewById(h.done_coin_3);
+                Intrinsics.checkNotNullExpressionValue(done_coin_3, "done_coin_3");
+                done_coin_3.setVisibility(8);
+                ImageView normal_coin_3 = (ImageView) _$_findCachedViewById(h.normal_coin_3);
+                Intrinsics.checkNotNullExpressionValue(normal_coin_3, "normal_coin_3");
+                normal_coin_3.setVisibility(0);
+                ((LottieAnimationView) _$_findCachedViewById(h.done_coin_3)).cancelAnimation();
+                LottieAnimationView spark_view = (LottieAnimationView) _$_findCachedViewById(h.spark_view);
+                Intrinsics.checkNotNullExpressionValue(spark_view, "spark_view");
+                spark_view.setVisibility(0);
+                ((LottieAnimationView) _$_findCachedViewById(h.spark_view)).playAnimation();
+                this.f46758f = 0;
+            } else if (30000 <= j2 && 60000 > j2) {
+                LottieAnimationView done_coin_12 = (LottieAnimationView) _$_findCachedViewById(h.done_coin_1);
+                Intrinsics.checkNotNullExpressionValue(done_coin_12, "done_coin_1");
+                done_coin_12.setVisibility(0);
+                ImageView normal_coin_12 = (ImageView) _$_findCachedViewById(h.normal_coin_1);
+                Intrinsics.checkNotNullExpressionValue(normal_coin_12, "normal_coin_1");
+                normal_coin_12.setVisibility(4);
+                ((LottieAnimationView) _$_findCachedViewById(h.done_coin_1)).playAnimation();
+                LottieAnimationView done_coin_22 = (LottieAnimationView) _$_findCachedViewById(h.done_coin_2);
+                Intrinsics.checkNotNullExpressionValue(done_coin_22, "done_coin_2");
+                done_coin_22.setVisibility(8);
+                ((LottieAnimationView) _$_findCachedViewById(h.done_coin_2)).cancelAnimation();
+                LottieAnimationView done_coin_32 = (LottieAnimationView) _$_findCachedViewById(h.done_coin_3);
+                Intrinsics.checkNotNullExpressionValue(done_coin_32, "done_coin_3");
+                done_coin_32.setVisibility(8);
+                ((LottieAnimationView) _$_findCachedViewById(h.done_coin_3)).cancelAnimation();
+                LottieAnimationView spark_view2 = (LottieAnimationView) _$_findCachedViewById(h.spark_view);
+                Intrinsics.checkNotNullExpressionValue(spark_view2, "spark_view");
+                spark_view2.setVisibility(0);
+                ((LottieAnimationView) _$_findCachedViewById(h.spark_view)).playAnimation();
+                this.f46758f = 1;
+            } else if (60000 <= j2 && SapiWebView.DEFAULT_TIMEOUT_MILLIS > j2) {
+                LottieAnimationView done_coin_13 = (LottieAnimationView) _$_findCachedViewById(h.done_coin_1);
+                Intrinsics.checkNotNullExpressionValue(done_coin_13, "done_coin_1");
+                done_coin_13.setVisibility(0);
+                ImageView normal_coin_13 = (ImageView) _$_findCachedViewById(h.normal_coin_1);
+                Intrinsics.checkNotNullExpressionValue(normal_coin_13, "normal_coin_1");
+                normal_coin_13.setVisibility(4);
+                ((LottieAnimationView) _$_findCachedViewById(h.done_coin_1)).playAnimation();
+                LottieAnimationView done_coin_23 = (LottieAnimationView) _$_findCachedViewById(h.done_coin_2);
+                Intrinsics.checkNotNullExpressionValue(done_coin_23, "done_coin_2");
+                done_coin_23.setVisibility(0);
+                ImageView normal_coin_22 = (ImageView) _$_findCachedViewById(h.normal_coin_2);
+                Intrinsics.checkNotNullExpressionValue(normal_coin_22, "normal_coin_2");
+                normal_coin_22.setVisibility(4);
+                ((LottieAnimationView) _$_findCachedViewById(h.done_coin_2)).playAnimation();
+                LottieAnimationView done_coin_33 = (LottieAnimationView) _$_findCachedViewById(h.done_coin_3);
+                Intrinsics.checkNotNullExpressionValue(done_coin_33, "done_coin_3");
+                done_coin_33.setVisibility(8);
+                ((LottieAnimationView) _$_findCachedViewById(h.done_coin_3)).cancelAnimation();
+                LottieAnimationView spark_view3 = (LottieAnimationView) _$_findCachedViewById(h.spark_view);
+                Intrinsics.checkNotNullExpressionValue(spark_view3, "spark_view");
+                spark_view3.setVisibility(0);
+                ((LottieAnimationView) _$_findCachedViewById(h.spark_view)).playAnimation();
+                this.f46758f = 2;
+            } else {
+                LottieAnimationView done_coin_14 = (LottieAnimationView) _$_findCachedViewById(h.done_coin_1);
+                Intrinsics.checkNotNullExpressionValue(done_coin_14, "done_coin_1");
+                done_coin_14.setVisibility(0);
+                ImageView normal_coin_14 = (ImageView) _$_findCachedViewById(h.normal_coin_1);
+                Intrinsics.checkNotNullExpressionValue(normal_coin_14, "normal_coin_1");
+                normal_coin_14.setVisibility(4);
+                ((LottieAnimationView) _$_findCachedViewById(h.done_coin_1)).playAnimation();
+                LottieAnimationView done_coin_24 = (LottieAnimationView) _$_findCachedViewById(h.done_coin_2);
+                Intrinsics.checkNotNullExpressionValue(done_coin_24, "done_coin_2");
+                done_coin_24.setVisibility(0);
+                ImageView normal_coin_23 = (ImageView) _$_findCachedViewById(h.normal_coin_2);
+                Intrinsics.checkNotNullExpressionValue(normal_coin_23, "normal_coin_2");
+                normal_coin_23.setVisibility(4);
+                ((LottieAnimationView) _$_findCachedViewById(h.done_coin_2)).playAnimation();
+                LottieAnimationView done_coin_34 = (LottieAnimationView) _$_findCachedViewById(h.done_coin_3);
+                Intrinsics.checkNotNullExpressionValue(done_coin_34, "done_coin_3");
+                done_coin_34.setVisibility(0);
+                ImageView normal_coin_32 = (ImageView) _$_findCachedViewById(h.normal_coin_3);
+                Intrinsics.checkNotNullExpressionValue(normal_coin_32, "normal_coin_3");
+                normal_coin_32.setVisibility(4);
+                ((LottieAnimationView) _$_findCachedViewById(h.done_coin_3)).playAnimation();
+                LottieAnimationView spark_view4 = (LottieAnimationView) _$_findCachedViewById(h.spark_view);
+                Intrinsics.checkNotNullExpressionValue(spark_view4, "spark_view");
+                spark_view4.setVisibility(8);
+                ((LottieAnimationView) _$_findCachedViewById(h.spark_view)).cancelAnimation();
+                this.f46758f = 3;
             }
-            this.f11867f = 0;
-            ((LottieAnimationView) a(h.done_coin_1)).cancelAnimation();
-            LottieAnimationView done_coin_1 = (LottieAnimationView) a(h.done_coin_1);
-            Intrinsics.checkNotNullExpressionValue(done_coin_1, "done_coin_1");
-            done_coin_1.setVisibility(8);
-            ImageView normal_coin_1 = (ImageView) a(h.normal_coin_1);
-            Intrinsics.checkNotNullExpressionValue(normal_coin_1, "normal_coin_1");
-            normal_coin_1.setVisibility(0);
-            ((LottieAnimationView) a(h.done_coin_2)).cancelAnimation();
-            LottieAnimationView done_coin_2 = (LottieAnimationView) a(h.done_coin_2);
-            Intrinsics.checkNotNullExpressionValue(done_coin_2, "done_coin_2");
-            done_coin_2.setVisibility(8);
-            ImageView normal_coin_2 = (ImageView) a(h.normal_coin_2);
-            Intrinsics.checkNotNullExpressionValue(normal_coin_2, "normal_coin_2");
-            normal_coin_2.setVisibility(0);
-            ((LottieAnimationView) a(h.done_coin_3)).cancelAnimation();
-            LottieAnimationView done_coin_3 = (LottieAnimationView) a(h.done_coin_3);
-            Intrinsics.checkNotNullExpressionValue(done_coin_3, "done_coin_3");
-            done_coin_3.setVisibility(8);
-            ImageView normal_coin_3 = (ImageView) a(h.normal_coin_3);
-            Intrinsics.checkNotNullExpressionValue(normal_coin_3, "normal_coin_3");
-            normal_coin_3.setVisibility(0);
+        }
+    }
+
+    public final int getCurrentStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f46758f : invokeV.intValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            LottieAnimationView bomb_view = (LottieAnimationView) _$_findCachedViewById(h.bomb_view);
+            Intrinsics.checkNotNullExpressionValue(bomb_view, "bomb_view");
+            bomb_view.setVisibility(0);
+            ((LottieAnimationView) _$_findCachedViewById(h.bomb_view)).playAnimation();
+            ((LottieAnimationView) _$_findCachedViewById(h.bomb_view)).addAnimatorListener(new f(this));
+            f();
         }
     }
 
     @Override // android.view.View
     public void restoreHierarchyState(SparseArray<Parcelable> sparseArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, sparseArray) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, sparseArray) == null) {
         }
     }
 
-    public final void s(long j) {
+    public final void reviseViewLayout(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            LottieAnimationView tailing_view = (LottieAnimationView) a(h.tailing_view);
-            Intrinsics.checkNotNullExpressionValue(tailing_view, "tailing_view");
-            tailing_view.setVisibility(8);
-            if (0 <= j && 30000 > j) {
-                LottieAnimationView done_coin_1 = (LottieAnimationView) a(h.done_coin_1);
-                Intrinsics.checkNotNullExpressionValue(done_coin_1, "done_coin_1");
-                done_coin_1.setVisibility(8);
-                ImageView normal_coin_1 = (ImageView) a(h.normal_coin_1);
-                Intrinsics.checkNotNullExpressionValue(normal_coin_1, "normal_coin_1");
-                normal_coin_1.setVisibility(0);
-                ((LottieAnimationView) a(h.done_coin_1)).cancelAnimation();
-                LottieAnimationView done_coin_2 = (LottieAnimationView) a(h.done_coin_2);
-                Intrinsics.checkNotNullExpressionValue(done_coin_2, "done_coin_2");
-                done_coin_2.setVisibility(8);
-                ImageView normal_coin_2 = (ImageView) a(h.normal_coin_2);
-                Intrinsics.checkNotNullExpressionValue(normal_coin_2, "normal_coin_2");
-                normal_coin_2.setVisibility(0);
-                ((LottieAnimationView) a(h.done_coin_2)).cancelAnimation();
-                LottieAnimationView done_coin_3 = (LottieAnimationView) a(h.done_coin_3);
-                Intrinsics.checkNotNullExpressionValue(done_coin_3, "done_coin_3");
-                done_coin_3.setVisibility(8);
-                ImageView normal_coin_3 = (ImageView) a(h.normal_coin_3);
-                Intrinsics.checkNotNullExpressionValue(normal_coin_3, "normal_coin_3");
-                normal_coin_3.setVisibility(0);
-                ((LottieAnimationView) a(h.done_coin_3)).cancelAnimation();
-                LottieAnimationView spark_view = (LottieAnimationView) a(h.spark_view);
-                Intrinsics.checkNotNullExpressionValue(spark_view, "spark_view");
-                spark_view.setVisibility(0);
-                ((LottieAnimationView) a(h.spark_view)).playAnimation();
-                this.f11867f = 0;
-            } else if (30000 <= j && 60000 > j) {
-                LottieAnimationView done_coin_12 = (LottieAnimationView) a(h.done_coin_1);
-                Intrinsics.checkNotNullExpressionValue(done_coin_12, "done_coin_1");
-                done_coin_12.setVisibility(0);
-                ImageView normal_coin_12 = (ImageView) a(h.normal_coin_1);
-                Intrinsics.checkNotNullExpressionValue(normal_coin_12, "normal_coin_1");
-                normal_coin_12.setVisibility(4);
-                ((LottieAnimationView) a(h.done_coin_1)).playAnimation();
-                LottieAnimationView done_coin_22 = (LottieAnimationView) a(h.done_coin_2);
-                Intrinsics.checkNotNullExpressionValue(done_coin_22, "done_coin_2");
-                done_coin_22.setVisibility(8);
-                ((LottieAnimationView) a(h.done_coin_2)).cancelAnimation();
-                LottieAnimationView done_coin_32 = (LottieAnimationView) a(h.done_coin_3);
-                Intrinsics.checkNotNullExpressionValue(done_coin_32, "done_coin_3");
-                done_coin_32.setVisibility(8);
-                ((LottieAnimationView) a(h.done_coin_3)).cancelAnimation();
-                LottieAnimationView spark_view2 = (LottieAnimationView) a(h.spark_view);
+        if (interceptable == null || interceptable.invokeF(1048588, this, f2) == null) {
+            float progressViewWidth = getProgressViewWidth() * f2;
+            LottieAnimationView spark_view = (LottieAnimationView) _$_findCachedViewById(h.spark_view);
+            Intrinsics.checkNotNullExpressionValue(spark_view, "spark_view");
+            ViewGroup.LayoutParams layoutParams = spark_view.getLayoutParams();
+            if (layoutParams != null) {
+                ConstraintLayout.LayoutParams layoutParams2 = (ConstraintLayout.LayoutParams) layoutParams;
+                layoutParams2.setMarginStart((int) progressViewWidth);
+                LottieAnimationView spark_view2 = (LottieAnimationView) _$_findCachedViewById(h.spark_view);
                 Intrinsics.checkNotNullExpressionValue(spark_view2, "spark_view");
-                spark_view2.setVisibility(0);
-                ((LottieAnimationView) a(h.spark_view)).playAnimation();
-                this.f11867f = 1;
-            } else if (60000 <= j && SapiWebView.DEFAULT_TIMEOUT_MILLIS > j) {
-                LottieAnimationView done_coin_13 = (LottieAnimationView) a(h.done_coin_1);
-                Intrinsics.checkNotNullExpressionValue(done_coin_13, "done_coin_1");
-                done_coin_13.setVisibility(0);
-                ImageView normal_coin_13 = (ImageView) a(h.normal_coin_1);
-                Intrinsics.checkNotNullExpressionValue(normal_coin_13, "normal_coin_1");
-                normal_coin_13.setVisibility(4);
-                ((LottieAnimationView) a(h.done_coin_1)).playAnimation();
-                LottieAnimationView done_coin_23 = (LottieAnimationView) a(h.done_coin_2);
-                Intrinsics.checkNotNullExpressionValue(done_coin_23, "done_coin_2");
-                done_coin_23.setVisibility(0);
-                ImageView normal_coin_22 = (ImageView) a(h.normal_coin_2);
-                Intrinsics.checkNotNullExpressionValue(normal_coin_22, "normal_coin_2");
-                normal_coin_22.setVisibility(4);
-                ((LottieAnimationView) a(h.done_coin_2)).playAnimation();
-                LottieAnimationView done_coin_33 = (LottieAnimationView) a(h.done_coin_3);
-                Intrinsics.checkNotNullExpressionValue(done_coin_33, "done_coin_3");
-                done_coin_33.setVisibility(8);
-                ((LottieAnimationView) a(h.done_coin_3)).cancelAnimation();
-                LottieAnimationView spark_view3 = (LottieAnimationView) a(h.spark_view);
-                Intrinsics.checkNotNullExpressionValue(spark_view3, "spark_view");
-                spark_view3.setVisibility(0);
-                ((LottieAnimationView) a(h.spark_view)).playAnimation();
-                this.f11867f = 2;
-            } else {
-                LottieAnimationView done_coin_14 = (LottieAnimationView) a(h.done_coin_1);
-                Intrinsics.checkNotNullExpressionValue(done_coin_14, "done_coin_1");
-                done_coin_14.setVisibility(0);
-                ImageView normal_coin_14 = (ImageView) a(h.normal_coin_1);
-                Intrinsics.checkNotNullExpressionValue(normal_coin_14, "normal_coin_1");
-                normal_coin_14.setVisibility(4);
-                ((LottieAnimationView) a(h.done_coin_1)).playAnimation();
-                LottieAnimationView done_coin_24 = (LottieAnimationView) a(h.done_coin_2);
-                Intrinsics.checkNotNullExpressionValue(done_coin_24, "done_coin_2");
-                done_coin_24.setVisibility(0);
-                ImageView normal_coin_23 = (ImageView) a(h.normal_coin_2);
-                Intrinsics.checkNotNullExpressionValue(normal_coin_23, "normal_coin_2");
-                normal_coin_23.setVisibility(4);
-                ((LottieAnimationView) a(h.done_coin_2)).playAnimation();
-                LottieAnimationView done_coin_34 = (LottieAnimationView) a(h.done_coin_3);
-                Intrinsics.checkNotNullExpressionValue(done_coin_34, "done_coin_3");
-                done_coin_34.setVisibility(0);
-                ImageView normal_coin_32 = (ImageView) a(h.normal_coin_3);
-                Intrinsics.checkNotNullExpressionValue(normal_coin_32, "normal_coin_3");
-                normal_coin_32.setVisibility(4);
-                ((LottieAnimationView) a(h.done_coin_3)).playAnimation();
-                LottieAnimationView spark_view4 = (LottieAnimationView) a(h.spark_view);
-                Intrinsics.checkNotNullExpressionValue(spark_view4, "spark_view");
-                spark_view4.setVisibility(8);
-                ((LottieAnimationView) a(h.spark_view)).cancelAnimation();
-                this.f11867f = 3;
+                spark_view2.setLayoutParams(layoutParams2);
+                return;
             }
+            throw new NullPointerException("null cannot be cast to non-null type androidx.constraintlayout.widget.ConstraintLayout.LayoutParams");
         }
     }
 
-    public final void t() {
+    public final void startTime(long j2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) && a(j2)) {
+            if (this.f46761i) {
+                boolean z = k.f6803a;
+                return;
+            }
+            g(j2);
+            if (j2 >= SapiWebView.DEFAULT_TIMEOUT_MILLIS) {
+                boolean z2 = k.f6803a;
+                ((GameGuideProgressView) _$_findCachedViewById(h.progress_view)).startProcess(1.0f);
+                return;
+            }
+            this.f46761i = true;
+            ((GameGuideProgressView) _$_findCachedViewById(h.progress_view)).startProcess(((float) (j2 % 30000)) / ((float) 30000));
+        }
+    }
+
+    public final void stopTime() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            LottieAnimationView bomb_view = (LottieAnimationView) a(h.bomb_view);
+            this.f46761i = false;
+            ((GameGuideProgressView) _$_findCachedViewById(h.progress_view)).stopProcess();
+            ((LottieAnimationView) _$_findCachedViewById(h.done_coin_1)).cancelAnimation();
+            ((LottieAnimationView) _$_findCachedViewById(h.done_coin_2)).cancelAnimation();
+            ((LottieAnimationView) _$_findCachedViewById(h.done_coin_3)).cancelAnimation();
+            ((LottieAnimationView) _$_findCachedViewById(h.spark_view)).cancelAnimation();
+            ((LottieAnimationView) _$_findCachedViewById(h.tailing_view)).cancelAnimation();
+            ((LottieAnimationView) _$_findCachedViewById(h.bomb_view)).cancelAnimation();
+            LottieAnimationView tailing_view = (LottieAnimationView) _$_findCachedViewById(h.tailing_view);
+            Intrinsics.checkNotNullExpressionValue(tailing_view, "tailing_view");
+            tailing_view.setVisibility(4);
+            LottieAnimationView bomb_view = (LottieAnimationView) _$_findCachedViewById(h.bomb_view);
             Intrinsics.checkNotNullExpressionValue(bomb_view, "bomb_view");
-            bomb_view.setVisibility(0);
-            ((LottieAnimationView) a(h.bomb_view)).playAnimation();
-            ((LottieAnimationView) a(h.bomb_view)).addAnimatorListener(new f(this));
-            q();
+            bomb_view.setVisibility(8);
+        }
+    }
+
+    public final void updateStatusWhenClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            TextView tips = (TextView) _$_findCachedViewById(h.tips);
+            Intrinsics.checkNotNullExpressionValue(tips, "tips");
+            if (tips.getVisibility() == 0) {
+                TextView tips2 = (TextView) _$_findCachedViewById(h.tips);
+                Intrinsics.checkNotNullExpressionValue(tips2, "tips");
+                tips2.setVisibility(8);
+            }
+            this.f46758f = 0;
+            ((LottieAnimationView) _$_findCachedViewById(h.done_coin_1)).cancelAnimation();
+            LottieAnimationView done_coin_1 = (LottieAnimationView) _$_findCachedViewById(h.done_coin_1);
+            Intrinsics.checkNotNullExpressionValue(done_coin_1, "done_coin_1");
+            done_coin_1.setVisibility(8);
+            ImageView normal_coin_1 = (ImageView) _$_findCachedViewById(h.normal_coin_1);
+            Intrinsics.checkNotNullExpressionValue(normal_coin_1, "normal_coin_1");
+            normal_coin_1.setVisibility(0);
+            ((LottieAnimationView) _$_findCachedViewById(h.done_coin_2)).cancelAnimation();
+            LottieAnimationView done_coin_2 = (LottieAnimationView) _$_findCachedViewById(h.done_coin_2);
+            Intrinsics.checkNotNullExpressionValue(done_coin_2, "done_coin_2");
+            done_coin_2.setVisibility(8);
+            ImageView normal_coin_2 = (ImageView) _$_findCachedViewById(h.normal_coin_2);
+            Intrinsics.checkNotNullExpressionValue(normal_coin_2, "normal_coin_2");
+            normal_coin_2.setVisibility(0);
+            ((LottieAnimationView) _$_findCachedViewById(h.done_coin_3)).cancelAnimation();
+            LottieAnimationView done_coin_3 = (LottieAnimationView) _$_findCachedViewById(h.done_coin_3);
+            Intrinsics.checkNotNullExpressionValue(done_coin_3, "done_coin_3");
+            done_coin_3.setVisibility(8);
+            ImageView normal_coin_3 = (ImageView) _$_findCachedViewById(h.normal_coin_3);
+            Intrinsics.checkNotNullExpressionValue(normal_coin_3, "normal_coin_3");
+            normal_coin_3.setVisibility(0);
         }
     }
 
@@ -985,7 +984,7 @@ public final class GameGuideView extends FrameLayout {
         Intrinsics.checkNotNullParameter(attributeSet, "attributeSet");
         this.k = "";
         this.l = "";
-        l();
+        d();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -1011,6 +1010,6 @@ public final class GameGuideView extends FrameLayout {
         Intrinsics.checkNotNullParameter(attributeSet, "attributeSet");
         this.k = "";
         this.l = "";
-        l();
+        d();
     }
 }

@@ -6,25 +6,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f35201a;
+    public final File f71955a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.a.c f35202b;
+    public final com.kwad.sdk.core.videocache.a.c f71956b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.a.a f35203c;
+    public final com.kwad.sdk.core.videocache.a.a f71957c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.d.b f35204d;
+    public final com.kwad.sdk.core.videocache.d.b f71958d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.b.b f35205e;
+    public final com.kwad.sdk.core.videocache.b.b f71959e;
 
     public c(File file, com.kwad.sdk.core.videocache.a.c cVar, com.kwad.sdk.core.videocache.a.a aVar, com.kwad.sdk.core.videocache.d.b bVar, com.kwad.sdk.core.videocache.b.b bVar2) {
         Interceptable interceptable = $ic;
@@ -41,16 +41,16 @@ public class c {
                 return;
             }
         }
-        this.f35201a = file;
-        this.f35202b = cVar;
-        this.f35203c = aVar;
-        this.f35204d = bVar;
-        this.f35205e = bVar2;
+        this.f71955a = file;
+        this.f71956b = cVar;
+        this.f71957c = aVar;
+        this.f71958d = bVar;
+        this.f71959e = bVar2;
     }
 
     public File a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new File(this.f35201a, this.f35202b.a(str)) : (File) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new File(this.f71955a, this.f71956b.a(str)) : (File) invokeL.objValue;
     }
 }

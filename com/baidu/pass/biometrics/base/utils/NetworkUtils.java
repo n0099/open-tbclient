@@ -5,14 +5,13 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.apollon.statistics.g;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class NetworkUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NETWORK_2G = 2;
@@ -89,7 +88,7 @@ public final class NetworkUtils {
                             case 12:
                             case 14:
                             case 15:
-                                return g.f4012b;
+                                return "3G";
                             case 13:
                                 return "4G";
                             default:

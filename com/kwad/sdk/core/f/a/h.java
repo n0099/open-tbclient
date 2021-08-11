@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.aa;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f34617a;
+    public Context f71358a;
 
     public h(Context context) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class h {
                 return;
             }
         }
-        this.f34617a = context;
+        this.f71358a = context;
     }
 
     public String a() {
@@ -43,7 +43,7 @@ public class h {
             Cursor cursor = null;
             try {
                 try {
-                    cursor = this.f34617a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
+                    cursor = this.f71358a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
                     if (cursor != null && cursor.moveToNext()) {
                         str = cursor.getString(cursor.getColumnIndex("value"));
                         com.kwad.sdk.core.d.a.c("VivoDeviceIDHelper", "getOAID oaid:" + str);

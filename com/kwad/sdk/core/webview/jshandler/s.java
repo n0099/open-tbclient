@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.ar;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class s implements com.kwad.sdk.core.webview.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f35466a;
+    public a f72223a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a();
     }
@@ -36,7 +36,7 @@ public class s implements com.kwad.sdk.core.webview.a.a {
                 return;
             }
         }
-        this.f35466a = aVar;
+        this.f72223a = aVar;
     }
 
     private void c() {
@@ -49,7 +49,7 @@ public class s implements com.kwad.sdk.core.webview.a.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ s f35467a;
+            public final /* synthetic */ s f72224a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -66,16 +66,16 @@ public class s implements com.kwad.sdk.core.webview.a.a {
                         return;
                     }
                 }
-                this.f35467a = this;
+                this.f72224a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f35467a.f35466a == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f72224a.f72223a == null) {
                     return;
                 }
-                this.f35467a.f35466a.a();
+                this.f72224a.f72223a.a();
             }
         });
     }

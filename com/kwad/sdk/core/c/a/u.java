@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.g.a.h;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class u implements com.kwad.sdk.core.d<h.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,10 +34,10 @@ public class u implements com.kwad.sdk.core.d<h.a> {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, aVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        aVar.f34674a = jSONObject.optInt("streamType");
-        aVar.f34675b = jSONObject.optInt("maxVolume");
-        aVar.f34676c = jSONObject.optInt("minVolume");
-        aVar.f34677d = jSONObject.optInt("currentVolume");
+        aVar.f71417a = jSONObject.optInt("streamType");
+        aVar.f71418b = jSONObject.optInt("maxVolume");
+        aVar.f71419c = jSONObject.optInt("minVolume");
+        aVar.f71420d = jSONObject.optInt("currentVolume");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -49,10 +49,10 @@ public class u implements com.kwad.sdk.core.d<h.a> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "streamType", aVar.f34674a);
-            com.kwad.sdk.utils.q.a(jSONObject, "maxVolume", aVar.f34675b);
-            com.kwad.sdk.utils.q.a(jSONObject, "minVolume", aVar.f34676c);
-            com.kwad.sdk.utils.q.a(jSONObject, "currentVolume", aVar.f34677d);
+            com.kwad.sdk.utils.q.a(jSONObject, "streamType", aVar.f71417a);
+            com.kwad.sdk.utils.q.a(jSONObject, "maxVolume", aVar.f71418b);
+            com.kwad.sdk.utils.q.a(jSONObject, "minVolume", aVar.f71419c);
+            com.kwad.sdk.utils.q.a(jSONObject, "currentVolume", aVar.f71420d);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

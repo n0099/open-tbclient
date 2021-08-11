@@ -1,8 +1,8 @@
 package com.qq.e.ads.nativ;
 
-import com.qq.e.ads.AbstractAD;
+import com.qq.e.ads.NativeAbstractAD;
 import java.util.List;
-/* loaded from: classes6.dex */
-public interface NativeADUnifiedListener extends AbstractAD.BasicADListener {
+/* loaded from: classes10.dex */
+public interface NativeADUnifiedListener extends NativeAbstractAD.BasicADListener {
     void onADLoaded(List<NativeUnifiedADData> list);
 }

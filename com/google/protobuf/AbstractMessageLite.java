@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractMessageLite implements MessageLite {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public abstract class AbstractMessageLite implements MessageLite {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static abstract class Builder<BuilderType extends Builder> implements MessageLite.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -173,7 +173,7 @@ public abstract class AbstractMessageLite implements MessageLite {
         @Override // com.google.protobuf.MessageLite.Builder
         public abstract BuilderType mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes10.dex */
         public static final class LimitedInputStream extends FilterInputStream {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -225,11 +225,11 @@ public abstract class AbstractMessageLite implements MessageLite {
             }
 
             @Override // java.io.FilterInputStream, java.io.InputStream
-            public long skip(long j) throws IOException {
+            public long skip(long j2) throws IOException {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-                    long skip = super.skip(Math.min(j, this.limit));
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
+                    long skip = super.skip(Math.min(j2, this.limit));
                     if (skip >= 0) {
                         this.limit = (int) (this.limit - skip);
                     }

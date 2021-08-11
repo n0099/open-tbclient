@@ -1,5 +1,6 @@
 package com.baidu.tieba.frs.adModel;
 
+import c.a.p0.v0.g1.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,12 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.q0.u0.g1.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;
 import tbclient.GetADList.GetADListResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ADHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,13 +83,13 @@ public class ADHttpResponseMessage extends TbHttpResponsedMessage {
         }
         for (int i3 = 0; i3 < getADListResIdl.data.ad_list.size(); i3++) {
             c cVar = new c();
-            cVar.q(getADListResIdl.data.ad_list.get(i3));
+            cVar.w(getADListResIdl.data.ad_list.get(i3));
             if (getADListResIdl.data.ad_list.size() - 1 == i3) {
-                cVar.t(true);
+                cVar.x(true);
             } else {
-                cVar.t(false);
+                cVar.x(false);
             }
-            if (cVar.p() == 0 || cVar.p() == 2) {
+            if (cVar.t() == 0 || cVar.t() == 2) {
                 this.list.add(cVar);
             }
         }

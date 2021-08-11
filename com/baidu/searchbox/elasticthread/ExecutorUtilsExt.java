@@ -1,7 +1,6 @@
 package com.baidu.searchbox.elasticthread;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ExecutorUtilsExt {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -40,42 +39,36 @@ public class ExecutorUtilsExt {
         }
     }
 
-    public static void delayPostOnElastic(@NonNull Runnable runnable, @NonNull String str, int i2, long j) {
+    public static void delayPostOnElastic(@NonNull Runnable runnable, @NonNull String str, int i2, long j2) {
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{runnable, str, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            if (runnable == null) {
-                Log.w(TAG, "received a null task ");
-                return;
-            }
-            if (i2 == 0 || i2 == 1 || i2 == 2 || i2 == 3) {
-                i3 = i2;
-            } else {
-                Log.w(TAG, "illegal priority " + i2);
-                i3 = 3;
-            }
-            ElasticConfig.updateConfig();
-            if (ElasticConfig.elasticExecutorDisabled()) {
-                BackupExecutors.getInstance().postThreadPoolTask(runnable, j);
-            } else {
-                ElasticTaskScheduler.getInstance().postConcurrentTaskDelay(runnable, getStandardTaskName(str, ELASTIC_TASK_NAME_PREFIX), i3, j);
-            }
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{runnable, str, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || runnable == null) {
+            return;
+        }
+        if (i2 == 0 || i2 == 1 || i2 == 2 || i2 == 3) {
+            i3 = i2;
+        } else {
+            String str2 = "illegal priority " + i2;
+            i3 = 3;
+        }
+        ElasticConfig.updateConfig();
+        if (ElasticConfig.elasticExecutorDisabled()) {
+            BackupExecutors.getInstance().postThreadPoolTask(runnable, j2);
+        } else {
+            ElasticTaskScheduler.getInstance().postConcurrentTaskDelay(runnable, getStandardTaskName(str, ELASTIC_TASK_NAME_PREFIX), i3, j2);
         }
     }
 
-    public static void delayPostOnSerial(@NonNull Runnable runnable, @NonNull String str, long j) {
+    public static void delayPostOnSerial(@NonNull Runnable runnable, @NonNull String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
-            if (runnable == null) {
-                Log.w(TAG, "received a null task ");
-                return;
-            }
-            ElasticConfig.updateConfig();
-            if (ElasticConfig.elasticExecutorDisabled()) {
-                BackupExecutors.getInstance().postSerialTask(runnable, j);
-            } else {
-                ElasticTaskScheduler.getInstance().postSerialTaskDelay(runnable, getStandardTaskName(str, SERIAL_TASK_NAME_PREFIX), 4, j);
-            }
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, str, Long.valueOf(j2)}) == null) || runnable == null) {
+            return;
+        }
+        ElasticConfig.updateConfig();
+        if (ElasticConfig.elasticExecutorDisabled()) {
+            BackupExecutors.getInstance().postSerialTask(runnable, j2);
+        } else {
+            ElasticTaskScheduler.getInstance().postSerialTaskDelay(runnable, getStandardTaskName(str, SERIAL_TASK_NAME_PREFIX), 4, j2);
         }
     }
 
@@ -123,7 +116,6 @@ public class ExecutorUtilsExt {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2)) == null) {
             if (TextUtils.isEmpty(str)) {
-                Log.w(TAG, "received an empty task name ");
                 str = "default";
             }
             String str3 = str2 + str;

@@ -15,27 +15,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CircleView1080 extends View {
     public static /* synthetic */ Interceptable $ic = null;
-    public static int j = 360;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static int f47237j = 360;
     public static int k = 100;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12306e;
+    public int f47238e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12307f;
+    public int f47239f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f12308g;
+    public Paint f47240g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RectF f12309h;
+    public RectF f47241h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12310i;
+    public int f47242i;
 
     static {
         InterceptResult invokeClinit;
@@ -71,25 +73,25 @@ public class CircleView1080 extends View {
                 return;
             }
         }
-        this.f12310i = 0;
-        a();
+        this.f47242i = 0;
+        init();
     }
 
-    public void a() {
+    public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f12306e = getResources().getDimensionPixelSize(R.dimen.tbds122);
-            this.f12307f = getResources().getDimensionPixelSize(R.dimen.tbds6);
+            this.f47238e = getResources().getDimensionPixelSize(R.dimen.tbds122);
+            this.f47239f = getResources().getDimensionPixelSize(R.dimen.tbds6);
             Paint paint = new Paint();
-            this.f12308g = paint;
-            paint.setStrokeWidth(this.f12307f);
-            this.f12308g.setColor(getResources().getColor(R.color.CAM_X0111));
-            this.f12308g.setStyle(Paint.Style.STROKE);
-            this.f12308g.setAntiAlias(true);
-            this.f12308g.setStrokeCap(Paint.Cap.ROUND);
-            int i2 = this.f12307f;
-            int i3 = this.f12306e;
-            this.f12309h = new RectF(i2 / 2, i2 / 2, (i2 / 2) + i3, i3 + (i2 / 2));
+            this.f47240g = paint;
+            paint.setStrokeWidth(this.f47239f);
+            this.f47240g.setColor(getResources().getColor(R.color.CAM_X0111));
+            this.f47240g.setStyle(Paint.Style.STROKE);
+            this.f47240g.setAntiAlias(true);
+            this.f47240g.setStrokeCap(Paint.Cap.ROUND);
+            int i2 = this.f47239f;
+            int i3 = this.f47238e;
+            this.f47241h = new RectF(i2 / 2, i2 / 2, (i2 / 2) + i3, i3 + (i2 / 2));
         }
     }
 
@@ -97,14 +99,14 @@ public class CircleView1080 extends View {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            canvas.drawArc(this.f12309h, 270.0f, (j * this.f12310i) / k, false, this.f12308g);
+            canvas.drawArc(this.f47241h, 270.0f, (f47237j * this.f47242i) / k, false, this.f47240g);
         }
     }
 
     public void setProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f12310i = i2;
+            this.f47242i = i2;
             invalidate();
         }
     }
@@ -128,8 +130,8 @@ public class CircleView1080 extends View {
                 return;
             }
         }
-        this.f12310i = 0;
-        a();
+        this.f47242i = 0;
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -150,7 +152,7 @@ public class CircleView1080 extends View {
                 return;
             }
         }
-        this.f12310i = 0;
-        a();
+        this.f47242i = 0;
+        init();
     }
 }

@@ -9,46 +9,46 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class bk implements ai {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile bk f40920a;
+    public static volatile bk f77796a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f934a;
+    public long f938a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f935a;
+    public Context f939a;
 
     /* renamed from: a  reason: collision with other field name */
-    public SharedPreferences f936a;
+    public SharedPreferences f940a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ConcurrentHashMap<String, a> f937a;
+    public ConcurrentHashMap<String, a> f941a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile boolean f938a;
+    public volatile boolean f942a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f40921a;
+        public long f77797a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f939a;
+        public String f943a;
 
-        public a(String str, long j) {
+        public a(String str, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Long.valueOf(j)};
+                Object[] objArr = {str, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -58,8 +58,8 @@ public final class bk implements ai {
                     return;
                 }
             }
-            this.f939a = str;
-            this.f40921a = j;
+            this.f943a = str;
+            this.f77797a = j2;
         }
 
         public abstract void a(bk bkVar);
@@ -67,17 +67,17 @@ public final class bk implements ai {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || bk.f40920a == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || bk.f77796a == null) {
                 return;
             }
-            Context context = bk.f40920a.f935a;
+            Context context = bk.f77796a.f939a;
             if (com.xiaomi.push.bg.d(context)) {
                 long currentTimeMillis = System.currentTimeMillis();
-                SharedPreferences sharedPreferences = bk.f40920a.f936a;
-                if (currentTimeMillis - sharedPreferences.getLong(":ts-" + this.f939a, 0L) > this.f40921a || com.xiaomi.push.af.a(context)) {
-                    SharedPreferences.Editor edit = bk.f40920a.f936a.edit();
-                    com.xiaomi.push.r.a(edit.putLong(":ts-" + this.f939a, System.currentTimeMillis()));
-                    a(bk.f40920a);
+                SharedPreferences sharedPreferences = bk.f77796a.f940a;
+                if (currentTimeMillis - sharedPreferences.getLong(":ts-" + this.f943a, 0L) > this.f77797a || com.xiaomi.push.af.a(context)) {
+                    SharedPreferences.Editor edit = bk.f77796a.f940a.edit();
+                    com.xiaomi.push.r.a(edit.putLong(":ts-" + this.f943a, System.currentTimeMillis()));
+                    a(bk.f77796a);
                 }
             }
         }
@@ -98,24 +98,24 @@ public final class bk implements ai {
                 return;
             }
         }
-        this.f938a = false;
-        this.f937a = new ConcurrentHashMap<>();
-        this.f935a = context.getApplicationContext();
-        this.f936a = context.getSharedPreferences("sync", 0);
+        this.f942a = false;
+        this.f941a = new ConcurrentHashMap<>();
+        this.f939a = context.getApplicationContext();
+        this.f940a = context.getSharedPreferences("sync", 0);
     }
 
     public static bk a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f40920a == null) {
+            if (f77796a == null) {
                 synchronized (bk.class) {
-                    if (f40920a == null) {
-                        f40920a = new bk(context);
+                    if (f77796a == null) {
+                        f77796a = new bk(context);
                     }
                 }
             }
-            return f40920a;
+            return f77796a;
         }
         return (bk) invokeL.objValue;
     }
@@ -124,7 +124,7 @@ public final class bk implements ai {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            SharedPreferences sharedPreferences = this.f936a;
+            SharedPreferences sharedPreferences = this.f940a;
             return sharedPreferences.getString(str + ":" + str2, "");
         }
         return (String) invokeLL.objValue;
@@ -132,31 +132,31 @@ public final class bk implements ai {
 
     @Override // com.xiaomi.push.service.ai
     /* renamed from: a  reason: collision with other method in class */
-    public void mo619a() {
+    public void mo622a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f938a) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f942a) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.f934a < 3600000) {
+        if (currentTimeMillis - this.f938a < 3600000) {
             return;
         }
-        this.f934a = currentTimeMillis;
-        this.f938a = true;
-        com.xiaomi.push.ai.a(this.f935a).a(new bl(this), (int) (Math.random() * 10.0d));
+        this.f938a = currentTimeMillis;
+        this.f942a = true;
+        com.xiaomi.push.ai.a(this.f939a).a(new bl(this), (int) (Math.random() * 10.0d));
     }
 
     public void a(a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) && this.f937a.putIfAbsent(aVar.f939a, aVar) == null) {
-            com.xiaomi.push.ai.a(this.f935a).a(aVar, ((int) (Math.random() * 30.0d)) + 10);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) && this.f941a.putIfAbsent(aVar.f943a, aVar) == null) {
+            com.xiaomi.push.ai.a(this.f939a).a(aVar, ((int) (Math.random() * 30.0d)) + 10);
         }
     }
 
     public void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-            SharedPreferences.Editor edit = f40920a.f936a.edit();
+            SharedPreferences.Editor edit = f77796a.f940a.edit();
             com.xiaomi.push.r.a(edit.putString(str + ":" + str2, str3));
         }
     }

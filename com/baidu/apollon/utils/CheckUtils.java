@@ -4,10 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.ApollonConstants;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,24 +16,24 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.regex.Pattern;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public final class CheckUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f4066a = "CheckUtils";
+    public static final String f37991a = "CheckUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f4067b = 3;
+    public static final int f37992b = 3;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f4068c = 12;
+    public static final int f37993c = 12;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f4069d = 4;
+    public static final int f37994d = 4;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f4070e;
+    public static long f37995e;
     public transient /* synthetic */ FieldHolder $fh;
 
     public CheckUtils() {
@@ -237,32 +235,26 @@ public final class CheckUtils {
 
     public static boolean isExternalStorageWriteable(Context context) {
         InterceptResult invokeL;
+        File externalFilesDir;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             boolean z = false;
-            if (TextUtils.equals("mounted", Environment.getExternalStorageState())) {
-                File externalFilesDir = context.getExternalFilesDir(null);
-                if (externalFilesDir != null && externalFilesDir.exists() && externalFilesDir.canWrite()) {
-                    File file = new File(externalFilesDir, ".test");
-                    if (file.exists()) {
-                        z = true;
-                    } else {
-                        try {
-                            z = file.createNewFile();
-                        } catch (IOException unused) {
-                            if (ApollonConstants.DEBUG) {
-                                Log.w("CheckUtils", "isExternalStorageWriteable() can't create test file.");
-                            }
-                        }
+            if (TextUtils.equals("mounted", Environment.getExternalStorageState()) && (externalFilesDir = context.getExternalFilesDir(null)) != null && externalFilesDir.exists() && externalFilesDir.canWrite()) {
+                File file = new File(externalFilesDir, ".test");
+                if (file.exists()) {
+                    z = true;
+                } else {
+                    try {
+                        z = file.createNewFile();
+                    } catch (IOException unused) {
+                        boolean z2 = ApollonConstants.DEBUG;
                     }
-                } else if (externalFilesDir == null) {
-                    PayStatisticsUtil.onEventWithValue("getExternalStorage", "application dir is null");
                 }
             }
             long currentTimeMillis2 = System.currentTimeMillis();
             if (ApollonConstants.DEBUG) {
-                Log.i("CheckUtils", "Utility.isExternalStorageWriteable(" + z + ") cost " + (currentTimeMillis2 - currentTimeMillis) + "ms.");
+                String str = "Utility.isExternalStorageWriteable(" + z + ") cost " + (currentTimeMillis2 - currentTimeMillis) + "ms.";
             }
             return z;
         }
@@ -274,13 +266,13 @@ public final class CheckUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j = currentTimeMillis - f4070e;
-            LogUtil.logd("timeD=" + j);
-            if (0 < j && j < 800) {
-                LogUtil.logd("点的太快了 timeD=" + j);
+            long j2 = currentTimeMillis - f37995e;
+            LogUtil.logd("timeD=" + j2);
+            if (0 < j2 && j2 < 800) {
+                LogUtil.logd("点的太快了 timeD=" + j2);
                 return true;
             }
-            f4070e = currentTimeMillis;
+            f37995e = currentTimeMillis;
             return false;
         }
         return invokeV.booleanValue;

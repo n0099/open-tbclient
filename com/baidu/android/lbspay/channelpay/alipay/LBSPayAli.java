@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.NoProguard;
+import com.dxmpay.wallet.core.NoProguard;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class LBSPayAli implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALI_AUTH_PAY = "authorize_pay";
@@ -32,23 +32,23 @@ public class LBSPayAli implements NoProguard {
     public String mServiceType;
 
     /* renamed from: com.baidu.android.lbspay.channelpay.alipay.LBSPayAli$1  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface INoSupportAliAuthorizePay {
         void onNoSupportAliAuthorizePay();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static LBSPayAli f2688a;
+        public static LBSPayAli f36563a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -64,7 +64,7 @@ public class LBSPayAli implements NoProguard {
                     return;
                 }
             }
-            f2688a = new LBSPayAli(null);
+            f36563a = new LBSPayAli(null);
         }
     }
 
@@ -75,7 +75,7 @@ public class LBSPayAli implements NoProguard {
     public static LBSPayAli getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f2688a : (LBSPayAli) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f36563a : (LBSPayAli) invokeV.objValue;
     }
 
     private void handleError() {

@@ -9,7 +9,10 @@ import android.text.TextUtils;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
+import c.p.a.e.a.d;
+import c.p.a.e.b.f.j;
+import c.p.a.e.b.g.e;
+import c.p.a.e.b.l.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,27 +24,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-import d.l.a.e.a.d;
-import d.l.a.e.b.f.j;
-import d.l.a.e.b.g.e;
-import d.l.a.e.b.l.f;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class DownloadHandlerService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38529a;
+    public static final String f75341a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadHandlerService f38530e;
+        public final /* synthetic */ DownloadHandlerService f75342e;
 
         public a(DownloadHandlerService downloadHandlerService) {
             Interceptable interceptable = $ic;
@@ -58,7 +57,7 @@ public class DownloadHandlerService extends Service {
                     return;
                 }
             }
-            this.f38530e = downloadHandlerService;
+            this.f75342e = downloadHandlerService;
         }
 
         @Override // java.lang.Runnable
@@ -69,7 +68,7 @@ public class DownloadHandlerService extends Service {
                     ArrayList arrayList = new ArrayList();
                     arrayList.add("application/vnd.android.package-archive");
                     arrayList.add("mime_type_plg");
-                    d.l.a.e.b.g.a.H(e.n()).z(arrayList);
+                    c.p.a.e.b.g.a.H(e.n()).z(arrayList);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -77,21 +76,21 @@ public class DownloadHandlerService extends Service {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f38531e;
+        public final /* synthetic */ DownloadInfo f75343e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.f f38532f;
+        public final /* synthetic */ d.f f75344f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.l.a.e.b.f.e f38533g;
+        public final /* synthetic */ c.p.a.e.b.f.e f75345g;
 
-        public b(DownloadInfo downloadInfo, d.f fVar, d.l.a.e.b.f.e eVar) {
+        public b(DownloadInfo downloadInfo, d.f fVar, c.p.a.e.b.f.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,9 +105,9 @@ public class DownloadHandlerService extends Service {
                     return;
                 }
             }
-            this.f38531e = downloadInfo;
-            this.f38532f = fVar;
-            this.f38533g = eVar;
+            this.f75343e = downloadInfo;
+            this.f75344f = fVar;
+            this.f75345g = eVar;
         }
 
         @Override // java.lang.Runnable
@@ -117,15 +116,15 @@ public class DownloadHandlerService extends Service {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    File file = new File(this.f38531e.getSavePath(), this.f38531e.getName());
+                    File file = new File(this.f75343e.getSavePath(), this.f75343e.getName());
                     if (file.exists()) {
                         try {
-                            String str = (e.n() == null || (i2 = d.i(this.f38531e, file)) == null) ? "" : i2.packageName;
-                            if (this.f38532f != null) {
-                                this.f38532f.b(this.f38531e.getId(), 3, str, -3, this.f38531e.getDownloadTime());
+                            String str = (e.n() == null || (i2 = d.i(this.f75343e, file)) == null) ? "" : i2.packageName;
+                            if (this.f75344f != null) {
+                                this.f75344f.b(this.f75343e.getId(), 3, str, -3, this.f75343e.getDownloadTime());
                             }
-                            if (this.f38533g != null) {
-                                this.f38533g.a(3, this.f38531e, str, "");
+                            if (this.f75345g != null) {
+                                this.f75345g.a(3, this.f75343e, str, "");
                             }
                         } catch (Exception e2) {
                             e2.printStackTrace();
@@ -151,7 +150,7 @@ public class DownloadHandlerService extends Service {
                 return;
             }
         }
-        f38529a = DownloadHandlerService.class.getSimpleName();
+        f75341a = DownloadHandlerService.class.getSimpleName();
     }
 
     public DownloadHandlerService() {
@@ -181,13 +180,13 @@ public class DownloadHandlerService extends Service {
             }
             int intExtra = intent.getIntExtra("extra_click_download_ids", 0);
             intent.getIntExtra("extra_click_download_type", 0);
-            d.f u = d.l.a.e.a.e.G().u();
-            d.l.a.e.b.f.e i2 = d.l.a.e.b.g.a.H(this).i(intExtra);
+            d.f u = c.p.a.e.a.e.G().u();
+            c.p.a.e.b.f.e i2 = c.p.a.e.b.g.a.H(this).i(intExtra);
             boolean z = true;
-            if (intent.getBooleanExtra("extra_from_notification", false) && d.l.a.e.b.j.a.d(intExtra).m("notification_opt_2") == 1) {
-                d.l.a.e.b.p.b.a().m(intExtra);
+            if (intent.getBooleanExtra("extra_from_notification", false) && c.p.a.e.b.j.a.d(intExtra).m("notification_opt_2") == 1) {
+                c.p.a.e.b.p.b.a().m(intExtra);
             }
-            DownloadInfo f2 = d.l.a.e.b.g.a.H(this).f(intExtra);
+            DownloadInfo f2 = c.p.a.e.b.g.a.H(this).f(intExtra);
             if (f2 == null) {
                 return false;
             }
@@ -200,16 +199,16 @@ public class DownloadHandlerService extends Service {
                     return false;
                 }
                 a(this, f2, u, i2);
-                if (f2.isDownloadOverStatus() && d.l.a.e.b.j.a.d(intExtra).b("no_hide_notification", 0) == 0) {
-                    if (!((d.l.a.e.b.j.a.d(intExtra).m("enable_notification_ui") < 2 || f2.getStatus() != -1) ? false : false)) {
-                        d.l.a.e.b.p.b.a().b(intExtra);
-                        d.l.a.e.b.p.b.a().m(intExtra);
+                if (f2.isDownloadOverStatus() && c.p.a.e.b.j.a.d(intExtra).b("no_hide_notification", 0) == 0) {
+                    if (!((c.p.a.e.b.j.a.d(intExtra).m("enable_notification_ui") < 2 || f2.getStatus() != -1) ? false : false)) {
+                        c.p.a.e.b.p.b.a().b(intExtra);
+                        c.p.a.e.b.p.b.a().m(intExtra);
                     }
                 }
             } else if (action.equals("android.ss.intent.action.DOWNLOAD_DELETE")) {
                 b(f2, u, i2);
             } else if (action.equals("android.ss.intent.action.DOWNLOAD_HIDE")) {
-                d.l.a.e.b.p.b.a().b(intExtra);
+                c.p.a.e.b.p.b.a().b(intExtra);
             } else if (action.equals("android.intent.action.BOOT_COMPLETED") || action.equals("android.intent.action.MEDIA_MOUNTED")) {
                 e.A0().execute(new a(this));
                 return true;
@@ -219,15 +218,15 @@ public class DownloadHandlerService extends Service {
         return invokeL.booleanValue;
     }
 
-    private void b(@NonNull DownloadInfo downloadInfo, d.f fVar, d.l.a.e.b.f.e eVar) {
+    private void b(@NonNull DownloadInfo downloadInfo, d.f fVar, c.p.a.e.b.f.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65544, this, downloadInfo, fVar, eVar) == null) {
             int id = downloadInfo.getId();
             Intent intent = new Intent(this, DownloadTaskDeleteActivity.class);
             intent.putExtra("extra_click_download_ids", id);
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            intent.addFlags(268435456);
             startActivity(intent);
-            d.l.a.e.b.p.b.a().b(id);
+            c.p.a.e.b.p.b.a().b(id);
             downloadInfo.updateDownloadTime();
             if (fVar != null) {
                 fVar.b(id, 7, "", downloadInfo.getStatus(), downloadInfo.getDownloadTime());
@@ -263,8 +262,8 @@ public class DownloadHandlerService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, intent, i2, i3)) == null) {
             super.onStartCommand(intent, i2, i3);
-            if (d.l.a.e.b.c.a.e()) {
-                d.l.a.e.b.c.a.g(f38529a, "onStartCommand");
+            if (c.p.a.e.b.c.a.e()) {
+                c.p.a.e.b.c.a.g(f75341a, "onStartCommand");
             }
             a(intent);
             stopSelf();
@@ -275,17 +274,17 @@ public class DownloadHandlerService extends Service {
 
     public static void a(Context context, DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, context, downloadInfo) == null) && f.g0(context.getApplicationContext()) && downloadInfo.isPauseReserveOnWifi()) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, downloadInfo) == null) && f.g0(context.getApplicationContext()) && downloadInfo.isPauseReserveOnWifi()) {
             downloadInfo.stopPauseReserveOnWifi();
         }
     }
 
     public static void a(Context context, d.f fVar, DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, fVar, downloadInfo) == null) || downloadInfo == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65539, null, context, fVar, downloadInfo) == null) || downloadInfo == null) {
             return;
         }
-        d.l.a.e.b.f.e i2 = d.l.a.e.b.g.a.H(context).i(downloadInfo.getId());
+        c.p.a.e.b.f.e i2 = c.p.a.e.b.g.a.H(context).i(downloadInfo.getId());
         if (fVar == null && i2 == null) {
             return;
         }
@@ -297,14 +296,14 @@ public class DownloadHandlerService extends Service {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(@NonNull DownloadInfo downloadInfo, d.f fVar, d.l.a.e.b.f.e eVar) {
+    private void a(@NonNull DownloadInfo downloadInfo, d.f fVar, c.p.a.e.b.f.e eVar) {
         boolean a2;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, downloadInfo, fVar, eVar) != null) {
             return;
         }
         int id = downloadInfo.getId();
-        j I = d.l.a.e.b.g.f.c().I(id);
+        j I = c.p.a.e.b.g.f.c().I(id);
         if (I != null) {
             try {
                 a2 = I.a(downloadInfo);
@@ -314,9 +313,9 @@ public class DownloadHandlerService extends Service {
             if (a2) {
                 Intent intent = new Intent(this, DownloadTaskDeleteActivity.class);
                 intent.putExtra("extra_click_download_ids", id);
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
                 startActivity(intent);
-                d.l.a.e.b.p.b.a().b(id);
+                c.p.a.e.b.p.b.a().b(id);
                 downloadInfo.updateDownloadTime();
                 if (fVar != null) {
                     fVar.b(id, 7, "", downloadInfo.getStatus(), downloadInfo.getDownloadTime());
@@ -340,9 +339,9 @@ public class DownloadHandlerService extends Service {
         DownloadInfo f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            if (z && (I = d.l.a.e.b.g.f.c().I(i2)) != null) {
+            if (z && (I = c.p.a.e.b.g.f.c().I(i2)) != null) {
                 try {
-                    f2 = d.l.a.e.b.g.a.H(context).f(i2);
+                    f2 = c.p.a.e.b.g.a.H(context).f(i2);
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -362,12 +361,12 @@ public class DownloadHandlerService extends Service {
         }
     }
 
-    public static void a(Context context, DownloadInfo downloadInfo, d.f fVar, d.l.a.e.b.f.e eVar) {
-        d.l.a.e.b.p.a l;
+    public static void a(Context context, DownloadInfo downloadInfo, d.f fVar, c.p.a.e.b.f.e eVar) {
+        c.p.a.e.b.p.a l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, downloadInfo, fVar, eVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(AdIconUtil.AD_TEXT_ID, null, context, downloadInfo, fVar, eVar) == null) {
             int id = downloadInfo.getId();
-            j I = d.l.a.e.b.g.f.c().I(id);
+            j I = c.p.a.e.b.g.f.c().I(id);
             if ("application/vnd.android.package-archive".equals(downloadInfo.getMimeType()) && I != null && d.v(context, downloadInfo) && I.c(downloadInfo)) {
                 return;
             }
@@ -375,28 +374,28 @@ public class DownloadHandlerService extends Service {
             switch (downloadInfo.getStatus()) {
                 case -4:
                 case -1:
-                    if (d.l.a.e.b.j.a.d(id).m("enable_notification_ui") >= 2 && downloadInfo.isOnlyWifi()) {
+                    if (c.p.a.e.b.j.a.d(id).m("enable_notification_ui") >= 2 && downloadInfo.isOnlyWifi()) {
                         downloadInfo.setOnlyWifi(false);
                     }
-                    d.l.a.e.b.g.a.H(context).y(id);
+                    c.p.a.e.b.g.a.H(context).y(id);
                     return;
                 case -3:
                     a(e.n(), id, true);
                     a(context, fVar, downloadInfo);
-                    if (d.l.a.e.b.j.a.d(id).b("notification_click_install_auto_cancel", 1) != 0 || (l = d.l.a.e.b.p.b.a().l(id)) == null) {
+                    if (c.p.a.e.b.j.a.d(id).b("notification_click_install_auto_cancel", 1) != 0 || (l = c.p.a.e.b.p.b.a().l(id)) == null) {
                         z = true;
                     } else {
                         l.p();
                         l.c(-3, null, false, true);
                     }
                     if (z) {
-                        d.l.a.e.b.p.b.a().b(id);
+                        c.p.a.e.b.p.b.a().b(id);
                         return;
                     }
                     return;
                 case -2:
-                    if (d.l.a.e.b.g.f.c().B(id)) {
-                        d.l.a.e.b.g.a.H(context).B(id);
+                    if (c.p.a.e.b.g.f.c().B(id)) {
+                        c.p.a.e.b.g.a.H(context).B(id);
                     } else {
                         d.s(downloadInfo, true, false);
                     }
@@ -416,7 +415,7 @@ public class DownloadHandlerService extends Service {
                 case 3:
                 case 4:
                 case 5:
-                    d.l.a.e.b.g.a.H(context).u(id);
+                    c.p.a.e.b.g.a.H(context).u(id);
                     a(context, downloadInfo);
                     if (fVar != null) {
                         fVar.b(id, 5, "", downloadInfo.getStatus(), downloadInfo.getDownloadTime());

@@ -1,23 +1,23 @@
 package com.bytedance.sdk.openadsdk.core.video.nativevideo;
 
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface c {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a();
 
-        void a(long j, int i2);
+        void a(long j2, int i2);
 
-        void a(long j, long j2);
+        void a(long j2, long j3);
 
-        void b(long j, int i2);
+        void b(long j2, int i2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface b {
-        void a(long j, long j2);
+        void a(long j2, long j3);
 
         void e_();
 
@@ -29,18 +29,18 @@ public interface c {
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.video.nativevideo.c$c  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0347c {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC1907c {
         void a(int i2, int i3);
 
         void i_();
     }
 
-    void a(long j);
+    void a(long j2);
 
     void a(a aVar);
 
-    void a(InterfaceC0347c interfaceC0347c);
+    void a(InterfaceC1907c interfaceC1907c);
 
     void a(e eVar);
 
@@ -52,11 +52,11 @@ public interface c {
 
     boolean a(com.bytedance.sdk.openadsdk.n.f.b bVar);
 
-    void b(long j);
+    void b(long j2);
 
     void b(boolean z);
 
-    void c(long j);
+    void c(long j2);
 
     void c(boolean z);
 

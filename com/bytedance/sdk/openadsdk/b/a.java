@@ -33,25 +33,25 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a implements a.b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f29359a = null;
+    public static volatile a f65236a = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f29360d = "com.bytedance.sdk.openadsdk.b.a";
+    public static final String f65237d = "com.bytedance.sdk.openadsdk.b.a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final HashSet f29361e;
+    public static final HashSet f65238e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public CopyOnWriteArrayList<JSONObject> f29362b;
+    public CopyOnWriteArrayList<JSONObject> f65239b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.q.a f29363c;
+    public com.bytedance.sdk.openadsdk.q.a f65240c;
 
     static {
         InterceptResult invokeClinit;
@@ -66,7 +66,7 @@ public class a implements a.b {
                 return;
             }
         }
-        f29361e = new HashSet(Arrays.asList("dalvik.system.VMStack.getThreadStackTrace", "java.lang.Thread.getStackTrace", f29360d));
+        f65238e = new HashSet(Arrays.asList("dalvik.system.VMStack.getThreadStackTrace", "java.lang.Thread.getStackTrace", f65237d));
     }
 
     public a() {
@@ -82,9 +82,9 @@ public class a implements a.b {
                 return;
             }
         }
-        this.f29362b = new CopyOnWriteArrayList<>();
+        this.f65239b = new CopyOnWriteArrayList<>();
         com.bytedance.sdk.openadsdk.q.a c2 = h.d().c();
-        this.f29363c = c2;
+        this.f65240c = c2;
         if (c2 != null) {
             c2.a(this);
         }
@@ -95,11 +95,11 @@ public class a implements a.b {
     public void c() {
         CopyOnWriteArrayList<JSONObject> copyOnWriteArrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || (copyOnWriteArrayList = this.f29362b) == null || copyOnWriteArrayList.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || (copyOnWriteArrayList = this.f65239b) == null || copyOnWriteArrayList.size() <= 0) {
             return;
         }
         JSONArray jSONArray = new JSONArray();
-        Iterator<JSONObject> it = this.f29362b.iterator();
+        Iterator<JSONObject> it = this.f65239b.iterator();
         while (it.hasNext()) {
             jSONArray.put(it.next());
         }
@@ -109,7 +109,7 @@ public class a implements a.b {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        this.f29362b.clear();
+        this.f65239b.clear();
         String l = q.l("/api/ad/union/sdk/callstack/batch/");
         k.b("CallChainStatistic", "params:" + jSONObject);
         JSONObject a2 = com.bytedance.sdk.component.utils.a.a(jSONObject);
@@ -121,7 +121,7 @@ public class a implements a.b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f29368a;
+            public final /* synthetic */ a f65245a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -138,7 +138,7 @@ public class a implements a.b {
                         return;
                     }
                 }
-                this.f29368a = this;
+                this.f65245a = this;
             }
 
             @Override // com.bytedance.sdk.component.net.callback.NetCallback
@@ -175,14 +175,14 @@ public class a implements a.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f29359a == null) {
+            if (f65236a == null) {
                 synchronized (a.class) {
-                    if (f29359a == null) {
-                        f29359a = new a();
+                    if (f65236a == null) {
+                        f65236a = new a();
                     }
                 }
             }
-            return f29359a;
+            return f65236a;
         }
         return (a) invokeV.objValue;
     }
@@ -211,16 +211,16 @@ public class a implements a.b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f29364a;
+                public final /* synthetic */ int f65241a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f29365b;
+                public final /* synthetic */ String f65242b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ StackTraceElement[] f29366c;
+                public final /* synthetic */ StackTraceElement[] f65243c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ a f29367d;
+                public final /* synthetic */ a f65244d;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -240,21 +240,21 @@ public class a implements a.b {
                             return;
                         }
                     }
-                    this.f29367d = this;
-                    this.f29364a = i2;
-                    this.f29365b = str;
-                    this.f29366c = r11;
+                    this.f65244d = this;
+                    this.f65241a = i2;
+                    this.f65242b = str;
+                    this.f65243c = r11;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f29367d.f29362b.add(this.f29367d.a(this.f29364a, this.f29365b, this.f29366c));
-                        if (this.f29367d.f29362b.size() < 3) {
+                        this.f65244d.f65239b.add(this.f65244d.a(this.f65241a, this.f65242b, this.f65243c));
+                        if (this.f65244d.f65239b.size() < 3) {
                             return;
                         }
-                        this.f29367d.c();
+                        this.f65244d.c();
                     }
                 }
             }, 1);
@@ -293,7 +293,7 @@ public class a implements a.b {
             JSONArray jSONArray = new JSONArray();
             for (StackTraceElement stackTraceElement : stackTraceElementArr) {
                 if (stackTraceElement != null) {
-                    if (!f29361e.contains(stackTraceElement.getClassName() + "." + stackTraceElement.getMethodName())) {
+                    if (!f65238e.contains(stackTraceElement.getClassName() + "." + stackTraceElement.getMethodName())) {
                         String className = stackTraceElement.getClassName();
                         if (className != null && className.startsWith("android.app")) {
                             break;

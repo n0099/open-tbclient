@@ -1,11 +1,11 @@
 package com.baidu.tieba.ala;
 
+import c.a.o0.o0.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,14 +17,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.o0.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AlaJumpStatStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a extends d.a.d.c.f.b {
+    /* loaded from: classes6.dex */
+    public static class a extends c.a.e.c.f.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,7 +49,7 @@ public class AlaJumpStatStatic {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
         /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-        @Override // d.a.d.c.f.f
+        @Override // c.a.e.c.f.f
         public /* bridge */ /* synthetic */ CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
             CustomMessage<?> customMessage2 = customMessage;
             process2(customMessage2, customMessageTask);
@@ -72,8 +71,8 @@ public class AlaJumpStatStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class b extends d.a.d.c.f.b {
+    /* loaded from: classes6.dex */
+    public static class b extends c.a.e.c.f.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -99,7 +98,7 @@ public class AlaJumpStatStatic {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
         /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-        @Override // d.a.d.c.f.f
+        @Override // c.a.e.c.f.f
         public /* bridge */ /* synthetic */ CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
             CustomMessage<?> customMessage2 = customMessage;
             process2(customMessage2, customMessageTask);
@@ -158,7 +157,7 @@ public class AlaJumpStatStatic {
     public static final void b(Object obj, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, obj, str) == null) {
-            d.a.d.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+            c.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.b("workflow", "ala_jump_fail");
             statsItem.b("config", str);
             statsItem.c("startTime", Long.valueOf(System.currentTimeMillis() - l.b().c()));
@@ -171,7 +170,7 @@ public class AlaJumpStatStatic {
                     if (alaLiveInfoCoreData != null) {
                         statsItem.c("hostUid", Long.valueOf(alaLiveInfoCoreData.userID));
                         statsItem.b("hostUname", alaLiveInfoCoreData.userName);
-                        statsItem.c(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, Long.valueOf(alaLiveInfoCoreData.liveID));
+                        statsItem.c("liveid", Long.valueOf(alaLiveInfoCoreData.liveID));
                     }
                 } catch (Throwable th) {
                     BdLog.e(th);

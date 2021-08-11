@@ -2,7 +2,6 @@ package com.baidu.spswitch.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
@@ -19,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SPSwitchPanelLinearLayout extends LinearLayout implements IPanelConflictLayout, IPanelHeightTarget {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG;
@@ -107,13 +106,11 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements IPanelCon
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
             if (DEBUG) {
-                String str = TAG;
-                Log.d(str, "panelLayout onMeasure, height: " + View.MeasureSpec.getSize(i3));
+                String str = "panelLayout onMeasure, height: " + View.MeasureSpec.getSize(i3);
             }
             int[] processOnMeasure = this.mPanelLayoutHandler.processOnMeasure(i2, i3);
             if (DEBUG) {
-                String str2 = TAG;
-                Log.d(str2, "panelLayout onMeasure after process, height: " + View.MeasureSpec.getSize(processOnMeasure[1]));
+                String str2 = "panelLayout onMeasure after process, height: " + View.MeasureSpec.getSize(processOnMeasure[1]);
             }
             super.onMeasure(processOnMeasure[0], processOnMeasure[1]);
         }

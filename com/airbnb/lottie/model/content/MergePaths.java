@@ -15,7 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes4.dex */
 public class MergePaths implements ContentModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +25,7 @@ public class MergePaths implements ContentModel {
     public final String name;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class MergePathsMode {
         public static final /* synthetic */ MergePathsMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -170,7 +171,7 @@ public class MergePaths implements ContentModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "MergePaths{mode=" + this.mode + '}';
+            return "MergePaths{mode=" + this.mode + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

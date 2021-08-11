@@ -1,14 +1,14 @@
 package com.google.common.collect;
 
+import c.i.d.c.o0;
+import c.i.d.c.v0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.d.c.o0;
-import d.f.d.c.v0;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class HashMultiset<E> extends AbstractMapBasedMultiset<E> {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -40,17 +40,17 @@ public class HashMultiset<E> extends AbstractMapBasedMultiset<E> {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? create(3) : (HashMultiset) invokeV.objValue;
     }
 
-    @Override // d.f.d.c.d, java.util.AbstractCollection, java.util.Collection, d.f.d.c.s0
+    @Override // c.i.d.c.d, java.util.AbstractCollection, java.util.Collection, c.i.d.c.s0
     public /* bridge */ /* synthetic */ boolean contains(Object obj) {
         return super.contains(obj);
     }
 
-    @Override // d.f.d.c.d, d.f.d.c.s0
+    @Override // c.i.d.c.d, c.i.d.c.s0
     public /* bridge */ /* synthetic */ Set elementSet() {
         return super.elementSet();
     }
 
-    @Override // d.f.d.c.d, d.f.d.c.s0
+    @Override // c.i.d.c.d, c.i.d.c.s0
     public /* bridge */ /* synthetic */ Set entrySet() {
         return super.entrySet();
     }
@@ -63,7 +63,7 @@ public class HashMultiset<E> extends AbstractMapBasedMultiset<E> {
         }
     }
 
-    @Override // d.f.d.c.d, java.util.AbstractCollection, java.util.Collection
+    @Override // c.i.d.c.d, java.util.AbstractCollection, java.util.Collection
     public /* bridge */ /* synthetic */ boolean isEmpty() {
         return super.isEmpty();
     }

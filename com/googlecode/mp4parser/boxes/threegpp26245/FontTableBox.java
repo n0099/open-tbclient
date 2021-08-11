@@ -16,9 +16,10 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import java.util.LinkedList;
 import java.util.List;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class FontTableBox extends AbstractBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "ftab";
@@ -27,7 +28,7 @@ public class FontTableBox extends AbstractBox {
     public transient /* synthetic */ FieldHolder $fh;
     public List<FontRecord> entries;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class FontRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +76,7 @@ public class FontTableBox extends AbstractBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return "FontRecord{fontId=" + this.fontId + ", fontname='" + this.fontname + "'}";
+                return "FontRecord{fontId=" + this.fontId + ", fontname='" + this.fontname + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }

@@ -3,6 +3,9 @@ package com.baidu.tieba.frs.examination;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import c.a.p0.v0.n1.a;
+import c.a.p0.v0.n1.b;
+import c.a.p0.v0.n1.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.frs.ForumWriteData;
@@ -12,10 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.u0.n1.a;
-import d.a.q0.u0.n1.b;
-import d.a.q0.u0.n1.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class UniversityEvaluationActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

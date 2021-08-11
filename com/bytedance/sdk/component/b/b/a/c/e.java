@@ -13,12 +13,12 @@ import com.bytedance.sdk.component.b.b.s;
 import com.bytedance.sdk.component.b.b.t;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f28332a;
+    public static final Pattern f64181a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class e {
                 return;
             }
         }
-        f28332a = Pattern.compile(" +([^ \"=]*)=(:?\"([^\"]*)\"|([^ \"=]*)) *(:?,|$)");
+        f64181a = Pattern.compile(" +([^ \"=]*)=(:?\"([^\"]*)\"|([^ \"=]*)) *(:?,|$)");
     }
 
     public static long a(ab abVar) {
@@ -80,7 +80,7 @@ public final class e {
 
     public static void a(m mVar, t tVar, s sVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, mVar, tVar, sVar) == null) || mVar == m.f28683a) {
+        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, mVar, tVar, sVar) == null) || mVar == m.f64542a) {
             return;
         }
         List<com.bytedance.sdk.component.b.b.l> a2 = com.bytedance.sdk.component.b.b.l.a(tVar, sVar);

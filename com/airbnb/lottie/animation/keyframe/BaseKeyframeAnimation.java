@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseKeyframeAnimation<K, A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,18 +31,18 @@ public abstract class BaseKeyframeAnimation<K, A> {
     public LottieValueCallback<A> valueCallback;
 
     /* renamed from: com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation$1  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface AnimationListener {
         void onValueChanged();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class EmptyKeyframeWrapper<T> implements KeyframesWrapper<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +126,7 @@ public abstract class BaseKeyframeAnimation<K, A> {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface KeyframesWrapper<T> {
         Keyframe<T> getCurrentKeyframe();
 
@@ -143,7 +143,7 @@ public abstract class BaseKeyframeAnimation<K, A> {
         boolean isValueChanged(float f2);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class KeyframesWrapperImpl<T> implements KeyframesWrapper<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -260,7 +260,7 @@ public abstract class BaseKeyframeAnimation<K, A> {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class SingleKeyframeWrapper<T> implements KeyframesWrapper<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

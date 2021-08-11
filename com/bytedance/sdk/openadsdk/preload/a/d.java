@@ -12,30 +12,30 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.util.Locale;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class d implements e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d f32205a;
+    public static final d f68159a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d f32206b;
+    public static final d f68160b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final d f32207c;
+    public static final d f68161c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final d f32208d;
+    public static final d f68162d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final d f32209e;
+    public static final d f68163e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final d f32210f;
+    public static final d f68164f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final /* synthetic */ d[] f32211g;
+    public static final /* synthetic */ d[] f68165g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,7 +51,7 @@ public abstract class d implements e {
                 return;
             }
         }
-        f32205a = new d("IDENTITY", 0) { // from class: com.bytedance.sdk.openadsdk.preload.a.d.1
+        f68159a = new d("IDENTITY", 0) { // from class: com.bytedance.sdk.openadsdk.preload.a.d.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -83,7 +83,7 @@ public abstract class d implements e {
                 return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) ? field.getName() : (String) invokeL.objValue;
             }
         };
-        f32206b = new d("UPPER_CAMEL_CASE", 1) { // from class: com.bytedance.sdk.openadsdk.preload.a.d.2
+        f68160b = new d("UPPER_CAMEL_CASE", 1) { // from class: com.bytedance.sdk.openadsdk.preload.a.d.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -115,7 +115,7 @@ public abstract class d implements e {
                 return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) ? d.a(field.getName()) : (String) invokeL.objValue;
             }
         };
-        f32207c = new d("UPPER_CAMEL_CASE_WITH_SPACES", 2) { // from class: com.bytedance.sdk.openadsdk.preload.a.d.3
+        f68161c = new d("UPPER_CAMEL_CASE_WITH_SPACES", 2) { // from class: com.bytedance.sdk.openadsdk.preload.a.d.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -147,7 +147,7 @@ public abstract class d implements e {
                 return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) ? d.a(d.a(field.getName(), " ")) : (String) invokeL.objValue;
             }
         };
-        f32208d = new d("LOWER_CASE_WITH_UNDERSCORES", 3) { // from class: com.bytedance.sdk.openadsdk.preload.a.d.4
+        f68162d = new d("LOWER_CASE_WITH_UNDERSCORES", 3) { // from class: com.bytedance.sdk.openadsdk.preload.a.d.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -179,7 +179,7 @@ public abstract class d implements e {
                 return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) ? d.a(field.getName(), "_").toLowerCase(Locale.ENGLISH) : (String) invokeL.objValue;
             }
         };
-        f32209e = new d("LOWER_CASE_WITH_DASHES", 4) { // from class: com.bytedance.sdk.openadsdk.preload.a.d.5
+        f68163e = new d("LOWER_CASE_WITH_DASHES", 4) { // from class: com.bytedance.sdk.openadsdk.preload.a.d.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -243,8 +243,8 @@ public abstract class d implements e {
                 return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, field)) == null) ? d.a(field.getName(), ".").toLowerCase(Locale.ENGLISH) : (String) invokeL.objValue;
             }
         };
-        f32210f = dVar;
-        f32211g = new d[]{f32205a, f32206b, f32207c, f32208d, f32209e, dVar};
+        f68164f = dVar;
+        f68165g = new d[]{f68159a, f68160b, f68161c, f68162d, f68163e, dVar};
     }
 
     public d(String str, int i2) {
@@ -293,7 +293,7 @@ public abstract class d implements e {
     public static d[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? (d[]) f32211g.clone() : (d[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? (d[]) f68165g.clone() : (d[]) invokeV.objValue;
     }
 
     public static String a(String str) {

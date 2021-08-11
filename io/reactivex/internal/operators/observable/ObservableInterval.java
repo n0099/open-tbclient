@@ -14,7 +14,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.schedulers.TrampolineScheduler;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ObservableInterval extends Observable<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public final class ObservableInterval extends Observable<Long> {
     public final Scheduler scheduler;
     public final TimeUnit unit;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class IntervalObserver extends AtomicReference<Disposable> implements Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 346773832286157679L;
@@ -71,9 +71,9 @@ public final class ObservableInterval extends Observable<Long> {
                 return;
             }
             Observer<? super Long> observer = this.actual;
-            long j = this.count;
-            this.count = 1 + j;
-            observer.onNext(Long.valueOf(j));
+            long j2 = this.count;
+            this.count = 1 + j2;
+            observer.onNext(Long.valueOf(j2));
         }
 
         public void setResource(Disposable disposable) {
@@ -84,12 +84,12 @@ public final class ObservableInterval extends Observable<Long> {
         }
     }
 
-    public ObservableInterval(long j, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public ObservableInterval(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler};
+            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), timeUnit, scheduler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -99,8 +99,8 @@ public final class ObservableInterval extends Observable<Long> {
                 return;
             }
         }
-        this.initialDelay = j;
-        this.period = j2;
+        this.initialDelay = j2;
+        this.period = j3;
         this.unit = timeUnit;
         this.scheduler = scheduler;
     }

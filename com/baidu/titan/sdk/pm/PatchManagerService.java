@@ -28,7 +28,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PatchManagerService {
     public static final boolean DEBUG = false;
     public static final String PATCH_INSTALL_TMP_PREFIX = "tmp_patch_install_";
@@ -320,26 +320,23 @@ public class PatchManagerService {
     public int installSyncLocked(Uri uri, Bundle bundle, Bundle bundle2) {
         FileInputStream fileInputStream;
         try {
-            try {
-                if ("file".equals(uri.getScheme())) {
-                    String path = uri.getPath();
-                    if (path.startsWith("/android_asset/")) {
-                        fileInputStream = this.mContext.getAssets().open(path.substring(15));
-                    } else {
-                        fileInputStream = new FileInputStream(path);
-                    }
-                    int installSyncLocked = installSyncLocked(fileInputStream, bundle, bundle2);
-                    Closes.closeQuiet(fileInputStream);
-                    doCleanPatchsLocked();
-                    return installSyncLocked;
+            if ("file".equals(uri.getScheme())) {
+                String path = uri.getPath();
+                if (path.startsWith("/android_asset/")) {
+                    fileInputStream = this.mContext.getAssets().open(path.substring(15));
+                } else {
+                    fileInputStream = new FileInputStream(path);
                 }
-                throw new IllegalArgumentException("unkown uri");
-            } catch (IOException e2) {
-                Log.d(TAG, "[install] ERROR", e2);
-                Closes.closeQuiet((InputStream) null);
+                int installSyncLocked = installSyncLocked(fileInputStream, bundle, bundle2);
+                Closes.closeQuiet(fileInputStream);
                 doCleanPatchsLocked();
-                return -3;
+                return installSyncLocked;
             }
+            throw new IllegalArgumentException("unkown uri");
+        } catch (IOException unused) {
+            Closes.closeQuiet((InputStream) null);
+            doCleanPatchsLocked();
+            return -3;
         } catch (Throwable th) {
             Closes.closeQuiet((InputStream) null);
             doCleanPatchsLocked();

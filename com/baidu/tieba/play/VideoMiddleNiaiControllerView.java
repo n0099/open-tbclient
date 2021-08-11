@@ -15,17 +15,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class VideoMiddleNiaiControllerView extends VideoControllerView {
-    public static /* synthetic */ Interceptable $ic;
-    public static final int v;
-    public static final int w;
-    public static final int x;
-    public static final int y;
-    public static final int z;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int BOTTOM_HEIGHT;
+    public static final int EIGHT_WIDTH_PADDING_TOP;
+    public static final int THREE_WIDTH_PADDING_TOP;
+    public static final int TYPE_BOTTOM = 1;
+    public static final int TYPE_VERTICLE_CENTER = 0;
+    public static final int VERTICLE_CENTER_HEIGHT;
+    public static final int VERTICLE_CENTER_PADDING_BOTTOM;
     public transient /* synthetic */ FieldHolder $fh;
-    public View t;
-    public LinearVideoLoadingSeekBar u;
+    public View p;
+    public LinearVideoLoadingSeekBar q;
 
     static {
         InterceptResult invokeClinit;
@@ -40,11 +42,11 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
                 return;
             }
         }
-        v = UtilHelper.getDimenPixelSize(R.dimen.tbds52);
-        w = UtilHelper.getDimenPixelSize(R.dimen.tbds117);
-        x = UtilHelper.getDimenPixelSize(R.dimen.tbds49);
-        y = UtilHelper.getDimenPixelSize(R.dimen.tbds44);
-        z = UtilHelper.getDimenPixelSize(R.dimen.tbds37);
+        BOTTOM_HEIGHT = UtilHelper.getDimenPixelSize(R.dimen.tbds52);
+        VERTICLE_CENTER_HEIGHT = UtilHelper.getDimenPixelSize(R.dimen.tbds117);
+        THREE_WIDTH_PADDING_TOP = UtilHelper.getDimenPixelSize(R.dimen.tbds49);
+        EIGHT_WIDTH_PADDING_TOP = UtilHelper.getDimenPixelSize(R.dimen.tbds44);
+        VERTICLE_CENTER_PADDING_BOTTOM = UtilHelper.getDimenPixelSize(R.dimen.tbds37);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,91 +70,91 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
-    public View l(Context context) {
+    public View getLayout(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             View inflate = View.inflate(context, R.layout.video_middle_naivi_controller, null);
-            this.t = inflate;
-            this.u = (LinearVideoLoadingSeekBar) inflate.findViewById(R.id.pb_video_controller_seekBar);
-            return this.t;
+            this.p = inflate;
+            this.q = (LinearVideoLoadingSeekBar) inflate.findViewById(R.id.pb_video_controller_seekBar);
+            return this.p;
         }
         return (View) invokeL.objValue;
     }
 
-    public void setBottomBarShow(boolean z2, int i2) {
+    public void initProgressUIType(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            if (i2 == 1) {
+                o();
+            } else {
+                m();
+            }
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.p.getLayoutParams().height = VERTICLE_CENTER_HEIGHT;
+            SeekBar seekBar = this.mProgress;
+            seekBar.setPadding(seekBar.getPaddingLeft(), EIGHT_WIDTH_PADDING_TOP, this.mProgress.getPaddingRight(), VERTICLE_CENTER_PADDING_BOTTOM);
+            this.p.requestLayout();
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.p.getLayoutParams().height = BOTTOM_HEIGHT;
+            SeekBar seekBar = this.mProgress;
+            seekBar.setPadding(seekBar.getPaddingLeft(), EIGHT_WIDTH_PADDING_TOP, this.mProgress.getPaddingRight(), this.mProgress.getPaddingBottom());
+            this.p.requestLayout();
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.p.getLayoutParams().height = BOTTOM_HEIGHT;
+            SeekBar seekBar = this.mProgress;
+            seekBar.setPadding(seekBar.getPaddingLeft(), THREE_WIDTH_PADDING_TOP, this.mProgress.getPaddingRight(), 0);
+            this.p.requestLayout();
+        }
+    }
+
+    public void setBottomBarShow(boolean z, int i2) {
         SeekBar seekBar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) || (seekBar = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (seekBar = this.mProgress) == null) {
             return;
         }
-        if (z2) {
+        if (z) {
             seekBar.setThumb(null);
             if (i2 == 1) {
-                w();
+                o();
             } else {
-                u();
+                m();
             }
-            this.l.setProgressDrawable(SkinManager.getDrawable(R.drawable.video_navi_video_three_width_seekbar));
+            this.mProgress.setProgressDrawable(SkinManager.getDrawable(R.drawable.video_navi_video_three_width_seekbar));
             return;
         }
         seekBar.setThumb(null);
         if (i2 == 1) {
-            v();
+            n();
         } else {
-            u();
+            m();
         }
-        this.l.setProgressDrawable(SkinManager.getDrawable(R.drawable.video_navi_video_eight_width_seekbar));
+        this.mProgress.setProgressDrawable(SkinManager.getDrawable(R.drawable.video_navi_video_eight_width_seekbar));
     }
 
-    public void setLoading(boolean z2) {
+    public void setLoading(boolean z) {
         LinearVideoLoadingSeekBar linearVideoLoadingSeekBar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z2) == null) || (linearVideoLoadingSeekBar = this.u) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (linearVideoLoadingSeekBar = this.q) == null) {
             return;
         }
-        linearVideoLoadingSeekBar.setLoading(z2);
-    }
-
-    public void t(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            if (i2 == 1) {
-                w();
-            } else {
-                u();
-            }
-        }
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.t.getLayoutParams().height = w;
-            SeekBar seekBar = this.l;
-            seekBar.setPadding(seekBar.getPaddingLeft(), 0, this.l.getPaddingRight(), z);
-            this.t.requestLayout();
-        }
-    }
-
-    public final void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.t.getLayoutParams().height = v;
-            SeekBar seekBar = this.l;
-            seekBar.setPadding(seekBar.getPaddingLeft(), y, this.l.getPaddingRight(), this.l.getPaddingBottom());
-            this.t.requestLayout();
-        }
-    }
-
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.t.getLayoutParams().height = v;
-            SeekBar seekBar = this.l;
-            seekBar.setPadding(seekBar.getPaddingLeft(), x, this.l.getPaddingRight(), 0);
-            this.t.requestLayout();
-        }
+        linearVideoLoadingSeekBar.setLoading(z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

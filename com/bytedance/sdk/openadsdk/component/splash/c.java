@@ -7,6 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.launch.stats.ActivitySpeedStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +31,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -95,15 +96,15 @@ public class c {
         return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, aVar)) == null) ? (aVar == null || aVar.c() == null || aVar.c().isEmpty() || aVar.c().get(0) == null) ? false : true : invokeL.booleanValue;
     }
 
-    public static void a(AdSlot adSlot, boolean z, long j, long j2) {
+    public static void a(AdSlot adSlot, boolean z, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{adSlot, Boolean.valueOf(z), Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{adSlot, Boolean.valueOf(z), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             int i2 = z ? 2 : 1;
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.putOpt("available_type", Integer.valueOf(i2));
-                jSONObject.putOpt("creative_check_duration", Long.valueOf(j2));
-                com.bytedance.sdk.openadsdk.j.a.a().m(com.bytedance.sdk.openadsdk.j.a.c.b().a(4).c(adSlot.getCodeId()).b((int) j).b(jSONObject.toString()));
+                jSONObject.putOpt("creative_check_duration", Long.valueOf(j3));
+                com.bytedance.sdk.openadsdk.j.a.a().m(com.bytedance.sdk.openadsdk.j.a.c.b().a(4).c(adSlot.getCodeId()).b((int) j2).b(jSONObject.toString()));
             } catch (Throwable unused) {
             }
         }
@@ -116,10 +117,10 @@ public class c {
         }
     }
 
-    public static void a(long j, boolean z, boolean z2, m mVar, long j2, NetResponse netResponse) {
+    public static void a(long j2, boolean z, boolean z2, m mVar, long j3, NetResponse netResponse) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2), mVar, Long.valueOf(j2), netResponse}) == null) {
-            long elapsedRealtime = SystemClock.elapsedRealtime() - j;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2), mVar, Long.valueOf(j3), netResponse}) == null) {
+            long elapsedRealtime = SystemClock.elapsedRealtime() - j2;
             String str = z ? z2 ? "load_video_success" : "load_video_error" : z2 ? "download_video_image_success" : "download_video_image_fail";
             String str2 = null;
             if (!z2 && netResponse != null && netResponse.getMessage() != null) {
@@ -127,12 +128,12 @@ public class c {
             }
             String str3 = str2;
             if (z) {
-                Map<String, Object> a2 = com.bytedance.sdk.openadsdk.q.q.a(z2, mVar, elapsedRealtime, j2, str3);
+                Map<String, Object> a2 = com.bytedance.sdk.openadsdk.q.q.a(z2, mVar, elapsedRealtime, j3, str3);
                 a2.put("splash_show_type", 1);
                 com.bytedance.sdk.openadsdk.e.d.e(o.a(), mVar, "splash_ad", str, a2);
                 return;
             }
-            Map<String, Object> b2 = com.bytedance.sdk.openadsdk.q.q.b(z2, mVar, elapsedRealtime, j2, str3);
+            Map<String, Object> b2 = com.bytedance.sdk.openadsdk.q.q.b(z2, mVar, elapsedRealtime, j3, str3);
             b2.put("splash_show_type", 2);
             com.bytedance.sdk.openadsdk.e.d.d(o.a(), mVar, "splash_ad", str, b2);
         }
@@ -174,19 +175,19 @@ public class c {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ boolean f29833a;
+                    public final /* synthetic */ boolean f65726a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ File f29834b;
+                    public final /* synthetic */ File f65727b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.a f29835c;
+                    public final /* synthetic */ com.bytedance.sdk.openadsdk.core.e.a f65728c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ m f29836d;
+                    public final /* synthetic */ m f65729d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ long f29837e;
+                    public final /* synthetic */ long f65730e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -203,18 +204,18 @@ public class c {
                                 return;
                             }
                         }
-                        this.f29833a = aN;
-                        this.f29834b = a2;
-                        this.f29835c = aVar;
-                        this.f29836d = mVar;
-                        this.f29837e = elapsedRealtime;
+                        this.f65726a = aN;
+                        this.f65727b = a2;
+                        this.f65728c = aVar;
+                        this.f65729d = mVar;
+                        this.f65730e = elapsedRealtime;
                     }
 
                     @Override // com.bytedance.sdk.component.net.callback.NetCallback
                     public void onFailure(NetExecutor netExecutor, IOException iOException) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, netExecutor, iOException) == null) {
-                            c.a(this.f29837e, true, false, this.f29836d, -2L, new NetResponse(false, -2, iOException.getMessage(), null, null, this.f29837e, SystemClock.elapsedRealtime()));
+                            c.a(this.f65730e, true, false, this.f65729d, -2L, new NetResponse(false, -2, iOException.getMessage(), null, null, this.f65730e, SystemClock.elapsedRealtime()));
                         }
                     }
 
@@ -223,16 +224,16 @@ public class c {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netExecutor, netResponse) == null) {
                             if (netResponse.isSuccess() && netResponse.getFile() != null && netResponse.getFile().exists()) {
-                                if (!this.f29833a) {
-                                    c.a(this.f29834b);
-                                    a.a(o.a()).a(this.f29834b);
+                                if (!this.f65726a) {
+                                    c.a(this.f65727b);
+                                    a.a(o.a()).a(this.f65727b);
                                 }
-                                a.a(o.a()).b(new q(this.f29835c, this.f29836d, null));
-                                a.a(o.a()).a(new q(this.f29835c, this.f29836d, null));
-                                c.a(this.f29837e, true, true, this.f29836d, 0L, netResponse);
+                                a.a(o.a()).b(new q(this.f65728c, this.f65729d, null));
+                                a.a(o.a()).a(new q(this.f65728c, this.f65729d, null));
+                                c.a(this.f65730e, true, true, this.f65729d, 0L, netResponse);
                                 return;
                             }
-                            c.a(this.f29837e, true, false, this.f29836d, netResponse.getCode(), netResponse);
+                            c.a(this.f65730e, true, false, this.f65729d, netResponse.getCode(), netResponse);
                         }
                     }
                 });
@@ -283,10 +284,10 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, str2)) == null) {
             if (o.h().C() == 1) {
-                k.f("splashLoadAd", "视频存储使用内部存储");
+                k.f(ActivitySpeedStats.SPLASH_LOADAD_DURATION, "视频存储使用内部存储");
                 return f.b(context, com.bytedance.sdk.openadsdk.multipro.b.b(), str, str2);
             }
-            k.f("splashLoadAd", "视频存储使用外存储");
+            k.f(ActivitySpeedStats.SPLASH_LOADAD_DURATION, "视频存储使用外存储");
             return f.a(context, com.bytedance.sdk.openadsdk.multipro.b.b(), str, str2);
         }
         return (File) invokeLLL.objValue;

@@ -22,7 +22,7 @@ import java.lang.ref.WeakReference;
 @KsAdSdkDynamicImpl(FileDownloadService.class)
 @Keep
 @SuppressLint({"Registered"})
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class FileDownloadServiceProxy extends com.kwad.sdk.c.c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "filedownloader";
@@ -32,7 +32,7 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.c.c {
 
     @KsAdSdkDynamicImpl(FileDownloadService.SeparateProcessService.class)
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class SeparateProcessServiceProxy extends FileDownloadServiceProxy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +91,7 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.c.c {
 
     @KsAdSdkDynamicImpl(FileDownloadService.SharedMainProcessService.class)
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class SharedMainProcessServiceProxy extends FileDownloadServiceProxy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,13 +149,13 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.c.c {
         this.context = service;
         com.kwai.filedownloader.f.c.a(service);
         try {
-            com.kwai.filedownloader.f.f.a(com.kwai.filedownloader.f.e.a().f37035a);
-            com.kwai.filedownloader.f.f.a(com.kwai.filedownloader.f.e.a().f37036b);
+            com.kwai.filedownloader.f.f.a(com.kwai.filedownloader.f.e.a().f73865a);
+            com.kwai.filedownloader.f.f.a(com.kwai.filedownloader.f.e.a().f73866b);
         } catch (IllegalAccessException e2) {
             e2.printStackTrace();
         }
         g gVar = new g();
-        this.handler = com.kwai.filedownloader.f.e.a().f37038d ? new e(new WeakReference(this), gVar) : new d(new WeakReference(this), gVar);
+        this.handler = com.kwai.filedownloader.f.e.a().f73868d ? new e(new WeakReference(this), gVar) : new d(new WeakReference(this), gVar);
     }
 
     @Override // com.kwad.sdk.c.c, com.kwad.sdk.api.proxy.IServiceProxy

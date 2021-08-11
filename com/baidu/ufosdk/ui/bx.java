@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class bx implements eq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f23650a;
+    public final /* synthetic */ FeedbackInputActivity f59386a;
 
     public bx(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class bx implements eq {
                 return;
             }
         }
-        this.f23650a = feedbackInputActivity;
+        this.f59386a = feedbackInputActivity;
     }
 
     @Override // com.baidu.ufosdk.ui.eq
@@ -38,11 +38,11 @@ public final class bx implements eq {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (str.equals("我的反馈")) {
-                this.f23650a.t = true;
-                Intent intent = new Intent(this.f23650a, FeedbackListActivity.class);
-                intent.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
-                this.f23650a.startActivity(intent);
-                this.f23650a.finish();
+                this.f59386a.t = true;
+                Intent intent = new Intent(this.f59386a, FeedbackListActivity.class);
+                intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f59177j);
+                this.f59386a.startActivity(intent);
+                this.f59386a.finish();
             } else if (str.equals("人工反馈")) {
                 new Thread(new by(this)).start();
             } else if (str.toLowerCase().startsWith("href")) {
@@ -56,7 +56,7 @@ public final class bx implements eq {
                     try {
                         com.baidu.ufosdk.f.c.a("打开浏览器...");
                         com.baidu.ufosdk.f.c.a(">>跳转链接：" + substring);
-                        this.f23650a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(substring)));
+                        this.f59386a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(substring)));
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -67,10 +67,10 @@ public final class bx implements eq {
                         Intent intent2 = new Intent();
                         intent2.setAction("android.intent.action.VIEW");
                         intent2.setData(Uri.parse(substring));
-                        this.f23650a.startActivity(intent2);
+                        this.f59386a.startActivity(intent2);
                     } catch (Exception e3) {
                         e3.printStackTrace();
-                        Toast.makeText(this.f23650a.getApplicationContext(), "打开失败，未安装百度地图！", 0).show();
+                        Toast.makeText(this.f59386a.getApplicationContext(), "打开失败，未安装百度地图！", 0).show();
                     }
                 }
             }

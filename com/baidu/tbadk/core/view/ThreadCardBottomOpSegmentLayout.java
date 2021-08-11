@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
@@ -16,20 +17,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AgreeView.d p0;
+    public AgreeView.d v;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a implements AgreeView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ThreadCardBottomOpSegmentLayout f12598a;
+        public final /* synthetic */ ThreadCardBottomOpSegmentLayout f47571a;
 
         public a(ThreadCardBottomOpSegmentLayout threadCardBottomOpSegmentLayout) {
             Interceptable interceptable = $ic;
@@ -46,14 +46,14 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                     return;
                 }
             }
-            this.f12598a = threadCardBottomOpSegmentLayout;
+            this.f47571a = threadCardBottomOpSegmentLayout;
         }
 
         @Override // com.baidu.tbadk.core.view.AgreeView.d
         public void a(View view, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-                this.f12598a.S(this.f12598a.Y(), z);
+                this.f47571a.x(this.f47571a.D(), z);
             }
         }
     }
@@ -76,27 +76,86 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 return;
             }
         }
-        this.p0 = new a(this);
+        this.v = new a(this);
+    }
+
+    public final boolean A(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            boolean isAgreeAlone = this.mAgreeView.isAgreeAlone();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mAgreeView.getLayoutParams();
+            int i2 = layoutParams.width;
+            float f2 = layoutParams.weight;
+            if (z) {
+                return (f2 == (isAgreeAlone ? 1.0f : 2.0f) && i2 == 0) ? false : true;
+            }
+            return (f2 == 0.0f && i2 == -2) ? false : true;
+        }
+        return invokeZ.booleanValue;
+    }
+
+    public final boolean B(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mShareContainer.getLayoutParams();
+            float f2 = layoutParams.weight;
+            int i2 = layoutParams.width;
+            return z ? (f2 == 1.0f && i2 == 0) ? false : true : (f2 == 0.0f && i2 == -2) ? false : true;
+        }
+        return invokeZ.booleanValue;
+    }
+
+    public final boolean D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData != null : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void J() {
+    public View getRootView(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.J();
-            this.f12603h.setVisibilityListener(this.p0);
-            boolean Y = Y();
-            if (X(Y) || V(Y)) {
-                this.f12603h.k(Y);
-                T(Y());
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? LayoutInflater.from(context).inflate(R.layout.new_thread_comment_and_praise_info_layout, (ViewGroup) this, true) : (View) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
+    public void initView(View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
+            super.initView(view);
+            this.mAgreeView.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
+            this.mAgreeView.isUseHomePageStyleAb(true);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
+    public void onDataAfterLayout() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            x(D(), this.mAgreeView.isAgreeAlone());
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
+    public void updateLayout() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.updateLayout();
+            this.mAgreeView.setVisibilityListener(this.v);
+            boolean D = D();
+            if (B(D) || A(D)) {
+                this.mAgreeView.adjustLayoutForWeight(D);
+                y(D());
             }
         }
     }
 
-    public final void S(boolean z, boolean z2) {
+    public final void x(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12603h.getLayoutParams();
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mAgreeView.getLayoutParams();
             int i2 = layoutParams.width;
             float f2 = layoutParams.weight;
             if (!z) {
@@ -105,9 +164,9 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 }
                 layoutParams.width = -2;
                 layoutParams.weight = 0.0f;
-                layoutParams.leftMargin = l.g(this.F, R.dimen.tbds50);
+                layoutParams.leftMargin = l.g(this.mContext, R.dimen.tbds50);
                 layoutParams.rightMargin = 0;
-                this.f12603h.setLayoutParams(layoutParams);
+                this.mAgreeView.setLayoutParams(layoutParams);
                 return;
             }
             float f3 = z2 ? 1.0f : 2.0f;
@@ -118,100 +177,41 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
             layoutParams.weight = f3;
             layoutParams.leftMargin = 0;
             layoutParams.rightMargin = 0;
-            this.f12603h.setLayoutParams(layoutParams);
+            this.mAgreeView.setLayoutParams(layoutParams);
         }
     }
 
-    public final void T(boolean z) {
+    public final void y(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             if (z) {
-                U(0, -1, 0, 1.0f, true, this.f12603h.r());
+                z(0, -1, 0, 1.0f, true, this.mAgreeView.isAgreeAlone());
                 return;
             }
-            U(-2, -1, l.g(getContext(), R.dimen.tbds78), 0.0f, false, this.f12603h.r());
+            z(-2, -1, l.g(getContext(), R.dimen.tbds78), 0.0f, false, this.mAgreeView.isAgreeAlone());
         }
     }
 
-    public final void U(int i2, int i3, int i4, float f2, boolean z, boolean z2) {
+    public final void z(int i2, int i3, int i4, float f2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.o.setLayoutParams(new LinearLayout.LayoutParams(i2, i3, f2));
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.C.getLayoutParams();
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.mShareContainer.setLayoutParams(new LinearLayout.LayoutParams(i2, i3, f2));
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mSelectText.getLayoutParams();
             layoutParams.leftMargin = 0;
-            this.C.setLayoutParams(layoutParams);
-            this.l.setLayoutParams(new LinearLayout.LayoutParams(i2, i3, f2));
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
+            this.mSelectText.setLayoutParams(layoutParams);
+            this.mCommentContainer.setLayoutParams(new LinearLayout.LayoutParams(i2, i3, f2));
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.mCommentImageView.getLayoutParams();
             layoutParams2.leftMargin = i4;
-            this.j.setLayoutParams(layoutParams2);
-            this.t.setLayoutParams(new LinearLayout.LayoutParams(i2, i3, f2));
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.s.getLayoutParams();
+            this.mCommentImageView.setLayoutParams(layoutParams2);
+            this.mManageViewContainer.setLayoutParams(new LinearLayout.LayoutParams(i2, i3, f2));
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.mManageImageView.getLayoutParams();
             layoutParams3.leftMargin = i4;
-            this.s.setLayoutParams(layoutParams3);
-            this.D.setLayoutParams(new LinearLayout.LayoutParams(i2, i3, f2));
-            LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.B.getLayoutParams();
+            this.mManageImageView.setLayoutParams(layoutParams3);
+            this.mSelectContainer.setLayoutParams(new LinearLayout.LayoutParams(i2, i3, f2));
+            LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.mSelectImg.getLayoutParams();
             layoutParams4.leftMargin = i4;
-            this.B.setLayoutParams(layoutParams4);
-            S(z, z2);
-        }
-    }
-
-    public final boolean V(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            boolean r = this.f12603h.r();
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12603h.getLayoutParams();
-            int i2 = layoutParams.width;
-            float f2 = layoutParams.weight;
-            if (z) {
-                return (f2 == (r ? 1.0f : 2.0f) && i2 == 0) ? false : true;
-            }
-            return (f2 == 0.0f && i2 == -2) ? false : true;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public final boolean X(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.o.getLayoutParams();
-            float f2 = layoutParams.weight;
-            int i2 = layoutParams.width;
-            return z ? (f2 == 1.0f && i2 == 0) ? false : true : (f2 == 0.0f && i2 == -2) ? false : true;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public final boolean Y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.E != null : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public View i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) ? LayoutInflater.from(context).inflate(R.layout.new_thread_comment_and_praise_info_layout, (ViewGroup) this, true) : (View) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void q(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
-            super.q(view);
-            this.f12603h.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
-            this.f12603h.t(true);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            S(Y(), this.f12603h.r());
+            this.mSelectImg.setLayoutParams(layoutParams4);
+            x(z, z2);
         }
     }
 
@@ -234,6 +234,6 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 return;
             }
         }
-        this.p0 = new a(this);
+        this.v = new a(this);
     }
 }

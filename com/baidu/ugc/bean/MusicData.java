@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
+import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,10 +14,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class MusicData extends MusicBaseBean {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String MUSIC_DATA_KEY = "musicdata";
+    public static final String MUSIC_DATA_KEY = "musicData";
     public static final String MUSIC_LOC_HOME_TAB = "music_home_";
     public static final String MUSIC_LOC_REC = "music_rec";
     public static final String MUSIC_LOC_SEARCH = "music_home_search";
@@ -43,6 +43,7 @@ public class MusicData extends MusicBaseBean {
     public String id;
     public boolean isFollow;
     public boolean isLocalMusic;
+    public boolean isMusicCompilation;
     public boolean isPlayedExceptH5;
     public String localPath;
     public String localTransCodePath;
@@ -112,7 +113,7 @@ public class MusicData extends MusicBaseBean {
                 e = e2;
             }
             try {
-                musicData.id = jSONObject.optString(CloudMusicActivityConfig.MUSIC_ID);
+                musicData.id = jSONObject.optString("music_id");
                 musicData.title = jSONObject.optString("music_title");
                 musicData.singer = jSONObject.optString("music_singer");
                 musicData.icon = jSONObject.optString("music_icon");
@@ -122,11 +123,7 @@ public class MusicData extends MusicBaseBean {
                 musicData.ext = jSONObject.optString("ext");
                 musicData.startPosition = jSONObject.optInt("start_position");
                 musicData.localTransCodePath = jSONObject.optString("music_local_transcode_path");
-                boolean z = true;
-                if (jSONObject.optInt(TiebaStatic.Params.IS_FOLLOW) != 1) {
-                    z = false;
-                }
-                musicData.isFollow = z;
+                musicData.isFollow = jSONObject.optInt(TiebaStatic.Params.IS_FOLLOW) == 1;
                 musicData.authorUk = jSONObject.optString("author_uk");
                 musicData.musicName = jSONObject.optString("music_name");
                 musicData.musicAuthor = jSONObject.optString("music_author");
@@ -154,6 +151,7 @@ public class MusicData extends MusicBaseBean {
                 musicData.bgOriginalLocalPath = jSONObject.optString("bgOriginalLocalPath");
                 musicData.played_web = jSONObject.optInt("played_web");
                 musicData.isPlayedExceptH5 = jSONObject.optBoolean("isPlayedExceptH5", false);
+                musicData.isMusicCompilation = jSONObject.optInt("music_compilation", 0) == 1;
                 return musicData;
             } catch (Exception e3) {
                 e = e3;
@@ -180,9 +178,10 @@ public class MusicData extends MusicBaseBean {
             musicData.duration = jSONObject.optString("duration");
             musicData.collectStatus = jSONObject.optString("collect_status");
             musicData.musicType = jSONObject.optInt("ai_switch");
+            musicData.isMusicCompilation = jSONObject.optInt("music_compilation", 0) == 1;
             JSONObject optJSONObject = jSONObject.optJSONObject("refrain_info");
             if (optJSONObject != null) {
-                musicData.startPosition = optJSONObject.optInt("start_time");
+                musicData.startPosition = optJSONObject.optInt(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
             }
             return musicData;
         }
@@ -198,7 +197,7 @@ public class MusicData extends MusicBaseBean {
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(CloudMusicActivityConfig.MUSIC_ID, musicData.id);
+                jSONObject.put("music_id", musicData.id);
                 jSONObject.put("music_title", musicData.title);
                 jSONObject.put("music_singer", musicData.singer);
                 jSONObject.put("music_icon", musicData.icon);
@@ -236,6 +235,36 @@ public class MusicData extends MusicBaseBean {
                 jSONObject.put("bgOriginalLocalPath", musicData.bgOriginalLocalPath);
                 jSONObject.put("played_web", musicData.played_web);
                 jSONObject.put("isPlayedExceptH5", musicData.isPlayedExceptH5);
+                jSONObject.put("music_compilation", musicData.isMusicCompilation);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String toJSONFromNetBean(MusicData musicData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, musicData)) == null) {
+            if (musicData == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("id", musicData.id);
+                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, musicData.icon);
+                jSONObject.put("name", musicData.title);
+                jSONObject.put("singer", musicData.singer);
+                jSONObject.put("duration", musicData.duration);
+                jSONObject.put("collect_status", musicData.collectStatus);
+                jSONObject.put("ai_switch", musicData.musicType);
+                jSONObject.put("ai_switch", musicData.musicType);
+                jSONObject.put("music_compilation", musicData.isMusicCompilation);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, musicData.startPosition);
+                jSONObject.put("refrain_info", jSONObject2.toString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -311,17 +340,17 @@ public class MusicData extends MusicBaseBean {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ((int) this.clipFrom) + this.startPosition : invokeV.intValue;
     }
 
-    public void setClipFrom(long j) {
+    public void setClipFrom(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.clipFrom = j;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            this.clipFrom = j2;
         }
     }
 
-    public void setClipTo(long j) {
+    public void setClipTo(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.clipTo = j;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+            this.clipTo = j2;
         }
     }
 

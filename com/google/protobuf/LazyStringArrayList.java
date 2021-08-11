@@ -15,7 +15,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class LazyStringArrayList extends AbstractList<String> implements LazyStringList, RandomAccess {
     public static /* synthetic */ Interceptable $ic;
     public static final LazyStringList EMPTY;

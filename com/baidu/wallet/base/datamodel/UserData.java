@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
 import java.math.BigDecimal;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class UserData implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class FingerprintAuthInfo implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class UserData implements NoProguard {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class Misc implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 993460856554011232L;
@@ -50,7 +50,7 @@ public class UserData implements NoProguard {
         public String title_url;
         public String trans_need_to_pay;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         public static class ConfirmButtonMsg implements NoProguard, Serializable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +119,7 @@ public class UserData implements NoProguard {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class SP implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 993460856554011232L;
@@ -161,7 +161,7 @@ public class UserData implements NoProguard {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class UserModel implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String STATUS_LOGINED = "1";
@@ -203,7 +203,7 @@ public class UserData implements NoProguard {
         public String true_name;
         public String user_id;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         public static class Account implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 2427773423716342178L;
@@ -321,7 +321,7 @@ public class UserData implements NoProguard {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         public static class DisplayFlag implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -6111380299465016961L;
@@ -367,7 +367,7 @@ public class UserData implements NoProguard {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         public static class FingerprintMsg implements NoProguard, Serializable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -375,7 +375,7 @@ public class UserData implements NoProguard {
             public Reopen reopen;
             public Update update;
 
-            /* loaded from: classes5.dex */
+            /* loaded from: classes8.dex */
             public static class Open implements NoProguard, Serializable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -384,7 +384,7 @@ public class UserData implements NoProguard {
                 public String subtitle;
                 public String title;
 
-                /* loaded from: classes5.dex */
+                /* loaded from: classes8.dex */
                 public static class FingerprintProtocol implements NoProguard, Serializable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -464,7 +464,7 @@ public class UserData implements NoProguard {
                 }
             }
 
-            /* loaded from: classes5.dex */
+            /* loaded from: classes8.dex */
             public static class Reopen implements NoProguard, Serializable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -472,7 +472,7 @@ public class UserData implements NoProguard {
                 public String subtitle;
                 public String title;
 
-                /* loaded from: classes5.dex */
+                /* loaded from: classes8.dex */
                 public static class FingerprintProtocol implements NoProguard, Serializable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -546,7 +546,7 @@ public class UserData implements NoProguard {
                 }
             }
 
-            /* loaded from: classes5.dex */
+            /* loaded from: classes8.dex */
             public static class Update implements NoProguard, Serializable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -613,7 +613,7 @@ public class UserData implements NoProguard {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         public static class PassFreeProtocol implements NoProguard, Serializable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -654,7 +654,7 @@ public class UserData implements NoProguard {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         public static class Score implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 606605370857740501L;

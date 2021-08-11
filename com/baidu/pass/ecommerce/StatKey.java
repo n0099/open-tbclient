@@ -1,5 +1,5 @@
 package com.baidu.pass.ecommerce;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface StatKey {
     public static final String ADDRLIST_ADDBTN_CLICK = "addrlist-addbtn-click";
     public static final String ADDRLIST_EDITBTN_CLICK = "addrlist-editbtn-click";

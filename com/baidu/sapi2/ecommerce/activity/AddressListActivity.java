@@ -56,8 +56,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class AddressListActivity extends BaseAddressActivity<AddressPresenter> implements AdapterView.OnItemLongClickListener, AddrOptionDialog.OptionOnClickListener, AddrListAdapter.EditAddressListener, AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CREATE_ADDRESS_CODE = 1001;
@@ -159,7 +160,7 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
             sb.append(optJSONObject.optString("city_name"));
             sb.append(optJSONObject.optString(AddressField.KEY_DISTRICT_NAME));
             sb.append(optJSONObject.optString(AddressField.KEY_TOWN_NAME));
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             sb.append(optJSONObject.optString(AddressField.KEY_DETAIL_ADDR));
             return sb.toString();
         }
@@ -782,10 +783,10 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
         int headerViewsCount;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (headerViewsCount = i2 - this.addrListView.getHeaderViewsCount()) < 0 || headerViewsCount >= this.listAdapter.getCount()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (headerViewsCount = i2 - this.addrListView.getHeaderViewsCount()) < 0 || headerViewsCount >= this.listAdapter.getCount()) {
             return;
         }
         callbackAddressResult(this.listAdapter.getItem(headerViewsCount));
@@ -793,10 +794,10 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j) {
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             if (i2 < this.addrListView.getHeaderViewsCount()) {
                 return false;
             }
@@ -823,7 +824,7 @@ public class AddressListActivity extends BaseAddressActivity<AddressPresenter> i
             }
             ((AddressPresenter) this.presenter).delAddress(optString);
         } else if (1003 == i2) {
-            ((ClipboardManager) getSystemService("clipboard")).setPrimaryClip(ClipData.newPlainText("address", this.optionJsonObj.optString("name") + "\n" + this.optionJsonObj.optString("mobile") + "\n" + getOptionRegionStr()));
+            ((ClipboardManager) getSystemService("clipboard")).setPrimaryClip(ClipData.newPlainText("address", this.optionJsonObj.optString("name") + StringUtils.LF + this.optionJsonObj.optString("mobile") + StringUtils.LF + getOptionRegionStr()));
             ToastUtil.show(R.drawable.sapi_sdk_common_success_ic, "复制成功");
         }
     }

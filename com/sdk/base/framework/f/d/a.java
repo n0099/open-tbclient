@@ -25,15 +25,15 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.URL;
 import java.util.Enumeration;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38409a = "com.sdk.base.framework.f.d.a";
+    public static final String f75195a = "com.sdk.base.framework.f.d.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f38410b;
+    public static final Boolean f75196b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,7 +49,7 @@ public class a {
                 return;
             }
         }
-        f38410b = Boolean.valueOf(f.f38384b);
+        f75196b = Boolean.valueOf(f.f75169b);
     }
 
     public a() {
@@ -201,7 +201,7 @@ public class a {
                         }
                     }
                 } catch (Throwable th) {
-                    c.b(f38409a, th.getMessage(), f38410b);
+                    c.b(f75195a, th.getMessage(), f75196b);
                 }
             }
             return null;

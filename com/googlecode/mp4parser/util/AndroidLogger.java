@@ -1,12 +1,11 @@
 package com.googlecode.mp4parser.util;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AndroidLogger extends Logger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "isoparser";
@@ -35,7 +34,7 @@ public class AndroidLogger extends Logger {
     public void logDebug(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            Log.d(TAG, String.valueOf(this.name) + ":" + str);
+            String str2 = String.valueOf(this.name) + ":" + str;
         }
     }
 
@@ -43,7 +42,7 @@ public class AndroidLogger extends Logger {
     public void logError(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            Log.e(TAG, String.valueOf(this.name) + ":" + str);
+            String str2 = String.valueOf(this.name) + ":" + str;
         }
     }
 
@@ -51,7 +50,7 @@ public class AndroidLogger extends Logger {
     public void logWarn(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            Log.w(TAG, String.valueOf(this.name) + ":" + str);
+            String str2 = String.valueOf(this.name) + ":" + str;
         }
     }
 }

@@ -47,7 +47,7 @@ import kotlin.jvm.internal.StringCompanionObject;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000>\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0000\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u0000B\u0007¢\u0006\u0004\b\u001e\u0010\u001fJ\u001f\u0010\u0006\u001a\u0004\u0018\u00010\u00052\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0004\u001a\u00020\u0003¢\u0006\u0004\b\u0006\u0010\u0007J-\u0010\n\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\b\u001a\u00020\u00032\u0006\u0010\t\u001a\u00020\u00012\u0006\u0010\u0004\u001a\u00020\u0003¢\u0006\u0004\b\n\u0010\u000bJ+\u0010\r\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u00012\b\u0010\b\u001a\u0004\u0018\u00010\u00032\b\u0010\u0004\u001a\u0004\u0018\u00010\fH\u0002¢\u0006\u0004\b\r\u0010\u000eJ=\u0010\r\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u00012\b\u0010\b\u001a\u0004\u0018\u00010\u00032\b\u0010\u0004\u001a\u0004\u0018\u00010\f2\u0006\u0010\t\u001a\u00020\u00012\b\u0010\u000f\u001a\u0004\u0018\u00010\u0003H\u0002¢\u0006\u0004\b\r\u0010\u0010J\u0019\u0010\u0012\u001a\u0004\u0018\u00010\u00112\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0012\u0010\u0013J\u001b\u0010\u0012\u001a\u0004\u0018\u00010\u00112\b\u0010\u0004\u001a\u0004\u0018\u00010\u0014H\u0002¢\u0006\u0004\b\u0012\u0010\u0015J\u0019\u0010\u0017\u001a\u0004\u0018\u00010\u00162\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0017\u0010\u0018J\u0019\u0010\u0017\u001a\u0004\u0018\u00010\u00162\b\u0010\u0004\u001a\u0004\u0018\u00010\u0014¢\u0006\u0004\b\u0017\u0010\u0019J\u0019\u0010\u001b\u001a\u0004\u0018\u00010\u001a2\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u001b\u0010\u001cJ\u001b\u0010\u001b\u001a\u0004\u0018\u00010\u001a2\b\u0010\u0004\u001a\u0004\u0018\u00010\u0014H\u0002¢\u0006\u0004\b\u001b\u0010\u001d¨\u0006 "}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/response/ProtocolDecoder;", "", "command", "", "data", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/response/ServiceResponse;", "decode", "(ILjava/lang/String;)Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/response/ServiceResponse;", IAdRequestParam.SEQ, "result", "decodeError", "(ILjava/lang/String;ILjava/lang/String;)Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/response/ServiceResponse;", "", "newResponse", "(ILjava/lang/String;Ljava/lang/Object;)Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/response/ServiceResponse;", "message", "(ILjava/lang/String;Ljava/lang/Object;ILjava/lang/String;)Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/response/ServiceResponse;", "Lcom/yy/mobile/framework/revenuesdk/payapi/bean/AccountDelayMessage;", "parseAccountDelayMessage", "(Ljava/lang/String;)Lcom/yy/mobile/framework/revenuesdk/payapi/bean/AccountDelayMessage;", "Lorg/json/JSONObject;", "(Lorg/json/JSONObject;)Lcom/yy/mobile/framework/revenuesdk/payapi/bean/AccountDelayMessage;", "Lcom/yy/mobile/framework/revenuesdk/payapi/bean/ConsumeConfirmMessage;", "parseConsumeConfirmMessage", "(Ljava/lang/String;)Lcom/yy/mobile/framework/revenuesdk/payapi/bean/ConsumeConfirmMessage;", "(Lorg/json/JSONObject;)Lcom/yy/mobile/framework/revenuesdk/payapi/bean/ConsumeConfirmMessage;", "Lcom/yy/mobile/framework/revenuesdk/payapi/bean/CurrencyChargeMessage;", "parseCurrencyChargeMessage", "(Ljava/lang/String;)Lcom/yy/mobile/framework/revenuesdk/payapi/bean/CurrencyChargeMessage;", "(Lorg/json/JSONObject;)Lcom/yy/mobile/framework/revenuesdk/payapi/bean/CurrencyChargeMessage;", "<init>", "()V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class ProtocolDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +120,7 @@ public final class ProtocolDecoder {
                 case 2005:
                     GetUserAccountResponse getUserAccountResponse = new GetUserAccountResponse(str);
                     return newResponse(1005, getUserAccountResponse.seq, new MyBalanceResult(new MyBalanceInfo(getUserAccountResponse.accountList, getUserAccountResponse.accountPeriodList, getUserAccountResponse.minAmountLimit)), getUserAccountResponse.result, getUserAccountResponse.message);
-                case RevenueServerConst.GetChargeCurrencyConfigResponse /* 2021 */:
+                case 2021:
                     GetChargeCurrencyConfigResponse getChargeCurrencyConfigResponse = new GetChargeCurrencyConfigResponse(str);
                     Object productListResult = new ProductListResult(getChargeCurrencyConfigResponse.currencyType, getChargeCurrencyConfigResponse.currencyName, getChargeCurrencyConfigResponse.paysSettingInfo, getChargeCurrencyConfigResponse.confList, getChargeCurrencyConfigResponse.payWayInfoList);
                     StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
@@ -128,7 +128,7 @@ public final class ProtocolDecoder {
                     Intrinsics.checkExpressionValueIsNotNull(format, "java.lang.String.format(format, *args)");
                     RLog.debug("ProtocolDecoder", format);
                     return newResponse(1021, getChargeCurrencyConfigResponse.seq, productListResult, getChargeCurrencyConfigResponse.result, "");
-                case RevenueServerConst.ChargeCurrencyResponse /* 2022 */:
+                case 2022:
                     ChargeCurrencyResponse chargeCurrencyResponse = new ChargeCurrencyResponse(str);
                     Object payOrderResult = new PayOrderResult(chargeCurrencyResponse.result, chargeCurrencyResponse.payUrl, chargeCurrencyResponse.payChannel, chargeCurrencyResponse.orderId, chargeCurrencyResponse.payMethod, chargeCurrencyResponse.closeRiskEnhance, chargeCurrencyResponse.expand, chargeCurrencyResponse.pollingModeInfo);
                     StringCompanionObject stringCompanionObject2 = StringCompanionObject.INSTANCE;
@@ -136,19 +136,19 @@ public final class ProtocolDecoder {
                     Intrinsics.checkExpressionValueIsNotNull(format2, "java.lang.String.format(format, *args)");
                     RLog.debug("ProtocolDecoder", format2);
                     return newResponse(1022, chargeCurrencyResponse.seq, payOrderResult, chargeCurrencyResponse.result, "");
-                case RevenueServerConst.ExchangeCurrencyResponse /* 2025 */:
+                case 2025:
                     ExchangeCurrencyResponse exchangeCurrencyResponse = new ExchangeCurrencyResponse(str);
                     return newResponse(1025, exchangeCurrencyResponse.getSeq(), exchangeCurrencyResponse.getResponse(), exchangeCurrencyResponse.getResult(), exchangeCurrencyResponse.getMessage());
-                case RevenueServerConst.GetHasChargeInActivityResponse /* 2026 */:
+                case 2026:
                     GetHasChargeInActivityResponse getHasChargeInActivityResponse = new GetHasChargeInActivityResponse(str);
                     return newResponse(1026, getHasChargeInActivityResponse.seq, new HasChargeInActivityResult(getHasChargeInActivityResponse.activityId, getHasChargeInActivityResponse.startTime, getHasChargeInActivityResponse.endTime, getHasChargeInActivityResponse.hasCharge, getHasChargeInActivityResponse.tip, getHasChargeInActivityResponse.chargeCount), getHasChargeInActivityResponse.result, getHasChargeInActivityResponse.message);
-                case RevenueServerConst.ReportPurchaseResponse /* 2045 */:
+                case 2045:
                     ReportPurchaseResponse reportPurchaseResponse = new ReportPurchaseResponse(str);
                     return newResponse(1045, reportPurchaseResponse.seq, new ReportPurchaseResult(reportPurchaseResponse.purchaseData, reportPurchaseResponse.purchaseSign, reportPurchaseResponse.orderId), reportPurchaseResponse.result, reportPurchaseResponse.message);
-                case RevenueServerConst.GetUserAccountHistoryResponse /* 2046 */:
+                case 2046:
                     GetUserAccountHistoryResponse getUserAccountHistoryResponse = new GetUserAccountHistoryResponse(str);
                     return newResponse(1046, getUserAccountHistoryResponse.seq, new RevenueRecordResult(getUserAccountHistoryResponse.userAccountHistoryInfos, getUserAccountHistoryResponse.hasMore), getUserAccountHistoryResponse.result, getUserAccountHistoryResponse.message);
-                case RevenueServerConst.GetUserCouponStoreResponse /* 2047 */:
+                case 2047:
                     GetUserCouponStoreResponse getUserCouponStoreResponse = new GetUserCouponStoreResponse(str);
                     return newResponse(1047, getUserCouponStoreResponse.seq, new UserCouponStoreResult(getUserCouponStoreResponse.serverCurrentTime, getUserCouponStoreResponse.userCouponStoreList), getUserCouponStoreResponse.result, getUserCouponStoreResponse.message);
                 case RevenueServerConst.GetChargeCouponDiscountResponse /* 2052 */:

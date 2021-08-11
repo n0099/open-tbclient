@@ -6,7 +6,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class ScalingMatrix {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,12 +36,12 @@ public class ScalingMatrix {
             StringBuilder sb = new StringBuilder("ScalingMatrix{ScalingList4x4=");
             ScalingList[] scalingListArr = this.ScalingList4x4;
             sb.append(scalingListArr == null ? null : Arrays.asList(scalingListArr));
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             sb.append(", ScalingList8x8=");
             ScalingList[] scalingListArr2 = this.ScalingList8x8;
             sb.append(scalingListArr2 != null ? Arrays.asList(scalingListArr2) : null);
-            sb.append("\n");
-            sb.append('}');
+            sb.append(StringUtils.LF);
+            sb.append(ExtendedMessageFormat.END_FE);
             return sb.toString();
         }
         return (String) invokeV.objValue;

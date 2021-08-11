@@ -10,31 +10,31 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class T implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39677a;
+    public int f76516a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39678b;
+    public String f76517b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39679c;
+    public String f76518c;
 
     /* renamed from: d  reason: collision with root package name */
-    public V f39680d;
+    public V f76519d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Q f39681e;
+    public Q f76520e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f39682f;
+    public boolean f76521f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f39683g;
+    public long f76522g;
 
     public T(String str, String str2, V v) {
         Interceptable interceptable = $ic;
@@ -51,13 +51,13 @@ public class T implements Runnable {
                 return;
             }
         }
-        this.f39677a = 0;
-        this.f39682f = false;
-        this.f39678b = str;
-        this.f39679c = str2;
-        this.f39680d = v;
-        this.f39681e = new Q(this);
-        this.f39682f = true;
+        this.f76516a = 0;
+        this.f76521f = false;
+        this.f76517b = str;
+        this.f76518c = str2;
+        this.f76519d = v;
+        this.f76520e = new Q(this);
+        this.f76521f = true;
     }
 
     public final void a() {
@@ -66,22 +66,22 @@ public class T implements Runnable {
             return;
         }
         try {
-            URL url = new URL(this.f39678b);
+            URL url = new URL(this.f76517b);
             HttpURLConnection httpURLConnection = url.toString().startsWith("https://") ? (HttpsURLConnection) url.openConnection() : (HttpURLConnection) url.openConnection();
             httpURLConnection.setConnectTimeout(3000);
             httpURLConnection.setReadTimeout(3000);
             httpURLConnection.setRequestMethod("GET");
-            httpURLConnection.setRequestProperty("Range", "bytes=" + this.f39677a + "-");
+            httpURLConnection.setRequestProperty("Range", "bytes=" + this.f76516a + "-");
             httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             httpURLConnection.connect();
-            this.f39683g = (long) httpURLConnection.getContentLength();
+            this.f76522g = (long) httpURLConnection.getContentLength();
             if (Thread.currentThread().isInterrupted()) {
                 return;
             }
-            if (this.f39681e != null && this.f39683g > 10) {
-                this.f39681e.a(httpURLConnection.getInputStream());
-            } else if (this.f39680d != null) {
-                this.f39680d.a();
+            if (this.f76520e != null && this.f76522g > 10) {
+                this.f76520e.a(httpURLConnection.getInputStream());
+            } else if (this.f76519d != null) {
+                this.f76519d.a();
             }
         } catch (IOException e2) {
             if (!Thread.currentThread().isInterrupted()) {
@@ -97,9 +97,9 @@ public class T implements Runnable {
             try {
                 a();
             } catch (Exception unused) {
-                Q q = this.f39681e;
+                Q q = this.f76520e;
                 if (q != null) {
-                    q.b(q.a(1, new Object[]{S.f39655b}));
+                    q.b(q.a(1, new Object[]{S.f76493b}));
                 }
             }
         }

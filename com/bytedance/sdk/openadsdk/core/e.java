@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class e extends f {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile e f30096a;
+    public static volatile e f65999a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -41,14 +41,14 @@ public class e extends f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f30096a == null) {
+            if (f65999a == null) {
                 synchronized (e.class) {
-                    if (f30096a == null) {
-                        f30096a = new e(context);
+                    if (f65999a == null) {
+                        f65999a = new e(context);
                     }
                 }
             }
-            return f30096a;
+            return f65999a;
         }
         return (e) invokeL.objValue;
     }

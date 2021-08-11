@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AdThreadUserInfoLayout extends CardUserInfoLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AfterAdjustChildWidthListener J;
+    public AfterAdjustChildWidthListener I;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface AfterAdjustChildWidthListener {
         void afterChildWidth();
     }
@@ -48,20 +48,20 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
             return;
         }
-        this.q.removeAllViews();
+        this.mSuffixContainer.removeAllViews();
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(11);
         layoutParams.addRule(15);
         view.setLayoutParams(layoutParams);
-        this.q.addView(view);
+        this.mSuffixContainer.addView(view);
     }
 
     @Override // com.baidu.card.view.CardUserInfoLayout
-    public void f() {
+    public void adjustChildWidth() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.f();
-            AfterAdjustChildWidthListener afterAdjustChildWidthListener = this.J;
+            super.adjustChildWidth();
+            AfterAdjustChildWidthListener afterAdjustChildWidthListener = this.I;
             if (afterAdjustChildWidthListener != null) {
                 afterAdjustChildWidthListener.afterChildWidth();
             }
@@ -77,7 +77,7 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
     public void setAfterAdjustChildWidthListener(AfterAdjustChildWidthListener afterAdjustChildWidthListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, afterAdjustChildWidthListener) == null) {
-            this.J = afterAdjustChildWidthListener;
+            this.I = afterAdjustChildWidthListener;
         }
     }
 

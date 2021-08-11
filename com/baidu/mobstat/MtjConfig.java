@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.embedapplog.AppLog;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class MtjConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDU_MTJ_PUSH_CALL = "Baidu_mtj_push_call";
@@ -18,7 +18,7 @@ public class MtjConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class FeedTrackStrategy {
         public static /* synthetic */ Interceptable $ic;
         public static final FeedTrackStrategy TRACK_ALL;
@@ -26,7 +26,7 @@ public class MtjConfig {
         public static final FeedTrackStrategy TRACK_SINGLE;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ FeedTrackStrategy[] f8601a;
+        public static final /* synthetic */ FeedTrackStrategy[] f42900a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,7 +46,7 @@ public class MtjConfig {
             TRACK_SINGLE = new FeedTrackStrategy("TRACK_SINGLE", 1);
             FeedTrackStrategy feedTrackStrategy = new FeedTrackStrategy("TRACK_NONE", 2);
             TRACK_NONE = feedTrackStrategy;
-            f8601a = new FeedTrackStrategy[]{TRACK_ALL, TRACK_SINGLE, feedTrackStrategy};
+            f42900a = new FeedTrackStrategy[]{TRACK_ALL, TRACK_SINGLE, feedTrackStrategy};
         }
 
         public FeedTrackStrategy(String str, int i2) {
@@ -77,12 +77,12 @@ public class MtjConfig {
         public static FeedTrackStrategy[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (FeedTrackStrategy[]) f8601a.clone() : (FeedTrackStrategy[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (FeedTrackStrategy[]) f42900a.clone() : (FeedTrackStrategy[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class PushPlatform {
         public static /* synthetic */ Interceptable $ic;
         public static final PushPlatform ALIYUN;
@@ -97,14 +97,14 @@ public class MtjConfig {
         public static final PushPlatform XINGE;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ PushPlatform[] f8602c;
+        public static final /* synthetic */ PushPlatform[] f42901c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f8603a;
+        public String f42902a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f8604b;
+        public int f42903b;
 
         static {
             InterceptResult invokeClinit;
@@ -130,7 +130,7 @@ public class MtjConfig {
             OPPO = new PushPlatform("OPPO", 8, RomUtils.MANUFACTURER_OPPO, 8);
             PushPlatform pushPlatform = new PushPlatform("MEIZU", 9, "meizu", 9);
             MEIZU = pushPlatform;
-            f8602c = new PushPlatform[]{BAIDUYUN, JIGUANG, GETUI, HUAWEI, XIAOMI, UMENG, XINGE, ALIYUN, OPPO, pushPlatform};
+            f42901c = new PushPlatform[]{BAIDUYUN, JIGUANG, GETUI, HUAWEI, XIAOMI, UMENG, XINGE, ALIYUN, OPPO, pushPlatform};
         }
 
         public PushPlatform(String str, int i2, String str2, int i3) {
@@ -151,8 +151,8 @@ public class MtjConfig {
                     return;
                 }
             }
-            this.f8603a = str2;
-            this.f8604b = i3;
+            this.f42902a = str2;
+            this.f42903b = i3;
         }
 
         public static PushPlatform valueOf(String str) {
@@ -164,20 +164,20 @@ public class MtjConfig {
         public static PushPlatform[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PushPlatform[]) f8602c.clone() : (PushPlatform[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PushPlatform[]) f42901c.clone() : (PushPlatform[]) invokeV.objValue;
         }
 
         public String showName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8603a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42902a : (String) invokeV.objValue;
         }
 
         public String value() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "p" + this.f8604b;
+                return "p" + this.f42903b;
             }
             return (String) invokeV.objValue;
         }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ej extends com.xiaomi.clientreport.processor.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class ej extends com.xiaomi.clientreport.processor.b {
     public void a(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            ek.a(((com.xiaomi.clientreport.processor.b) this).f40019a, list);
+            ek.a(((com.xiaomi.clientreport.processor.b) this).f76870a, list);
         }
     }
 }

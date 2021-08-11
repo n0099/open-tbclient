@@ -10,15 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class AdView extends RelativeLayout {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String TAG = "ContainerView";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f10190e;
+    public a f44861e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void c(int i2, int i3);
 
@@ -59,7 +60,7 @@ public class AdView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onAttachedToWindow();
-            a aVar = this.f10190e;
+            a aVar = this.f44861e;
             if (aVar != null) {
                 aVar.onAttachedToWindow();
             }
@@ -71,7 +72,7 @@ public class AdView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDetachedFromWindow();
-            a aVar = this.f10190e;
+            a aVar = this.f44861e;
             if (aVar != null) {
                 aVar.onDetachedFromWindow();
             }
@@ -83,7 +84,7 @@ public class AdView extends RelativeLayout {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, keyEvent)) == null) {
-            a aVar = this.f10190e;
+            a aVar = this.f44861e;
             if (aVar != null) {
                 return aVar.onKeyDown(i2, keyEvent);
             }
@@ -99,7 +100,7 @@ public class AdView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            if (!z || (aVar = this.f10190e) == null) {
+            if (!z || (aVar = this.f44861e) == null) {
                 return;
             }
             aVar.c(getWidth(), getHeight());
@@ -111,7 +112,7 @@ public class AdView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             super.onWindowFocusChanged(z);
-            a aVar = this.f10190e;
+            a aVar = this.f44861e;
             if (aVar != null) {
                 aVar.onWindowFocusChanged(z);
             }
@@ -123,7 +124,7 @@ public class AdView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             super.onWindowVisibilityChanged(i2);
-            a aVar = this.f10190e;
+            a aVar = this.f44861e;
             if (aVar != null) {
                 aVar.onWindowVisibilityChanged(i2);
             }
@@ -133,7 +134,7 @@ public class AdView extends RelativeLayout {
     public void setListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f10190e = aVar;
+            this.f44861e = aVar;
         }
     }
 }

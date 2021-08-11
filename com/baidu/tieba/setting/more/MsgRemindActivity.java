@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TimePicker;
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.s.s.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,30 +20,30 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.MsgReceiveActivityConfig;
 import com.baidu.tieba.setting.model.MsgRemindModel;
+import com.baidu.tieba.view.CancelableTimePickerDialog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.s.a;
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implements BdSwitchView.b, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MsgRemindModel.e callback;
     public MsgRemindModel mModel;
     public MsgRemindModel.e mMsgRemindModelCallback;
-    public d.a.q0.z2.c.g mView;
-    public final d.a.p0.d1.o.a.d.e onTimeSelectListener;
+    public c.a.p0.a3.c.g mView;
+    public final c.a.o0.d1.p.a.d.f onTimeSelectListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements MsgRemindModel.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MsgRemindActivity f20908a;
+        public final /* synthetic */ MsgRemindActivity f56382a;
 
         public a(MsgRemindActivity msgRemindActivity) {
             Interceptable interceptable = $ic;
@@ -59,7 +60,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                     return;
                 }
             }
-            this.f20908a = msgRemindActivity;
+            this.f56382a = msgRemindActivity;
         }
 
         @Override // com.baidu.tieba.setting.model.MsgRemindModel.e
@@ -71,51 +72,51 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                         return;
                     }
                     if (z2) {
-                        this.f20908a.mView.o().h();
-                        this.f20908a.mView.c0(false);
-                        this.f20908a.mView.i0(false);
+                        this.f56382a.mView.m().turnOffNoCallback();
+                        this.f56382a.mView.b0(false);
+                        this.f56382a.mView.g0(false);
                         return;
                     }
-                    this.f20908a.mView.o().k();
-                    this.f20908a.mView.c0(true);
-                    this.f20908a.mView.i0(true);
+                    this.f56382a.mView.m().turnOnNoCallback();
+                    this.f56382a.mView.b0(true);
+                    this.f56382a.mView.g0(true);
                 } else if (i2 == 9) {
                     if (z) {
                         return;
                     }
                     if (z2) {
-                        this.f20908a.mView.J().h();
+                        this.f56382a.mView.K().turnOffNoCallback();
                     } else {
-                        this.f20908a.mView.J().k();
+                        this.f56382a.mView.K().turnOnNoCallback();
                     }
                 } else if (i2 == 7) {
                     if (z) {
-                        d.a.p0.t.d.d.d().P(z2);
+                        c.a.o0.t.d.d.d().P(z2);
                     } else if (z2) {
-                        this.f20908a.mView.n().h();
+                        this.f56382a.mView.l().turnOffNoCallback();
                     } else {
-                        this.f20908a.mView.n().k();
+                        this.f56382a.mView.l().turnOnNoCallback();
                     }
                 } else if (i2 == 6) {
                     if (z) {
-                        d.a.p0.t.d.d.d().O(z2);
+                        c.a.o0.t.d.d.d().O(z2);
                     } else if (z2) {
-                        this.f20908a.mView.y().h();
+                        this.f56382a.mView.w().turnOffNoCallback();
                     } else {
-                        this.f20908a.mView.y().k();
+                        this.f56382a.mView.w().turnOnNoCallback();
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgRemindActivity f20909e;
+        public final /* synthetic */ MsgRemindActivity f56383e;
 
         public b(MsgRemindActivity msgRemindActivity) {
             Interceptable interceptable = $ic;
@@ -132,11 +133,11 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                     return;
                 }
             }
-            this.f20909e = msgRemindActivity;
+            this.f56383e = msgRemindActivity;
         }
 
-        @Override // d.a.p0.s.s.a.e
-        public void onClick(d.a.p0.s.s.a aVar) {
+        @Override // c.a.o0.s.s.a.e
+        public void onClick(c.a.o0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -144,13 +145,13 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class c implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgRemindActivity f20910e;
+        public final /* synthetic */ MsgRemindActivity f56384e;
 
         public c(MsgRemindActivity msgRemindActivity) {
             Interceptable interceptable = $ic;
@@ -167,26 +168,26 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                     return;
                 }
             }
-            this.f20910e = msgRemindActivity;
+            this.f56384e = msgRemindActivity;
         }
 
-        @Override // d.a.p0.s.s.a.e
-        public void onClick(d.a.p0.s.s.a aVar) {
+        @Override // c.a.o0.s.s.a.e
+        public void onClick(c.a.o0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                d.a.p0.t.h.a.c(this.f20910e.getPageContext());
+                c.a.o0.t.h.a.c(this.f56384e.getPageContext());
                 aVar.dismiss();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class d implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgRemindActivity f20911e;
+        public final /* synthetic */ MsgRemindActivity f56385e;
 
         public d(MsgRemindActivity msgRemindActivity) {
             Interceptable interceptable = $ic;
@@ -203,7 +204,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                     return;
                 }
             }
-            this.f20911e = msgRemindActivity;
+            this.f56385e = msgRemindActivity;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
@@ -217,13 +218,13 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class e implements d.a.p0.d1.o.a.d.e {
+    /* loaded from: classes7.dex */
+    public class e implements c.a.o0.d1.p.a.d.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MsgRemindActivity f20912a;
+        public final /* synthetic */ MsgRemindActivity f56386a;
 
         public e(MsgRemindActivity msgRemindActivity) {
             Interceptable interceptable = $ic;
@@ -240,31 +241,31 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                     return;
                 }
             }
-            this.f20912a = msgRemindActivity;
+            this.f56386a = msgRemindActivity;
         }
 
-        @Override // d.a.p0.d1.o.a.d.e
+        @Override // c.a.o0.d1.p.a.d.f
         public void a(Date date, View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, date, view) == null) || this.f20912a.mView == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, date, view) == null) || this.f56386a.mView == null) {
                 return;
             }
-            d.a.p0.t.d.d.d().S(date.getHours(), date.getMinutes());
-            this.f20912a.mView.l0();
-            this.f20912a.mView.j0();
+            c.a.o0.t.d.d.d().S(date.getHours(), date.getMinutes());
+            this.f56386a.mView.j0();
+            this.f56386a.mView.h0();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class f implements TimePickerDialog.OnTimeSetListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f20913a;
+        public final /* synthetic */ int f56387a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ MsgRemindActivity f20914b;
+        public final /* synthetic */ MsgRemindActivity f56388b;
 
         public f(MsgRemindActivity msgRemindActivity, int i2) {
             Interceptable interceptable = $ic;
@@ -281,8 +282,8 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                     return;
                 }
             }
-            this.f20914b = msgRemindActivity;
-            this.f20913a = i2;
+            this.f56388b = msgRemindActivity;
+            this.f56387a = i2;
         }
 
         @Override // android.app.TimePickerDialog.OnTimeSetListener
@@ -292,7 +293,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                 return;
             }
             timePicker.clearFocus();
-            boolean z = this.f20913a == R.id.no_disturb_start_time;
+            boolean z = this.f56387a == R.id.no_disturb_start_time;
             StringBuilder sb = new StringBuilder();
             sb.append(timePicker.getCurrentHour().intValue() < 10 ? "0" : "");
             sb.append(timePicker.getCurrentHour());
@@ -302,32 +303,32 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             sb3.append(timePicker.getCurrentMinute());
             String str = sb2 + ":" + sb3.toString();
             if (z) {
-                d.a.p0.t.d.d.d().N(str);
+                c.a.o0.t.d.d.d().N(str);
             } else {
-                d.a.p0.t.d.d.d().L(str);
+                c.a.o0.t.d.d.d().L(str);
             }
-            this.f20914b.mView.k0();
+            this.f56388b.mView.i0();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class g implements MsgRemindModel.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MsgRemindActivity f20915a;
+        public final /* synthetic */ MsgRemindActivity f56389a;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes7.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ boolean f20916e;
+            public final /* synthetic */ boolean f56390e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ BdSwitchView f20917f;
+            public final /* synthetic */ BdSwitchView f56391f;
 
             public a(g gVar, boolean z, BdSwitchView bdSwitchView) {
                 Interceptable interceptable = $ic;
@@ -344,33 +345,33 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                         return;
                     }
                 }
-                this.f20916e = z;
-                this.f20917f = bdSwitchView;
+                this.f56390e = z;
+                this.f56391f = bdSwitchView;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.f20916e) {
-                        this.f20917f.k();
+                    if (this.f56390e) {
+                        this.f56391f.turnOnNoCallback();
                     } else {
-                        this.f20917f.h();
+                        this.f56391f.turnOffNoCallback();
                     }
                 }
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes7.dex */
         public class b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ boolean f20918e;
+            public final /* synthetic */ boolean f56392e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ BdSwitchView f20919f;
+            public final /* synthetic */ BdSwitchView f56393f;
 
             public b(g gVar, boolean z, BdSwitchView bdSwitchView) {
                 Interceptable interceptable = $ic;
@@ -387,18 +388,18 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                         return;
                     }
                 }
-                this.f20918e = z;
-                this.f20919f = bdSwitchView;
+                this.f56392e = z;
+                this.f56393f = bdSwitchView;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.f20918e) {
-                        this.f20919f.h();
+                    if (this.f56392e) {
+                        this.f56393f.turnOffNoCallback();
                     } else {
-                        this.f20919f.k();
+                        this.f56393f.turnOnNoCallback();
                     }
                 }
             }
@@ -419,7 +420,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                     return;
                 }
             }
-            this.f20915a = msgRemindActivity;
+            this.f56389a = msgRemindActivity;
         }
 
         @Override // com.baidu.tieba.setting.model.MsgRemindModel.e
@@ -427,57 +428,57 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
                 if (i2 == 14) {
-                    BdSwitchView q = this.f20915a.mView.q();
+                    BdSwitchView o = this.f56389a.mView.o();
                     if (!z) {
-                        if (q != null) {
-                            d.a.d.e.m.e.a().postDelayed(new b(this, z2, q), 500L);
+                        if (o != null) {
+                            c.a.e.e.m.e.a().postDelayed(new b(this, z2, o), 500L);
                             return;
                         }
                         return;
                     }
                     if (z2) {
-                        d.a.p0.t.d.d.d().E(300);
-                        this.f20915a.mView.e0(true);
+                        c.a.o0.t.d.d.d().E(300);
+                        this.f56389a.mView.d0(true);
                     } else {
-                        d.a.p0.t.d.d.d().E(0);
-                        this.f20915a.mView.e0(false);
+                        c.a.o0.t.d.d.d().E(0);
+                        this.f56389a.mView.d0(false);
                     }
-                    if (q != null) {
-                        d.a.d.e.m.e.a().postDelayed(new a(this, z2, q), 500L);
+                    if (o != null) {
+                        c.a.e.e.m.e.a().postDelayed(new a(this, z2, o), 500L);
                     }
                 } else if (i2 == 2) {
                     if (z) {
-                        d.a.p0.t.d.d.d().C(z2);
+                        c.a.o0.t.d.d.d().C(z2);
                     }
-                    this.f20915a.mView.m0();
+                    this.f56389a.mView.k0();
                 } else if (i2 == 3) {
                     if (z) {
-                        d.a.p0.t.d.d.d().G(z2);
+                        c.a.o0.t.d.d.d().G(z2);
                     }
-                    this.f20915a.mView.p0();
+                    this.f56389a.mView.n0();
                 } else if (i2 == 4) {
                     if (z) {
-                        d.a.p0.t.d.d.d().B(z2);
+                        c.a.o0.t.d.d.d().B(z2);
                         if (!z2) {
-                            TiebaStatic.eventStat(this.f20915a.getPageContext().getPageActivity(), "group_message_remind", "check_click", 1, new Object[0]);
+                            TiebaStatic.eventStat(this.f56389a.getPageContext().getPageActivity(), "group_message_remind", "check_click", 1, new Object[0]);
                         }
                     }
-                    this.f20915a.mView.o0();
+                    this.f56389a.mView.m0();
                 } else if (i2 == 5) {
                     if (z) {
-                        d.a.p0.t.d.d.d().D(z2);
+                        c.a.o0.t.d.d.d().D(z2);
                     }
-                    this.f20915a.mView.n0();
+                    this.f56389a.mView.l0();
                 } else if (i2 == 1) {
                     if (z) {
-                        d.a.p0.t.d.d.d().H(z2);
+                        c.a.o0.t.d.d.d().H(z2);
                     }
-                    this.f20915a.mView.r0();
+                    this.f56389a.mView.o0();
                 } else if (i2 == 20) {
                     if (z) {
-                        d.a.p0.t.d.d.d().K(z2);
+                        c.a.o0.t.d.d.d().K(z2);
                     }
-                    this.f20915a.mView.t0();
+                    this.f56389a.mView.p0();
                 }
             }
         }
@@ -511,7 +512,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     private void showPushPermissionGuide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            d.a.p0.s.s.a aVar = new d.a.p0.s.s.a(this);
+            c.a.o0.s.s.a aVar = new c.a.o0.s.s.a(this);
             aVar.setTitle(R.string.push_permission_guide_title);
             aVar.setTitleShowCenter(true);
             aVar.setMessage(getString(R.string.push_permission_guide_des));
@@ -529,116 +530,116 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     public void OnSwitchStateChange(View view, BdSwitchView.SwitchState switchState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view, switchState) == null) {
-            if (view == this.mView.I()) {
+            if (view == this.mView.J()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
-                    d.a.p0.t.d.d.d().R(true);
+                    c.a.o0.t.d.d.d().R(true);
                     TiebaStatic.log(new StatisticItem("c12939").param("obj_type", 2));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_SWITCH).param("obj_type", 1));
-                    this.mView.l0();
-                    this.mView.g0(true);
+                    this.mView.j0();
+                    this.mView.f0(true);
                 } else {
-                    d.a.p0.t.d.d.d().R(false);
+                    c.a.o0.t.d.d.d().R(false);
                     TiebaStatic.log(new StatisticItem("c12939").param("obj_type", 1));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_SWITCH).param("obj_type", 0));
-                    this.mView.g0(false);
+                    this.mView.f0(false);
                 }
                 doMsgSwitchStat(switchState, 7);
-            } else if (view == this.mView.q()) {
+            } else if (view == this.mView.o()) {
                 this.mModel.z(14, switchState == BdSwitchView.SwitchState.ON, this.callback);
-            } else if (view == this.mView.x()) {
+            } else if (view == this.mView.v()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
-                    d.a.p0.t.d.d.d().M(true);
-                    this.mView.f0(true);
+                    c.a.o0.t.d.d.d().M(true);
+                    this.mView.e0(true);
                     return;
                 }
-                d.a.p0.t.d.d.d().M(false);
-                this.mView.f0(false);
-            } else if (view == this.mView.B()) {
-                if (switchState == BdSwitchView.SwitchState.ON) {
-                    d.a.p0.t.d.d.d().I(true);
-                } else {
-                    d.a.p0.t.d.d.d().I(false);
-                }
-            } else if (view == this.mView.F()) {
-                if (switchState == BdSwitchView.SwitchState.ON) {
-                    d.a.p0.t.d.d.d().J(true);
-                } else {
-                    d.a.p0.t.d.d.d().J(false);
-                }
+                c.a.o0.t.d.d.d().M(false);
+                this.mView.e0(false);
             } else if (view == this.mView.z()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
-                    d.a.p0.t.d.d.d().F(true);
+                    c.a.o0.t.d.d.d().I(true);
                 } else {
-                    d.a.p0.t.d.d.d().F(false);
+                    c.a.o0.t.d.d.d().I(false);
                 }
             } else if (view == this.mView.A()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
-                    d.a.p0.t.d.d.d().Q(true);
+                    c.a.o0.t.d.d.d().J(true);
                 } else {
-                    d.a.p0.t.d.d.d().Q(false);
+                    c.a.o0.t.d.d.d().J(false);
                 }
-            } else if (view == this.mView.G()) {
+            } else if (view == this.mView.x()) {
+                if (switchState == BdSwitchView.SwitchState.ON) {
+                    c.a.o0.t.d.d.d().F(true);
+                } else {
+                    c.a.o0.t.d.d.d().F(false);
+                }
+            } else if (view == this.mView.y()) {
+                if (switchState == BdSwitchView.SwitchState.ON) {
+                    c.a.o0.t.d.d.d().Q(true);
+                } else {
+                    c.a.o0.t.d.d.d().Q(false);
+                }
+            } else if (view == this.mView.B()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.mModel.z(1, true, this.callback);
                 } else {
                     this.mModel.z(1, false, this.callback);
                 }
                 doMsgSwitchStat(switchState, 1);
-            } else if (view == this.mView.K()) {
+            } else if (view == this.mView.L()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.mModel.z(20, true, this.callback);
                 } else {
                     this.mModel.z(20, false, this.callback);
                 }
                 doMsgSwitchStat(switchState, 2);
-            } else if (view == this.mView.k()) {
+            } else if (view == this.mView.i()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.mModel.z(2, true, this.callback);
                 } else {
                     this.mModel.z(2, false, this.callback);
                 }
                 doMsgSwitchStat(switchState, 3);
-            } else if (view == this.mView.m()) {
+            } else if (view == this.mView.k()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.mModel.z(5, true, this.callback);
                 } else {
                     this.mModel.z(5, false, this.callback);
                 }
-            } else if (view == this.mView.p()) {
+            } else if (view == this.mView.n()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.mModel.z(4, true, this.callback);
                 } else {
                     this.mModel.z(4, false, this.callback);
                 }
-            } else if (view == this.mView.t()) {
+            } else if (view == this.mView.r()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.mModel.z(3, true, this.callback);
                 } else {
                     this.mModel.z(3, false, this.callback);
                 }
                 doMsgSwitchStat(switchState, 4);
-            } else if (view == this.mView.o()) {
+            } else if (view == this.mView.m()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.mModel.z(8, true, this.mMsgRemindModelCallback);
-                    this.mView.c0(true);
-                    this.mView.i0(true);
+                    this.mView.b0(true);
+                    this.mView.g0(true);
                 } else {
                     this.mModel.z(8, false, this.mMsgRemindModelCallback);
-                    this.mView.c0(false);
-                    this.mView.i0(false);
+                    this.mView.b0(false);
+                    this.mView.g0(false);
                 }
                 doMsgSwitchStat(switchState, 5);
-            } else if (view == this.mView.J()) {
+            } else if (view == this.mView.K()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.mModel.z(9, true, this.mMsgRemindModelCallback);
                 } else {
                     this.mModel.z(9, false, this.mMsgRemindModelCallback);
                 }
                 doMsgSwitchStat(switchState, 6);
-            } else if (view == this.mView.n()) {
+            } else if (view == this.mView.l()) {
                 this.mModel.z(7, switchState == BdSwitchView.SwitchState.OFF, this.mMsgRemindModelCallback);
                 doMsgSwitchStat(switchState, 9);
-            } else if (view == this.mView.y()) {
+            } else if (view == this.mView.w()) {
                 this.mModel.z(6, switchState == BdSwitchView.SwitchState.OFF, this.mMsgRemindModelCallback);
             }
         }
@@ -648,7 +649,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mView.l().performClick();
+            this.mView.j().performClick();
         }
     }
 
@@ -666,26 +667,26 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             super.onClick(view);
-            if (view == this.mView.l()) {
-                d.a.q0.z2.c.g gVar = this.mView;
+            if (view == this.mView.j()) {
+                c.a.p0.a3.c.g gVar = this.mView;
                 if (gVar.B) {
                     finish();
                 } else {
-                    gVar.d0(true);
+                    gVar.c0(true);
                 }
-            } else if (view == this.mView.H()) {
-                d.a.p0.t.d.f.c().l(getPageContext(), this.onTimeSelectListener);
-            } else if (view == this.mView.v()) {
-                this.mView.d0(false);
-            } else if (view == this.mView.w()) {
-                showDialog(R.id.no_disturb_start_time);
+            } else if (view == this.mView.D()) {
+                c.a.o0.t.d.f.c().l(getPageContext(), this.onTimeSelectListener);
+            } else if (view == this.mView.t()) {
+                this.mView.c0(false);
             } else if (view == this.mView.u()) {
+                showDialog(R.id.no_disturb_start_time);
+            } else if (view == this.mView.s()) {
                 showDialog(R.id.no_disturb_end_time);
-            } else if (view == this.mView.r()) {
+            } else if (view == this.mView.p()) {
                 TiebaStatic.log(new StatisticItem("c13286").param("uid", TbadkCoreApplication.getCurrentAccount()));
                 sendMessage(new CustomMessage(2002001, new MsgReceiveActivityConfig(getPageContext().getPageActivity())));
-            } else if (view == this.mView.s()) {
-                d.a.p0.s.p.a.c().b();
+            } else if (view == this.mView.q()) {
+                c.a.o0.s.p.a.c().b();
             } else if (view.getId() == R.id.system_msg_permission_switch_cover) {
                 showPushPermissionGuide();
             }
@@ -697,9 +698,9 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            d.a.q0.z2.c.g gVar = new d.a.q0.z2.c.g(this);
+            c.a.p0.a3.c.g gVar = new c.a.p0.a3.c.g(this);
             this.mView = gVar;
-            gVar.L(this);
+            gVar.N(this);
             this.mModel = new MsgRemindModel(this);
         }
     }
@@ -721,16 +722,16 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            d.a.q0.z3.b bVar = new d.a.q0.z3.b(getActivity(), new f(this, i2), 0, 0, true);
+            CancelableTimePickerDialog cancelableTimePickerDialog = new CancelableTimePickerDialog(getActivity(), new f(this, i2), 0, 0, true);
             if (i2 == R.id.no_disturb_end_time) {
-                bVar.setTitle(R.string.no_disturb_end_time);
+                cancelableTimePickerDialog.setTitle(R.string.no_disturb_end_time);
             } else if (i2 == R.id.no_disturb_start_time) {
-                bVar.setTitle(R.string.no_disturb_start_time);
+                cancelableTimePickerDialog.setTitle(R.string.no_disturb_start_time);
             }
-            bVar.setButton(-1, getPageContext().getString(R.string.alert_yes_button), bVar);
-            bVar.setButton(-2, getPageContext().getString(R.string.cancel), bVar);
-            bVar.getWindow().setSoftInputMode(2);
-            return bVar;
+            cancelableTimePickerDialog.setButton(-1, getPageContext().getString(R.string.alert_yes_button), cancelableTimePickerDialog);
+            cancelableTimePickerDialog.setButton(-2, getPageContext().getString(R.string.cancel), cancelableTimePickerDialog);
+            cancelableTimePickerDialog.getWindow().setSoftInputMode(2);
+            return cancelableTimePickerDialog;
         }
         return (Dialog) invokeI.objValue;
     }
@@ -740,9 +741,9 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            d.a.q0.z2.c.g gVar = this.mView;
+            c.a.p0.a3.c.g gVar = this.mView;
             if (gVar != null) {
-                gVar.Z();
+                gVar.Y();
             }
         }
     }
@@ -755,11 +756,11 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             if (i2 != 4) {
                 return super.onKeyDown(i2, keyEvent);
             }
-            d.a.q0.z2.c.g gVar = this.mView;
+            c.a.p0.a3.c.g gVar = this.mView;
             if (gVar.B) {
                 finish();
             } else {
-                gVar.d0(true);
+                gVar.c0(true);
             }
             return true;
         }
@@ -774,9 +775,9 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             if (dialog instanceof TimePickerDialog) {
                 if (i2 == R.id.no_disturb_start_time || i2 == R.id.no_disturb_end_time) {
                     if (i2 == R.id.no_disturb_start_time) {
-                        split = d.a.p0.t.d.d.d().g().split(":");
+                        split = c.a.o0.t.d.d.d().g().split(":");
                     } else {
-                        split = d.a.p0.t.d.d.d().f().split(":");
+                        split = c.a.o0.t.d.d.d().f().split(":");
                     }
                     ((TimePickerDialog) dialog).updateTime(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
                     return;
@@ -792,9 +793,9 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onResume();
-            d.a.q0.z2.c.g gVar = this.mView;
+            c.a.p0.a3.c.g gVar = this.mView;
             if (gVar != null) {
-                gVar.a0();
+                gVar.Z();
             }
         }
     }
@@ -804,7 +805,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onStop();
-            d.a.p0.t.d.d.d().A();
+            c.a.o0.t.d.d.d().A();
         }
     }
 }

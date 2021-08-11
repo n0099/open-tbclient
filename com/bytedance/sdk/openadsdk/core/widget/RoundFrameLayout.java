@@ -20,22 +20,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class RoundFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Path f30935a;
+    public Path f66865a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f30936b;
+    public Paint f66866b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RectF f30937c;
+    public RectF f66867c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float[] f30938d;
+    public float[] f66868d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundFrameLayout(@NonNull Context context) {
@@ -61,7 +61,7 @@ public class RoundFrameLayout extends FrameLayout {
     public void a(float f2, float f3, float f4, float f5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            float[] fArr = this.f30938d;
+            float[] fArr = this.f66868d;
             fArr[0] = f2;
             fArr[1] = f2;
             fArr[2] = f3;
@@ -83,9 +83,9 @@ public class RoundFrameLayout extends FrameLayout {
                 canvas.clipPath(a());
                 super.dispatchDraw(canvas);
             } else {
-                canvas.saveLayer(this.f30937c, null, 31);
+                canvas.saveLayer(this.f66867c, null, 31);
                 super.dispatchDraw(canvas);
-                canvas.drawPath(a(), this.f30936b);
+                canvas.drawPath(a(), this.f66866b);
             }
             canvas.restore();
         }
@@ -100,9 +100,9 @@ public class RoundFrameLayout extends FrameLayout {
                 canvas.clipPath(a());
                 super.draw(canvas);
             } else {
-                canvas.saveLayer(this.f30937c, null, 31);
+                canvas.saveLayer(this.f66867c, null, 31);
                 super.draw(canvas);
-                canvas.drawPath(a(), this.f30936b);
+                canvas.drawPath(a(), this.f66866b);
             }
             canvas.restore();
         }
@@ -113,14 +113,14 @@ public class RoundFrameLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f30937c.set(0.0f, 0.0f, i2, i3);
+            this.f66867c.set(0.0f, 0.0f, i2, i3);
         }
     }
 
     public void setBottomLeftRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
-            float[] fArr = this.f30938d;
+            float[] fArr = this.f66868d;
             fArr[6] = f2;
             fArr[7] = f2;
             postInvalidate();
@@ -130,7 +130,7 @@ public class RoundFrameLayout extends FrameLayout {
     public void setBottomRightRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            float[] fArr = this.f30938d;
+            float[] fArr = this.f66868d;
             fArr[5] = f2;
             fArr[6] = f2;
             postInvalidate();
@@ -140,7 +140,7 @@ public class RoundFrameLayout extends FrameLayout {
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
-            Arrays.fill(this.f30938d, f2);
+            Arrays.fill(this.f66868d, f2);
             postInvalidate();
         }
     }
@@ -148,7 +148,7 @@ public class RoundFrameLayout extends FrameLayout {
     public void setTopLeftRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
-            float[] fArr = this.f30938d;
+            float[] fArr = this.f66868d;
             fArr[0] = f2;
             fArr[1] = f2;
             postInvalidate();
@@ -158,7 +158,7 @@ public class RoundFrameLayout extends FrameLayout {
     public void setTopRightRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f2) == null) {
-            float[] fArr = this.f30938d;
+            float[] fArr = this.f66868d;
             fArr[2] = f2;
             fArr[3] = f2;
             postInvalidate();
@@ -205,13 +205,13 @@ public class RoundFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f30935a = new Path();
-        this.f30937c = new RectF();
+        this.f66865a = new Path();
+        this.f66867c = new RectF();
         Paint paint = new Paint();
-        this.f30936b = paint;
+        this.f66866b = paint;
         paint.setAntiAlias(true);
-        this.f30936b.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
-        this.f30938d = new float[8];
+        this.f66866b.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+        this.f66868d = new float[8];
     }
 
     private Path a() {
@@ -219,11 +219,11 @@ public class RoundFrameLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             try {
-                this.f30935a.reset();
+                this.f66865a.reset();
             } catch (ArrayIndexOutOfBoundsException unused) {
             }
-            this.f30935a.addRoundRect(this.f30937c, this.f30938d, Path.Direction.CW);
-            return this.f30935a;
+            this.f66865a.addRoundRect(this.f66867c, this.f66868d, Path.Direction.CW);
+            return this.f66865a;
         }
         return (Path) invokeV.objValue;
     }

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Modifier;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ProcessDelegateBaseActivity extends Activity implements Agent, DelegateDef {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

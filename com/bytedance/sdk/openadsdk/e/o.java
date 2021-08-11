@@ -10,7 +10,7 @@ import com.bytedance.sdk.openadsdk.j.c.c;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class o extends g<c.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class o extends g<c.a> {
             try {
                 JSONArray jSONArray = new JSONArray();
                 for (c.a aVar : list) {
-                    jSONArray.put(aVar.f31636b);
+                    jSONArray.put(aVar.f67580b);
                 }
                 jSONObject.put("stats_list", jSONArray);
             } catch (Exception unused) {

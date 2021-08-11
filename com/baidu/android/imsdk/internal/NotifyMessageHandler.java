@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class NotifyMessageHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NotifyMessageHandler";
@@ -76,7 +76,7 @@ public abstract class NotifyMessageHandler {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void handleDeliverMessage(Context context, JSONObject jSONObject) throws JSONException {
-        long j;
+        long j2;
         SyncStrategy generate;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeLL(65538, null, context, jSONObject) != null) {
@@ -86,15 +86,15 @@ public abstract class NotifyMessageHandler {
         int i2 = jSONObject.getInt("category");
         if (i2 == 0 && jSONObject.has("msgid")) {
             try {
-                j = jSONObject.getLong("msgid");
+                j2 = jSONObject.getLong("msgid");
             } catch (JSONException e2) {
                 LogUtils.i(TAG, "JSONException:" + e2.getMessage());
             }
             if (i2 != 0 || i2 == 2) {
                 generate = Generator.generate(context, 5);
                 if (generate == null) {
-                    if (j != -1) {
-                        generate.start(2, j);
+                    if (j2 != -1) {
+                        generate.start(2, j2);
                         return;
                     } else {
                         generate.start(2);
@@ -103,18 +103,18 @@ public abstract class NotifyMessageHandler {
                 }
                 return;
             } else if (i2 == 1) {
-                long j2 = jSONObject.getLong("contacter");
-                long j3 = jSONObject.getLong("msgid");
-                LogUtils.i(TAG, "msgid : " + j3);
-                SyncGroupMessageService.getInstance().execute(context, i2, j2, j3, 2);
-                Utility.transformGroupMediaNotify(context, i2, j2, 2, -1L);
+                long j3 = jSONObject.getLong("contacter");
+                long j4 = jSONObject.getLong("msgid");
+                LogUtils.i(TAG, "msgid : " + j4);
+                SyncGroupMessageService.getInstance().execute(context, i2, j3, j4, 2);
+                Utility.transformGroupMediaNotify(context, i2, j3, 2, -1L);
                 return;
             } else {
                 LogUtils.e(TAG, "handleDeliverMessage category error!!");
                 return;
             }
         }
-        j = -1;
+        j2 = -1;
         if (i2 != 0) {
         }
         generate = Generator.generate(context, 5);

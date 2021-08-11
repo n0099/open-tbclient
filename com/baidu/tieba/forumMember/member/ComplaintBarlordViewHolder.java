@@ -10,25 +10,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ComplaintBarlordViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f15279a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f15280b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public View f15281c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f15282d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f15283e;
+    public ImageView mArrowImg;
+    public View mLineView;
+    public RelativeLayout mRootLayout;
+    public int mSkinType;
+    public TextView mTitleView;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ComplaintBarlordViewHolder(View view) {
@@ -48,10 +38,10 @@ public class ComplaintBarlordViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f15279a = 3;
-        this.f15280b = (RelativeLayout) view.findViewById(R.id.bar_info_complaint_lay);
-        this.f15281c = view.findViewById(R.id.info_complaint_diver_top);
-        this.f15282d = (TextView) view.findViewById(R.id.bar_info_complaint_tv);
-        this.f15283e = (ImageView) view.findViewById(R.id.bar_info_complaint_img);
+        this.mSkinType = 3;
+        this.mRootLayout = (RelativeLayout) view.findViewById(R.id.bar_info_complaint_lay);
+        this.mLineView = view.findViewById(R.id.info_complaint_diver_top);
+        this.mTitleView = (TextView) view.findViewById(R.id.bar_info_complaint_tv);
+        this.mArrowImg = (ImageView) view.findViewById(R.id.bar_info_complaint_img);
     }
 }

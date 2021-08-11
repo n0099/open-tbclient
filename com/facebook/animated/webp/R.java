@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class R {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class attr {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int actualImageResource = 0x7f040024;
@@ -45,7 +45,7 @@ public final class R {
         public static final int roundingBorderColor = 0x7f04035f;
         public static final int roundingBorderPadding = 0x7f040360;
         public static final int roundingBorderWidth = 0x7f040361;
-        public static final int svgImage = 0x7f04050f;
+        public static final int svgImage = 0x7f040545;
         public static final int viewAspectRatio = 0x7f040489;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,19 +64,19 @@ public final class R {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int center = 0x7f090651;
-        public static final int centerCrop = 0x7f090655;
-        public static final int centerInside = 0x7f090656;
-        public static final int fitBottomStart = 0x7f090b23;
-        public static final int fitCenter = 0x7f090b24;
-        public static final int fitEnd = 0x7f090b25;
-        public static final int fitStart = 0x7f090b26;
-        public static final int fitXY = 0x7f090b28;
-        public static final int focusCrop = 0x7f090b51;
-        public static final int none = 0x7f0915c6;
+        public static final int center = 0x7f0905f4;
+        public static final int centerCrop = 0x7f0905f8;
+        public static final int centerInside = 0x7f0905f9;
+        public static final int fitBottomStart = 0x7f090ab9;
+        public static final int fitCenter = 0x7f090aba;
+        public static final int fitEnd = 0x7f090abb;
+        public static final int fitStart = 0x7f090abc;
+        public static final int fitXY = 0x7f090abe;
+        public static final int focusCrop = 0x7f090ae7;
+        public static final int none = 0x7f09157e;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -94,7 +94,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class styleable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] GenericDraweeHierarchy;

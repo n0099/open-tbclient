@@ -14,7 +14,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.os.ResultReceiver;
-import android.util.Log;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -55,7 +54,7 @@ public class MediaSessionCompatApi21 {
 
         void onRewind();
 
-        void onSeekTo(long j);
+        void onSeekTo(long j2);
 
         void onSetRating(Object obj);
 
@@ -65,7 +64,7 @@ public class MediaSessionCompatApi21 {
 
         void onSkipToPrevious();
 
-        void onSkipToQueueItem(long j);
+        void onSkipToQueueItem(long j2);
 
         void onStop();
     }
@@ -170,10 +169,10 @@ public class MediaSessionCompatApi21 {
         }
 
         @Override // android.media.session.MediaSession.Callback
-        public void onSeekTo(long j) {
+        public void onSeekTo(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-                this.mCallback.onSeekTo(j);
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+                this.mCallback.onSeekTo(j2);
             }
         }
 
@@ -202,10 +201,10 @@ public class MediaSessionCompatApi21 {
         }
 
         @Override // android.media.session.MediaSession.Callback
-        public void onSkipToQueueItem(long j) {
+        public void onSkipToQueueItem(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-                this.mCallback.onSkipToQueueItem(j);
+            if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+                this.mCallback.onSkipToQueueItem(j2);
             }
         }
 
@@ -237,10 +236,10 @@ public class MediaSessionCompatApi21 {
             }
         }
 
-        public static Object createItem(Object obj, long j) {
+        public static Object createItem(Object obj, long j2) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, obj, j)) == null) ? new MediaSession.QueueItem((MediaDescription) obj, j) : invokeLJ.objValue;
+            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, obj, j2)) == null) ? new MediaSession.QueueItem((MediaDescription) obj, j2) : invokeLJ.objValue;
         }
 
         public static Object getDescription(Object obj) {
@@ -298,10 +297,10 @@ public class MediaSessionCompatApi21 {
                     declaredField.setAccessible(true);
                     return declaredField.get(obj) != null;
                 }
+                return false;
             } catch (IllegalAccessException | NoSuchFieldException unused) {
-                Log.w(TAG, "Failed to get mCallback object.");
+                return false;
             }
-            return false;
         }
         return invokeL.booleanValue;
     }

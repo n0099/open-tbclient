@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class e extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,13 +38,13 @@ public class e extends b {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (String str : this.f32334f) {
-                List<File> b2 = com.bytedance.sdk.openadsdk.preload.geckox.utils.d.b(new File(this.f32333e, str));
-                if (b2 != null && b2.size() > this.f32332d.b()) {
-                    for (File file : b2.subList(0, b2.size() - this.f32332d.b())) {
+            for (String str : this.f68293f) {
+                List<File> b2 = com.bytedance.sdk.openadsdk.preload.geckox.utils.d.b(new File(this.f68292e, str));
+                if (b2 != null && b2.size() > this.f68291d.b()) {
+                    for (File file : b2.subList(0, b2.size() - this.f68291d.b())) {
                         boolean b3 = com.bytedance.sdk.openadsdk.preload.geckox.a.c.b(file.getAbsolutePath());
-                        if (this.f32332d.c() != null) {
-                            this.f32332d.c().a(file.getName(), b3);
+                        if (this.f68291d.c() != null) {
+                            this.f68291d.c().a(file.getName(), b3);
                         }
                     }
                 }

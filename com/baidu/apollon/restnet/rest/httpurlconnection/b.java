@@ -2,16 +2,21 @@ package com.baidu.apollon.restnet.rest.httpurlconnection;
 
 import android.content.Context;
 import android.os.Build;
+import android.os.SystemClock;
 import android.text.TextUtils;
+import android.webkit.URLUtil;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.restnet.RestDebugConfig;
 import com.baidu.apollon.restnet.RestMultipartEntity;
-import com.baidu.apollon.restnet.a;
+import com.baidu.apollon.restnet.b;
+import com.baidu.apollon.restnet.c;
+import com.baidu.apollon.restnet.http.OkHttpFactory;
 import com.baidu.apollon.restnet.rest.e;
+import com.baidu.apollon.utils.CheckUtils;
+import com.baidu.apollon.utils.DxmApplicationContextImpl;
 import com.baidu.apollon.utils.LogUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +28,7 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
 import java.security.KeyManagementException;
@@ -43,34 +48,34 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class b implements com.baidu.apollon.restnet.rest.c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f3930e = "appcache";
+    public static final String f37916e = "appcache";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f3931h = 2;
+    public static final int f37917h = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3932a;
+    public Context f37918a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3933b;
+    public String f37919b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RestUrlConnectionRequest f3934c;
+    public RestUrlConnectionRequest f37920c;
 
     /* renamed from: d  reason: collision with root package name */
-    public URLConnection f3935d;
+    public URLConnection f37921d;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f3936f;
+    public boolean f37922f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f3937g;
+    public boolean f37923g;
 
     public b(Context context, String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -87,18 +92,18 @@ public class b implements com.baidu.apollon.restnet.rest.c {
                 return;
             }
         }
-        this.f3937g = false;
-        this.f3932a = context.getApplicationContext();
-        this.f3933b = str;
-        this.f3937g = z;
+        this.f37923g = false;
+        this.f37918a = DxmApplicationContextImpl.getApplicationContext(context);
+        this.f37919b = str;
+        this.f37923g = z;
     }
 
     private e b(URL url) throws IOException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, url)) == null) {
-            a(this.f3935d);
-            return a(url, this.f3935d, "GET");
+            a(this.f37921d);
+            return a(url, this.f37921d, "GET");
         }
         return (e) invokeL.objValue;
     }
@@ -107,9 +112,9 @@ public class b implements com.baidu.apollon.restnet.rest.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            if (this.f3934c != null) {
-                a.InterfaceC0064a a2 = com.baidu.apollon.restnet.a.a();
-                String h2 = this.f3934c.h();
+            if (this.f37920c != null) {
+                c.a a2 = com.baidu.apollon.restnet.c.a();
+                String h2 = this.f37920c.h();
                 return (TextUtils.isEmpty(h2) || a2 == null || !a2.a(h2)) ? false : true;
             }
             return false;
@@ -121,7 +126,7 @@ public class b implements com.baidu.apollon.restnet.rest.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             try {
-                Class.forName("android.net.http.HttpResponseCache").getMethod("install", File.class, Long.TYPE).invoke(null, new File(this.f3932a.getDir("appcache", 0), "http"), Long.valueOf((long) Config.FULL_TRACE_LOG_LIMIT));
+                Class.forName("android.net.http.HttpResponseCache").getMethod("install", File.class, Long.TYPE).invoke(null, new File(this.f37918a.getDir("appcache", 0), "http"), 10485760L);
             } catch (Exception unused) {
             }
         }
@@ -138,70 +143,130 @@ public class b implements com.baidu.apollon.restnet.rest.c {
     }
 
     @Override // com.baidu.apollon.restnet.rest.c
-    public e a(com.baidu.apollon.restnet.rest.d dVar) throws MalformedURLException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException, IOException {
+    public e a(com.baidu.apollon.restnet.rest.d dVar) throws Exception {
         InterceptResult invokeL;
+        URL url;
+        String message;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) {
-            this.f3934c = (RestUrlConnectionRequest) dVar;
+            this.f37920c = (RestUrlConnectionRequest) dVar;
             String c2 = dVar.c();
-            if (this.f3934c.k()) {
+            if (this.f37920c.k()) {
                 c2 = a(c2);
             }
-            URL url = new URL(c2);
-            this.f3935d = url.openConnection();
-            if ("https".equalsIgnoreCase(url.getProtocol())) {
-                if (RestDebugConfig.getInstance().isQAEnv()) {
-                    SSLContext sSLContext = SSLContext.getInstance("TLS");
-                    sSLContext.init(null, new TrustManager[]{new a()}, null);
-                    ((HttpsURLConnection) this.f3935d).setSSLSocketFactory(sSLContext.getSocketFactory());
-                    ((HttpsURLConnection) this.f3935d).setHostnameVerifier(new HostnameVerifier(this) { // from class: com.baidu.apollon.restnet.rest.httpurlconnection.b.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
+            URI create = URI.create(c2);
+            boolean z = RestDebugConfig.isEnableOkHttp() && RestDebugConfig.allowUseOkHttp(create.getPath());
+            if (z) {
+                url = new URL((URL) null, c2, OkHttpFactory.getInstance().getURLStreamHandler(create.getScheme()));
+            } else {
+                url = new URL(c2);
+            }
+            long uptimeMillis = SystemClock.uptimeMillis();
+            try {
+                this.f37921d = url.openConnection();
+                if ("https".equalsIgnoreCase(url.getProtocol())) {
+                    if (RestDebugConfig.getInstance().isQAEnv()) {
+                        SSLContext sSLContext = SSLContext.getInstance("TLS");
+                        sSLContext.init(null, new TrustManager[]{new a()}, null);
+                        ((HttpsURLConnection) this.f37921d).setSSLSocketFactory(sSLContext.getSocketFactory());
+                        ((HttpsURLConnection) this.f37921d).setHostnameVerifier(new HostnameVerifier(this) { // from class: com.baidu.apollon.restnet.rest.httpurlconnection.b.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
 
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ b f3938a;
+                            /* renamed from: a  reason: collision with root package name */
+                            public final /* synthetic */ b f37924a;
 
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
                                 }
+                                this.f37924a = this;
                             }
-                            this.f3938a = this;
-                        }
 
-                        @Override // javax.net.ssl.HostnameVerifier
-                        public boolean verify(String str, SSLSession sSLSession) {
-                            InterceptResult invokeLL;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, sSLSession)) == null) {
-                                return true;
+                            @Override // javax.net.ssl.HostnameVerifier
+                            public boolean verify(String str, SSLSession sSLSession) {
+                                InterceptResult invokeLL;
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, sSLSession)) == null) {
+                                    return true;
+                                }
+                                return invokeLL.booleanValue;
                             }
-                            return invokeLL.booleanValue;
-                        }
-                    });
-                } else {
-                    a((HttpsURLConnection) this.f3935d);
-                    b((HttpsURLConnection) this.f3935d);
+                        });
+                    } else {
+                        b((HttpsURLConnection) this.f37921d);
+                    }
                 }
+                LogUtil.v("apollon_rest", "con url: " + url + ", host: " + this.f37921d.getURL().getHost());
+                if (this.f37920c.j()) {
+                    e a2 = a(url);
+                    if (RestDebugConfig.isEnableNetworkStats()) {
+                        int responseCode = ((HttpURLConnection) this.f37921d).getResponseCode();
+                        String requestProperty = this.f37921d.getRequestProperty("X-Fallback-Connection");
+                        if (!TextUtils.isEmpty("")) {
+                            com.baidu.apollon.restnet.a.a().a(new b.a().b(z).a(SystemClock.uptimeMillis() - uptimeMillis).a(create).a(true).a("").b("").c("1".equals(requestProperty)).d(requestProperty != null).a(responseCode).a());
+                        }
+                    }
+                    return a2;
+                } else if (this.f37920c.k()) {
+                    e b2 = b(url);
+                    if (RestDebugConfig.isEnableNetworkStats()) {
+                        int responseCode2 = ((HttpURLConnection) this.f37921d).getResponseCode();
+                        String requestProperty2 = this.f37921d.getRequestProperty("X-Fallback-Connection");
+                        if (!TextUtils.isEmpty("")) {
+                            com.baidu.apollon.restnet.a.a().a(new b.a().b(z).a(SystemClock.uptimeMillis() - uptimeMillis).a(create).a(true).a("").b("").c("1".equals(requestProperty2)).d(requestProperty2 != null).a(responseCode2).a());
+                        }
+                    }
+                    return b2;
+                } else {
+                    if (RestDebugConfig.isEnableNetworkStats()) {
+                        int responseCode3 = ((HttpURLConnection) this.f37921d).getResponseCode();
+                        String requestProperty3 = this.f37921d.getRequestProperty("X-Fallback-Connection");
+                        if (!TextUtils.isEmpty("")) {
+                            com.baidu.apollon.restnet.a.a().a(new b.a().b(z).a(SystemClock.uptimeMillis() - uptimeMillis).a(create).a(true).a("").b("").c("1".equals(requestProperty3)).d(requestProperty3 != null).a(responseCode3).a());
+                        }
+                    }
+                    return null;
+                }
+            } catch (Exception e2) {
+                if (RestDebugConfig.isEnableNetworkStats()) {
+                    int i2 = -1;
+                    if (0 != 0) {
+                        i2 = ((HttpURLConnection) this.f37921d).getResponseCode();
+                        message = "";
+                    } else {
+                        message = e2.getMessage();
+                        if (URLUtil.isValidUrl(message)) {
+                            message = CheckUtils.stripUrlParams(message);
+                        }
+                    }
+                    String requestProperty4 = this.f37921d.getRequestProperty("X-Fallback-Connection");
+                    if (!TextUtils.isEmpty(message)) {
+                        com.baidu.apollon.restnet.a.a().a(new b.a().b(z).a(SystemClock.uptimeMillis() - uptimeMillis).a(create).a(false).a(0 == 0 ? e2.getClass().getName() : "").b(message).c("1".equals(requestProperty4)).d(requestProperty4 != null).a(i2).a());
+                    }
+                }
+                throw e2;
+            } catch (Throwable th) {
+                if (RestDebugConfig.isEnableNetworkStats()) {
+                    int responseCode4 = ((HttpURLConnection) this.f37921d).getResponseCode();
+                    String requestProperty5 = this.f37921d.getRequestProperty("X-Fallback-Connection");
+                    if (!TextUtils.isEmpty("")) {
+                        com.baidu.apollon.restnet.a.a().a(new b.a().b(z).a(SystemClock.uptimeMillis() - uptimeMillis).a(create).a(true).a("").b("").c("1".equals(requestProperty5)).d(requestProperty5 != null).a(responseCode4).a());
+                    }
+                }
+                throw th;
             }
-            LogUtil.v("apollon_rest", "con url: " + url + ", host: " + this.f3935d.getURL().getHost());
-            if (this.f3934c.j()) {
-                return a(url);
-            }
-            if (this.f3934c.k()) {
-                return b(url);
-            }
-            return null;
         }
         return (e) invokeL.objValue;
     }
@@ -209,12 +274,12 @@ public class b implements com.baidu.apollon.restnet.rest.c {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            ((HttpsURLConnection) this.f3935d).setHostnameVerifier(new HostnameVerifier(this) { // from class: com.baidu.apollon.restnet.rest.httpurlconnection.b.2
+            ((HttpsURLConnection) this.f37921d).setHostnameVerifier(new HostnameVerifier(this) { // from class: com.baidu.apollon.restnet.rest.httpurlconnection.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f3939a;
+                public final /* synthetic */ b f37925a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -231,7 +296,7 @@ public class b implements com.baidu.apollon.restnet.rest.c {
                             return;
                         }
                     }
-                    this.f3939a = this;
+                    this.f37925a = this;
                 }
 
                 @Override // javax.net.ssl.HostnameVerifier
@@ -241,7 +306,7 @@ public class b implements com.baidu.apollon.restnet.rest.c {
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, sSLSession)) == null) {
                         try {
                             Certificate[] peerCertificates = sSLSession.getPeerCertificates();
-                            String v = this.f3939a.f3934c.a().v();
+                            String v = this.f37925a.f37920c.a().v();
                             if (!TextUtils.isEmpty(v) && peerCertificates != null && peerCertificates.length > 0) {
                                 X509Certificate x509Certificate = (X509Certificate) peerCertificates[0];
                                 Collection<List<?>> subjectAlternativeNames = x509Certificate.getSubjectAlternativeNames();
@@ -286,7 +351,7 @@ public class b implements com.baidu.apollon.restnet.rest.c {
         if (!(interceptable == null || interceptable.invokeL(65546, this, httpsURLConnection) == null) || httpsURLConnection == null) {
             return;
         }
-        httpsURLConnection.setHostnameVerifier(com.baidu.apollon.restnet.rest.a.f3900a);
+        httpsURLConnection.setHostnameVerifier(com.baidu.apollon.restnet.rest.a.f37886a);
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:29:0x0061 -> B:40:0x0070). Please submit an issue!!! */
@@ -294,11 +359,11 @@ public class b implements com.baidu.apollon.restnet.rest.c {
         RestUrlConnectionRequest restUrlConnectionRequest;
         DataOutputStream dataOutputStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, this, uRLConnection) == null) || (restUrlConnectionRequest = this.f3934c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65545, this, uRLConnection) == null) || (restUrlConnectionRequest = this.f37920c) == null) {
             return;
         }
         String processedParams = restUrlConnectionRequest.getProcessedParams();
-        RestMultipartEntity i2 = this.f3934c.i();
+        RestMultipartEntity i2 = this.f37920c.i();
         uRLConnection.setDoOutput(true);
         uRLConnection.setDoInput(true);
         if (i2 != null) {
@@ -350,16 +415,16 @@ public class b implements com.baidu.apollon.restnet.rest.c {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            URLConnection uRLConnection = this.f3935d;
+            URLConnection uRLConnection = this.f37921d;
             if (uRLConnection != null) {
                 if (uRLConnection instanceof HttpsURLConnection) {
                     ((HttpsURLConnection) uRLConnection).disconnect();
                 } else if (uRLConnection instanceof HttpURLConnection) {
                     ((HttpURLConnection) uRLConnection).disconnect();
                 }
-                this.f3935d = null;
+                this.f37921d = null;
             }
-            if (this.f3937g) {
+            if (this.f37923g) {
                 e();
             }
         }
@@ -369,9 +434,9 @@ public class b implements com.baidu.apollon.restnet.rest.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, url)) == null) {
-            a(this.f3935d);
-            b(this.f3935d);
-            return a(url, this.f3935d, "POST");
+            a(this.f37921d);
+            b(this.f37921d);
+            return a(url, this.f37921d, "POST");
         }
         return (e) invokeL.objValue;
     }
@@ -405,12 +470,12 @@ public class b implements com.baidu.apollon.restnet.rest.c {
     private void a(URLConnection uRLConnection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, uRLConnection) == null) {
-            if (this.f3936f) {
-                uRLConnection.setConnectTimeout(this.f3934c.g() > 0 ? this.f3934c.g() : 30000);
-                uRLConnection.setReadTimeout(this.f3934c.g() > 0 ? this.f3934c.g() : 30000);
+            if (this.f37922f) {
+                uRLConnection.setConnectTimeout(this.f37920c.g() > 0 ? this.f37920c.g() : 30000);
+                uRLConnection.setReadTimeout(this.f37920c.g() > 0 ? this.f37920c.g() : 30000);
             } else {
-                uRLConnection.setConnectTimeout(this.f3934c.g() > 0 ? this.f3934c.g() : 30000);
-                uRLConnection.setReadTimeout(this.f3934c.g() > 0 ? this.f3934c.g() : 30000);
+                uRLConnection.setConnectTimeout(this.f37920c.g() > 0 ? this.f37920c.g() : 30000);
+                uRLConnection.setReadTimeout(this.f37920c.g() > 0 ? this.f37920c.g() : 30000);
             }
             if (Integer.parseInt(Build.VERSION.SDK) < 8) {
                 System.setProperty("http.keepAlive", "false");
@@ -424,11 +489,11 @@ public class b implements com.baidu.apollon.restnet.rest.c {
                 uRLConnection.setRequestProperty("Accept-Encoding", "");
                 return;
             }
-            uRLConnection.setRequestProperty("User-Agent", this.f3933b);
-            for (Map.Entry<String, List<String>> entry : this.f3934c.a().entrySet()) {
+            uRLConnection.setRequestProperty("User-Agent", this.f37919b);
+            for (Map.Entry<String, List<String>> entry : this.f37920c.a().entrySet()) {
                 uRLConnection.setRequestProperty(entry.getKey(), (String) Collections.unmodifiableList(entry.getValue()).get(0));
             }
-            if (this.f3937g) {
+            if (this.f37923g) {
                 d();
             }
         }
@@ -438,7 +503,7 @@ public class b implements com.baidu.apollon.restnet.rest.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
-            RestUrlConnectionRequest restUrlConnectionRequest = this.f3934c;
+            RestUrlConnectionRequest restUrlConnectionRequest = this.f37920c;
             if (restUrlConnectionRequest != null) {
                 String processedParams = restUrlConnectionRequest.getProcessedParams();
                 if (TextUtils.isEmpty(processedParams)) {

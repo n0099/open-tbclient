@@ -1,7 +1,6 @@
 package com.baidu.searchbox.unitedscheme.intercept;
 
 import android.content.Context;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.SchemeConfig;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class UnitedSchemeInterceptChain {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InterceptChain";
@@ -65,7 +64,7 @@ public final class UnitedSchemeInterceptChain {
                 return false;
             } catch (Exception e2) {
                 if (SchemeConfig.DEBUG) {
-                    Log.e(TAG, "error:" + e2.getMessage());
+                    String str = "error:" + e2.getMessage();
                     return false;
                 }
                 return false;

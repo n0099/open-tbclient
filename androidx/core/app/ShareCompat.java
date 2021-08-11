@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.Html;
 import android.text.Spanned;
-import android.util.Log;
 import android.view.ActionProvider;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -504,8 +503,7 @@ public final class ShareCompat {
                 }
                 try {
                     return this.mContext.getPackageManager().getActivityIcon(this.mCallingActivity);
-                } catch (PackageManager.NameNotFoundException e2) {
-                    Log.e(TAG, "Could not retrieve icon for calling activity", e2);
+                } catch (PackageManager.NameNotFoundException unused) {
                     return null;
                 }
             }
@@ -522,8 +520,7 @@ public final class ShareCompat {
                 }
                 try {
                     return this.mContext.getPackageManager().getApplicationIcon(this.mCallingPackage);
-                } catch (PackageManager.NameNotFoundException e2) {
-                    Log.e(TAG, "Could not retrieve icon for calling application", e2);
+                } catch (PackageManager.NameNotFoundException unused) {
                     return null;
                 }
             }
@@ -541,8 +538,7 @@ public final class ShareCompat {
                 PackageManager packageManager = this.mContext.getPackageManager();
                 try {
                     return packageManager.getApplicationLabel(packageManager.getApplicationInfo(this.mCallingPackage, 0));
-                } catch (PackageManager.NameNotFoundException e2) {
-                    Log.e(TAG, "Could not retrieve label for calling application", e2);
+                } catch (PackageManager.NameNotFoundException unused) {
                     return null;
                 }
             }

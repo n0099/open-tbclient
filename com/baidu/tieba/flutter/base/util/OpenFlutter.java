@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.m.e;
+import c.a.e.e.n.a;
+import c.a.e.h.j.g.d;
+import c.a.o0.a.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -14,6 +18,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
@@ -39,15 +44,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.containers.BoostFlutterActivity;
-import d.a.d.e.m.e;
-import d.a.d.e.n.a;
-import d.a.d.h.j.g.d;
-import d.a.p0.a.g;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class OpenFlutter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVITY_CONCERN_FORUM = "ConcernForum";
@@ -98,8 +99,8 @@ public class OpenFlutter {
                 statsItem.b("staticversion", BdStatisticsManager.getInstance().getAppVersion());
                 statsItem.b("version", TbConfig.getVersion());
                 statsItem.b("sub_version", TbConfig.getSubVersion());
-                statsItem.b(com.alipay.sdk.sys.a.j, PluginPackageManager.O().M());
-                statsItem.b("pluginInit", PluginPackageManager.O().M());
+                statsItem.b(com.alipay.sdk.sys.a.f35824j, PluginPackageManager.O().M());
+                statsItem.b(SpeedStatsMainTable.PLUGIN_TASK, PluginPackageManager.O().M());
                 BdStatisticsManager.getInstance().debug("pluginproxy", statsItem);
                 return false;
             }
@@ -287,7 +288,6 @@ public class OpenFlutter {
                 } else {
                     hashMap.put("uid", String.valueOf(intentConfig.getIntent().getLongExtra("user_id", 0L)));
                 }
-                hashMap.put("abstatus", d.a.p0.b.d.a() ? "1" : "0");
             }
             if (intentConfig.getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null) {
                 parseUriParmes(str, hashMap, (Uri) intentConfig.getIntent().getParcelableExtra(IntentConfig.KEY_URI));
@@ -328,7 +328,7 @@ public class OpenFlutter {
                         this.val$params = hashMap;
                     }
 
-                    @Override // d.a.p0.a.g.b
+                    @Override // c.a.o0.a.g.b
                     public void onCallBack(HashMap<String, Object> hashMap2) {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap2) == null) && hashMap2 != null && (hashMap2.get(g.u) instanceof String)) {

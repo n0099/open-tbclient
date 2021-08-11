@@ -3,9 +3,12 @@ package com.baidu.swan.apps.jsbridge;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
+import c.a.n0.a.d1.a;
+import c.a.n0.a.h0.l.g.f;
+import c.a.n0.a.o0.d.d;
+import c.a.n0.a.r1.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -17,13 +20,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.d1.a;
-import d.a.o0.a.h0.l.g.f;
-import d.a.o0.a.o0.d.d;
-import d.a.o0.a.r1.g;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SwanAppJsBridge extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_aiapps_jsbridge";
@@ -31,7 +30,7 @@ public class SwanAppJsBridge extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwanAppJsBridge(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, d.a.o0.a.h0.f.a aVar) {
+    public SwanAppJsBridge(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, c.a.n0.a.h0.f.a aVar) {
         super(context, unitedSchemeMainDispatcher, callbackHandler, aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -43,7 +42,7 @@ public class SwanAppJsBridge extends a {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (UnitedSchemeMainDispatcher) objArr2[1], (CallbackHandler) objArr2[2], (d.a.o0.a.h0.f.a) objArr2[3]);
+                super((Context) objArr2[0], (UnitedSchemeMainDispatcher) objArr2[1], (CallbackHandler) objArr2[2], (c.a.n0.a.h0.f.a) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -58,7 +57,7 @@ public class SwanAppJsBridge extends a {
             if (!TextUtils.isEmpty(str) && str.startsWith(UnitedSchemeEntity.UNITED_SCHEME)) {
                 UnitedSchemeEntity unitedSchemeEntity = new UnitedSchemeEntity(Uri.parse(str));
                 if (a.DEBUG) {
-                    Log.d(TAG, "doSchemeDispatch scheme: " + str + " mCallbackHandler: " + this.mCallbackHandler);
+                    String str2 = "doSchemeDispatch scheme: " + str + " mCallbackHandler: " + this.mCallbackHandler;
                 }
                 SchemeTimeCostMoniter.getInstance().schemeStart(str);
                 this.mMainDispatcher.dispatch(getDispatchContext(), unitedSchemeEntity, this.mCallbackHandler);
@@ -90,10 +89,9 @@ public class SwanAppJsBridge extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
             if (a.DEBUG) {
-                Log.d(TAG, "slave id: " + str + " data: " + str2);
+                String str3 = "slave id: " + str + " data: " + str2;
             }
-            d.a.o0.a.h0.f.a aVar = this.mJsContainer;
-            if (f.a(aVar, "setData - " + str2)) {
+            if (f.a(this.mJsContainer, "setData - " + str2)) {
                 return UnitedSchemeUtility.wrapCallbackParams(1001).toString();
             }
             g.a("postMessage", "PostMsg setData handle");
@@ -103,7 +101,7 @@ public class SwanAppJsBridge extends a {
             } else {
                 d dVar = new d(str, str2);
                 g.a("postMessage", "PostMsg setData start");
-                d.a.o0.a.g1.f.V().z(dVar, false);
+                c.a.n0.a.g1.f.V().z(dVar, false);
                 g.a("postMessage", "PostMsg setData end");
             }
             return UnitedSchemeUtility.wrapCallbackParams(i2).toString();

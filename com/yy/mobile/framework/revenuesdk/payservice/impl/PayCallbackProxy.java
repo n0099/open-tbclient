@@ -19,7 +19,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams
 import com.yy.mobile.framework.revenuesdk.payservice.utils.JsonDataParerUtil;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayEventType;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,8 +87,8 @@ public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
                 this.iPayCallback.onFail(i2, "pay fail! failReason:" + str, payCallBackBean2);
             }
             long currentTimeMillis = System.currentTimeMillis();
-            long j = this.requestTime;
-            RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "---PayCallbackProxy, pay onFail: requestTime = %s, delay = %s, uid = %s, orderid = %s", Long.valueOf(j), (currentTimeMillis - j) + "", Long.valueOf(this.params.getUid()), this.orderId));
+            long j2 = this.requestTime;
+            RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "---PayCallbackProxy, pay onFail: requestTime = %s, delay = %s, uid = %s, orderid = %s", Long.valueOf(j2), (currentTimeMillis - j2) + "", Long.valueOf(this.params.getUid()), this.orderId));
             ISDKReporter iSDKReporter = this.mSDKRepoter;
             if (iSDKReporter != null) {
                 iSDKReporter.reportPayFlow(PayEventType.payingaddpaymentrespone, i2 + "", "pay fail! failReason:" + str, this.orderId, "" + this.requestTime, this.params.getProductId(), this.payType.getChannel(), this.params.getTraceid());
@@ -114,9 +114,9 @@ public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
                 this.iPayCallback.onPayStart();
             }
             long currentTimeMillis = System.currentTimeMillis();
-            long j = this.requestTime;
+            long j2 = this.requestTime;
             Locale locale = Locale.ENGLISH;
-            RLog.info("AppPayServiceImpl", String.format(locale, "---PayCallbackProxy-onPayStart: requestTime = %s, delay = %s, uid = %s, orderid = %s", Long.valueOf(j), (currentTimeMillis - j) + "", Long.valueOf(this.params.getUid()), this.orderId));
+            RLog.info("AppPayServiceImpl", String.format(locale, "---PayCallbackProxy-onPayStart: requestTime = %s, delay = %s, uid = %s, orderid = %s", Long.valueOf(j2), (currentTimeMillis - j2) + "", Long.valueOf(this.params.getUid()), this.orderId));
         }
     }
 

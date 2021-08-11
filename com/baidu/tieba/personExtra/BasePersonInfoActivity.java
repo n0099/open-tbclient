@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
+import c.a.e.e.p.k;
+import c.a.e.e.p.l;
+import c.a.o0.s.l.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -31,10 +34,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
-import d.a.d.e.p.l;
-import d.a.p0.s.l.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class BasePersonInfoActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CURRTABINDEX = "CurrTabIndex";
@@ -64,13 +64,13 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
     public int requestCode;
     public int wantPrivcay;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BasePersonInfoActivity f20155e;
+        public final /* synthetic */ BasePersonInfoActivity f55511e;
 
         public a(BasePersonInfoActivity basePersonInfoActivity) {
             Interceptable interceptable = $ic;
@@ -87,30 +87,30 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                     return;
                 }
             }
-            this.f20155e = basePersonInfoActivity;
+            this.f55511e = basePersonInfoActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                BasePersonInfoActivity basePersonInfoActivity = this.f20155e;
+                BasePersonInfoActivity basePersonInfoActivity = this.f55511e;
                 if (basePersonInfoActivity.mIsChooseBarMode && basePersonInfoActivity.requestCode != 23011) {
                     MessageManager.getInstance().dispatchResponsedMessage(new ShareSDKResultMessage(Boolean.FALSE));
-                    d.a.p0.s.a0.b.g(this.f20155e.getPageContext().getPageActivity(), 200, false);
+                    c.a.o0.s.a0.b.g(this.f55511e.getPageContext().getPageActivity(), 200, false);
                 }
-                this.f20155e.finish();
+                this.f55511e.finish();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BasePersonInfoActivity f20156e;
+        public final /* synthetic */ BasePersonInfoActivity f55512e;
 
         public b(BasePersonInfoActivity basePersonInfoActivity) {
             Interceptable interceptable = $ic;
@@ -127,32 +127,32 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                     return;
                 }
             }
-            this.f20156e = basePersonInfoActivity;
+            this.f55512e = basePersonInfoActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                BasePersonInfoActivity basePersonInfoActivity = this.f20156e;
+                BasePersonInfoActivity basePersonInfoActivity = this.f55512e;
                 basePersonInfoActivity.wantPrivcay = f.a(basePersonInfoActivity.getPrivacyType()) % 3;
-                int privacyType = this.f20156e.getPrivacyType();
+                int privacyType = this.f55512e.getPrivacyType();
                 String str = privacyType != 2 ? privacyType != 3 ? privacyType != 4 ? privacyType != 5 ? "" : "friend" : "post" : "group" : "like";
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
                 httpMessage.addParam("opt", str);
-                httpMessage.addParam("val", String.valueOf(this.f20156e.wantPrivcay + 1));
-                this.f20156e.sendMessage(httpMessage);
+                httpMessage.addParam("val", String.valueOf(this.f55512e.wantPrivcay + 1));
+                this.f55512e.sendMessage(httpMessage);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class c extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BasePersonInfoActivity f20157a;
+        public final /* synthetic */ BasePersonInfoActivity f55513a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(BasePersonInfoActivity basePersonInfoActivity, int i2) {
@@ -172,7 +172,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                     return;
                 }
             }
-            this.f20157a = basePersonInfoActivity;
+            this.f55513a = basePersonInfoActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -182,16 +182,16 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage.isSuccess()) {
                     if (httpResponsedMessage.getError() == 0) {
-                        f.c(this.f20157a.getPrivacyType(), BasePersonInfoActivity.PRIVATESTATE[this.f20157a.wantPrivcay]);
-                        SkinManager.setNavbarIconSrc(this.f20157a.mPrivacyButton, BasePersonInfoActivity.PRIVACY_IMAGE_LIST_BLACK[this.f20157a.wantPrivcay], BasePersonInfoActivity.PRIVACY_IMAGE_LIST[this.f20157a.wantPrivcay]);
-                        BasePersonInfoActivity basePersonInfoActivity = this.f20157a;
-                        basePersonInfoActivity.showToastWithIcon(basePersonInfoActivity.getPageContext().getString(BasePersonInfoActivity.PRIVACY_INFO_TEXT_LIST[this.f20157a.wantPrivcay]), R.drawable.icon_toast_info);
+                        f.c(this.f55513a.getPrivacyType(), BasePersonInfoActivity.PRIVATESTATE[this.f55513a.wantPrivcay]);
+                        SkinManager.setNavbarIconSrc(this.f55513a.mPrivacyButton, BasePersonInfoActivity.PRIVACY_IMAGE_LIST_BLACK[this.f55513a.wantPrivcay], BasePersonInfoActivity.PRIVACY_IMAGE_LIST[this.f55513a.wantPrivcay]);
+                        BasePersonInfoActivity basePersonInfoActivity = this.f55513a;
+                        basePersonInfoActivity.showToastWithIcon(basePersonInfoActivity.getPageContext().getString(BasePersonInfoActivity.PRIVACY_INFO_TEXT_LIST[this.f55513a.wantPrivcay]), R.drawable.icon_toast_info);
                         return;
                     }
-                    this.f20157a.showToast(httpResponsedMessage.getErrorString());
+                    this.f55513a.showToast(httpResponsedMessage.getErrorString());
                     return;
                 }
-                BasePersonInfoActivity basePersonInfoActivity2 = this.f20157a;
+                BasePersonInfoActivity basePersonInfoActivity2 = this.f55513a;
                 basePersonInfoActivity2.showToast(basePersonInfoActivity2.getPageContext().getString(R.string.neterror));
             }
         }
@@ -245,14 +245,14 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f12395c = fragment;
-        bVar.f12393a = i2;
+        bVar.f47343c = fragment;
+        bVar.f47341a = i2;
         fragmentTabIndicator.setText(str);
-        fragmentTabIndicator.l = R.color.s_actionbar_text_color;
+        fragmentTabIndicator.dayTextColorResId = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setMinimumHeight(l.g(getActivity(), R.dimen.ds88));
-        bVar.f12394b = fragmentTabIndicator;
-        this.mTabHost.a(bVar);
+        bVar.f47342b = fragmentTabIndicator;
+        this.mTabHost.addTabSpec(bVar);
     }
 
     private void initTabSpec() {
@@ -263,16 +263,16 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         int i2 = this.mIsHost ? 1 : 2;
         for (int i3 = 0; i3 < i2; i3++) {
             Fragment item = this.mAdapter.getItem(i3);
-            int c2 = this.mAdapter.c(i3);
+            int itemPageType = this.mAdapter.getItemPageType(i3);
             String noPersonalTabTitle = getNoPersonalTabTitle();
-            if (c2 == 1) {
+            if (itemPageType == 1) {
                 noPersonalTabTitle = getNoCommonTabTitle();
             }
             if (item != null) {
-                createAndAddTabSpec(item, c2, noPersonalTabTitle);
+                createAndAddTabSpec(item, itemPageType, noPersonalTabTitle);
             }
         }
-        this.mTabHost.k(3);
+        this.mTabHost.initViewPager(3);
     }
 
     private void initUI(Bundle bundle) {
@@ -302,7 +302,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             fragmentTabHost.setup(getSupportFragmentManager());
             this.mTabHost.setTabWidgetBackgroundColor(getResources().getColor(R.color.common_color_10002));
             this.mTabHost.setOnPageChangeListener(this);
-            this.mTabHost.q();
+            this.mTabHost.reset();
             initTabSpec();
             if (this.mIsHost) {
                 this.mTabHost.getTabWrapper().setVisibility(8);
@@ -386,7 +386,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
             this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
-            this.mTabHost.p(i2);
+            this.mTabHost.onChangeSkinType(i2);
             if (this.mAdapter != null) {
                 for (int i3 = 0; i3 < this.mAdapter.getCount(); i3++) {
                     Fragment item = this.mAdapter.getItem(i3);
@@ -458,7 +458,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048595, this, i2, keyEvent)) == null) {
             if (i2 == 4 && keyEvent.getRepeatCount() == 0) {
                 if (this.mIsChooseBarMode && this.requestCode != 23011) {
-                    d.a.p0.s.a0.b.g(getPageContext().getPageActivity(), 200, false);
+                    c.a.o0.s.a0.b.g(getPageContext().getPageActivity(), 200, false);
                 }
                 finish();
                 return true;
@@ -521,13 +521,13 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         if (!(interceptable == null || interceptable.invokeII(1048601, this, i2, i3) == null) || this.mIsHost || this.mAdapter == null) {
             return;
         }
-        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.mTabHost.g(0).f12394b;
+        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.mTabHost.getTabSpecByType(0).f47342b;
         if (i2 <= 0) {
             fragmentTabIndicator.setText(getNoPersonalTabTitle());
         } else {
             fragmentTabIndicator.setText(String.format(getPersonalTabTitle(), Integer.valueOf(i2)));
         }
-        FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.mTabHost.g(1).f12394b;
+        FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.mTabHost.getTabSpecByType(1).f47342b;
         if (i3 <= 0) {
             fragmentTabIndicator2.setText(getNoCommonTabTitle());
         } else {

@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class f implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IBinder f41006a;
+    public IBinder f77882a;
 
     public f(IBinder iBinder) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class f implements d {
                 return;
             }
         }
-        this.f41006a = iBinder;
+        this.f77882a = iBinder;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, CONST_STR, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
@@ -46,7 +46,7 @@ public final class f implements d {
             Parcel obtain2 = Parcel.obtain();
             try {
                 obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                this.f41006a.transact(1, obtain, obtain2, 0);
+                this.f77882a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 str = obtain2.readString();
             } finally {
@@ -64,6 +64,6 @@ public final class f implements d {
     public final IBinder asBinder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41006a : (IBinder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f77882a : (IBinder) invokeV.objValue;
     }
 }

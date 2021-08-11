@@ -8,15 +8,13 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Looper;
 import android.os.RemoteException;
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.c;
-import com.fun.openid.sdk.e;
 import com.fun.openid.sdk.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class k implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,11 +36,11 @@ public class k implements f {
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0030, code lost:
         if (r1.versionCode >= 1) goto L13;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x00a5, code lost:
-        if (r0.f32951a == null) goto L44;
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x009a, code lost:
+        if (r0.f69640a == null) goto L41;
      */
     /* JADX WARN: Removed duplicated region for block: B:22:0x0041  */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0055  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x004a  */
     @Override // com.fun.openid.sdk.f
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -55,7 +53,7 @@ public class k implements f {
         if (interceptable != null && interceptable.invokeLL(1048576, this, context, aVar) != null) {
             return;
         }
-        c cVar = c.b.f32957a;
+        c cVar = c.b.f69646a;
         Context applicationContext = context.getApplicationContext();
         cVar.getClass();
         try {
@@ -66,27 +64,25 @@ public class k implements f {
         if (Build.VERSION.SDK_INT >= 28) {
             if (packageInfo != null && packageInfo.getLongVersionCode() >= 1) {
                 z = true;
-                b.f32950b = z;
-                b.f32949a = true;
-                if (!b.f32950b) {
-                    if (FunOpenIDSdk.isLogEnabled()) {
-                        Log.e(FunOpenIDSdk.TAG, "===========当前设备不支持获取OAID");
-                    }
-                    ((e.a) aVar).a(false, null);
+                b.f69639b = z;
+                b.f69638a = true;
+                if (!b.f69639b) {
+                    FunOpenIDSdk.isLogEnabled();
+                    aVar.a(false, null);
                     return;
-                } else if (b.f32949a) {
-                    c cVar2 = c.b.f32957a;
+                } else if (b.f69638a) {
+                    c cVar2 = c.b.f69646a;
                     Context applicationContext2 = context.getApplicationContext();
                     synchronized (cVar2) {
                         if (Looper.myLooper() != Looper.getMainLooper()) {
-                            if (cVar2.f32951a == null) {
+                            if (cVar2.f69640a == null) {
                                 Intent intent = new Intent();
                                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                                if (applicationContext2.bindService(intent, cVar2.f32955e, 1)) {
-                                    synchronized (cVar2.f32954d) {
+                                if (applicationContext2.bindService(intent, cVar2.f69644e, 1)) {
+                                    synchronized (cVar2.f69643d) {
                                         try {
-                                            cVar2.f32954d.wait(3000L);
+                                            cVar2.f69643d.wait(3000L);
                                         } catch (InterruptedException e3) {
                                             e3.printStackTrace();
                                         }
@@ -98,31 +94,31 @@ public class k implements f {
                             } catch (RemoteException e4) {
                                 e4.printStackTrace();
                                 a2 = "";
-                                ((e.a) aVar).a(true, a2);
+                                aVar.a(true, a2);
                                 return;
                             }
                         } else {
                             throw new IllegalStateException("Cannot run on MainThread");
                         }
                     }
-                    ((e.a) aVar).a(true, a2);
+                    aVar.a(true, a2);
                     return;
                 } else {
                     throw new RuntimeException("SDK Need Init First!");
                 }
             }
             z = false;
-            b.f32950b = z;
-            b.f32949a = true;
-            if (!b.f32950b) {
+            b.f69639b = z;
+            b.f69638a = true;
+            if (!b.f69639b) {
             }
         } else {
             if (packageInfo != null) {
             }
             z = false;
-            b.f32950b = z;
-            b.f32949a = true;
-            if (!b.f32950b) {
+            b.f69639b = z;
+            b.f69638a = true;
+            if (!b.f69639b) {
             }
         }
     }

@@ -1,6 +1,5 @@
 package io.flutter.plugin.common;
 
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
@@ -13,7 +12,7 @@ import io.flutter.plugin.common.BinaryMessenger;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BasicMessageChannel<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHANNEL_BUFFERS_CHANNEL = "dev.flutter/channel-buffers";
@@ -27,13 +26,13 @@ public final class BasicMessageChannel<T> {
     public final String name;
 
     /* renamed from: io.flutter.plugin.common.BasicMessageChannel$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final class IncomingMessageHandler implements BinaryMessenger.BinaryMessageHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +43,7 @@ public final class BasicMessageChannel<T> {
             this(basicMessageChannel, messageHandler);
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: io.flutter.plugin.common.BasicMessageChannel$MessageHandler<T> */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: io.flutter.plugin.common.BasicMessageChannel$MessageHandler<T> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // io.flutter.plugin.common.BinaryMessenger.BinaryMessageHandler
         public void onMessage(@Nullable ByteBuffer byteBuffer, @NonNull BinaryMessenger.BinaryReply binaryReply) {
@@ -84,8 +83,8 @@ public final class BasicMessageChannel<T> {
                             }
                         }
                     });
-                } catch (RuntimeException e2) {
-                    Log.e(BasicMessageChannel.TAG + this.this$0.name, "Failed to handle message", e2);
+                } catch (RuntimeException unused) {
+                    String str = BasicMessageChannel.TAG + this.this$0.name;
                     binaryReply.reply(null);
                 }
             }
@@ -111,7 +110,7 @@ public final class BasicMessageChannel<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final class IncomingReplyHandler implements BinaryMessenger.BinaryReply {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +121,7 @@ public final class BasicMessageChannel<T> {
             this(basicMessageChannel, reply);
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: io.flutter.plugin.common.BasicMessageChannel$Reply<T> */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: io.flutter.plugin.common.BasicMessageChannel$Reply<T> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // io.flutter.plugin.common.BinaryMessenger.BinaryReply
         public void reply(@Nullable ByteBuffer byteBuffer) {
@@ -130,8 +129,8 @@ public final class BasicMessageChannel<T> {
             if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
                 try {
                     this.callback.reply(this.this$0.codec.decodeMessage(byteBuffer));
-                } catch (RuntimeException e2) {
-                    Log.e(BasicMessageChannel.TAG + this.this$0.name, "Failed to handle message reply", e2);
+                } catch (RuntimeException unused) {
+                    String str = BasicMessageChannel.TAG + this.this$0.name;
                 }
             }
         }
@@ -156,12 +155,12 @@ public final class BasicMessageChannel<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface MessageHandler<T> {
         void onMessage(@Nullable T t, @NonNull Reply<T> reply);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface Reply<T> {
         void reply(@Nullable T t);
     }

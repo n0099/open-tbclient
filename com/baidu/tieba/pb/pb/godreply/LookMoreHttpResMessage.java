@@ -17,7 +17,7 @@ import tbclient.Error;
 import tbclient.GetPostList.DataRes;
 import tbclient.GetPostList.GetPostListResIdl;
 import tbclient.Post;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LookMoreHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class LookMoreHttpResMessage extends HttpResponsedMessage {
             }
             for (Post post : list) {
                 PostData postData = new PostData();
-                postData.b0(post, TbadkCoreApplication.getInst());
+                postData.c0(post, TbadkCoreApplication.getInst());
                 postData.O = 102;
                 this.list.add(postData);
             }

@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ImageObject extends BaseMediaObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<ImageObject> CREATOR;
@@ -111,7 +110,7 @@ public class ImageObject extends BaseMediaObject {
             } else if (this.imagePath != null) {
                 File file = new File(this.imagePath);
                 try {
-                    if (!file.exists() || file.length() == 0 || file.length() > Config.FULL_TRACE_LOG_LIMIT) {
+                    if (!file.exists() || file.length() == 0 || file.length() > 10485760) {
                         LogUtil.e("Weibo.ImageObject", "checkArgs fail, image content is too large or not exists");
                         return false;
                     }

@@ -15,15 +15,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
 import java.util.UUID;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1621a = "cn.com.chinatelecom.gateway.lib.c.c";
+    public static final String f35456a = "cn.com.chinatelecom.gateway.lib.c.c";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1622b = "";
+    public static String f35457b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -74,16 +74,16 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (TextUtils.isEmpty(f1622b)) {
+            if (TextUtils.isEmpty(f35457b)) {
                 String b2 = b(context);
-                f1622b = b2;
+                f35457b = b2;
                 if (TextUtils.isEmpty(b2)) {
                     String c2 = c(context);
-                    f1622b = c2;
+                    f35457b = c2;
                     a(context, c2);
                 }
             }
-            return f1622b;
+            return f35457b;
         }
         return (String) invokeL.objValue;
     }

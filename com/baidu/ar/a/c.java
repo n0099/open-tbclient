@@ -3,7 +3,6 @@ package com.baidu.ar.a;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.ar.h.q;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, Integer> bQ;
@@ -112,7 +111,7 @@ public class c {
                 for (int i3 = 0; i3 < jSONArray2.length(); i3++) {
                     bQ.put(jSONArray2.get(i3).toString(), 1);
                 }
-                JSONArray jSONArray3 = jSONObject.getJSONArray(Config.EXCEPTION_MEMORY_LOW);
+                JSONArray jSONArray3 = jSONObject.getJSONArray("low");
                 for (int i4 = 0; i4 < jSONArray3.length(); i4++) {
                     bQ.put(jSONArray3.get(i4).toString(), 0);
                 }

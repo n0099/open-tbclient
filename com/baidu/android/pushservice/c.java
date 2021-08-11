@@ -11,27 +11,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile c f2812a;
+    public static volatile c f36690a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f2813b;
+    public Context f36691b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f2814c;
+    public Handler f36692c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Runnable f2815d;
+    public Runnable f36693d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f2816e;
+    public volatile boolean f36694e;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(int i2, List<String> list);
     }
@@ -51,22 +51,22 @@ public class c {
                 return;
             }
         }
-        this.f2813b = context.getApplicationContext();
-        this.f2814c = new Handler(context.getMainLooper());
+        this.f36691b = context.getApplicationContext();
+        this.f36692c = new Handler(context.getMainLooper());
     }
 
     public static c a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f2812a == null) {
+            if (f36690a == null) {
                 synchronized (c.class) {
-                    if (f2812a == null) {
-                        f2812a = new c(context);
+                    if (f36690a == null) {
+                        f36690a = new c(context);
                     }
                 }
             }
-            return f2812a;
+            return f36690a;
         }
         return (c) invokeL.objValue;
     }
@@ -74,15 +74,15 @@ public class c {
     private com.baidu.android.pushservice.h.c a(a aVar, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, aVar, str)) == null) ? new com.baidu.android.pushservice.d.g(this.f2813b, str, new g.a(this, aVar) { // from class: com.baidu.android.pushservice.c.2
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, aVar, str)) == null) ? new com.baidu.android.pushservice.d.g(this.f36691b, str, new g.a(this, aVar) { // from class: com.baidu.android.pushservice.c.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f2819a;
+            public final /* synthetic */ a f36697a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ c f2820b;
+            public final /* synthetic */ c f36698b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -99,21 +99,21 @@ public class c {
                         return;
                     }
                 }
-                this.f2820b = this;
-                this.f2819a = aVar;
+                this.f36698b = this;
+                this.f36697a = aVar;
             }
 
             @Override // com.baidu.android.pushservice.d.g.a
             public void a(List<String> list) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, list) == null) {
-                    if (this.f2820b.f2814c != null) {
-                        this.f2820b.f2814c.removeCallbacksAndMessages(null);
+                    if (this.f36698b.f36692c != null) {
+                        this.f36698b.f36692c.removeCallbacksAndMessages(null);
                     }
-                    if (this.f2820b.f2816e) {
-                        this.f2820b.f2816e = false;
+                    if (this.f36698b.f36694e) {
+                        this.f36698b.f36694e = false;
                     } else {
-                        this.f2819a.a(0, list);
+                        this.f36697a.a(0, list);
                     }
                 }
             }
@@ -123,15 +123,15 @@ public class c {
     private com.baidu.android.pushservice.h.c b(a aVar, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, aVar, str)) == null) ? new com.baidu.android.pushservice.d.j(this.f2813b, str, new j.a(this, aVar) { // from class: com.baidu.android.pushservice.c.3
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, aVar, str)) == null) ? new com.baidu.android.pushservice.d.j(this.f36691b, str, new j.a(this, aVar) { // from class: com.baidu.android.pushservice.c.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f2821a;
+            public final /* synthetic */ a f36699a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ c f2822b;
+            public final /* synthetic */ c f36700b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -148,15 +148,15 @@ public class c {
                         return;
                     }
                 }
-                this.f2822b = this;
-                this.f2821a = aVar;
+                this.f36700b = this;
+                this.f36699a = aVar;
             }
 
             @Override // com.baidu.android.pushservice.d.j.a
             public void a(int i2, List<String> list) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, list) == null) {
-                    this.f2821a.a(i2, list);
+                    this.f36699a.a(i2, list);
                 }
             }
         }) : (com.baidu.android.pushservice.h.c) invokeLL.objValue;
@@ -175,19 +175,19 @@ public class c {
             return;
         }
         if (i2 == 0) {
-            c2 = h.d(this.f2813b);
+            c2 = h.d(this.f36691b);
         } else if (i2 != 1) {
             if (i2 == 2) {
-                if (this.f2815d == null) {
-                    this.f2815d = new Runnable(this, aVar) { // from class: com.baidu.android.pushservice.c.1
+                if (this.f36693d == null) {
+                    this.f36693d = new Runnable(this, aVar) { // from class: com.baidu.android.pushservice.c.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ a f2817a;
+                        public final /* synthetic */ a f36695a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ c f2818b;
+                        public final /* synthetic */ c f36696b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -204,22 +204,22 @@ public class c {
                                     return;
                                 }
                             }
-                            this.f2818b = this;
-                            this.f2817a = aVar;
+                            this.f36696b = this;
+                            this.f36695a = aVar;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.f2818b.f2816e = true;
-                                this.f2817a.a(-1, null);
+                                this.f36696b.f36694e = true;
+                                this.f36695a.a(-1, null);
                             }
                         }
                     };
                 }
-                this.f2814c.postDelayed(this.f2815d, 5000L);
-                a2 = a(aVar, h.c(this.f2813b));
+                this.f36692c.postDelayed(this.f36693d, 5000L);
+                a2 = a(aVar, h.c(this.f36691b));
                 if (a2 == null) {
                     com.baidu.android.pushservice.h.d.a().a(a2);
                     return;
@@ -228,7 +228,7 @@ public class c {
             }
             return;
         } else {
-            c2 = h.c(this.f2813b);
+            c2 = h.c(this.f36691b);
         }
         a2 = b(aVar, c2);
         if (a2 == null) {

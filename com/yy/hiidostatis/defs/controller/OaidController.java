@@ -2,7 +2,6 @@ package com.yy.hiidostatis.defs.controller;
 
 import android.content.Context;
 import android.os.Build;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -24,7 +23,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class OaidController {
     public static final /* synthetic */ OaidController[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -33,13 +32,13 @@ public final class OaidController {
     public OaidHelper oaidHelper;
 
     /* renamed from: com.yy.hiidostatis.defs.controller.OaidController$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface OaidInitListener {
         void initFinish(boolean z, String str, String str2);
     }
@@ -107,8 +106,7 @@ public final class OaidController {
                     return;
                 }
                 JLibrary.InitEntry(context);
-            } catch (Throwable th) {
-                Log.e("OaidController", "JLibrary.InitEntry(context)", th);
+            } catch (Throwable unused) {
             }
         }
     }
@@ -151,7 +149,7 @@ public final class OaidController {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.oaidHelper.getOaid() : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public final class OaidHelper {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long TIME_OUT = 20000;
@@ -277,8 +275,8 @@ public final class OaidController {
                         noticeListener(z2, str, str2);
                         return;
                     }
-                    if (str2 != null && !str2.isEmpty()) {
-                        Log.e("OAID", str2);
+                    if (str2 != null) {
+                        str2.isEmpty();
                     }
                     this.init = true;
                     this.oaid = str;
@@ -341,7 +339,7 @@ public final class OaidController {
                                 this.this$1.initFinish(false, "", "获取OAID超时");
                                 return;
                             }
-                            Log.e("OAID", "定时器时间错误:" + this.this$1.beginTime + "-" + currentTimeMillis + "-" + (currentTimeMillis - this.this$1.beginTime));
+                            String str = "定时器时间错误:" + this.this$1.beginTime + "-" + currentTimeMillis + "-" + (currentTimeMillis - this.this$1.beginTime);
                             this.this$1.timeOut();
                         }
                     }

@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.utils.k;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ThemeStatusBroadcastReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<a> f32564a;
+    public WeakReference<a> f68526a;
 
     public ThemeStatusBroadcastReceiver() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class ThemeStatusBroadcastReceiver extends BroadcastReceiver {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f32564a = new WeakReference<>(aVar);
+            this.f68526a = new WeakReference<>(aVar);
         }
     }
 
@@ -48,11 +48,11 @@ public class ThemeStatusBroadcastReceiver extends BroadcastReceiver {
                 return;
             }
             int intExtra = intent.getIntExtra("theme_status_change", 0);
-            WeakReference<a> weakReference = this.f32564a;
+            WeakReference<a> weakReference = this.f68526a;
             if (weakReference == null || weakReference.get() == null) {
                 return;
             }
-            this.f32564a.get().a(intExtra);
+            this.f68526a.get().a(intExtra);
         }
     }
 }

@@ -5,7 +5,6 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.MotionEvent;
 import android.view.View;
@@ -30,7 +29,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class AccessibilityViewEmbedder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AccessibilityBridge";
@@ -43,13 +42,13 @@ public final class AccessibilityViewEmbedder {
     public final View rootAccessibilityView;
 
     /* renamed from: io.flutter.view.AccessibilityViewEmbedder$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ReflectionAccessors {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,30 +79,11 @@ public final class AccessibilityViewEmbedder {
                     return null;
                 }
                 Method method = this.getChildId;
-                if (method != null) {
-                    try {
-                        return (Long) method.invoke(accessibilityNodeInfo, Integer.valueOf(i2));
-                    } catch (IllegalAccessException e2) {
-                        Log.w("AccessibilityBridge", e2);
-                    } catch (InvocationTargetException e3) {
-                        Log.w("AccessibilityBridge", e3);
-                    }
-                } else {
-                    try {
-                        return Long.valueOf(((Long) this.longArrayGetIndex.invoke(this.childNodeIdsField.get(accessibilityNodeInfo), Integer.valueOf(i2))).longValue());
-                    } catch (ArrayIndexOutOfBoundsException e4) {
-                        e = e4;
-                        Log.w("AccessibilityBridge", e);
-                        return null;
-                    } catch (IllegalAccessException e5) {
-                        Log.w("AccessibilityBridge", e5);
-                    } catch (InvocationTargetException e6) {
-                        e = e6;
-                        Log.w("AccessibilityBridge", e);
-                        return null;
-                    }
+                try {
+                    return method != null ? (Long) method.invoke(accessibilityNodeInfo, Integer.valueOf(i2)) : Long.valueOf(((Long) this.longArrayGetIndex.invoke(this.childNodeIdsField.get(accessibilityNodeInfo), Integer.valueOf(i2))).longValue());
+                } catch (ArrayIndexOutOfBoundsException | IllegalAccessException | InvocationTargetException unused) {
+                    return null;
                 }
-                return null;
             }
             return (Long) invokeLI.objValue;
         }
@@ -118,10 +98,7 @@ public final class AccessibilityViewEmbedder {
                 if (method != null) {
                     try {
                         return Long.valueOf(((Long) method.invoke(accessibilityNodeInfo, new Object[0])).longValue());
-                    } catch (IllegalAccessException e2) {
-                        Log.w("AccessibilityBridge", e2);
-                    } catch (InvocationTargetException e3) {
-                        Log.w("AccessibilityBridge", e3);
+                    } catch (IllegalAccessException | InvocationTargetException unused) {
                     }
                 }
                 return yoinkParentIdFromParcel(accessibilityNodeInfo);
@@ -141,11 +118,7 @@ public final class AccessibilityViewEmbedder {
                 }
                 try {
                     return (Long) method.invoke(accessibilityRecord, new Object[0]);
-                } catch (IllegalAccessException e2) {
-                    Log.w("AccessibilityBridge", e2);
-                    return null;
-                } catch (InvocationTargetException e3) {
-                    Log.w("AccessibilityBridge", e3);
+                } catch (IllegalAccessException | InvocationTargetException unused) {
                     return null;
                 }
             }
@@ -164,27 +137,23 @@ public final class AccessibilityViewEmbedder {
                 }
                 try {
                     return (Long) method.invoke(accessibilityNodeInfo, new Object[0]);
-                } catch (IllegalAccessException e2) {
-                    Log.w("AccessibilityBridge", e2);
-                    return null;
-                } catch (InvocationTargetException e3) {
-                    Log.w("AccessibilityBridge", e3);
+                } catch (IllegalAccessException | InvocationTargetException unused) {
                     return null;
                 }
             }
             return (Long) invokeL.objValue;
         }
 
-        public static int getVirtualNodeId(long j) {
+        public static int getVirtualNodeId(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(65547, null, j)) == null) ? (int) (j >> 32) : invokeJ.intValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(65547, null, j2)) == null) ? (int) (j2 >> 32) : invokeJ.intValue;
         }
 
-        public static boolean isBitSet(long j, int i2) {
+        public static boolean isBitSet(long j2, int i2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) ? (j & (1 << i2)) != 0 : invokeCommon.booleanValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? (j2 & (1 << i2)) != 0 : invokeCommon.booleanValue;
         }
 
         @Nullable
@@ -193,7 +162,6 @@ public final class AccessibilityViewEmbedder {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, accessibilityNodeInfo)) == null) {
                 if (Build.VERSION.SDK_INT < 26) {
-                    Log.w("AccessibilityBridge", "Unexpected Android version. Unable to find the parent ID.");
                     return null;
                 }
                 AccessibilityNodeInfo obtain = AccessibilityNodeInfo.obtain(accessibilityNodeInfo);
@@ -218,8 +186,7 @@ public final class AccessibilityViewEmbedder {
             return (Long) invokeL.objValue;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r2v12, resolved type: java.lang.reflect.Method */
-        /* JADX DEBUG: Multi-variable search result rejected for r2v5, resolved type: java.lang.reflect.Method */
+        /* JADX DEBUG: Multi-variable search result rejected for r5v13, resolved type: java.lang.reflect.Method */
         /* JADX WARN: Multi-variable type inference failed */
         @SuppressLint({"PrivateApi"})
         public ReflectionAccessors() {
@@ -227,7 +194,6 @@ public final class AccessibilityViewEmbedder {
             Method method2;
             Method method3;
             Field field;
-            Field declaredField;
             Method method4;
             Method method5;
             Field field2;
@@ -247,62 +213,51 @@ public final class AccessibilityViewEmbedder {
             try {
                 method = AccessibilityNodeInfo.class.getMethod("getSourceNodeId", new Class[0]);
             } catch (NoSuchMethodException unused) {
-                Log.w("AccessibilityBridge", "can't invoke AccessibilityNodeInfo#getSourceNodeId with reflection");
                 method = null;
             }
             try {
                 method2 = AccessibilityRecord.class.getMethod("getSourceNodeId", new Class[0]);
             } catch (NoSuchMethodException unused2) {
-                Log.w("AccessibilityBridge", "can't invoke AccessibiiltyRecord#getSourceNodeId with reflection");
                 method2 = null;
             }
             if (Build.VERSION.SDK_INT <= 26) {
                 try {
                     method5 = AccessibilityNodeInfo.class.getMethod("getParentNodeId", new Class[0]);
                 } catch (NoSuchMethodException unused3) {
-                    Log.w("AccessibilityBridge", "can't invoke getParentNodeId with reflection");
                     method5 = null;
                 }
                 try {
                     method3 = AccessibilityNodeInfo.class.getMethod("getChildId", Integer.TYPE);
                     field2 = null;
                 } catch (NoSuchMethodException unused4) {
-                    Log.w("AccessibilityBridge", "can't invoke getChildId with reflection");
                     method3 = null;
                     field2 = null;
                 }
                 method6 = method5;
                 field = field2;
+                method4 = field2;
             } else {
                 try {
-                    declaredField = AccessibilityNodeInfo.class.getDeclaredField("mChildNodeIds");
-                    declaredField.setAccessible(true);
+                    field = AccessibilityNodeInfo.class.getDeclaredField("mChildNodeIds");
+                    field.setAccessible(true);
                     method4 = Class.forName("android.util.LongArray").getMethod("get", Integer.TYPE);
                     method3 = null;
                 } catch (ClassNotFoundException | NoSuchFieldException | NoSuchMethodException | NullPointerException unused5) {
-                    Log.w("AccessibilityBridge", "can't access childNodeIdsField with reflection");
                     method3 = null;
                     field = null;
+                    method4 = null;
                 }
-                this.getSourceNodeId = method;
-                this.getParentNodeId = method6;
-                this.getRecordSourceNodeId = method2;
-                this.getChildId = method3;
-                this.childNodeIdsField = declaredField;
-                this.longArrayGetIndex = method4;
             }
-            declaredField = field;
-            method4 = field;
             this.getSourceNodeId = method;
             this.getParentNodeId = method6;
             this.getRecordSourceNodeId = method2;
             this.getChildId = method3;
-            this.childNodeIdsField = declaredField;
+            this.childNodeIdsField = field;
             this.longArrayGetIndex = method4;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ViewAndId {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

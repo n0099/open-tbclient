@@ -2,7 +2,6 @@ package com.baidu.searchbox.net.update.v2;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.time.DateTimeUtil;
@@ -31,7 +30,7 @@ import java.io.Reader;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class GsonTool implements ICommandStatistics<ActionData> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -56,7 +55,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     public int mVersionFilterCount;
 
     /* renamed from: com.baidu.searchbox.net.update.v2.GsonTool$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
         public static /* synthetic */ Interceptable $ic;
@@ -131,21 +130,21 @@ public class GsonTool implements ICommandStatistics<ActionData> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, str2)) == null) {
-            long j = 0;
+            long j2 = 0;
             if (TextUtils.isEmpty(str2)) {
                 return 0L;
             }
             try {
-                j = Long.parseLong(str2);
+                j2 = Long.parseLong(str2);
                 if (DEBUG) {
-                    Log.d(TAG, "action = " + str + " support imsdk long connect,new data version is  " + str2);
+                    String str3 = "action = " + str + " support imsdk long connect,new data version is  " + str2;
                 }
             } catch (NumberFormatException unused) {
                 if (DEBUG) {
-                    Log.e(TAG, "action = " + str + " support imsdk long connect,version is not right--> " + str2);
+                    String str4 = "action = " + str + " support imsdk long connect,version is not right--> " + str2;
                 }
             }
-            return j;
+            return j2;
         }
         return invokeLL.longValue;
     }
@@ -332,7 +331,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
                     boolean z2 = true;
                     this.mTotalCount++;
                     if (DEBUG) {
-                        Log.d(TAG, "read action " + nextName + " " + nextName2);
+                        String str = "read action " + nextName + " " + nextName2;
                     }
                     AbstractCommandListener commandListener = this.mCommandListenerRegistry.getCommandListener(nextName, nextName2);
                     if (commandListener == null) {
@@ -355,9 +354,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
                     if (readAction) {
                         synchronized (GsonTool.class) {
                             if (!dispatchCheck(AppRuntime.getAppContext(), nextName, nextName2, commandListener, createDataObject, jSONObject)) {
-                                if (DEBUG) {
-                                    Log.d(TAG, "data from imsdk is not newest");
-                                }
+                                boolean z3 = DEBUG;
                                 collectInfo(nextName + "/" + nextName2, createDataObject, false);
                                 this.mVersionFilterCount = this.mVersionFilterCount + 1;
                             } else {
@@ -365,13 +362,13 @@ public class GsonTool implements ICommandStatistics<ActionData> {
                             }
                         }
                     } else if (DEBUG) {
-                        Log.d(TAG, "read action " + nextName + " " + nextName2 + " fail");
+                        String str2 = "read action " + nextName + " " + nextName2 + " fail";
                     }
-                    String str = nextName + "/" + nextName2;
+                    String str3 = nextName + "/" + nextName2;
                     if (!z || !readAction) {
                         z2 = false;
                     }
-                    collectInfo(str, createDataObject, z2);
+                    collectInfo(str3, createDataObject, z2);
                 }
                 jsonReader.endObject();
             }

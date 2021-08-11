@@ -14,13 +14,13 @@ import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.BackpressureHelper;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class FlowableFromArray<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final T[] array;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class ArrayConditionalSubscription<T> extends BaseArraySubscription<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2587302975077663557L;
@@ -74,17 +74,17 @@ public final class FlowableFromArray<T> extends Flowable<T> {
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableFromArray.BaseArraySubscription
-        public void slowPath(long j) {
+        public void slowPath(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
                 T[] tArr = this.array;
                 int length = tArr.length;
                 int i2 = this.index;
                 ConditionalSubscriber<? super T> conditionalSubscriber = this.actual;
                 do {
-                    long j2 = 0;
+                    long j3 = 0;
                     while (true) {
-                        if (j2 == j || i2 == length) {
+                        if (j3 == j2 || i2 == length) {
                             if (i2 == length) {
                                 if (this.cancelled) {
                                     return;
@@ -92,10 +92,10 @@ public final class FlowableFromArray<T> extends Flowable<T> {
                                 conditionalSubscriber.onComplete();
                                 return;
                             }
-                            j = get();
-                            if (j2 == j) {
+                            j2 = get();
+                            if (j3 == j2) {
                                 this.index = i2;
-                                j = addAndGet(-j2);
+                                j2 = addAndGet(-j3);
                             }
                         } else if (this.cancelled) {
                             return;
@@ -106,17 +106,17 @@ public final class FlowableFromArray<T> extends Flowable<T> {
                                 return;
                             }
                             if (conditionalSubscriber.tryOnNext(t)) {
-                                j2++;
+                                j3++;
                             }
                             i2++;
                         }
                     }
-                } while (j != 0);
+                } while (j2 != 0);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class ArraySubscription<T> extends BaseArraySubscription<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2587302975077663557L;
@@ -170,17 +170,17 @@ public final class FlowableFromArray<T> extends Flowable<T> {
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableFromArray.BaseArraySubscription
-        public void slowPath(long j) {
+        public void slowPath(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
                 T[] tArr = this.array;
                 int length = tArr.length;
                 int i2 = this.index;
                 Subscriber<? super T> subscriber = this.actual;
                 do {
-                    long j2 = 0;
+                    long j3 = 0;
                     while (true) {
-                        if (j2 == j || i2 == length) {
+                        if (j3 == j2 || i2 == length) {
                             if (i2 == length) {
                                 if (this.cancelled) {
                                     return;
@@ -188,10 +188,10 @@ public final class FlowableFromArray<T> extends Flowable<T> {
                                 subscriber.onComplete();
                                 return;
                             }
-                            j = get();
-                            if (j2 == j) {
+                            j2 = get();
+                            if (j3 == j2) {
                                 this.index = i2;
-                                j = addAndGet(-j2);
+                                j2 = addAndGet(-j3);
                             }
                         } else if (this.cancelled) {
                             return;
@@ -202,16 +202,16 @@ public final class FlowableFromArray<T> extends Flowable<T> {
                                 return;
                             }
                             subscriber.onNext(t);
-                            j2++;
+                            j3++;
                             i2++;
                         }
                     }
-                } while (j != 0);
+                } while (j2 != 0);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static abstract class BaseArraySubscription<T> extends BasicQueueSubscription<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2252972430506210021L;
@@ -281,13 +281,13 @@ public final class FlowableFromArray<T> extends Flowable<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public final void request(long j) {
+        public final void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j) && BackpressureHelper.add(this, j) == 0) {
-                if (j == Long.MAX_VALUE) {
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) && SubscriptionHelper.validate(j2) && BackpressureHelper.add(this, j2) == 0) {
+                if (j2 == Long.MAX_VALUE) {
                     fastPath();
                 } else {
-                    slowPath(j);
+                    slowPath(j2);
                 }
             }
         }
@@ -299,7 +299,7 @@ public final class FlowableFromArray<T> extends Flowable<T> {
             return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? i2 & 1 : invokeI.intValue;
         }
 
-        public abstract void slowPath(long j);
+        public abstract void slowPath(long j2);
     }
 
     public FlowableFromArray(T[] tArr) {

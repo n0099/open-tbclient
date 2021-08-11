@@ -10,11 +10,11 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.a.b.b;
 import com.meizu.cloud.pushsdk.util.d;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class NotificationService extends IntentService {
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f37224a;
+    public Object f74057a;
 
     public NotificationService() {
         super("NotificationService");
@@ -41,7 +41,7 @@ public class NotificationService extends IntentService {
         String a2 = a(getPackageName(), intent.getAction());
         if (TextUtils.isEmpty(a2)) {
             d.a(this, intent, "reflectReceiver sendbroadcast", 2005);
-            d.h.a.a.a.d("NotificationService", " reflectReceiver error: receiver for: " + intent.getAction() + " not found, package: " + getPackageName());
+            c.l.a.a.a.d("NotificationService", " reflectReceiver error: receiver for: " + intent.getAction() + " not found, package: " + getPackageName());
             intent.setPackage(getPackageName());
             sendBroadcast(intent);
             return;
@@ -50,21 +50,21 @@ public class NotificationService extends IntentService {
             d.a(this, intent, "reflectReceiver startservice", 2003);
             intent.setClassName(getPackageName(), a2);
             com.meizu.cloud.pushsdk.base.a.d a3 = com.meizu.cloud.pushsdk.base.a.a.a(a2).a((Class<?>[]) null).a(null);
-            if (!a3.f37487a || a3.f37488b == 0) {
+            if (!a3.f74329a || a3.f74330b == 0) {
                 return;
             }
-            d.h.a.a.a.d("NotificationService", "Reflect MzPushReceiver " + a3.f37487a);
-            com.meizu.cloud.pushsdk.base.a.a.a(a3.f37488b).a("onReceive", Context.class, Intent.class).a(a3.f37488b, getApplicationContext(), intent);
+            c.l.a.a.a.d("NotificationService", "Reflect MzPushReceiver " + a3.f74329a);
+            com.meizu.cloud.pushsdk.base.a.a.a(a3.f74330b).a("onReceive", Context.class, Intent.class).a(a3.f74330b, getApplicationContext(), intent);
         } catch (Exception e2) {
-            d.h.a.a.a.d("NotificationService", "reflect e: " + e2);
+            c.l.a.a.a.d("NotificationService", "reflect e: " + e2);
             d.a(this, intent, e2.getMessage(), 2004);
         }
     }
 
     @Override // android.app.IntentService, android.app.Service
     public void onDestroy() {
-        d.h.a.a.a.d("NotificationService", "NotificationService destroy");
-        this.f37224a = null;
+        c.l.a.a.a.d("NotificationService", "NotificationService destroy");
+        this.f74057a = null;
         super.onDestroy();
     }
 
@@ -74,14 +74,14 @@ public class NotificationService extends IntentService {
         Process.setThreadPriority(10);
         if (intent != null) {
             try {
-                d.h.a.a.a.d("NotificationService", "onHandleIntentaction " + intent.getAction());
+                c.l.a.a.a.d("NotificationService", "onHandleIntentaction " + intent.getAction());
                 String stringExtra = intent.getStringExtra("command_type");
                 if (!PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && !PushConstants.MZ_PUSH_ON_REGISTER_ACTION.equals(intent.getAction()) && !PushConstants.MZ_PUSH_ON_UNREGISTER_ACTION.equals(intent.getAction())) {
                     z = false;
-                    d.h.a.a.a.a("NotificationService", "-- command_type -- " + stringExtra + " legalAction " + z);
+                    c.l.a.a.a.a("NotificationService", "-- command_type -- " + stringExtra + " legalAction " + z);
                     if (TextUtils.isEmpty(stringExtra) && stringExtra.equals("reflect_receiver") && z) {
                         String stringExtra2 = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
-                        d.h.a.a.a.d("NotificationService", "control message is " + stringExtra2);
+                        c.l.a.a.a.d("NotificationService", "control message is " + stringExtra2);
                         if (!TextUtils.isEmpty(stringExtra2)) {
                             com.meizu.cloud.pushsdk.c.a.a(this, new b(stringExtra2, null, null).b().c());
                         }
@@ -91,11 +91,11 @@ public class NotificationService extends IntentService {
                     return;
                 }
                 z = true;
-                d.h.a.a.a.a("NotificationService", "-- command_type -- " + stringExtra + " legalAction " + z);
+                c.l.a.a.a.a("NotificationService", "-- command_type -- " + stringExtra + " legalAction " + z);
                 if (TextUtils.isEmpty(stringExtra)) {
                 }
             } catch (Exception e2) {
-                d.h.a.a.a.b("NotificationService", "onHandleIntent error " + e2.getMessage());
+                c.l.a.a.a.b("NotificationService", "onHandleIntent error " + e2.getMessage());
             }
         }
     }

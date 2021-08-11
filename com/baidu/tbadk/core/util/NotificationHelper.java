@@ -14,6 +14,10 @@ import android.widget.RemoteViews;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.k;
+import c.a.e.e.q.h;
+import c.a.o0.t.d.b;
+import c.a.o0.t.d.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -26,12 +30,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
-import d.a.d.e.q.h;
-import d.a.p0.t.d.b;
-import d.a.p0.t.d.d;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class NotificationHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean IS_SUPPORT_PROGRESS_NOTIFICATION = true;
@@ -43,7 +43,7 @@ public class NotificationHelper {
     public static int lastProgressNotifiyId;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class SwitchData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

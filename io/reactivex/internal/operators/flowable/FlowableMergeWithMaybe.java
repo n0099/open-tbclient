@@ -24,13 +24,13 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class FlowableMergeWithMaybe<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MaybeSource<? extends T> other;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class MergeWithObserver<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int OTHER_STATE_CONSUMED_OR_EMPTY = 2;
@@ -52,7 +52,7 @@ public final class FlowableMergeWithMaybe<T> extends AbstractFlowableWithUpstrea
         public final AtomicLong requested;
         public T singleItem;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes2.dex */
         public static final class OtherObserver<T> extends AtomicReference<Disposable> implements MaybeObserver<T> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -2935427570954647017L;
@@ -233,15 +233,15 @@ public final class FlowableMergeWithMaybe<T> extends AbstractFlowableWithUpstrea
                 return;
             }
             Subscriber<? super T> subscriber = this.actual;
-            long j = this.emitted;
+            long j2 = this.emitted;
             int i2 = this.consumed;
             int i3 = this.limit;
             int i4 = 1;
             int i5 = 1;
             while (true) {
-                long j2 = this.requested.get();
+                long j3 = this.requested.get();
                 while (true) {
-                    int i6 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                    int i6 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
                     if (i6 == 0) {
                         break;
                     } else if (this.cancelled) {
@@ -259,7 +259,7 @@ public final class FlowableMergeWithMaybe<T> extends AbstractFlowableWithUpstrea
                             this.singleItem = null;
                             this.otherState = 2;
                             subscriber.onNext((T) this.singleItem);
-                            j++;
+                            j2++;
                         } else {
                             boolean z = this.mainDone;
                             SimplePlainQueue<T> simplePlainQueue = this.queue;
@@ -273,7 +273,7 @@ public final class FlowableMergeWithMaybe<T> extends AbstractFlowableWithUpstrea
                                 break;
                             } else {
                                 subscriber.onNext(poll);
-                                j++;
+                                j2++;
                                 i2++;
                                 if (i2 == i3) {
                                     this.mainSubscription.get().request(i3);
@@ -330,13 +330,13 @@ public final class FlowableMergeWithMaybe<T> extends AbstractFlowableWithUpstrea
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
                 if (compareAndSet(0, 1)) {
-                    long j = this.emitted;
-                    if (this.requested.get() != j) {
+                    long j2 = this.emitted;
+                    if (this.requested.get() != j2) {
                         SimplePlainQueue<T> simplePlainQueue = this.queue;
                         if (simplePlainQueue != null && !simplePlainQueue.isEmpty()) {
                             simplePlainQueue.offer(t);
                         } else {
-                            this.emitted = j + 1;
+                            this.emitted = j2 + 1;
                             this.actual.onNext(t);
                             int i2 = this.consumed + 1;
                             if (i2 == this.limit) {
@@ -394,9 +394,9 @@ public final class FlowableMergeWithMaybe<T> extends AbstractFlowableWithUpstrea
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, t) == null) {
                 if (compareAndSet(0, 1)) {
-                    long j = this.emitted;
-                    if (this.requested.get() != j) {
-                        this.emitted = j + 1;
+                    long j2 = this.emitted;
+                    if (this.requested.get() != j2) {
+                        this.emitted = j2 + 1;
                         this.actual.onNext(t);
                         this.otherState = 2;
                     } else {
@@ -418,10 +418,10 @@ public final class FlowableMergeWithMaybe<T> extends AbstractFlowableWithUpstrea
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-                BackpressureHelper.add(this.requested, j);
+            if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+                BackpressureHelper.add(this.requested, j2);
                 drain();
             }
         }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LowFlowsActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM_COMMON_DATA = "1";
@@ -57,7 +57,7 @@ public class LowFlowsActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra(TAB_CODE, str);
+        getIntent().putExtra("tab_code", str);
         getIntent().putExtra(LF_USER, str2);
         getIntent().putExtra(LF_USER_TASKID, str3);
     }

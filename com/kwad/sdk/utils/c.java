@@ -1,6 +1,5 @@
 package com.kwad.sdk.utils;
 
-import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,8 +49,7 @@ public class c {
                 }
                 messageDigest.update(bArr, 0, read);
             }
-        } catch (Exception e2) {
-            Log.e("FileMD5Utils", "getting file md5 digest error.", e2);
+        } catch (Exception unused) {
             return null;
         } finally {
             a(fileInputStream);
@@ -69,11 +67,9 @@ public class c {
                 if (a2 != null && a2.length != 0) {
                     return w.a(a2, 0, a2.length);
                 }
-                return null;
-            } catch (IOException | NoSuchAlgorithmException e2) {
-                Log.e("FileMD5Utils", "cannot calculate md5 of file", e2);
-                return null;
+            } catch (IOException | NoSuchAlgorithmException unused) {
             }
+            return null;
         }
         return (String) invokeL.objValue;
     }

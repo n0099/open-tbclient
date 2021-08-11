@@ -1,5 +1,5 @@
 package com.baidu.android.lbspay.view;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public interface GetPayChannelListener {
     void onFailed();
 

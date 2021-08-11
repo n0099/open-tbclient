@@ -11,7 +11,7 @@ import com.googlecode.mp4parser.AbstractContainerBox;
 import com.googlecode.mp4parser.DataSource;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class MovieFragmentBox extends AbstractContainerBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "moof";
@@ -46,12 +46,12 @@ public class MovieFragmentBox extends AbstractContainerBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sampleDependencyTypeBox)) == null) {
             ArrayList arrayList = new ArrayList();
-            long j = 1;
+            long j2 = 1;
             for (SampleDependencyTypeBox.Entry entry : sampleDependencyTypeBox.getEntries()) {
                 if (entry.getSampleDependsOn() == 2) {
-                    arrayList.add(Long.valueOf(j));
+                    arrayList.add(Long.valueOf(j2));
                 }
-                j++;
+                j2++;
             }
             return arrayList;
         }

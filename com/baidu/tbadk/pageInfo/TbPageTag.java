@@ -10,7 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes6.dex */
 public class TbPageTag implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TbPageTag> CREATOR;
@@ -21,7 +22,7 @@ public class TbPageTag implements Parcelable {
     public int tabId;
     public int tabType;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<TbPageTag> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +106,7 @@ public class TbPageTag implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "TbPageTag{locatePage='" + this.locatePage + "', sortType=" + this.sortType + ", tabId=" + this.tabId + ", tabType=" + this.tabType + ", isGeneralTab=" + this.isGeneralTab + '}';
+            return "TbPageTag{locatePage='" + this.locatePage + ExtendedMessageFormat.QUOTE + ", sortType=" + this.sortType + ", tabId=" + this.tabId + ", tabType=" + this.tabType + ", isGeneralTab=" + this.isGeneralTab + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

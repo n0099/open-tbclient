@@ -1,8 +1,9 @@
 package com.baidu.wallet.api;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface IWalletBaseFacade {
     void callQRCodeScanner(Context context, IWalletQRScannerCallback iWalletQRScannerCallback);
 
@@ -17,6 +18,8 @@ public interface IWalletBaseFacade {
     void initWallet(IWalletListener iWalletListener, Context context, String str);
 
     void initWallet(IWalletListener iWalletListener, Context context, String str, ISecurityListener iSecurityListener);
+
+    void invokeBdWalletNative(Activity activity, String str, String str2, ILightappInvokerCallback iLightappInvokerCallback);
 
     void logout(Context context);
 

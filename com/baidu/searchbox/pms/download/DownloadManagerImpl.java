@@ -38,7 +38,7 @@ import java.util.List;
 import java.util.Map;
 @Singleton
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class DownloadManagerImpl implements IDownloadManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class DownloadManagerImpl implements IDownloadManager {
     public Map<String, DownloadTaskExt> mTasks;
 
     /* renamed from: com.baidu.searchbox.pms.download.DownloadManagerImpl$3  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$bddownload$core$cause$EndCause;
         public static /* synthetic */ Interceptable $ic;
@@ -90,7 +90,7 @@ public class DownloadManagerImpl implements IDownloadManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class DownloadTaskExt {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -163,25 +163,25 @@ public class DownloadManagerImpl implements IDownloadManager {
             }
 
             @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
-            public void connected(@NonNull DownloadTask downloadTask, int i4, long j, long j2) {
+            public void connected(@NonNull DownloadTask downloadTask, int i4, long j2, long j3) {
                 DownloadTaskExt downloadTaskExt;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{downloadTask, Integer.valueOf(i4), Long.valueOf(j), Long.valueOf(j2)}) == null) || (downloadTaskExt = (DownloadTaskExt) this.this$0.mTasks.get(downloadTask.getTag())) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{downloadTask, Integer.valueOf(i4), Long.valueOf(j2), Long.valueOf(j3)}) == null) || (downloadTaskExt = (DownloadTaskExt) this.this$0.mTasks.get(downloadTask.getTag())) == null) {
                     return;
                 }
                 PackageInfo packageInfo = downloadTaskExt.info;
-                packageInfo.currentSize = j;
-                packageInfo.totalSize = j2;
+                packageInfo.currentSize = j2;
+                packageInfo.totalSize = j3;
             }
 
             @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
-            public void progress(@NonNull DownloadTask downloadTask, long j, long j2) {
+            public void progress(@NonNull DownloadTask downloadTask, long j2, long j3) {
                 DownloadTaskExt downloadTaskExt;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadTask, Long.valueOf(j), Long.valueOf(j2)}) == null) || (downloadTaskExt = (DownloadTaskExt) this.this$0.mTasks.get(downloadTask.getTag())) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadTask, Long.valueOf(j2), Long.valueOf(j3)}) == null) || (downloadTaskExt = (DownloadTaskExt) this.this$0.mTasks.get(downloadTask.getTag())) == null) {
                     return;
                 }
-                downloadTaskExt.mergeCallback.onProgress(j, j2);
+                downloadTaskExt.mergeCallback.onProgress(j2, j3);
             }
 
             @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback

@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class StandardMessageCodec implements MessageCodec<Object> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte BIGINT = 5;
@@ -43,7 +43,7 @@ public class StandardMessageCodec implements MessageCodec<Object> {
     public static final Charset UTF8;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ExposedByteArrayOutputStream extends ByteArrayOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -196,28 +196,28 @@ public class StandardMessageCodec implements MessageCodec<Object> {
         }
     }
 
-    public static final void writeLong(ByteArrayOutputStream byteArrayOutputStream, long j) {
+    public static final void writeLong(ByteArrayOutputStream byteArrayOutputStream, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65546, null, byteArrayOutputStream, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65546, null, byteArrayOutputStream, j2) == null) {
             if (LITTLE_ENDIAN) {
-                byteArrayOutputStream.write((byte) j);
-                byteArrayOutputStream.write((byte) (j >>> 8));
-                byteArrayOutputStream.write((byte) (j >>> 16));
-                byteArrayOutputStream.write((byte) (j >>> 24));
-                byteArrayOutputStream.write((byte) (j >>> 32));
-                byteArrayOutputStream.write((byte) (j >>> 40));
-                byteArrayOutputStream.write((byte) (j >>> 48));
-                byteArrayOutputStream.write((byte) (j >>> 56));
+                byteArrayOutputStream.write((byte) j2);
+                byteArrayOutputStream.write((byte) (j2 >>> 8));
+                byteArrayOutputStream.write((byte) (j2 >>> 16));
+                byteArrayOutputStream.write((byte) (j2 >>> 24));
+                byteArrayOutputStream.write((byte) (j2 >>> 32));
+                byteArrayOutputStream.write((byte) (j2 >>> 40));
+                byteArrayOutputStream.write((byte) (j2 >>> 48));
+                byteArrayOutputStream.write((byte) (j2 >>> 56));
                 return;
             }
-            byteArrayOutputStream.write((byte) (j >>> 56));
-            byteArrayOutputStream.write((byte) (j >>> 48));
-            byteArrayOutputStream.write((byte) (j >>> 40));
-            byteArrayOutputStream.write((byte) (j >>> 32));
-            byteArrayOutputStream.write((byte) (j >>> 24));
-            byteArrayOutputStream.write((byte) (j >>> 16));
-            byteArrayOutputStream.write((byte) (j >>> 8));
-            byteArrayOutputStream.write((byte) j);
+            byteArrayOutputStream.write((byte) (j2 >>> 56));
+            byteArrayOutputStream.write((byte) (j2 >>> 48));
+            byteArrayOutputStream.write((byte) (j2 >>> 40));
+            byteArrayOutputStream.write((byte) (j2 >>> 32));
+            byteArrayOutputStream.write((byte) (j2 >>> 24));
+            byteArrayOutputStream.write((byte) (j2 >>> 16));
+            byteArrayOutputStream.write((byte) (j2 >>> 8));
+            byteArrayOutputStream.write((byte) j2);
         }
     }
 

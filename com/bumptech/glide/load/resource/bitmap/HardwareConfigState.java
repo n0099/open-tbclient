@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.DecodeFormat;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class HardwareConfigState {
     public static /* synthetic */ Interceptable $ic = null;
     public static final File FD_SIZE_LIST;
@@ -91,7 +91,7 @@ public final class HardwareConfigState {
                     }
                     this.isHardwareConfigAllowed = z2;
                     if (!this.isHardwareConfigAllowed && Log.isLoggable(Downsampler.TAG, 5)) {
-                        Log.w(Downsampler.TAG, "Excluding HARDWARE bitmap config because we're over the file descriptor limit, file descriptors " + length + ", limit 700");
+                        String str = "Excluding HARDWARE bitmap config because we're over the file descriptor limit, file descriptors " + length + ", limit 700";
                     }
                 }
                 z = this.isHardwareConfigAllowed;

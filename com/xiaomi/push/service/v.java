@@ -10,19 +10,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.fw;
 import com.xiaomi.push.ib;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class v extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ib f40981a;
+    public final /* synthetic */ ib f77857a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ XMPushService f978a;
+    public final /* synthetic */ XMPushService f982a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f979a;
+    public final /* synthetic */ String f983a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v(int i2, XMPushService xMPushService, ib ibVar, String str) {
@@ -42,9 +42,9 @@ public final class v extends XMPushService.i {
                 return;
             }
         }
-        this.f978a = xMPushService;
-        this.f40981a = ibVar;
-        this.f979a = str;
+        this.f982a = xMPushService;
+        this.f77857a = ibVar;
+        this.f983a = str;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -59,12 +59,12 @@ public final class v extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                ib a2 = q.a((Context) this.f978a, this.f40981a);
-                a2.m450a().a("absent_target_package", this.f979a);
-                y.a(this.f978a, a2);
+                ib a2 = q.a((Context) this.f982a, this.f77857a);
+                a2.m453a().a("absent_target_package", this.f983a);
+                y.a(this.f982a, a2);
             } catch (fw e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
-                this.f978a.a(10, e2);
+                this.f982a.a(10, e2);
             }
         }
     }

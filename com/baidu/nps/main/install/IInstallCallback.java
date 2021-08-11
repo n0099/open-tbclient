@@ -1,7 +1,7 @@
 package com.baidu.nps.main.install;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface IInstallCallback {
-    void onProgress(long j, long j2);
+    void onProgress(long j2, long j3);
 
     void onResult(int i2, String str);
 }

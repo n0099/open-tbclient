@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class d extends com.alipay.sdk.packet.e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String t = "log_v";
@@ -33,10 +33,10 @@ public class d extends com.alipay.sdk.packet.e {
     }
 
     @Override // com.alipay.sdk.packet.e
-    public String a(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    public String a(com.alipay.sdk.sys.a aVar, String str, JSONObject jSONObject) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject)) == null) ? str : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, str, jSONObject)) == null) ? str : (String) invokeLLL.objValue;
     }
 
     @Override // com.alipay.sdk.packet.e
@@ -45,9 +45,9 @@ public class d extends com.alipay.sdk.packet.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, str)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put(com.alipay.sdk.packet.e.f1942a, String.valueOf(z));
+            hashMap.put(com.alipay.sdk.packet.e.f35794a, String.valueOf(z));
             hashMap.put("content-type", "application/octet-stream");
-            hashMap.put(com.alipay.sdk.packet.e.f1948g, "CBC");
+            hashMap.put(com.alipay.sdk.packet.e.f35800g, "CBC");
             return hashMap;
         }
         return (Map) invokeZL.objValue;
@@ -69,8 +69,8 @@ public class d extends com.alipay.sdk.packet.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put(com.alipay.sdk.packet.e.f1950i, "/sdk/log");
-            hashMap.put(com.alipay.sdk.packet.e.j, BuildConfig.VERSION_NAME);
+            hashMap.put(com.alipay.sdk.packet.e.f35802i, "/sdk/log");
+            hashMap.put(com.alipay.sdk.packet.e.f35803j, BuildConfig.VERSION_NAME);
             HashMap<String, String> hashMap2 = new HashMap<>();
             hashMap2.put(t, "1.0");
             return a(hashMap, hashMap2);
@@ -79,9 +79,9 @@ public class d extends com.alipay.sdk.packet.e {
     }
 
     @Override // com.alipay.sdk.packet.e
-    public com.alipay.sdk.packet.b a(Context context, String str) throws Throwable {
-        InterceptResult invokeLL;
+    public com.alipay.sdk.packet.b a(com.alipay.sdk.sys.a aVar, Context context, String str) throws Throwable {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) ? a(context, str, "https://mcgw.alipay.com/sdklog.do", true) : (com.alipay.sdk.packet.b) invokeLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, aVar, context, str)) == null) ? a(aVar, context, str, com.alipay.sdk.cons.a.f35710c, true) : (com.alipay.sdk.packet.b) invokeLLL.objValue;
     }
 }

@@ -25,7 +25,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ThumbnailStreamOpener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final FileService DEFAULT_SERVICE;
@@ -123,7 +123,7 @@ public class ThumbnailStreamOpener {
                     }
                     return orientation;
                 } catch (Throwable th) {
-                    if (0 != 0) {
+                    if (inputStream != null) {
                         try {
                             inputStream.close();
                         } catch (IOException unused2) {
@@ -131,15 +131,15 @@ public class ThumbnailStreamOpener {
                     }
                     throw th;
                 }
-            } catch (IOException | NullPointerException e2) {
+            } catch (IOException | NullPointerException unused3) {
                 if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "Failed to open uri: " + uri, e2);
+                    String str = "Failed to open uri: " + uri;
                 }
                 if (inputStream != null) {
                     try {
                         inputStream.close();
                         return -1;
-                    } catch (IOException unused3) {
+                    } catch (IOException unused4) {
                         return -1;
                     }
                 }

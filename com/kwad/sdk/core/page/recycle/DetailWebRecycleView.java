@@ -17,40 +17,42 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.av;
 import com.kwad.sdk.utils.ax;
 import com.kwad.sdk.utils.p;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class DetailWebRecycleView extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f34943a;
+    public a f71688a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34944b;
+    public int f71689b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f34945c;
+    public boolean f71690c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f34946d;
+    public boolean f71691d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f34947e;
+    public int f71692e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f34948f;
+    public int f71693f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f34949g;
+    public boolean f71694g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f34950h;
+    public int f71695h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Runnable f34951i;
-    public ax j;
+    public Runnable f71696i;
 
-    /* loaded from: classes6.dex */
+    /* renamed from: j  reason: collision with root package name */
+    public ax f71697j;
+
+    /* loaded from: classes10.dex */
     public interface a {
         boolean a(MotionEvent motionEvent);
     }
@@ -116,15 +118,15 @@ public class DetailWebRecycleView extends b {
                 return;
             }
         }
-        this.f34944b = 1000;
-        this.f34945c = false;
-        this.f34946d = false;
+        this.f71689b = 1000;
+        this.f71690c = false;
+        this.f71691d = false;
         Runnable runnable = new Runnable(this) { // from class: com.kwad.sdk.core.page.recycle.DetailWebRecycleView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ DetailWebRecycleView f34952a;
+            public final /* synthetic */ DetailWebRecycleView f71698a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -141,7 +143,7 @@ public class DetailWebRecycleView extends b {
                         return;
                     }
                 }
-                this.f34952a = this;
+                this.f71698a = this;
             }
 
             @Override // java.lang.Runnable
@@ -149,9 +151,9 @@ public class DetailWebRecycleView extends b {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
-                        Object a2 = p.a(this.f34952a, "mGapWorker");
+                        Object a2 = p.a(this.f71698a, "mGapWorker");
                         if (a2 != null) {
-                            p.a(a2, "postFromTraversal", this.f34952a, 0, Integer.valueOf(this.f34952a.f34944b));
+                            p.a(a2, "postFromTraversal", this.f71698a, 0, Integer.valueOf(this.f71698a.f71689b));
                         }
                     } catch (RuntimeException e2) {
                         com.kwad.sdk.core.d.a.b(e2);
@@ -159,9 +161,9 @@ public class DetailWebRecycleView extends b {
                 }
             }
         };
-        this.f34951i = runnable;
-        this.j = new ax(runnable);
-        this.f34950h = context instanceof Activity ? av.c((Activity) context) : av.b(context);
+        this.f71696i = runnable;
+        this.f71697j = new ax(runnable);
+        this.f71695h = context instanceof Activity ? av.c((Activity) context) : av.b(context);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup, android.view.View
@@ -169,7 +171,7 @@ public class DetailWebRecycleView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onAttachedToWindow();
-            postDelayed(this.j, 50L);
+            postDelayed(this.f71697j, 50L);
         }
     }
 
@@ -178,7 +180,7 @@ public class DetailWebRecycleView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDetachedFromWindow();
-            removeCallbacks(this.j);
+            removeCallbacks(this.f71697j);
         }
     }
 
@@ -187,10 +189,10 @@ public class DetailWebRecycleView extends b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            a aVar = this.f34943a;
+            a aVar = this.f71688a;
             if (aVar == null || !aVar.a(motionEvent)) {
-                this.f34948f = computeVerticalScrollOffset();
-                if (motionEvent.getY() <= this.f34947e - this.f34948f) {
+                this.f71693f = computeVerticalScrollOffset();
+                if (motionEvent.getY() <= this.f71692e - this.f71693f) {
                     return super.onInterceptTouchEvent(motionEvent);
                 }
                 return false;
@@ -206,8 +208,8 @@ public class DetailWebRecycleView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             int computeVerticalScrollOffset = computeVerticalScrollOffset();
-            this.f34948f = computeVerticalScrollOffset;
-            if (computeVerticalScrollOffset >= this.f34947e) {
+            this.f71693f = computeVerticalScrollOffset;
+            if (computeVerticalScrollOffset >= this.f71692e) {
                 return false;
             }
             fling((int) f2, (int) f3);
@@ -221,12 +223,12 @@ public class DetailWebRecycleView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), iArr}) == null) {
             int computeVerticalScrollOffset = computeVerticalScrollOffset();
-            this.f34948f = computeVerticalScrollOffset;
-            if ((i3 > 0 && computeVerticalScrollOffset < this.f34947e) && !this.f34949g && this.f34948f < this.f34950h) {
+            this.f71693f = computeVerticalScrollOffset;
+            if ((i3 > 0 && computeVerticalScrollOffset < this.f71692e) && !this.f71694g && this.f71693f < this.f71695h) {
                 scrollBy(0, i3);
                 iArr[1] = i3;
             }
-            if (i3 < 0 && this.f34948f > 0 && !ViewCompat.canScrollVertically(view, -1)) {
+            if (i3 < 0 && this.f71693f > 0 && !ViewCompat.canScrollVertically(view, -1)) {
                 scrollBy(0, i3);
                 iArr[1] = i3;
             }
@@ -245,11 +247,11 @@ public class DetailWebRecycleView extends b {
                     int bottom2 = getBottom() - getPaddingBottom();
                     int position = getLayoutManager().getPosition(childAt);
                     if (bottom == bottom2 && position == getLayoutManager().getItemCount() - 1) {
-                        this.f34949g = true;
+                        this.f71694g = true;
                         return;
                     }
                 }
-                this.f34949g = false;
+                this.f71694g = false;
             }
         }
     }
@@ -265,9 +267,9 @@ public class DetailWebRecycleView extends b {
     public void requestChildFocus(View view, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, view, view2) == null) {
-            if (this.f34946d) {
-                this.f34946d = false;
-            } else if (this.f34945c) {
+            if (this.f71691d) {
+                this.f71691d = false;
+            } else if (this.f71690c) {
             } else {
                 super.requestChildFocus(view, view2);
             }
@@ -277,28 +279,28 @@ public class DetailWebRecycleView extends b {
     public void setInterceptRequestFocusForWeb(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f34945c = z;
+            this.f71690c = z;
         }
     }
 
     public void setInterceptRequestFocusForWebFiredOnce(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f34946d = z;
+            this.f71691d = z;
         }
     }
 
     public void setInterceptTouchListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
-            this.f34943a = aVar;
+            this.f71688a = aVar;
         }
     }
 
     public void setTopViewHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f34947e = i2;
+            this.f71692e = i2;
         }
     }
 }

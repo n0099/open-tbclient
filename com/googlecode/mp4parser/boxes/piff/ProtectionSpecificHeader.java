@@ -13,7 +13,8 @@ import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public abstract class ProtectionSpecificHeader {
     public static /* synthetic */ Interceptable $ic;
     public static Map<UUID, Class<? extends ProtectionSpecificHeader>> uuidRegistry;
@@ -102,7 +103,7 @@ public abstract class ProtectionSpecificHeader {
             byte[] bArr = new byte[duplicate.limit()];
             duplicate.get(bArr);
             sb.append(Hex.encodeHex(bArr));
-            sb.append('}');
+            sb.append(ExtendedMessageFormat.END_FE);
             return sb.toString();
         }
         return (String) invokeV.objValue;

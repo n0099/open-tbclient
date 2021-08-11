@@ -30,7 +30,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -44,7 +43,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class SapiCache {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<String, SoftReference<String>> cache;
@@ -53,7 +52,7 @@ public final class SapiCache {
     public final List<String> newModuleIds;
     public final List<String> oldModuleIds;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface LoadModuleEventListener {
         void onFailure(SapiOptions.Cache.Module module);
 
@@ -230,7 +229,7 @@ public final class SapiCache {
         }
         put(module.id, str);
         writeInternal(this.context, SapiOptions.Cache.Module.getInternalFile(module.id), str.getBytes());
-        if (SapiUtils.checkRequestPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION, this.context)) {
+        if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.context)) {
             writeExternal(SapiOptions.Cache.Module.getExternalFile(module.id), str.getBytes());
         }
     }
@@ -384,7 +383,7 @@ public final class SapiCache {
                                         if (new File(this.this$0.context.getFilesDir(), internalFile).exists()) {
                                             try {
                                                 String loadDataFromInternal = this.this$0.loadDataFromInternal(this.this$0.context, internalFile);
-                                                if (SapiUtils.checkRequestPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION, this.this$0.context)) {
+                                                if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.this$0.context)) {
                                                     this.this$0.writeExternal(externalFile, loadDataFromInternal.getBytes());
                                                 }
                                             } catch (Throwable th) {
@@ -503,7 +502,7 @@ public final class SapiCache {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, context, str)) == null) {
-            return FileUtil.read(context.getApplicationInfo().dataDir + File.separator + c.f5613g + File.separator + str);
+            return FileUtil.read(context.getApplicationInfo().dataDir + File.separator + c.f39569g + File.separator + str);
         }
         return (String) invokeLL.objValue;
     }

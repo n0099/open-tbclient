@@ -11,24 +11,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.page.widget.RoundAngleImageView;
 import com.kwad.sdk.glide.framesequence.FrameSequence;
 import com.kwad.sdk.glide.framesequence.FrameSequenceDrawable;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class WebpAnimationImageView extends RoundAngleImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f36842a;
+    public int f73666a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameSequenceDrawable f36843b;
+    public FrameSequenceDrawable f73667b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f36844c;
+    public a f73668c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FrameSequenceDrawable.b f36845d;
+    public FrameSequenceDrawable.b f73669d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a();
     }
@@ -51,7 +51,7 @@ public class WebpAnimationImageView extends RoundAngleImageView {
                 return;
             }
         }
-        this.f36842a = 1;
+        this.f73666a = 1;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -73,7 +73,7 @@ public class WebpAnimationImageView extends RoundAngleImageView {
                 return;
             }
         }
-        this.f36842a = 1;
+        this.f73666a = 1;
         a(context, attributeSet);
     }
 
@@ -96,19 +96,19 @@ public class WebpAnimationImageView extends RoundAngleImageView {
                 return;
             }
         }
-        this.f36842a = 1;
+        this.f73666a = 1;
         a(context, attributeSet);
     }
 
     private void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet) == null) {
-            this.f36845d = new FrameSequenceDrawable.b(this) { // from class: com.kwad.sdk.widget.WebpAnimationImageView.1
+            this.f73669d = new FrameSequenceDrawable.b(this) { // from class: com.kwad.sdk.widget.WebpAnimationImageView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ WebpAnimationImageView f36846a;
+                public final /* synthetic */ WebpAnimationImageView f73670a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -125,16 +125,16 @@ public class WebpAnimationImageView extends RoundAngleImageView {
                             return;
                         }
                     }
-                    this.f36846a = this;
+                    this.f73670a = this;
                 }
 
                 @Override // com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.b
                 public void a(FrameSequenceDrawable frameSequenceDrawable) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, frameSequenceDrawable) == null) || this.f36846a.f36844c == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, frameSequenceDrawable) == null) || this.f73670a.f73668c == null) {
                         return;
                     }
-                    this.f36846a.f36844c.a();
+                    this.f73670a.f73668c.a();
                 }
             };
             com.kwad.sdk.glide.a.a.a(context);
@@ -144,7 +144,7 @@ public class WebpAnimationImageView extends RoundAngleImageView {
     public void a() {
         FrameSequenceDrawable frameSequenceDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (frameSequenceDrawable = this.f36843b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (frameSequenceDrawable = this.f73667b) == null) {
             return;
         }
         frameSequenceDrawable.start();
@@ -153,7 +153,7 @@ public class WebpAnimationImageView extends RoundAngleImageView {
     public void b() {
         FrameSequenceDrawable frameSequenceDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (frameSequenceDrawable = this.f36843b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (frameSequenceDrawable = this.f73667b) == null) {
             return;
         }
         frameSequenceDrawable.stop();
@@ -162,7 +162,7 @@ public class WebpAnimationImageView extends RoundAngleImageView {
     public void setOnFinishedListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f36844c = aVar;
+            this.f73668c = aVar;
         }
     }
 
@@ -173,13 +173,13 @@ public class WebpAnimationImageView extends RoundAngleImageView {
         }
         try {
             FrameSequenceDrawable frameSequenceDrawable = new FrameSequenceDrawable(frameSequence);
-            frameSequenceDrawable.setLoopCount(this.f36842a);
-            frameSequenceDrawable.setOnFinishedListener(this.f36845d);
+            frameSequenceDrawable.setLoopCount(this.f73666a);
+            frameSequenceDrawable.setOnFinishedListener(this.f73669d);
             setImageDrawable(frameSequenceDrawable);
-            if (this.f36843b != null) {
-                this.f36843b.destroy();
+            if (this.f73667b != null) {
+                this.f73667b.destroy();
             }
-            this.f36843b = frameSequenceDrawable;
+            this.f73667b = frameSequenceDrawable;
         } catch (Exception e2) {
             e2.printStackTrace();
         }

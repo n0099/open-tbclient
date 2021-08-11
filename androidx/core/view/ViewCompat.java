@@ -15,7 +15,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.Display;
 import android.view.KeyEvent;
@@ -892,8 +891,7 @@ public class ViewCompat {
             try {
                 sDispatchStartTemporaryDetach = View.class.getDeclaredMethod("dispatchStartTemporaryDetach", new Class[0]);
                 sDispatchFinishTemporaryDetach = View.class.getDeclaredMethod("dispatchFinishTemporaryDetach", new Class[0]);
-            } catch (NoSuchMethodException e2) {
-                Log.e(TAG, "Couldn't find method", e2);
+            } catch (NoSuchMethodException unused) {
             }
             sTempDetachBound = true;
         }
@@ -986,8 +984,7 @@ public class ViewCompat {
                 try {
                     method.invoke(view, new Object[0]);
                     return;
-                } catch (Exception e2) {
-                    Log.d(TAG, "Error calling dispatchFinishTemporaryDetach", e2);
+                } catch (Exception unused) {
                     return;
                 }
             }
@@ -1070,8 +1067,7 @@ public class ViewCompat {
                 try {
                     method.invoke(view, new Object[0]);
                     return;
-                } catch (Exception e2) {
-                    Log.d(TAG, "Error calling dispatchStartTemporaryDetach", e2);
+                } catch (Exception unused) {
                     return;
                 }
             }
@@ -2017,8 +2013,8 @@ public class ViewCompat {
                     try {
                         view.getParent().notifySubtreeAccessibilityStateChanged(view, view, i2);
                         return;
-                    } catch (AbstractMethodError e2) {
-                        Log.e(TAG, view.getParent().getClass().getSimpleName() + " does not fully implement ViewParent", e2);
+                    } catch (AbstractMethodError unused) {
+                        String str = view.getParent().getClass().getSimpleName() + " does not fully implement ViewParent";
                         return;
                     }
                 }
@@ -2213,13 +2209,13 @@ public class ViewCompat {
         }
     }
 
-    public static void postOnAnimationDelayed(@NonNull View view, Runnable runnable, long j) {
+    public static void postOnAnimationDelayed(@NonNull View view, Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65651, null, new Object[]{view, runnable, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65651, null, new Object[]{view, runnable, Long.valueOf(j2)}) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                view.postOnAnimationDelayed(runnable, j);
+                view.postOnAnimationDelayed(runnable, j2);
             } else {
-                view.postDelayed(runnable, ValueAnimator.getFrameDelay() + j);
+                view.postDelayed(runnable, ValueAnimator.getFrameDelay() + j2);
             }
         }
     }
@@ -2519,19 +2515,13 @@ public class ViewCompat {
             if (sChildrenDrawingOrderMethod == null) {
                 try {
                     sChildrenDrawingOrderMethod = ViewGroup.class.getDeclaredMethod("setChildrenDrawingOrderEnabled", Boolean.TYPE);
-                } catch (NoSuchMethodException e2) {
-                    Log.e(TAG, "Unable to find childrenDrawingOrderEnabled", e2);
+                } catch (NoSuchMethodException unused) {
                 }
                 sChildrenDrawingOrderMethod.setAccessible(true);
             }
             try {
                 sChildrenDrawingOrderMethod.invoke(viewGroup, Boolean.valueOf(z));
-            } catch (IllegalAccessException e3) {
-                Log.e(TAG, "Unable to invoke childrenDrawingOrderEnabled", e3);
-            } catch (IllegalArgumentException e4) {
-                Log.e(TAG, "Unable to invoke childrenDrawingOrderEnabled", e4);
-            } catch (InvocationTargetException e5) {
-                Log.e(TAG, "Unable to invoke childrenDrawingOrderEnabled", e5);
+            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException unused2) {
             }
         }
     }

@@ -9,8 +9,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PollingModeInfo;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class PayOrderResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +113,7 @@ public class PayOrderResult {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "PayOrderResult{result=" + this.result + ", payUrl='" + this.payUrl + "', payChannel='" + this.payChannel + "', orderId='" + this.orderId + "', payMethod='" + this.payMethod + "', expand='" + this.expand + "'}";
+            return "PayOrderResult{result=" + this.result + ", payUrl='" + this.payUrl + ExtendedMessageFormat.QUOTE + ", payChannel='" + this.payChannel + ExtendedMessageFormat.QUOTE + ", orderId='" + this.orderId + ExtendedMessageFormat.QUOTE + ", payMethod='" + this.payMethod + ExtendedMessageFormat.QUOTE + ", expand='" + this.expand + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -2,7 +2,6 @@ package com.baidu.wallet.paysdk.banksign.beans;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.beans.IBeanFactory;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,9 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.beans.BaseBean;
-import com.baidu.wallet.core.beans.BeanManager;
-/* loaded from: classes5.dex */
+import com.dxmpay.apollon.beans.IBeanFactory;
+import com.dxmpay.wallet.core.beans.BaseBean;
+import com.dxmpay.wallet.core.beans.BeanManager;
+/* loaded from: classes8.dex */
 public final class BankSignFactory implements IBeanFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BEAN_ID_BIND_CARD = 771;
@@ -22,18 +22,18 @@ public final class BankSignFactory implements IBeanFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.paysdk.banksign.beans.BankSignFactory$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static BankSignFactory f26091a;
+        public static BankSignFactory f62001a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,7 +49,7 @@ public final class BankSignFactory implements IBeanFactory {
                     return;
                 }
             }
-            f26091a = new BankSignFactory(null);
+            f62001a = new BankSignFactory(null);
         }
     }
 
@@ -60,7 +60,7 @@ public final class BankSignFactory implements IBeanFactory {
     public static BankSignFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f26091a : (BankSignFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f62001a : (BankSignFactory) invokeV.objValue;
     }
 
     public BankSignFactory() {
@@ -78,7 +78,7 @@ public final class BankSignFactory implements IBeanFactory {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.apollon.beans.IBeanFactory
+    @Override // com.dxmpay.apollon.beans.IBeanFactory
     public BaseBean<?> getBean(Context context, int i2, String str) {
         InterceptResult invokeLIL;
         BaseBean<?> bVar;

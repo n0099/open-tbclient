@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AccessibilityUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MODE_ACCESSIBILITY_TAG = "talkback";

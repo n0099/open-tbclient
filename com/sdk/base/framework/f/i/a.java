@@ -15,18 +15,18 @@ import java.util.Random;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38425a = "com.sdk.base.framework.f.i.a";
+    public static final String f75211a = "com.sdk.base.framework.f.i.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f38426b;
+    public static boolean f75212b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f38427c;
+    public static String f75213c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,8 +42,8 @@ public class a extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        f38426b = f.f38384b;
-        f38427c = "a6Hy5Hb8IfX46D1f";
+        f75212b = f.f75169b;
+        f75213c = "a6Hy5Hb8IfX46D1f";
     }
 
     public a() {
@@ -84,10 +84,10 @@ public class a extends com.sdk.base.framework.f.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String b2 = com.sdk.base.framework.f.b.a.b(context, f.f38383a);
+            String b2 = com.sdk.base.framework.f.b.a.b(context, f.f75168a);
             if (com.sdk.base.framework.a.a.c.a(b2).booleanValue()) {
                 String a2 = a(16);
-                com.sdk.base.framework.f.b.a.b(context, f.f38383a, a2);
+                com.sdk.base.framework.f.b.a.b(context, f.f75168a, a2);
                 return a2;
             }
             return b2;
@@ -98,7 +98,7 @@ public class a extends com.sdk.base.framework.f.a {
     public static String a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) ? b(str, str2, f38427c) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) ? b(str, str2, f75213c) : (String) invokeLL.objValue;
     }
 
     public static String a(String str, String str2, String str3) {
@@ -109,13 +109,13 @@ public class a extends com.sdk.base.framework.f.a {
                 try {
                     if (str.length() != 0 && str.trim().length() != 0) {
                         if (str2 == null) {
-                            com.sdk.base.framework.f.a.a(f38425a, "EncryptCbcIv", "encrypt key is null", f38426b);
+                            com.sdk.base.framework.f.a.a(f75211a, "EncryptCbcIv", "encrypt key is null", f75212b);
                             return null;
                         } else if (str2.length() != 16) {
-                            com.sdk.base.framework.f.a.a(f38425a, "EncryptCbcIv", "encrypt key length error", f38426b);
+                            com.sdk.base.framework.f.a.a(f75211a, "EncryptCbcIv", "encrypt key length error", f75212b);
                             return null;
                         } else if (str3.length() != 16) {
-                            com.sdk.base.framework.f.a.a(f38425a, "EncryptCbcIv", "ivStr length error", f38426b);
+                            com.sdk.base.framework.f.a.a(f75211a, "EncryptCbcIv", "ivStr length error", f75212b);
                             return null;
                         } else {
                             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
@@ -124,11 +124,11 @@ public class a extends com.sdk.base.framework.f.a {
                         }
                     }
                 } catch (Exception e2) {
-                    com.sdk.base.framework.f.a.a(f38425a, "EncryptCbcIv", e2.getMessage(), f38426b);
+                    com.sdk.base.framework.f.a.a(f75211a, "EncryptCbcIv", e2.getMessage(), f75212b);
                     return null;
                 }
             }
-            com.sdk.base.framework.f.a.a(f38425a, "EncryptCbcIv", "encrypt content is null", f38426b);
+            com.sdk.base.framework.f.a.a(f75211a, "EncryptCbcIv", "encrypt content is null", f75212b);
             return null;
         }
         return (String) invokeLLL.objValue;

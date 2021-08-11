@@ -12,26 +12,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CompressProgressView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21666e;
+    public int f57225e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21667f;
+    public int f57226f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21668g;
+    public int f57227g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f21669h;
+    public Paint f57228h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f21670i;
-    public RectF j;
+    public Paint f57229i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public RectF f57230j;
     public int k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,30 +56,30 @@ public class CompressProgressView extends View {
             }
         }
         this.k = 0;
-        a();
+        init();
     }
 
-    public void a() {
+    public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f21666e = getResources().getDimensionPixelSize(R.dimen.ds100);
-            this.f21667f = getResources().getDimensionPixelSize(R.dimen.ds4);
-            this.f21668g = getResources().getDimensionPixelSize(R.dimen.ds2);
+            this.f57225e = getResources().getDimensionPixelSize(R.dimen.ds100);
+            this.f57226f = getResources().getDimensionPixelSize(R.dimen.ds4);
+            this.f57227g = getResources().getDimensionPixelSize(R.dimen.ds2);
             Paint paint = new Paint();
-            this.f21669h = paint;
-            paint.setStrokeWidth(this.f21667f);
-            this.f21669h.setColor(getResources().getColor(R.color.CAM_X0201));
-            this.f21669h.setStyle(Paint.Style.STROKE);
-            this.f21669h.setAntiAlias(true);
+            this.f57228h = paint;
+            paint.setStrokeWidth(this.f57226f);
+            this.f57228h.setColor(getResources().getColor(R.color.CAM_X0201));
+            this.f57228h.setStyle(Paint.Style.STROKE);
+            this.f57228h.setAntiAlias(true);
             Paint paint2 = new Paint();
-            this.f21670i = paint2;
-            paint2.setStrokeWidth(this.f21668g);
-            this.f21670i.setColor(getResources().getColor(R.color.CAM_X0101));
-            this.f21670i.setStyle(Paint.Style.STROKE);
-            this.f21670i.setAntiAlias(true);
-            int i2 = this.f21667f;
-            int i3 = this.f21666e;
-            this.j = new RectF(i2, i2, i3 + i2, i3 + i2);
+            this.f57229i = paint2;
+            paint2.setStrokeWidth(this.f57227g);
+            this.f57229i.setColor(getResources().getColor(R.color.CAM_X0101));
+            this.f57229i.setStyle(Paint.Style.STROKE);
+            this.f57229i.setAntiAlias(true);
+            int i2 = this.f57226f;
+            int i3 = this.f57225e;
+            this.f57230j = new RectF(i2, i2, i3 + i2, i3 + i2);
         }
     }
 
@@ -85,8 +87,8 @@ public class CompressProgressView extends View {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            canvas.drawArc(this.j, 270.0f, 360.0f, false, this.f21670i);
-            canvas.drawArc(this.j, 270.0f, (this.k * 360) / 100, false, this.f21669h);
+            canvas.drawArc(this.f57230j, 270.0f, 360.0f, false, this.f57229i);
+            canvas.drawArc(this.f57230j, 270.0f, (this.k * 360) / 100, false, this.f57228h);
         }
     }
 
@@ -119,7 +121,7 @@ public class CompressProgressView extends View {
             }
         }
         this.k = 0;
-        a();
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -141,6 +143,6 @@ public class CompressProgressView extends View {
             }
         }
         this.k = 0;
-        a();
+        init();
     }
 }

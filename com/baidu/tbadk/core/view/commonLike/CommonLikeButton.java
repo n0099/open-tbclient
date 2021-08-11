@@ -5,6 +5,8 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.appcompat.widget.AppCompatTextView;
+import c.a.e.e.p.l;
+import c.a.o0.s.f0.o.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -13,27 +15,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.p0.s.f0.o.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CommonLikeButton extends AppCompatTextView implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12741e;
+    public View.OnClickListener f47729e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12742f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f12743g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f12744h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f12745i;
+    public boolean f47730f;
+    public boolean mCurrentIsLike;
+    public String mStrAlreadyFollowed;
+    public String mStrFollow;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CommonLikeButton(Context context) {
@@ -53,53 +47,24 @@ public class CommonLikeButton extends AppCompatTextView implements b {
                 return;
             }
         }
-        this.f12741e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.f12742f = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.f12743g = false;
-        this.f12745i = false;
-        d();
+        this.mStrAlreadyFollowed = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.mStrFollow = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.mCurrentIsLike = false;
+        this.f47730f = false;
+        init();
     }
 
-    @Override // d.a.p0.s.f0.o.b
-    public void a(View view) {
-        View.OnClickListener onClickListener;
+    @Override // c.a.o0.s.f0.o.b
+    public void bindOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (onClickListener = this.f12744h) == null) {
-            return;
-        }
-        onClickListener.onClick(view);
-    }
-
-    @Override // d.a.p0.s.f0.o.b
-    public void b(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
             setOnClickListener(onClickListener);
         }
     }
 
-    @Override // d.a.p0.s.f0.o.b
-    public void c(boolean z) {
+    public void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            setVisibility(0);
-            this.f12743g = z;
-            if (z) {
-                setClickable(false);
-                setText(this.f12741e);
-                setPadding(0, 0, 0, 0);
-            } else {
-                setClickable(true);
-                setText(this.f12742f);
-                setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds18), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds10), 0);
-            }
-            e(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setSingleLine();
             setIncludeFontPadding(false);
             setTextSize(0, l.g(getContext(), R.dimen.tbds34));
@@ -107,10 +72,10 @@ public class CommonLikeButton extends AppCompatTextView implements b {
         }
     }
 
-    public void e(int i2) {
+    public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            if (this.f12743g) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            if (this.mCurrentIsLike) {
                 setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0109);
                 setBackgroundDrawable(null);
@@ -118,7 +83,7 @@ public class CommonLikeButton extends AppCompatTextView implements b {
             }
             setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
             SkinManager.setViewTextColor(this, R.color.btn_forum_focus_color);
-            if (this.f12745i) {
+            if (this.f47730f) {
                 SkinManager.setBackgroundResource(this, R.drawable.btn_transparent_focus_border_bg);
             } else {
                 SkinManager.setBackgroundResource(this, R.drawable.btn_focus_border_bg);
@@ -126,18 +91,47 @@ public class CommonLikeButton extends AppCompatTextView implements b {
         }
     }
 
+    @Override // c.a.o0.s.f0.o.b
+    public void onClickEvent(View view) {
+        View.OnClickListener onClickListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (onClickListener = this.f47729e) == null) {
+            return;
+        }
+        onClickListener.onClick(view);
+    }
+
     public void setAfterOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f12744h = onClickListener;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.f47729e = onClickListener;
         }
     }
 
     public void setBackGroundIsTransMode(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f12745i = z;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.f47730f = z;
             SkinManager.setBackgroundResource(this, R.drawable.btn_transparent_focus_border_bg);
+        }
+    }
+
+    @Override // c.a.o0.s.f0.o.b
+    public void updateLikeStatus(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            setVisibility(0);
+            this.mCurrentIsLike = z;
+            if (z) {
+                setClickable(false);
+                setText(this.mStrAlreadyFollowed);
+                setPadding(0, 0, 0, 0);
+            } else {
+                setClickable(true);
+                setText(this.mStrFollow);
+                setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds18), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds10), 0);
+            }
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -160,11 +154,11 @@ public class CommonLikeButton extends AppCompatTextView implements b {
                 return;
             }
         }
-        this.f12741e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.f12742f = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.f12743g = false;
-        this.f12745i = false;
-        d();
+        this.mStrAlreadyFollowed = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.mStrFollow = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.mCurrentIsLike = false;
+        this.f47730f = false;
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -186,10 +180,10 @@ public class CommonLikeButton extends AppCompatTextView implements b {
                 return;
             }
         }
-        this.f12741e = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.f12742f = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.f12743g = false;
-        this.f12745i = false;
-        d();
+        this.mStrAlreadyFollowed = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.mStrFollow = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.mCurrentIsLike = false;
+        this.f47730f = false;
+        init();
     }
 }

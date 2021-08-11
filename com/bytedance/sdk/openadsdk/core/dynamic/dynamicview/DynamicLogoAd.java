@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class DynamicLogoAd extends DynamicBaseWidgetImp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,11 +47,11 @@ public class DynamicLogoAd extends DynamicBaseWidgetImp {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             super.b();
             if (Build.VERSION.SDK_INT >= 17) {
-                this.n.setTextAlignment(this.j.h());
+                this.n.setTextAlignment(this.f65991j.h());
             }
             ((TextView) this.n).setText("广告");
-            ((TextView) this.n).setTextColor(this.j.g());
-            ((TextView) this.n).setTextSize(this.j.e());
+            ((TextView) this.n).setTextColor(this.f65991j.g());
+            ((TextView) this.n).setTextSize(this.f65991j.e());
             return true;
         }
         return invokeV.booleanValue;

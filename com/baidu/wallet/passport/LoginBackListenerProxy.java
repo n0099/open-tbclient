@@ -11,7 +11,7 @@ import com.baidu.wallet.api.ILoginBackListener;
 import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.core.NoProguard;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class LoginBackListenerProxy implements ILoginBackListener, NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,6 +72,6 @@ public class LoginBackListenerProxy implements ILoginBackListener, NoProguard {
         if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) || this.loginBackListener == null) {
             return;
         }
-        WalletLoginHelper.getInstance().getOpenBduss(true, this);
+        WalletLoginHelper.getInstance().getOpenBduss(true, this, 6);
     }
 }

@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class EditHeadsImageView extends DragImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int A0;
-    public float B0;
-    public int x0;
+    public int v0;
+    public int w0;
+    public float x0;
     public int y0;
     public float z0;
 
@@ -43,69 +43,33 @@ public class EditHeadsImageView extends DragImageView {
                 return;
             }
         }
-        this.x0 = 0;
+        this.v0 = 0;
+        this.w0 = 0;
+        this.x0 = 0.42857143f;
         this.y0 = 0;
-        this.z0 = 0.42857143f;
-        this.A0 = 0;
-        this.B0 = 1.0f;
-        w0();
+        this.z0 = 1.0f;
+        W();
     }
 
-    @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView, android.view.View
-    public void onDraw(Canvas canvas) {
+    public final void W() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            canvas.save();
-            canvas.drawColor(this.A0);
-            super.onDraw(canvas);
-            canvas.restore();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.y0 = getResources().getColor(R.color.common_color_10226);
+            setDrawingCacheEnabled(true);
+            setImageMode(1);
+            CompatibleUtile.getInstance().noneViewGpu(this);
         }
     }
 
-    @Override // com.baidu.tbadk.widget.DragImageView, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
-            float width = this.B0 * getWidth();
-            if (width > getHeight()) {
-                width = getHeight();
-            }
-            float f2 = (i5 - i3) - width;
-            float f3 = this.z0;
-            int i6 = (int) (f2 * f3);
-            this.x0 = i6;
-            int i7 = (int) (f2 * (1.0f - f3));
-            this.y0 = i7;
-            setOffset(0, i6, 0, i7);
-        }
-    }
-
-    public void setCutImageHeightScale(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.B0 = f2;
-            invalidate();
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView
-    public void setImageBitmap(Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
-            super.setImageBitmap(bitmap);
-        }
-    }
-
-    public Bitmap v0(boolean z) {
+    public Bitmap getHeadBitmap(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
             Bitmap bitmap = null;
             try {
                 Bitmap visableBitmap = getVisableBitmap();
                 if (visableBitmap != null) {
-                    Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.x0, getWidth(), (getHeight() - this.y0) - this.x0);
+                    Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.v0, getWidth(), (getHeight() - this.w0) - this.v0);
                     bitmap = z ? Bitmap.createScaledBitmap(createBitmap, 960, 960, false) : createBitmap;
                     if (bitmap != createBitmap) {
                         createBitmap.recycle();
@@ -119,13 +83,49 @@ public class EditHeadsImageView extends DragImageView {
         return (Bitmap) invokeZ.objValue;
     }
 
-    public final void w0() {
+    @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.A0 = getResources().getColor(R.color.common_color_10226);
-            setDrawingCacheEnabled(true);
-            setImageMode(1);
-            CompatibleUtile.getInstance().noneViewGpu(this);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            canvas.save();
+            canvas.drawColor(this.y0);
+            super.onDraw(canvas);
+            canvas.restore();
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.DragImageView, android.view.View
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            super.onLayout(z, i2, i3, i4, i5);
+            float width = this.z0 * getWidth();
+            if (width > getHeight()) {
+                width = getHeight();
+            }
+            float f2 = (i5 - i3) - width;
+            float f3 = this.x0;
+            int i6 = (int) (f2 * f3);
+            this.v0 = i6;
+            int i7 = (int) (f2 * (1.0f - f3));
+            this.w0 = i7;
+            setOffset(0, i6, 0, i7);
+        }
+    }
+
+    public void setCutImageHeightScale(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
+            this.z0 = f2;
+            invalidate();
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView
+    public void setImageBitmap(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) {
+            super.setImageBitmap(bitmap);
         }
     }
 
@@ -148,12 +148,12 @@ public class EditHeadsImageView extends DragImageView {
                 return;
             }
         }
-        this.x0 = 0;
+        this.v0 = 0;
+        this.w0 = 0;
+        this.x0 = 0.42857143f;
         this.y0 = 0;
-        this.z0 = 0.42857143f;
-        this.A0 = 0;
-        this.B0 = 1.0f;
-        w0();
+        this.z0 = 1.0f;
+        W();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -174,11 +174,11 @@ public class EditHeadsImageView extends DragImageView {
                 return;
             }
         }
-        this.x0 = 0;
+        this.v0 = 0;
+        this.w0 = 0;
+        this.x0 = 0.42857143f;
         this.y0 = 0;
-        this.z0 = 0.42857143f;
-        this.A0 = 0;
-        this.B0 = 1.0f;
-        w0();
+        this.z0 = 1.0f;
+        W();
     }
 }

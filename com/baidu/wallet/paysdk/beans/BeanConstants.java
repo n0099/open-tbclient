@@ -7,30 +7,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.dxmpay.wallet.core.domain.DomainConfig;
+/* loaded from: classes8.dex */
 public abstract class BeanConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIVITY_THEME_ACTIVITY = 0;
     public static final int ACTIVITY_THEME_DIALOG = 1;
     public static final String API_APPLY_VERIFY_SMS_BY_BANK = "/cashdesk/wireless/bank_extra_sms";
     public static final String API_AUTHORIZE_ORDER = "/contract/0/wireless/0/sign/0";
+    public static final String API_BANK_CARD_LIST_URL;
     public static final String API_BIND_CARD = "/_u/wireless/card_bind";
     public static final String API_CALC_PAYMENT = "/_u/cashdesk/calc_mkt_pay";
     public static final String API_CARD_ADD = "/usercenter/card/cardadd";
-    public static final String API_CARD_LIST = "/usercenter/card/card_list";
     public static final String API_CHECK_CARD_INFO = "/_u/wireless/card_check/";
     public static final String API_CHECK_MOBILE_PWD = "/_u/wireless/mobile_password_check";
     public static final String API_CHECK_PC_PWD = "/_u/wireless/pc_password_check";
     public static final String API_CHECK_PWD = "/cashdesk/wireless/check_password_for_business";
-    public static final String API_CREATE_MOBILE_PWD = "/_u/wireless/mobile_password_create";
     public static final String API_DO_PAY = "/_u/cashdesk/wireless_pay";
-    public static final String API_EEM_CARD_LIST = "/usercenter/eabank/card_list";
-    public static final String API_FIND_PASS = "/static/wap/findpass/?is_from_sdk=1#/home";
     public static final String API_FIND_PASSWD = "/_u/wireless/reset_pass";
     public static final String API_FIND_PASS_FROM_OLD_CARD_CHECKSMS = "/cashdesk/wireless/find_pwd_check_sms";
     public static final String API_FIND_PASS_FROM_OLD_CARD_GET_CARD_LIST = "/cashdesk/wireless/find_pwd_card_check";
     public static final String API_FIND_PASS_FROM_OLD_CARD_RESETPASS = "/cashdesk/wireless/reset_pwd_by_sms";
     public static final String API_FIND_PASS_FROM_OLD_CARD_SENDSMS = "/cashdesk/wireless/find_pwd_send_sms/";
+    public static final String API_FIND_PAY_PWD_URL;
     public static final String API_GET_AB_TEST = "/mobile_abtest";
     public static final String API_GET_CARD_INFO = "/_u/wireless/card_info/";
     public static final String API_GET_PAY_ORDER = "/api/0/pay/0/wireless/0/direct";
@@ -38,8 +37,6 @@ public abstract class BeanConstants {
     public static final String API_GET_PAY_ORDER_PREPAY = "/api/0/pay/0/wireless/0/cashdesk/0";
     public static final String API_GET_PAY_ORDER_TRANSFER = "/api/0/pay/0/wireless/0/transfer2card/0";
     public static final String API_GET_PRE_PAY_ORDER = "/cashdesk/wireless/cashier/direct";
-    public static final String API_GET_REALNAME_AUTH_INFO = "/auth/0/wireless_auth";
-    public static String API_GET_WAITING_RECV_COUNT = "/_u/wireless/transfer/receivable_count";
     public static final String API_HCE_APPLY_SMS_CODE = "/odp/o2o/hce/sendsms";
     public static final String API_HCE_CLOSE_HCE = "/odp/o2o/hce/close";
     public static final String API_HCE_QUERY_ACTIVITY = "/odp/o2o/hce/queryallactivities";
@@ -49,37 +46,31 @@ public abstract class BeanConstants {
     public static final String API_HCE_SECONDARYPAY = "/odp/o2o/hce/secondpay";
     public static final String API_HCE_UPDATE_PAY_TYPE = "/odp/o2o/hce/cardset";
     public static final String API_MODIFY_MOBILE_PWD = "/_u/wireless/mobile_password_modify";
+    public static final String API_PAY_PWD_SETTING_URL;
+    public static final String API_PAY_SECURITY_CENTER_URL;
+    public static final String API_PAY_SETTING_URL;
     public static final String API_PAY_SET_GET_PERSONALSET = "/cashdesk/wireless/get_personalset";
     public static final String API_PRECASHIER_DEFAULT_PAY_TYPE = "/cashdesk/wireless/pre_default_display";
     public static final String API_PRECASHIER_MODIFY_PAY_TYPE = "/cashdesk/wireless/precashier";
     public static final String API_QUERY_BANK = "/android/0/bankCode/0";
     public static final String API_QUERY_BANK_INFO = "/cashdesk/wireless/querycardbin/";
-    public static final String API_QUERY_PASS_FREE = "/_u/wireless/query_passfree/";
     public static final String API_QUERY_TRANS_EASY = "/mc/0/wireless_interface/0";
-    public static final String API_REQUEST_RCS_FOR_NO_PWD = "/cashdesk/wireless/passfree_rcs";
     public static final String API_REQUEST_SMS_CODE = "/cashdesk/wireless/pay/sendsms";
-    public static final String API_REQUEST_SMS_CODE_FOR_NO_PWD = "/cashdesk/wireless/passfree_sendsms";
     public static final String API_SAVE_FEEDBACK = "/cashdesk/wireless/save_feedback";
-    public static final String API_SAVE_PAYFREE = "/cashdesk/wireless/set_passfree";
-    public static final String API_SAVE_PAY_SORT = "/cashdesk/wireless/set_paymethod";
     public static final String API_SECUITY_CENTER = "/odp/wireless/sdk/securitycenter";
-    public static final String API_SET_PASS_FREE = "/_u/wireless/set_passfree/";
     public static final String API_SIGN_CALC_PAYMENT = "/_u/contract/wireless/calc_mkt_pay";
     public static final String API_SIGN_CARD_CHECK = "/_u/contract/wireless/card_check";
     public static final String API_SIGN_CARD_INFO = "/_u/contract/wireless/card_info";
     public static final String API_SIGN_CHANNEL_QUERY = "/wireless/0/pay_bank_query/0";
     public static final String API_SIGN_CONTRACT_PAY = "/_u/contract/wireless/sign_pay";
     public static final String API_SIGN_CONTRACT_VERIFY_SMS = "/_u/contract/wireless/verify_sms";
-    public static String API_TRANSFER_RECV_GET_SMS = "/_u/transfer/sendsms";
-    public static String API_TRANSFER_RECV_VERIFY_SMS = "/_u/transfer/recv_action";
     public static final String API_UNBIND_CARD = "/_u/wireless/card_unbind/";
     public static final String API_USER_HAS_PAY_PASSWORD = "/usercenter/user/base_info";
-    public static final String API_USER_INFO = "/_u/wireless/user_info/";
+    public static final String API_USER_INFO = "/usercenter/account/wireless_user_info";
     public static final String API_VERIFY_CARDCHECK = "/cashdesk/dragonpay/voice/cardcheck";
     public static final String API_VERIFY_CARDINFO = "/cashdesk/dragonpay/voice/cardinfo";
     public static final String API_VERIFY_CARDSIGN = "/cashdesk/dragonpay/voice/cardsign";
     public static final String API_VERIFY_GETUSERINFO = "/cashdesk/dragonpay/voice/userinfo";
-    public static final String API_VERIFY_MOBILE_PWD = "/_u/wireless/mobile_password_verify";
     public static final String API_VERIFY_MOBILE_PWD_NEW = "/usercenter/pwd/checkpwd";
     public static final String API_VERIFY_PAY_PWD = "/cashdesk/wireless/checkpassword";
     public static final String API_VERIFY_SMS = "/_u/wireless/verify_sms";
@@ -90,9 +81,9 @@ public abstract class BeanConstants {
     public static final String API_VOICE_RESET = "/cashdesk/dragonpay/voice/reset";
     public static final String API_VOICE_SIGNUP = "/cashdesk/dragonpay/voice/register";
     public static final String API_VOICE_VERIFY = "/cashdesk/dragonpay/voice/verify";
-    public static final String API_WALLET_BALANCE_HOME_PATH = "https://www.dxmpay.com/usercenter/static/station/entry/life/";
+    public static final String API_WALLET_BALANCE_HOME_PATH;
     public static final String API_WALLET_INTERFACE = "/odp/wireless/sdk/outerpage";
-    public static final String API_WALLET_SCANCODE = "https://www.dxmpay.com/payfe/o2o/entry/b2c/?is_from_sdk=1";
+    public static final String API_WALLET_SCANCODE;
     public static final String BANK_CREDIT = "credit";
     public static final String BANK_DEBIT = "debit";
     public static final String BANK_TYPE = "bank_type";
@@ -104,8 +95,12 @@ public abstract class BeanConstants {
     public static final int CREDIT = 1;
     public static final int DEBIT = 2;
     public static boolean DEBUG = false;
+    public static final String EVENT_AUTH_RESULT = "fill_nine_elements";
     public static final String EVENT_H5_AUTH_ADMIT_SUBMIT = "ev_h5_auth_admit_submit";
+    public static final String EVENT_H5_RN_AUTH_RESULT = "ev_h5_nine_elements";
     public static final String EVENT_KEY_TRANSFER_FINISHED = "event_key_transfer_finished";
+    public static final String EVENT_PAY_SORT_SETTING = "ev_h5_setting_paymethod_submit";
+    public static final String EVT_PAY_PWD_CHANGE = "walletpay_forgot_password";
     public static final String EV_BANK_DETAIL_CARD_CHANGE = "wallet_sdk_langbridge_bankcard_change";
     public static final String EV_BEAN_EXECUT_ERR_CONTENT = "ev_bean_execut_err_content";
     public static final String EV_EXIT_MIDDLE_AUTH_PAGE = "onPayAuthFinish";
@@ -170,7 +165,6 @@ public abstract class BeanConstants {
     public static final int PAY_RESULT_FROM_PAY = 1;
     public static final int PAY_RESULT_FROM_SIGN_CONTRACT = 4;
     public static final int PAY_RESULT_FROM_TRANSFER_RECV = 3;
-    public static final String RED_EEM_MSG_CARD = "/usercenter/licai/redeem_msg";
     public static final int REQUEST_CODE_PAY_ACTIVITY = 40968;
     public static final int REQUEST_CODE_PWD_ACTIVITY = 40969;
     public static final int REQUEST_CODE_SIGN_CHANNEL_LIST = 40976;
@@ -200,12 +194,11 @@ public abstract class BeanConstants {
     public static final int SMS_ACTIVITY_FROM_PAYSMS = 1;
     public static final int SMS_ACTIVITY_FROM_SCANCODE = 8;
     public static final int SMS_ACTIVITY_FROM_SCANCODE_HAS_CHECKED_PWD = 10;
-    public static final int SMS_ACTIVITY_FROM_TRANSFERRECV = 3;
     public static final int SMS_ACTIVITY_FROM_UNBIND_CARD = 5;
     public static final String TITLE_NO_PWD_PROTOL = "免密支付协议";
-    public static final String TRANSACTION_RECORDS_URL = "https://www.dxmpay.com/static/webapp/transaction/index.html";
+    public static final String TRANSACTION_RECORDS_URL;
     public static final String UPDATE_MOBILE_DESC = "update_mobile_desc";
-    public static String VERSION_NO = "8.8.1.47";
+    public static String VERSION_NO = "9.3.0.124";
     public static final String WALLET_PLUGIN_FROCE_UPDATE_FLAG = "2";
     public static final int WALLET_PLUGIN_LOAD_MODULE = 2;
     public static final int WALLET_PLUGIN_LOAD_STANDARD = 0;
@@ -218,16 +211,24 @@ public abstract class BeanConstants {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1078730915, "Lcom/baidu/wallet/paysdk/beans/BeanConstants;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1078730915, "Lcom/baidu/wallet/paysdk/beans/BeanConstants;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1078730915, "Lcom/baidu/wallet/paysdk/beans/BeanConstants;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1078730915, "Lcom/baidu/wallet/paysdk/beans/BeanConstants;");
-        }
+        API_WALLET_SCANCODE = DomainConfig.getInstance().getAppPayHost() + "/payfe/o2o/entry/b2c/?is_from_sdk=1";
+        TRANSACTION_RECORDS_URL = DomainConfig.getInstance().getAppPayHost() + "/static/webapp/transaction/index.html";
+        API_WALLET_BALANCE_HOME_PATH = DomainConfig.getInstance().getAppPayHost() + "/usercenter/static/station/entry/life/";
+        API_PAY_SECURITY_CENTER_URL = DomainConfig.getInstance().getAppPayHost() + "/usercenter/static/station/entry/safe/#/paysafe?is_from_sdk=1";
+        API_PAY_SETTING_URL = DomainConfig.getInstance().getAppPayHost() + "/usercenter/static/station/entry/safe/#/payset?is_from_sdk=1";
+        API_PAY_PWD_SETTING_URL = DomainConfig.getInstance().getAppPayHost() + "/usercenter/static/station/entry/safe/#/pwd?is_from_sdk=1";
+        API_FIND_PAY_PWD_URL = DomainConfig.getInstance().getAppPayHost() + "/static/wap/findpass/?is_from_sdk=1#/home";
+        API_BANK_CARD_LIST_URL = DomainConfig.getInstance().getAppPayHost() + "/usercenter/static/h5-wallet-card/entry/list/#/index?is_from_sdk=1";
     }
 
     public BeanConstants() {

@@ -1,6 +1,13 @@
 package com.baidu.tieba.flutter.plugin.networkService;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.c.g.a;
+import c.a.e.c.g.c;
+import c.a.e.e.m.e;
+import c.a.e.e.p.l;
+import c.a.o0.i0.b.g;
+import c.a.o0.i0.b.h;
+import c.a.o0.x0.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -31,17 +38,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.c.g.a;
-import d.a.d.c.g.c;
-import d.a.d.e.m.e;
-import d.a.d.e.p.l;
-import d.a.p0.i0.b.g;
-import d.a.p0.i0.b.h;
-import d.a.p0.x0.b;
 import java.util.HashMap;
 import java.util.Map;
 import protobuf.Error;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkServicePlugin.NetModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TIMOUT_MIN = 10;
@@ -70,7 +70,7 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
     public BdUniqueId unique_id;
 
     /* renamed from: com.baidu.tieba.flutter.plugin.networkService.FlutterNetModelAuto$11  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass11 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$tieba$flutter$plugin$networkService$FlutterNetModelAuto$NetModelType;
         public static /* synthetic */ Interceptable $ic;
@@ -106,22 +106,22 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface NetModelCallback<T extends g, D extends h> extends NetModelHttpCallback<T, D>, NetModelSocketCallback<T, D> {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface NetModelHttpCallback<T extends g, D extends h> {
         void onHttpResponseMessage(String str, HashMap<String, String> hashMap, MvcHttpResponsedMessage<D> mvcHttpResponsedMessage, MvcHttpMessage<T, D> mvcHttpMessage, MvcNetMessage<T, D> mvcNetMessage);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface NetModelSocketCallback<T extends g, D extends h> {
         void onSocketResponseMessage(String str, HashMap<String, String> hashMap, SocketResponsedMessage socketResponsedMessage, SocketMessage socketMessage, NetMessage netMessage);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class NetModelType {
         public static final /* synthetic */ NetModelType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -269,7 +269,7 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
                     this.this$0 = this;
                 }
 
-                @Override // d.a.d.c.g.a
+                @Override // c.a.e.c.g.a
                 public void onMessage(ResponsedMessage<?> responsedMessage) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, responsedMessage) == null) {

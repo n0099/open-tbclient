@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class o extends l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.b.h<String, l> f32264a;
+    public final com.bytedance.sdk.openadsdk.preload.a.b.h<String, l> f68223a;
 
     public o() {
         Interceptable interceptable = $ic;
@@ -29,15 +29,15 @@ public final class o extends l {
                 return;
             }
         }
-        this.f32264a = new com.bytedance.sdk.openadsdk.preload.a.b.h<>();
+        this.f68223a = new com.bytedance.sdk.openadsdk.preload.a.b.h<>();
     }
 
     public void a(String str, l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, lVar) == null) {
-            com.bytedance.sdk.openadsdk.preload.a.b.h<String, l> hVar = this.f32264a;
+            com.bytedance.sdk.openadsdk.preload.a.b.h<String, l> hVar = this.f68223a;
             if (lVar == null) {
-                lVar = n.f32263a;
+                lVar = n.f68222a;
             }
             hVar.put(str, lVar);
         }
@@ -46,18 +46,18 @@ public final class o extends l {
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? obj == this || ((obj instanceof o) && ((o) obj).f32264a.equals(this.f32264a)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? obj == this || ((obj instanceof o) && ((o) obj).f68223a.equals(this.f68223a)) : invokeL.booleanValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32264a.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f68223a.hashCode() : invokeV.intValue;
     }
 
     public Set<Map.Entry<String, l>> n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32264a.entrySet() : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f68223a.entrySet() : (Set) invokeV.objValue;
     }
 }

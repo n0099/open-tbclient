@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class bn implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f23637a;
+    public final /* synthetic */ String f59373a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ bm f23638b;
+    public final /* synthetic */ bm f59374b;
 
     public bn(bm bmVar, String str) {
         Interceptable interceptable = $ic;
@@ -31,19 +31,19 @@ public final class bn implements Runnable {
                 return;
             }
         }
-        this.f23638b = bmVar;
-        this.f23637a = str;
+        this.f59374b = bmVar;
+        this.f59373a = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SharedPreferences.Editor edit = this.f23638b.f23636b.getSharedPreferences("UfoSharePreference", 0).edit();
-            edit.putString("cryptContactData", com.baidu.ufosdk.f.k.a(this.f23637a));
+            SharedPreferences.Editor edit = this.f59374b.f59372b.getSharedPreferences("UfoSharePreference", 0).edit();
+            edit.putString("cryptContactData", com.baidu.ufosdk.f.k.a(this.f59373a));
             edit.commit();
-            this.f23638b.f23636b.aA = this.f23637a;
-            FeedbackInputActivity.j(this.f23638b.f23636b);
+            this.f59374b.f59372b.aA = this.f59373a;
+            FeedbackInputActivity.j(this.f59374b.f59372b);
         }
     }
 }

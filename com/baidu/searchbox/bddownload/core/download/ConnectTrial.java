@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ConnectTrial {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern CONTENT_DISPOSITION_NON_QUOTED_PATTERN;
@@ -266,12 +266,12 @@ public class ConnectTrial {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.info.getEtag() == null || this.info.getEtag().equals(this.responseEtag)) ? false : true : invokeV.booleanValue;
     }
 
-    public boolean isNeedTrialHeadMethodForInstanceLength(long j, @NonNull DownloadConnection.Connected connected) {
+    public boolean isNeedTrialHeadMethodForInstanceLength(long j2, @NonNull DownloadConnection.Connected connected) {
         InterceptResult invokeJL;
         String responseHeaderField;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j, connected)) == null) {
-            if (j != -1) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j2, connected)) == null) {
+            if (j2 != -1) {
                 return false;
             }
             String responseHeaderField2 = connected.getResponseHeaderField("Content-Range");

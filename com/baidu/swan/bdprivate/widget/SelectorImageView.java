@@ -2,7 +2,6 @@ package com.baidu.swan.bdprivate.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,15 +15,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SelectorImageView extends BdBaseImageView {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f11698g = 255;
+    public static int f46556g = 255;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,19 +48,14 @@ public class SelectorImageView extends BdBaseImageView {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 int action = motionEvent.getAction();
-                if (action == 0) {
-                    Log.d("ACTION_DOWN", "ACTION_DOWN");
-                    if (view instanceof ImageView) {
-                        ((ImageView) view).setImageAlpha(76);
-                        return false;
-                    }
-                    return false;
-                } else if (action == 1 || action == 3) {
-                    Log.d("ACTION_UP", "ACTION_UP");
-                    if (view instanceof ImageView) {
+                if (action != 0) {
+                    if ((action == 1 || action == 3) && (view instanceof ImageView)) {
                         ((ImageView) view).setImageAlpha(255);
                         return false;
                     }
+                    return false;
+                } else if (view instanceof ImageView) {
+                    ((ImageView) view).setImageAlpha(76);
                     return false;
                 } else {
                     return false;
@@ -120,11 +114,9 @@ public class SelectorImageView extends BdBaseImageView {
             if (isEnabled()) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
-                    Log.d("ACTION_DOWN", "ACTION_DOWN");
                     setImageAlpha(76);
                 } else if (action == 1 || action == 3) {
-                    Log.d("ACTION_UP", "ACTION_UP");
-                    setImageAlpha(f11698g);
+                    setImageAlpha(f46556g);
                 }
             }
             return super.onTouchEvent(motionEvent);
@@ -141,7 +133,7 @@ public class SelectorImageView extends BdBaseImageView {
             if (!z) {
                 setImageAlpha(255);
             } else {
-                setImageAlpha(f11698g);
+                setImageAlpha(f46556g);
             }
         }
     }

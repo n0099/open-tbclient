@@ -24,7 +24,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.network.NetworkInfoUtils;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,37 +49,39 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ap {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f36697a = "";
+    public static String f73518a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f36698b = "";
+    public static String f73519b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f36699c = "";
+    public static String f73520c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String[] f36700d;
+    public static String[] f73521d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f36701e;
+    public static String f73522e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f36702f;
+    public static String f73523f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f36703g;
+    public static String f73524g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f36704h;
+    public static String f73525h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f36705i;
-    public static int j;
+    public static String f73526i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static int f73527j;
     public static boolean k;
     public static boolean l;
     public static boolean m;
@@ -107,11 +108,11 @@ public class ap {
                 return;
             }
         }
-        f36700d = new String[]{"", ""};
-        f36701e = "";
-        f36702f = "";
-        f36703g = "";
-        j = -1;
+        f73521d = new String[]{"", ""};
+        f73522e = "";
+        f73523f = "";
+        f73524g = "";
+        f73527j = -1;
         k = false;
         l = false;
         m = false;
@@ -345,20 +346,20 @@ public class ap {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
             if (k) {
-                return f36698b;
+                return f73519b;
             }
-            if (!TextUtils.isEmpty(f36698b) || context == null) {
-                return f36698b;
+            if (!TextUtils.isEmpty(f73519b) || context == null) {
+                return f73519b;
             }
             if (com.kwad.sdk.core.config.c.a(1L)) {
-                return f36698b;
+                return f73519b;
             }
             boolean z = false;
             try {
                 z = i(context);
                 if (z) {
                     String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-                    f36698b = deviceId;
+                    f73519b = deviceId;
                     if (TextUtils.isEmpty(deviceId)) {
                         k = true;
                     }
@@ -369,7 +370,7 @@ public class ap {
                     k = true;
                 }
             }
-            return f36698b;
+            return f73519b;
         }
         return (String) invokeL.objValue;
     }
@@ -393,10 +394,10 @@ public class ap {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) {
             if (p) {
-                return f36699c;
+                return f73520c;
             }
-            if (!TextUtils.isEmpty(f36699c) || context == null) {
-                return f36699c;
+            if (!TextUtils.isEmpty(f73520c) || context == null) {
+                return f73520c;
             }
             boolean z = false;
             try {
@@ -404,14 +405,14 @@ public class ap {
                 if (z && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
                     if (Build.VERSION.SDK_INT >= 26) {
                         String meid = telephonyManager.getMeid();
-                        f36699c = meid;
+                        f73520c = meid;
                     } else if (telephonyManager.getPhoneType() == 2) {
                         String deviceId = telephonyManager.getDeviceId();
-                        f36699c = deviceId;
+                        f73520c = deviceId;
                         if (TextUtils.isEmpty(deviceId)) {
                         }
                     } else {
-                        f36699c = null;
+                        f73520c = null;
                     }
                     p = true;
                 }
@@ -421,7 +422,7 @@ public class ap {
                     p = true;
                 }
             }
-            return f36699c;
+            return f73520c;
         }
         return (String) invokeL.objValue;
     }
@@ -433,7 +434,7 @@ public class ap {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:30:0x006f, code lost:
-        if (android.text.TextUtils.isEmpty(com.kwad.sdk.utils.ap.f36700d[1]) != false) goto L35;
+        if (android.text.TextUtils.isEmpty(com.kwad.sdk.utils.ap.f73521d[1]) != false) goto L35;
      */
     @SuppressLint({"HardwareIds", "MissingPermission"})
     /*
@@ -444,12 +445,12 @@ public class ap {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
             if (o) {
-                return f36700d;
+                return f73521d;
             }
             boolean z = false;
-            if (TextUtils.isEmpty(f36700d[0]) && TextUtils.isEmpty(f36700d[1]) && context != null) {
+            if (TextUtils.isEmpty(f73521d[0]) && TextUtils.isEmpty(f73521d[1]) && context != null) {
                 if (com.kwad.sdk.core.config.c.a(1L)) {
-                    return f36700d;
+                    return f73521d;
                 }
                 try {
                     boolean i2 = i(context);
@@ -460,26 +461,26 @@ public class ap {
                                 if (Build.VERSION.SDK_INT >= 26) {
                                     int min = Math.min(telephonyManager.getPhoneCount(), 2);
                                     for (int i3 = 0; i3 < min; i3++) {
-                                        f36700d[i3] = telephonyManager.getImei(i3);
+                                        f73521d[i3] = telephonyManager.getImei(i3);
                                     }
-                                    if (TextUtils.isEmpty(f36700d[0])) {
+                                    if (TextUtils.isEmpty(f73521d[0])) {
                                     }
                                 } else {
                                     if (telephonyManager.getPhoneType() == 1) {
                                         if (Build.VERSION.SDK_INT >= 23) {
                                             int min2 = Math.min(telephonyManager.getPhoneCount(), 2);
                                             for (int i4 = 0; i4 < min2; i4++) {
-                                                f36700d[i4] = telephonyManager.getDeviceId(i4);
+                                                f73521d[i4] = telephonyManager.getDeviceId(i4);
                                             }
                                         } else {
-                                            f36700d[0] = telephonyManager.getDeviceId();
-                                            f36700d[1] = null;
+                                            f73521d[0] = telephonyManager.getDeviceId();
+                                            f73521d[1] = null;
                                         }
-                                        if (TextUtils.isEmpty(f36700d[0]) && TextUtils.isEmpty(f36700d[1])) {
+                                        if (TextUtils.isEmpty(f73521d[0]) && TextUtils.isEmpty(f73521d[1])) {
                                         }
                                     } else {
-                                        f36700d[0] = null;
-                                        f36700d[1] = null;
+                                        f73521d[0] = null;
+                                        f73521d[1] = null;
                                     }
                                     o = true;
                                 }
@@ -491,15 +492,15 @@ public class ap {
                             if (z) {
                                 o = true;
                             }
-                            return f36700d;
+                            return f73521d;
                         }
                     }
                 } catch (Exception e3) {
                     e = e3;
                 }
-                return f36700d;
+                return f73521d;
             }
-            return f36700d;
+            return f73521d;
         }
         return (String[]) invokeL.objValue;
     }
@@ -508,10 +509,10 @@ public class ap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
-            if (j == -1) {
-                j = q(KsAdSDKImpl.get().getContext()) ? 4 : 3;
+            if (f73527j == -1) {
+                f73527j = q(KsAdSDKImpl.get().getContext()) ? 4 : 3;
             }
-            return j;
+            return f73527j;
         }
         return invokeV.intValue;
     }
@@ -521,27 +522,27 @@ public class ap {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
-            if (!TextUtils.isEmpty(f36701e) || context == null) {
-                return f36701e;
+            if (!TextUtils.isEmpty(f73522e) || context == null) {
+                return f73522e;
             }
             if (Build.VERSION.SDK_INT < 29 && !l && !com.kwad.sdk.core.config.c.a(128L)) {
                 boolean z = false;
                 try {
                     z = i(context);
                     if (z) {
-                        f36701e = ((TelephonyManager) context.getApplicationContext().getSystemService("phone")).getSubscriberId();
+                        f73522e = ((TelephonyManager) context.getApplicationContext().getSystemService("phone")).getSubscriberId();
                     }
                 } catch (Exception unused) {
-                    f36701e = null;
+                    f73522e = null;
                 }
-                if (z && TextUtils.isEmpty(f36701e)) {
+                if (z && TextUtils.isEmpty(f73522e)) {
                     l = true;
                 }
-                String str = TextUtils.isEmpty(f36701e) ? "" : f36701e;
-                f36701e = str;
+                String str = TextUtils.isEmpty(f73522e) ? "" : f73522e;
+                f73522e = str;
                 return str;
             }
-            return f36701e;
+            return f73522e;
         }
         return (String) invokeL.objValue;
     }
@@ -550,10 +551,10 @@ public class ap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
-            if (TextUtils.isEmpty(f36705i)) {
-                f36705i = System.getProperty("os.arch");
+            if (TextUtils.isEmpty(f73526i)) {
+                f73526i = System.getProperty("os.arch");
             }
-            return f36705i;
+            return f73526i;
         }
         return (String) invokeV.objValue;
     }
@@ -580,28 +581,28 @@ public class ap {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
-            if (!TextUtils.isEmpty(f36702f) || context == null) {
-                return f36702f;
+            if (!TextUtils.isEmpty(f73523f) || context == null) {
+                return f73523f;
             }
             if (!m && t && !com.kwad.sdk.core.config.c.a(128L)) {
                 boolean z = false;
                 try {
                     z = i(context);
                     if (z) {
-                        f36702f = ((TelephonyManager) context.getApplicationContext().getSystemService("phone")).getSimSerialNumber();
+                        f73523f = ((TelephonyManager) context.getApplicationContext().getSystemService("phone")).getSimSerialNumber();
                     }
                 } catch (Exception e2) {
                     com.kwad.sdk.core.d.a.a(e2);
-                    f36702f = null;
+                    f73523f = null;
                 }
-                if (z && TextUtils.isEmpty(f36702f)) {
+                if (z && TextUtils.isEmpty(f73523f)) {
                     m = true;
                 }
-                String str = TextUtils.isEmpty(f36702f) ? "" : f36702f;
-                f36702f = str;
+                String str = TextUtils.isEmpty(f73523f) ? "" : f73523f;
+                f73523f = str;
                 return str;
             }
-            return f36702f;
+            return f73523f;
         }
         return (String) invokeL.objValue;
     }
@@ -678,20 +679,20 @@ public class ap {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) {
-            if (!TextUtils.isEmpty(f36703g) || context == null) {
-                return f36703g;
+            if (!TextUtils.isEmpty(f73524g) || context == null) {
+                return f73524g;
             }
             if (!n && !com.kwad.sdk.core.config.c.a(2L)) {
                 try {
-                    f36703g = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+                    f73524g = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
                 } catch (Exception unused) {
                 }
-                if (TextUtils.isEmpty(f36703g)) {
+                if (TextUtils.isEmpty(f73524g)) {
                     n = true;
                 }
-                return f36703g;
+                return f73524g;
             }
-            return f36703g;
+            return f73524g;
         }
         return (String) invokeL.objValue;
     }
@@ -717,28 +718,28 @@ public class ap {
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.b(e2);
             }
-            if (TextUtils.isEmpty(f36704h)) {
+            if (TextUtils.isEmpty(f73525h)) {
                 String q2 = q();
                 if (!TextUtils.isEmpty(q2)) {
                     String str = "ANDROID_" + q2;
-                    f36704h = str;
+                    f73525h = str;
                     return str;
                 }
                 String m2 = m(KsAdSDKImpl.get().getContext());
                 if (!TextUtils.isEmpty(m2) && !a(m2)) {
                     String str2 = "ANDROID_" + m2;
-                    f36704h = str2;
+                    f73525h = str2;
                     return str2;
                 }
                 String p2 = p();
                 if (!TextUtils.isEmpty(p2)) {
-                    f36704h = "ANDROID_" + p2;
+                    f73525h = "ANDROID_" + p2;
                     b(p2);
-                    return f36704h;
+                    return f73525h;
                 }
                 return "ANDROID_";
             }
-            return f36704h;
+            return f73525h;
         }
         return (String) invokeV.objValue;
     }
@@ -802,17 +803,17 @@ public class ap {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, context)) == null) {
-            if (!TextUtils.isEmpty(f36697a) || context == null) {
-                return f36697a;
+            if (!TextUtils.isEmpty(f73518a) || context == null) {
+                return f73518a;
             }
             if (s && !com.kwad.sdk.core.config.c.a(4L)) {
-                if (TextUtils.isEmpty(f36697a)) {
+                if (TextUtils.isEmpty(f73518a)) {
                     try {
                         WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
                         if (connectionInfo != null) {
-                            f36697a = connectionInfo.getMacAddress();
+                            f73518a = connectionInfo.getMacAddress();
                         }
-                        if (TextUtils.isEmpty(f36697a) || f36697a.equals(Config.DEF_MAC_ID)) {
+                        if (TextUtils.isEmpty(f73518a) || f73518a.equals("02:00:00:00:00:00")) {
                             Iterator it = Collections.list(NetworkInterface.getNetworkInterfaces()).iterator();
                             while (true) {
                                 if (!it.hasNext()) {
@@ -830,23 +831,23 @@ public class ap {
                                         if (sb.length() > 0) {
                                             sb.deleteCharAt(sb.length() - 1);
                                         }
-                                        f36697a = sb.toString();
+                                        f73518a = sb.toString();
                                     }
                                 }
                             }
                         }
-                        if (TextUtils.isEmpty(f36697a) || f36697a.equals(Config.DEF_MAC_ID)) {
-                            f36697a = new LineNumberReader(new InputStreamReader(Runtime.getRuntime().exec("cat /sys/class/net/wlan0/address ").getInputStream())).readLine();
+                        if (TextUtils.isEmpty(f73518a) || f73518a.equals("02:00:00:00:00:00")) {
+                            f73518a = new LineNumberReader(new InputStreamReader(Runtime.getRuntime().exec("cat /sys/class/net/wlan0/address ").getInputStream())).readLine();
                         }
-                        if (!TextUtils.isEmpty(f36697a)) {
-                            f36697a = f36697a.toUpperCase(Locale.US);
+                        if (!TextUtils.isEmpty(f73518a)) {
+                            f73518a = f73518a.toUpperCase(Locale.US);
                         }
                     } catch (Exception unused) {
                     }
                 }
-                return f36697a;
+                return f73518a;
             }
-            return f36697a;
+            return f73518a;
         }
         return (String) invokeL.objValue;
     }

@@ -41,7 +41,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class QualityDetectFlow {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "QualityDetectFlow";
@@ -349,9 +349,9 @@ public class QualityDetectFlow {
                         }
                         long currentTimeMillis2 = System.currentTimeMillis();
                         if (canReport) {
-                            long j = currentTimeMillis2 - currentTimeMillis;
-                            addReportData(host, next, j);
-                            LogTools.printDebug(TAG, "Probe success: " + host + " " + next + " " + j + "ms");
+                            long j2 = currentTimeMillis2 - currentTimeMillis;
+                            addReportData(host, next, j2);
+                            LogTools.printDebug(TAG, "Probe success: " + host + " " + next + " " + j2 + "ms");
                         }
                     }
                 }
@@ -448,17 +448,17 @@ public class QualityDetectFlow {
         }
     }
 
-    public void addReportData(String str, String str2, long j) {
+    public void addReportData(String str, String str2, long j2) {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || (context = GlobalTools.APP_CONTEXT) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j2)}) == null) || (context = GlobalTools.APP_CONTEXT) == null) {
             return;
         }
         DBAccessMgr.getInstance(context);
         DelayTB delayTB = new DelayTB();
         delayTB.setHost(str);
         delayTB.setIp(str2);
-        delayTB.setDelay(j);
+        delayTB.setDelay(j2);
         DataCacheMgr.INSTANCE.addDelay(delayTB);
     }
 

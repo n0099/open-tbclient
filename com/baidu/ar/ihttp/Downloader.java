@@ -10,11 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.download.PayDownloadModule;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public final class Downloader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +102,7 @@ public final class Downloader {
                 a(execute.getStream(), str, fileSize, iProgressCallback);
                 return fileSize;
             }
-            throw new HttpException(4, "下载失败");
+            throw new HttpException(4, PayDownloadModule.STATUS_DOWNLOAD_MSG_FAIL);
         }
         return invokeLL.intValue;
     }
@@ -126,7 +127,7 @@ public final class Downloader {
                 public final /* synthetic */ ICallbackWith rw;
 
                 /* renamed from: rx  reason: collision with root package name */
-                public final /* synthetic */ Downloader f4253rx;
+                public final /* synthetic */ Downloader f38186rx;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -143,7 +144,7 @@ public final class Downloader {
                             return;
                         }
                     }
-                    this.f4253rx = this;
+                    this.f38186rx = this;
                     this.ru = str;
                     this.rv = iProgressCallback;
                     this.rw = iCallbackWith2;
@@ -162,10 +163,10 @@ public final class Downloader {
                 public void a(IHttpResponse iHttpResponse) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iHttpResponse) == null) {
-                        this.f4253rx.rt = iHttpResponse.getContentLength();
+                        this.f38186rx.rt = iHttpResponse.getContentLength();
                         try {
-                            this.f4253rx.download(this.ru, this.rv);
-                            this.bT.run(Integer.valueOf(this.f4253rx.rt));
+                            this.f38186rx.download(this.ru, this.rv);
+                            this.bT.run(Integer.valueOf(this.f38186rx.rt));
                         } catch (Exception e2) {
                             e2.printStackTrace();
                             this.rw.run(e2);

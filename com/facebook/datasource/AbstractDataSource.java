@@ -18,7 +18,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class AbstractDataSource<T> implements DataSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
     public final ConcurrentLinkedQueue<Pair<DataSubscriber<T>, Executor>> mSubscribers;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class DataSourceStatus {
         public static final /* synthetic */ DataSourceStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -59,7 +59,7 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
                 }
             }
             IN_PROGRESS = new DataSourceStatus("IN_PROGRESS", 0);
-            SUCCESS = new DataSourceStatus(c.f2136g, 1);
+            SUCCESS = new DataSourceStatus(c.f35984g, 1);
             DataSourceStatus dataSourceStatus = new DataSourceStatus("FAILURE", 2);
             FAILURE = dataSourceStatus;
             $VALUES = new DataSourceStatus[]{IN_PROGRESS, SUCCESS, dataSourceStatus};

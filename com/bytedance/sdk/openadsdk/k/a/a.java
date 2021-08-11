@@ -12,18 +12,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.image.ILoaderListener;
 import com.bytedance.sdk.component.image.ImageResponse;
 import com.bytedance.sdk.openadsdk.img.ImageLoaderWrapper;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.bytedance.sdk.openadsdk.k.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0356a implements b {
+    /* loaded from: classes9.dex */
+    public static class C1916a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0356a() {
+        public C1916a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,7 +59,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a();
 
@@ -82,10 +82,10 @@ public class a {
         }
     }
 
-    public static C0356a b() {
+    public static C1916a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new C0356a() : (C0356a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new C1916a() : (C1916a) invokeV.objValue;
     }
 
     public void a() {
@@ -104,15 +104,15 @@ public class a {
     public void a(com.bytedance.sdk.openadsdk.k.a aVar, b bVar, int i2, int i3, ImageView.ScaleType scaleType, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{aVar, bVar, Integer.valueOf(i2), Integer.valueOf(i3), scaleType, Boolean.valueOf(z)}) == null) {
-            ImageLoaderWrapper.from(aVar.f31638a).key(aVar.f31639b).width(i2).height(i3).config(Bitmap.Config.RGB_565).scaleType(scaleType).requestTime(z).to(new ILoaderListener(this, bVar) { // from class: com.bytedance.sdk.openadsdk.k.a.a.1
+            ImageLoaderWrapper.from(aVar.f67582a).key(aVar.f67583b).width(i2).height(i3).config(Bitmap.Config.RGB_565).scaleType(scaleType).requestTime(z).to(new ILoaderListener(this, bVar) { // from class: com.bytedance.sdk.openadsdk.k.a.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f31640a;
+                public final /* synthetic */ b f67584a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f31641b;
+                public final /* synthetic */ a f67585b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -129,15 +129,15 @@ public class a {
                             return;
                         }
                     }
-                    this.f31641b = this;
-                    this.f31640a = bVar;
+                    this.f67585b = this;
+                    this.f67584a = bVar;
                 }
 
                 @Override // com.bytedance.sdk.component.image.ILoaderListener
                 public void onFailed(int i4, String str, @Nullable Throwable th) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i4, str, th) == null) {
-                        this.f31641b.a(i4, str, th, this.f31640a);
+                        this.f67585b.a(i4, str, th, this.f67584a);
                     }
                 }
 
@@ -145,7 +145,7 @@ public class a {
                 public void onSuccess(ImageResponse imageResponse) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageResponse) == null) {
-                        this.f31641b.a(imageResponse, this.f31640a);
+                        this.f67585b.a(imageResponse, this.f67584a);
                     }
                 }
             });

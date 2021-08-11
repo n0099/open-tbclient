@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,48 +16,60 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.iddetect.IdCardDetectionH5Activity;
 import com.baidu.wallet.base.iddetect.IdentityCardDetectionActivity;
 import com.baidu.wallet.core.NoProguard;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class IdCardDetectionController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IIdCardDetectionListener mIdCardResultListener;
 
     /* renamed from: com.baidu.wallet.base.controllers.IdCardDetectionController$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface IIdCardDetectionListener extends NoProguard {
         void onDetectFailed(int i2, String str);
 
         void onDetectOK(Bundle bundle);
     }
 
-    /* loaded from: classes5.dex */
-    public static class a {
+    /* loaded from: classes8.dex */
+    public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final IdCardDetectionController f24167a;
+        public static final IdCardDetectionController sInstance;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1477251318, "Lcom/baidu/wallet/base/controllers/IdCardDetectionController$a;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-546515552, "Lcom/baidu/wallet/base/controllers/IdCardDetectionController$SingletonHolder;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1477251318, "Lcom/baidu/wallet/base/controllers/IdCardDetectionController$a;");
+                    classClinitInterceptable.invokePostClinit(-546515552, "Lcom/baidu/wallet/base/controllers/IdCardDetectionController$SingletonHolder;");
                     return;
                 }
             }
-            f24167a = new IdCardDetectionController(null);
+            sInstance = new IdCardDetectionController(null);
+        }
+
+        public SingletonHolder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
         }
     }
 
@@ -69,7 +80,7 @@ public class IdCardDetectionController {
     public static final IdCardDetectionController getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f24167a : (IdCardDetectionController) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? SingletonHolder.sInstance : (IdCardDetectionController) invokeV.objValue;
     }
 
     public void IdCardDeteFailed(int i2, String str) {
@@ -116,7 +127,7 @@ public class IdCardDetectionController {
                 intent.putExtra(ShaderParams.VALUE_TYPE_STEP, i2);
                 intent.putExtra("show_album", z);
                 if (!(context instanceof Activity)) {
-                    intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                    intent.setFlags(268435456);
                 }
                 context.startActivity(intent);
                 return;
@@ -124,7 +135,7 @@ public class IdCardDetectionController {
             Intent intent2 = new Intent(context, IdCardDetectionH5Activity.class);
             intent2.putExtra(ShaderParams.VALUE_TYPE_STEP, i2);
             if (!(context instanceof Activity)) {
-                intent2.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent2.setFlags(268435456);
             }
             context.startActivity(intent2);
         }

@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.utils.t;
 import com.bytedance.sdk.openadsdk.core.o;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a extends AlertDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f30983a;
+    public Context f66914a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30984b;
+    public String f66915b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context, String str) {
@@ -41,23 +41,23 @@ public class a extends AlertDialog {
                 return;
             }
         }
-        this.f30983a = context;
+        this.f66914a = context;
         if (context == null) {
-            this.f30983a = o.a();
+            this.f66914a = o.a();
         }
-        this.f30984b = str;
+        this.f66915b = str;
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            ((TextView) findViewById(t.e(this.f30983a, "tt_dialog_content"))).setText(this.f30984b);
-            findViewById(t.e(this.f30983a, "tt_button_ok")).setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.a.1
+            ((TextView) findViewById(t.e(this.f66914a, "tt_dialog_content"))).setText(this.f66915b);
+            findViewById(t.e(this.f66914a, "tt_button_ok")).setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f30985a;
+                public final /* synthetic */ a f66916a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -74,14 +74,14 @@ public class a extends AlertDialog {
                             return;
                         }
                     }
-                    this.f30985a = this;
+                    this.f66916a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f30985a.dismiss();
+                        this.f66916a.dismiss();
                     }
                 }
             });
@@ -93,7 +93,7 @@ public class a extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(t.f(this.f30983a, "tt_adinfo_dialog_layout"));
+            setContentView(t.f(this.f66914a, "tt_adinfo_dialog_layout"));
             a();
         }
     }

@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.d;
-import h.f;
-import h.j;
-import h.k;
-import h.o.a.a;
-import h.o.a.n;
+import i.d;
+import i.f;
+import i.j;
+import i.k;
+import i.o.a.a;
+import i.o.a.n;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements f, k, d.a<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3852313036005250360L;
@@ -60,7 +60,7 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         this.requested = new AtomicLong();
     }
 
-    @Override // h.n.b
+    @Override // i.n.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
         call((j) ((j) obj));
     }
@@ -118,9 +118,9 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
                 if (checkTerminated(this.done, queue.isEmpty(), jVar, z)) {
                     return;
                 }
-                long j = this.requested.get();
-                long j2 = 0;
-                while (j2 != j) {
+                long j2 = this.requested.get();
+                long j3 = 0;
+                while (j3 != j2) {
                     boolean z2 = this.done;
                     Object poll = queue.poll();
                     boolean z3 = poll == null;
@@ -131,13 +131,13 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
                         break;
                     }
                     jVar.onNext((Object) NotificationLite.e(poll));
-                    j2++;
+                    j3++;
                 }
-                if (j2 != 0) {
-                    if (j != Long.MAX_VALUE) {
-                        a.g(this.requested, j2);
+                if (j3 != 0) {
+                    if (j2 != Long.MAX_VALUE) {
+                        a.g(this.requested, j3);
                     }
-                    this.parent.f72948e.request(j2);
+                    this.parent.f78229e.request(j3);
                 }
             }
             i2 = addAndGet(-i2);
@@ -150,7 +150,7 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         }
     }
 
-    @Override // h.k
+    @Override // i.k
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -187,21 +187,21 @@ public final class OperatorGroupBy$State<T, K> extends AtomicInteger implements 
         }
     }
 
-    @Override // h.f
-    public void request(long j) {
+    @Override // i.f
+    public void request(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
             if (i2 < 0) {
-                throw new IllegalArgumentException("n >= required but it was " + j);
+                throw new IllegalArgumentException("n >= required but it was " + j2);
             } else if (i2 != 0) {
-                a.b(this.requested, j);
+                a.b(this.requested, j2);
                 drain();
             }
         }
     }
 
-    @Override // h.k
+    @Override // i.k
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.cancelled.compareAndSet(false, true) && getAndIncrement() == 0) {

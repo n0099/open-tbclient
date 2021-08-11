@@ -13,7 +13,7 @@ import com.heytap.mcssdk.mode.MessageStat;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class StatUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COUNT = "count";

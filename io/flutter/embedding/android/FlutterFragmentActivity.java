@@ -29,7 +29,7 @@ import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.view.FlutterMain;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FlutterFragmentActivity extends FragmentActivity implements SplashScreenProvider, FlutterEngineProvider, FlutterEngineConfigurator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FRAGMENT_CONTAINER_ID = 609893468;
@@ -39,7 +39,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
     @Nullable
     public FlutterFragment flutterFragment;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class CachedEngineIntentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +98,7 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class NewEngineIntentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

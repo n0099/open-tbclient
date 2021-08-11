@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.SharedPreferencesUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,34 +18,35 @@ import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
 import com.baidu.wallet.core.beans.BeanConstants;
 import com.baidu.wallet.core.lollipop.json.JSONArray;
 import com.baidu.wallet.core.utils.LogUtil;
-import com.baidu.wallet.lightapp.multipage.h;
+import com.baidu.wallet.lightapp.multipage.i;
+import com.bumptech.glide.load.engine.GlideException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class e implements h.b {
+/* loaded from: classes8.dex */
+public class e implements i.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f25910a;
+    public JSONArray f61818a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Long f25911b;
+    public Long f61819b;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.e$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static e f25912a;
+        public static e f61820a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -62,7 +62,7 @@ public class e implements h.b {
                     return;
                 }
             }
-            f25912a = new e(null);
+            f61820a = new e(null);
         }
     }
 
@@ -73,7 +73,7 @@ public class e implements h.b {
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f25912a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f61820a : (e) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x001f  */
@@ -98,7 +98,7 @@ public class e implements h.b {
                 }
                 Long valueOf = Long.valueOf(System.currentTimeMillis());
                 for (i2 = 0; i2 < jSONArray.length(); i2++) {
-                    if (jSONArray.optLong(i2) + (h.a().a(context).MW_BHM_RECORD_TIME * 1000) < valueOf.longValue()) {
+                    if (jSONArray.optLong(i2) + (i.a().a(context).MW_BHM_RECORD_TIME * 1000) < valueOf.longValue()) {
                         jSONArray.remove(i2);
                     }
                 }
@@ -119,7 +119,7 @@ public class e implements h.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, context) == null) {
             JSONArray jSONArray = new JSONArray();
-            this.f25910a = jSONArray;
+            this.f61818a = jSONArray;
             SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_behaviour_book", jSONArray.toString());
         }
     }
@@ -132,7 +132,7 @@ public class e implements h.b {
             Long valueOf = Long.valueOf(System.currentTimeMillis());
             int i2 = 0;
             for (int i3 = 0; i3 < a2.length(); i3++) {
-                i2 += a2.optLong(i3) + ((long) (h.a().a(context).MW_BHM_RECORD_TIME * 1000)) >= valueOf.longValue() ? 1 : 0;
+                i2 += a2.optLong(i3) + ((long) (i.a().a(context).MW_BHM_RECORD_TIME * 1000)) >= valueOf.longValue() ? 1 : 0;
             }
             return i2;
         }
@@ -144,11 +144,10 @@ public class e implements h.b {
         if (interceptable == null || interceptable.invokeL(65545, this, context) == null) {
             LogUtil.d("LangbridgeBehaviourMonitor", "coldDown");
             DXMSdkSAUtils.onEvent("#MW_BHM_ColdDown");
-            PayStatisticsUtil.onEvent("#MW_BHM_ColdDown");
             Long valueOf = Long.valueOf(System.currentTimeMillis());
-            this.f25911b = valueOf;
+            this.f61819b = valueOf;
             SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", valueOf);
-            h.a().b(context);
+            i.a().c(context);
         }
     }
 
@@ -165,20 +164,23 @@ public class e implements h.b {
                 return;
             }
         }
-        this.f25911b = -1L;
+        this.f61819b = -1L;
     }
 
     public void a(@NonNull Context context, int i2, @NonNull String str, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i2, str, list) == null) {
-            LangbridgeSettings a2 = h.a().a(context);
-            if (!a2.MW_BHM_ON || b(context, a2.MW_BHM_COLD_TIME) || i2 < 1) {
+            LangbridgeSettings a2 = i.a().a(context);
+            if (!a2.MW_BHM_ON || b(context, a2.MW_BHM_COLD_TIME)) {
                 return;
             }
             ArrayList arrayList = new ArrayList(Arrays.asList(str, "" + i2));
             arrayList.addAll(list);
+            LogUtil.i("LangbridgeBehaviourMonitor", "behaviourRecord" + str + GlideException.IndentedAppendable.INDENT + i2 + " " + arrayList.toString());
             DXMSdkSAUtils.onEventWithValues("#MW_BHM_BadBehaviour", arrayList);
-            PayStatisticsUtil.onEventWithValues("#MW_BHM_BadBehaviour", arrayList);
+            if (i2 < 1) {
+                return;
+            }
             int i3 = a2.MW_BHM_LIMIT;
             if (i2 > i3) {
                 i2 = i3;
@@ -195,25 +197,25 @@ public class e implements h.b {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, this, context, i2)) == null) {
-            if (this.f25911b.longValue() == -1) {
-                this.f25911b = (Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", 0L);
+            if (this.f61819b.longValue() == -1) {
+                this.f61819b = (Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", 0L);
             }
-            return System.currentTimeMillis() < this.f25911b.longValue() + ((long) (i2 * 1000));
+            return System.currentTimeMillis() < this.f61819b.longValue() + ((long) (i2 * 1000));
         }
         return invokeLI.booleanValue;
     }
 
-    @Override // com.baidu.wallet.lightapp.multipage.h.b
+    @Override // com.baidu.wallet.lightapp.multipage.i.b
     public LangbridgeSettings a(Context context, LangbridgeSettings langbridgeSettings) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, langbridgeSettings)) == null) {
             if (langbridgeSettings.MW_BHM_ON && b(context, langbridgeSettings.MW_BHM_COLD_TIME)) {
-                LangbridgeSettings m41clone = langbridgeSettings.m41clone();
-                m41clone.MW_ON = false;
-                m41clone.MW_USE_OLD = true;
+                LangbridgeSettings m46clone = langbridgeSettings.m46clone();
+                m46clone.MW_ON = false;
+                m46clone.MW_USE_OLD = true;
                 LogUtil.d("LangbridgeSettings", "");
-                return m41clone;
+                return m46clone;
             }
             return langbridgeSettings;
         }
@@ -224,10 +226,10 @@ public class e implements h.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, context)) == null) {
-            if (this.f25910a == null) {
-                this.f25910a = b(context);
+            if (this.f61818a == null) {
+                this.f61818a = b(context);
             }
-            return this.f25910a;
+            return this.f61818a;
         }
         return (JSONArray) invokeL.objValue;
     }

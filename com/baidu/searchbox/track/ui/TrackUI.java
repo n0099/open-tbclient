@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class TrackUI {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SEPERATOR = "\t";
@@ -47,12 +47,12 @@ public class TrackUI {
         simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss:SSS");
     }
 
-    public TrackUI(@NonNull String str, @NonNull String str2, @Nullable String str3, @Nullable String str4, long j, @NonNull String str5) {
+    public TrackUI(@NonNull String str, @NonNull String str2, @Nullable String str3, @Nullable String str4, long j2, @NonNull String str5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4, Long.valueOf(j), str5};
+            Object[] objArr = {str, str2, str3, str4, Long.valueOf(j2), str5};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -66,14 +66,14 @@ public class TrackUI {
         this.mActivityPageTag = str2;
         this.mFragmentPage = str3;
         this.mFragmentPageTag = str4;
-        this.mTimeStamp = j;
+        this.mTimeStamp = j2;
         this.mEvent = str5;
     }
 
-    public static String getTime(long j) {
+    public static String getTime(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) ? simpleDateFormat.format(new Date(j)) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) ? simpleDateFormat.format(new Date(j2)) : (String) invokeJ.objValue;
     }
 
     @Nullable
@@ -190,12 +190,12 @@ public class TrackUI {
         return (String) invokeV.objValue;
     }
 
-    public TrackUI(@NonNull String str, @NonNull String str2, @Nullable String str3, @Nullable String str4, @Nullable String str5, @Nullable String str6, @Nullable String str7, long j, @NonNull String str8) {
+    public TrackUI(@NonNull String str, @NonNull String str2, @Nullable String str3, @Nullable String str4, @Nullable String str5, @Nullable String str6, @Nullable String str7, long j2, @NonNull String str8) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4, str5, str6, str7, Long.valueOf(j), str8};
+            Object[] objArr = {str, str2, str3, str4, str5, str6, str7, Long.valueOf(j2), str8};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -212,7 +212,7 @@ public class TrackUI {
         this.mPageName = str5;
         this.mPageTag = str6;
         this.mType = str7;
-        this.mTimeStamp = j;
+        this.mTimeStamp = j2;
         this.mEvent = str8;
     }
 }

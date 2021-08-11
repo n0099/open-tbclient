@@ -13,7 +13,7 @@ import com.bytedance.sdk.openadsdk.IFullScreenVideoAdInteractionListener;
 import com.bytedance.sdk.openadsdk.IListenerManager;
 import com.bytedance.sdk.openadsdk.IRewardAdInteractionListener;
 import com.bytedance.sdk.openadsdk.ITTAppDownloadListener;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class a extends IListenerManager.Stub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,9 +47,9 @@ public abstract class a extends IListenerManager.Stub {
     }
 
     @Override // com.bytedance.sdk.openadsdk.IListenerManager
-    public void executeAppDownloadCallback(String str, String str2, long j, long j2, String str3, String str4) throws RemoteException {
+    public void executeAppDownloadCallback(String str, String str2, long j2, long j3, String str3, String str4) throws RemoteException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), str3, str4}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3), str3, str4}) == null) {
         }
     }
 

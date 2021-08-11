@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.Thread;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class UncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "loki-java-UncaughtExceptionHandler";
@@ -49,7 +49,7 @@ public abstract class UncaughtExceptionHandler implements Thread.UncaughtExcepti
         List<ProcessExceptionListener> list2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thread, th) == null) {
-            Log.d(TAG, Log.getStackTraceString(th));
+            Log.getStackTraceString(th);
             List<ProcessExceptionListener> list3 = this.mProcessExceptionListeners;
             boolean z = list3 != null && list3.size() > 0;
             if (z) {
@@ -72,7 +72,7 @@ public abstract class UncaughtExceptionHandler implements Thread.UncaughtExcepti
                                     processExceptionListener2.onProcessExceptionFail(this, th, th2);
                                 } catch (Throwable th3) {
                                     if (LLog.sDebug) {
-                                        Log.d(TAG, Log.getStackTraceString(th3));
+                                        Log.getStackTraceString(th3);
                                     }
                                 }
                             }
@@ -111,7 +111,7 @@ public abstract class UncaughtExceptionHandler implements Thread.UncaughtExcepti
                                     processExceptionListener5.onProxyProcessExceptionFail(this.mPreHandler, th4, th4);
                                 } catch (Throwable th5) {
                                     if (LLog.sDebug) {
-                                        Log.d(TAG, Log.getStackTraceString(th5));
+                                        Log.getStackTraceString(th5);
                                     }
                                 }
                             }

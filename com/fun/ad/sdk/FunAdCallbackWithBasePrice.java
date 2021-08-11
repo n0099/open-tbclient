@@ -1,15 +1,15 @@
 package com.fun.ad.sdk;
 
-import a.a.a.a.e;
-import a.a.a.a.s.h;
 import androidx.core.view.InputDeviceCompat;
+import b.a.a.a.f;
+import b.a.a.a.u.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class FunAdCallbackWithBasePrice implements FunAdCallback, e {
+/* loaded from: classes9.dex */
+public class FunAdCallbackWithBasePrice implements FunAdCallback, f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,11 +27,11 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, e {
         }
     }
 
-    @Override // a.a.a.a.e
+    @Override // b.a.a.a.f
     public final void onAdClicked(h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            onAdClicked(aVar.f1362d, aVar.f1361c, aVar.l.f1357b, aVar.k);
+            onAdClicked(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, aVar.k);
         }
     }
 
@@ -48,11 +48,11 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, e {
         }
     }
 
-    @Override // a.a.a.a.e
+    @Override // b.a.a.a.f
     public final void onAdClose(h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            onAdClose(aVar.f1362d, aVar.f1361c, aVar.l.f1357b, aVar.k);
+            onAdClose(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, aVar.k);
         }
     }
 
@@ -69,11 +69,11 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, e {
         }
     }
 
-    @Override // a.a.a.a.e
+    @Override // b.a.a.a.f
     public final void onAdLoad(h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            onAdLoad(aVar.f1362d, aVar.f1361c, aVar.l.f1357b, aVar.k);
+            onAdLoad(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, aVar.k);
         }
     }
 
@@ -90,11 +90,11 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, e {
         }
     }
 
-    @Override // a.a.a.a.e
+    @Override // b.a.a.a.f
     public final void onAdLoadError(h.a aVar, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048585, this, aVar, i2, str) == null) {
-            onAdLoadError(aVar.f1362d, aVar.f1361c, aVar.l.f1357b, aVar.k, i2, str);
+            onAdLoadError(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, aVar.k, i2, str);
         }
     }
 
@@ -111,11 +111,11 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, e {
         }
     }
 
-    @Override // a.a.a.a.e
+    @Override // b.a.a.a.f
     public final void onAdLoaded(h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            onAdLoaded(aVar.f1362d, aVar.f1361c, aVar.l.f1357b, aVar.k);
+            onAdLoaded(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, aVar.k);
         }
     }
 
@@ -132,11 +132,11 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, e {
         }
     }
 
-    @Override // a.a.a.a.e
+    @Override // b.a.a.a.f
     public final void onAdShow(h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, aVar) == null) {
-            onAdShow(aVar.f1362d, aVar.f1361c, aVar.l.f1357b, aVar.k);
+            onAdShow(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, aVar.k);
         }
     }
 
@@ -153,11 +153,11 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, e {
         }
     }
 
-    @Override // a.a.a.a.e
+    @Override // b.a.a.a.f
     public final void onAdShowError(h.a aVar, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048594, this, aVar, i2, str) == null) {
-            onAdShowError(aVar.f1362d, aVar.f1361c, aVar.l.f1357b, aVar.k, i2, str);
+            onAdShowError(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, aVar.k, i2, str);
         }
     }
 
@@ -174,11 +174,11 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, e {
         }
     }
 
-    @Override // a.a.a.a.e
+    @Override // b.a.a.a.f
     public final void onRewardedVideo(h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, aVar) == null) {
-            onRewardedVideo(aVar.f1362d, aVar.f1361c, aVar.l.f1357b, aVar.k);
+            onRewardedVideo(aVar.f1449d, aVar.f1448c, aVar.l.f1444b, aVar.k);
         }
     }
 

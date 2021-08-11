@@ -12,7 +12,7 @@ import com.bytedance.sdk.component.adnet.err.e;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b extends c<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class b extends c<JSONObject> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iVar)) == null) {
             try {
-                return m.a(new JSONObject(new String(iVar.f28113b, com.bytedance.sdk.component.adnet.d.b.a(iVar.f28114c, "utf-8"))), com.bytedance.sdk.component.adnet.d.b.a(iVar));
+                return m.a(new JSONObject(new String(iVar.f63955b, com.bytedance.sdk.component.adnet.d.b.a(iVar.f63956c, "utf-8"))), com.bytedance.sdk.component.adnet.d.b.a(iVar));
             } catch (UnsupportedEncodingException e2) {
                 return m.a(new e(e2, 604));
             } catch (JSONException e3) {

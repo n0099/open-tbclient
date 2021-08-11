@@ -5,10 +5,8 @@ import android.content.ContentResolver;
 import android.database.Cursor;
 import android.net.Uri;
 import android.view.View;
-import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.eventbus.EventBus;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,34 +15,33 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.ContactManager;
 import com.baidu.wallet.core.utils.StringUtils;
-import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.baidu.wallet.lightapp.business.datamodel.ContactInfo;
 import com.baidu.wallet.lightapp.business.view.PhoneNumberSelectDialog;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class ContactInfoPresenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f25757a;
+    public Activity f61641a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LightappBusinessClient f25758b;
+    public b f61642b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f25759c;
+    public int f61643c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25760d;
+    public String f61644d;
 
-    public ContactInfoPresenter(Activity activity, LightappBusinessClient lightappBusinessClient) {
+    public ContactInfoPresenter(Activity activity, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, lightappBusinessClient};
+            Object[] objArr = {activity, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -54,35 +51,35 @@ public class ContactInfoPresenter {
                 return;
             }
         }
-        this.f25760d = "";
-        this.f25757a = activity;
-        this.f25758b = lightappBusinessClient;
-        this.f25759c = a();
+        this.f61644d = "";
+        this.f61641a = activity;
+        this.f61642b = bVar;
+        this.f61643c = a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f25757a = null;
-            this.f25758b = null;
+            this.f61641a = null;
+            this.f61642b = null;
         }
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ResUtils.getString(this.f25757a, "wallet_base_select_phone_fail") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ResUtils.getString(this.f61641a, "wallet_base_select_phone_fail") : (String) invokeV.objValue;
     }
 
     public void onModuleEvent(EventBus.Event event) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, event) == null) && event != null && "read_contact".equals(event.mEventKey)) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, event) == null) && event != null && "read_contact".equals(event.mEventKey)) {
             String str = (String) event.mEventObj;
-            LightappBusinessClient lightappBusinessClient = this.f25758b;
-            if (lightappBusinessClient != null) {
-                String[] strArr = {StringUtils.trimAll(this.f25760d), StringUtils.trimAll(str)};
-                lightappBusinessClient.onContactsSelected("", 0, strArr, "", this.f25759c + "");
+            b bVar = this.f61642b;
+            if (bVar != null) {
+                String[] strArr = {StringUtils.trimAll(this.f61644d), StringUtils.trimAll(str)};
+                bVar.onContactsSelected("", 0, strArr, "", this.f61643c + "");
                 c();
             }
         }
@@ -92,10 +89,10 @@ public class ContactInfoPresenter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f25757a == null) {
+            if (this.f61641a == null) {
                 return 0;
             }
-            return ContactManager.getIContactsImpl().countOfContacts(this.f25757a);
+            return ContactManager.getIContactsImpl().countOfContacts(this.f61641a);
         }
         return invokeV.intValue;
     }
@@ -103,9 +100,9 @@ public class ContactInfoPresenter {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     public void a(Uri uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri) == null) {
             ArrayList arrayList = new ArrayList();
-            Activity activity = this.f25757a;
+            Activity activity = this.f61641a;
             if (activity == null) {
                 c();
                 return;
@@ -117,23 +114,22 @@ public class ContactInfoPresenter {
                     cursor = contentResolver.query(uri, new String[]{"data1", "display_name", "data2"}, null, null, null);
                     if (cursor != null && cursor.moveToFirst()) {
                         String string = cursor.getString(cursor.getColumnIndex("data1"));
-                        this.f25760d = cursor.getString(cursor.getColumnIndex("display_name"));
+                        this.f61644d = cursor.getString(cursor.getColumnIndex("display_name"));
                         int i2 = cursor.getInt(cursor.getColumnIndex("data2"));
                         ContactInfo.Phone phone = new ContactInfo.Phone();
                         phone.number = string;
                         phone.type = i2;
                         arrayList.add(phone);
                     }
-                    a(this.f25760d, arrayList);
+                    a(this.f61644d, arrayList);
                     if (cursor == null) {
                         return;
                     }
-                } catch (Exception e2) {
-                    PayStatisticsUtil.onEventWithValue("read_contact_exception", a(e2));
-                    if (this.f25758b != null) {
-                        LightappBusinessClient lightappBusinessClient = this.f25758b;
+                } catch (Exception unused) {
+                    if (this.f61642b != null) {
+                        b bVar = this.f61642b;
                         String b2 = b();
-                        lightappBusinessClient.onContactsSelected("", 1, null, b2, this.f25759c + "");
+                        bVar.onContactsSelected("", 1, null, b2, this.f61643c + "");
                     }
                     c();
                     if (cursor == null) {
@@ -150,32 +146,16 @@ public class ContactInfoPresenter {
         }
     }
 
-    public String a(Exception exc) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc)) == null) {
-            String str = "";
-            if (exc == null) {
-                return "";
-            }
-            for (StackTraceElement stackTraceElement : exc.getStackTrace()) {
-                str = str + "\tat " + stackTraceElement + Part.CRLF;
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
     private void a(String str, List<ContactInfo.Phone> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, str, list) == null) {
-            PhoneNumberSelectDialog phoneNumberSelectDialog = new PhoneNumberSelectDialog(this.f25757a);
+            PhoneNumberSelectDialog phoneNumberSelectDialog = new PhoneNumberSelectDialog(this.f61641a);
             if (list != null && list.size() != 0) {
                 if (list.size() == 1) {
-                    LightappBusinessClient lightappBusinessClient = this.f25758b;
-                    if (lightappBusinessClient != null) {
+                    b bVar = this.f61642b;
+                    if (bVar != null) {
                         String[] strArr = {StringUtils.trimAll(str), StringUtils.trimAll(list.get(0).number)};
-                        lightappBusinessClient.onContactsSelected("", 0, strArr, "", this.f25759c + "");
+                        bVar.onContactsSelected("", 0, strArr, "", this.f61643c + "");
                     }
                     c();
                     return;
@@ -187,10 +167,10 @@ public class ContactInfoPresenter {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PhoneNumberSelectDialog f25761a;
+                    public final /* synthetic */ PhoneNumberSelectDialog f61645a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ContactInfoPresenter f25762b;
+                    public final /* synthetic */ ContactInfoPresenter f61646b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -207,16 +187,16 @@ public class ContactInfoPresenter {
                                 return;
                             }
                         }
-                        this.f25762b = this;
-                        this.f25761a = phoneNumberSelectDialog;
+                        this.f61646b = this;
+                        this.f61645a = phoneNumberSelectDialog;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            this.f25761a.dismiss();
-                            this.f25762b.c();
+                            this.f61645a.dismiss();
+                            this.f61646b.c();
                         }
                     }
                 });
@@ -224,10 +204,10 @@ public class ContactInfoPresenter {
                 phoneNumberSelectDialog.show();
                 return;
             }
-            LightappBusinessClient lightappBusinessClient2 = this.f25758b;
-            if (lightappBusinessClient2 != null) {
+            b bVar2 = this.f61642b;
+            if (bVar2 != null) {
                 String b2 = b();
-                lightappBusinessClient2.onContactsSelected("", 1, null, b2, this.f25759c + "");
+                bVar2.onContactsSelected("", 1, null, b2, this.f61643c + "");
             }
             c();
         }

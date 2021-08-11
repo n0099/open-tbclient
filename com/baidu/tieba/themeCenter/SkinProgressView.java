@@ -8,6 +8,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -17,28 +18,29 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SkinProgressView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21516e;
+    public Context f57062e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f21517f;
+    public Paint f57063f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f21518g;
+    public Paint f57064g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f21519h;
+    public Paint f57065h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f21520i;
-    public int j;
+    public int f57066i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f57067j;
     public int k;
     public int l;
     public float m;
@@ -69,35 +71,114 @@ public class SkinProgressView extends View {
             }
         }
         this.s = false;
-        this.f21516e = context;
+        this.f57062e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.o = l.g(this.f21516e, R.dimen.ds6);
-            this.k = l.g(this.f21516e, R.dimen.fontsize24);
-            this.f21520i = R.color.CAM_X0302;
+            this.o = l.g(this.f57062e, R.dimen.ds6);
+            this.k = l.g(this.f57062e, R.dimen.fontsize24);
+            this.f57066i = R.color.CAM_X0302;
             this.l = R.color.CAM_X0108;
             Paint paint = new Paint();
-            this.f21517f = paint;
+            this.f57063f = paint;
             paint.setAntiAlias(true);
             Paint paint2 = new Paint();
-            this.f21519h = paint2;
+            this.f57065h = paint2;
             paint2.setAntiAlias(true);
             Paint paint3 = new Paint();
-            this.f21518g = paint3;
+            this.f57064g = paint3;
             paint3.setAntiAlias(true);
-            this.f21518g.setTextSize(this.k);
-            this.f21518g.setTextAlign(Paint.Align.CENTER);
+            this.f57064g.setTextSize(this.k);
+            this.f57064g.setTextAlign(Paint.Align.CENTER);
+        }
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+            super.onDraw(canvas);
+            if (this.s) {
+                RectF rectF = new RectF(0.0f, 0.0f, this.m, this.n);
+                this.f57065h.setColor(SkinManager.getColor(this.f57067j));
+                int i2 = this.o;
+                canvas.drawRoundRect(rectF, i2, i2, this.f57065h);
+            }
+            RectF rectF2 = new RectF(0.0f, 0.0f, this.m * this.q, this.n);
+            this.f57063f.setColor(SkinManager.getColor(this.f57066i));
+            int i3 = this.o;
+            canvas.drawRoundRect(rectF2, i3, i3, this.f57063f);
+            if (StringUtils.isNull(this.p)) {
+                return;
+            }
+            this.f57064g.setColor(SkinManager.getColor(this.l));
+            this.f57064g.setTextSize(this.k);
+            float f2 = this.f57064g.getFontMetrics().bottom - this.f57064g.getFontMetrics().top;
+            this.r = f2;
+            float f3 = this.n;
+            canvas.drawText(this.p, this.m / 2.0f, (f3 - ((f3 - f2) / 2.0f)) - this.f57064g.getFontMetrics().bottom, this.f57064g);
+        }
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
+            super.onMeasure(i2, i3);
+            this.m = View.MeasureSpec.getSize(i2);
+            this.n = View.MeasureSpec.getSize(i3);
+        }
+    }
+
+    public void setBgColor(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            this.f57067j = i2;
+        }
+    }
+
+    public void setDressData(DressItemData dressItemData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, dressItemData) == null) {
+            this.t = dressItemData;
+        }
+    }
+
+    public void setFontSize(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            this.k = i2;
+        }
+    }
+
+    public void setProgress(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
+            this.q = f2;
+        }
+    }
+
+    public void setText(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            this.p = this.f57062e.getResources().getString(i2);
+        }
+    }
+
+    public void setTextColor(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+            this.l = i2;
         }
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void b(int i2, float f2, int i3, int i4, int i5) {
+    public void updateStatuesInSkinDetail(int i2, float f2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             this.s = false;
             setEnabled(true);
             if (i2 != 9) {
@@ -128,7 +209,7 @@ public class SkinProgressView extends View {
                                         setText(R.string.become_member_download_free);
                                         break;
                                     } else {
-                                        setText(String.format(this.f21516e.getString(R.string.btn_vip_can_download_free), Integer.valueOf(i3)));
+                                        setText(String.format(this.f57062e.getString(R.string.btn_vip_can_download_free), Integer.valueOf(i3)));
                                         break;
                                     }
                                 } else {
@@ -203,7 +284,7 @@ public class SkinProgressView extends View {
                     } else if (i3 == 101) {
                         setText(R.string.become_annual_free_use);
                     } else if (i3 > 1) {
-                        setText(String.format(this.f21516e.getString(R.string.become_vip_free_use), Integer.valueOf(i3)));
+                        setText(String.format(this.f57062e.getString(R.string.become_vip_free_use), Integer.valueOf(i3)));
                     } else {
                         setText(R.string.become_member_free_use);
                     }
@@ -216,9 +297,9 @@ public class SkinProgressView extends View {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void c(int i2, float f2) {
+    public void updateStatus(int i2, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
             setEnabled(true);
             switch (i2) {
                 case 0:
@@ -261,88 +342,9 @@ public class SkinProgressView extends View {
         }
     }
 
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            super.onDraw(canvas);
-            if (this.s) {
-                RectF rectF = new RectF(0.0f, 0.0f, this.m, this.n);
-                this.f21519h.setColor(SkinManager.getColor(this.j));
-                int i2 = this.o;
-                canvas.drawRoundRect(rectF, i2, i2, this.f21519h);
-            }
-            RectF rectF2 = new RectF(0.0f, 0.0f, this.m * this.q, this.n);
-            this.f21517f.setColor(SkinManager.getColor(this.f21520i));
-            int i3 = this.o;
-            canvas.drawRoundRect(rectF2, i3, i3, this.f21517f);
-            if (StringUtils.isNull(this.p)) {
-                return;
-            }
-            this.f21518g.setColor(SkinManager.getColor(this.l));
-            this.f21518g.setTextSize(this.k);
-            float f2 = this.f21518g.getFontMetrics().bottom - this.f21518g.getFontMetrics().top;
-            this.r = f2;
-            float f3 = this.n;
-            canvas.drawText(this.p, this.m / 2.0f, (f3 - ((f3 - f2) / 2.0f)) - this.f21518g.getFontMetrics().bottom, this.f21518g);
-        }
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-            this.m = View.MeasureSpec.getSize(i2);
-            this.n = View.MeasureSpec.getSize(i3);
-        }
-    }
-
-    public void setBgColor(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.j = i2;
-        }
-    }
-
-    public void setDressData(DressItemData dressItemData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dressItemData) == null) {
-            this.t = dressItemData;
-        }
-    }
-
-    public void setFontSize(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.k = i2;
-        }
-    }
-
-    public void setProgress(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f2) == null) {
-            this.q = f2;
-        }
-    }
-
-    public void setText(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.p = this.f21516e.getResources().getString(i2);
-        }
-    }
-
-    public void setTextColor(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.l = i2;
-        }
-    }
-
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             this.p = str;
         }
     }
@@ -367,7 +369,7 @@ public class SkinProgressView extends View {
             }
         }
         this.s = false;
-        this.f21516e = context;
+        this.f57062e = context;
         a();
     }
 
@@ -391,7 +393,7 @@ public class SkinProgressView extends View {
             }
         }
         this.s = false;
-        this.f21516e = context;
+        this.f57062e = context;
         a();
     }
 }

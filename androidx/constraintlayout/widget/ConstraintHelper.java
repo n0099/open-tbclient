@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.constraintlayout.solver.widgets.Helper;
@@ -76,7 +75,7 @@ public abstract class ConstraintHelper extends View {
             setTag(i2, null);
             return;
         }
-        Log.w("ConstraintHelper", "Could not find id of \"" + trim + "\"");
+        String str2 = "Could not find id of \"" + trim + "\"";
     }
 
     private void setIds(String str) {

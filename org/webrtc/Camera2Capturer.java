@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 import org.webrtc.CameraSession;
 import org.webrtc.CameraVideoCapturer;
 @TargetApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class Camera2Capturer extends CameraCapturer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

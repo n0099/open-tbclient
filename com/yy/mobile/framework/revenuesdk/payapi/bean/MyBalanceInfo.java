@@ -7,7 +7,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class MyBalanceInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,7 +16,7 @@ public class MyBalanceInfo {
     public Map<Integer, AccountPeriod> myAccountPeriodMap;
     public Map<Integer, Account> myBalanceMap;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class Account {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,13 +45,13 @@ public class MyBalanceInfo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Account{currencyType=" + this.currencyType + ", amount=" + this.amount + ", freezed=" + this.freezed + ", accountFrozen=" + this.accountFrozen + ", expireAmount = " + this.expireAmount + ", expireDate = " + this.expireDate + '}';
+                return "Account{currencyType=" + this.currencyType + ", amount=" + this.amount + ", freezed=" + this.freezed + ", accountFrozen=" + this.accountFrozen + ", expireAmount = " + this.expireAmount + ", expireDate = " + this.expireDate + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class AccountPeriod {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,18 +78,18 @@ public class MyBalanceInfo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "AccountPeriod{currencyType=" + this.currencyType + ", amount=" + this.amount + ", startTime=" + this.startTime + ", endTime=" + this.endTime + '}';
+                return "AccountPeriod{currencyType=" + this.currencyType + ", amount=" + this.amount + ", startTime=" + this.startTime + ", endTime=" + this.endTime + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
     }
 
-    public MyBalanceInfo(Map<Integer, Account> map, Map<Integer, AccountPeriod> map2, long j) {
+    public MyBalanceInfo(Map<Integer, Account> map, Map<Integer, AccountPeriod> map2, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {map, map2, Long.valueOf(j)};
+            Object[] objArr = {map, map2, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -100,7 +101,7 @@ public class MyBalanceInfo {
         }
         this.myBalanceMap = map;
         this.myAccountPeriodMap = map2;
-        this.minAmountLimit = j;
+        this.minAmountLimit = j2;
     }
 
     public long getMinAmountLimit() {
@@ -139,7 +140,7 @@ public class MyBalanceInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "MyBalanceInfo{myBalanceMap=" + this.myBalanceMap + "minAmountLimit=" + this.minAmountLimit + '}';
+            return "MyBalanceInfo{myBalanceMap=" + this.myBalanceMap + "minAmountLimit=" + this.minAmountLimit + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

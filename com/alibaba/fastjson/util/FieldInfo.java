@@ -22,8 +22,7 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.util.Map;
-import kotlin.text.Typography;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class FieldInfo implements Comparable<FieldInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -191,8 +190,8 @@ public class FieldInfo implements Comparable<FieldInfo> {
             char[] cArr = new char[length + 3];
             String str = this.name;
             str.getChars(0, str.length(), cArr, 1);
-            cArr[0] = Typography.quote;
-            cArr[length + 1] = Typography.quote;
+            cArr[0] = '\"';
+            cArr[length + 1] = '\"';
             cArr[length + 2] = ':';
             return cArr;
         }

@@ -8,7 +8,6 @@ import android.os.Build;
 import android.view.SurfaceHolder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.core.utils.LogUtil;
 import java.io.IOException;
@@ -30,7 +28,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.ListIterator;
 import kotlinx.coroutines.DebugKt;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_RAW = 0;
@@ -53,7 +51,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public int _width;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static final class MethodIndex {
         public static final /* synthetic */ MethodIndex[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -114,12 +112,12 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static CameraCtrl f24139a;
+        public static CameraCtrl f59886a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -135,7 +133,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                     return;
                 }
             }
-            f24139a = new CameraCtrl();
+            f59886a = new CameraCtrl();
         }
 
         public a() {
@@ -188,9 +186,24 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
             if (this._previewCb == null) {
                 int bitsPerPixel = ((this._width * this._height) * ImageFormat.getBitsPerPixel(this._cameraProxy.d().getPreviewFormat())) / 8;
                 byte[][] bArr = new byte[4];
-                for (int i2 = 0; i2 < 4; i2++) {
-                    bArr[i2] = new byte[bitsPerPixel];
-                    this._cameraProxy.a(bArr[i2]);
+                int i2 = 0;
+                while (i2 < 4) {
+                    bArr[i2] = null;
+                    try {
+                        bArr[i2] = new byte[bitsPerPixel];
+                    } catch (OutOfMemoryError unused) {
+                        long freeMemory = Runtime.getRuntime().freeMemory();
+                        LogUtil.d("freeMemory", freeMemory + "");
+                        int i3 = (int) freeMemory;
+                        if (i3 <= bitsPerPixel) {
+                            bArr[i2] = new byte[i3];
+                        } else {
+                            bArr[i2] = new byte[bitsPerPixel];
+                        }
+                    } finally {
+                        this._cameraProxy.a(bArr[i2]);
+                    }
+                    i2++;
                 }
             }
             this._previewCb = previewCallback;
@@ -213,7 +226,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public static CameraCtrl getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a.f24139a : (CameraCtrl) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a.f59886a : (CameraCtrl) invokeV.objValue;
     }
 
     private Camera.Size getSimilarRatioSize(int i2, int i3, List<Camera.Size> list, int i4) {
@@ -257,12 +270,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                 StringBuilder sb = new StringBuilder(size2.width);
                 sb.append(",");
                 sb.append(size2.height);
-                DXMSdkSAUtils.onEventWithValues(StatServiceEvent.SDK_SELF_DEFINE_CAMERA_GET_SIZE, Arrays.asList(String.valueOf(i4), sb.toString()));
-                String valueOf = String.valueOf(i4);
-                StringBuilder sb2 = new StringBuilder(size2.width);
-                sb2.append(",");
-                sb2.append(size2.height);
-                PayStatisticsUtil.onEventWithValue(StatServiceEvent.SDK_SELF_DEFINE_CAMERA_GET_SIZE, valueOf, sb2.toString());
+                DXMSdkSAUtils.onEventWithValues("sdk_self_define_camera_get_size", Arrays.asList(String.valueOf(i4), sb.toString()));
                 return size2;
             }
             return size;
@@ -288,8 +296,8 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0069 A[Catch: all -> 0x0167, TRY_LEAVE, TryCatch #2 {, blocks: (B:5:0x0005, B:8:0x000b, B:10:0x0014, B:13:0x001b, B:15:0x003f, B:17:0x0051, B:22:0x005d, B:24:0x0069, B:27:0x0096, B:29:0x00ce, B:30:0x00f8, B:32:0x00fd, B:34:0x0101, B:35:0x0104, B:36:0x0109, B:38:0x0115, B:42:0x012f, B:41:0x0128, B:46:0x0134, B:50:0x0140, B:14:0x003a, B:57:0x0153, B:59:0x0157, B:61:0x015b, B:63:0x015f, B:54:0x014a), top: B:79:0x0005, inners: #0, #1, #3, #4 }] */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0096 A[Catch: all -> 0x0167, TRY_ENTER, TryCatch #2 {, blocks: (B:5:0x0005, B:8:0x000b, B:10:0x0014, B:13:0x001b, B:15:0x003f, B:17:0x0051, B:22:0x005d, B:24:0x0069, B:27:0x0096, B:29:0x00ce, B:30:0x00f8, B:32:0x00fd, B:34:0x0101, B:35:0x0104, B:36:0x0109, B:38:0x0115, B:42:0x012f, B:41:0x0128, B:46:0x0134, B:50:0x0140, B:14:0x003a, B:57:0x0153, B:59:0x0157, B:61:0x015b, B:63:0x015f, B:54:0x014a), top: B:79:0x0005, inners: #0, #1, #3, #4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0069 A[Catch: all -> 0x0165, TRY_LEAVE, TryCatch #0 {, blocks: (B:5:0x0005, B:8:0x000b, B:10:0x0014, B:13:0x001b, B:15:0x003f, B:17:0x0051, B:22:0x005d, B:24:0x0069, B:27:0x0096, B:29:0x00cd, B:30:0x00f6, B:32:0x00fb, B:34:0x00ff, B:35:0x0102, B:36:0x0107, B:38:0x0113, B:42:0x012d, B:41:0x0126, B:46:0x0132, B:50:0x013e, B:14:0x003a, B:57:0x0151, B:59:0x0155, B:61:0x0159, B:63:0x015d, B:54:0x0148), top: B:76:0x0005, inners: #1, #2, #3, #4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0096 A[Catch: all -> 0x0165, TRY_ENTER, TryCatch #0 {, blocks: (B:5:0x0005, B:8:0x000b, B:10:0x0014, B:13:0x001b, B:15:0x003f, B:17:0x0051, B:22:0x005d, B:24:0x0069, B:27:0x0096, B:29:0x00cd, B:30:0x00f6, B:32:0x00fb, B:34:0x00ff, B:35:0x0102, B:36:0x0107, B:38:0x0113, B:42:0x012d, B:41:0x0126, B:46:0x0132, B:50:0x013e, B:14:0x003a, B:57:0x0151, B:59:0x0155, B:61:0x0159, B:63:0x015d, B:54:0x0148), top: B:76:0x0005, inners: #1, #2, #3, #4 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -308,7 +316,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                 try {
                     this._cameraProxy = b.a();
                     if (-1 != i2 && isSupportMultiCamera()) {
-                        this._cameraProxy.f24146a = (Camera) this._newVersionMethods[MethodIndex.open.ordinal()].invoke(Camera.class, Integer.valueOf(i2));
+                        this._cameraProxy.f59893a = (Camera) this._newVersionMethods[MethodIndex.open.ordinal()].invoke(Camera.class, Integer.valueOf(i2));
                         Camera.Parameters d2 = this._cameraProxy.d();
                         focusMode = d2.getFocusMode();
                         if (!focusMode.equals(DebugKt.DEBUG_PROPERTY_VALUE_AUTO) && !focusMode.equals("macro")) {
@@ -345,7 +353,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                                     Method method = this._newVersionMethods[MethodIndex.setDisplayOrientation.ordinal()];
                                     if (method != null) {
                                         try {
-                                            method.invoke(this._cameraProxy.f24146a, Integer.valueOf(i5));
+                                            method.invoke(this._cameraProxy.f59893a, Integer.valueOf(i5));
                                             this._rotation = i5;
                                         } catch (Exception e2) {
                                             LogUtil.e(Tag, "", e2);
@@ -429,7 +437,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ CameraCtrl f24138a;
+                public final /* synthetic */ CameraCtrl f59885a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -446,7 +454,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                             return;
                         }
                     }
-                    this.f24138a = this;
+                    this.f59885a = this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */

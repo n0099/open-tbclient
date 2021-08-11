@@ -32,7 +32,7 @@ import java.util.Observer;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class XAdMaterialsLoader implements Observer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MATERIAL_SETTING_URL = "https://mobads.baidu.com/ads/preload.php";
@@ -45,7 +45,7 @@ public class XAdMaterialsLoader implements Observer {
     public List<XAdMaterialsInfo> materialsInfos;
     public String outputFolder;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class MyTask extends BaseTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -18,24 +18,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BDSplashActionView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f10191e;
+    public final Context f44862e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f10192f;
+    public View f44863f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f10193g;
+    public boolean f44864g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f10194h;
+    public int f44865h;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class BaseActionLayout extends RelativeLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,38 +71,40 @@ public class BDSplashActionView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f10195a;
+        public String f44866a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View.OnClickListener f10196b;
+        public View.OnClickListener f44867b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f10197c;
+        public int f44868c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f10198d;
+        public int f44869d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f10199e;
+        public int f44870e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f10200f;
+        public int f44871f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f10201g;
+        public int f44872g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Typeface f10202h;
+        public Typeface f44873h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f10203i;
-        public int j;
+        public boolean f44874i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public int f44875j;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -117,16 +119,16 @@ public class BDSplashActionView extends RelativeLayout {
                     return;
                 }
             }
-            this.f10195a = null;
-            this.f10196b = null;
-            this.f10197c = -16777216;
-            this.f10198d = 102;
-            this.f10199e = 1000;
-            this.f10200f = 18;
-            this.f10201g = -1;
-            this.f10202h = Typeface.DEFAULT;
-            this.f10203i = true;
-            this.j = 39;
+            this.f44866a = null;
+            this.f44867b = null;
+            this.f44868c = -16777216;
+            this.f44869d = 102;
+            this.f44870e = 1000;
+            this.f44871f = 18;
+            this.f44872g = -1;
+            this.f44873h = Typeface.DEFAULT;
+            this.f44874i = true;
+            this.f44875j = 39;
         }
 
         public BDSplashActionView k(Context context) {
@@ -139,7 +141,7 @@ public class BDSplashActionView extends RelativeLayout {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f10195a = str;
+                this.f44866a = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -149,7 +151,7 @@ public class BDSplashActionView extends RelativeLayout {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.j = i2;
+                this.f44875j = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -159,7 +161,7 @@ public class BDSplashActionView extends RelativeLayout {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, onClickListener)) == null) {
-                this.f10196b = onClickListener;
+                this.f44867b = onClickListener;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -169,7 +171,7 @@ public class BDSplashActionView extends RelativeLayout {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.f10203i = z;
+                this.f44874i = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -208,23 +210,29 @@ public class BDSplashActionView extends RelativeLayout {
                 return;
             }
         }
-        this.f10191e = context;
-        this.f10193g = aVar.f10203i;
-        this.f10194h = aVar.j;
-        setBackgroundDrawable(b(aVar.f10197c, aVar.f10198d, aVar.f10199e));
-        this.f10192f = d(this.f10191e, aVar);
+        this.f44862e = context;
+        this.f44864g = aVar.f44874i;
+        this.f44865h = aVar.f44875j;
+        setBackgroundDrawable(a(aVar.f44868c, aVar.f44869d, aVar.f44870e));
+        this.f44863f = c(this.f44862e, aVar);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
-        addView(this.f10192f, layoutParams);
-        setOnClickListener(aVar.f10196b);
+        addView(this.f44863f, layoutParams);
+        setOnClickListener(aVar.f44867b);
     }
 
-    public void a(ViewGroup viewGroup) {
+    public final GradientDrawable a(int i2, int i3, int i4) {
+        InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) {
-            BaseActionLayout baseActionLayout = new BaseActionLayout(this.f10191e);
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i2, i3, i4)) == null) ? b(i2, i3, i4, i4, i4, i4) : (GradientDrawable) invokeIII.objValue;
+    }
+
+    public void attachTo(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
+            BaseActionLayout baseActionLayout = new BaseActionLayout(this.f44862e);
             viewGroup.addView(baseActionLayout, new ViewGroup.LayoutParams(-1, -1));
-            int i2 = this.f10191e.getResources().getDisplayMetrics().widthPixels;
+            int i2 = this.f44862e.getResources().getDisplayMetrics().widthPixels;
             if (viewGroup.getMeasuredWidth() != 0) {
                 i2 = viewGroup.getMeasuredWidth();
             }
@@ -240,22 +248,16 @@ public class BDSplashActionView extends RelativeLayout {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i3, i4);
             layoutParams.addRule(12);
             layoutParams.addRule(14);
-            if (this.f10193g) {
-                layoutParams.bottomMargin = CommonUtils.dip2px(this.f10191e, this.f10194h);
+            if (this.f44864g) {
+                layoutParams.bottomMargin = CommonUtils.dip2px(this.f44862e, this.f44865h);
             } else {
-                layoutParams.bottomMargin = CommonUtils.dip2px(this.f10191e, this.f10194h);
+                layoutParams.bottomMargin = CommonUtils.dip2px(this.f44862e, this.f44865h);
             }
             baseActionLayout.addView(this, layoutParams);
         }
     }
 
-    public final GradientDrawable b(int i2, int i3, int i4) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4)) == null) ? c(i2, i3, i4, i4, i4, i4) : (GradientDrawable) invokeIII.objValue;
-    }
-
-    public final GradientDrawable c(int i2, int i3, int i4, int i5, int i6, int i7) {
+    public final GradientDrawable b(int i2, int i3, int i4, int i5, int i6, int i7) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)})) == null) {
@@ -275,27 +277,27 @@ public class BDSplashActionView extends RelativeLayout {
         return (GradientDrawable) invokeCommon.objValue;
     }
 
-    public final LinearLayout d(Context context, a aVar) {
+    public final LinearLayout c(Context context, a aVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, aVar)) == null) {
             LinearLayout linearLayout = new LinearLayout(context);
             TextView textView = new TextView(context);
-            textView.setText(aVar.f10195a);
-            textView.setTextSize(aVar.f10200f);
-            textView.setTextColor(aVar.f10201g);
-            textView.setTypeface(aVar.f10202h);
+            textView.setText(aVar.f44866a);
+            textView.setTextSize(aVar.f44871f);
+            textView.setTextColor(aVar.f44872g);
+            textView.setTypeface(aVar.f44873h);
             textView.setIncludeFontPadding(false);
             TextView textView2 = new TextView(context);
             textView2.setText(">>");
-            textView2.setTextColor(aVar.f10201g);
-            textView2.setTextSize((int) (aVar.f10200f * 1.2d));
+            textView2.setTextColor(aVar.f44872g);
+            textView2.setTextSize((int) (aVar.f44871f * 1.2d));
             textView2.setIncludeFontPadding(false);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 16;
             linearLayout.addView(textView, layoutParams);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams2.leftMargin = CommonUtils.dip2px(this.f10191e, 10.0f);
+            layoutParams2.leftMargin = CommonUtils.dip2px(this.f44862e, 10.0f);
             layoutParams2.gravity = 16;
             linearLayout.addView(textView2, layoutParams2);
             return linearLayout;

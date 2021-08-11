@@ -6,9 +6,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.utils.GlobalUtils;
-import com.baidu.apollon.utils.ResUtils;
-import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,16 +16,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.BaiduPayDelegate;
 import com.baidu.wallet.base.controllers.PayController;
 import com.baidu.wallet.base.datamodel.CardData;
-import com.baidu.wallet.base.datamodel.UserData;
 import com.baidu.wallet.base.statistics.PayStatServiceEvent;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
-import com.baidu.wallet.core.utils.LogUtil;
-import com.baidu.wallet.core.utils.WalletGlobalUtils;
 import com.baidu.wallet.paysdk.PayCallBackManager;
-import com.baidu.wallet.paysdk.api.BaiduPay;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
-import com.baidu.wallet.paysdk.beans.y;
+import com.baidu.wallet.paysdk.beans.u;
 import com.baidu.wallet.paysdk.contract.PwdPayContract;
 import com.baidu.wallet.paysdk.datamodel.AuthorizeInfo;
 import com.baidu.wallet.paysdk.datamodel.BalancePayResponse;
@@ -42,12 +34,16 @@ import com.baidu.wallet.paysdk.payresult.presenter.CashierDeskPayResult;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.PwdPayActivity;
-import com.baidu.wallet.statistics.api.StatisticManager;
-import com.baidu.wallet.util.StatHelper;
+import com.dxmpay.apollon.utils.GlobalUtils;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.base.datamodel.UserData;
+import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
+import com.dxmpay.wallet.utils.StatHelper;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter implements PwdPayContract.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +55,7 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
     public String pwdword;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static final class CheckForWhat {
         public static final /* synthetic */ CheckForWhat[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -233,23 +229,17 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
         }
     }
 
-    private void statPaySuccess(String str) {
+    private void statPaySuccess(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
-            List<String> collectData = StatHelper.collectData(StatHelper.getOrderNo(), StatHelper.getHasPwd(), str, StatHelper.getPayWay());
-            HashMap hashMap = new HashMap();
-            hashMap.put(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, StatHelper.getSpNo());
-            hashMap.put(BaiduPay.AMOUNT, StatHelper.getPayAmount());
+        if (interceptable == null || interceptable.invokeI(65539, this, i2) == null) {
+            StatHelper.cachePayType(i2);
             if (PayDataCache.getInstance().isFromPreCashier()) {
-                StatisticManager.onEventWithValues(PayStatServiceEvent.PERCASHIER_PAY, collectData, hashMap);
-                StatisticManager.onEventWithValues(PayStatServiceEvent.PERCASHIER_PAY_SUCCESS, collectData, hashMap);
+                StatHelper.statServiceEvent(PayStatServiceEvent.PERCASHIER_PAY);
+                StatHelper.statServiceEvent(PayStatServiceEvent.PERCASHIER_PAY_SUCCESS);
                 return;
             }
-            if (StatHelper.isPrecashierPay(StatHelper.getOrderNo())) {
-                hashMap.put("pay_category", "1");
-            }
-            StatisticManager.onEventWithValues(PayStatServiceEvent.STD_PAY, collectData, hashMap);
-            StatisticManager.onEventWithValues(PayStatServiceEvent.STD_PAY_SUCCESS, collectData, hashMap);
+            StatHelper.statServiceEvent(PayStatServiceEvent.STD_PAY);
+            StatHelper.statServiceEvent(PayStatServiceEvent.STD_PAY_SUCCESS);
         }
     }
 
@@ -311,7 +301,6 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
             }
             PayRequest.PayPrice.PayType payType = this.mPayRequest.getPayPrice().payType;
             if (payType == PayRequest.PayPrice.PayType.BALANCE) {
-                StatisticManager.onEventStart(StatServiceEvent.BALANCE_PAY);
                 if (!this.checkPass) {
                     this.mActivity.showLoading(-1);
                 }
@@ -319,22 +308,20 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
                 aVar.setResponseCallback(this);
                 aVar.execBean();
             } else if (payType == PayRequest.PayPrice.PayType.CREIDT) {
-                StatisticManager.onEventStart(StatServiceEvent.CREDIT_PAY);
                 if (!this.checkPass) {
                     this.mActivity.showLoading(-1);
                 }
-                com.baidu.wallet.paysdk.beans.j jVar = (com.baidu.wallet.paysdk.beans.j) PayBeanFactory.getInstance().getBean((Context) this.mActivity, PayBeanFactory.BEAN_ID_CREDIT_PAY, this.TAG);
-                jVar.setResponseCallback(this);
-                jVar.execBean();
+                com.baidu.wallet.paysdk.beans.h hVar = (com.baidu.wallet.paysdk.beans.h) PayBeanFactory.getInstance().getBean((Context) this.mActivity, PayBeanFactory.BEAN_ID_CREDIT_PAY, this.TAG);
+                hVar.setResponseCallback(this);
+                hVar.execBean();
             } else if (payType == PayRequest.PayPrice.PayType.BANKCARD) {
-                StatisticManager.onEventStart(StatServiceEvent.TIME_PAY);
                 if (!this.checkPass) {
                     this.mActivity.showLoading(-1);
                 }
-                y yVar = (y) PayBeanFactory.getInstance().getBean((Context) this.mActivity, 13, this.TAG);
-                yVar.a(true);
-                yVar.setResponseCallback(this);
-                yVar.execBean();
+                u uVar = (u) PayBeanFactory.getInstance().getBean((Context) this.mActivity, 13, this.TAG);
+                uVar.a(true);
+                uVar.setResponseCallback(this);
+                uVar.execBean();
             } else {
                 PwdPayActivity pwdPayActivity2 = this.mActivity;
                 PayCallBackManager.callBackClientCancel(pwdPayActivity2, this.TAG + "doPay().2");
@@ -349,21 +336,22 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (errorContentResponse = this.mActivity.mErrorContent) == null || errorContentResponse.mkt_solution == null) {
             return;
         }
-        y yVar = (y) PayBeanFactory.getInstance().getBean((Context) this.mActivity, 13, this.TAG);
+        u uVar = (u) PayBeanFactory.getInstance().getBean((Context) this.mActivity, 13, this.TAG);
         if (this.mPayRequest == null) {
             this.mPayRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
         }
         this.mPayRequest.setMktSolution(this.mActivity.mErrorContent.mkt_solution);
         this.mActivity.showLoading(-1);
-        yVar.a(true);
-        yVar.setResponseCallback(this);
-        yVar.execBean();
+        uVar.a(true);
+        uVar.setResponseCallback(this);
+        uVar.execBean();
     }
 
     @Override // com.baidu.wallet.paysdk.contract.PwdPayContract.Presenter, com.baidu.wallet.paysdk.presenter.NetWorkPresenter
     public void handleFailure(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048581, this, i2, i3, str) == null) {
+            StatHelper.cacheCodeAndMsg(i3 + "", str);
             this.mActivity.dismissLoading(-1);
             if ((PayDataCache.getInstance().isPassFree() || (this.mPayRequest != null && isFingerprintPay())) && PayDataCache.getInstance().isFromPreCashier() && this.mCheckForWhat == CheckForWhat.FOR_ONEKEYPAY) {
                 this.mActivity.setPageTransparent(true);
@@ -392,26 +380,18 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
                 pwdPayActivity2.mBeanId = i2;
                 WalletGlobalUtils.safeShowDialog(pwdPayActivity2, 37, "");
             } else if (65312 == i3) {
-                StatisticManager.onEvent(StatServiceEvent.EVENT_65312_ON_FP_PWDPAY);
+                StatisticManager.onEvent("fp_sys_65312_on_pwdpay");
                 PwdPayActivity pwdPayActivity3 = this.mActivity;
                 GlobalUtils.toast(pwdPayActivity3, ResUtils.getString(pwdPayActivity3, "bd_wallet_fingerprint_auth_failed"));
-                String str2 = this.TAG;
-                LogUtil.d(str2, "指纹验证失败, 切到密码输入模式   , wireless-pay接口请求失败 错误码是  : " + i3);
+                String str2 = "指纹验证失败, 切到密码输入模式   , wireless-pay接口请求失败 错误码是  : " + i3;
                 this.mActivity.turntoPwdPay(true, null);
             } else {
                 PwdPayActivity pwdPayActivity4 = this.mActivity;
                 if (TextUtils.isEmpty(str)) {
-                    str = ResUtils.getString(this.mActivity, "fp_get_data_fail");
+                    str = ResUtils.getString(this.mActivity, "dxm_fp_get_data_fail");
                 }
                 pwdPayActivity4.mDialogMsg = str;
                 WalletGlobalUtils.safeShowDialog(this.mActivity, 12, "");
-            }
-            if (i2 == 13) {
-                StatisticManager.onEventEnd(StatServiceEvent.TIME_PAY, i3);
-            } else if (i2 == 263) {
-                StatisticManager.onEventEnd(StatServiceEvent.CREDIT_PAY, i3);
-            } else if (i2 == 14) {
-                StatisticManager.onEventEnd(StatServiceEvent.BALANCE_PAY, i3);
             }
         }
     }
@@ -420,8 +400,8 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
     public void handleResponse(int i2, Object obj, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048582, this, i2, obj, str) == null) {
+            StatHelper.cacheCodeAndMsg("0", StatHelper.SENSOR_OK);
             if (i2 == 257) {
-                StatisticManager.onEventEnd(StatServiceEvent.CHECK_PASSWORD, 0);
                 CheckForWhat checkForWhat = this.mCheckForWhat;
                 if (checkForWhat == CheckForWhat.FOR_BIND_CARD_PAY) {
                     PayController payController = PayController.getInstance();
@@ -439,7 +419,6 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
                 if (balancePayResponse == null || !balancePayResponse.checkResponseValidity()) {
                     return;
                 }
-                StatisticManager.onEventEnd(StatServiceEvent.BALANCE_PAY, 0);
                 PayResultContent payResultContent = new PayResultContent();
                 payResultContent.notify = balancePayResponse.notify;
                 payResultContent.paytype_desc = balancePayResponse.paytype_desc;
@@ -476,7 +455,7 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
                 payResultContent.title_url = balancePayResponse.title_url;
                 payResultContent.order_no = balancePayResponse.order_no;
                 StatHelper.cachePayAmount(Double.valueOf(balancePayResponse.cash_amount).doubleValue());
-                statPaySuccess("1");
+                statPaySuccess(1);
                 if (balancePayResponse.toShowH5ResultPage()) {
                     PayDataCache.getInstance().setH5ResultParams(new H5ResultParams(balancePayResponse.redirect_sp_succpage_remain_time, balancePayResponse.pay_result_url, balancePayResponse.pay_result_params, balancePayResponse.show_h5_result, CashierDeskPayResult.PayScenario.BalancedPay));
                 }
@@ -594,9 +573,9 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             this.mPayRequest.storeFingerprintData(str);
             if (this.mPayRequest.mFingerprintPay instanceof SysFingerprintPay) {
-                StatisticManager.onEvent(StatServiceEvent.EVENT_FP_SYS_VERIFY_SUCCESS_DOPAY);
+                StatHelper.statServiceEvent("fp_sys_verify_success_pay");
             } else {
-                StatisticManager.onEvent(StatServiceEvent.EVENT_FP_FIDO_VERIFY_SUCCESS_DOPAY);
+                StatisticManager.onEvent("fp_fido_verify_success_pay");
             }
             doPay();
         }
@@ -680,6 +659,12 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
                 } else {
                     this.mActivity.finish();
                 }
+                HashMap hashMap = new HashMap();
+                hashMap.put("pay_from", StatHelper.getPayFrom());
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(StatHelper.getOrderNo());
+                hashMap.put(StatHelper.PAY_WAY, "1");
+                StatisticManager.onEventWithValues(PayStatServiceEvent.CHANGE_PAY_WAY, arrayList, hashMap);
             } else if (isFingerprintPay()) {
                 this.mActivity.turntoPwdPay(false, null);
             }

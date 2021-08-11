@@ -7,7 +7,7 @@ import com.facebook.imagepipeline.drawable.DrawableFactory;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface AnimatedFactory {
     @Nullable
     DrawableFactory getAnimatedDrawableFactory(Context context);

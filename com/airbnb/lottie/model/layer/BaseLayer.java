@@ -42,7 +42,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation.AnimationListener, KeyPathElement {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CLIP_SAVE_FLAG = 2;
@@ -79,7 +79,7 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
     public boolean visible;
 
     /* renamed from: com.airbnb.lottie.model.layer.BaseLayer$2  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$content$Mask$MaskMode;
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$layer$Layer$LayerType;

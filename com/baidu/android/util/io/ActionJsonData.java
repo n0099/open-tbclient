@@ -1,7 +1,6 @@
 package com.baidu.android.util.io;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ActionJsonData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_DEFAULT = -1;
@@ -36,7 +35,7 @@ public class ActionJsonData {
     public int mStatus;
     public int mVersion;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class Link {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +57,7 @@ public class ActionJsonData {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class Notification {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +79,7 @@ public class ActionJsonData {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class SignIn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -244,7 +243,7 @@ public class ActionJsonData {
             try {
                 return fromJson(new JSONObject(str));
             } catch (JSONException e2) {
-                Log.i(TAG, e2.toString());
+                e2.toString();
                 return null;
             }
         }

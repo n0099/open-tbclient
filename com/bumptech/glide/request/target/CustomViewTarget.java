@@ -30,7 +30,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CustomViewTarget";
@@ -47,7 +47,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     public final T view;
 
     @VisibleForTesting
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class SizeDeterminer {
         public static /* synthetic */ Interceptable $ic;
         public static final int PENDING_SIZE = 0;
@@ -61,7 +61,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
         public final View view;
         public boolean waitForLayout;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes9.dex */
         public static final class SizeDeterminerLayoutListener implements ViewTreeObserver.OnPreDrawListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +91,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     if (Log.isLoggable(CustomViewTarget.TAG, 2)) {
-                        Log.v(CustomViewTarget.TAG, "OnGlobalLayoutListener called attachStateListener=" + this);
+                        String str = "OnGlobalLayoutListener called attachStateListener=" + this;
                     }
                     SizeDeterminer sizeDeterminer = this.sizeDeterminerRef.get();
                     if (sizeDeterminer != null) {
@@ -156,9 +156,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
                 if (this.view.isLayoutRequested() || i3 != -2) {
                     return 0;
                 }
-                if (Log.isLoggable(CustomViewTarget.TAG, 4)) {
-                    Log.i(CustomViewTarget.TAG, "Glide treats LayoutParams.WRAP_CONTENT as a request for an image the size of this device's screen dimensions. If you want to load the original image and are ok with the corresponding memory cost and OOMs (depending on the input size), use .override(Target.SIZE_ORIGINAL). Otherwise, use LayoutParams.MATCH_PARENT, set layout_width and layout_height to fixed dimension, or use .override() with fixed dimensions.");
-                }
+                Log.isLoggable(CustomViewTarget.TAG, 4);
                 return getMaxDisplayLength(this.view.getContext());
             }
             return invokeIII.intValue;

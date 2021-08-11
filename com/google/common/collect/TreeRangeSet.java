@@ -1,6 +1,12 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
+import c.i.d.a.j;
+import c.i.d.a.n;
+import c.i.d.c.b1;
+import c.i.d.c.f;
+import c.i.d.c.x0;
+import c.i.d.c.y;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,12 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.d.a.j;
-import d.f.d.a.n;
-import d.f.d.c.b1;
-import d.f.d.c.f;
-import d.f.d.c.x0;
-import d.f.d.c.y;
 import java.io.Serializable;
 import java.lang.Comparable;
 import java.util.Collection;
@@ -24,7 +24,7 @@ import java.util.NavigableMap;
 import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.TreeMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
     public transient b1<C> complement;
     public final NavigableMap<Cut<C>, Range<C>> rangesByLowerBound;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public final class Complement extends TreeRangeSet<C> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             this.this$0 = treeRangeSet;
         }
 
-        @Override // com.google.common.collect.TreeRangeSet, d.f.d.c.f
+        @Override // com.google.common.collect.TreeRangeSet, c.i.d.c.f
         public void add(Range<C> range) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, range) == null) {
@@ -69,21 +69,21 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             }
         }
 
-        @Override // com.google.common.collect.TreeRangeSet, d.f.d.c.b1
+        @Override // com.google.common.collect.TreeRangeSet, c.i.d.c.b1
         public b1<C> complement() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.this$0 : (b1) invokeV.objValue;
         }
 
-        @Override // com.google.common.collect.TreeRangeSet, d.f.d.c.f
+        @Override // com.google.common.collect.TreeRangeSet, c.i.d.c.f
         public boolean contains(C c2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c2)) == null) ? !this.this$0.contains(c2) : invokeL.booleanValue;
         }
 
-        @Override // com.google.common.collect.TreeRangeSet, d.f.d.c.f
+        @Override // com.google.common.collect.TreeRangeSet, c.i.d.c.f
         public void remove(Range<C> range) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, range) == null) {
@@ -92,7 +92,7 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public final class SubRangeSet extends TreeRangeSet<C> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +122,7 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             this.restriction = range;
         }
 
-        @Override // com.google.common.collect.TreeRangeSet, d.f.d.c.f
+        @Override // com.google.common.collect.TreeRangeSet, c.i.d.c.f
         public void add(Range<C> range) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, range) == null) {
@@ -131,7 +131,7 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             }
         }
 
-        @Override // com.google.common.collect.TreeRangeSet, d.f.d.c.f
+        @Override // com.google.common.collect.TreeRangeSet, c.i.d.c.f
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -139,14 +139,14 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             }
         }
 
-        @Override // com.google.common.collect.TreeRangeSet, d.f.d.c.f
+        @Override // com.google.common.collect.TreeRangeSet, c.i.d.c.f
         public boolean contains(C c2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c2)) == null) ? this.restriction.contains(c2) && this.this$0.contains(c2) : invokeL.booleanValue;
         }
 
-        @Override // com.google.common.collect.TreeRangeSet, d.f.d.c.f, d.f.d.c.b1
+        @Override // com.google.common.collect.TreeRangeSet, c.i.d.c.f, c.i.d.c.b1
         public boolean encloses(Range<C> range) {
             InterceptResult invokeL;
             Range rangeEnclosing;
@@ -154,7 +154,7 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, range)) == null) ? (this.restriction.isEmpty() || !this.restriction.encloses(range) || (rangeEnclosing = this.this$0.rangeEnclosing(range)) == null || rangeEnclosing.intersection(this.restriction).isEmpty()) ? false : true : invokeL.booleanValue;
         }
 
-        @Override // com.google.common.collect.TreeRangeSet, d.f.d.c.f
+        @Override // com.google.common.collect.TreeRangeSet, c.i.d.c.f
         public Range<C> rangeContaining(C c2) {
             InterceptResult invokeL;
             Range<C> rangeContaining;
@@ -168,7 +168,7 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             return (Range) invokeL.objValue;
         }
 
-        @Override // com.google.common.collect.TreeRangeSet, d.f.d.c.f
+        @Override // com.google.common.collect.TreeRangeSet, c.i.d.c.f
         public void remove(Range<C> range) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048581, this, range) == null) && range.isConnected(this.restriction)) {
@@ -193,19 +193,19 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public final class b extends y<Range<C>> implements Set<Range<C>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Collection<Range<C>> f33664e;
+        public final Collection<Range<C>> f70391e;
 
         public b(TreeRangeSet treeRangeSet, Collection<Range<C>> collection) {
             Interceptable interceptable = $ic;
@@ -222,7 +222,7 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
                     return;
                 }
             }
-            this.f33664e = collection;
+            this.f70391e = collection;
         }
 
         @Override // java.util.Collection, java.util.Set
@@ -240,42 +240,44 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.f.d.c.y, d.f.d.c.h0
+        @Override // c.i.d.c.y, c.i.d.c.h0
         public Collection<Range<C>> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33664e : (Collection) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70391e : (Collection) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class c<C extends Comparable<?>> extends d.f.d.c.e<Cut<C>, Range<C>> {
+    /* loaded from: classes10.dex */
+    public static final class c<C extends Comparable<?>> extends c.i.d.c.e<Cut<C>, Range<C>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final NavigableMap<Cut<C>, Range<C>> f33665e;
+        public final NavigableMap<Cut<C>, Range<C>> f70392e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final NavigableMap<Cut<C>, Range<C>> f33666f;
+        public final NavigableMap<Cut<C>, Range<C>> f70393f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final Range<Cut<C>> f33667g;
+        public final Range<Cut<C>> f70394g;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes10.dex */
         public class a extends AbstractIterator<Map.Entry<Cut<C>, Range<C>>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public Cut<C> f33668g;
+            public Cut<C> f70395g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ Cut f33669h;
+            public final /* synthetic */ Cut f70396h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ x0 f33670i;
-            public final /* synthetic */ c j;
+            public final /* synthetic */ x0 f70397i;
+
+            /* renamed from: j  reason: collision with root package name */
+            public final /* synthetic */ c f70398j;
 
             public a(c cVar, Cut cut, x0 x0Var) {
                 Interceptable interceptable = $ic;
@@ -292,10 +294,10 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
                         return;
                     }
                 }
-                this.j = cVar;
-                this.f33669h = cut;
-                this.f33670i = x0Var;
-                this.f33668g = this.f33669h;
+                this.f70398j = cVar;
+                this.f70396h = cut;
+                this.f70397i = x0Var;
+                this.f70395g = this.f70396h;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -306,14 +308,14 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
                 Range create;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    if (!this.j.f33667g.upperBound.isLessThan(this.f33668g) && this.f33668g != Cut.aboveAll()) {
-                        if (this.f33670i.hasNext()) {
-                            Range range = (Range) this.f33670i.next();
-                            create = Range.create(this.f33668g, range.lowerBound);
-                            this.f33668g = range.upperBound;
+                    if (!this.f70398j.f70394g.upperBound.isLessThan(this.f70395g) && this.f70395g != Cut.aboveAll()) {
+                        if (this.f70397i.hasNext()) {
+                            Range range = (Range) this.f70397i.next();
+                            create = Range.create(this.f70395g, range.lowerBound);
+                            this.f70395g = range.upperBound;
                         } else {
-                            create = Range.create(this.f33668g, Cut.aboveAll());
-                            this.f33668g = Cut.aboveAll();
+                            create = Range.create(this.f70395g, Cut.aboveAll());
+                            this.f70395g = Cut.aboveAll();
                         }
                         return Maps.l(create.lowerBound, create);
                     }
@@ -323,20 +325,22 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes10.dex */
         public class b extends AbstractIterator<Map.Entry<Cut<C>, Range<C>>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public Cut<C> f33671g;
+            public Cut<C> f70399g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ Cut f33672h;
+            public final /* synthetic */ Cut f70400h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ x0 f33673i;
-            public final /* synthetic */ c j;
+            public final /* synthetic */ x0 f70401i;
+
+            /* renamed from: j  reason: collision with root package name */
+            public final /* synthetic */ c f70402j;
 
             public b(c cVar, Cut cut, x0 x0Var) {
                 Interceptable interceptable = $ic;
@@ -353,10 +357,10 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
                         return;
                     }
                 }
-                this.j = cVar;
-                this.f33672h = cut;
-                this.f33673i = x0Var;
-                this.f33671g = this.f33672h;
+                this.f70402j = cVar;
+                this.f70400h = cut;
+                this.f70401i = x0Var;
+                this.f70399g = this.f70400h;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -366,20 +370,20 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    if (this.f33671g == Cut.belowAll()) {
+                    if (this.f70399g == Cut.belowAll()) {
                         return (Map.Entry) b();
                     }
-                    if (!this.f33673i.hasNext()) {
-                        if (this.j.f33667g.lowerBound.isLessThan(Cut.belowAll())) {
-                            Range create = Range.create(Cut.belowAll(), this.f33671g);
-                            this.f33671g = Cut.belowAll();
+                    if (!this.f70401i.hasNext()) {
+                        if (this.f70402j.f70394g.lowerBound.isLessThan(Cut.belowAll())) {
+                            Range create = Range.create(Cut.belowAll(), this.f70399g);
+                            this.f70399g = Cut.belowAll();
                             return Maps.l(Cut.belowAll(), create);
                         }
                     } else {
-                        Range range = (Range) this.f33673i.next();
-                        Range create2 = Range.create(range.upperBound, this.f33671g);
-                        this.f33671g = range.lowerBound;
-                        if (this.j.f33667g.lowerBound.isLessThan(create2.lowerBound)) {
+                        Range range = (Range) this.f70401i.next();
+                        Range create2 = Range.create(range.upperBound, this.f70399g);
+                        this.f70399g = range.lowerBound;
+                        if (this.f70402j.f70394g.lowerBound.isLessThan(create2.lowerBound)) {
                             return Maps.l(create2.lowerBound, create2);
                         }
                     }
@@ -417,13 +421,13 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             Cut cut;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f33667g.hasLowerBound()) {
-                    values = this.f33666f.tailMap(this.f33667g.lowerEndpoint(), this.f33667g.lowerBoundType() == BoundType.CLOSED).values();
+                if (this.f70394g.hasLowerBound()) {
+                    values = this.f70393f.tailMap(this.f70394g.lowerEndpoint(), this.f70394g.lowerBoundType() == BoundType.CLOSED).values();
                 } else {
-                    values = this.f33666f.values();
+                    values = this.f70393f.values();
                 }
                 x0 s = Iterators.s(values.iterator());
-                if (this.f33667g.contains(Cut.belowAll()) && (!s.hasNext() || ((Range) s.peek()).lowerBound != Cut.belowAll())) {
+                if (this.f70394g.contains(Cut.belowAll()) && (!s.hasNext() || ((Range) s.peek()).lowerBound != Cut.belowAll())) {
                     cut = Cut.belowAll();
                 } else if (s.hasNext()) {
                     cut = ((Range) s.next()).upperBound;
@@ -435,27 +439,27 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             return (Iterator) invokeV.objValue;
         }
 
-        @Override // d.f.d.c.e
+        @Override // c.i.d.c.e
         public Iterator<Map.Entry<Cut<C>, Range<C>>> b() {
             InterceptResult invokeV;
             Cut<C> aboveAll;
             Cut<C> higherKey;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f33667g.hasUpperBound()) {
-                    aboveAll = this.f33667g.upperEndpoint();
+                if (this.f70394g.hasUpperBound()) {
+                    aboveAll = this.f70394g.upperEndpoint();
                 } else {
                     aboveAll = Cut.aboveAll();
                 }
-                x0 s = Iterators.s(this.f33666f.headMap(aboveAll, this.f33667g.hasUpperBound() && this.f33667g.upperBoundType() == BoundType.CLOSED).descendingMap().values().iterator());
+                x0 s = Iterators.s(this.f70393f.headMap(aboveAll, this.f70394g.hasUpperBound() && this.f70394g.upperBoundType() == BoundType.CLOSED).descendingMap().values().iterator());
                 if (s.hasNext()) {
                     if (((Range) s.peek()).upperBound == Cut.aboveAll()) {
                         higherKey = ((Range) s.next()).lowerBound;
                     } else {
-                        higherKey = this.f33665e.higherKey(((Range) s.peek()).upperBound);
+                        higherKey = this.f70392e.higherKey(((Range) s.peek()).upperBound);
                     }
-                } else if (this.f33667g.contains(Cut.belowAll()) && !this.f33665e.containsKey(Cut.belowAll())) {
-                    higherKey = this.f33665e.higherKey(Cut.belowAll());
+                } else if (this.f70394g.contains(Cut.belowAll()) && !this.f70392e.containsKey(Cut.belowAll())) {
+                    higherKey = this.f70392e.higherKey(Cut.belowAll());
                 } else {
                     return Iterators.i();
                 }
@@ -522,10 +526,10 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, range)) == null) {
-                if (!this.f33667g.isConnected(range)) {
+                if (!this.f70394g.isConnected(range)) {
                     return ImmutableSortedMap.of();
                 }
-                return new c(this.f33665e, range.intersection(this.f33667g));
+                return new c(this.f70392e, range.intersection(this.f70394g));
             }
             return (NavigableMap) invokeL.objValue;
         }
@@ -561,42 +565,42 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
                     return;
                 }
             }
-            this.f33665e = navigableMap;
-            this.f33666f = new d(navigableMap);
-            this.f33667g = range;
+            this.f70392e = navigableMap;
+            this.f70393f = new d(navigableMap);
+            this.f70394g = range;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class e<C extends Comparable<?>> extends d.f.d.c.e<Cut<C>, Range<C>> {
+    /* loaded from: classes10.dex */
+    public static final class e<C extends Comparable<?>> extends c.i.d.c.e<Cut<C>, Range<C>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Range<Cut<C>> f33680e;
+        public final Range<Cut<C>> f70409e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Range<C> f33681f;
+        public final Range<C> f70410f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final NavigableMap<Cut<C>, Range<C>> f33682g;
+        public final NavigableMap<Cut<C>, Range<C>> f70411g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final NavigableMap<Cut<C>, Range<C>> f33683h;
+        public final NavigableMap<Cut<C>, Range<C>> f70412h;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes10.dex */
         public class a extends AbstractIterator<Map.Entry<Cut<C>, Range<C>>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ Iterator f33684g;
+            public final /* synthetic */ Iterator f70413g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ Cut f33685h;
+            public final /* synthetic */ Cut f70414h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ e f33686i;
+            public final /* synthetic */ e f70415i;
 
             public a(e eVar, Iterator it, Cut cut) {
                 Interceptable interceptable = $ic;
@@ -613,9 +617,9 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
                         return;
                     }
                 }
-                this.f33686i = eVar;
-                this.f33684g = it;
-                this.f33685h = cut;
+                this.f70415i = eVar;
+                this.f70413g = it;
+                this.f70414h = cut;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -625,12 +629,12 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    if (!this.f33684g.hasNext()) {
+                    if (!this.f70413g.hasNext()) {
                         return (Map.Entry) b();
                     }
-                    Range range = (Range) this.f33684g.next();
-                    if (!this.f33685h.isLessThan(range.lowerBound)) {
-                        Range intersection = range.intersection(this.f33686i.f33681f);
+                    Range range = (Range) this.f70413g.next();
+                    if (!this.f70414h.isLessThan(range.lowerBound)) {
+                        Range intersection = range.intersection(this.f70415i.f70410f);
                         return Maps.l(intersection.lowerBound, intersection);
                     }
                     return (Map.Entry) b();
@@ -639,16 +643,16 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes10.dex */
         public class b extends AbstractIterator<Map.Entry<Cut<C>, Range<C>>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ Iterator f33687g;
+            public final /* synthetic */ Iterator f70416g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ e f33688h;
+            public final /* synthetic */ e f70417h;
 
             public b(e eVar, Iterator it) {
                 Interceptable interceptable = $ic;
@@ -665,8 +669,8 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
                         return;
                     }
                 }
-                this.f33688h = eVar;
-                this.f33687g = it;
+                this.f70417h = eVar;
+                this.f70416g = it;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -676,13 +680,13 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    if (!this.f33687g.hasNext()) {
+                    if (!this.f70416g.hasNext()) {
                         return (Map.Entry) b();
                     }
-                    Range range = (Range) this.f33687g.next();
-                    if (this.f33688h.f33681f.lowerBound.compareTo((Cut) range.upperBound) < 0) {
-                        Range intersection = range.intersection(this.f33688h.f33681f);
-                        if (this.f33688h.f33680e.contains(intersection.lowerBound)) {
+                    Range range = (Range) this.f70416g.next();
+                    if (this.f70417h.f70410f.lowerBound.compareTo((Cut) range.upperBound) < 0) {
+                        Range intersection = range.intersection(this.f70417h.f70410f);
+                        if (this.f70417h.f70409e.contains(intersection.lowerBound)) {
                             return Maps.l(intersection.lowerBound, intersection);
                         }
                         return (Map.Entry) b();
@@ -703,34 +707,34 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             Iterator<Range<C>> it;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f33681f.isEmpty()) {
+                if (this.f70410f.isEmpty()) {
                     return Iterators.i();
                 }
-                if (this.f33680e.upperBound.isLessThan(this.f33681f.lowerBound)) {
+                if (this.f70409e.upperBound.isLessThan(this.f70410f.lowerBound)) {
                     return Iterators.i();
                 }
-                if (this.f33680e.lowerBound.isLessThan(this.f33681f.lowerBound)) {
-                    it = this.f33683h.tailMap(this.f33681f.lowerBound, false).values().iterator();
+                if (this.f70409e.lowerBound.isLessThan(this.f70410f.lowerBound)) {
+                    it = this.f70412h.tailMap(this.f70410f.lowerBound, false).values().iterator();
                 } else {
-                    it = this.f33682g.tailMap(this.f33680e.lowerBound.endpoint(), this.f33680e.lowerBoundType() == BoundType.CLOSED).values().iterator();
+                    it = this.f70411g.tailMap(this.f70409e.lowerBound.endpoint(), this.f70409e.lowerBoundType() == BoundType.CLOSED).values().iterator();
                 }
-                return new a(this, it, (Cut) Ordering.natural().min(this.f33680e.upperBound, Cut.belowValue(this.f33681f.upperBound)));
+                return new a(this, it, (Cut) Ordering.natural().min(this.f70409e.upperBound, Cut.belowValue(this.f70410f.upperBound)));
             }
             return (Iterator) invokeV.objValue;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: java.util.NavigableMap<com.google.common.collect.Cut<C extends java.lang.Comparable<?>>, com.google.common.collect.Range<C extends java.lang.Comparable<?>>> */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // d.f.d.c.e
+        @Override // c.i.d.c.e
         public Iterator<Map.Entry<Cut<C>, Range<C>>> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f33681f.isEmpty()) {
+                if (this.f70410f.isEmpty()) {
                     return Iterators.i();
                 }
-                Cut cut = (Cut) Ordering.natural().min(this.f33680e.upperBound, Cut.belowValue(this.f33681f.upperBound));
-                return new b(this, this.f33682g.headMap(cut.endpoint(), cut.typeAsUpperBound() == BoundType.CLOSED).descendingMap().values().iterator());
+                Cut cut = (Cut) Ordering.natural().min(this.f70409e.upperBound, Cut.belowValue(this.f70410f.upperBound));
+                return new b(this, this.f70411g.headMap(cut.endpoint(), cut.typeAsUpperBound() == BoundType.CLOSED).descendingMap().values().iterator());
             }
             return (Iterator) invokeV.objValue;
         }
@@ -759,16 +763,16 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
                 if (obj instanceof Cut) {
                     try {
                         Cut<C> cut = (Cut) obj;
-                        if (this.f33680e.contains(cut) && cut.compareTo(this.f33681f.lowerBound) >= 0 && cut.compareTo(this.f33681f.upperBound) < 0) {
-                            if (cut.equals(this.f33681f.lowerBound)) {
-                                Range range = (Range) Maps.P(this.f33682g.floorEntry(cut));
-                                if (range != null && range.upperBound.compareTo((Cut) this.f33681f.lowerBound) > 0) {
-                                    return range.intersection(this.f33681f);
+                        if (this.f70409e.contains(cut) && cut.compareTo(this.f70410f.lowerBound) >= 0 && cut.compareTo(this.f70410f.upperBound) < 0) {
+                            if (cut.equals(this.f70410f.lowerBound)) {
+                                Range range = (Range) Maps.P(this.f70411g.floorEntry(cut));
+                                if (range != null && range.upperBound.compareTo((Cut) this.f70410f.lowerBound) > 0) {
+                                    return range.intersection(this.f70410f);
                                 }
                             } else {
-                                Range range2 = (Range) this.f33682g.get(cut);
+                                Range range2 = (Range) this.f70411g.get(cut);
                                 if (range2 != null) {
-                                    return range2.intersection(this.f33681f);
+                                    return range2.intersection(this.f70410f);
                                 }
                             }
                         }
@@ -802,10 +806,10 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, range)) == null) {
-                if (!range.isConnected(this.f33680e)) {
+                if (!range.isConnected(this.f70409e)) {
                     return ImmutableSortedMap.of();
                 }
-                return new e(this.f33680e.intersection(range), this.f33681f, this.f33682g);
+                return new e(this.f70409e.intersection(range), this.f70410f, this.f70411g);
             }
             return (NavigableMap) invokeL.objValue;
         }
@@ -842,12 +846,12 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
                 }
             }
             n.p(range);
-            this.f33680e = range;
+            this.f70409e = range;
             n.p(range2);
-            this.f33681f = range2;
+            this.f70410f = range2;
             n.p(navigableMap);
-            this.f33682g = navigableMap;
-            this.f33683h = new d(navigableMap);
+            this.f70411g = navigableMap;
+            this.f70412h = new d(navigableMap);
         }
     }
 
@@ -887,7 +891,7 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         }
     }
 
-    @Override // d.f.d.c.f
+    @Override // c.i.d.c.f
     public void add(Range<C> range) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, range) == null) {
@@ -919,7 +923,7 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         }
     }
 
-    @Override // d.f.d.c.f
+    @Override // c.i.d.c.f
     public /* bridge */ /* synthetic */ void addAll(b1 b1Var) {
         super.addAll(b1Var);
     }
@@ -939,7 +943,7 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         return (Set) invokeV.objValue;
     }
 
-    @Override // d.f.d.c.b1
+    @Override // c.i.d.c.b1
     public Set<Range<C>> asRanges() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -955,12 +959,12 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         return (Set) invokeV.objValue;
     }
 
-    @Override // d.f.d.c.f
+    @Override // c.i.d.c.f
     public /* bridge */ /* synthetic */ void clear() {
         super.clear();
     }
 
-    @Override // d.f.d.c.b1
+    @Override // c.i.d.c.b1
     public b1<C> complement() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -976,12 +980,12 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         return (b1) invokeV.objValue;
     }
 
-    @Override // d.f.d.c.f
+    @Override // c.i.d.c.f
     public /* bridge */ /* synthetic */ boolean contains(Comparable comparable) {
         return super.contains(comparable);
     }
 
-    @Override // d.f.d.c.f, d.f.d.c.b1
+    @Override // c.i.d.c.f, c.i.d.c.b1
     public boolean encloses(Range<C> range) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -993,17 +997,17 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         return invokeL.booleanValue;
     }
 
-    @Override // d.f.d.c.f
+    @Override // c.i.d.c.f
     public /* bridge */ /* synthetic */ boolean enclosesAll(b1 b1Var) {
         return super.enclosesAll(b1Var);
     }
 
-    @Override // d.f.d.c.f
+    @Override // c.i.d.c.f
     public /* bridge */ /* synthetic */ boolean equals(Object obj) {
         return super.equals(obj);
     }
 
-    @Override // d.f.d.c.f
+    @Override // c.i.d.c.f
     public boolean intersects(Range<C> range) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1019,12 +1023,12 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         return invokeL.booleanValue;
     }
 
-    @Override // d.f.d.c.f, d.f.d.c.b1
+    @Override // c.i.d.c.f, c.i.d.c.b1
     public /* bridge */ /* synthetic */ boolean isEmpty() {
         return super.isEmpty();
     }
 
-    @Override // d.f.d.c.f
+    @Override // c.i.d.c.f
     public Range<C> rangeContaining(C c2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1039,7 +1043,7 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         return (Range) invokeL.objValue;
     }
 
-    @Override // d.f.d.c.f
+    @Override // c.i.d.c.f
     public void remove(Range<C> range) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, range) == null) {
@@ -1068,7 +1072,7 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         }
     }
 
-    @Override // d.f.d.c.f, d.f.d.c.b1
+    @Override // c.i.d.c.f, c.i.d.c.b1
     public /* bridge */ /* synthetic */ void removeAll(b1 b1Var) {
         super.removeAll(b1Var);
     }
@@ -1122,42 +1126,42 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
         return (TreeRangeSet) invokeL.objValue;
     }
 
-    @Override // d.f.d.c.f
+    @Override // c.i.d.c.f
     public /* bridge */ /* synthetic */ void addAll(Iterable iterable) {
         super.addAll(iterable);
     }
 
-    @Override // d.f.d.c.f
+    @Override // c.i.d.c.f
     public /* bridge */ /* synthetic */ boolean enclosesAll(Iterable iterable) {
         return super.enclosesAll(iterable);
     }
 
-    @Override // d.f.d.c.f
+    @Override // c.i.d.c.f
     public /* bridge */ /* synthetic */ void removeAll(Iterable iterable) {
         super.removeAll(iterable);
     }
 
-    /* loaded from: classes6.dex */
-    public static final class d<C extends Comparable<?>> extends d.f.d.c.e<Cut<C>, Range<C>> {
+    /* loaded from: classes10.dex */
+    public static final class d<C extends Comparable<?>> extends c.i.d.c.e<Cut<C>, Range<C>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final NavigableMap<Cut<C>, Range<C>> f33674e;
+        public final NavigableMap<Cut<C>, Range<C>> f70403e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Range<Cut<C>> f33675f;
+        public final Range<Cut<C>> f70404f;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes10.dex */
         public class a extends AbstractIterator<Map.Entry<Cut<C>, Range<C>>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ Iterator f33676g;
+            public final /* synthetic */ Iterator f70405g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ d f33677h;
+            public final /* synthetic */ d f70406h;
 
             public a(d dVar, Iterator it) {
                 Interceptable interceptable = $ic;
@@ -1174,8 +1178,8 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
                         return;
                     }
                 }
-                this.f33677h = dVar;
-                this.f33676g = it;
+                this.f70406h = dVar;
+                this.f70405g = it;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1185,11 +1189,11 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    if (!this.f33676g.hasNext()) {
+                    if (!this.f70405g.hasNext()) {
                         return (Map.Entry) b();
                     }
-                    Range range = (Range) this.f33676g.next();
-                    if (this.f33677h.f33675f.upperBound.isLessThan(range.upperBound)) {
+                    Range range = (Range) this.f70405g.next();
+                    if (this.f70406h.f70404f.upperBound.isLessThan(range.upperBound)) {
                         return (Map.Entry) b();
                     }
                     return Maps.l(range.upperBound, range);
@@ -1198,16 +1202,16 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes10.dex */
         public class b extends AbstractIterator<Map.Entry<Cut<C>, Range<C>>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ x0 f33678g;
+            public final /* synthetic */ x0 f70407g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ d f33679h;
+            public final /* synthetic */ d f70408h;
 
             public b(d dVar, x0 x0Var) {
                 Interceptable interceptable = $ic;
@@ -1224,8 +1228,8 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
                         return;
                     }
                 }
-                this.f33679h = dVar;
-                this.f33678g = x0Var;
+                this.f70408h = dVar;
+                this.f70407g = x0Var;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1235,11 +1239,11 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    if (!this.f33678g.hasNext()) {
+                    if (!this.f70407g.hasNext()) {
                         return (Map.Entry) b();
                     }
-                    Range range = (Range) this.f33678g.next();
-                    if (this.f33679h.f33675f.lowerBound.isLessThan(range.upperBound)) {
+                    Range range = (Range) this.f70407g.next();
+                    if (this.f70408h.f70404f.lowerBound.isLessThan(range.upperBound)) {
                         return Maps.l(range.upperBound, range);
                     }
                     return (Map.Entry) b();
@@ -1263,8 +1267,8 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
                     return;
                 }
             }
-            this.f33674e = navigableMap;
-            this.f33675f = Range.all();
+            this.f70403e = navigableMap;
+            this.f70404f = Range.all();
         }
 
         @Override // com.google.common.collect.Maps.p
@@ -1273,16 +1277,16 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             Iterator<Range<C>> it;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!this.f33675f.hasLowerBound()) {
-                    it = this.f33674e.values().iterator();
+                if (!this.f70404f.hasLowerBound()) {
+                    it = this.f70403e.values().iterator();
                 } else {
-                    Map.Entry<Cut<C>, Range<C>> lowerEntry = this.f33674e.lowerEntry(this.f33675f.lowerEndpoint());
+                    Map.Entry<Cut<C>, Range<C>> lowerEntry = this.f70403e.lowerEntry(this.f70404f.lowerEndpoint());
                     if (lowerEntry == null) {
-                        it = this.f33674e.values().iterator();
-                    } else if (this.f33675f.lowerBound.isLessThan(lowerEntry.getValue().upperBound)) {
-                        it = this.f33674e.tailMap(lowerEntry.getKey(), true).values().iterator();
+                        it = this.f70403e.values().iterator();
+                    } else if (this.f70404f.lowerBound.isLessThan(lowerEntry.getValue().upperBound)) {
+                        it = this.f70403e.tailMap(lowerEntry.getKey(), true).values().iterator();
                     } else {
-                        it = this.f33674e.tailMap(this.f33675f.lowerEndpoint(), true).values().iterator();
+                        it = this.f70403e.tailMap(this.f70404f.lowerEndpoint(), true).values().iterator();
                     }
                 }
                 return new a(this, it);
@@ -1290,19 +1294,19 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             return (Iterator) invokeV.objValue;
         }
 
-        @Override // d.f.d.c.e
+        @Override // c.i.d.c.e
         public Iterator<Map.Entry<Cut<C>, Range<C>>> b() {
             InterceptResult invokeV;
             Collection<Range<C>> values;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f33675f.hasUpperBound()) {
-                    values = this.f33674e.headMap(this.f33675f.upperEndpoint(), false).descendingMap().values();
+                if (this.f70404f.hasUpperBound()) {
+                    values = this.f70403e.headMap(this.f70404f.upperEndpoint(), false).descendingMap().values();
                 } else {
-                    values = this.f33674e.descendingMap().values();
+                    values = this.f70403e.descendingMap().values();
                 }
                 x0 s = Iterators.s(values.iterator());
-                if (s.hasNext() && this.f33675f.upperBound.isLessThan(((Range) s.peek()).upperBound)) {
+                if (s.hasNext() && this.f70404f.upperBound.isLessThan(((Range) s.peek()).upperBound)) {
                     s.next();
                 }
                 return new b(this, s);
@@ -1335,7 +1339,7 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
                 if (obj instanceof Cut) {
                     try {
                         Cut<C> cut = (Cut) obj;
-                        if (this.f33675f.contains(cut) && (lowerEntry = this.f33674e.lowerEntry(cut)) != null && lowerEntry.getValue().upperBound.equals(cut)) {
+                        if (this.f70404f.contains(cut) && (lowerEntry = this.f70403e.lowerEntry(cut)) != null && lowerEntry.getValue().upperBound.equals(cut)) {
                             return lowerEntry.getValue();
                         }
                     } catch (ClassCastException unused) {
@@ -1368,8 +1372,8 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, range)) == null) {
-                if (range.isConnected(this.f33675f)) {
-                    return new d(this.f33674e, range.intersection(this.f33675f));
+                if (range.isConnected(this.f70404f)) {
+                    return new d(this.f70403e, range.intersection(this.f70404f));
                 }
                 return ImmutableSortedMap.of();
             }
@@ -1390,8 +1394,8 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                if (this.f33675f.equals(Range.all())) {
-                    return this.f33674e.isEmpty();
+                if (this.f70404f.equals(Range.all())) {
+                    return this.f70403e.isEmpty();
                 }
                 return !a().hasNext();
             }
@@ -1403,8 +1407,8 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                if (this.f33675f.equals(Range.all())) {
-                    return this.f33674e.size();
+                if (this.f70404f.equals(Range.all())) {
+                    return this.f70403e.size();
                 }
                 return Iterators.y(a());
             }
@@ -1426,8 +1430,8 @@ public class TreeRangeSet<C extends Comparable<?>> extends f<C> implements Seria
                     return;
                 }
             }
-            this.f33674e = navigableMap;
-            this.f33675f = range;
+            this.f70403e = navigableMap;
+            this.f70404f = range;
         }
     }
 

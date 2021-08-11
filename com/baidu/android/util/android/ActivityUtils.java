@@ -13,11 +13,9 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.Toast;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -28,7 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class ActivityUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -148,7 +146,7 @@ public final class ActivityUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{activity, intent, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             if (z) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             try {
                 activity.startActivityForResult(intent, i2);
@@ -159,12 +157,12 @@ public final class ActivityUtils {
                     return false;
                 }
                 return false;
-            } catch (SecurityException e2) {
+            } catch (SecurityException unused2) {
                 if (z2) {
                     Toast.makeText(activity, R.string.activity_not_found, 0).show();
                 }
                 if (DEBUG) {
-                    Log.e(TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e2);
+                    String str = "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.";
                     return false;
                 }
                 return false;
@@ -184,7 +182,7 @@ public final class ActivityUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             if (z || !(context instanceof Activity)) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             try {
                 context.startActivity(intent);
@@ -195,18 +193,18 @@ public final class ActivityUtils {
                     return false;
                 }
                 return false;
-            } catch (SecurityException e2) {
+            } catch (SecurityException unused2) {
                 if (z2) {
                     Toast.makeText(context, R.string.activity_not_found, 0).show();
                 }
                 if (DEBUG) {
-                    Log.e(TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e2);
+                    String str = "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.";
                     return false;
                 }
                 return false;
-            } catch (Exception e3) {
+            } catch (Exception e2) {
                 if (DEBUG) {
-                    Log.d(TAG, e3.getMessage());
+                    e2.getMessage();
                     return false;
                 }
                 return false;

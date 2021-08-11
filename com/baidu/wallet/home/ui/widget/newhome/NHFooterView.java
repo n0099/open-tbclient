@@ -20,15 +20,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.FeedBackLayout;
 import com.baidu.wallet.home.ui.widget.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class NHFooterView extends LinearLayout {
-    public static /* synthetic */ Interceptable $ic;
-    public static int MARGIN_TOP;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int MARGIN_BOTTOM = 35;
+    public static int MARGIN_TOP = 25;
     public transient /* synthetic */ FieldHolder $fh;
     public FeedBackLayout mFeedBackLayout;
     public HomeCfgResponse.FooterConfig mFooterData;
     public NetImageView mPicture;
     public View mSeperator;
+    public View mSeperatorB;
     public HomeCfgResponse.TitleConfig mTitleData;
     public b mWalletHomeInterface;
 
@@ -87,6 +89,8 @@ public class NHFooterView extends LinearLayout {
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, (DisplayUtils.getDisplayWidth(getContext()) * 160) / 750);
             this.mPicture.setVisibility(8);
             addView(this.mPicture, layoutParams2);
+            this.mSeperatorB = new View(getContext());
+            addView(this.mSeperatorB, new LinearLayout.LayoutParams(-1, DisplayUtils.dip2px(getContext(), MARGIN_BOTTOM)));
         }
     }
 
@@ -95,7 +99,7 @@ public class NHFooterView extends LinearLayout {
         HomeCfgResponse.TitleItem[] titleItemArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, homeCfgResponse, bVar, i2) == null) {
-            setBackgroundColor(ResUtils.getColor(getContext(), "5".equals(homeCfgResponse.version) ? "wallet_home_nh_whiteColor" : "wallet_extend_home_nh_separate_bright"));
+            setBackgroundColor(ResUtils.getColor(getContext(), "5".equals(homeCfgResponse.version) ? "wallet_home_nh_whiteColor_bg" : "wallet_extend_home_nh_separate_bright"));
             this.mFooterData = homeCfgResponse.layout_footer;
             HomeCfgResponse.TitleConfig titleConfig = homeCfgResponse.layout_title;
             this.mTitleData = titleConfig;
@@ -111,6 +115,8 @@ public class NHFooterView extends LinearLayout {
             }
             HomeCfgResponse.FooterConfig footerConfig = this.mFooterData;
             if (footerConfig != null && (footerItemDateArr = footerConfig.data) != null && footerItemDateArr.length > 0 && footerItemDateArr[0].isFooterVisible()) {
+                this.mSeperator.setVisibility(0);
+                this.mSeperatorB.setVisibility(0);
                 this.mPicture.setVisibility(0);
                 NetImageView netImageView = this.mPicture;
                 netImageView.setImageUrl(this.mWalletHomeInterface.getAndroidPrefix() + this.mFooterData.data[0].footer_slogan);
@@ -120,7 +126,7 @@ public class NHFooterView extends LinearLayout {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ NHFooterView f25365a;
+                        public final /* synthetic */ NHFooterView f61100a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -137,14 +143,14 @@ public class NHFooterView extends LinearLayout {
                                     return;
                                 }
                             }
-                            this.f25365a = this;
+                            this.f61100a = this;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                NHFooterView nHFooterView = this.f25365a;
+                                NHFooterView nHFooterView = this.f61100a;
                                 b bVar2 = nHFooterView.mWalletHomeInterface;
                                 HomeCfgResponse.FooterItemDate[] footerItemDateArr2 = nHFooterView.mFooterData.data;
                                 bVar2.jump(footerItemDateArr2[0].footer_desc, footerItemDateArr2[0].footer_type, footerItemDateArr2[0].footer_link_addr, false);
@@ -153,12 +159,14 @@ public class NHFooterView extends LinearLayout {
                     });
                 }
             } else {
+                this.mSeperator.setVisibility(8);
+                this.mSeperatorB.setVisibility(8);
                 this.mPicture.setVisibility(8);
             }
             int dip2px = DisplayUtils.dip2px(getContext(), MARGIN_TOP);
-            int displayWidth = (i2 - dip2px) - ((DisplayUtils.getDisplayWidth(getContext()) * 160) / 750);
-            if (displayWidth > 0) {
-                this.mSeperator.setLayoutParams(new LinearLayout.LayoutParams(-1, displayWidth + dip2px));
+            int dip2px2 = ((i2 - dip2px) - DisplayUtils.dip2px(getContext(), MARGIN_BOTTOM)) - ((DisplayUtils.getDisplayWidth(getContext()) * 160) / 750);
+            if (dip2px2 > 0) {
+                this.mSeperator.setLayoutParams(new LinearLayout.LayoutParams(-1, dip2px2 + dip2px));
             }
         }
     }

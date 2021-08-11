@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class k1 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Info f39857a;
+    public final /* synthetic */ Info f76700a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ m1 f39858b;
+    public final /* synthetic */ m1 f76701b;
 
     public k1(m1 m1Var, Info info) {
         Interceptable interceptable = $ic;
@@ -31,17 +31,17 @@ public class k1 implements Runnable {
                 return;
             }
         }
-        this.f39858b = m1Var;
-        this.f39857a = info;
+        this.f76701b = m1Var;
+        this.f76700a = info;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         n1 n1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (n1Var = this.f39858b.f39878g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (n1Var = this.f76701b.f76722g) == null) {
             return;
         }
-        n1Var.a(this.f39857a);
+        n1Var.a(this.f76700a);
     }
 }

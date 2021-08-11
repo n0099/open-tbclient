@@ -18,12 +18,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class cw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a extends cv {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,11 +150,11 @@ public abstract class cw {
                 try {
                     ArrayList<String> arrayList = new ArrayList<>();
                     if (z) {
-                        co m229a = cs.a().m229a(str);
-                        if (m229a != null) {
-                            arrayList = m229a.a(str);
+                        co m232a = cs.a().m232a(str);
+                        if (m232a != null) {
+                            arrayList = m232a.a(str);
                         }
-                        coVar = m229a;
+                        coVar = m232a;
                     } else {
                         coVar = null;
                     }
@@ -172,7 +172,7 @@ public abstract class cw {
                             iOException = e2;
                             str2 = str4;
                         }
-                        if (!cvVar.m238a(context, next, (List<bf>) arrayList2)) {
+                        if (!cvVar.m241a(context, next, (List<bf>) arrayList2)) {
                             return str4;
                         }
                         String a2 = cvVar.a(context, next, (List<bf>) arrayList2);

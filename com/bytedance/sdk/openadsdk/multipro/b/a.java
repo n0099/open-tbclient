@@ -7,35 +7,35 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f31788a;
+    public boolean f67733a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f31789b;
+    public boolean f67734b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f31790c;
+    public boolean f67735c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f31791d;
+    public boolean f67736d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f31792e;
+    public long f67737e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f31793f;
+    public long f67738f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f31794g;
+    public long f67739g;
 
     /* renamed from: com.bytedance.sdk.openadsdk.multipro.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0357a {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC1917a {
         a e();
 
         boolean g();
@@ -59,7 +59,7 @@ public class a {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            this.f31791d = z;
+            this.f67736d = z;
             return this;
         }
         return (a) invokeZ.objValue;
@@ -69,7 +69,7 @@ public class a {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            this.f31788a = z;
+            this.f67733a = z;
             return this;
         }
         return (a) invokeZ.objValue;
@@ -79,7 +79,7 @@ public class a {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            this.f31789b = z;
+            this.f67734b = z;
             return this;
         }
         return (a) invokeZ.objValue;
@@ -89,37 +89,37 @@ public class a {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-            this.f31790c = z;
+            this.f67735c = z;
             return this;
         }
         return (a) invokeZ.objValue;
     }
 
-    public a a(long j) {
+    public a a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            this.f31792e = j;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
+            this.f67737e = j2;
             return this;
         }
         return (a) invokeJ.objValue;
     }
 
-    public a b(long j) {
+    public a b(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-            this.f31793f = j;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
+            this.f67738f = j2;
             return this;
         }
         return (a) invokeJ.objValue;
     }
 
-    public a c(long j) {
+    public a c(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            this.f31794g = j;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
+            this.f67739g = j2;
             return this;
         }
         return (a) invokeJ.objValue;
@@ -131,13 +131,13 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("isCompleted", this.f31788a);
-                jSONObject.put("isFromVideoDetailPage", this.f31789b);
-                jSONObject.put("isFromDetailPage", this.f31790c);
-                jSONObject.put("duration", this.f31792e);
-                jSONObject.put("totalPlayDuration", this.f31793f);
-                jSONObject.put("currentPlayPosition", this.f31794g);
-                jSONObject.put("isAutoPlay", this.f31791d);
+                jSONObject.put("isCompleted", this.f67733a);
+                jSONObject.put("isFromVideoDetailPage", this.f67734b);
+                jSONObject.put("isFromDetailPage", this.f67735c);
+                jSONObject.put("duration", this.f67737e);
+                jSONObject.put("totalPlayDuration", this.f67738f);
+                jSONObject.put("currentPlayPosition", this.f67739g);
+                jSONObject.put("isAutoPlay", this.f67736d);
             } catch (Exception unused) {
             }
             return jSONObject;

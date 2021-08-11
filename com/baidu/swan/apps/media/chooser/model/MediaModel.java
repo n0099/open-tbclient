@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class MediaModel implements Parcelable, Comparable<Object> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<MediaModel> CREATOR;
@@ -25,7 +25,7 @@ public class MediaModel implements Parcelable, Comparable<Object> {
     public String tempPath;
     public String type;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<MediaModel> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,10 +156,10 @@ public class MediaModel implements Parcelable, Comparable<Object> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.type : (String) invokeV.objValue;
     }
 
-    public void setAddDate(long j) {
+    public void setAddDate(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.addDate = j;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            this.addDate = j2;
         }
     }
 
@@ -170,10 +170,10 @@ public class MediaModel implements Parcelable, Comparable<Object> {
         }
     }
 
-    public void setSize(long j) {
+    public void setSize(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            this.size = j;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
+            this.size = j2;
         }
     }
 

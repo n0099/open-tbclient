@@ -1,7 +1,6 @@
 package com.baidu.ar.face.detector;
 
 import android.os.SystemClock;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
 import com.baidu.ar.face.algo.FaceAlgoData;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class n extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "n";
@@ -65,10 +64,9 @@ public class n extends a {
             com.baidu.ar.b.a.as().a(13, true);
             this.time = System.currentTimeMillis();
             this.ob = FaceJniClient.trackFace(this.pK, this.ob, this.mf);
-            String str = TAG;
-            com.baidu.ar.h.b.k(str, "track-time= " + (System.currentTimeMillis() - this.time));
+            com.baidu.ar.h.b.k(TAG, "track-time= " + (System.currentTimeMillis() - this.time));
             com.baidu.ar.h.b.c(TAG, "detect_frame track task executing");
-            Log.d("vvv", "face track: " + this.mf + "   ,  " + this.pK);
+            String str = "face track: " + this.mf + "   ,  " + this.pK;
             com.baidu.ar.b.a.as().a(13, false);
         }
     }
@@ -96,10 +94,10 @@ public class n extends a {
         }
     }
 
-    public void p(long j) {
+    public void p(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.oh = j;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.oh = j2;
         }
     }
 
@@ -110,10 +108,10 @@ public class n extends a {
         }
     }
 
-    public void setTimestamp(long j) {
+    public void setTimestamp(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.timestamp = j;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            this.timestamp = j2;
         }
     }
 }

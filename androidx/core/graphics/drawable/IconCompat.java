@@ -24,7 +24,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.IdRes;
@@ -172,7 +171,7 @@ public class IconCompat extends CustomVersionedParcelable {
                     break;
                 case 0:
                 default:
-                    Log.w(TAG, "Unknown type " + i2);
+                    String str = "Unknown type " + i2;
                     return null;
                 case 2:
                 case 4:
@@ -366,8 +365,8 @@ public class IconCompat extends CustomVersionedParcelable {
                     return packageManager.getResourcesForApplication(applicationInfo);
                 }
                 return null;
-            } catch (PackageManager.NameNotFoundException e2) {
-                Log.e(TAG, String.format("Unable to find pkg=%s for icon", str), e2);
+            } catch (PackageManager.NameNotFoundException unused) {
+                String.format("Unable to find pkg=%s for icon", str);
                 return null;
             }
         }
@@ -383,15 +382,15 @@ public class IconCompat extends CustomVersionedParcelable {
             if (!"content".equals(scheme) && !"file".equals(scheme)) {
                 try {
                     return new FileInputStream(new File((String) this.mObj1));
-                } catch (FileNotFoundException e2) {
-                    Log.w(TAG, "Unable to load image from path: " + uri, e2);
+                } catch (FileNotFoundException unused) {
+                    String str = "Unable to load image from path: " + uri;
                     return null;
                 }
             }
             try {
                 return context.getContentResolver().openInputStream(uri);
-            } catch (Exception e3) {
-                Log.w(TAG, "Unable to load image from URI: " + uri, e3);
+            } catch (Exception unused2) {
+                String str2 = "Unable to load image from URI: " + uri;
                 return null;
             }
         }
@@ -412,8 +411,8 @@ public class IconCompat extends CustomVersionedParcelable {
                     }
                     try {
                         return ResourcesCompat.getDrawable(getResources(context, resPackage), this.mInt1, context.getTheme());
-                    } catch (RuntimeException e2) {
-                        Log.e(TAG, String.format("Unable to load resource 0x%08x from pkg=%s", Integer.valueOf(this.mInt1), this.mObj1), e2);
+                    } catch (RuntimeException unused) {
+                        String.format("Unable to load resource 0x%08x from pkg=%s", Integer.valueOf(this.mInt1), this.mObj1);
                         break;
                     }
                 case 3:
@@ -524,7 +523,7 @@ public class IconCompat extends CustomVersionedParcelable {
                 String str5 = str.split(":", -1)[0];
                 int identifier = getResources(context, str5).getIdentifier(str4, str3, str5);
                 if (this.mInt1 != identifier) {
-                    Log.i(TAG, "Id has changed for " + str5 + "/" + str4);
+                    String str6 = "Id has changed for " + str5 + "/" + str4;
                     this.mInt1 = identifier;
                 }
             }
@@ -972,14 +971,14 @@ public class IconCompat extends CustomVersionedParcelable {
             }
             try {
                 return ((Integer) icon.getClass().getMethod("getType", new Class[0]).invoke(icon, new Object[0])).intValue();
-            } catch (IllegalAccessException e2) {
-                Log.e(TAG, "Unable to get icon type " + icon, e2);
+            } catch (IllegalAccessException unused) {
+                String str = "Unable to get icon type " + icon;
                 return -1;
-            } catch (NoSuchMethodException e3) {
-                Log.e(TAG, "Unable to get icon type " + icon, e3);
+            } catch (NoSuchMethodException unused2) {
+                String str2 = "Unable to get icon type " + icon;
                 return -1;
-            } catch (InvocationTargetException e4) {
-                Log.e(TAG, "Unable to get icon type " + icon, e4);
+            } catch (InvocationTargetException unused3) {
+                String str3 = "Unable to get icon type " + icon;
                 return -1;
             }
         }
@@ -998,14 +997,7 @@ public class IconCompat extends CustomVersionedParcelable {
             }
             try {
                 return ((Integer) icon.getClass().getMethod("getResId", new Class[0]).invoke(icon, new Object[0])).intValue();
-            } catch (IllegalAccessException e2) {
-                Log.e(TAG, "Unable to get icon resource", e2);
-                return 0;
-            } catch (NoSuchMethodException e3) {
-                Log.e(TAG, "Unable to get icon resource", e3);
-                return 0;
-            } catch (InvocationTargetException e4) {
-                Log.e(TAG, "Unable to get icon resource", e4);
+            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
                 return 0;
             }
         }
@@ -1023,14 +1015,7 @@ public class IconCompat extends CustomVersionedParcelable {
             }
             try {
                 return (String) icon.getClass().getMethod("getResPackage", new Class[0]).invoke(icon, new Object[0]);
-            } catch (IllegalAccessException e2) {
-                Log.e(TAG, "Unable to get icon package", e2);
-                return null;
-            } catch (NoSuchMethodException e3) {
-                Log.e(TAG, "Unable to get icon package", e3);
-                return null;
-            } catch (InvocationTargetException e4) {
-                Log.e(TAG, "Unable to get icon package", e4);
+            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
                 return null;
             }
         }
@@ -1048,14 +1033,7 @@ public class IconCompat extends CustomVersionedParcelable {
             }
             try {
                 return (Uri) icon.getClass().getMethod("getUri", new Class[0]).invoke(icon, new Object[0]);
-            } catch (IllegalAccessException e2) {
-                Log.e(TAG, "Unable to get icon uri", e2);
-                return null;
-            } catch (NoSuchMethodException e3) {
-                Log.e(TAG, "Unable to get icon uri", e3);
-                return null;
-            } catch (InvocationTargetException e4) {
-                Log.e(TAG, "Unable to get icon uri", e4);
+            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
                 return null;
             }
         }

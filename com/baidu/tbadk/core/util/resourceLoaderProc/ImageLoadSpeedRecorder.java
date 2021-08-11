@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
+import c.a.e.e.p.j;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,10 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
 import java.util.LinkedList;
 import java.util.Queue;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ImageLoadSpeedRecorder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOWEST_SPEED_FOR_PARALLEL = 20;
@@ -26,7 +26,7 @@ public class ImageLoadSpeedRecorder {
     public BdAsyncTaskParallel mTaskSerial;
 
     /* renamed from: com.baidu.tbadk.core.util.resourceLoaderProc.ImageLoadSpeedRecorder$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,13 +78,13 @@ public class ImageLoadSpeedRecorder {
         return (ImageLoadSpeedRecorder) invokeV.objValue;
     }
 
-    public synchronized void addSpeedRecordItem(int i2, long j) {
+    public synchronized void addSpeedRecordItem(int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             synchronized (this) {
                 LoadSpeedRecordItem loadSpeedRecordItem = new LoadSpeedRecordItem(this, null);
                 loadSpeedRecordItem.downloadSize = i2;
-                loadSpeedRecordItem.timeCosts = j;
+                loadSpeedRecordItem.timeCosts = j2;
                 this.mSpeedRecordQueue.offer(loadSpeedRecordItem);
                 if (this.mSpeedRecordQueue.size() > 5) {
                     this.mSpeedRecordQueue.poll();
@@ -92,7 +92,7 @@ public class ImageLoadSpeedRecorder {
                 if (speedRedordAvilable()) {
                     int i3 = 0;
                     for (LoadSpeedRecordItem loadSpeedRecordItem2 : this.mSpeedRecordQueue) {
-                        if (j > 0) {
+                        if (j2 > 0) {
                             i3 = (int) (i3 + (loadSpeedRecordItem2.downloadSize / loadSpeedRecordItem2.timeCosts));
                         }
                     }
@@ -129,7 +129,7 @@ public class ImageLoadSpeedRecorder {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSpeedRecordQueue.size() == 5 : invokeV.booleanValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class LoadSpeedRecordItem {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

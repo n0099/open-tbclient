@@ -14,7 +14,6 @@ import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -192,7 +191,6 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
         public void setBackgroundDrawable(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
-                Log.e(AppCompatSpinner.TAG, "Cannot set popup background for MODE_DIALOG, ignoring");
             }
         }
 
@@ -200,7 +198,6 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
         public void setHorizontalOffset(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-                Log.e(AppCompatSpinner.TAG, "Cannot set horizontal offset for MODE_DIALOG, ignoring");
             }
         }
 
@@ -208,7 +205,6 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
         public void setHorizontalOriginalOffset(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-                Log.e(AppCompatSpinner.TAG, "Cannot set horizontal (original) offset for MODE_DIALOG, ignoring");
             }
         }
 
@@ -224,7 +220,6 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
         public void setVerticalOffset(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-                Log.e(AppCompatSpinner.TAG, "Cannot set vertical offset for MODE_DIALOG, ignoring");
             }
         }
 
@@ -502,9 +497,9 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
                 }
 
                 @Override // android.widget.AdapterView.OnItemClickListener
-                public void onItemClick(AdapterView<?> adapterView, View view, int i5, long j) {
+                public void onItemClick(AdapterView<?> adapterView, View view, int i5, long j2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j2)}) == null) {
                         this.this$1.this$0.setSelection(i5);
                         if (this.this$1.this$0.getOnItemClickListener() != null) {
                             DropdownPopup dropdownPopup = this.this$1;
@@ -1415,10 +1410,9 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0055, code lost:
         r13.recycle();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x0066, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0064, code lost:
         if (r13 == null) goto L8;
      */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x006d  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1460,12 +1454,8 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
             try {
                 typedArray = context.obtainStyledAttributes(attributeSet, ATTRS_ANDROID_SPINNERMODE, i2, 0);
                 try {
-                    try {
-                        i3 = typedArray.hasValue(0) ? typedArray.getInt(0, 0) : i3;
-                    } catch (Exception e2) {
-                        e = e2;
-                        Log.i(TAG, "Could not read android:spinnerMode", e);
-                    }
+                    i3 = typedArray.hasValue(0) ? typedArray.getInt(0, 0) : i3;
+                } catch (Exception unused) {
                 } catch (Throwable th) {
                     th = th;
                     typedArray2 = typedArray;
@@ -1474,14 +1464,10 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
                     }
                     throw th;
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception unused2) {
                 typedArray = null;
             } catch (Throwable th2) {
                 th = th2;
-                if (typedArray2 != null) {
-                }
-                throw th;
             }
         }
         if (i3 == 0) {

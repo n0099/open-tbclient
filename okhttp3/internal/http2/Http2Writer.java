@@ -18,7 +18,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.http2.Hpack;
 import okio.Buffer;
 import okio.BufferedSink;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class Http2Writer implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger logger;
@@ -69,15 +69,15 @@ public final class Http2Writer implements Closeable {
         this.maxFrameSize = 16384;
     }
 
-    private void writeContinuationFrames(int i2, long j) throws IOException {
+    private void writeContinuationFrames(int i2, long j2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            while (j > 0) {
-                int min = (int) Math.min(this.maxFrameSize, j);
-                long j2 = min;
-                j -= j2;
-                frameHeader(i2, min, (byte) 9, j == 0 ? (byte) 4 : (byte) 0);
-                this.sink.write(this.hpackBuffer, j2);
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            while (j2 > 0) {
+                int min = (int) Math.min(this.maxFrameSize, j2);
+                long j3 = min;
+                j2 -= j3;
+                frameHeader(i2, min, (byte) 9, j2 == 0 ? (byte) 4 : (byte) 0);
+                this.sink.write(this.hpackBuffer, j3);
             }
         }
     }
@@ -262,13 +262,13 @@ public final class Http2Writer implements Closeable {
                     this.hpackWriter.writeHeaders(list);
                     long size = this.hpackBuffer.size();
                     int min = (int) Math.min(this.maxFrameSize - 4, size);
-                    long j = min;
-                    int i4 = (size > j ? 1 : (size == j ? 0 : -1));
+                    long j2 = min;
+                    int i4 = (size > j2 ? 1 : (size == j2 ? 0 : -1));
                     frameHeader(i2, min + 4, (byte) 5, i4 == 0 ? (byte) 4 : (byte) 0);
                     this.sink.writeInt(i3 & Integer.MAX_VALUE);
-                    this.sink.write(this.hpackBuffer, j);
+                    this.sink.write(this.hpackBuffer, j2);
                     if (i4 > 0) {
-                        writeContinuationFrames(i2, size - j);
+                        writeContinuationFrames(i2, size - j2);
                     }
                 } else {
                     throw new IOException("closed");
@@ -344,19 +344,19 @@ public final class Http2Writer implements Closeable {
         }
     }
 
-    public synchronized void windowUpdate(int i2, long j) throws IOException {
+    public synchronized void windowUpdate(int i2, long j2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             synchronized (this) {
                 if (this.closed) {
                     throw new IOException("closed");
                 }
-                if (j != 0 && j <= 2147483647L) {
+                if (j2 != 0 && j2 <= 2147483647L) {
                     frameHeader(i2, 4, (byte) 8, (byte) 0);
-                    this.sink.writeInt((int) j);
+                    this.sink.writeInt((int) j2);
                     this.sink.flush();
                 } else {
-                    throw Http2.illegalArgument("windowSizeIncrement == 0 || windowSizeIncrement > 0x7fffffffL: %s", Long.valueOf(j));
+                    throw Http2.illegalArgument("windowSizeIncrement == 0 || windowSizeIncrement > 0x7fffffffL: %s", Long.valueOf(j2));
                 }
             }
         }
@@ -369,16 +369,16 @@ public final class Http2Writer implements Closeable {
                 this.hpackWriter.writeHeaders(list);
                 long size = this.hpackBuffer.size();
                 int min = (int) Math.min(this.maxFrameSize, size);
-                long j = min;
-                int i3 = (size > j ? 1 : (size == j ? 0 : -1));
+                long j2 = min;
+                int i3 = (size > j2 ? 1 : (size == j2 ? 0 : -1));
                 byte b2 = i3 == 0 ? (byte) 4 : (byte) 0;
                 if (z) {
                     b2 = (byte) (b2 | 1);
                 }
                 frameHeader(i2, min, (byte) 1, b2);
-                this.sink.write(this.hpackBuffer, j);
+                this.sink.write(this.hpackBuffer, j2);
                 if (i3 > 0) {
-                    writeContinuationFrames(i2, size - j);
+                    writeContinuationFrames(i2, size - j2);
                     return;
                 }
                 return;

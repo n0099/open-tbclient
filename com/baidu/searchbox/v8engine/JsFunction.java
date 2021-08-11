@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @NotProguard
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class JsFunction extends JsReleaser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "JsFunction";
@@ -17,13 +17,13 @@ public class JsFunction extends JsReleaser {
     public boolean mReleaseAfterInvoke;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public JsFunction(long j, long j2, long j3) {
-        super(j, j2, j3);
+    public JsFunction(long j2, long j3, long j4) {
+        super(j2, j3, j4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r9;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -47,54 +47,54 @@ public class JsFunction extends JsReleaser {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void invokeJsFunctionParamBoolean(long j, boolean z);
+    public native void invokeJsFunctionParamBoolean(long j2, boolean z);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void invokeJsFunctionParamBooleanArray(long j, boolean[] zArr);
+    public native void invokeJsFunctionParamBooleanArray(long j2, boolean[] zArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void invokeJsFunctionParamByteArray(long j, byte[] bArr);
+    public native void invokeJsFunctionParamByteArray(long j2, byte[] bArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void invokeJsFunctionParamCharArray(long j, char[] cArr);
+    public native void invokeJsFunctionParamCharArray(long j2, char[] cArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void invokeJsFunctionParamDouble(long j, double d2);
+    public native void invokeJsFunctionParamDouble(long j2, double d2);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void invokeJsFunctionParamDoubleArray(long j, double[] dArr);
+    public native void invokeJsFunctionParamDoubleArray(long j2, double[] dArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void invokeJsFunctionParamFloatArray(long j, float[] fArr);
+    public native void invokeJsFunctionParamFloatArray(long j2, float[] fArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void invokeJsFunctionParamInteger(long j, int i2);
+    public native void invokeJsFunctionParamInteger(long j2, int i2);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void invokeJsFunctionParamIntegerArray(long j, int[] iArr);
+    public native void invokeJsFunctionParamIntegerArray(long j2, int[] iArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void invokeJsFunctionParamLong(long j, long j2);
+    public native void invokeJsFunctionParamLong(long j2, long j3);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void invokeJsFunctionParamLongArray(long j, long[] jArr);
+    public native void invokeJsFunctionParamLongArray(long j2, long[] jArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void invokeJsFunctionParamObject(long j, Object obj, Object obj2, boolean z);
+    public native void invokeJsFunctionParamObject(long j2, Object obj, Object obj2, boolean z);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void invokeJsFunctionParamShortArray(long j, short[] sArr);
+    public native void invokeJsFunctionParamShortArray(long j2, short[] sArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void invokeJsFunctionParamString(long j, String str);
+    public native void invokeJsFunctionParamString(long j2, String str);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void invokeJsFunctionParamStringArray(long j, String[] strArr);
+    public native void invokeJsFunctionParamStringArray(long j2, String[] strArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void invokeJsFunctionParamUndefined(long j);
+    public native void invokeJsFunctionParamUndefined(long j2);
 
-    private native boolean nativeStrictEquals(long j, long j2);
+    private native boolean nativeStrictEquals(long j2, long j3);
 
     private void runOnJSThreadSafely(Runnable runnable) {
         Interceptable interceptable = $ic;
@@ -138,11 +138,11 @@ public class JsFunction extends JsReleaser {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long j = this.this$0.mNativeObject.get();
-                        if (j != 0) {
+                        long j2 = this.this$0.mNativeObject.get();
+                        if (j2 != 0) {
                             JsFunction jsFunction = this.this$0;
                             V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamUndefined(j);
+                            this.this$0.invokeJsFunctionParamUndefined(j2);
                             this.this$0.freeIfNeeded();
                         }
                     }
@@ -174,16 +174,16 @@ public class JsFunction extends JsReleaser {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, jsFunction)) == null) {
-            long j = this.mNativeObject.get();
-            long j2 = jsFunction.mNativeObject.get();
-            if (this == jsFunction || j == j2) {
+            long j2 = this.mNativeObject.get();
+            long j3 = jsFunction.mNativeObject.get();
+            if (this == jsFunction || j2 == j3) {
                 return true;
             }
-            if (j == 0 || j2 == 0) {
+            if (j2 == 0 || j3 == 0) {
                 return false;
             }
             V8Engine.checkValid(this.mOwnedNativeEngine, this.mOwnedThreadId);
-            return nativeStrictEquals(j, j2);
+            return nativeStrictEquals(j2, j3);
         }
         return invokeL.booleanValue;
     }
@@ -220,11 +220,11 @@ public class JsFunction extends JsReleaser {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long j = this.this$0.mNativeObject.get();
-                        if (j != 0) {
+                        long j2 = this.this$0.mNativeObject.get();
+                        if (j2 != 0) {
                             JsFunction jsFunction = this.this$0;
                             V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamBoolean(j, this.val$result);
+                            this.this$0.invokeJsFunctionParamBoolean(j2, this.val$result);
                             this.this$0.freeIfNeeded();
                         }
                     }
@@ -265,11 +265,11 @@ public class JsFunction extends JsReleaser {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long j = this.this$0.mNativeObject.get();
-                        if (j != 0) {
+                        long j2 = this.this$0.mNativeObject.get();
+                        if (j2 != 0) {
                             JsFunction jsFunction = this.this$0;
                             V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamInteger(j, this.val$result);
+                            this.this$0.invokeJsFunctionParamInteger(j2, this.val$result);
                             this.this$0.freeIfNeeded();
                         }
                     }
@@ -278,10 +278,10 @@ public class JsFunction extends JsReleaser {
         }
     }
 
-    public void call(long j) {
+    public void call(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            runOnJSThreadSafely(new Runnable(this, j) { // from class: com.baidu.searchbox.v8engine.JsFunction.4
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            runOnJSThreadSafely(new Runnable(this, j2) { // from class: com.baidu.searchbox.v8engine.JsFunction.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ JsFunction this$0;
@@ -292,7 +292,7 @@ public class JsFunction extends JsReleaser {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Long.valueOf(j)};
+                        Object[] objArr = {this, Long.valueOf(j2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -303,18 +303,18 @@ public class JsFunction extends JsReleaser {
                         }
                     }
                     this.this$0 = this;
-                    this.val$result = j;
+                    this.val$result = j2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long j2 = this.this$0.mNativeObject.get();
-                        if (j2 != 0) {
+                        long j3 = this.this$0.mNativeObject.get();
+                        if (j3 != 0) {
                             JsFunction jsFunction = this.this$0;
                             V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamLong(j2, this.val$result);
+                            this.this$0.invokeJsFunctionParamLong(j3, this.val$result);
                             this.this$0.freeIfNeeded();
                         }
                     }
@@ -355,11 +355,11 @@ public class JsFunction extends JsReleaser {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long j = this.this$0.mNativeObject.get();
-                        if (j != 0) {
+                        long j2 = this.this$0.mNativeObject.get();
+                        if (j2 != 0) {
                             JsFunction jsFunction = this.this$0;
                             V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamDouble(j, this.val$result);
+                            this.this$0.invokeJsFunctionParamDouble(j2, this.val$result);
                             this.this$0.freeIfNeeded();
                         }
                     }
@@ -400,11 +400,11 @@ public class JsFunction extends JsReleaser {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long j = this.this$0.mNativeObject.get();
-                        if (j != 0) {
+                        long j2 = this.this$0.mNativeObject.get();
+                        if (j2 != 0) {
                             JsFunction jsFunction = this.this$0;
                             V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamString(j, this.val$result);
+                            this.this$0.invokeJsFunctionParamString(j2, this.val$result);
                             this.this$0.freeIfNeeded();
                         }
                     }
@@ -463,11 +463,11 @@ public class JsFunction extends JsReleaser {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long j = this.this$0.mNativeObject.get();
-                        if (j != 0) {
+                        long j2 = this.this$0.mNativeObject.get();
+                        if (j2 != 0) {
                             JsFunction jsFunction = this.this$0;
                             V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamObject(j, this.val$receiver, this.val$result, this.val$binding);
+                            this.this$0.invokeJsFunctionParamObject(j2, this.val$receiver, this.val$result, this.val$binding);
                             this.this$0.freeIfNeeded();
                         }
                     }
@@ -508,11 +508,11 @@ public class JsFunction extends JsReleaser {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long j = this.this$0.mNativeObject.get();
-                        if (j != 0) {
+                        long j2 = this.this$0.mNativeObject.get();
+                        if (j2 != 0) {
                             JsFunction jsFunction = this.this$0;
                             V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamByteArray(j, this.val$result);
+                            this.this$0.invokeJsFunctionParamByteArray(j2, this.val$result);
                             this.this$0.freeIfNeeded();
                         }
                     }
@@ -553,11 +553,11 @@ public class JsFunction extends JsReleaser {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long j = this.this$0.mNativeObject.get();
-                        if (j != 0) {
+                        long j2 = this.this$0.mNativeObject.get();
+                        if (j2 != 0) {
                             JsFunction jsFunction = this.this$0;
                             V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamBooleanArray(j, this.val$result);
+                            this.this$0.invokeJsFunctionParamBooleanArray(j2, this.val$result);
                             this.this$0.freeIfNeeded();
                         }
                     }
@@ -598,11 +598,11 @@ public class JsFunction extends JsReleaser {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long j = this.this$0.mNativeObject.get();
-                        if (j != 0) {
+                        long j2 = this.this$0.mNativeObject.get();
+                        if (j2 != 0) {
                             JsFunction jsFunction = this.this$0;
                             V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamIntegerArray(j, this.val$result);
+                            this.this$0.invokeJsFunctionParamIntegerArray(j2, this.val$result);
                             this.this$0.freeIfNeeded();
                         }
                     }
@@ -643,11 +643,11 @@ public class JsFunction extends JsReleaser {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long j = this.this$0.mNativeObject.get();
-                        if (j != 0) {
+                        long j2 = this.this$0.mNativeObject.get();
+                        if (j2 != 0) {
                             JsFunction jsFunction = this.this$0;
                             V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamLongArray(j, this.val$result);
+                            this.this$0.invokeJsFunctionParamLongArray(j2, this.val$result);
                             this.this$0.freeIfNeeded();
                         }
                     }
@@ -688,9 +688,9 @@ public class JsFunction extends JsReleaser {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long j = this.this$0.mNativeObject.get();
-                        if (j != 0) {
-                            this.this$0.invokeJsFunctionParamFloatArray(j, this.val$result);
+                        long j2 = this.this$0.mNativeObject.get();
+                        if (j2 != 0) {
+                            this.this$0.invokeJsFunctionParamFloatArray(j2, this.val$result);
                             this.this$0.freeIfNeeded();
                         }
                     }
@@ -731,11 +731,11 @@ public class JsFunction extends JsReleaser {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long j = this.this$0.mNativeObject.get();
-                        if (j != 0) {
+                        long j2 = this.this$0.mNativeObject.get();
+                        if (j2 != 0) {
                             JsFunction jsFunction = this.this$0;
                             V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamDoubleArray(j, this.val$result);
+                            this.this$0.invokeJsFunctionParamDoubleArray(j2, this.val$result);
                             this.this$0.freeIfNeeded();
                         }
                     }
@@ -776,11 +776,11 @@ public class JsFunction extends JsReleaser {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long j = this.this$0.mNativeObject.get();
-                        if (j != 0) {
+                        long j2 = this.this$0.mNativeObject.get();
+                        if (j2 != 0) {
                             JsFunction jsFunction = this.this$0;
                             V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamShortArray(j, this.val$result);
+                            this.this$0.invokeJsFunctionParamShortArray(j2, this.val$result);
                             this.this$0.freeIfNeeded();
                         }
                     }
@@ -821,11 +821,11 @@ public class JsFunction extends JsReleaser {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long j = this.this$0.mNativeObject.get();
-                        if (j != 0) {
+                        long j2 = this.this$0.mNativeObject.get();
+                        if (j2 != 0) {
                             JsFunction jsFunction = this.this$0;
                             V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamCharArray(j, this.val$result);
+                            this.this$0.invokeJsFunctionParamCharArray(j2, this.val$result);
                             this.this$0.freeIfNeeded();
                         }
                     }
@@ -866,11 +866,11 @@ public class JsFunction extends JsReleaser {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        long j = this.this$0.mNativeObject.get();
-                        if (j != 0) {
+                        long j2 = this.this$0.mNativeObject.get();
+                        if (j2 != 0) {
                             JsFunction jsFunction = this.this$0;
                             V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                            this.this$0.invokeJsFunctionParamStringArray(j, this.val$result);
+                            this.this$0.invokeJsFunctionParamStringArray(j2, this.val$result);
                             this.this$0.freeIfNeeded();
                         }
                     }

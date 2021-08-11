@@ -1,10 +1,7 @@
 package com.baidu.wallet.lightapp.multipage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,37 +9,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.BaiduWalletServiceProviderMap;
-import com.google.android.material.badge.BadgeDrawable;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes5.dex */
+import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
+import com.baidu.wallet.core.utils.LogUtil;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Vector;
+/* loaded from: classes8.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Set<String> f25915a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Map<String, Map<String, String>> f25916b;
+    /* renamed from: a  reason: collision with root package name */
+    public Collection<Collection<c>> f61823a;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.g$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static g f25917a;
+        public static g f61824a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -58,320 +50,96 @@ public class g {
                     return;
                 }
             }
-            f25917a = new g(null);
+            f61824a = new g(null);
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(36326295, "Lcom/baidu/wallet/lightapp/multipage/g;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(36326295, "Lcom/baidu/wallet/lightapp/multipage/g;");
-                return;
-            }
-        }
-        HashSet hashSet = new HashSet();
-        f25915a = hashSet;
-        hashSet.add("getItem");
-        f25915a.add("setItem");
-        f25915a.add("clear");
-        f25915a.add("key");
-        f25915a.add(CloudStabilityUBCUtils.KEY_LENGTH);
-        f25915a.add("removeItem");
     }
 
     public /* synthetic */ g(AnonymousClass1 anonymousClass1) {
         this();
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public static g a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f25915a.contains(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f61824a : (g) invokeV.objValue;
     }
 
-    private void b() {
+    public void b(Collection<c> collection) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, collection) == null) || collection == null) {
+            return;
         }
+        this.f61823a.remove(collection);
     }
 
-    public void b(String str) {
+    public float c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f25916b.remove(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Runtime runtime = Runtime.getRuntime();
+            float maxMemory = (float) (((runtime.maxMemory() - runtime.totalMemory()) + runtime.freeMemory()) / 1048576);
+            LogUtil.d("LangbridgeRamMonitor", "FreeRam:" + maxMemory);
+            return maxMemory;
         }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            for (Map.Entry<String, Map<String, String>> entry : this.f25916b.entrySet()) {
-                if (entry.getKey().startsWith(str)) {
-                    this.f25916b.remove(entry.getKey());
-                }
-            }
-        }
-    }
-
-    public int d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (this.f25916b.containsKey(str)) {
-                return this.f25916b.get(str).size();
-            }
-            return 0;
-        }
-        return invokeL.intValue;
+        return invokeV.floatValue;
     }
 
     public g() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f25916b = new ConcurrentHashMap();
+        this.f61823a = new Vector();
     }
 
-    public static g a() {
+    public void a(Collection<c> collection) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, collection) == null) || collection == null) {
+            return;
+        }
+        this.f61823a.add(collection);
+    }
+
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f25917a : (g) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i2 = 0;
+            for (Collection<c> collection : this.f61823a) {
+                i2 += collection.size();
+            }
+            LogUtil.d("LangbridgeRamMonitor", "UsingCellCount:" + i2);
+            return i2;
+        }
+        return invokeV.intValue;
     }
 
-    public void b(String str, String str2) {
+    public boolean a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.f25916b.containsKey(str2) && this.f25916b.get(str2).containsKey(str)) {
-            this.f25916b.get(str2).remove(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            LangbridgeSettings a2 = i.a().a(context);
+            boolean z = a2.MW_LANG_CELL_LIMIT == -1 || b() < a2.MW_LANG_CELL_LIMIT;
+            boolean z2 = a2.MW_LANG_RAM_LIMIT == -1.0d || ((double) c()) > a2.MW_LANG_RAM_LIMIT;
+            boolean z3 = z && z2;
+            if (!z3) {
+                String[] strArr = new String[1];
+                StringBuilder sb = new StringBuilder();
+                sb.append(z ? "1" : "0");
+                sb.append(z2 ? "1" : "0");
+                strArr[0] = sb.toString();
+                DXMSdkSAUtils.onEventWithValues("#MW_LRM_NoNewCell", Arrays.asList(strArr));
+            }
+            return z3;
         }
-    }
-
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (this.f25916b.containsKey(str2) && this.f25916b.get(str2).containsKey(str)) {
-                return this.f25916b.get(str2).get(str);
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: java.util.Map<java.lang.String, java.util.Map<java.lang.String, java.lang.String>> */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r5v1, types: [java.lang.Object] */
-    public void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
-            ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
-            ConcurrentHashMap concurrentHashMap2 = new ConcurrentHashMap();
-            for (String str3 : this.f25916b.keySet()) {
-                if (!TextUtils.isEmpty(str3) && str3.startsWith(str)) {
-                    concurrentHashMap2.put(str3, this.f25916b.get(str3));
-                    concurrentHashMap.put(str2 + str3.substring(str3.indexOf(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX) + 1, str3.length()), this.f25916b.get(str3));
-                }
-            }
-            for (String str4 : concurrentHashMap2.keySet()) {
-                this.f25916b.remove(str4);
-            }
-            Iterator it = concurrentHashMap.keySet().iterator();
-            while (it.hasNext()) {
-                String str5 = (String) it.next();
-                if (this.f25916b.containsKey(str5)) {
-                    Map map = (Map) concurrentHashMap.get(str5);
-                    Iterator it2 = map.keySet().iterator();
-                    while (it.hasNext()) {
-                        String str6 = (String) it2.next();
-                        if (!this.f25916b.get(str5).containsKey(str6)) {
-                            this.f25916b.get(str5).put(str6, map.get(str6));
-                        }
-                    }
-                } else {
-                    this.f25916b.put(str5, concurrentHashMap.get(str5));
-                }
-            }
-        }
-    }
-
-    public void a(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
-            if (this.f25916b.containsKey(str3)) {
-                this.f25916b.get(str3).put(str, str2);
-                return;
-            }
-            ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
-            concurrentHashMap.put(str, str2);
-            this.f25916b.put(str3, concurrentHashMap);
-        }
-    }
-
-    public String c(String str, String str2) {
-        int i2;
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            try {
-                i2 = Integer.valueOf(str).intValue();
-            } catch (Exception unused) {
-                i2 = -1;
-            }
-            if (this.f25916b.containsKey(str2)) {
-                Map<String, String> map = this.f25916b.get(str2);
-                String[] strArr = (String[]) map.keySet().toArray(new String[map.keySet().size()]);
-                if (i2 < 0 || i2 >= strArr.length) {
-                    return null;
-                }
-                return strArr[i2];
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public String a(String str, String[] strArr) {
-        InterceptResult invokeLL;
-        char c2;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, strArr)) == null) {
-            b();
-            switch (str.hashCode()) {
-                case -1106363674:
-                    if (str.equals(CloudStabilityUBCUtils.KEY_LENGTH)) {
-                        c2 = 7;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -354615841:
-                    if (str.equals("clear_by_tab")) {
-                        c2 = 6;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -75439223:
-                    if (str.equals("getItem")) {
-                        c2 = 0;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 106079:
-                    if (str.equals("key")) {
-                        c2 = 4;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 94746189:
-                    if (str.equals("clear")) {
-                        c2 = 3;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1098253751:
-                    if (str.equals("removeItem")) {
-                        c2 = 2;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1280882667:
-                    if (str.equals(BaiduWalletServiceProviderMap.PLUGIN_TRNASFER)) {
-                        c2 = 5;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1984670357:
-                    if (str.equals("setItem")) {
-                        c2 = 1;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
-            }
-            switch (c2) {
-                case 0:
-                    if (strArr.length >= 3) {
-                        str2 = a(strArr[0], strArr[2]);
-                        break;
-                    }
-                    str2 = null;
-                    break;
-                case 1:
-                    if (strArr.length >= 3) {
-                        a(strArr[0], strArr[1], strArr[2]);
-                    }
-                    str2 = null;
-                    break;
-                case 2:
-                    if (strArr.length >= 3) {
-                        b(strArr[0], strArr[2]);
-                    }
-                    str2 = null;
-                    break;
-                case 3:
-                    if (strArr.length >= 3) {
-                        b(strArr[2]);
-                    }
-                    str2 = null;
-                    break;
-                case 4:
-                    if (strArr.length >= 3) {
-                        str2 = c(strArr[0], strArr[2]);
-                        break;
-                    }
-                    str2 = null;
-                    break;
-                case 5:
-                    if (strArr.length >= 2) {
-                        d(strArr[0], strArr[1]);
-                    }
-                    str2 = null;
-                    break;
-                case 6:
-                    if (strArr.length >= 1) {
-                        c(strArr[0]);
-                    }
-                    str2 = null;
-                    break;
-                case 7:
-                    if (strArr.length >= 3) {
-                        str2 = "" + d(strArr[2]);
-                        break;
-                    }
-                    str2 = null;
-                    break;
-                default:
-                    str2 = null;
-                    break;
-            }
-            b();
-            return str2;
-        }
-        return (String) invokeLL.objValue;
+        return invokeL.booleanValue;
     }
 }

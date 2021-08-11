@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSetNickNameRequest";
@@ -34,7 +34,7 @@ public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
     public String mKey;
     public String mNickName;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,12 +113,12 @@ public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
         }
     }
 
-    public IMSetNickNameRequest(Context context, String str, long j, boolean z, String str2, String str3, long j2) {
+    public IMSetNickNameRequest(Context context, String str, long j2, boolean z, String str2, String str3, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j), Boolean.valueOf(z), str2, str3, Long.valueOf(j2)};
+            Object[] objArr = {context, str, Long.valueOf(j2), Boolean.valueOf(z), str2, str3, Long.valueOf(j3)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -130,9 +130,9 @@ public class IMSetNickNameRequest extends FansGroupBaseHttpRequest {
         }
         this.mContext = context;
         this.mIsFansGroup = z;
-        this.mAppid = j;
+        this.mAppid = j2;
         this.mKey = str;
-        this.mBuid = j2;
+        this.mBuid = j3;
         this.mGroupId = str2;
         this.mNickName = str3;
     }

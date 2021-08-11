@@ -13,15 +13,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import dalvik.system.DexClassLoader;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<String> f33992a;
+    public static final List<String> f70720a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a extends DexClassLoader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,12 +89,12 @@ public class d {
             }
         }
         ArrayList arrayList = new ArrayList();
-        f33992a = arrayList;
+        f70720a = arrayList;
         arrayList.add("com.kwad.sdk");
-        f33992a.add("com.ksad");
-        f33992a.add("com.kwai");
-        f33992a.add("kwad.support");
-        f33992a.add("android.support.rastermill");
+        f70720a.add("com.ksad");
+        f70720a.add("com.kwai");
+        f70720a.add("kwad.support");
+        f70720a.add("android.support.rastermill");
     }
 
     @NonNull

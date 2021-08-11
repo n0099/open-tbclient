@@ -1,7 +1,6 @@
 package com.baidu.ar.arplay.core.engine3d;
 
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.engine.engine3d.AbstractARPEngine3D;
 import com.baidu.ar.arplay.core.engine.engine3d.IARPCamera;
@@ -19,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class ARPEngine3D extends AbstractARPEngine3D {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +116,6 @@ public class ARPEngine3D extends AbstractARPEngine3D {
         Matrix.invertM(matrixf4x42.getMatrix(), 0, matrixf4x4.getMatrix(), 0);
         IARPNode rootNode = currentScene.getRootNode();
         if (rootNode == null) {
-            Log.e("sceneRotateToCamera", "current scene root node is null!");
             return;
         }
         Vector3f vector3f = new Vector3f(0.0f, -1.0f, 0.0f);

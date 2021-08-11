@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class Anchor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f33138a;
+    public long f69841a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static final class CloudAnchorState {
         public static final /* synthetic */ CloudAnchorState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -53,7 +53,7 @@ public class Anchor {
             }
             NONE = new CloudAnchorState("NONE", 0, 0);
             TASK_IN_PROGRESS = new CloudAnchorState("TASK_IN_PROGRESS", 1, 1);
-            SUCCESS = new CloudAnchorState(com.alipay.security.mobile.module.http.model.c.f2136g, 2, 2);
+            SUCCESS = new CloudAnchorState(com.alipay.security.mobile.module.http.model.c.f35984g, 2, 2);
             ERROR_INTERNAL = new CloudAnchorState("ERROR_INTERNAL", 3, -1);
             ERROR_NOT_AUTHORIZED = new CloudAnchorState("ERROR_NOT_AUTHORIZED", 4, -2);
             ERROR_SERVICE_UNAVAILABLE = new CloudAnchorState("ERROR_SERVICE_UNAVAILABLE", 5, -3);
@@ -138,33 +138,33 @@ public class Anchor {
                 return;
             }
         }
-        this.f33138a = 0L;
+        this.f69841a = 0L;
     }
 
-    private native void nativeDetach(long j, long j2);
+    private native void nativeDetach(long j2, long j3);
 
-    private native String nativeGetCloudAnchorId(long j, long j2);
+    private native String nativeGetCloudAnchorId(long j2, long j3);
 
-    private native int nativeGetCloudAnchorState(long j, long j2);
+    private native int nativeGetCloudAnchorState(long j2, long j3);
 
-    private native d.f.c.a.a nativeGetPose(long j, long j2);
+    private native c.i.c.a.a nativeGetPose(long j2, long j3);
 
-    private native int nativeGetTrackingState(long j, long j2);
+    private native int nativeGetTrackingState(long j2, long j3);
 
-    public static native void nativeReleaseAnchor(long j);
+    public static native void nativeReleaseAnchor(long j2);
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && obj.getClass() == Anchor.class && ((Anchor) obj).f33138a == this.f33138a : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && obj.getClass() == Anchor.class && ((Anchor) obj).f69841a == this.f69841a : invokeL.booleanValue;
     }
 
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j = this.f33138a;
-            if (j != 0) {
-                nativeReleaseAnchor(j);
+            long j2 = this.f69841a;
+            if (j2 != 0) {
+                nativeReleaseAnchor(j2);
             }
             super.finalize();
         }
@@ -173,6 +173,6 @@ public class Anchor {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.f33138a).hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.f69841a).hashCode() : invokeV.intValue;
     }
 }

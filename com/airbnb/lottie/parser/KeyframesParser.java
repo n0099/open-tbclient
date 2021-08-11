@@ -4,7 +4,6 @@ import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.animation.keyframe.PathKeyframe;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.value.Keyframe;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class KeyframesParser {
     public static /* synthetic */ Interceptable $ic;
     public static JsonReader.Options NAMES;
@@ -34,7 +33,7 @@ public class KeyframesParser {
                 return;
             }
         }
-        NAMES = JsonReader.Options.of(Config.APP_KEY);
+        NAMES = JsonReader.Options.of("k");
     }
 
     public KeyframesParser() {

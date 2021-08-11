@@ -14,19 +14,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class c2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39772a;
+    public Context f76612a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Info f39773b;
+    public Info f76613b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f39774c;
+    public Handler f76614c;
 
     public c2() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class c2 {
                 return;
             }
         }
-        this.f39774c = new a2(this);
+        this.f76614c = new a2(this);
     }
 
     public static boolean a(Uri uri) {
@@ -64,8 +64,8 @@ public class c2 {
     public void a(Context context, String str, Info info) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, str, info) == null) {
-            this.f39772a = context;
-            this.f39773b = info;
+            this.f76612a = context;
+            this.f76613b = info;
             WebView webView = new WebView(context);
             WebSettings settings = webView.getSettings();
             settings.setAllowContentAccess(true);
@@ -82,7 +82,7 @@ public class c2 {
             Message obtain = Message.obtain();
             obtain.what = 11;
             obtain.obj = str;
-            this.f39774c.sendMessageDelayed(obtain, 5000L);
+            this.f76614c.sendMessageDelayed(obtain, 5000L);
         }
     }
 }

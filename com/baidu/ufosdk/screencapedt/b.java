@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.f.m;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class b implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ScreenCapEditActivity f23520a;
+    public final /* synthetic */ ScreenCapEditActivity f59250a;
 
     public b(ScreenCapEditActivity screenCapEditActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class b implements View.OnClickListener {
                 return;
             }
         }
-        this.f23520a = screenCapEditActivity;
+        this.f59250a = screenCapEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -41,17 +41,17 @@ public final class b implements View.OnClickListener {
         RelativeLayout relativeLayout2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            ScreenCapEditActivity screenCapEditActivity = this.f23520a;
+            ScreenCapEditActivity screenCapEditActivity = this.f59250a;
             z = screenCapEditActivity.H;
             screenCapEditActivity.H = !z;
-            z2 = this.f23520a.H;
+            z2 = this.f59250a.H;
             if (z2) {
-                relativeLayout2 = this.f23520a.Q;
+                relativeLayout2 = this.f59250a.Q;
                 relativeLayout2.setBackgroundColor(-16777216);
                 return;
             }
-            relativeLayout = this.f23520a.Q;
-            this.f23520a.getApplicationContext();
+            relativeLayout = this.f59250a.Q;
+            this.f59250a.getApplicationContext();
             relativeLayout.setBackgroundDrawable(m.a(-16777216));
         }
     }

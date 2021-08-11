@@ -21,7 +21,6 @@ import com.alibaba.fastjson.util.ASMUtils;
 import com.alibaba.fastjson.util.FieldInfo;
 import com.alibaba.fastjson.util.JavaBeanInfo;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.nps.main.manager.Bundle;
@@ -54,7 +53,7 @@ import java.util.Map;
 import java.util.TreeSet;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ASMDeserializerFactory implements Opcodes {
     public static /* synthetic */ Interceptable $ic;
     public static final String DefaultJSONParser;
@@ -186,8 +185,8 @@ public class ASMDeserializerFactory implements Opcodes {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:136:0x0e4f  */
-    /* JADX WARN: Removed duplicated region for block: B:137:0x0e6e  */
+    /* JADX WARN: Removed duplicated region for block: B:136:0x0e50  */
+    /* JADX WARN: Removed duplicated region for block: B:137:0x0e6f  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1915,7 +1914,7 @@ public class ASMDeserializerFactory implements Opcodes {
                 String str2 = "FastjsonASMDeserializer_" + this.seed.incrementAndGet() + "_" + cls.getSimpleName();
                 Package r1 = ASMDeserializerFactory.class.getPackage();
                 if (r1 != null) {
-                    String str3 = name.replace(IStringUtil.EXTENSION_SEPARATOR, '/') + "/" + str2;
+                    String str3 = name.replace('.', '/') + "/" + str2;
                     str = r1.getName() + "." + str2;
                     str2 = str3;
                 } else {
@@ -1952,7 +1951,7 @@ public class ASMDeserializerFactory implements Opcodes {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class Context {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int fieldName = 3;

@@ -4,7 +4,6 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.arplay.core.engine.ARPEngine;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
@@ -21,7 +20,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class ARPMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INVALID_MESSAGE_ID = -1;
@@ -33,7 +32,7 @@ public class ARPMessage {
     public List<ArCallback> mMsgHandlers;
     public HandlerThread mThread;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public static class ArCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +61,7 @@ public class ARPMessage {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public static class ArMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +92,7 @@ public class ARPMessage {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public interface MessageHandler {
         void handleMessage(int i2, int i3, HashMap<String, Object> hashMap);
     }
@@ -241,7 +240,7 @@ public class ARPMessage {
     public void receiveMsgFromEngine(int i2, int i3, HashMap<String, Object> hashMap, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), hashMap, Integer.valueOf(i4)}) == null) {
-            Log.d("ARPMessage", "receiveMsgFromEngine :" + i2);
+            String str = "receiveMsgFromEngine :" + i2;
             this.mHandler.obtainMessage(1, new ArMessage(i2, i3, hashMap, i4)).sendToTarget();
         }
     }

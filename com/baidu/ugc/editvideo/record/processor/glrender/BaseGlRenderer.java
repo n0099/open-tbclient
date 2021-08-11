@@ -1,15 +1,15 @@
 package com.baidu.ugc.editvideo.record.processor.glrender;
 
+import c.a.v0.t.c;
+import c.a.v0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
-import d.a.w0.t.c;
-import d.a.w0.t.h;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class BaseGlRenderer implements IGlRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

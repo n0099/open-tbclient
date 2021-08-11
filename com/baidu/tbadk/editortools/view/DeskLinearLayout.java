@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class DeskLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f13137e;
+    public View f48142e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13138f;
+    public boolean f48143f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DeskLinearLayout(Context context) {
@@ -46,10 +46,10 @@ public class DeskLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            if (this.f13138f) {
+            if (this.f48143f) {
                 canvas.save();
-                canvas.translate(this.f13137e.getLeft(), this.f13137e.getTop());
-                this.f13137e.draw(canvas);
+                canvas.translate(this.f48142e.getLeft(), this.f48142e.getTop());
+                this.f48142e.draw(canvas);
                 canvas.restore();
             }
         }
@@ -61,12 +61,12 @@ public class DeskLinearLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             View childAt = getChildAt(0);
-            if (this.f13137e == null || childAt == null) {
+            if (this.f48142e == null || childAt == null) {
                 return;
             }
-            int measuredWidth = childAt.getMeasuredWidth() - this.f13137e.getMeasuredWidth();
-            View view = this.f13137e;
-            view.layout(measuredWidth, 0, view.getMeasuredWidth() + measuredWidth, this.f13137e.getMeasuredHeight());
+            int measuredWidth = childAt.getMeasuredWidth() - this.f48142e.getMeasuredWidth();
+            View view = this.f48142e;
+            view.layout(measuredWidth, 0, view.getMeasuredWidth() + measuredWidth, this.f48142e.getMeasuredHeight());
         }
     }
 
@@ -75,9 +75,9 @@ public class DeskLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            View view = this.f13137e;
+            View view = this.f48142e;
             if (view != null) {
-                this.f13137e.measure(LinearLayout.getChildMeasureSpec(i2, 0, view.getLayoutParams().width), LinearLayout.getChildMeasureSpec(i3, 0, this.f13137e.getLayoutParams().height));
+                this.f48142e.measure(LinearLayout.getChildMeasureSpec(i2, 0, view.getLayoutParams().width), LinearLayout.getChildMeasureSpec(i3, 0, this.f48142e.getLayoutParams().height));
             }
         }
     }
@@ -85,14 +85,14 @@ public class DeskLinearLayout extends LinearLayout {
     public void setNewView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            this.f13137e = view;
+            this.f48142e = view;
         }
     }
 
     public void setNewViewVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f13138f = z;
+            this.f48143f = z;
             invalidate();
         }
     }

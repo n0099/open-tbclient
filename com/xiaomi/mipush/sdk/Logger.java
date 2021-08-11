@@ -10,12 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
 import com.xiaomi.push.de;
 import com.xiaomi.push.df;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class Logger {
     public static /* synthetic */ Interceptable $ic;
     public static boolean sDisablePushLog;
@@ -91,7 +90,7 @@ public class Logger {
                 String[] strArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 4096).requestedPermissions;
                 if (strArr != null) {
                     for (String str : strArr) {
-                        if (StorageUtils.EXTERNAL_STORAGE_PERMISSION.equals(str)) {
+                        if ("android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) {
                             return true;
                         }
                     }

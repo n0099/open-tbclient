@@ -12,7 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class BaseException extends Exception implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<BaseException> CREATOR;
@@ -22,7 +23,7 @@ public class BaseException extends Exception implements Parcelable {
     public String errorMsg;
     public String extraInfo;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a implements Parcelable.Creator<BaseException> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,7 +149,7 @@ public class BaseException extends Exception implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "BaseException{errorCode=" + this.errorCode + ", errorMsg='" + this.errorMsg + "'}";
+            return "BaseException{errorCode=" + this.errorCode + ", errorMsg='" + this.errorMsg + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
@@ -188,7 +189,7 @@ public class BaseException extends Exception implements Parcelable {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BaseException(int i2, Throwable th) {
-        this(i2, d.l.a.e.b.l.f.a1(th));
+        this(i2, c.p.a.e.b.l.f.a1(th));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

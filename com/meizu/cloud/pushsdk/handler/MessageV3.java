@@ -13,9 +13,10 @@ import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class MessageV3 implements Parcelable {
     public static final Parcelable.Creator<MessageV3> CREATOR = new Parcelable.Creator<MessageV3>() { // from class: com.meizu.cloud.pushsdk.handler.MessageV3.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -97,7 +98,7 @@ public class MessageV3 implements Parcelable {
     }
 
     public static MessageV3 parse(String str, String str2, String str3, MPushMessage mPushMessage) {
-        d.h.a.a.a.b(TAG, "V2 message " + mPushMessage);
+        c.l.a.a.a.b(TAG, "V2 message " + mPushMessage);
         MessageV3 messageV3 = new MessageV3();
         messageV3.setPackageName(str);
         messageV3.setUploadDataPackageName(str);
@@ -134,11 +135,11 @@ public class MessageV3 implements Parcelable {
         }
         messageV3.setParamsMap(mPushMessage.getParams());
         String jSONObject = e.a((Map) mPushMessage.getExtra()).toString();
-        d.h.a.a.a.b(TAG, "MessageV2 extra json is " + jSONObject);
+        c.l.a.a.a.b(TAG, "MessageV2 extra json is " + jSONObject);
         if (!TextUtils.isEmpty(jSONObject)) {
             messageV3.setNotificationMessage(jSONObject);
         }
-        d.h.a.a.a.d(TAG, "parase V2 message to V3 message " + messageV3);
+        c.l.a.a.a.d(TAG, "parase V2 message to V3 message " + messageV3);
         return messageV3;
     }
 
@@ -183,7 +184,7 @@ public class MessageV3 implements Parcelable {
                     messageV3.setWebUrl(jSONObject2.getString("url"));
                 }
                 if (!jSONObject2.isNull("task_id") && TextUtils.isEmpty(str3)) {
-                    d.h.a.a.a.b(TAG, "Flyme 4 notification message by through message or taskId is null");
+                    c.l.a.a.a.b(TAG, "Flyme 4 notification message by through message or taskId is null");
                     messageV3.setTaskId(jSONObject2.getString("task_id"));
                 }
                 if (!jSONObject2.isNull("pk")) {
@@ -194,7 +195,7 @@ public class MessageV3 implements Parcelable {
                 }
             }
         } catch (JSONException e2) {
-            d.h.a.a.a.b(TAG, "parse message error " + e2.getMessage());
+            c.l.a.a.a.b(TAG, "parse message error " + e2.getMessage());
         }
         return messageV3;
     }
@@ -378,7 +379,7 @@ public class MessageV3 implements Parcelable {
     }
 
     public String toString() {
-        return "MessageV3{taskId='" + this.taskId + "', seqId='" + this.seqId + "', deviceId='" + this.deviceId + "', title='" + this.title + "', content='" + this.content + "', packageName='" + this.packageName + "', clickType=" + this.clickType + ", isDiscard=" + this.isDiscard + ", activity='" + this.activity + "', webUrl='" + this.webUrl + "', uriPackageName='" + this.uriPackageName + "', pushTimestamp='" + this.pushTimestamp + "', uploadDataPackageName='" + this.uploadDataPackageName + "', paramsMap=" + this.paramsMap + ", throughMessage='" + this.throughMessage + "', notificationMessage='" + this.notificationMessage + "', mAdvanceSetting=" + this.mAdvanceSetting + ", mAppIconSetting=" + this.mAppIconSetting + ", mNotificationStyle=" + this.mNotificationStyle + ", mTimeDisplaySetting=" + this.mTimeDisplaySetting + '}';
+        return "MessageV3{taskId='" + this.taskId + ExtendedMessageFormat.QUOTE + ", seqId='" + this.seqId + ExtendedMessageFormat.QUOTE + ", deviceId='" + this.deviceId + ExtendedMessageFormat.QUOTE + ", title='" + this.title + ExtendedMessageFormat.QUOTE + ", content='" + this.content + ExtendedMessageFormat.QUOTE + ", packageName='" + this.packageName + ExtendedMessageFormat.QUOTE + ", clickType=" + this.clickType + ", isDiscard=" + this.isDiscard + ", activity='" + this.activity + ExtendedMessageFormat.QUOTE + ", webUrl='" + this.webUrl + ExtendedMessageFormat.QUOTE + ", uriPackageName='" + this.uriPackageName + ExtendedMessageFormat.QUOTE + ", pushTimestamp='" + this.pushTimestamp + ExtendedMessageFormat.QUOTE + ", uploadDataPackageName='" + this.uploadDataPackageName + ExtendedMessageFormat.QUOTE + ", paramsMap=" + this.paramsMap + ", throughMessage='" + this.throughMessage + ExtendedMessageFormat.QUOTE + ", notificationMessage='" + this.notificationMessage + ExtendedMessageFormat.QUOTE + ", mAdvanceSetting=" + this.mAdvanceSetting + ", mAppIconSetting=" + this.mAppIconSetting + ", mNotificationStyle=" + this.mNotificationStyle + ", mTimeDisplaySetting=" + this.mTimeDisplaySetting + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable

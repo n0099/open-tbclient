@@ -7,7 +7,6 @@ import android.os.Looper;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,38 +27,40 @@ import com.bytedance.sdk.openadsdk.core.t;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class j implements TTFullScreenVideoAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f29647a;
+    public final Context f65533a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final m f29648b;
+    public final m f65534b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AdSlot f29649c;
+    public final AdSlot f65535c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TTFullScreenVideoAd.FullScreenVideoAdInteractionListener f29650d;
+    public TTFullScreenVideoAd.FullScreenVideoAdInteractionListener f65536d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.downloadnew.core.a f29651e;
+    public com.bytedance.sdk.openadsdk.downloadnew.core.a f65537e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f29652f;
+    public boolean f65538f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f29653g;
+    public boolean f65539g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f29654h;
+    public String f65540h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f29655i;
-    public AtomicBoolean j;
+    public String f65541i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public AtomicBoolean f65542j;
     public boolean k;
     public String l;
 
@@ -78,17 +79,17 @@ public class j implements TTFullScreenVideoAd {
                 return;
             }
         }
-        this.f29652f = true;
-        this.j = new AtomicBoolean(false);
+        this.f65538f = true;
+        this.f65542j = new AtomicBoolean(false);
         this.k = false;
-        this.f29647a = context;
-        this.f29648b = mVar;
-        this.f29649c = adSlot;
+        this.f65533a = context;
+        this.f65534b = mVar;
+        this.f65535c = adSlot;
         if (getInteractionType() == 4) {
-            this.f29651e = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f29647a, this.f29648b, "fullscreen_interstitial_ad");
+            this.f65537e = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f65533a, this.f65534b, "fullscreen_interstitial_ad");
         }
-        this.f29653g = false;
-        this.l = com.bytedance.sdk.component.utils.e.a(this.f29648b.hashCode() + this.f29648b.aP().toString());
+        this.f65539g = false;
+        this.l = com.bytedance.sdk.component.utils.e.a(this.f65534b.hashCode() + this.f65534b.aP().toString());
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd
@@ -96,14 +97,14 @@ public class j implements TTFullScreenVideoAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            m mVar = this.f29648b;
+            m mVar = this.f65534b;
             if (mVar == null) {
                 return -1;
             }
             if (o.j(mVar)) {
                 return 2;
             }
-            return o.k(this.f29648b) ? 1 : 0;
+            return o.k(this.f65534b) ? 1 : 0;
         }
         return invokeV.intValue;
     }
@@ -113,7 +114,7 @@ public class j implements TTFullScreenVideoAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            m mVar = this.f29648b;
+            m mVar = this.f65534b;
             if (mVar == null) {
                 return -1;
             }
@@ -127,7 +128,7 @@ public class j implements TTFullScreenVideoAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            m mVar = this.f29648b;
+            m mVar = this.f65534b;
             if (mVar != null) {
                 return mVar.av();
             }
@@ -140,7 +141,7 @@ public class j implements TTFullScreenVideoAd {
     public void setDownloadListener(TTAppDownloadListener tTAppDownloadListener) {
         com.bytedance.sdk.openadsdk.downloadnew.core.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, tTAppDownloadListener) == null) || (aVar = this.f29651e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, tTAppDownloadListener) == null) || (aVar = this.f65537e) == null) {
             return;
         }
         aVar.a(tTAppDownloadListener);
@@ -150,7 +151,7 @@ public class j implements TTFullScreenVideoAd {
     public void setFullScreenVideoAdInteractionListener(TTFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, fullScreenVideoAdInteractionListener) == null) {
-            this.f29650d = fullScreenVideoAdInteractionListener;
+            this.f65536d = fullScreenVideoAdInteractionListener;
             a(1);
         }
     }
@@ -159,7 +160,7 @@ public class j implements TTFullScreenVideoAd {
     public void setShowDownLoadBar(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f29652f = z;
+            this.f65538f = z;
         }
     }
 
@@ -173,53 +174,53 @@ public class j implements TTFullScreenVideoAd {
                 activity = null;
             }
             if (Looper.getMainLooper() == Looper.myLooper()) {
-                if (this.j.get()) {
+                if (this.f65542j.get()) {
                     return;
                 }
-                this.j.set(true);
-                m mVar = this.f29648b;
+                this.f65542j.set(true);
+                m mVar = this.f65534b;
                 if (mVar != null) {
-                    if (mVar.V() == null && this.f29648b.ad() == null) {
+                    if (mVar.V() == null && this.f65534b.ad() == null) {
                         return;
                     }
-                    Context context = activity == null ? this.f29647a : activity;
+                    Context context = activity == null ? this.f65533a : activity;
                     if (context == null) {
                         context = com.bytedance.sdk.openadsdk.core.o.a();
                     }
-                    if (this.f29648b.d() == 2) {
+                    if (this.f65534b.d() == 2) {
                         intent = new Intent(context, TTFullScreenExpressVideoActivity.class);
                     } else {
                         intent = new Intent(context, TTFullScreenVideoActivity.class);
                     }
                     if (activity == null) {
-                        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                        intent.addFlags(268435456);
                     }
-                    intent.putExtra("show_download_bar", this.f29652f);
-                    intent.putExtra("orientation", this.f29649c.getOrientation());
+                    intent.putExtra("show_download_bar", this.f65538f);
+                    intent.putExtra("orientation", this.f65535c.getOrientation());
                     intent.putExtra("is_verity_playable", this.k);
-                    if (!TextUtils.isEmpty(this.f29655i)) {
-                        intent.putExtra("rit_scene", this.f29655i);
+                    if (!TextUtils.isEmpty(this.f65541i)) {
+                        intent.putExtra("rit_scene", this.f65541i);
                     }
-                    if (this.f29653g) {
-                        intent.putExtra("video_cache_url", this.f29654h);
+                    if (this.f65539g) {
+                        intent.putExtra("video_cache_url", this.f65540h);
                     }
-                    com.bytedance.sdk.openadsdk.q.e.e(this.f29648b.aP().toString());
+                    com.bytedance.sdk.openadsdk.q.e.e(this.f65534b.aP().toString());
                     if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                        intent.putExtra(TTAdConstant.MULTI_PROCESS_MATERIALMETA, this.f29648b.aP().toString());
+                        intent.putExtra(TTAdConstant.MULTI_PROCESS_MATERIALMETA, this.f65534b.aP().toString());
                         intent.putExtra("multi_process_meta_md5", this.l);
                     } else {
                         t.a().g();
-                        t.a().a(this.f29648b);
-                        t.a().a(this.f29650d);
-                        t.a().a(this.f29651e);
-                        this.f29650d = null;
+                        t.a().a(this.f65534b);
+                        t.a().a(this.f65536d);
+                        t.a().a(this.f65537e);
+                        this.f65536d = null;
                     }
                     com.bytedance.sdk.component.utils.b.a(context, intent, new b.a(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.j.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ j f29656a;
+                        public final /* synthetic */ j f65543a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -236,15 +237,15 @@ public class j implements TTFullScreenVideoAd {
                                     return;
                                 }
                             }
-                            this.f29656a = this;
+                            this.f65543a = this;
                         }
 
                         @Override // com.bytedance.sdk.component.utils.b.a
                         public void a() {
                             Interceptable interceptable2 = $ic;
-                            if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f29656a.k) {
+                            if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f65543a.k) {
                                 try {
-                                    com.bytedance.sdk.openadsdk.j.a.a().a(this.f29656a.f29648b.V().j());
+                                    com.bytedance.sdk.openadsdk.j.a.a().a(this.f65543a.f65534b.V().j());
                                 } catch (Throwable unused) {
                                 }
                             }
@@ -255,27 +256,27 @@ public class j implements TTFullScreenVideoAd {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
                                 com.bytedance.sdk.component.utils.k.c("TTFullScreenVideoAdImpl", "show full screen video error: ", th);
-                                if (this.f29656a.k) {
+                                if (this.f65543a.k) {
                                     try {
-                                        com.bytedance.sdk.openadsdk.j.a.a().a(this.f29656a.f29648b.V().j(), -1, th != null ? th.getMessage() : "playable tool error open");
+                                        com.bytedance.sdk.openadsdk.j.a.a().a(this.f65543a.f65534b.V().j(), -1, th != null ? th.getMessage() : "playable tool error open");
                                     } catch (Throwable unused) {
                                     }
                                 }
                             }
                         }
                     });
-                    if (TextUtils.isEmpty(this.f29648b.ao())) {
+                    if (TextUtils.isEmpty(this.f65534b.ao())) {
                         return;
                     }
                     try {
-                        String optString = new JSONObject(this.f29648b.ao()).optString("rit", null);
-                        AdSlot b2 = c.a(this.f29647a).b(optString);
-                        c.a(this.f29647a).a(optString);
+                        String optString = new JSONObject(this.f65534b.ao()).optString("rit", null);
+                        AdSlot b2 = c.a(this.f65533a).b(optString);
+                        c.a(this.f65533a).a(optString);
                         if (b2 != null) {
-                            if (this.f29653g && !TextUtils.isEmpty(this.f29654h)) {
-                                c.a(this.f29647a).b(b2);
+                            if (this.f65539g && !TextUtils.isEmpty(this.f65540h)) {
+                                c.a(this.f65533a).b(b2);
                             } else {
-                                c.a(this.f29647a).a(b2);
+                                c.a(this.f65533a).a(b2);
                             }
                         }
                         return;
@@ -299,11 +300,11 @@ public class j implements TTFullScreenVideoAd {
 
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.j.get()) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f65542j.get()) {
             return;
         }
-        this.f29653g = true;
-        this.f29654h = str;
+        this.f65539g = true;
+        this.f65540h = str;
     }
 
     private void a(int i2) {
@@ -314,10 +315,10 @@ public class j implements TTFullScreenVideoAd {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f29657a;
+                public final /* synthetic */ int f65544a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ j f29658b;
+                public final /* synthetic */ j f65545b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -337,22 +338,22 @@ public class j implements TTFullScreenVideoAd {
                             return;
                         }
                     }
-                    this.f29658b = this;
-                    this.f29657a = i2;
+                    this.f65545b = this;
+                    this.f65544a = i2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.bytedance.sdk.openadsdk.multipro.aidl.a a2 = com.bytedance.sdk.openadsdk.multipro.aidl.a.a(this.f29658b.f29647a);
-                        if (this.f29657a == 1 && this.f29658b.f29650d != null) {
+                        com.bytedance.sdk.openadsdk.multipro.aidl.a a2 = com.bytedance.sdk.openadsdk.multipro.aidl.a.a(this.f65545b.f65533a);
+                        if (this.f65544a == 1 && this.f65545b.f65536d != null) {
                             com.bytedance.sdk.component.utils.k.b("MultiProcess", "start registerFullScreenVideoListener ! ");
-                            com.bytedance.sdk.openadsdk.multipro.aidl.b.c cVar = new com.bytedance.sdk.openadsdk.multipro.aidl.b.c(this.f29658b.f29650d);
+                            com.bytedance.sdk.openadsdk.multipro.aidl.b.c cVar = new com.bytedance.sdk.openadsdk.multipro.aidl.b.c(this.f65545b.f65536d);
                             IListenerManager asInterface = IListenerManager.Stub.asInterface(a2.a(1));
                             if (asInterface != null) {
                                 try {
-                                    asInterface.registerFullVideoListener(this.f29658b.l, cVar);
+                                    asInterface.registerFullVideoListener(this.f65545b.l, cVar);
                                     com.bytedance.sdk.component.utils.k.b("MultiProcess", "end registerFullScreenVideoListener ! ");
                                 } catch (RemoteException e2) {
                                     e2.printStackTrace();
@@ -374,9 +375,9 @@ public class j implements TTFullScreenVideoAd {
                 return;
             }
             if (ritScenes == TTAdConstant.RitScenes.CUSTOMIZE_SCENES) {
-                this.f29655i = str;
+                this.f65541i = str;
             } else {
-                this.f29655i = ritScenes.getScenesName();
+                this.f65541i = ritScenes.getScenesName();
             }
             showFullScreenVideoAd(activity);
         }

@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ScanLoadingView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TBLottieAnimationView f20598e;
+    public TBLottieAnimationView f55986e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ScanLoadingView(Context context) {
@@ -44,10 +44,24 @@ public class ScanLoadingView extends LinearLayout {
         }
     }
 
-    public void a() {
+    public final void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TBLottieAnimationView tBLottieAnimationView = this.f20598e;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.layout_scan_loading, (ViewGroup) this, true);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.loading_anim);
+            this.f55986e = tBLottieAnimationView;
+            tBLottieAnimationView.loop(true);
+            this.f55986e.setFrame(0);
+            SkinManager.setLottieAnimation(this.f55986e, R.raw.scan_refresh);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.loading_text), R.color.CAM_X0108, 1);
+            setVisibility(8);
+        }
+    }
+
+    public void hideLoading() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TBLottieAnimationView tBLottieAnimationView = this.f55986e;
             if (tBLottieAnimationView != null) {
                 tBLottieAnimationView.cancelAnimation();
             }
@@ -55,30 +69,16 @@ public class ScanLoadingView extends LinearLayout {
         }
     }
 
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.layout_scan_loading, (ViewGroup) this, true);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.loading_anim);
-            this.f20598e = tBLottieAnimationView;
-            tBLottieAnimationView.loop(true);
-            this.f20598e.setFrame(0);
-            SkinManager.setLottieAnimation(this.f20598e, R.raw.scan_refresh);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.loading_text), R.color.CAM_X0108, 1);
-            setVisibility(8);
-        }
-    }
-
-    public void c() {
+    public void showLoading() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setVisibility(0);
-            TBLottieAnimationView tBLottieAnimationView = this.f20598e;
+            TBLottieAnimationView tBLottieAnimationView = this.f55986e;
             if (tBLottieAnimationView != null) {
                 if (tBLottieAnimationView.isAnimating()) {
-                    this.f20598e.cancelAnimation();
+                    this.f55986e.cancelAnimation();
                 }
-                this.f20598e.playAnimation();
+                this.f55986e.playAnimation();
             }
         }
     }
@@ -123,6 +123,6 @@ public class ScanLoadingView extends LinearLayout {
                 return;
             }
         }
-        b(context);
+        a(context);
     }
 }

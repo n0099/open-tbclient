@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Asc f10527a;
+    public static Asc f45211a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public final class g {
                 return;
             }
         }
-        f10527a = new Asc();
+        f45211a = new Asc();
     }
 
     public static byte[] a(byte[] bArr, byte[] bArr2, boolean z) {
@@ -44,11 +44,11 @@ public final class g {
                     c.a();
                 }
                 if (bArr.length > 0 && bArr2 != null && bArr2.length > 0) {
-                    if (f10527a != null) {
+                    if (f45211a != null) {
                         if (z) {
-                            acn = f10527a.ac(bArr2, bArr);
+                            acn = f45211a.ac(bArr2, bArr);
                         } else {
-                            acn = f10527a.acn(bArr2, bArr);
+                            acn = f45211a.acn(bArr2, bArr);
                         }
                         if (acn != null && acn.length > 0) {
                             return acn;
@@ -73,7 +73,7 @@ public final class g {
                     c.a();
                 }
                 if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                    if (f10527a != null && (ar = f10527a.ar(bArr, bArr2)) != null && ar.length > 0) {
+                    if (f45211a != null && (ar = f45211a.ar(bArr, bArr2)) != null && ar.length > 0) {
                         return ar;
                     }
                     return new byte[0];
@@ -95,7 +95,7 @@ public final class g {
                     c.a();
                 }
                 if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                    if (f10527a != null && (dr = f10527a.dr(bArr, bArr2)) != null && dr.length > 0) {
+                    if (f45211a != null && (dr = f45211a.dr(bArr, bArr2)) != null && dr.length > 0) {
                         return dr;
                     }
                     return new byte[0];
@@ -117,7 +117,7 @@ public final class g {
                     c.a();
                 }
                 if (bArr.length > 0 && bArr2 != null && bArr2.length > 0) {
-                    if (f10527a != null && (dc = f10527a.dc(bArr2, bArr)) != null && dc.length > 0) {
+                    if (f45211a != null && (dc = f45211a.dc(bArr2, bArr)) != null && dc.length > 0) {
                         return dc;
                     }
                     return new byte[0];
@@ -134,8 +134,8 @@ public final class g {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, file, file2, bArr)) == null) {
             if (bArr != null) {
                 try {
-                    if (bArr.length > 0 && file != null && file2 != null && f10527a != null) {
-                        return f10527a.df(file.getAbsolutePath(), file2.getAbsolutePath(), bArr);
+                    if (bArr.length > 0 && file != null && file2 != null && f45211a != null) {
+                        return f45211a.df(file.getAbsolutePath(), file2.getAbsolutePath(), bArr);
                     }
                 } catch (Throwable unused) {
                     c.a();

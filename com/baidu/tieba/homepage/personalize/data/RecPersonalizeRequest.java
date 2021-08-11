@@ -1,6 +1,12 @@
 package com.baidu.tieba.homepage.personalize.data;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.j;
+import c.a.e.e.p.l;
+import c.a.o0.b1.w;
+import c.a.o0.s.q.g1;
+import c.a.p0.x2.j0.a;
+import c.a.p0.x2.l0.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
@@ -13,15 +19,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
-import d.a.d.e.p.l;
-import d.a.p0.b1.w;
-import d.a.p0.s.q.f1;
-import d.a.q0.w2.g0.a;
-import d.a.q0.w2.i0.b;
 import tbclient.Personalized.DataReq;
 import tbclient.Personalized.PersonalizedReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RecPersonalizeRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOAD_TYPE_LOAD_MORE = 2;
@@ -85,11 +85,11 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.ad_context_list = b.f().d("NEWINDEX");
             builder.app_pos = a.e().c();
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
-                f1 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
-                builder.from_tid = Long.valueOf(d.a.d.e.m.b.f(pbToHomeUpdateData.f53320a, 0L));
-                builder.query_eqid = pbToHomeUpdateData.f53321b;
-                builder.first_dir = pbToHomeUpdateData.f53322c;
-                builder.second_dir = pbToHomeUpdateData.f53323d;
+                g1 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
+                builder.from_tid = Long.valueOf(c.a.e.e.m.b.f(pbToHomeUpdateData.f13936a, 0L));
+                builder.query_eqid = pbToHomeUpdateData.f13937b;
+                builder.first_dir = pbToHomeUpdateData.f13938c;
+                builder.second_dir = pbToHomeUpdateData.f13939d;
                 TbSingleton.getInstance().setPbToHomeUpdateData(null);
             }
             AdExtParam.a b2 = AdExtParam.a.b();

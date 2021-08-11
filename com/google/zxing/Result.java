@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.EnumMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class Result {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -130,13 +130,13 @@ public final class Result {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public Result(String str, byte[] bArr, ResultPoint[] resultPointArr, BarcodeFormat barcodeFormat, long j) {
-        this(str, bArr, bArr == null ? 0 : bArr.length * 8, resultPointArr, barcodeFormat, j);
+    public Result(String str, byte[] bArr, ResultPoint[] resultPointArr, BarcodeFormat barcodeFormat, long j2) {
+        this(str, bArr, bArr == null ? 0 : bArr.length * 8, resultPointArr, barcodeFormat, j2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, bArr, resultPointArr, barcodeFormat, Long.valueOf(j)};
+            Object[] objArr = {str, bArr, resultPointArr, barcodeFormat, Long.valueOf(j2)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -150,12 +150,12 @@ public final class Result {
         }
     }
 
-    public Result(String str, byte[] bArr, int i2, ResultPoint[] resultPointArr, BarcodeFormat barcodeFormat, long j) {
+    public Result(String str, byte[] bArr, int i2, ResultPoint[] resultPointArr, BarcodeFormat barcodeFormat, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, bArr, Integer.valueOf(i2), resultPointArr, barcodeFormat, Long.valueOf(j)};
+            Object[] objArr = {str, bArr, Integer.valueOf(i2), resultPointArr, barcodeFormat, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -171,6 +171,6 @@ public final class Result {
         this.resultPoints = resultPointArr;
         this.format = barcodeFormat;
         this.resultMetadata = null;
-        this.timestamp = j;
+        this.timestamp = j2;
     }
 }

@@ -20,19 +20,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMPaGetQuickReplies extends PaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String mKey;
     public long mPaid;
 
-    public IMPaGetQuickReplies(Context context, long j, String str) {
+    public IMPaGetQuickReplies(Context context, long j2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), str};
+            Object[] objArr = {context, Long.valueOf(j2), str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -43,7 +43,7 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mPaid = j;
+        this.mPaid = j2;
         this.mKey = str;
     }
 

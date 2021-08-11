@@ -1,20 +1,20 @@
 package com.baidu.wallet.base.nopassauth;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f24273a = 0;
+    public static final int f59942a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f24274b = 1;
+    public static final int f59943b = 1;
 
     int a();
 
     String a(Context context);
 
-    void a(long j);
+    void a(long j2);
 
     long b();
 

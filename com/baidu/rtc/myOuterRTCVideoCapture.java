@@ -1,7 +1,6 @@
 package com.baidu.rtc;
 
 import android.os.SystemClock;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.RTCVideoCapture;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class myOuterRTCVideoCapture extends RTCVideoCapture {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +124,6 @@ public class myOuterRTCVideoCapture extends RTCVideoCapture {
     public void startCapture(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048581, this, i2, i3, i4) == null) {
-            Log.e("selfVideoCapture", "startCapture.");
             this.timer.schedule(this.tickTask, 0L, 66L);
         }
     }

@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.q;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f35296a;
+    public String f72051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35297b;
+    public String f72052b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35298c;
+    public String f72053c;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public class b implements com.kwad.sdk.core.b {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f35296a = jSONObject.optString("action");
-        this.f35297b = jSONObject.optString("data");
-        this.f35298c = jSONObject.optString("callback");
+        this.f72051a = jSONObject.optString("action");
+        this.f72052b = jSONObject.optString("data");
+        this.f72053c = jSONObject.optString("callback");
     }
 
     @Override // com.kwad.sdk.core.b
@@ -54,9 +54,9 @@ public class b implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "action", this.f35296a);
-            q.a(jSONObject, "data", this.f35297b);
-            q.a(jSONObject, "callback", this.f35298c);
+            q.a(jSONObject, "action", this.f72051a);
+            q.a(jSONObject, "data", this.f72052b);
+            q.a(jSONObject, "callback", this.f72053c);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class DefaultConfig implements IIMConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TOKEN_SEPARATOR = ".";
@@ -77,10 +77,10 @@ public class DefaultConfig implements IIMConfig {
     }
 
     @Override // com.baidu.android.imsdk.internal.IIMConfig
-    public String getPaidCondition(String str, String str2, long j) {
+    public String getPaidCondition(String str, String str2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Long.valueOf(j)})) == null) ? str : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Long.valueOf(j2)})) == null) ? str : (String) invokeCommon.objValue;
     }
 
     @Override // com.baidu.android.imsdk.internal.IIMConfig

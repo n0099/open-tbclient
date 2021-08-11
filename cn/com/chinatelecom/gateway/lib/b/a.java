@@ -13,7 +13,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +58,7 @@ public class a {
                                         break;
                                     }
                                     sb.append(readLine);
-                                    sb.append("\n");
+                                    sb.append(StringUtils.LF);
                                 } catch (Throwable th2) {
                                     th = th2;
                                     bufferedReader = bufferedReader2;

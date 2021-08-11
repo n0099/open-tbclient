@@ -9,8 +9,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CouponDiscountInfo;
 import java.util.List;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class CouponDiscountResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +53,7 @@ public class CouponDiscountResult {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "CouponDiscountResult{userCouponId=" + this.userCouponId + ", discountList=" + this.discountList + '}';
+            return "CouponDiscountResult{userCouponId=" + this.userCouponId + ", discountList=" + this.discountList + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

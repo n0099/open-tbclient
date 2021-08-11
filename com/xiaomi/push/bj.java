@@ -7,18 +7,18 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class bj {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f40172a;
+    public static final String f77023a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static byte[] f156a;
+    public static byte[] f160a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static char[] f157a;
+    public static char[] f161a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,34 +34,34 @@ public class bj {
                 return;
             }
         }
-        f40172a = System.getProperty("line.separator");
-        f157a = new char[64];
+        f77023a = System.getProperty("line.separator");
+        f161a = new char[64];
         char c2 = 'A';
         int i2 = 0;
         while (c2 <= 'Z') {
-            f157a[i2] = c2;
+            f161a[i2] = c2;
             c2 = (char) (c2 + 1);
             i2++;
         }
         char c3 = 'a';
         while (c3 <= 'z') {
-            f157a[i2] = c3;
+            f161a[i2] = c3;
             c3 = (char) (c3 + 1);
             i2++;
         }
         char c4 = '0';
         while (c4 <= '9') {
-            f157a[i2] = c4;
+            f161a[i2] = c4;
             c4 = (char) (c4 + 1);
             i2++;
         }
-        char[] cArr = f157a;
+        char[] cArr = f161a;
         cArr[i2] = '+';
         cArr[i2 + 1] = '/';
-        f156a = new byte[128];
+        f160a = new byte[128];
         int i3 = 0;
         while (true) {
-            byte[] bArr = f156a;
+            byte[] bArr = f160a;
             if (i3 >= bArr.length) {
                 break;
             }
@@ -69,7 +69,7 @@ public class bj {
             i3++;
         }
         for (int i4 = 0; i4 < 64; i4++) {
-            f156a[f157a[i4]] = (byte) i4;
+            f160a[f161a[i4]] = (byte) i4;
         }
     }
 
@@ -80,7 +80,7 @@ public class bj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m180a(String str) {
+    public static byte[] m183a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(str.toCharArray()) : (byte[]) invokeL.objValue;
@@ -130,7 +130,7 @@ public class bj {
                     if (c4 > 127 || c5 > 127 || c2 > 127 || c3 > 127) {
                         throw new IllegalArgumentException("Illegal character in Base64 encoded data.");
                     }
-                    byte[] bArr2 = f156a;
+                    byte[] bArr2 = f160a;
                     byte b2 = bArr2[c4];
                     byte b3 = bArr2[c5];
                     byte b4 = bArr2[c2];
@@ -200,15 +200,15 @@ public class bj {
                 int i14 = ((i5 & 15) << 2) | (i6 >>> 6);
                 int i15 = i6 & 63;
                 int i16 = i9 + 1;
-                char[] cArr2 = f157a;
+                char[] cArr2 = f161a;
                 cArr[i9] = cArr2[i12];
                 int i17 = i16 + 1;
                 cArr[i16] = cArr2[i13];
-                char c2 = com.alipay.sdk.encrypt.a.f1923h;
-                cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f1923h;
+                char c2 = com.alipay.sdk.encrypt.a.f35773h;
+                cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f35773h;
                 int i18 = i17 + 1;
                 if (i18 < i7) {
-                    c2 = f157a[i15];
+                    c2 = f161a[i15];
                 }
                 cArr[i18] = c2;
                 i9 = i18 + 1;
@@ -222,6 +222,6 @@ public class bj {
     public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? new String(m180a(str)) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? new String(m183a(str)) : (String) invokeL.objValue;
     }
 }

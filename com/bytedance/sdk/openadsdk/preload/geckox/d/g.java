@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.b.k;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class g extends k<UpdatePackage, Pair<Uri, UpdatePackage>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f32401d;
+    public int f68362d;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class g extends k<UpdatePackage, Pair<Uri, UpdatePackage>> {
                 return;
             }
         }
-        this.f32401d = 0;
+        this.f68362d = 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,8 +44,8 @@ public class g extends k<UpdatePackage, Pair<Uri, UpdatePackage>> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             UpdatePackage g2 = g();
             List<String> urlList = g2.getFullPackage().getUrlList();
-            int i2 = this.f32401d;
-            this.f32401d = i2 + 1;
+            int i2 = this.f68362d;
+            this.f68362d = i2 + 1;
             return new Pair<>(Uri.parse(urlList.get(i2)), g2);
         }
         return (Pair) invokeV.objValue;
@@ -57,7 +57,7 @@ public class g extends k<UpdatePackage, Pair<Uri, UpdatePackage>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) {
             com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "full update failed and retry", th);
-            if (this.f32401d >= g().getFullPackage().getUrlList().size()) {
+            if (this.f68362d >= g().getFullPackage().getUrlList().size()) {
                 return false;
             }
             return (th instanceof com.bytedance.sdk.openadsdk.preload.geckox.b.a) || (th instanceof com.bytedance.sdk.openadsdk.preload.geckox.b.b);

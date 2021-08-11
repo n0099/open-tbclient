@@ -2,7 +2,6 @@ package com.baidu.wallet.fastpay.datamodel;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class SimpleOrderInfo implements NoProguard, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7569032433038662694L;
@@ -50,7 +49,7 @@ public class SimpleOrderInfo implements NoProguard, Serializable {
                 if (str.contains("total_amount")) {
                     this.mPrice = str.substring(13);
                 }
-                if (str.contains(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID)) {
+                if (str.contains("sp_no")) {
                     this.mSpNo = str.substring(6);
                 }
             }

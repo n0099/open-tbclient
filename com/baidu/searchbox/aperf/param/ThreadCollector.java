@@ -1,7 +1,6 @@
 package com.baidu.searchbox.aperf.param;
 
 import android.os.Looper;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes2.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes5.dex */
 public class ThreadCollector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class ThreadCollector {
             if (allStackTraces != null && allStackTraces.size() >= 1) {
                 for (Map.Entry<Thread, StackTraceElement[]> entry : allStackTraces.entrySet()) {
                     sb.append(getThreadInfo(entry.getKey()));
-                    sb.append("\n");
+                    sb.append(StringUtils.LF);
                 }
             }
             return sb.toString();
@@ -61,18 +61,18 @@ public class ThreadCollector {
                 try {
                     sb.append("threadId： ");
                     sb.append(thread.getId());
-                    sb.append("\n");
+                    sb.append(StringUtils.LF);
                     if (thread.getName() != null) {
                         sb.append("name: ");
                         sb.append(thread.getName());
-                        sb.append("\n");
+                        sb.append(StringUtils.LF);
                     }
                     sb.append("priority: ");
                     sb.append(thread.getPriority());
-                    sb.append("\n");
+                    sb.append(StringUtils.LF);
                     sb.append("state: ");
                     sb.append(thread.getState());
-                    sb.append("\n");
+                    sb.append(StringUtils.LF);
                     sb.append("stacktrace: \n");
                     StackTraceElement[] stackTrace = thread.getStackTrace();
                     if (stackTrace != null && stackTrace.length >= 1) {
@@ -95,8 +95,7 @@ public class ThreadCollector {
                             sb.append(")\n");
                         }
                     }
-                } catch (Exception e2) {
-                    Log.e("ThreadCollector", "ThreadInfo Collector Interrupted!!", e2);
+                } catch (Exception unused) {
                 }
             }
             return sb.toString();
@@ -117,8 +116,7 @@ public class ThreadCollector {
                             sb.append(stackTraceElement.toString() + Part.CRLF);
                         }
                     }
-                } catch (Exception e2) {
-                    Log.e("ThreadCollector", "ThreadInfo Collector Interrupted!!", e2);
+                } catch (Exception unused) {
                 }
             }
             return sb.toString();

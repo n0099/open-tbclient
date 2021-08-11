@@ -9,7 +9,6 @@ import com.airbnb.lottie.model.content.ShapeFill;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.value.Keyframe;
 import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.Collections;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ShapeFillParser {
     public static /* synthetic */ Interceptable $ic;
     public static final JsonReader.Options NAMES;
@@ -38,7 +37,7 @@ public class ShapeFillParser {
                 return;
             }
         }
-        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "c", Config.OS, "fillEnabled", r.f7788a, "hd");
+        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "c", "o", "fillEnabled", r.f42062a, "hd");
     }
 
     public ShapeFillParser() {

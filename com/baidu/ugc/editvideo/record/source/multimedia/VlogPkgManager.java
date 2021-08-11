@@ -1,8 +1,14 @@
 package com.baidu.ugc.editvideo.record.source.multimedia;
 
 import android.text.TextUtils;
+import c.a.v0.t.h;
+import c.a.v0.t.w;
+import c.a.z.b.a.k.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffectConfig;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransitionConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,11 +18,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.entity.TemplateInfo;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import com.baidu.ugc.utils.FileUtils;
-import d.a.w0.t.w;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class VlogPkgManager {
     public static /* synthetic */ Interceptable $ic;
     public static VlogPkgManager mManager;
@@ -71,10 +78,41 @@ public class VlogPkgManager {
         return (TemplateInfo) invokeL.objValue;
     }
 
+    public List<MediaSegment> getTrackConfigSegmentData(MediaTrackConfig mediaTrackConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaTrackConfig)) == null) {
+            if (mediaTrackConfig == null || h.e(mediaTrackConfig.mediaTracks) || !TextUtils.equals(mediaTrackConfig.importType, MediaTrackConfig.AE_IMPORT_TEMPLATE)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (MediaTrack mediaTrack : mediaTrackConfig.mediaTracks) {
+                if (c.m(mediaTrack, "input") || c.m(mediaTrack, "multi_input")) {
+                    if (h.e(mediaTrack.mediaSegments)) {
+                        return null;
+                    }
+                    for (MediaSegment mediaSegment : mediaTrack.mediaSegments) {
+                        if (mediaSegment != null && !TextUtils.equals(mediaSegment.type, MediaSegment.SEG_TYPE_INPUT_HEADER) && !TextUtils.equals(mediaSegment.type, MediaSegment.SEG_TYPE_INPUT_FOOTER)) {
+                            arrayList.add(mediaSegment);
+                        }
+                    }
+                } else if (!h.e(mediaTrack.mediaSegments)) {
+                    for (MediaSegment mediaSegment2 : mediaTrack.mediaSegments) {
+                        if (mediaSegment2 != null && ("input".equals(mediaSegment2.type) || "multi_input".equals(mediaSegment2.type))) {
+                            arrayList.add(mediaSegment2);
+                        }
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
     public MediaAEffectConfig loadMediaAEffectConfig(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -91,7 +129,7 @@ public class VlogPkgManager {
     public TemplateInfo loadTemplateInfo(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             File file = new File(str);
             if (file.exists() && file.isDirectory()) {
                 if (!FileUtils.isExists(str + "/theme_config.json")) {
@@ -132,7 +170,7 @@ public class VlogPkgManager {
     public MediaTransitionConfig loadTransitionConfig(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -148,7 +186,7 @@ public class VlogPkgManager {
 
     public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.mTemplateInfoMap.clear();
             this.mTemplateInfoMap = null;
             this.mMediaTransitionConfigMap.clear();

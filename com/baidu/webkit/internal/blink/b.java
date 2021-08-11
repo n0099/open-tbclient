@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class b extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27568a;
+    public String f63396a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(String str, EngineManager engineManager, WebKitFactory.WebkitInstallListener webkitInstallListener) {
@@ -38,7 +38,7 @@ public final class b extends a {
         if (str != null) {
             String substring = str.substring(7);
             if (new File(substring).isFile()) {
-                this.f27568a = substring;
+                this.f63396a = substring;
             }
         }
     }
@@ -47,13 +47,13 @@ public final class b extends a {
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27568a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63396a != null : invokeV.booleanValue;
     }
 
     @Override // com.baidu.webkit.internal.blink.a
     public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27568a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63396a : (String) invokeV.objValue;
     }
 }

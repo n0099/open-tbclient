@@ -1,9 +1,7 @@
 package com.baidu.ar.lua;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.widget.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.DefinedLuaListener;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -15,14 +13,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LuaMsgListener cc;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f4254f;
+    public b f38187f;
     public c rN;
     public DefinedLuaListener sX;
 
@@ -44,7 +42,7 @@ public class e {
         if (bVar == null) {
             return;
         }
-        this.f4254f = bVar;
+        this.f38187f = bVar;
         fl();
         if (this.cc == null) {
             this.cc = new LuaMsgListener(this) { // from class: com.baidu.ar.lua.e.1
@@ -135,7 +133,7 @@ public class e {
                 }
             };
             this.rN = cVar;
-            this.f4254f.c(cVar);
+            this.f38187f.c(cVar);
         }
     }
 
@@ -149,10 +147,10 @@ public class e {
                 return false;
             }
             String str2 = (String) hashMap.get("camera_action");
-            Log.d("LuaMsgHelper", "swichCameraByEvent cameraFace = " + str2);
+            String str3 = "swichCameraByEvent cameraFace = " + str2;
             if ("front".equals(str2)) {
                 this.sX.onRequireSwitchCamera(1);
-            } else if (j.j.equals(str2)) {
+            } else if (com.alipay.sdk.widget.d.l.equals(str2)) {
                 this.sX.onRequireSwitchCamera(0);
             } else {
                 this.sX.onRequireSwitchCamera(-1);
@@ -168,7 +166,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, hashMap)) == null) {
             int a2 = com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1);
-            Log.d("LuaMsgHelper", "switchCameraById id = " + a2);
+            String str = "switchCameraById id = " + a2;
             if (a2 == 10202) {
                 this.sX.onRequireSwitchCamera(-1);
                 return true;
@@ -181,7 +179,7 @@ public class e {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b bVar = this.f4254f;
+            b bVar = this.f38187f;
             if (bVar != null) {
                 if (this.cc != null) {
                     bVar.fk().removeLuaMsgListener(this.cc);
@@ -189,10 +187,10 @@ public class e {
                 }
                 c cVar = this.rN;
                 if (cVar != null) {
-                    this.f4254f.d(cVar);
+                    this.f38187f.d(cVar);
                     this.rN = null;
                 }
-                this.f4254f = null;
+                this.f38187f = null;
             }
             this.sX = null;
         }

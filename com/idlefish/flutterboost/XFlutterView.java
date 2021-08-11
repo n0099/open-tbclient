@@ -24,6 +24,7 @@ import androidx.annotation.RequiresApi;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -44,7 +45,8 @@ import io.flutter.view.AccessibilityBridge;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes10.dex */
 public class XFlutterView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,6 +56,7 @@ public class XFlutterView extends FrameLayout {
     public XAndroidKeyProcessor androidKeyProcessor;
     @Nullable
     public AndroidTouchProcessor androidTouchProcessor;
+    public boolean didRenderFirstFrame;
     @Nullable
     public FlutterEngine flutterEngine;
     @NonNull
@@ -73,7 +76,7 @@ public class XFlutterView extends FrameLayout {
     public final FlutterRenderer.ViewportMetrics viewportMetrics;
 
     /* renamed from: com.idlefish.flutterboost.XFlutterView$3  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$io$flutter$embedding$android$FlutterView$RenderMode;
         public static /* synthetic */ Interceptable $ic;
@@ -126,16 +129,24 @@ public class XFlutterView extends FrameLayout {
         }
     }
 
+    @VisibleForTesting
+    public void addFlutterEngineAttachmentListener(@NonNull FlutterView.FlutterEngineAttachmentListener flutterEngineAttachmentListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, flutterEngineAttachmentListener) == null) {
+            this.flutterEngineAttachmentListeners.add(flutterEngineAttachmentListener);
+        }
+    }
+
     public void addOnFirstFrameRenderedListener(@NonNull FlutterUiDisplayListener flutterUiDisplayListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, flutterUiDisplayListener) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, flutterUiDisplayListener) == null) {
             this.flutterUiDisplayListeners.add(flutterUiDisplayListener);
         }
     }
 
     public void attachToFlutterEngine(@NonNull FlutterEngine flutterEngine) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, flutterEngine) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, flutterEngine) == null) {
             Log.d("FlutterView", "Attaching to a FlutterEngine: " + flutterEngine);
             if (isAttachedToFlutterEngine()) {
                 if (flutterEngine == this.flutterEngine) {
@@ -177,7 +188,7 @@ public class XFlutterView extends FrameLayout {
     public boolean checkInputConnectionProxy(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view)) == null) {
             FlutterEngine flutterEngine = this.flutterEngine;
             if (flutterEngine != null && view != null) {
                 return flutterEngine.getPlatformViewsController().checkInputConnectionProxy(view);
@@ -189,7 +200,7 @@ public class XFlutterView extends FrameLayout {
 
     public void detachFromFlutterEngine() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             Log.d("FlutterView", "Detaching from a FlutterEngine: " + this.flutterEngine);
             if (!isAttachedToFlutterEngine()) {
                 Log.d("FlutterView", "Not attached to an engine. Doing nothing.");
@@ -215,7 +226,7 @@ public class XFlutterView extends FrameLayout {
     public boolean fitSystemWindows(@NonNull Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, rect)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, rect)) == null) {
             if (Build.VERSION.SDK_INT <= 19) {
                 FlutterRenderer.ViewportMetrics viewportMetrics = this.viewportMetrics;
                 viewportMetrics.paddingTop = rect.top;
@@ -226,7 +237,7 @@ public class XFlutterView extends FrameLayout {
                 viewportMetrics.viewInsetRight = 0;
                 viewportMetrics.viewInsetBottom = rect.bottom;
                 viewportMetrics.viewInsetLeft = 0;
-                Log.v("FlutterView", "Updating window insets (fitSystemWindows()):\nStatus bar insets: Top: " + this.viewportMetrics.paddingTop + ", Left: " + this.viewportMetrics.paddingLeft + ", Right: " + this.viewportMetrics.paddingRight + "\nKeyboard insets: Bottom: " + this.viewportMetrics.viewInsetBottom + ", Left: " + this.viewportMetrics.viewInsetLeft + ", Right: " + this.viewportMetrics.viewInsetRight);
+                Log.v("FlutterView", "Updating window insets (fitSystemWindows()):\nStatus bar insets: Top: " + this.viewportMetrics.paddingTop + ", Left: " + this.viewportMetrics.paddingLeft + ", Right: " + this.viewportMetrics.paddingRight + StringUtils.LF + "Keyboard insets: Bottom: " + this.viewportMetrics.viewInsetBottom + ", Left: " + this.viewportMetrics.viewInsetLeft + ", Right: " + this.viewportMetrics.viewInsetRight);
                 sendViewportMetricsToFlutter(4);
                 return true;
             }
@@ -240,7 +251,7 @@ public class XFlutterView extends FrameLayout {
     public AccessibilityNodeProvider getAccessibilityNodeProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             AccessibilityBridge accessibilityBridge = this.accessibilityBridge;
             if (accessibilityBridge == null || !accessibilityBridge.isAccessibilityEnabled()) {
                 return null;
@@ -255,12 +266,18 @@ public class XFlutterView extends FrameLayout {
     public FlutterEngine getAttachedFlutterEngine() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.flutterEngine : (FlutterEngine) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.flutterEngine : (FlutterEngine) invokeV.objValue;
+    }
+
+    public boolean hasRenderedFirstFrame() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.didRenderFirstFrame : invokeV.booleanValue;
     }
 
     public final void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             Log.v("FlutterView", "Initializing FlutterView");
             int i2 = AnonymousClass3.$SwitchMap$io$flutter$embedding$android$FlutterView$RenderMode[this.renderMode.ordinal()];
             if (i2 == 1) {
@@ -284,7 +301,7 @@ public class XFlutterView extends FrameLayout {
     public boolean isAttachedToFlutterEngine() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.flutterEngine != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.flutterEngine != null : invokeV.booleanValue;
     }
 
     @Override // android.view.View
@@ -295,7 +312,7 @@ public class XFlutterView extends FrameLayout {
     public final WindowInsets onApplyWindowInsets(@NonNull WindowInsets windowInsets) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, windowInsets)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, windowInsets)) == null) {
             WindowInsets onApplyWindowInsets = super.onApplyWindowInsets(windowInsets);
             this.viewportMetrics.paddingTop = windowInsets.getSystemWindowInsetTop();
             this.viewportMetrics.paddingRight = windowInsets.getSystemWindowInsetRight();
@@ -307,7 +324,7 @@ public class XFlutterView extends FrameLayout {
             viewportMetrics2.viewInsetRight = 0;
             viewportMetrics2.viewInsetBottom = windowInsets.getSystemWindowInsetBottom();
             this.viewportMetrics.viewInsetLeft = 0;
-            Log.v("FlutterView", "Updating window insets (onApplyWindowInsets()):\nStatus bar insets: Top: " + this.viewportMetrics.paddingTop + ", Left: " + this.viewportMetrics.paddingLeft + ", Right: " + this.viewportMetrics.paddingRight + "\nKeyboard insets: Bottom: " + this.viewportMetrics.viewInsetBottom + ", Left: " + this.viewportMetrics.viewInsetLeft + ", Right: " + this.viewportMetrics.viewInsetRight + "System Gesture Insets - Left: " + this.viewportMetrics.systemGestureInsetLeft + ", Top: " + this.viewportMetrics.systemGestureInsetTop + ", Right: " + this.viewportMetrics.systemGestureInsetRight + ", Bottom: " + this.viewportMetrics.viewInsetBottom);
+            Log.v("FlutterView", "Updating window insets (onApplyWindowInsets()):\nStatus bar insets: Top: " + this.viewportMetrics.paddingTop + ", Left: " + this.viewportMetrics.paddingLeft + ", Right: " + this.viewportMetrics.paddingRight + StringUtils.LF + "Keyboard insets: Bottom: " + this.viewportMetrics.viewInsetBottom + ", Left: " + this.viewportMetrics.viewInsetLeft + ", Right: " + this.viewportMetrics.viewInsetRight + "System Gesture Insets - Left: " + this.viewportMetrics.systemGestureInsetLeft + ", Top: " + this.viewportMetrics.systemGestureInsetTop + ", Right: " + this.viewportMetrics.systemGestureInsetRight + ", Bottom: " + this.viewportMetrics.viewInsetBottom);
             sendViewportMetricsToFlutter(3);
             return onApplyWindowInsets;
         }
@@ -317,7 +334,7 @@ public class XFlutterView extends FrameLayout {
     @Override // android.view.View
     public void onConfigurationChanged(@NonNull Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
             Log.v("FlutterView", "Configuration changed. Sending locales and user settings to Flutter.");
             try {
@@ -334,7 +351,7 @@ public class XFlutterView extends FrameLayout {
     public InputConnection onCreateInputConnection(@NonNull EditorInfo editorInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, editorInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, editorInfo)) == null) {
             if (!isAttachedToFlutterEngine()) {
                 return super.onCreateInputConnection(editorInfo);
             }
@@ -347,7 +364,7 @@ public class XFlutterView extends FrameLayout {
     public boolean onGenericMotionEvent(@NonNull MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, motionEvent)) == null) {
             if (isAttachedToFlutterEngine() && this.androidTouchProcessor.onGenericMotionEvent(motionEvent)) {
                 return true;
             }
@@ -360,7 +377,7 @@ public class XFlutterView extends FrameLayout {
     public boolean onHoverEvent(@NonNull MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, motionEvent)) == null) {
             if (!isAttachedToFlutterEngine()) {
                 return super.onHoverEvent(motionEvent);
             }
@@ -373,7 +390,7 @@ public class XFlutterView extends FrameLayout {
     public boolean onKeyDown(int i2, @NonNull KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048590, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048592, this, i2, keyEvent)) == null) {
             if (!isAttachedToFlutterEngine()) {
                 return super.onKeyDown(i2, keyEvent);
             }
@@ -387,7 +404,7 @@ public class XFlutterView extends FrameLayout {
     public boolean onKeyUp(int i2, @NonNull KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048591, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048593, this, i2, keyEvent)) == null) {
             if (!isAttachedToFlutterEngine()) {
                 return super.onKeyUp(i2, keyEvent);
             }
@@ -400,7 +417,7 @@ public class XFlutterView extends FrameLayout {
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048592, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048594, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
             Log.v("FlutterView", "Size changed. Sending Flutter new viewport metrics. FlutterView was " + i4 + " x " + i5 + ", it is now " + i2 + " x " + i3);
             FlutterRenderer.ViewportMetrics viewportMetrics = this.viewportMetrics;
@@ -414,7 +431,7 @@ public class XFlutterView extends FrameLayout {
     public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, motionEvent)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 requestUnbufferedDispatch(motionEvent);
             }
@@ -430,22 +447,30 @@ public class XFlutterView extends FrameLayout {
     public void release() {
         XTextInputPlugin xTextInputPlugin;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (xTextInputPlugin = this.textInputPlugin) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (xTextInputPlugin = this.textInputPlugin) == null) {
             return;
         }
         xTextInputPlugin.release(this);
     }
 
+    @VisibleForTesting
+    public void removeFlutterEngineAttachmentListener(@NonNull FlutterView.FlutterEngineAttachmentListener flutterEngineAttachmentListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, flutterEngineAttachmentListener) == null) {
+            this.flutterEngineAttachmentListeners.remove(flutterEngineAttachmentListener);
+        }
+    }
+
     public void removeOnFirstFrameRenderedListener(@NonNull FlutterUiDisplayListener flutterUiDisplayListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, flutterUiDisplayListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, flutterUiDisplayListener) == null) {
             this.flutterUiDisplayListeners.remove(flutterUiDisplayListener);
         }
     }
 
     public final void resetWillNotDraw(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             boolean z3 = false;
             if (!this.flutterEngine.getRenderer().isSoftwareRenderingEnabled()) {
                 if (!z && !z2) {
@@ -460,7 +485,7 @@ public class XFlutterView extends FrameLayout {
 
     public final void sendLocalesToFlutter(@NonNull Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, configuration) == null) {
             ArrayList arrayList = new ArrayList();
             if (Build.VERSION.SDK_INT >= 24) {
                 LocaleList locales = configuration.getLocales();
@@ -482,7 +507,7 @@ public class XFlutterView extends FrameLayout {
     public final void sendUserSettingsToFlutter() {
         FlutterEngine flutterEngine;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || (flutterEngine = this.flutterEngine) == null || flutterEngine.getSettingsChannel() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048601, this) == null) || (flutterEngine = this.flutterEngine) == null || flutterEngine.getSettingsChannel() == null) {
             return;
         }
         this.flutterEngine.getSettingsChannel().startMessage().setTextScaleFactor(getResources().getConfiguration().fontScale).setUse24HourFormat(DateFormat.is24HourFormat(getContext())).send();
@@ -490,7 +515,7 @@ public class XFlutterView extends FrameLayout {
 
     public final void sendViewportMetricsToFlutter(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
             if (!isAttachedToFlutterEngine()) {
                 Log.w("FlutterView", i2 + " Tried to send viewport metrics from Android to Flutter but this FlutterView was not attached to a FlutterEngine.");
                 return;
@@ -506,9 +531,51 @@ public class XFlutterView extends FrameLayout {
 
     public final void setPadding() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             this.viewportMetrics.paddingTop = UtilHelper.getStatusBarHeight();
             sendViewportMetricsToFlutter(1);
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public XFlutterView(@NonNull Context context, @NonNull FlutterView.RenderMode renderMode) {
+        this(context, null, renderMode, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, renderMode};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], (FlutterView.RenderMode) objArr2[2], (FlutterView.TransparencyMode) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public XFlutterView(@NonNull Context context, @NonNull FlutterView.TransparencyMode transparencyMode) {
+        this(context, null, FlutterView.RenderMode.surface, transparencyMode);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, transparencyMode};
+            interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], (FlutterView.RenderMode) objArr2[2], (FlutterView.TransparencyMode) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                return;
+            }
         }
     }
 
@@ -520,14 +587,14 @@ public class XFlutterView extends FrameLayout {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, renderMode, transparencyMode};
-            interceptable.invokeUnInit(65539, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], (FlutterView.RenderMode) objArr2[2], (FlutterView.TransparencyMode) objArr2[3]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

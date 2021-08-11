@@ -3,12 +3,12 @@ package com.baidu.wallet.analytics;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.apollon.restnet.converter.b;
 import com.baidu.apollon.restnet.rest.RestHttpRequestInterceptor;
 import com.baidu.apollon.restnet.rest.d;
-import com.baidu.apollon.utils.Md5Utils;
 import com.baidu.apollon.utils.PhoneUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,18 +21,19 @@ import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.core.beans.BaseBean;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class TraceBean extends BaseBean {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String SALT = "0B4rMozbYb^R2pN04QwGa*JkTxA9EmQ5";
-    public static String sBaiduCUIDHash = "";
-    public static String sCUIDHash = "";
-    public static String sUnionIdHash = "";
+    public static final String DEFAULT_URL = "https://qianbao.baidu.com/tongji/performance/stat.jpg";
+    public static String sCUID = "";
+    public static String sCUID2 = "";
+    public static String sUnionId = "";
     public transient /* synthetic */ FieldHolder $fh;
-    public String mHttpMethod;
-    public List<RestNameValuePair> mParams;
+    public String mBaseUrl;
+    public List<RestNameValuePair> mPostParams;
+    public List<RestNameValuePair> mQueryParams;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class CustomInterceptors implements RestHttpRequestInterceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,11 +61,11 @@ public class TraceBean extends BaseBean {
         public void intercept(Context context, d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, dVar) == null) {
-                if (!TextUtils.isEmpty(TraceBean.sUnionIdHash)) {
-                    dVar.a().b("Cookie", "unionIdHash=" + TraceBean.sUnionIdHash);
+                if (!TextUtils.isEmpty(TraceBean.sUnionId)) {
+                    dVar.a().b("Cookie", "unionId=" + TraceBean.sUnionId);
                 }
-                dVar.a().b("Cookie", "cuidHash=" + TraceBean.sCUIDHash);
-                dVar.a().b("Cookie", "baiducuidHash=" + TraceBean.sBaiduCUIDHash);
+                dVar.a().b("Cookie", "cuid_1=" + TraceBean.sCUID);
+                dVar.a().b("Cookie", "cuid_2=" + TraceBean.sCUID2);
                 List<String> list = dVar.a().get("Cookie");
                 String str = "";
                 for (int i2 = 0; i2 < list.size(); i2++) {
@@ -111,36 +112,71 @@ public class TraceBean extends BaseBean {
                 return;
             }
         }
-        this.mHttpMethod = "GET";
-        if (TextUtils.isEmpty(sCUIDHash)) {
-            sCUIDHash = Md5Utils.toMD5(PhoneUtils.getCUID(context) + SALT, "UTF-8");
+        if (TextUtils.isEmpty(sCUID)) {
+            sCUID = PhoneUtils.getCUID(context);
         }
-        if (TextUtils.isEmpty(sBaiduCUIDHash)) {
-            sBaiduCUIDHash = Md5Utils.toMD5(PhoneUtils.getCUID2(context) + SALT, "UTF-8");
+        if (TextUtils.isEmpty(sCUID2)) {
+            sCUID2 = PhoneUtils.getCUID2(context);
         }
         if (WalletLoginHelper.getInstance().isLogin()) {
-            sUnionIdHash = Md5Utils.toMD5(WalletLoginHelper.getInstance().getUnionId() + SALT, "UTF-8");
+            sUnionId = WalletLoginHelper.getInstance().getUnionId();
         }
+    }
+
+    public TraceBean buildBaseUrl(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            this.mBaseUrl = str;
+            return this;
+        }
+        return (TraceBean) invokeL.objValue;
     }
 
     public TraceBean buildParams(List<RestNameValuePair> list, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, str)) == null) {
-            if (this.mParams == null) {
-                this.mParams = new ArrayList();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str)) == null) {
+            if ("GET".equalsIgnoreCase(str)) {
+                buildQueryParams(list);
+            } else {
+                buildPostParams(list);
             }
-            this.mParams.addAll(list);
-            this.mHttpMethod = str;
             return this;
         }
         return (TraceBean) invokeLL.objValue;
     }
 
+    public TraceBean buildPostParams(List<RestNameValuePair> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
+            if (this.mPostParams == null) {
+                this.mPostParams = new ArrayList();
+            }
+            this.mPostParams.addAll(list);
+            return this;
+        }
+        return (TraceBean) invokeL.objValue;
+    }
+
+    public TraceBean buildQueryParams(List<RestNameValuePair> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+            if (this.mQueryParams == null) {
+                this.mQueryParams = new ArrayList();
+            }
+            this.mQueryParams.addAll(list);
+            return this;
+        }
+        return (TraceBean) invokeL.objValue;
+    }
+
     @Override // com.baidu.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.execBean(null);
         }
     }
@@ -149,20 +185,14 @@ public class TraceBean extends BaseBean {
     public List<RestNameValuePair> generateRequestParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if ("GET".equalsIgnoreCase(this.mHttpMethod)) {
-                return null;
-            }
-            return this.mParams;
-        }
-        return (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mPostParams : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
@@ -172,22 +202,27 @@ public class TraceBean extends BaseBean {
     public int getHttpMethod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? !"GET".equalsIgnoreCase(this.mHttpMethod) ? 1 : 0 : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            List<RestNameValuePair> list = this.mPostParams;
+            return (list == null || list.size() <= 0) ? 0 : 1;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if ("GET".equalsIgnoreCase(this.mHttpMethod)) {
-                Uri.Builder buildUpon = Uri.parse("https://qianbao.baidu.com/tongji/performance/stat.jpg").buildUpon();
-                for (int i2 = 0; i2 < this.mParams.size(); i2++) {
-                    buildUpon.appendQueryParameter(this.mParams.get(i2).getName(), this.mParams.get(i2).getValue());
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            String str = TextUtils.isEmpty(this.mBaseUrl) ? DEFAULT_URL : this.mBaseUrl;
+            if (this.mQueryParams != null) {
+                Uri.Builder buildUpon = Uri.parse(str).buildUpon();
+                for (int i2 = 0; i2 < this.mQueryParams.size(); i2++) {
+                    buildUpon.appendQueryParameter(this.mQueryParams.get(i2).getName(), this.mQueryParams.get(i2).getValue());
                 }
                 return buildUpon.build().toString();
             }
-            return "https://qianbao.baidu.com/tongji/performance/stat.jpg";
+            return str;
         }
         return (String) invokeV.objValue;
     }
@@ -195,7 +230,7 @@ public class TraceBean extends BaseBean {
     @Override // com.baidu.wallet.core.beans.BaseBean, com.baidu.apollon.beans.ApollonBean
     public void prepareRestTemplate() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.prepareRestTemplate();
             this.mRestTemplate.a().add(new CustomInterceptors(this));
             this.mRestTemplate.setMessageConverter(new b());

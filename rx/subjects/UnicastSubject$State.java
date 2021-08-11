@@ -7,21 +7,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.d;
-import h.e;
-import h.f;
-import h.j;
-import h.k;
-import h.n.a;
-import h.o.d.j.f0;
-import h.o.d.j.y;
-import h.o.d.j.z;
+import i.d;
+import i.e;
+import i.f;
+import i.j;
+import i.k;
+import i.n.a;
+import i.o.d.j.f0;
+import i.o.d.j.y;
+import i.o.d.j.z;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorThrowable;
 import rx.internal.operators.NotificationLite;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class UnicastSubject$State<T> extends AtomicLong implements f, e<T>, d.a<T>, k {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -9044104859202255786L;
@@ -54,14 +54,14 @@ public final class UnicastSubject$State<T> extends AtomicLong implements f, e<T>
         this.subscriber = new AtomicReference<>();
         this.terminateOnce = aVar != null ? new AtomicReference<>(aVar) : null;
         if (i2 > 1) {
-            yVar = f0.b() ? new z<>(i2) : new h.o.d.i.f<>(i2);
+            yVar = f0.b() ? new z<>(i2) : new i.o.d.i.f<>(i2);
         } else {
-            yVar = f0.b() ? new y<>() : new h.o.d.i.e<>();
+            yVar = f0.b() ? new y<>() : new i.o.d.i.e<>();
         }
         this.queue = yVar;
     }
 
-    @Override // h.n.b
+    @Override // i.n.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
         call((j) ((j) obj));
     }
@@ -102,14 +102,14 @@ public final class UnicastSubject$State<T> extends AtomicLong implements f, e<T>
         aVar.call();
     }
 
-    @Override // h.k
+    @Override // i.k
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.done : invokeV.booleanValue;
     }
 
-    @Override // h.e
+    @Override // i.e
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.done) {
@@ -132,7 +132,7 @@ public final class UnicastSubject$State<T> extends AtomicLong implements f, e<T>
         this.subscriber.get().onCompleted();
     }
 
-    @Override // h.e
+    @Override // i.e
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, th) == null) || this.done) {
@@ -156,7 +156,7 @@ public final class UnicastSubject$State<T> extends AtomicLong implements f, e<T>
         this.subscriber.get().onError(th);
     }
 
-    @Override // h.e
+    @Override // i.e
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048583, this, t) == null) || this.done) {
@@ -179,7 +179,7 @@ public final class UnicastSubject$State<T> extends AtomicLong implements f, e<T>
         try {
             jVar.onNext(t);
         } catch (Throwable th) {
-            h.m.a.g(th, jVar, t);
+            i.m.a.g(th, jVar, t);
         }
     }
 
@@ -221,10 +221,10 @@ public final class UnicastSubject$State<T> extends AtomicLong implements f, e<T>
                 } else if (checkTerminated(this.done, queue.isEmpty(), jVar)) {
                     return;
                 } else {
-                    long j = get();
-                    z = j == Long.MAX_VALUE;
-                    long j2 = 0;
-                    while (j != 0) {
+                    long j2 = get();
+                    z = j2 == Long.MAX_VALUE;
+                    long j3 = 0;
+                    while (j2 != 0) {
                         boolean z2 = this.done;
                         Object poll = queue.poll();
                         boolean z3 = poll == null;
@@ -237,17 +237,17 @@ public final class UnicastSubject$State<T> extends AtomicLong implements f, e<T>
                         Object obj = (Object) NotificationLite.e(poll);
                         try {
                             jVar.onNext(obj);
-                            j--;
-                            j2++;
+                            j2--;
+                            j3++;
                         } catch (Throwable th) {
                             queue.clear();
-                            h.m.a.e(th);
+                            i.m.a.e(th);
                             jVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
                             return;
                         }
                     }
-                    if (!z && j2 != 0) {
-                        addAndGet(-j2);
+                    if (!z && j3 != 0) {
+                        addAndGet(-j3);
                     }
                 }
                 synchronized (this) {
@@ -260,16 +260,16 @@ public final class UnicastSubject$State<T> extends AtomicLong implements f, e<T>
         }
     }
 
-    @Override // h.f
-    public void request(long j) {
+    @Override // i.f
+    public void request(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
             if (i2 < 0) {
                 throw new IllegalArgumentException("n >= 0 required");
             }
             if (i2 > 0) {
-                h.o.a.a.b(this, j);
+                i.o.a.a.b(this, j2);
                 replay();
             } else if (this.done) {
                 replay();
@@ -277,7 +277,7 @@ public final class UnicastSubject$State<T> extends AtomicLong implements f, e<T>
         }
     }
 
-    @Override // h.k
+    @Override // i.k
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {

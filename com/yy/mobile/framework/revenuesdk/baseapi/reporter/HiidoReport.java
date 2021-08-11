@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class HiidoReport {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "hiidoReport";
@@ -17,7 +17,7 @@ public class HiidoReport {
     public transient /* synthetic */ FieldHolder $fh;
     public Random random;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class CReportConfig {
         public static /* synthetic */ Interceptable $ic;
         public static String mAppName;
@@ -56,7 +56,7 @@ public class HiidoReport {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class CReportParam {
         public static /* synthetic */ Interceptable $ic = null;
         public static String ACT = "revenuepay";
@@ -95,7 +95,7 @@ public class HiidoReport {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class CReportResponse {
         public static /* synthetic */ Interceptable $ic = null;
         public static String mAppId = "";

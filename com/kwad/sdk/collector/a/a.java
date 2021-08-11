@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class a implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f34181a;
+    public boolean f70912a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f34182b;
+    public List<b> f70913b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public abstract class a implements b {
                 return;
             }
         }
-        this.f34181a = true;
+        this.f70912a = true;
     }
 
     public a(boolean z) {
@@ -50,13 +50,13 @@ public abstract class a implements b {
                 return;
             }
         }
-        this.f34181a = z;
+        this.f70912a = z;
     }
 
     public List<b> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34182b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70913b : (List) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.collector.a.b
@@ -64,7 +64,7 @@ public abstract class a implements b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            if (this.f34181a) {
+            if (this.f70912a) {
                 List<b> a2 = a();
                 if (a2 == null || a2.size() <= 0) {
                     try {

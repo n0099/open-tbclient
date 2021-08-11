@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class g extends ab {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,8 +33,8 @@ public final class g extends ab {
     public final void a(com.vivo.push.y yVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, yVar) == null) {
-            com.vivo.push.util.p.d("OnClearCacheTask", "delete push info " + this.f39512a.getPackageName());
-            com.vivo.push.util.y.b(this.f39512a).a();
+            com.vivo.push.util.p.d("OnClearCacheTask", "delete push info " + this.f76346a.getPackageName());
+            com.vivo.push.util.y.b(this.f76346a).a();
         }
     }
 }

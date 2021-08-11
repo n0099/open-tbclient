@@ -21,22 +21,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.BdMenuItem;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class ContextMenuView extends BdContextMenuView {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24349a = "LightappContextMenuView";
+    public static final String f60030a = "LightappContextMenuView";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float f24350b = 0.5f;
+    public static final float f60031b = 0.5f;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final float f24351c = 1.0f;
+    public static final float f60032c = 1.0f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f24352d;
+    public int f60033d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @SuppressLint({"NewApi"})
@@ -58,7 +58,7 @@ public class ContextMenuView extends BdContextMenuView {
                 return;
             }
         }
-        this.f24352d = 0;
+        this.f60033d = 0;
     }
 
     private View a(BdMenuItem bdMenuItem) {
@@ -84,10 +84,10 @@ public class ContextMenuView extends BdContextMenuView {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BdMenuItem f24353a;
+                public final /* synthetic */ BdMenuItem f60034a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ContextMenuView f24354b;
+                public final /* synthetic */ ContextMenuView f60035b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -104,18 +104,18 @@ public class ContextMenuView extends BdContextMenuView {
                             return;
                         }
                     }
-                    this.f24354b = this;
-                    this.f24353a = bdMenuItem;
+                    this.f60035b = this;
+                    this.f60034a = bdMenuItem;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     BdMenuItem.OnItemClickListener onClickListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (onClickListener = this.f24353a.getOnClickListener()) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (onClickListener = this.f60034a.getOnClickListener()) == null) {
                         return;
                     }
-                    onClickListener.onClick(this.f24353a);
+                    onClickListener.onClick(this.f60034a);
                 }
             });
             return linearLayout;
@@ -126,7 +126,7 @@ public class ContextMenuView extends BdContextMenuView {
     public int getMaxMenuItemWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24352d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60033d : invokeV.intValue;
     }
 
     @Override // com.baidu.wallet.base.widget.BdContextMenuView
@@ -166,9 +166,9 @@ public class ContextMenuView extends BdContextMenuView {
         for (int i2 = 0; i2 < size; i2++) {
             View a2 = a(list.get(i2));
             a2.measure(0, 0);
-            if (this.f24352d < a2.getMeasuredWidth()) {
+            if (this.f60033d < a2.getMeasuredWidth()) {
                 int measuredWidth = a2.getMeasuredWidth();
-                this.f24352d = measuredWidth;
+                this.f60033d = measuredWidth;
                 a2.setMinimumWidth(measuredWidth);
             }
             if (size == 1) {
@@ -210,7 +210,7 @@ public class ContextMenuView extends BdContextMenuView {
                 return;
             }
         }
-        this.f24352d = 0;
+        this.f60033d = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -231,6 +231,6 @@ public class ContextMenuView extends BdContextMenuView {
                 return;
             }
         }
-        this.f24352d = 0;
+        this.f60033d = 0;
     }
 }

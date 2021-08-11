@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class FullRewardExpressBackupView extends BackupView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,25 +38,25 @@ public class FullRewardExpressBackupView extends BackupView {
                 return;
             }
         }
-        this.f30478a = context;
+        this.f66397a = context;
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f30483f = com.bytedance.sdk.openadsdk.q.s.d(this.f30478a, this.m.getExpectExpressWidth());
-            this.f30484g = com.bytedance.sdk.openadsdk.q.s.d(this.f30478a, this.m.getExpectExpressWidth());
+            this.f66402f = com.bytedance.sdk.openadsdk.q.s.d(this.f66397a, this.m.getExpectExpressWidth());
+            this.f66403g = com.bytedance.sdk.openadsdk.q.s.d(this.f66397a, this.m.getExpectExpressWidth());
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams == null) {
-                layoutParams = new ViewGroup.LayoutParams(this.f30483f, this.f30484g);
+                layoutParams = new ViewGroup.LayoutParams(this.f66402f, this.f66403g);
             }
-            layoutParams.width = this.f30483f;
-            layoutParams.height = this.f30484g;
+            layoutParams.width = this.f66402f;
+            layoutParams.height = this.f66403g;
             if (layoutParams instanceof FrameLayout.LayoutParams) {
                 ((FrameLayout.LayoutParams) layoutParams).gravity = 17;
             }
             setLayoutParams(layoutParams);
-            this.f30479b.k();
+            this.f66398b.k();
             c();
         }
     }
@@ -64,9 +64,9 @@ public class FullRewardExpressBackupView extends BackupView {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            View inflate = LayoutInflater.from(this.f30478a).inflate(com.bytedance.sdk.component.utils.t.f(this.f30478a, "tt_backup_full_reward"), (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(this.f66397a).inflate(com.bytedance.sdk.component.utils.t.f(this.f66397a, "tt_backup_full_reward"), (ViewGroup) this, true);
             this.l = inflate;
-            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(com.bytedance.sdk.component.utils.t.e(this.f30478a, "tt_bu_video_container"));
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(com.bytedance.sdk.component.utils.t.e(this.f66397a, "tt_bu_video_container"));
             this.n = frameLayout;
             frameLayout.removeAllViews();
         }
@@ -77,12 +77,12 @@ public class FullRewardExpressBackupView extends BackupView {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar, nativeExpressView) == null) {
             com.bytedance.sdk.component.utils.k.b("FullRewardExpressBackupView", "show backup view");
             setBackgroundColor(-1);
-            this.f30479b = mVar;
+            this.f66398b = mVar;
             this.m = nativeExpressView;
             if (com.bytedance.sdk.openadsdk.q.q.c(mVar.ao()) == 7) {
-                this.f30482e = "rewarded_video";
+                this.f66401e = "rewarded_video";
             } else {
-                this.f30482e = "fullscreen_interstitial_ad";
+                this.f66401e = "fullscreen_interstitial_ad";
             }
             b();
             this.m.addView(this, new ViewGroup.LayoutParams(-2, -2));

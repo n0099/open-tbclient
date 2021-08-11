@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class E1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static E1 f39574a;
+    public static E1 f76410a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public E1() {
@@ -34,20 +34,20 @@ public class E1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f39574a == null) {
+            if (f76410a == null) {
                 synchronized (E1.class) {
-                    if (f39574a == null) {
-                        f39574a = new E1();
+                    if (f76410a == null) {
+                        f76410a = new E1();
                     }
                 }
             }
-            return f39574a;
+            return f76410a;
         }
         return (E1) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0057, code lost:
-        if (((r6 / 60) / 60) >= r10.f39802a.getSharedPreferences("_prefs", 0).getInt("interval", 0)) goto L9;
+        if (((r6 / 60) / 60) >= r10.f76643a.getSharedPreferences("_prefs", 0).getInt("interval", 0)) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -64,7 +64,7 @@ public class E1 {
             }
             W1.a(new D1(this, context));
             f1 a2 = f1.a(context);
-            long i2 = U1.i(a2.f39802a);
+            long i2 = U1.i(a2.f76643a);
             boolean z = true;
             if (i2 > 0) {
                 try {
@@ -78,7 +78,7 @@ public class E1 {
                 }
             }
             if (z) {
-                a2.f39803b = System.currentTimeMillis();
+                a2.f76644b = System.currentTimeMillis();
                 W1.a(new e1(a2));
             }
             N.d(context);

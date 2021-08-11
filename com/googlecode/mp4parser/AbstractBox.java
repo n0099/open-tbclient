@@ -23,7 +23,7 @@ import com.googlecode.mp4parser.util.Path;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractBox implements Box {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -240,19 +240,19 @@ public abstract class AbstractBox implements Box {
     @Override // com.coremedia.iso.boxes.Box
     public long getSize() {
         InterceptResult invokeV;
-        long j;
+        long j2;
         ByteBuffer byteBuffer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (!this.isRead) {
-                j = this.memMapSize;
+                j2 = this.memMapSize;
             } else if (this.isParsed) {
-                j = getContentSize();
+                j2 = getContentSize();
             } else {
                 ByteBuffer byteBuffer2 = this.content;
-                j = byteBuffer2 != null ? byteBuffer2.limit() : 0;
+                j2 = byteBuffer2 != null ? byteBuffer2.limit() : 0;
             }
-            return j + (j >= 4294967288L ? 8 : 0) + 8 + ("uuid".equals(getType()) ? 16 : 0) + (this.deadBytes != null ? byteBuffer.limit() : 0);
+            return j2 + (j2 >= 4294967288L ? 8 : 0) + 8 + ("uuid".equals(getType()) ? 16 : 0) + (this.deadBytes != null ? byteBuffer.limit() : 0);
         }
         return invokeV.longValue;
     }
@@ -280,15 +280,15 @@ public abstract class AbstractBox implements Box {
 
     @Override // com.coremedia.iso.boxes.Box
     @DoNotParseDetail
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
             long position = dataSource.position();
             this.contentStartPosition = position;
             this.offset = position - byteBuffer.remaining();
-            this.memMapSize = j;
+            this.memMapSize = j2;
             this.dataSource = dataSource;
-            dataSource.position(dataSource.position() + j);
+            dataSource.position(dataSource.position() + j2);
             this.isRead = false;
             this.isParsed = false;
         }

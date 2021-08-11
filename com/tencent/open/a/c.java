@@ -15,15 +15,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Locale;
 import kotlin.text.Typography;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39101a;
+    public static String f75928a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f39102b;
+    public static String f75929b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,20 +51,20 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(f39101a)) {
+            if (TextUtils.isEmpty(f75928a)) {
                 if (context == null) {
                     return "";
                 }
-                f39101a = "";
+                f75928a = "";
                 WindowManager windowManager = (WindowManager) context.getSystemService("window");
                 if (windowManager != null) {
                     int width = windowManager.getDefaultDisplay().getWidth();
                     int height = windowManager.getDefaultDisplay().getHeight();
-                    f39101a = width + "x" + height;
+                    f75928a = width + "x" + height;
                 }
-                return f39101a;
+                return f75928a;
             }
-            return f39101a;
+            return f75928a;
         }
         return (String) invokeL.objValue;
     }
@@ -98,7 +98,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             try {
-                if (f39102b == null) {
+                if (f75929b == null) {
                     DisplayMetrics displayMetrics = new DisplayMetrics();
                     ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                     StringBuilder sb = new StringBuilder();
@@ -134,9 +134,9 @@ public class c {
                     sb.append("&");
                     sb.append("wifi=");
                     sb.append(a.e(context));
-                    f39102b = sb.toString();
+                    f75929b = sb.toString();
                 }
-                return f39102b;
+                return f75929b;
             } catch (Exception unused) {
                 return null;
             }

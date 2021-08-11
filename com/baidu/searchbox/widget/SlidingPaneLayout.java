@@ -14,7 +14,6 @@ import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +37,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class SlidingPaneLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_FADE_COLOR = -858993460;
@@ -74,13 +73,13 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     public double slideWidthFactor;
 
     /* renamed from: com.baidu.searchbox.widget.SlidingPaneLayout$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class AccessibilityDelegate extends AccessibilityDelegateCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -184,7 +183,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class DisableLayerRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -223,7 +222,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface PanelSlideListener {
         void onPanelClosed(View view);
 
@@ -232,7 +231,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         void onPanelSlide(View view, float f2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class SavedState extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -345,7 +344,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class SimplePanelSlideListener implements PanelSlideListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -386,12 +385,12 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface SlidingPanelLayoutImpl {
         void invalidateChildRegion(SlidingPaneLayout slidingPaneLayout, View view);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class SlidingPanelLayoutImplBase implements SlidingPanelLayoutImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -419,7 +418,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class SlidingPanelLayoutImplJB extends SlidingPanelLayoutImplBase {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -441,15 +440,13 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             }
             try {
                 this.mGetDisplayList = View.class.getDeclaredMethod("getDisplayList", null);
-            } catch (NoSuchMethodException e2) {
-                Log.e("SlidingPaneLayout", "Couldn't fetch getDisplayList method; dimming won't work right.", e2);
+            } catch (NoSuchMethodException unused) {
             }
             try {
                 Field declaredField = View.class.getDeclaredField("mRecreateDisplayList");
                 this.mRecreateDisplayList = declaredField;
                 declaredField.setAccessible(true);
-            } catch (NoSuchFieldException e3) {
-                Log.e("SlidingPaneLayout", "Couldn't fetch mRecreateDisplayList field; dimming will be slow.", e3);
+            } catch (NoSuchFieldException unused2) {
             }
         }
 
@@ -462,8 +459,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                     try {
                         field.setBoolean(view, true);
                         this.mGetDisplayList.invoke(view, null);
-                    } catch (Exception e2) {
-                        Log.e("SlidingPaneLayout", "Error refreshing display list state", e2);
+                    } catch (Exception unused) {
                     }
                     super.invalidateChildRegion(slidingPaneLayout, view);
                     return;
@@ -473,7 +469,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class SlidingPanelLayoutImplJBMR1 extends SlidingPanelLayoutImplBase {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -732,11 +728,11 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup
-    public boolean drawChild(Canvas canvas, View view, long j) {
+    public boolean drawChild(Canvas canvas, View view, long j2) {
         InterceptResult invokeCommon;
         boolean drawChild;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{canvas, view, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{canvas, view, Long.valueOf(j2)})) == null) {
             LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
             int save = canvas.save();
             if (this.mCanSlide && !layoutParams.slideable && this.mSlideableView != null && this.mAutoSlide) {
@@ -746,7 +742,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                 canvas.clipRect(this.mTmpRect);
             }
             if (Build.VERSION.SDK_INT >= 11) {
-                drawChild = super.drawChild(canvas, view, j);
+                drawChild = super.drawChild(canvas, view, j2);
             } else if (layoutParams.dimWhenOffset && this.mSlideOffset > 0.0f) {
                 if (!view.isDrawingCacheEnabled()) {
                     view.setDrawingCacheEnabled(true);
@@ -756,14 +752,14 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                     canvas.drawBitmap(drawingCache, view.getLeft(), view.getTop(), layoutParams.dimPaint);
                     drawChild = false;
                 } else {
-                    Log.e("SlidingPaneLayout", "drawChild: child view " + view + " returned null drawing cache");
-                    drawChild = super.drawChild(canvas, view, j);
+                    String str = "drawChild: child view " + view + " returned null drawing cache";
+                    drawChild = super.drawChild(canvas, view, j2);
                 }
             } else {
                 if (view.isDrawingCacheEnabled()) {
                     view.setDrawingCacheEnabled(false);
                 }
-                drawChild = super.drawChild(canvas, view, j);
+                drawChild = super.drawChild(canvas, view, j2);
             }
             canvas.restoreToCount(save);
             return drawChild;
@@ -1034,9 +1030,6 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             }
             int paddingLeft = (size - getPaddingLeft()) - getPaddingRight();
             int childCount = getChildCount();
-            if (childCount > 2) {
-                Log.e("SlidingPaneLayout", "onMeasure: More than two child views are not supported.");
-            }
             this.mSlideableView = null;
             float f2 = 0.0f;
             int i10 = 0;
@@ -1425,7 +1418,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class DragHelperCallback extends ViewDragHelper.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1572,7 +1565,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public static final int[] ATTRS;

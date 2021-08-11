@@ -5,6 +5,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.fsg.base.statistics.f;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.activity.SlideActiviy;
 import com.baidu.sapi2.callback.DynamicPwdLoginCallback;
@@ -66,7 +67,6 @@ import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Language;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,7 +78,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class SapiAccountService implements ISAccountService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUSINESS_FROM_ONE_KEY_LOGIN = "business_from_one_key_login";
@@ -128,7 +128,7 @@ public final class SapiAccountService implements ISAccountService {
                 try {
                     ArrayList arrayList = new ArrayList();
                     for (String str3 : SapiUtils.getAuthorizedDomains()) {
-                        if (!str.equals(SapiUtils.getCookie(SapiUtils.COOKIE_URL_PREFIX + str3, HttpRequest.BDUSS))) {
+                        if (!str.equals(SapiUtils.getCookie(SapiUtils.COOKIE_URL_PREFIX + str3, "BDUSS"))) {
                             arrayList.add(new PassNameValuePair(SapiUtils.COOKIE_URL_PREFIX + str3, SapiUtils.buildBDUSSCookie(str3, str)));
                         }
                     }
@@ -343,7 +343,7 @@ public final class SapiAccountService implements ISAccountService {
                 arrayList.add(new PassNameValuePair("connect", "1"));
             }
             if (this.configuration.language == Language.ENGLISH) {
-                arrayList.add(new PassNameValuePair("lang", "en"));
+                arrayList.add(new PassNameValuePair("lang", f.f39281a));
             }
             arrayList.add(new PassNameValuePair("suppcheck", "1"));
             if (this.configuration.supportFaceLogin) {
@@ -874,7 +874,7 @@ public final class SapiAccountService implements ISAccountService {
                 arrayList.add(new PassNameValuePair("connect", "1"));
             }
             if (this.configuration.language == Language.ENGLISH) {
-                arrayList.add(new PassNameValuePair("lang", "en"));
+                arrayList.add(new PassNameValuePair("lang", f.f39281a));
             }
             arrayList.add(new PassNameValuePair("suppcheck", "1"));
             if (this.configuration.supportFaceLogin) {

@@ -7,18 +7,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.beans.BeanRequestBase;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
-/* loaded from: classes5.dex */
+import com.dxmpay.wallet.core.beans.BeanRequestBase;
+/* loaded from: classes8.dex */
 public class b extends BeanRequestBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26214a;
+    public String f62100a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26215b;
+    public String f62101b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -34,14 +34,14 @@ public class b extends BeanRequestBase {
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanRequestBase
+    @Override // com.dxmpay.wallet.core.beans.BeanRequestBase
     public boolean checkRequestValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f26214a) || TextUtils.isEmpty(this.f26215b)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f62100a) || TextUtils.isEmpty(this.f62101b)) ? false : true : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanRequestBase
+    @Override // com.dxmpay.wallet.core.beans.BeanRequestBase
     public String getRequestId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

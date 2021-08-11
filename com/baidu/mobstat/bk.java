@@ -14,48 +14,48 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.WeakHashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class bk implements bi.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public bi f8882a;
+    public bi f43191a;
 
     @TargetApi(14)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class a extends bk {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<Activity> f8883a;
+        public WeakReference<Activity> f43192a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b f8884b;
+        public b f43193b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final WeakHashMap<View, C0131a> f8885c;
+        public final WeakHashMap<View, C1679a> f43194c;
 
         /* renamed from: com.baidu.mobstat.bk$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class C0131a extends View.AccessibilityDelegate {
+        /* loaded from: classes5.dex */
+        public class C1679a extends View.AccessibilityDelegate {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f8886a;
+            public final /* synthetic */ a f43195a;
 
             /* renamed from: b  reason: collision with root package name */
-            public View.AccessibilityDelegate f8887b;
+            public View.AccessibilityDelegate f43196b;
 
             /* renamed from: c  reason: collision with root package name */
-            public View f8888c;
+            public View f43197c;
 
             /* renamed from: d  reason: collision with root package name */
-            public volatile boolean f8889d;
+            public volatile boolean f43198d;
 
-            public C0131a(a aVar, WeakReference<Activity> weakReference, View view, String str, View.AccessibilityDelegate accessibilityDelegate, boolean z) {
+            public C1679a(a aVar, WeakReference<Activity> weakReference, View view, String str, View.AccessibilityDelegate accessibilityDelegate, boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,17 +70,17 @@ public abstract class bk implements bi.a {
                         return;
                     }
                 }
-                this.f8886a = aVar;
-                this.f8887b = accessibilityDelegate;
-                aVar.f8883a = weakReference;
-                this.f8888c = view;
-                this.f8889d = z;
+                this.f43195a = aVar;
+                this.f43196b = accessibilityDelegate;
+                aVar.f43192a = weakReference;
+                this.f43197c = view;
+                this.f43198d = z;
             }
 
             public void a(boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                    this.f8889d = z;
+                    this.f43198d = z;
                 }
             }
 
@@ -89,8 +89,8 @@ public abstract class bk implements bi.a {
                 Activity activity;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i2) == null) {
-                    if (view == this.f8888c && i2 == 1) {
-                        if (bd.c().b() && this.f8889d) {
+                    if (view == this.f43197c && i2 == 1) {
+                        if (bd.c().b() && this.f43198d) {
                             bd c2 = bd.c();
                             c2.a("watch view  OnEvent:" + view.getClass().getName());
                         }
@@ -98,11 +98,11 @@ public abstract class bk implements bi.a {
                             bh c3 = bh.c();
                             c3.a("watch view  OnEvent:" + view.getClass().getName());
                         }
-                        if (this.f8886a.f8883a != null && (activity = (Activity) this.f8886a.f8883a.get()) != null) {
-                            this.f8886a.f8884b.a(view, this.f8889d, activity);
+                        if (this.f43195a.f43192a != null && (activity = (Activity) this.f43195a.f43192a.get()) != null) {
+                            this.f43195a.f43193b.a(view, this.f43198d, activity);
                         }
                     }
-                    View.AccessibilityDelegate accessibilityDelegate = this.f8887b;
+                    View.AccessibilityDelegate accessibilityDelegate = this.f43196b;
                     if (accessibilityDelegate != null) {
                         accessibilityDelegate.sendAccessibilityEvent(view, i2);
                     } else {
@@ -114,7 +114,7 @@ public abstract class bk implements bi.a {
             public View.AccessibilityDelegate a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8887b : (View.AccessibilityDelegate) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43196b : (View.AccessibilityDelegate) invokeV.objValue;
             }
         }
 
@@ -133,22 +133,22 @@ public abstract class bk implements bi.a {
                     return;
                 }
             }
-            this.f8883a = weakReference;
-            this.f8884b = bVar;
-            this.f8885c = new WeakHashMap<>();
+            this.f43192a = weakReference;
+            this.f43193b = bVar;
+            this.f43194c = new WeakHashMap<>();
         }
 
         public void a(WeakReference<Activity> weakReference, View view, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{weakReference, view, str, Boolean.valueOf(z)}) == null) {
                 View.AccessibilityDelegate a2 = a(view);
-                if (!(a2 instanceof C0131a)) {
-                    C0131a c0131a = new C0131a(this, weakReference, view, str, a2, z);
-                    view.setAccessibilityDelegate(c0131a);
-                    this.f8885c.put(view, c0131a);
+                if (!(a2 instanceof C1679a)) {
+                    C1679a c1679a = new C1679a(this, weakReference, view, str, a2, z);
+                    view.setAccessibilityDelegate(c1679a);
+                    this.f43194c.put(view, c1679a);
                     return;
                 }
-                ((C0131a) a2).a(z);
+                ((C1679a) a2).a(z);
             }
         }
 
@@ -169,25 +169,25 @@ public abstract class bk implements bi.a {
         public void a(View view, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, z) == null) {
-                a(this.f8883a, view, bj.a(view), z);
+                a(this.f43192a, view, bj.a(view), z);
             }
         }
 
         @Override // com.baidu.mobstat.bk
         public void a() {
-            WeakHashMap<View, C0131a> weakHashMap;
+            WeakHashMap<View, C1679a> weakHashMap;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (weakHashMap = this.f8885c) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (weakHashMap = this.f43194c) == null) {
                 return;
             }
-            for (Map.Entry<View, C0131a> entry : weakHashMap.entrySet()) {
+            for (Map.Entry<View, C1679a> entry : weakHashMap.entrySet()) {
                 entry.getKey().setAccessibilityDelegate(entry.getValue().a());
             }
-            this.f8885c.clear();
+            this.f43194c.clear();
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(View view, boolean z, Activity activity);
     }
@@ -211,12 +211,12 @@ public abstract class bk implements bi.a {
     public void a(Activity activity, JSONObject jSONObject, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, jSONObject, z) == null) {
-            if (this.f8882a == null) {
+            if (this.f43191a == null) {
                 bi biVar = new bi(activity, this, z);
-                this.f8882a = biVar;
+                this.f43191a = biVar;
                 biVar.a(jSONObject);
             }
-            this.f8882a.a(activity);
+            this.f43191a.a(activity);
         }
     }
 }

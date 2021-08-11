@@ -7,13 +7,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.lightapp.business.LightappBrowseActivity;
 import com.baidu.wallet.lightapp.multipage.LangbridgeActivity;
-import com.baidu.wallet.lightapp.multipage.h;
+import com.baidu.wallet.lightapp.multipage.i;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class StartLangbrigeAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +48,10 @@ public class StartLangbrigeAction implements RouterAction {
             HashMap hashMap2 = new HashMap();
             hashMap2.put("errorMsg", "url is null");
             routerCallback.onResult(3, hashMap2);
-        } else if (h.a().a(context).MW_USE_OLD) {
+            return;
+        }
+        WalletLoginHelper.getInstance().getOpenBduss(false, null, 1);
+        if (i.a().a(context).MW_USE_OLD) {
             LightappBrowseActivity.startLightApp(context, str, str2, booleanValue, booleanValue2, bundle);
         } else {
             LangbridgeActivity.startLangbridge(context, str, str2, booleanValue, booleanValue2, bundle);

@@ -9,18 +9,18 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class w {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Handler f39515a;
+    public static final Handler f76349a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HandlerThread f39516b;
+    public static final HandlerThread f76350b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Handler f39517c;
+    public static final Handler f76351c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,11 +36,11 @@ public final class w {
                 return;
             }
         }
-        f39515a = new Handler(Looper.getMainLooper());
+        f76349a = new Handler(Looper.getMainLooper());
         HandlerThread handlerThread = new HandlerThread("push_client_thread");
-        f39516b = handlerThread;
+        f76350b = handlerThread;
         handlerThread.start();
-        f39517c = new x(f39516b.getLooper());
+        f76351c = new x(f76350b.getLooper());
     }
 
     public static void a(v vVar) {
@@ -54,22 +54,22 @@ public final class w {
             Message message = new Message();
             message.what = a2;
             message.obj = vVar;
-            f39517c.sendMessageDelayed(message, 0L);
+            f76351c.sendMessageDelayed(message, 0L);
         }
     }
 
     public static void b(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            f39515a.post(runnable);
+            f76349a.post(runnable);
         }
     }
 
     public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
-            f39517c.removeCallbacks(runnable);
-            f39517c.postDelayed(runnable, 15000L);
+            f76351c.removeCallbacks(runnable);
+            f76351c.postDelayed(runnable, 15000L);
         }
     }
 }

@@ -3,15 +3,15 @@ package com.baidu.adp.plugin.pluginBase;
 import android.content.Intent;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import c.a.e.h.f.a;
+import c.a.e.h.f.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.h.f.a;
-import d.a.d.h.f.b;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class PluginBaseFragmentActivity extends PluginBaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

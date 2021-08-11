@@ -10,7 +10,6 @@ import android.opengl.EGLContext;
 import android.opengl.Matrix;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -41,7 +40,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class ARPRenderer implements d, IARPRenderer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_FRAME_COUNT = 100;
@@ -140,17 +139,12 @@ public class ARPRenderer implements d, IARPRenderer {
     private void destroyGLContext() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            Log.d(TAG, "calling nativeDestroyInputSource");
             nativeDestroyInputSource();
-            Log.d(TAG, "calling nativeRemoveOutputAllTarget");
             nativeRemoveOutputAllTarget();
             if (this.hasSetupPipeline) {
-                Log.d(TAG, "calling nativeReleasePipeline");
                 nativeReleasePipeline();
             }
-            Log.d(TAG, "calling nativeContextDestroy");
             nativeContextDestroy();
-            Log.d(TAG, "end of destroyGLContext");
             releaseEffectFilterRegisterHelper();
         }
     }
@@ -245,7 +239,7 @@ public class ARPRenderer implements d, IARPRenderer {
 
     private native void nativeContextDestroy();
 
-    private native boolean nativeContextInit(long j, String str);
+    private native boolean nativeContextInit(long j2, String str);
 
     private native void nativeContextPurge();
 
@@ -271,7 +265,7 @@ public class ARPRenderer implements d, IARPRenderer {
 
     private native long nativeGetEGLContext();
 
-    private native int nativeGetTextureId(long j);
+    private native int nativeGetTextureId(long j2);
 
     private native void nativeLoadDefaultFilterLuaPath(String str);
 
@@ -287,11 +281,11 @@ public class ARPRenderer implements d, IARPRenderer {
 
     private native void nativeResumeRender();
 
-    private native void nativeReturnTexture(long j);
+    private native void nativeReturnTexture(long j2);
 
     private native void nativeRunLuaScriptStr(String str);
 
-    private native void nativeSetAlgoPts(long j);
+    private native void nativeSetAlgoPts(long j2);
 
     private native void nativeSetAuthPic(Bitmap bitmap, float[] fArr);
 
@@ -315,13 +309,13 @@ public class ARPRenderer implements d, IARPRenderer {
 
     private native void nativeSwapBuffer();
 
-    private native void nativeUpdateInputTexture(long j);
+    private native void nativeUpdateInputTexture(long j2);
 
     private native void nativeUpdateOutputSurfaceRotation(String str, int i2);
 
     private native void nativeUpdateTextureMatrix(float[] fArr);
 
-    private native void nativeUploadPixelToTextureFromPath(long j, String str);
+    private native void nativeUploadPixelToTextureFromPath(long j2, String str);
 
     public static boolean needRotate(int i2) {
         InterceptResult invokeI;
@@ -347,10 +341,7 @@ public class ARPRenderer implements d, IARPRenderer {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65598, this, eGLContext)) == null) {
-            Log.d(TAG, "calling nativeContextInit");
-            boolean nativeContextInit = nativeContextInit(eGLContext != null ? Build.VERSION.SDK_INT > 20 ? eGLContext.getNativeHandle() : eGLContext.getHandle() : 0L, "5.1.0");
-            Log.d(TAG, "end of prepareGLContext");
-            return nativeContextInit;
+            return nativeContextInit(eGLContext != null ? Build.VERSION.SDK_INT > 20 ? eGLContext.getNativeHandle() : eGLContext.getHandle() : 0L, "5.1.0");
         }
         return invokeL.booleanValue;
     }
@@ -397,7 +388,7 @@ public class ARPRenderer implements d, IARPRenderer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{surface, Integer.valueOf(i2), Integer.valueOf(i3), pixelRotation, outputFillMode})) == null) {
             if (this.hasSetup) {
-                Log.d(TAG, String.format("addOutputSurface[%s | %dx%d %s %s]", surface, Integer.valueOf(i2), Integer.valueOf(i3), pixelRotation, outputFillMode));
+                String.format("addOutputSurface[%s | %dx%d %s %s]", surface, Integer.valueOf(i2), Integer.valueOf(i3), pixelRotation, outputFillMode);
                 return nativeAddOutputSurface(surface, i2, i3, pixelRotation.getValue(), outputFillMode.getValue());
             }
             return "";
@@ -424,7 +415,7 @@ public class ARPRenderer implements d, IARPRenderer {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), pixelRotation, outputFillMode})) == null) {
-            Log.d(TAG, String.format("test addOutputTarget: %d [%dx%d] %s %s", Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), pixelRotation, outputFillMode));
+            String.format("test addOutputTarget: %d [%dx%d] %s %s", Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), pixelRotation, outputFillMode);
             return nativeAddOutputTexture(i2, i3, i4, i5, pixelRotation.getValue(), outputFillMode.getValue());
         }
         return (String) invokeCommon.objValue;
@@ -436,23 +427,23 @@ public class ARPRenderer implements d, IARPRenderer {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? nativeAdjustFilterWithCasePathParam(str) : (String) invokeL.objValue;
     }
 
-    public void adjustFilterWithFloatArrayParam(String str, String str2, float[] fArr, long j) {
+    public void adjustFilterWithFloatArrayParam(String str, String str2, float[] fArr, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, fArr, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, fArr, Long.valueOf(j2)}) == null) {
             nativeAdjustFilterWithFloatArrayParam(str, str2, fArr);
         }
     }
 
-    public void adjustFilterWithFloatParam(String str, String str2, float f2, long j) {
+    public void adjustFilterWithFloatParam(String str, String str2, float f2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Float.valueOf(f2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Float.valueOf(f2), Long.valueOf(j2)}) == null) {
             nativeAdjustFilterWithFloatParam(str, str2, f2);
         }
     }
 
-    public void adjustFilterWithIntParam(String str, String str2, int i2, long j) {
+    public void adjustFilterWithIntParam(String str, String str2, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             nativeAdjustFilterWithIntParam(str, str2, i2);
         }
     }
@@ -463,10 +454,10 @@ public class ARPRenderer implements d, IARPRenderer {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? nativeAdjustFilterWithJsonPathParam(str) : (String) invokeL.objValue;
     }
 
-    public void adjustFilterWithStringParam(String str, String str2, String str3, long j) {
+    public void adjustFilterWithStringParam(String str, String str2, String str3, long j2) {
         SoftReference<Context> softReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, str2, str3, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, str2, str3, Long.valueOf(j2)}) == null) {
             if (!str3.contains(AssetUriLoader.ASSET_PATH_SEGMENT) || (softReference = this.softContext) == null || softReference.get() == null || this.softContext.get().getAssets() == null) {
                 nativeAdjustFilterWithStringParam(str, str2, str3);
                 return;
@@ -551,8 +542,7 @@ public class ARPRenderer implements d, IARPRenderer {
     public void createInputSource(PixelRotation pixelRotation, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048593, this, pixelRotation, eVar) == null) {
-            String str = TAG;
-            Log.d(str, "calling nativeCreateInputSource: " + eVar);
+            String str = "calling nativeCreateInputSource: " + eVar;
             nativeCreateInputSource(pixelRotation.getValue(), eVar.getValue());
         }
     }
@@ -587,8 +577,7 @@ public class ARPRenderer implements d, IARPRenderer {
     public void createSyncInputSource(PixelRotation pixelRotation, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048595, this, pixelRotation, eVar) == null) {
-            String str = TAG;
-            Log.d(str, "calling createSyncInputSource: " + eVar);
+            String str = "calling createSyncInputSource: " + eVar;
             nativeCreateSyncInputSource(pixelRotation.getValue(), eVar.getValue());
         }
     }
@@ -606,7 +595,6 @@ public class ARPRenderer implements d, IARPRenderer {
         if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && this.hasSetup) {
             ARPMessage.getInstance().release();
             this.mDrawQueue.clear();
-            Log.d(TAG, "ARPFilter destroy: ");
             destroyGLContext();
             this.mOnRenderStartedListener = null;
             this.mOnRenderFinishedListener = null;
@@ -652,10 +640,10 @@ public class ARPRenderer implements d, IARPRenderer {
     }
 
     @Override // com.baidu.ar.arplay.core.renderer.IARPRenderer
-    public void destroyTexture(long j) {
+    public void destroyTexture(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
-            nativeReturnTexture(j);
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
+            nativeReturnTexture(j2);
         }
     }
 
@@ -723,10 +711,10 @@ public class ARPRenderer implements d, IARPRenderer {
     }
 
     @Override // com.baidu.ar.arplay.core.renderer.IARPRenderer
-    public int getTextureId(long j) {
+    public int getTextureId(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048609, this, j)) == null) ? nativeGetTextureId(j) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048609, this, j2)) == null) ? nativeGetTextureId(j2) : invokeJ.intValue;
     }
 
     @Override // com.baidu.ar.arplay.core.renderer.IARPRenderer
@@ -754,31 +742,31 @@ public class ARPRenderer implements d, IARPRenderer {
     public native void nativeRunSyncOnRenderContext(Runnable runnable);
 
     @Override // com.baidu.ar.arplay.core.renderer.IARPRenderer
-    public void onFrameRenderFinished(long j) {
+    public void onFrameRenderFinished(long j2) {
         OnRenderFinishedListener onRenderFinishedListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048614, this, j) == null) || (onRenderFinishedListener = this.mOnRenderFinishedListener) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048614, this, j2) == null) || (onRenderFinishedListener = this.mOnRenderFinishedListener) == null) {
             return;
         }
-        onRenderFinishedListener.onRenderFinished(j);
+        onRenderFinishedListener.onRenderFinished(j2);
     }
 
     @Override // com.baidu.ar.arplay.core.renderer.IARPRenderer
-    public void onFrameRenderStarted(long j) {
+    public void onFrameRenderStarted(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048615, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048615, this, j2) == null) {
             OnRenderStartedListener onRenderStartedListener = this.mOnRenderStartedListener;
             if (onRenderStartedListener != null) {
-                onRenderStartedListener.onRenderStarted(j);
+                onRenderStartedListener.onRenderStarted(j2);
             }
             runAllDrawQueue();
         }
     }
 
     @Override // com.baidu.ar.arplay.core.renderer.IARPRenderer
-    public void onSnapShotFinished(Bitmap bitmap, long j) {
+    public void onSnapShotFinished(Bitmap bitmap, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048616, this, bitmap, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048616, this, bitmap, j2) == null) {
             Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), (android.graphics.Matrix) null, false);
             if (this.mIsCutSnapShot) {
                 Bitmap createBitmap2 = Bitmap.createBitmap(createBitmap, this.mCutSnapStartX, this.mCutSnapStartY, this.mCutSnapWidth, this.mCutSnapHeight, (android.graphics.Matrix) null, false);
@@ -789,7 +777,7 @@ public class ARPRenderer implements d, IARPRenderer {
             }
             TakePictureCallback takePictureCallback = this.mTakePictureCallback;
             if (takePictureCallback != null) {
-                takePictureCallback.onPictureTake(true, createBitmap, j);
+                takePictureCallback.onPictureTake(true, createBitmap, j2);
             }
         }
     }
@@ -797,16 +785,15 @@ public class ARPRenderer implements d, IARPRenderer {
     public void pause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-            Log.d(TAG, "ARPFilter pause: ");
             nativePauseRender();
         }
     }
 
     @Override // com.baidu.ar.arplay.core.renderer.IARPRenderer
-    public boolean pixelReadCallback(ByteBuffer byteBuffer, long j, int i2, int i3, int i4, int i5, int i6, String str, int i7, int i8) {
+    public boolean pixelReadCallback(ByteBuffer byteBuffer, long j2, int i2, int i3, int i4, int i5, int i6, String str, int i7, int i8) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048618, this, new Object[]{byteBuffer, Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), str, Integer.valueOf(i7), Integer.valueOf(i8)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048618, this, new Object[]{byteBuffer, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), str, Integer.valueOf(i7), Integer.valueOf(i8)})) == null) {
             PixelReadParams pixelReadParams = new PixelReadParams(PixelType.valueOf(i5));
             pixelReadParams.setOutputWidth(i2);
             pixelReadParams.setOutputHeight(i3);
@@ -815,16 +802,16 @@ public class ARPRenderer implements d, IARPRenderer {
             String pixelReadParamHash = getPixelReadParamHash(pixelReadParams);
             Boolean bool = Boolean.FALSE;
             OnNeedCacheFrameListener onNeedCacheFrameListener = this.mIsNeedCacheFrameListener;
-            if (onNeedCacheFrameListener != null && this.mNeedSyncRender && j != this.mLastAlgoPTS) {
-                bool = Boolean.valueOf(onNeedCacheFrameListener.isNeedCacheFrame(j));
+            if (onNeedCacheFrameListener != null && this.mNeedSyncRender && j2 != this.mLastAlgoPTS) {
+                bool = Boolean.valueOf(onNeedCacheFrameListener.isNeedCacheFrame(j2));
             }
-            this.mLastAlgoPTS = j;
+            this.mLastAlgoPTS = j2;
             if (this.mPixelListenerHash.containsKey(pixelReadParamHash)) {
                 FramePixels framePixels = new FramePixels(PixelType.values()[i5], byteBuffer, i2, i3);
                 framePixels.setCameraFrame(true);
                 framePixels.setFrontCamera(this.mFrontCamera);
                 framePixels.setOrientation(OrientationManager.getGlobalOrientation());
-                framePixels.setTimestamp(j);
+                framePixels.setTimestamp(j2);
                 framePixels.setPixelLength(i6);
                 framePixels.setTextureID(i8);
                 framePixels.setFrameType(PixelReadParams.FrameType.values()[i7]);
@@ -874,9 +861,9 @@ public class ARPRenderer implements d, IARPRenderer {
     }
 
     @Override // com.baidu.ar.arplay.core.renderer.IARPRenderer
-    public synchronized void render(long j) {
+    public synchronized void render(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048623, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048623, this, j2) == null) {
             synchronized (this) {
                 if (this.mTotalFrameCount > 0) {
                     this.mTotalFrameTimeInMS += System.currentTimeMillis() - this.mLastFramePTS;
@@ -890,7 +877,7 @@ public class ARPRenderer implements d, IARPRenderer {
                     this.mTotalFrameTimeInMS = 0L;
                 }
                 if (this.hasSetup) {
-                    nativeUpdateInputTexture(j);
+                    nativeUpdateInputTexture(j2);
                 }
             }
         }
@@ -899,7 +886,6 @@ public class ARPRenderer implements d, IARPRenderer {
     public void resume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
-            Log.d(TAG, "ARPFilter resume: ");
             nativeResumeRender();
         }
     }
@@ -956,10 +942,10 @@ public class ARPRenderer implements d, IARPRenderer {
     }
 
     @Override // com.baidu.ar.arplay.core.renderer.IARPRenderer
-    public void setAlgoPts(long j) {
+    public void setAlgoPts(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048629, this, j) == null) {
-            nativeSetAlgoPts(j);
+        if (interceptable == null || interceptable.invokeJ(1048629, this, j2) == null) {
+            nativeSetAlgoPts(j2);
         }
     }
 
@@ -1015,7 +1001,7 @@ public class ARPRenderer implements d, IARPRenderer {
     public void setInputTexture(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048636, this, i2, i3, i4, i5) == null) {
-            Log.d(TAG, String.format("setInputTexture: %d %d [%dx%d]", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)));
+            String.format("setInputTexture: %d %d [%dx%d]", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5));
             this.mInputTexWidth = i4;
             this.mInputTexHeight = i5;
             nativeSetInputTexture(i2, i3, i4, i5);
@@ -1135,10 +1121,10 @@ public class ARPRenderer implements d, IARPRenderer {
     }
 
     @Override // com.baidu.ar.arplay.core.renderer.IARPRenderer
-    public void uploadPixelToTextureFromPath(long j, String str) {
+    public void uploadPixelToTextureFromPath(long j2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048648, this, j, str) == null) {
-            nativeUploadPixelToTextureFromPath(j, str);
+        if (interceptable == null || interceptable.invokeJL(1048648, this, j2, str) == null) {
+            nativeUploadPixelToTextureFromPath(j2, str);
         }
     }
 }

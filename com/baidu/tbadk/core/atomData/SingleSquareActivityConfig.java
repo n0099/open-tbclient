@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLEncoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SingleSquareActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BACK_SPECIAL = "back_special";
@@ -41,7 +41,7 @@ public class SingleSquareActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(PAGE_NAME);
+            sb.append("square_page");
             try {
                 sb.append(URLEncoder.encode("|", "utf-8"));
             } catch (Exception e2) {

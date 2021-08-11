@@ -30,14 +30,14 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class FlowableWindowBoundarySupplier<T, B> extends AbstractFlowableWithUpstream<T, Flowable<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int capacityHint;
     public final Callable<? extends Publisher<B>> other;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class WindowBoundaryInnerSubscriber<T, B> extends DisposableSubscriber<B> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public final class FlowableWindowBoundarySupplier<T, B> extends AbstractFlowable
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class WindowBoundaryMainSubscriber<T, B> extends AtomicInteger implements FlowableSubscriber<T>, Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final WindowBoundaryInnerSubscriber<Object, Object> BOUNDARY_DISPOSED;
@@ -191,7 +191,7 @@ public final class FlowableWindowBoundarySupplier<T, B> extends AbstractFlowable
                 Subscriber<? super Flowable<T>> subscriber = this.downstream;
                 MpscLinkedQueue<Object> mpscLinkedQueue = this.queue;
                 AtomicThrowable atomicThrowable = this.errors;
-                long j = this.emitted;
+                long j2 = this.emitted;
                 int i2 = 1;
                 while (this.windows.get() != 0) {
                     UnicastProcessor<T> unicastProcessor = this.window;
@@ -225,7 +225,7 @@ public final class FlowableWindowBoundarySupplier<T, B> extends AbstractFlowable
                         subscriber.onError(terminate2);
                         return;
                     } else if (z2) {
-                        this.emitted = j;
+                        this.emitted = j2;
                         i2 = addAndGet(-i2);
                         if (i2 == 0) {
                             return;
@@ -238,7 +238,7 @@ public final class FlowableWindowBoundarySupplier<T, B> extends AbstractFlowable
                             unicastProcessor.onComplete();
                         }
                         if (!this.stopWindows.get()) {
-                            if (j != this.requested.get()) {
+                            if (j2 != this.requested.get()) {
                                 UnicastProcessor<T> create = UnicastProcessor.create(this.capacityHint, this);
                                 this.window = create;
                                 this.windows.getAndIncrement();
@@ -247,7 +247,7 @@ public final class FlowableWindowBoundarySupplier<T, B> extends AbstractFlowable
                                     WindowBoundaryInnerSubscriber<T, B> windowBoundaryInnerSubscriber = new WindowBoundaryInnerSubscriber<>(this);
                                     if (this.boundarySubscriber.compareAndSet(null, windowBoundaryInnerSubscriber)) {
                                         publisher.subscribe(windowBoundaryInnerSubscriber);
-                                        j++;
+                                        j2++;
                                         subscriber.onNext(create);
                                     }
                                 } catch (Throwable th) {
@@ -346,10 +346,10 @@ public final class FlowableWindowBoundarySupplier<T, B> extends AbstractFlowable
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-                BackpressureHelper.add(this.requested, j);
+            if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
+                BackpressureHelper.add(this.requested, j2);
             }
         }
 

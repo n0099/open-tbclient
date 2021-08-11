@@ -13,12 +13,12 @@ import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.StandardMessageCodec;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class NetworkInfoAuto {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class DnsIpResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +122,7 @@ public class NetworkInfoAuto {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class DnsUrl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -178,13 +178,13 @@ public class NetworkInfoAuto {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class FlutterNetworkInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final BinaryMessenger binaryMessenger;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes7.dex */
         public interface Reply<T> {
             void reply(T t);
         }
@@ -210,7 +210,7 @@ public class NetworkInfoAuto {
         public void setNetInfo(NetworkStatus networkStatus, final Reply<SetNetInfoResult> reply) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, networkStatus, reply) == null) {
-                new BasicMessageChannel(this.binaryMessenger, "dev.flutter.pigeon.FlutterNetworkInfo.setNetInfo", new StandardMessageCodec()).send(networkStatus.toMap(), new BasicMessageChannel.Reply() { // from class: d.a.q0.q0.a.e.a
+                new BasicMessageChannel(this.binaryMessenger, "dev.flutter.pigeon.FlutterNetworkInfo.setNetInfo", new StandardMessageCodec()).send(networkStatus.toMap(), new BasicMessageChannel.Reply() { // from class: c.a.p0.r0.a.e.a
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -226,7 +226,7 @@ public class NetworkInfoAuto {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface HostNetworkInfo {
         void getDnsIp(DnsUrl dnsUrl, Result<DnsIpResult> result);
 
@@ -237,7 +237,7 @@ public class NetworkInfoAuto {
         void isNetworkAvailableForImmediately(Result<NetWorkAvailable> result);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class NetWorkAvailable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -293,7 +293,7 @@ public class NetworkInfoAuto {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class NetworkStatus {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -388,12 +388,12 @@ public class NetworkInfoAuto {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface Result<T> {
         void success(T t);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class SetNetInfoResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

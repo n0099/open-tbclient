@@ -10,13 +10,13 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class c implements TTAppDownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<TTAppDownloadListener> f31362a;
+    public final List<TTAppDownloadListener> f67302a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class c implements TTAppDownloadListener {
                 return;
             }
         }
-        this.f31362a = Collections.synchronizedList(new LinkedList());
+        this.f67302a = Collections.synchronizedList(new LinkedList());
     }
 
     public void a(TTAppDownloadListener tTAppDownloadListener) {
@@ -39,28 +39,28 @@ public class c implements TTAppDownloadListener {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTAppDownloadListener) == null) || tTAppDownloadListener == null) {
             return;
         }
-        for (TTAppDownloadListener tTAppDownloadListener2 : this.f31362a) {
+        for (TTAppDownloadListener tTAppDownloadListener2 : this.f67302a) {
             if (tTAppDownloadListener2 != null && tTAppDownloadListener2 == tTAppDownloadListener) {
                 return;
             }
         }
-        synchronized (this.f31362a) {
-            this.f31362a.add(tTAppDownloadListener);
+        synchronized (this.f67302a) {
+            this.f67302a.add(tTAppDownloadListener);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadActive(long j, long j2, String str, String str2) {
+    public void onDownloadActive(long j2, long j3, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-            synchronized (this.f31362a) {
-                Iterator<TTAppDownloadListener> it = this.f31362a.iterator();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) {
+            synchronized (this.f67302a) {
+                Iterator<TTAppDownloadListener> it = this.f67302a.iterator();
                 while (it.hasNext()) {
                     TTAppDownloadListener next = it.next();
                     if (next == null) {
                         it.remove();
                     } else {
-                        next.onDownloadActive(j, j2, str, str2);
+                        next.onDownloadActive(j2, j3, str, str2);
                     }
                 }
             }
@@ -68,17 +68,17 @@ public class c implements TTAppDownloadListener {
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadFailed(long j, long j2, String str, String str2) {
+    public void onDownloadFailed(long j2, long j3, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-            synchronized (this.f31362a) {
-                Iterator<TTAppDownloadListener> it = this.f31362a.iterator();
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) {
+            synchronized (this.f67302a) {
+                Iterator<TTAppDownloadListener> it = this.f67302a.iterator();
                 while (it.hasNext()) {
                     TTAppDownloadListener next = it.next();
                     if (next == null) {
                         it.remove();
                     } else {
-                        next.onDownloadFailed(j, j2, str, str2);
+                        next.onDownloadFailed(j2, j3, str, str2);
                     }
                 }
             }
@@ -86,17 +86,17 @@ public class c implements TTAppDownloadListener {
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadFinished(long j, String str, String str2) {
+    public void onDownloadFinished(long j2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
-            synchronized (this.f31362a) {
-                Iterator<TTAppDownloadListener> it = this.f31362a.iterator();
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {
+            synchronized (this.f67302a) {
+                Iterator<TTAppDownloadListener> it = this.f67302a.iterator();
                 while (it.hasNext()) {
                     TTAppDownloadListener next = it.next();
                     if (next == null) {
                         it.remove();
                     } else {
-                        next.onDownloadFinished(j, str, str2);
+                        next.onDownloadFinished(j2, str, str2);
                     }
                 }
             }
@@ -104,17 +104,17 @@ public class c implements TTAppDownloadListener {
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadPaused(long j, long j2, String str, String str2) {
+    public void onDownloadPaused(long j2, long j3, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-            synchronized (this.f31362a) {
-                Iterator<TTAppDownloadListener> it = this.f31362a.iterator();
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) {
+            synchronized (this.f67302a) {
+                Iterator<TTAppDownloadListener> it = this.f67302a.iterator();
                 while (it.hasNext()) {
                     TTAppDownloadListener next = it.next();
                     if (next == null) {
                         it.remove();
                     } else {
-                        next.onDownloadPaused(j, j2, str, str2);
+                        next.onDownloadPaused(j2, j3, str, str2);
                     }
                 }
             }
@@ -125,8 +125,8 @@ public class c implements TTAppDownloadListener {
     public void onIdle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            synchronized (this.f31362a) {
-                Iterator<TTAppDownloadListener> it = this.f31362a.iterator();
+            synchronized (this.f67302a) {
+                Iterator<TTAppDownloadListener> it = this.f67302a.iterator();
                 while (it.hasNext()) {
                     TTAppDownloadListener next = it.next();
                     if (next == null) {
@@ -143,8 +143,8 @@ public class c implements TTAppDownloadListener {
     public void onInstalled(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-            synchronized (this.f31362a) {
-                Iterator<TTAppDownloadListener> it = this.f31362a.iterator();
+            synchronized (this.f67302a) {
+                Iterator<TTAppDownloadListener> it = this.f67302a.iterator();
                 while (it.hasNext()) {
                     TTAppDownloadListener next = it.next();
                     if (next == null) {
@@ -159,9 +159,9 @@ public class c implements TTAppDownloadListener {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f31362a.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f67302a.isEmpty()) {
             return;
         }
-        this.f31362a.clear();
+        this.f67302a.clear();
     }
 }

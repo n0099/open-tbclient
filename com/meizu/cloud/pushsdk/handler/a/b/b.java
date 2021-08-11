@@ -3,9 +3,10 @@ package com.meizu.cloud.pushsdk.handler.a.b;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b implements Parcelable {
     public static final Parcelable.Creator<b> CREATOR = new Parcelable.Creator<b>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.b.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -24,41 +25,41 @@ public class b implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public String f37663a;
+    public String f74511a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f37664b;
+    public a f74512b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f f37665c;
+    public f f74513c;
 
     public b() {
     }
 
     public b(Parcel parcel) {
-        this.f37663a = parcel.readString();
-        this.f37664b = (a) parcel.readParcelable(a.class.getClassLoader());
-        this.f37665c = (f) parcel.readParcelable(f.class.getClassLoader());
+        this.f74511a = parcel.readString();
+        this.f74512b = (a) parcel.readParcelable(a.class.getClassLoader());
+        this.f74513c = (f) parcel.readParcelable(f.class.getClassLoader());
     }
 
     public b(String str, String str2, String str3) {
-        this.f37663a = str;
+        this.f74511a = str;
         if (TextUtils.isEmpty(str)) {
-            this.f37664b = new a();
-            this.f37665c = new f();
+            this.f74512b = new a();
+            this.f74513c = new f();
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.f37664b = a.a(jSONObject.getJSONObject("ctl"));
+            this.f74512b = a.a(jSONObject.getJSONObject("ctl"));
             f a2 = f.a(jSONObject.getJSONObject("statics"));
-            this.f37665c = a2;
+            this.f74513c = a2;
             a2.c(str2);
-            this.f37665c.d(str3);
+            this.f74513c.d(str3);
         } catch (JSONException e2) {
-            this.f37664b = new a();
-            this.f37665c = new f();
-            d.h.a.a.a.b("ControlMessage", "parse control message error " + e2.getMessage());
+            this.f74512b = new a();
+            this.f74513c = new f();
+            c.l.a.a.a.b("ControlMessage", "parse control message error " + e2.getMessage());
         }
     }
 
@@ -69,7 +70,7 @@ public class b implements Parcelable {
             bVar.a(a.a(jSONObject.getJSONObject("ctl")));
             bVar.a(f.a(jSONObject.getJSONObject("statics")));
         } catch (Exception e2) {
-            d.h.a.a.a.b("ControlMessage", "parse control message error " + e2.getMessage());
+            c.l.a.a.a.b("ControlMessage", "parse control message error " + e2.getMessage());
             bVar.a(new f());
             bVar.a(new a());
         }
@@ -77,19 +78,19 @@ public class b implements Parcelable {
     }
 
     public a a() {
-        return this.f37664b;
+        return this.f74512b;
     }
 
     public void a(a aVar) {
-        this.f37664b = aVar;
+        this.f74512b = aVar;
     }
 
     public void a(f fVar) {
-        this.f37665c = fVar;
+        this.f74513c = fVar;
     }
 
     public f b() {
-        return this.f37665c;
+        return this.f74513c;
     }
 
     @Override // android.os.Parcelable
@@ -98,13 +99,13 @@ public class b implements Parcelable {
     }
 
     public String toString() {
-        return "ControlMessage{controlMessage='" + this.f37663a + "', control=" + this.f37664b + ", statics=" + this.f37665c + '}';
+        return "ControlMessage{controlMessage='" + this.f74511a + ExtendedMessageFormat.QUOTE + ", control=" + this.f74512b + ", statics=" + this.f74513c + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeString(this.f37663a);
-        parcel.writeParcelable(this.f37664b, i2);
-        parcel.writeParcelable(this.f37665c, i2);
+        parcel.writeString(this.f74511a);
+        parcel.writeParcelable(this.f74512b, i2);
+        parcel.writeParcelable(this.f74513c, i2);
     }
 }

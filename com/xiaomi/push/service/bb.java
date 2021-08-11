@@ -15,7 +15,7 @@ import com.xiaomi.push.hp;
 import com.xiaomi.push.ie;
 import com.xiaomi.push.ip;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class bb implements ee {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,17 +39,17 @@ public class bb implements ee {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, hashMap) == null) {
             ie ieVar = new ie();
-            ieVar.b(ea.a(context).m284a());
+            ieVar.b(ea.a(context).m287a());
             ieVar.d(ea.a(context).b());
-            ieVar.c(hp.I.f509a);
+            ieVar.c(hp.I.f513a);
             ieVar.a(at.a());
-            ieVar.f650a = hashMap;
-            byte[] a2 = ip.a(y.a(ieVar.c(), ieVar.b(), ieVar, hf.f40530i));
+            ieVar.f654a = hashMap;
+            byte[] a2 = ip.a(y.a(ieVar.c(), ieVar.b(), ieVar, hf.f77389i));
             if (!(context instanceof XMPushService)) {
-                com.xiaomi.channel.commonutils.logger.b.m70a("MoleInfo : context is not correct in pushLayer " + ieVar.m465a());
+                com.xiaomi.channel.commonutils.logger.b.m73a("MoleInfo : context is not correct in pushLayer " + ieVar.m468a());
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m70a("MoleInfo : send data directly in pushLayer " + ieVar.m465a());
+            com.xiaomi.channel.commonutils.logger.b.m73a("MoleInfo : send data directly in pushLayer " + ieVar.m468a());
             ((XMPushService) context).a(context.getPackageName(), a2, true);
         }
     }
@@ -68,7 +68,7 @@ public class bb implements ee {
     public void c(Context context, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, hashMap) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m70a("MoleInfo：\u3000" + dv.b(hashMap));
+            com.xiaomi.channel.commonutils.logger.b.m73a("MoleInfo：\u3000" + dv.b(hashMap));
         }
     }
 }

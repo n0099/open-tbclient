@@ -1,5 +1,7 @@
 package com.baidu.adp.lib.voice;
 
+import c.a.e.e.p.h;
+import c.a.e.e.p.i;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -9,9 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.h;
-import d.a.d.e.p.i;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class Amrnb {
     public static /* synthetic */ Interceptable $ic;
     public static boolean bLoadLibrary;
@@ -20,7 +20,7 @@ public class Amrnb {
     public int mDecoderContext;
     public int mEncoderContext;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class a extends i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class Amrnb {
             }
         }
 
-        @Override // d.a.d.e.p.i
+        @Override // c.a.e.e.p.i
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {

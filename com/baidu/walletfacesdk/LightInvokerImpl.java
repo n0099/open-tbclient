@@ -2,7 +2,6 @@ package com.baidu.walletfacesdk;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.openbduss.PASSMethodCallTransfer;
@@ -13,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.router.RouterCallback;
 import com.baidu.walletfacesdk.LivenessManager;
+import com.dxmpay.wallet.core.beans.BeanConstants;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class LightInvokerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALL_NATIVE_VOICE = "callNativeVoice";
@@ -40,7 +39,7 @@ public class LightInvokerImpl {
     public static final String VOICE_PRODUCTID = "productId";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface IResultListener {
         void onResult(int i2, JSONObject jSONObject);
     }
@@ -81,9 +80,8 @@ public class LightInvokerImpl {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("result", i2);
-                jSONObject2.put("cnt", jSONObject);
-            } catch (JSONException e2) {
-                Log.e(TAG, "error", e2);
+                jSONObject2.put(BeanConstants.DXM_OCR_KEY_CNT, jSONObject);
+            } catch (JSONException unused) {
             }
             return jSONObject2.toString();
         }
@@ -99,40 +97,38 @@ public class LightInvokerImpl {
             try {
                 jSONObject = new JSONObject(str);
             } catch (Exception e2) {
-                Log.e(TAG, e2.getMessage());
+                e2.getMessage();
                 jSONObject = null;
             }
             if (!jSONObject.has(START_IDENTIFY)) {
                 try {
-                    jSONObject2.put(RouterCallback.KEY_ERROR_CODE, 103);
-                    jSONObject2.put("des", PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+                    jSONObject2.put("errCode", 103);
+                    jSONObject2.put(BeanConstants.DXM_OCR_KEY_ERROR_DES, PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
                     iResultListener.onResult(1, jSONObject2);
                     return;
-                } catch (Exception e3) {
-                    Log.e(TAG, "error", e3);
+                } catch (Exception unused) {
                     return;
                 }
             }
             try {
                 jSONObject3 = new JSONObject(jSONObject.optString(START_IDENTIFY));
-            } catch (Exception e4) {
-                Log.e(TAG, e4.getMessage());
+            } catch (Exception e3) {
+                e3.getMessage();
             }
             if (jSONObject3.has(VOICE_ACTIONTYPE)) {
                 if (!(!TextUtils.isEmpty(jSONObject3.optString(VOICE_ACTIONTYPE)) ? jSONObject3.optString(VOICE_ACTIONTYPE) : "").equals("2")) {
                     try {
-                        jSONObject2.put(RouterCallback.KEY_ERROR_CODE, 103);
-                        jSONObject2.put("des", PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+                        jSONObject2.put("errCode", 103);
+                        jSONObject2.put(BeanConstants.DXM_OCR_KEY_ERROR_DES, PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
                         iResultListener.onResult(1, jSONObject2);
                         return;
-                    } catch (Exception e5) {
-                        Log.e(TAG, "error", e5);
+                    } catch (Exception unused2) {
                         return;
                     }
                 }
             }
             HashMap hashMap = new HashMap();
-            hashMap.put("stoken", jSONObject.optString("stoken"));
+            hashMap.put("stoken", !TextUtils.isEmpty(jSONObject.optString("stoken")) ? jSONObject.optString("stoken") : "stoken");
             String optString = !TextUtils.isEmpty(jSONObject3.optString("productId")) ? jSONObject3.optString("productId") : "default";
             hashMap.put(LIVENESS_SERVIVETYPE, !TextUtils.isEmpty(jSONObject3.optString(LIVENESS_SERVIVETYPE)) ? jSONObject3.optString(LIVENESS_SERVIVETYPE) : "1008");
             if (!jSONObject3.has(LIVENESS_SHOW_GUIDE_PAGE) || TextUtils.isEmpty(jSONObject3.optString(LIVENESS_SHOW_GUIDE_PAGE))) {
@@ -162,10 +158,10 @@ public class LightInvokerImpl {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ JSONObject f27530a;
+                public final /* synthetic */ JSONObject f63360a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ IResultListener f27531b;
+                public final /* synthetic */ IResultListener f63361b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -182,8 +178,8 @@ public class LightInvokerImpl {
                             return;
                         }
                     }
-                    this.f27530a = jSONObject2;
-                    this.f27531b = iResultListener;
+                    this.f63360a = jSONObject2;
+                    this.f63361b = iResultListener;
                 }
 
                 @Override // com.baidu.walletfacesdk.LivenessManager.IvoiceListener
@@ -192,15 +188,14 @@ public class LightInvokerImpl {
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str2, obj}) == null) {
                         if (obj != null) {
                             try {
-                                this.f27530a.put("data", obj);
-                            } catch (Exception e6) {
-                                Log.e(LightInvokerImpl.TAG, "error", e6);
+                                this.f63360a.put("data", obj);
+                            } catch (Exception unused3) {
                                 return;
                             }
                         }
-                        this.f27530a.put(RouterCallback.KEY_ERROR_CODE, i3);
-                        this.f27530a.put("des", str2);
-                        this.f27531b.onResult(i2, this.f27530a);
+                        this.f63360a.put("errCode", i3);
+                        this.f63360a.put(BeanConstants.DXM_OCR_KEY_ERROR_DES, str2);
+                        this.f63361b.onResult(i2, this.f63360a);
                     }
                 }
             });
@@ -219,7 +214,7 @@ public class LightInvokerImpl {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ LightInvokerCallback f27529a;
+                    public final /* synthetic */ LightInvokerCallback f63359a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -236,7 +231,7 @@ public class LightInvokerImpl {
                                 return;
                             }
                         }
-                        this.f27529a = lightInvokerCallback;
+                        this.f63359a = lightInvokerCallback;
                     }
 
                     @Override // com.baidu.walletfacesdk.LightInvokerImpl.IResultListener
@@ -245,12 +240,12 @@ public class LightInvokerImpl {
                         if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, jSONObject) == null) || jSONObject == null) {
                             return;
                         }
-                        this.f27529a.onResult(i2, LightInvokerImpl.assembleResult(i2, jSONObject));
+                        this.f63359a.onResult(i2, LightInvokerImpl.assembleResult(i2, jSONObject));
                     }
                 });
             }
         } catch (Exception e2) {
-            Log.e(TAG, e2.getMessage());
+            e2.getMessage();
         }
     }
 

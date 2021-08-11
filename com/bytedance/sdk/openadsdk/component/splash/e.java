@@ -47,7 +47,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class e implements w.a, TTSplashAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,32 +61,34 @@ public class e implements w.a, TTSplashAd {
     public boolean H;
 
     /* renamed from: a  reason: collision with root package name */
-    public AtomicBoolean f29838a;
+    public AtomicBoolean f65731a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f29839b;
+    public AtomicBoolean f65732b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29840c;
+    public int f65733c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Context f29841d;
+    public final Context f65734d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final m f29842e;
+    public final m f65735e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TsView f29843f;
+    public TsView f65736f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TTSplashAd.AdInteractionListener f29844g;
+    public TTSplashAd.AdInteractionListener f65737g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f29845h;
+    public boolean f65738h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f29846i;
-    public com.bytedance.sdk.openadsdk.downloadnew.core.a j;
+    public long f65739i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public com.bytedance.sdk.openadsdk.downloadnew.core.a f65740j;
     public d k;
     public String l;
     public boolean m;
@@ -119,8 +121,8 @@ public class e implements w.a, TTSplashAd {
                 return;
             }
         }
-        this.f29840c = 3;
-        this.f29846i = 0L;
+        this.f65733c = 3;
+        this.f65739i = 0L;
         this.l = null;
         this.m = false;
         this.n = false;
@@ -128,15 +130,15 @@ public class e implements w.a, TTSplashAd {
         this.q = -1;
         this.v = new AtomicBoolean(false);
         this.w = new AtomicBoolean(false);
-        this.f29838a = new AtomicBoolean(false);
-        this.f29839b = new AtomicBoolean(false);
+        this.f65731a = new AtomicBoolean(false);
+        this.f65732b = new AtomicBoolean(false);
         this.C = new HashMap();
         this.E = false;
         this.F = true;
         this.G = false;
         this.H = false;
-        this.f29841d = context;
-        this.f29842e = mVar;
+        this.f65734d = context;
+        this.f65735e = mVar;
         this.n = mVar.au();
         this.t = adSlot;
         this.s = str;
@@ -148,7 +150,7 @@ public class e implements w.a, TTSplashAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            m mVar = this.f29842e;
+            m mVar = this.f65735e;
             if (mVar == null) {
                 return -1;
             }
@@ -162,19 +164,19 @@ public class e implements w.a, TTSplashAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            m mVar = this.f29842e;
+            m mVar = this.f65735e;
             if (mVar != null) {
                 l lVar = mVar.ad().get(0);
                 if (lVar.f()) {
                     if (lVar == null) {
-                        return this.f29842e.av();
+                        return this.f65735e.av();
                     }
                     String a2 = lVar.a();
-                    Map<String, Object> av = this.f29842e.av();
+                    Map<String, Object> av = this.f65735e.av();
                     av.put("image_url", a2);
                     return av;
                 }
-                return this.f29842e.av();
+                return this.f65735e.av();
             }
             return null;
         }
@@ -187,20 +189,20 @@ public class e implements w.a, TTSplashAd {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             int[] iArr = new int[2];
-            m mVar = this.f29842e;
+            m mVar = this.f65735e;
             if (mVar == null) {
                 return null;
             }
             boolean au = mVar.au();
-            if (this.f29842e.S() == null) {
+            if (this.f65735e.S() == null) {
                 return null;
             }
             if (au) {
-                iArr[0] = this.f29842e.S().d();
-                iArr[1] = this.f29842e.S().e();
+                iArr[0] = this.f65735e.S().d();
+                iArr[1] = this.f65735e.S().e();
             } else {
-                iArr[0] = this.f29842e.S().a();
-                iArr[1] = this.f29842e.S().b();
+                iArr[0] = this.f65735e.S().a();
+                iArr[1] = this.f65735e.S().b();
             }
             return iArr;
         }
@@ -213,9 +215,9 @@ public class e implements w.a, TTSplashAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            m mVar = this.f29842e;
-            if (mVar == null || mVar.V() == null || this.f29843f.getVideoContainer() == null || this.l == null || d()) {
-                return this.f29843f;
+            m mVar = this.f65735e;
+            if (mVar == null || mVar.V() == null || this.f65736f.getVideoContainer() == null || this.l == null || d()) {
+                return this.f65736f;
             }
             return null;
         }
@@ -245,8 +247,8 @@ public class e implements w.a, TTSplashAd {
     public void setNotAllowSdkCountdown() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f29845h = true;
-            TsView tsView = this.f29843f;
+            this.f65738h = true;
+            TsView tsView = this.f65736f;
             if (tsView != null) {
                 tsView.setSkipIconVisibility(8);
             }
@@ -265,14 +267,14 @@ public class e implements w.a, TTSplashAd {
     public void setSplashInteractionListener(TTSplashAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, adInteractionListener) == null) {
-            this.f29844g = adInteractionListener;
+            this.f65737g = adInteractionListener;
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTSplashAd
     public void splashClickEyeAnimationFinish() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.f29843f == null || this.f29842e == null || this.E) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.f65736f == null || this.f65735e == null || this.E) {
             return;
         }
         this.E = true;
@@ -282,19 +284,19 @@ public class e implements w.a, TTSplashAd {
         if (aVar != null) {
             aVar.a(this.C);
         }
-        boolean au = this.f29842e.au();
-        this.f29843f.setCloseViewVisibility(0);
-        this.f29843f.setSkipIconVisibility(8);
-        this.f29843f.setClickBarViewVisibility(8);
-        this.f29843f.setVideoVoiceVisibility(8);
-        this.f29843f.setAdlogoViewVisibility(8);
+        boolean au = this.f65735e.au();
+        this.f65736f.setCloseViewVisibility(0);
+        this.f65736f.setSkipIconVisibility(8);
+        this.f65736f.setClickBarViewVisibility(8);
+        this.f65736f.setVideoVoiceVisibility(8);
+        this.f65736f.setAdlogoViewVisibility(8);
         com.bytedance.sdk.openadsdk.core.b.a aVar2 = this.A;
         if (aVar2 != null) {
-            aVar2.a(this.f29843f);
-            this.f29843f.setOnClickListenerInternal(this.A);
-            this.f29843f.setOnTouchListenerInternal(this.A);
+            aVar2.a(this.f65736f);
+            this.f65736f.setOnClickListenerInternal(this.A);
+            this.f65736f.setOnTouchListenerInternal(this.A);
         }
-        com.bytedance.sdk.openadsdk.e.d.b(o.a(), this.f29842e, this.s, "show_splash_icon");
+        com.bytedance.sdk.openadsdk.e.d.b(o.a(), this.f65735e, this.s, "show_splash_icon");
         if (!au) {
             b(this.z);
             int A = o.h().A();
@@ -320,12 +322,12 @@ public class e implements w.a, TTSplashAd {
             }
             this.G = false;
         }
-        this.f29843f.setCloseViewListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.component.splash.e.6
+        this.f65736f.setCloseViewListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.component.splash.e.6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ e f29858a;
+            public final /* synthetic */ e f65752a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -342,15 +344,15 @@ public class e implements w.a, TTSplashAd {
                         return;
                     }
                 }
-                this.f29858a = this;
+                this.f65752a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    this.f29858a.a(true);
-                    com.bytedance.sdk.openadsdk.e.d.b(o.a(), this.f29858a.f29842e, this.f29858a.s, "close_splash_icon");
+                    this.f65752a.a(true);
+                    com.bytedance.sdk.openadsdk.e.d.b(o.a(), this.f65752a.f65735e, this.f65752a.s, "close_splash_icon");
                 }
             }
         });
@@ -360,7 +362,7 @@ public class e implements w.a, TTSplashAd {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65558, this) == null) {
-            if (!com.bytedance.sdk.openadsdk.downloadnew.a.d.j) {
+            if (!com.bytedance.sdk.openadsdk.downloadnew.a.d.f67249j) {
                 this.F = false;
                 if (this.E) {
                     a(true);
@@ -368,15 +370,15 @@ public class e implements w.a, TTSplashAd {
                 }
                 return;
             }
-            com.bytedance.sdk.openadsdk.downloadnew.a.d.j = false;
+            com.bytedance.sdk.openadsdk.downloadnew.a.d.f67249j = false;
             com.bytedance.sdk.openadsdk.core.b.a aVar = this.A;
             if (aVar != null) {
-                aVar.a(new b.InterfaceC0338b(this) { // from class: com.bytedance.sdk.openadsdk.component.splash.e.5
+                aVar.a(new b.InterfaceC1898b(this) { // from class: com.bytedance.sdk.openadsdk.component.splash.e.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ e f29857a;
+                    public final /* synthetic */ e f65751a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -393,21 +395,21 @@ public class e implements w.a, TTSplashAd {
                                 return;
                             }
                         }
-                        this.f29857a = this;
+                        this.f65751a = this;
                     }
 
-                    @Override // com.bytedance.sdk.openadsdk.core.b.b.InterfaceC0338b
+                    @Override // com.bytedance.sdk.openadsdk.core.b.b.InterfaceC1898b
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f29857a.F = false;
-                            if (this.f29857a.E) {
-                                this.f29857a.a(true);
+                            this.f65751a.F = false;
+                            if (this.f65751a.E) {
+                                this.f65751a.a(true);
                             }
                         }
                     }
 
-                    @Override // com.bytedance.sdk.openadsdk.core.b.b.InterfaceC0338b
+                    @Override // com.bytedance.sdk.openadsdk.core.b.b.InterfaceC1898b
                     public void b() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -421,14 +423,14 @@ public class e implements w.a, TTSplashAd {
     private void f() {
         m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65559, this) == null) || (mVar = this.f29842e) == null || mVar.d() == 1) {
+        if (!(interceptable == null || interceptable.invokeV(65559, this) == null) || (mVar = this.f65735e) == null || mVar.d() == 1) {
             return;
         }
-        if (this.f29842e.V() == null) {
-            this.r = new NativeExpressView(this.f29841d, this.f29842e, this.t, this.s);
+        if (this.f65735e.V() == null) {
+            this.r = new NativeExpressView(this.f65734d, this.f65735e, this.t, this.s);
         } else if (!TextUtils.isEmpty(this.l)) {
-            com.bytedance.sdk.openadsdk.core.video.a.a.a(this.f29842e.V().i(), this.l);
-            this.r = new NativeExpressVideoView(this.f29841d, this.f29842e, this.t, this.s);
+            com.bytedance.sdk.openadsdk.core.video.a.a.a(this.f65735e.V().i(), this.l);
+            this.r = new NativeExpressVideoView(this.f65734d, this.f65735e, this.t, this.s);
         }
         NativeExpressView nativeExpressView = this.r;
         if (nativeExpressView == null) {
@@ -439,7 +441,7 @@ public class e implements w.a, TTSplashAd {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ e f29859a;
+            public final /* synthetic */ e f65753a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -456,7 +458,7 @@ public class e implements w.a, TTSplashAd {
                         return;
                     }
                 }
-                this.f29859a = this;
+                this.f65753a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.c
@@ -465,7 +467,7 @@ public class e implements w.a, TTSplashAd {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLI = interceptable2.invokeLI(1048576, this, nativeExpressView2, i2)) == null) {
                     try {
-                        new SplashExpressBackupView(this.f29859a.f29841d).a(this.f29859a.f29842e, nativeExpressView2);
+                        new SplashExpressBackupView(this.f65753a.f65734d).a(this.f65753a.f65735e, nativeExpressView2);
                         return true;
                     } catch (Exception unused) {
                         return false;
@@ -474,13 +476,13 @@ public class e implements w.a, TTSplashAd {
                 return invokeLI.booleanValue;
             }
         });
-        a(this.r, this.f29842e);
+        a(this.r, this.f65735e);
         this.r.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener(this) { // from class: com.bytedance.sdk.openadsdk.component.splash.e.8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ e f29860a;
+            public final /* synthetic */ e f65754a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -497,18 +499,18 @@ public class e implements w.a, TTSplashAd {
                         return;
                     }
                 }
-                this.f29860a = this;
+                this.f65754a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
             public void onAdClicked(View view, int i2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLI(1048576, this, view, i2) == null) {
-                    if (this.f29860a.u != null) {
-                        this.f29860a.u.onAdClicked(view, i2);
+                    if (this.f65754a.u != null) {
+                        this.f65754a.u.onAdClicked(view, i2);
                     }
-                    if (this.f29860a.f29844g != null) {
-                        this.f29860a.f29844g.onAdClicked(view, i2);
+                    if (this.f65754a.f65737g != null) {
+                        this.f65754a.f65737g.onAdClicked(view, i2);
                     }
                 }
             }
@@ -525,8 +527,8 @@ public class e implements w.a, TTSplashAd {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view, str, i2) == null) {
                     k.f("splash", "onRenderFail:" + str);
-                    if (this.f29860a.u != null) {
-                        this.f29860a.u.onRenderFail(view, str, i2);
+                    if (this.f65754a.u != null) {
+                        this.f65754a.u.onRenderFail(view, str, i2);
                     }
                 }
             }
@@ -534,19 +536,19 @@ public class e implements w.a, TTSplashAd {
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
             public void onRenderSuccess(View view, float f2, float f3) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.f29860a.v.get()) {
+                if (!(interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.f65754a.v.get()) {
                     return;
                 }
                 if (view == null || f2 <= 0.0f || f3 <= 0.0f) {
-                    this.f29860a.u.onRenderFail(view, "width <=0 or height <= 0", 110);
+                    this.f65754a.u.onRenderFail(view, "width <=0 or height <= 0", 110);
                     return;
                 }
-                this.f29860a.f29843f.a(8, 0, 0, 0, 0);
-                this.f29860a.f29843f.setExpressView(this.f29860a.r);
-                if (this.f29860a.u != null) {
-                    this.f29860a.u.onRenderSuccess(view, f2, f3);
+                this.f65754a.f65736f.a(8, 0, 0, 0, 0);
+                this.f65754a.f65736f.setExpressView(this.f65754a.r);
+                if (this.f65754a.u != null) {
+                    this.f65754a.u.onRenderSuccess(view, f2, f3);
                 }
-                this.f29860a.w.set(true);
+                this.f65754a.w.set(true);
             }
         });
     }
@@ -556,8 +558,8 @@ public class e implements w.a, TTSplashAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65562, this)) == null) {
-            m mVar = this.f29842e;
-            return (mVar == null || mVar.S() == null || this.f29842e.d() == 2) ? false : true;
+            m mVar = this.f65735e;
+            return (mVar == null || mVar.S() == null || this.f65735e.d() == 2) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -583,7 +585,7 @@ public class e implements w.a, TTSplashAd {
     private void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65566, this) == null) {
-            if (this.f29842e.V() != null) {
+            if (this.f65735e.V() != null) {
                 if (this.l != null) {
                     this.q = 1;
                 } else {
@@ -592,11 +594,11 @@ public class e implements w.a, TTSplashAd {
             } else {
                 this.q = 0;
             }
-            this.j = b(this.f29842e);
-            EmptyView emptyView = new EmptyView(this.f29841d, this.f29843f);
+            this.f65740j = b(this.f65735e);
+            EmptyView emptyView = new EmptyView(this.f65734d, this.f65736f);
             emptyView.setAdType(3);
-            this.f29843f.addView(emptyView);
-            com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = this.j;
+            this.f65736f.addView(emptyView);
+            com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = this.f65740j;
             if (aVar != null) {
                 aVar.a(emptyView);
             }
@@ -606,7 +608,7 @@ public class e implements w.a, TTSplashAd {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e f29851a;
+                public final /* synthetic */ e f65745a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -623,19 +625,19 @@ public class e implements w.a, TTSplashAd {
                             return;
                         }
                     }
-                    this.f29851a = this;
+                    this.f65745a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.EmptyView.a
                 public void a(boolean z) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.f29851a.j == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.f65745a.f65740j == null) {
                         return;
                     }
                     if (z) {
-                        this.f29851a.j.b();
+                        this.f65745a.f65740j.b();
                     } else {
-                        this.f29851a.j.c();
+                        this.f65745a.f65740j.c();
                     }
                 }
 
@@ -648,7 +650,7 @@ public class e implements w.a, TTSplashAd {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass11 f29852a;
+                            public final /* synthetic */ AnonymousClass11 f65746a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -665,16 +667,16 @@ public class e implements w.a, TTSplashAd {
                                         return;
                                     }
                                 }
-                                this.f29852a = this;
+                                this.f65746a = this;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
-                                if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f29852a.f29851a.j == null) {
+                                if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f65746a.f65745a.f65740j == null) {
                                     return;
                                 }
-                                this.f29852a.f29851a.j.d();
+                                this.f65746a.f65745a.f65740j.d();
                             }
                         }, 1000L);
                     }
@@ -684,22 +686,22 @@ public class e implements w.a, TTSplashAd {
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f29851a.v.set(true);
-                        if (this.f29851a.j != null) {
-                            this.f29851a.j.a();
+                        this.f65745a.v.set(true);
+                        if (this.f65745a.f65740j != null) {
+                            this.f65745a.f65740j.a();
                         }
-                        if (this.f29851a.j == null || this.f29851a.f29843f == null || this.f29851a.f29843f.getParent() == null) {
+                        if (this.f65745a.f65740j == null || this.f65745a.f65736f == null || this.f65745a.f65736f.getParent() == null) {
                             return;
                         }
                         Context context = null;
                         try {
-                            context = ((View) this.f29851a.f29843f.getParent()).getContext();
+                            context = ((View) this.f65745a.f65736f.getParent()).getContext();
                         } catch (Exception unused) {
                         }
                         if (context == null || !(context instanceof Activity)) {
                             return;
                         }
-                        this.f29851a.j.a((Activity) context);
+                        this.f65745a.f65740j.a((Activity) context);
                     }
                 }
 
@@ -708,12 +710,12 @@ public class e implements w.a, TTSplashAd {
                     TTCountdownView countDownView;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                        this.f29851a.v.set(true);
-                        this.f29851a.f29846i = System.currentTimeMillis();
+                        this.f65745a.v.set(true);
+                        this.f65745a.f65739i = System.currentTimeMillis();
                         HashMap hashMap = new HashMap();
-                        if (this.f29851a.f29842e != null) {
-                            if (this.f29851a.f29842e.V() != null) {
-                                if (this.f29851a.l != null) {
+                        if (this.f65745a.f65735e != null) {
+                            if (this.f65745a.f65735e.V() != null) {
+                                if (this.f65745a.l != null) {
                                     hashMap.put("splash_show_type", 1);
                                 } else {
                                     hashMap.put("splash_show_type", 2);
@@ -722,19 +724,19 @@ public class e implements w.a, TTSplashAd {
                                 hashMap.put("splash_show_type", 0);
                             }
                         }
-                        if (this.f29851a.w.get()) {
+                        if (this.f65745a.w.get()) {
                             hashMap.put("splash_show_type", 3);
                         }
-                        k.e("AdEvent", "pangolin ad show " + q.a(this.f29851a.f29842e, view));
-                        com.bytedance.sdk.openadsdk.e.d.a(this.f29851a.f29841d, this.f29851a.f29842e, this.f29851a.s, hashMap);
-                        this.f29851a.m();
-                        if (!this.f29851a.f29845h && this.f29851a.f29843f != null && (countDownView = this.f29851a.f29843f.getCountDownView()) != null) {
+                        k.e("AdEvent", "pangolin ad show " + q.a(this.f65745a.f65735e, view));
+                        com.bytedance.sdk.openadsdk.e.d.a(this.f65745a.f65734d, this.f65745a.f65735e, this.f65745a.s, hashMap);
+                        this.f65745a.m();
+                        if (!this.f65745a.f65738h && this.f65745a.f65736f != null && (countDownView = this.f65745a.f65736f.getCountDownView()) != null) {
                             countDownView.setCountdownListener(new TTCountdownView.a(this) { // from class: com.bytedance.sdk.openadsdk.component.splash.e.11.2
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass11 f29853a;
+                                public final /* synthetic */ AnonymousClass11 f65747a;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -751,46 +753,46 @@ public class e implements w.a, TTSplashAd {
                                             return;
                                         }
                                     }
-                                    this.f29853a = this;
+                                    this.f65747a = this;
                                 }
 
                                 @Override // com.bytedance.sdk.openadsdk.core.widget.TTCountdownView.a
                                 public void a() {
                                     Interceptable interceptable3 = $ic;
-                                    if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f29853a.f29851a.G) {
+                                    if (!(interceptable3 == null || interceptable3.invokeV(1048576, this) == null) || this.f65747a.f65745a.G) {
                                         return;
                                     }
-                                    this.f29853a.f29851a.l();
+                                    this.f65747a.f65745a.l();
                                 }
 
                                 @Override // com.bytedance.sdk.openadsdk.core.widget.TTCountdownView.a
                                 public void b() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                                        if (this.f29853a.f29851a.F) {
-                                            this.f29853a.f29851a.h();
-                                            this.f29853a.f29851a.F = true;
-                                        } else if (this.f29853a.f29851a.k != null) {
-                                            this.f29853a.f29851a.k.m();
+                                        if (this.f65747a.f65745a.F) {
+                                            this.f65747a.f65745a.h();
+                                            this.f65747a.f65745a.F = true;
+                                        } else if (this.f65747a.f65745a.k != null) {
+                                            this.f65747a.f65745a.k.m();
                                         }
-                                        if (this.f29853a.f29851a.w.get() && this.f29853a.f29851a.r != null) {
-                                            this.f29853a.f29851a.r.l();
+                                        if (this.f65747a.f65745a.w.get() && this.f65747a.f65745a.r != null) {
+                                            this.f65747a.f65745a.r.l();
                                         }
-                                        if (this.f29853a.f29851a.f29844g != null) {
-                                            this.f29853a.f29851a.f29844g.onAdTimeOver();
+                                        if (this.f65747a.f65745a.f65737g != null) {
+                                            this.f65747a.f65745a.f65737g.onAdTimeOver();
                                         }
                                         try {
-                                            if (this.f29853a.f29851a.k != null) {
-                                                if (this.f29853a.f29851a.k.B()) {
-                                                    this.f29853a.f29851a.k.b(true);
+                                            if (this.f65747a.f65745a.k != null) {
+                                                if (this.f65747a.f65745a.k.B()) {
+                                                    this.f65747a.f65745a.k.b(true);
                                                 }
-                                                if (!this.f29853a.f29851a.w.get()) {
-                                                    this.f29853a.f29851a.k.b();
+                                                if (!this.f65747a.f65745a.w.get()) {
+                                                    this.f65747a.f65745a.k.b();
                                                 }
-                                                if (this.f29853a.f29851a.g()) {
+                                                if (this.f65747a.f65745a.g()) {
                                                     return;
                                                 }
-                                                this.f29853a.f29851a.k.m();
+                                                this.f65747a.f65745a.k.m();
                                             }
                                         } catch (Throwable unused) {
                                         }
@@ -801,16 +803,16 @@ public class e implements w.a, TTSplashAd {
                                 public void c() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                                        this.f29853a.f29851a.k();
+                                        this.f65747a.f65745a.k();
                                     }
                                 }
                             });
-                            if (!this.f29851a.f29839b.get()) {
+                            if (!this.f65745a.f65732b.get()) {
                                 countDownView.a();
                             }
                         }
-                        if (this.f29851a.f29844g != null) {
-                            this.f29851a.f29844g.onAdShow(this.f29851a.f29843f, this.f29851a.f29842e.X());
+                        if (this.f65745a.f65737g != null) {
+                            this.f65745a.f65737g.onAdShow(this.f65745a.f65736f, this.f65745a.f65735e.X());
                         }
                         k.b("TTSplashAdImpl", "bindViewInteraction 开屏广告展示");
                     }
@@ -818,33 +820,33 @@ public class e implements w.a, TTSplashAd {
             });
             emptyView.setNeedCheckingShow(true);
             this.C.put("splash_show_type", Integer.valueOf(this.q));
-            com.bytedance.sdk.openadsdk.core.b.a aVar2 = new com.bytedance.sdk.openadsdk.core.b.a(this.f29841d, this.f29842e, this.s, 4);
+            com.bytedance.sdk.openadsdk.core.b.a aVar2 = new com.bytedance.sdk.openadsdk.core.b.a(this.f65734d, this.f65735e, this.s, 4);
             this.A = aVar2;
             aVar2.a(this);
             this.A.a(this.C);
-            m mVar = this.f29842e;
-            if (mVar != null && this.f29843f != null) {
+            m mVar = this.f65735e;
+            if (mVar != null && this.f65736f != null) {
                 if (mVar.E() == 2) {
-                    View fullClickBarView = this.f29843f.getFullClickBarView();
+                    View fullClickBarView = this.f65736f.getFullClickBarView();
                     if (fullClickBarView != null) {
                         this.A.a(fullClickBarView);
                         fullClickBarView.setOnClickListener(this.A);
                         fullClickBarView.setOnTouchListener(this.A);
                     }
                 } else {
-                    this.A.a(this.f29843f);
-                    this.f29843f.setOnClickListenerInternal(this.A);
-                    this.f29843f.setOnTouchListenerInternal(this.A);
+                    this.A.a(this.f65736f);
+                    this.f65736f.setOnClickListenerInternal(this.A);
+                    this.f65736f.setOnTouchListenerInternal(this.A);
                 }
             }
-            this.A.b(this.f29843f.getDislikeView());
-            this.A.a(this.j);
+            this.A.b(this.f65736f.getDislikeView());
+            this.A.a(this.f65740j);
             this.A.a(new b.a(this) { // from class: com.bytedance.sdk.openadsdk.component.splash.e.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e f29854a;
+                public final /* synthetic */ e f65748a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -861,26 +863,26 @@ public class e implements w.a, TTSplashAd {
                             return;
                         }
                     }
-                    this.f29854a = this;
+                    this.f65748a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.b.b.a
                 public void a(View view, int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLI(1048576, this, view, i2) == null) {
-                        if (this.f29854a.f29844g != null) {
-                            this.f29854a.f29844g.onAdClicked(view, i2);
+                        if (this.f65748a.f65737g != null) {
+                            this.f65748a.f65737g.onAdClicked(view, i2);
                         }
-                        this.f29854a.e();
+                        this.f65748a.e();
                     }
                 }
             });
-            this.f29843f.setSkipListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.component.splash.e.3
+            this.f65736f.setSkipListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.component.splash.e.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e f29855a;
+                public final /* synthetic */ e f65749a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -897,40 +899,40 @@ public class e implements w.a, TTSplashAd {
                             return;
                         }
                     }
-                    this.f29855a = this;
+                    this.f65749a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        if (this.f29855a.f29842e != null && this.f29855a.f29842e.V() != null && this.f29855a.o && this.f29855a.k != null) {
-                            if (!this.f29855a.g()) {
-                                this.f29855a.k.m();
+                        if (this.f65749a.f65735e != null && this.f65749a.f65735e.V() != null && this.f65749a.o && this.f65749a.k != null) {
+                            if (!this.f65749a.g()) {
+                                this.f65749a.k.m();
                             }
-                            if (!this.f29855a.w.get()) {
+                            if (!this.f65749a.w.get()) {
                                 o.a aVar3 = new o.a();
-                                aVar3.a(this.f29855a.k.n());
-                                aVar3.c(this.f29855a.k.q());
-                                aVar3.b(this.f29855a.k.o());
+                                aVar3.a(this.f65749a.k.n());
+                                aVar3.c(this.f65749a.k.q());
+                                aVar3.b(this.f65749a.k.o());
                                 aVar3.e(3);
-                                aVar3.f(this.f29855a.k.p());
-                                com.bytedance.sdk.openadsdk.e.a.a.f(this.f29855a.f29841d, this.f29855a.k.w(), aVar3);
+                                aVar3.f(this.f65749a.k.p());
+                                com.bytedance.sdk.openadsdk.e.a.a.f(this.f65749a.f65734d, this.f65749a.k.w(), aVar3);
                             }
                         }
-                        if (!TextUtils.isEmpty(this.f29855a.f29842e.ao())) {
-                            com.bytedance.sdk.openadsdk.e.d.a(this.f29855a.f29841d, this.f29855a.f29846i > 0 ? System.currentTimeMillis() - this.f29855a.f29846i : 0L, this.f29855a.f29842e);
+                        if (!TextUtils.isEmpty(this.f65749a.f65735e.ao())) {
+                            com.bytedance.sdk.openadsdk.e.d.a(this.f65749a.f65734d, this.f65749a.f65739i > 0 ? System.currentTimeMillis() - this.f65749a.f65739i : 0L, this.f65749a.f65735e);
                         }
-                        if (this.f29855a.F) {
-                            this.f29855a.h();
-                            this.f29855a.F = true;
+                        if (this.f65749a.F) {
+                            this.f65749a.h();
+                            this.f65749a.F = true;
                         }
-                        if (this.f29855a.w.get() && this.f29855a.r != null) {
-                            this.f29855a.r.l();
+                        if (this.f65749a.w.get() && this.f65749a.r != null) {
+                            this.f65749a.r.l();
                         }
-                        if (this.f29855a.f29844g != null) {
-                            this.f29855a.f29840c = 0;
-                            this.f29855a.f29844g.onAdSkip();
+                        if (this.f65749a.f65737g != null) {
+                            this.f65749a.f65733c = 0;
+                            this.f65749a.f65737g.onAdSkip();
                         }
                     }
                 }
@@ -942,7 +944,7 @@ public class e implements w.a, TTSplashAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, this)) == null) {
-            if (this.f29842e == null || this.f29843f == null) {
+            if (this.f65735e == null || this.f65736f == null) {
                 return false;
             }
             return d();
@@ -980,13 +982,13 @@ public class e implements w.a, TTSplashAd {
     public void m() {
         TsView tsView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65574, this) == null) || (tsView = this.f29843f) == null || tsView.getChildCount() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(65574, this) == null) || (tsView = this.f65736f) == null || tsView.getChildCount() <= 0) {
             return;
         }
-        for (int i2 = 0; i2 < this.f29843f.getChildCount(); i2++) {
-            View childAt = this.f29843f.getChildAt(i2);
+        for (int i2 = 0; i2 < this.f65736f.getChildCount(); i2++) {
+            View childAt = this.f65736f.getChildAt(i2);
             if (childAt != null && (childAt instanceof EmptyView)) {
-                this.f29843f.removeView(childAt);
+                this.f65736f.removeView(childAt);
                 return;
             }
         }
@@ -995,25 +997,25 @@ public class e implements w.a, TTSplashAd {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            if (this.f29842e != null) {
-                this.f29843f = new TsView(this.f29841d, this.f29842e.aO());
+            if (this.f65735e != null) {
+                this.f65736f = new TsView(this.f65734d, this.f65735e.aO());
             } else {
-                this.f29843f = new TsView(this.f29841d, "");
+                this.f65736f = new TsView(this.f65734d, "");
             }
-            m mVar = this.f29842e;
+            m mVar = this.f65735e;
             if (mVar != null) {
-                this.f29843f.setADlogoLongClickContent(mVar.aH());
+                this.f65736f.setADlogoLongClickContent(mVar.aH());
             }
-            com.bytedance.sdk.openadsdk.e.d.a(this.f29842e);
-            if (this.f29842e.V() != null && this.n) {
-                this.f29843f.setVideoViewVisibility(0);
-                this.f29843f.setImageViewVisibility(8);
-                this.f29843f.setVoiceViewListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.component.splash.e.1
+            com.bytedance.sdk.openadsdk.e.d.a(this.f65735e);
+            if (this.f65735e.V() != null && this.n) {
+                this.f65736f.setVideoViewVisibility(0);
+                this.f65736f.setImageViewVisibility(8);
+                this.f65736f.setVoiceViewListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.component.splash.e.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ e f29847a;
+                    public final /* synthetic */ e f65741a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1030,46 +1032,46 @@ public class e implements w.a, TTSplashAd {
                                 return;
                             }
                         }
-                        this.f29847a = this;
+                        this.f65741a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            this.f29847a.f29843f.setVoiceViewImageResource(this.f29847a.p ? t.d(this.f29847a.f29841d, "tt_splash_unmute") : t.d(this.f29847a.f29841d, "tt_splash_mute"));
-                            e eVar = this.f29847a;
+                            this.f65741a.f65736f.setVoiceViewImageResource(this.f65741a.p ? t.d(this.f65741a.f65734d, "tt_splash_unmute") : t.d(this.f65741a.f65734d, "tt_splash_mute"));
+                            e eVar = this.f65741a;
                             eVar.p = !eVar.p;
-                            if (this.f29847a.k != null) {
-                                this.f29847a.k.b(this.f29847a.p);
+                            if (this.f65741a.k != null) {
+                                this.f65741a.k.b(this.f65741a.p);
                             }
                         }
                     }
                 });
             }
             if (!this.n) {
-                this.f29843f.setVideoViewVisibility(8);
-                this.f29843f.setImageViewVisibility(0);
+                this.f65736f.setVideoViewVisibility(8);
+                this.f65736f.setImageViewVisibility(0);
             }
-            if (this.f29842e.j() == 0) {
-                TsView tsView = this.f29843f;
+            if (this.f65735e.j() == 0) {
+                TsView tsView = this.f65736f;
                 if (tsView != null) {
                     tsView.setAdlogoViewVisibility(8);
                 }
             } else {
-                TsView tsView2 = this.f29843f;
+                TsView tsView2 = this.f65736f;
                 if (tsView2 != null) {
                     tsView2.setAdlogoViewVisibility(0);
                 }
             }
-            if (this.f29842e.ar() <= 0) {
+            if (this.f65735e.ar() <= 0) {
                 a(3);
             } else {
-                int ar = this.f29842e.ar();
-                this.f29840c = ar;
+                int ar = this.f65735e.ar();
+                this.f65733c = ar;
                 a(ar);
             }
-            a(this.f29842e);
+            a(this.f65735e);
             i();
             f();
             this.B = new w(Looper.getMainLooper(), this);
@@ -1080,14 +1082,14 @@ public class e implements w.a, TTSplashAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) {
-            this.k = new d(this.f29841d, this.f29843f.getVideoContainer(), this.f29842e);
+            this.k = new d(this.f65734d, this.f65736f.getVideoContainer(), this.f65735e);
             k.f("wzj", "mVideoCachePath:" + this.l);
             this.k.a(new c.a(this) { // from class: com.bytedance.sdk.openadsdk.component.splash.e.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e f29856a;
+                public final /* synthetic */ e f65750a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1104,31 +1106,31 @@ public class e implements w.a, TTSplashAd {
                             return;
                         }
                     }
-                    this.f29856a = this;
+                    this.f65750a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
-                public void a(long j, int i2) {
+                public void a(long j2, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)}) == null) {
-                        this.f29856a.a(false);
-                        this.f29856a.F = false;
+                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+                        this.f65750a.a(false);
+                        this.f65750a.F = false;
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
-                public void a(long j, long j2) {
+                public void a(long j2, long j3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
-                public void b(long j, int i2) {
+                public void b(long j2, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)}) == null) {
-                        this.f29856a.H = true;
-                        this.f29856a.F = false;
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+                        this.f65750a.H = true;
+                        this.f65750a.F = false;
                     }
                 }
 
@@ -1136,31 +1138,31 @@ public class e implements w.a, TTSplashAd {
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.f29856a.f29844g != null) {
-                            this.f29856a.f29844g.onAdTimeOver();
+                        if (this.f65750a.f65737g != null) {
+                            this.f65750a.f65737g.onAdTimeOver();
                         }
-                        this.f29856a.a(false);
-                        this.f29856a.F = false;
+                        this.f65750a.a(false);
+                        this.f65750a.F = false;
                     }
                 }
             });
-            x V = this.f29842e.V();
+            x V = this.f65735e.V();
             com.bytedance.sdk.openadsdk.n.f.b bVar = new com.bytedance.sdk.openadsdk.n.f.b();
             bVar.a(V.i());
-            bVar.d(this.f29842e.ak());
-            bVar.b(this.f29843f.getVideoContainer().getWidth());
-            bVar.c(this.f29843f.getVideoContainer().getHeight());
-            bVar.e(this.f29842e.ao());
+            bVar.d(this.f65735e.ak());
+            bVar.b(this.f65736f.getVideoContainer().getWidth());
+            bVar.c(this.f65736f.getVideoContainer().getHeight());
+            bVar.e(this.f65735e.ao());
             bVar.a(0L);
             bVar.a(this.p);
-            int d2 = q.d(this.f29842e.ao());
+            int d2 = q.d(this.f65735e.ao());
             String l = V.l();
             if (TextUtils.isEmpty(l)) {
                 l = com.bytedance.sdk.component.utils.e.a(V.i());
             }
             bVar.b(l);
             String a2 = c.a(com.bytedance.sdk.openadsdk.core.o.a(), a.a(com.bytedance.sdk.openadsdk.core.o.a()).a(String.valueOf(d2), com.bytedance.sdk.openadsdk.multipro.b.b()));
-            if (this.f29842e.aN()) {
+            if (this.f65735e.aN()) {
                 a2 = CacheDirConstants.getBrandCacheDir();
             }
             bVar.c(a2);
@@ -1178,15 +1180,15 @@ public class e implements w.a, TTSplashAd {
             return;
         }
         if (bVar.d()) {
-            this.f29843f.setGifView(bVar.b());
-        } else if (this.f29842e.S() == null || TextUtils.isEmpty(this.f29842e.S().c())) {
+            this.f65736f.setGifView(bVar.b());
+        } else if (this.f65735e.S() == null || TextUtils.isEmpty(this.f65735e.S().c())) {
         } else {
             if (bVar.a() != null) {
                 a2 = new BitmapDrawable(bVar.a());
             } else {
                 a2 = g.a(bVar.b(), 0);
             }
-            this.f29843f.setDrawable(a2);
+            this.f65736f.setDrawable(a2);
         }
     }
 
@@ -1198,7 +1200,7 @@ public class e implements w.a, TTSplashAd {
 
     private void a(m mVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, mVar) == null) || mVar == null || this.f29843f == null) {
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, mVar) == null) || mVar == null || this.f65736f == null) {
             return;
         }
         int E = mVar.E();
@@ -1209,38 +1211,38 @@ public class e implements w.a, TTSplashAd {
         int J = mVar.J();
         if (E == 2) {
             if (!TextUtils.isEmpty(F)) {
-                this.f29843f.a(0, H, G, I, J);
-                this.f29843f.setClickBarDesc(F);
+                this.f65736f.a(0, H, G, I, J);
+                this.f65736f.setClickBarDesc(F);
                 return;
             }
-            this.f29843f.a(0, H, G, I, J);
-            this.f29843f.setClickBarDesc("查看详情");
+            this.f65736f.a(0, H, G, I, J);
+            this.f65736f.setClickBarDesc("查看详情");
         } else if (TextUtils.isEmpty(F)) {
-            this.f29843f.a(8, H, G, I, J);
+            this.f65736f.a(8, H, G, I, J);
         } else {
-            this.f29843f.a(0, H, G, I, J);
-            this.f29843f.setClickBarDesc(F);
+            this.f65736f.a(0, H, G, I, J);
+            this.f65736f.setClickBarDesc(F);
         }
     }
 
     private void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65550, this, z) == null) || this.j == null) {
+        if (!(interceptable == null || interceptable.invokeZ(65550, this, z) == null) || this.f65740j == null) {
             return;
         }
-        m mVar = this.f29842e;
-        this.j.a(new TTAppDownloadListener(this, z, mVar != null ? mVar.ak() : "") { // from class: com.bytedance.sdk.openadsdk.component.splash.e.10
+        m mVar = this.f65735e;
+        this.f65740j.a(new TTAppDownloadListener(this, z, mVar != null ? mVar.ak() : "") { // from class: com.bytedance.sdk.openadsdk.component.splash.e.10
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ boolean f29848a;
+            public final /* synthetic */ boolean f65742a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f29849b;
+            public final /* synthetic */ String f65743b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ e f29850c;
+            public final /* synthetic */ e f65744c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1257,63 +1259,63 @@ public class e implements w.a, TTSplashAd {
                         return;
                     }
                 }
-                this.f29850c = this;
-                this.f29848a = z;
-                this.f29849b = r8;
+                this.f65744c = this;
+                this.f65742a = z;
+                this.f65743b = r8;
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onDownloadActive(long j, long j2, String str, String str2) {
+            public void onDownloadActive(long j2, long j3, String str, String str2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-                    if (this.f29850c.x != null) {
-                        this.f29850c.x.onDownloadActive(j, j2, str, str2);
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) {
+                    if (this.f65744c.x != null) {
+                        this.f65744c.x.onDownloadActive(j2, j3, str, str2);
                     }
-                    if (!this.f29848a || j <= 0) {
+                    if (!this.f65742a || j2 <= 0) {
                         return;
                     }
-                    a.C0355a.a(this.f29849b, 3, (int) ((j2 * 100) / j));
+                    a.C1915a.a(this.f65743b, 3, (int) ((j3 * 100) / j2));
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onDownloadFailed(long j, long j2, String str, String str2) {
+            public void onDownloadFailed(long j2, long j3, String str, String str2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-                    if (this.f29850c.x != null) {
-                        this.f29850c.x.onDownloadFailed(j, j2, str, str2);
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) {
+                    if (this.f65744c.x != null) {
+                        this.f65744c.x.onDownloadFailed(j2, j3, str, str2);
                     }
-                    if (!this.f29848a || j <= 0) {
+                    if (!this.f65742a || j2 <= 0) {
                         return;
                     }
-                    a.C0355a.a(this.f29849b, 4, (int) ((j2 * 100) / j));
+                    a.C1915a.a(this.f65743b, 4, (int) ((j3 * 100) / j2));
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onDownloadFinished(long j, String str, String str2) {
+            public void onDownloadFinished(long j2, String str, String str2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
-                    if (this.f29850c.x != null) {
-                        this.f29850c.x.onDownloadFinished(j, str, str2);
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {
+                    if (this.f65744c.x != null) {
+                        this.f65744c.x.onDownloadFinished(j2, str, str2);
                     }
-                    if (this.f29848a) {
-                        a.C0355a.a(this.f29849b, 5, 100);
+                    if (this.f65742a) {
+                        a.C1915a.a(this.f65743b, 5, 100);
                     }
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-            public void onDownloadPaused(long j, long j2, String str, String str2) {
+            public void onDownloadPaused(long j2, long j3, String str, String str2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-                    if (this.f29850c.x != null) {
-                        this.f29850c.x.onDownloadPaused(j, j2, str, str2);
+                if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) {
+                    if (this.f65744c.x != null) {
+                        this.f65744c.x.onDownloadPaused(j2, j3, str, str2);
                     }
-                    if (!this.f29848a || j <= 0) {
+                    if (!this.f65742a || j2 <= 0) {
                         return;
                     }
-                    a.C0355a.a(this.f29849b, 2, (int) ((j2 * 100) / j));
+                    a.C1915a.a(this.f65743b, 2, (int) ((j3 * 100) / j2));
                 }
             }
 
@@ -1321,11 +1323,11 @@ public class e implements w.a, TTSplashAd {
             public void onIdle() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                    if (this.f29850c.x != null) {
-                        this.f29850c.x.onIdle();
+                    if (this.f65744c.x != null) {
+                        this.f65744c.x.onIdle();
                     }
-                    if (this.f29848a) {
-                        a.C0355a.a(this.f29849b, 1, 0);
+                    if (this.f65742a) {
+                        a.C1915a.a(this.f65743b, 1, 0);
                     }
                 }
             }
@@ -1334,11 +1336,11 @@ public class e implements w.a, TTSplashAd {
             public void onInstalled(String str, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048581, this, str, str2) == null) {
-                    if (this.f29850c.x != null) {
-                        this.f29850c.x.onInstalled(str, str2);
+                    if (this.f65744c.x != null) {
+                        this.f65744c.x.onInstalled(str, str2);
                     }
-                    if (this.f29848a) {
-                        a.C0355a.a(this.f29849b, 6, 100);
+                    if (this.f65742a) {
+                        a.C1915a.a(this.f65743b, 6, 100);
                     }
                 }
             }
@@ -1350,7 +1352,7 @@ public class e implements w.a, TTSplashAd {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, mVar)) == null) {
             if (mVar.X() == 4) {
-                return com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f29841d, mVar, this.s);
+                return com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f65734d, mVar, this.s);
             }
             return null;
         }
@@ -1361,7 +1363,7 @@ public class e implements w.a, TTSplashAd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            m mVar = this.f29842e;
+            m mVar = this.f65735e;
             return mVar != null && mVar.d() == 2;
         }
         return invokeV.booleanValue;
@@ -1401,8 +1403,8 @@ public class e implements w.a, TTSplashAd {
                 return;
             }
         }
-        this.f29840c = 3;
-        this.f29846i = 0L;
+        this.f65733c = 3;
+        this.f65739i = 0L;
         this.l = null;
         this.m = false;
         this.n = false;
@@ -1410,15 +1412,15 @@ public class e implements w.a, TTSplashAd {
         this.q = -1;
         this.v = new AtomicBoolean(false);
         this.w = new AtomicBoolean(false);
-        this.f29838a = new AtomicBoolean(false);
-        this.f29839b = new AtomicBoolean(false);
+        this.f65731a = new AtomicBoolean(false);
+        this.f65732b = new AtomicBoolean(false);
         this.C = new HashMap();
         this.E = false;
         this.F = true;
         this.G = false;
         this.H = false;
-        this.f29841d = context;
-        this.f29842e = mVar;
+        this.f65734d = context;
+        this.f65735e = mVar;
         this.n = mVar.au();
         this.l = str;
         this.t = adSlot;
@@ -1437,16 +1439,16 @@ public class e implements w.a, TTSplashAd {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, this, nativeExpressView, mVar) == null) {
             com.bytedance.sdk.openadsdk.downloadnew.core.a b2 = b(mVar);
-            this.j = b2;
+            this.f65740j = b2;
             if (b2 != null) {
                 b2.b();
                 if (nativeExpressView.getContext() != null && (nativeExpressView.getContext() instanceof Activity)) {
-                    this.j.a((Activity) nativeExpressView.getContext());
+                    this.f65740j.a((Activity) nativeExpressView.getContext());
                 }
             }
             com.bytedance.sdk.openadsdk.e.d.a(mVar);
-            EmptyView emptyView = new EmptyView(this.f29841d, nativeExpressView);
-            com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = this.j;
+            EmptyView emptyView = new EmptyView(this.f65734d, nativeExpressView);
+            com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = this.f65740j;
             if (aVar != null) {
                 aVar.a(emptyView);
             }
@@ -1455,7 +1457,7 @@ public class e implements w.a, TTSplashAd {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e f29861a;
+                public final /* synthetic */ e f65755a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1472,65 +1474,65 @@ public class e implements w.a, TTSplashAd {
                             return;
                         }
                     }
-                    this.f29861a = this;
+                    this.f65755a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.EmptyView.a
                 public void a(boolean z) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.f29861a.j == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.f65755a.f65740j == null) {
                         return;
                     }
                     if (z) {
-                        if (this.f29861a.j != null) {
-                            this.f29861a.j.b();
+                        if (this.f65755a.f65740j != null) {
+                            this.f65755a.f65740j.b();
                         }
-                    } else if (this.f29861a.j != null) {
-                        this.f29861a.j.c();
+                    } else if (this.f65755a.f65740j != null) {
+                        this.f65755a.f65740j.c();
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.EmptyView.a
                 public void b() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048579, this) == null) || this.f29861a.j == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048579, this) == null) || this.f65755a.f65740j == null) {
                         return;
                     }
-                    this.f29861a.j.d();
+                    this.f65755a.f65740j.d();
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.EmptyView.a
                 public void a() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f29861a.j == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f65755a.f65740j == null) {
                         return;
                     }
-                    this.f29861a.j.a();
+                    this.f65755a.f65740j.a();
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.EmptyView.a
                 public void a(View view) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || this.f29861a.r == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || this.f65755a.r == null) {
                         return;
                     }
-                    this.f29861a.r.i();
+                    this.f65755a.r.i();
                 }
             });
             this.C.put("splash_show_type", 3);
-            Context context = this.f29841d;
+            Context context = this.f65734d;
             String str = this.s;
             com.bytedance.sdk.openadsdk.core.nativeexpress.e eVar = new com.bytedance.sdk.openadsdk.core.nativeexpress.e(context, mVar, str, q.a(str));
             eVar.a(nativeExpressView);
-            eVar.a(this.j);
+            eVar.a(this.f65740j);
             eVar.a(this.C);
             this.r.setClickListener(eVar);
-            Context context2 = this.f29841d;
+            Context context2 = this.f65734d;
             String str2 = this.s;
             com.bytedance.sdk.openadsdk.core.nativeexpress.d dVar = new com.bytedance.sdk.openadsdk.core.nativeexpress.d(context2, mVar, str2, q.a(str2));
             dVar.a(this);
             dVar.a(nativeExpressView);
-            dVar.a(this.j);
+            dVar.a(this.f65740j);
             dVar.a(this.C);
             this.r.setClickCreativeListener(dVar);
             emptyView.setNeedCheckingShow(true);
@@ -1543,15 +1545,15 @@ public class e implements w.a, TTSplashAd {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             if (bVar.d()) {
-                this.f29843f.setGifView(bVar.b());
-            } else if (this.f29842e.ad() == null || this.f29842e.ad().get(0) == null) {
+                this.f65736f.setGifView(bVar.b());
+            } else if (this.f65735e.ad() == null || this.f65735e.ad().get(0) == null) {
             } else {
                 if (bVar.a() != null) {
                     a2 = new BitmapDrawable(bVar.a());
                 } else {
-                    a2 = g.a(bVar.b(), this.f29842e.ad().get(0).b());
+                    a2 = g.a(bVar.b(), this.f65735e.ad().get(0).b());
                 }
-                this.f29843f.setDrawable(a2);
+                this.f65736f.setDrawable(a2);
             }
         }
     }
@@ -1559,7 +1561,7 @@ public class e implements w.a, TTSplashAd {
     private void a(int i2) {
         TsView tsView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) || (tsView = this.f29843f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) || (tsView = this.f65736f) == null) {
             return;
         }
         tsView.setCountDownTime(i2);
@@ -1573,13 +1575,13 @@ public class e implements w.a, TTSplashAd {
         }
     }
 
-    private void a(long j) {
+    private void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j2) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("show_time", j);
-                com.bytedance.sdk.openadsdk.e.d.b(com.bytedance.sdk.openadsdk.core.o.a(), this.f29842e, this.s, "icon_splash_video_show_time", jSONObject);
+                jSONObject.put("show_time", j2);
+                com.bytedance.sdk.openadsdk.e.d.b(com.bytedance.sdk.openadsdk.core.o.a(), this.f65735e, this.s, "icon_splash_video_show_time", jSONObject);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

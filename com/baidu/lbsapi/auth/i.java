@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Hashtable;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class i extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ LBSAuthManager f6424a;
+    public final /* synthetic */ LBSAuthManager f40411a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(LBSAuthManager lBSAuthManager, Looper looper) {
@@ -34,7 +34,7 @@ public class i extends Handler {
                 return;
             }
         }
-        this.f6424a = lBSAuthManager;
+        this.f40411a = lBSAuthManager;
     }
 
     @Override // android.os.Handler
@@ -44,7 +44,7 @@ public class i extends Handler {
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             a.a("handleMessage !!");
             String string = message.getData().getString("listenerKey");
-            hashtable = LBSAuthManager.f6403f;
+            hashtable = LBSAuthManager.f40390f;
             LBSAuthManagerListener lBSAuthManagerListener = (LBSAuthManagerListener) hashtable.get(string);
             a.a("handleMessage listener = " + lBSAuthManagerListener);
             if (lBSAuthManagerListener != null) {

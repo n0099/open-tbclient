@@ -8,8 +8,6 @@ import com.baidu.apollon.beans.BeanResponseBase;
 import com.baidu.apollon.beans.IBeanResponseCallback;
 import com.baidu.apollon.restnet.RestResponseEntity;
 import com.baidu.apollon.restnet.RestTemplate;
-import com.baidu.apollon.restnet.converter.b;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.BussinessUtils;
 import com.baidu.apollon.utils.JsonUtils;
 import com.baidu.apollon.utils.ResUtils;
@@ -18,20 +16,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.core.lollipop.json.JSONException;
 import com.baidu.wallet.core.lollipop.json.JSONObject;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.core.utils.VerSig;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public abstract class OtherBean<T> extends NetworkBean<T> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24851a = "OtherBaseBean";
+    public static final String f60564a = "OtherBaseBean";
     public transient /* synthetic */ FieldHolder $fh;
     public int mRetCode;
+    public String mRetMsg;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OtherBean(Context context) {
@@ -75,14 +74,15 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
                         BeanResponseBase beanResponseBase = (BeanResponseBase) JsonUtils.fromJson((String) body, BeanResponseBase.class);
                         if (beanResponseBase != null) {
                             this.mRetCode = beanResponseBase.ret;
+                            this.mRetMsg = beanResponseBase.msg;
                         } else {
                             this.mRetCode = -4;
+                            this.mRetMsg = EventType.PayEventID.QUERY_PRODUCT_LIST_FAIL;
                         }
                         if (beanResponseBase != null && beanResponseBase.ret == 0 && (beanResponseBase.needVerifySignature() || needVerifySignature())) {
                             String string = new JSONObject(d2.b()).getString(beanResponseBase.getNameOfRealResponseContent());
                             if (!VerSig.verify(beanResponseBase.signature, string, beanResponseBase.mdAlgorithm)) {
-                                DXMSdkSAUtils.onEvent(StatServiceEvent.VERIFY_SIGNATURE_FAILED);
-                                PayStatisticsUtil.onEvent(StatServiceEvent.VERIFY_SIGNATURE_FAILED);
+                                DXMSdkSAUtils.onEvent("#verify_sign_failed");
                                 this.mRspCallback.onBeanExecFailure(getBeanId(), -4, ResUtils.getString(this.mContext, "ebpay_resolve_error"));
                                 return;
                             } else if (beanResponseBase.needDecryption()) {
@@ -124,8 +124,9 @@ public abstract class OtherBean<T> extends NetworkBean<T> {
             this.mRestTemplate = new RestTemplate(context, BussinessUtils.getUA(context), "pay bean http request");
             ArrayList arrayList = new ArrayList();
             arrayList.add(new EbpayHttpRequestInterceptor());
+            arrayList.add(new a());
             this.mRestTemplate.setRequestInterceptor(arrayList);
-            this.mRestTemplate.setMessageConverter(new b());
+            this.mRestTemplate.setMessageConverter(new com.baidu.apollon.restnet.converter.b());
         }
     }
 }

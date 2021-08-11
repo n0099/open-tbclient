@@ -43,7 +43,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class JavaBeanDeserializer implements ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -458,7 +458,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
     /* JADX WARN: Removed duplicated region for block: B:113:0x0216  */
     /* JADX WARN: Removed duplicated region for block: B:61:0x0129  */
     /* JADX WARN: Type inference failed for: r17v0 */
-    /* JADX WARN: Type inference failed for: r17v1, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r17v1, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r17v3 */
     /* JADX WARN: Type inference failed for: r17v4 */
     /*
@@ -2221,7 +2221,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                         objArr = objArr2;
                                     }
                                     if (this.beanInfo.creatorConstructor != null) {
-                                        if (this.beanInfo.f1639kotlin) {
+                                        if (this.beanInfo.f35474kotlin) {
                                             int i20 = 0;
                                             while (true) {
                                                 if (i20 >= objArr.length) {
@@ -2417,10 +2417,10 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         }
     }
 
-    public FieldDeserializer getFieldDeserializer(long j) {
+    public FieldDeserializer getFieldDeserializer(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2)) == null) {
             int i2 = 0;
             if (this.hashArray == null) {
                 long[] jArr = new long[this.sortedFieldDeserializers.length];
@@ -2436,7 +2436,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                 Arrays.sort(jArr);
                 this.hashArray = jArr;
             }
-            int binarySearch = Arrays.binarySearch(this.hashArray, j);
+            int binarySearch = Arrays.binarySearch(this.hashArray, j2);
             if (binarySearch < 0) {
                 return null;
             }
@@ -2661,7 +2661,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
             }
             JavaBeanInfo javaBeanInfo2 = this.beanInfo;
             if (javaBeanInfo2.creatorConstructor != null) {
-                if (javaBeanInfo2.f1639kotlin) {
+                if (javaBeanInfo2.f35474kotlin) {
                     z = false;
                     for (int i3 = 0; i3 < length; i3++) {
                         Object obj = objArr[i3];

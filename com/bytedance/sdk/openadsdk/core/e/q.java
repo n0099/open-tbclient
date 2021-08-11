@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public m f30226a;
+    public m f66137a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f30227b;
+    public byte[] f66138b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f30228c;
+    public a f66139c;
 
     public q(a aVar, m mVar, byte[] bArr) {
         Interceptable interceptable = $ic;
@@ -36,36 +36,36 @@ public class q {
                 return;
             }
         }
-        this.f30228c = aVar;
-        this.f30226a = mVar;
-        this.f30227b = bArr;
+        this.f66139c = aVar;
+        this.f66137a = mVar;
+        this.f66138b = bArr;
     }
 
     @Nullable
     public m a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30226a : (m) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f66137a : (m) invokeV.objValue;
     }
 
     @Nullable
     public byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30227b : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f66138b : (byte[]) invokeV.objValue;
     }
 
     @Nullable
     public a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30228c : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f66139c : (a) invokeV.objValue;
     }
 
     public void a(m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar) == null) {
-            this.f30226a = mVar;
+            this.f66137a = mVar;
             if (mVar != null) {
                 mVar.b(true);
             }
@@ -75,7 +75,7 @@ public class q {
     public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
-            this.f30227b = bArr;
+            this.f66138b = bArr;
         }
     }
 }

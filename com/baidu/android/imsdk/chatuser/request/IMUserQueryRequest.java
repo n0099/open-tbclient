@@ -22,19 +22,19 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMUserQueryRequest extends IMUserBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long mAppid;
     public String mKey;
 
-    public IMUserQueryRequest(Context context, long j) {
+    public IMUserQueryRequest(Context context, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j)};
+            Object[] objArr = {context, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -45,7 +45,7 @@ public class IMUserQueryRequest extends IMUserBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mAppid = j;
+        this.mAppid = j2;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -156,13 +156,13 @@ public class IMUserQueryRequest extends IMUserBaseHttpRequest {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public IMUserQueryRequest(Context context, long j, String str) {
-        this(context, j);
+    public IMUserQueryRequest(Context context, long j2, String str) {
+        this(context, j2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), str};
+            Object[] objArr = {context, Long.valueOf(j2), str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {

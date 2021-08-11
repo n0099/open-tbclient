@@ -14,7 +14,7 @@ import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.api.proxy.IActivityProxy;
 import com.kwad.sdk.utils.af;
 import com.kwad.sdk.utils.k;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class a extends IActivityProxy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_START_TIME = "key_start_time";

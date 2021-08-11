@@ -2,56 +2,57 @@ package com.meizu.cloud.pushsdk.b.c;
 
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.meizu.cloud.pushsdk.b.c.c;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final f f37385a;
+    public final f f74227a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f37386b;
+    public final String f74228b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c f37387c;
+    public final c f74229c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final j f37388d;
+    public final j f74230d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f37389e;
+    public final Object f74231e;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public f f37390a;
+        public f f74232a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37391b = "GET";
+        public String f74233b = "GET";
 
         /* renamed from: c  reason: collision with root package name */
-        public c.a f37392c = new c.a();
+        public c.a f74234c = new c.a();
 
         /* renamed from: d  reason: collision with root package name */
-        public j f37393d;
+        public j f74235d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Object f37394e;
+        public Object f74236e;
 
         public a a() {
             return a("GET", (j) null);
         }
 
         public a a(c cVar) {
-            this.f37392c = cVar.c();
+            this.f74234c = cVar.c();
             return this;
         }
 
         public a a(f fVar) {
             if (fVar != null) {
-                this.f37390a = fVar;
+                this.f74232a = fVar;
                 return this;
             }
             throw new IllegalArgumentException("url == null");
@@ -102,8 +103,8 @@ public class i {
             if (jVar != null && !d.b(str)) {
                 throw new IllegalArgumentException("method " + str + " must not have a request body.");
             } else if (jVar != null || !d.a(str)) {
-                this.f37391b = str;
-                this.f37393d = jVar;
+                this.f74233b = str;
+                this.f74235d = jVar;
                 return this;
             } else {
                 throw new IllegalArgumentException("method " + str + " must have a request body.");
@@ -111,7 +112,7 @@ public class i {
         }
 
         public a a(String str, String str2) {
-            this.f37392c.a(str, str2);
+            this.f74234c.a(str, str2);
             return this;
         }
 
@@ -128,7 +129,7 @@ public class i {
         }
 
         public i c() {
-            if (this.f37390a != null) {
+            if (this.f74232a != null) {
                 return new i(this);
             }
             throw new IllegalStateException("url == null");
@@ -140,23 +141,23 @@ public class i {
     }
 
     public i(a aVar) {
-        this.f37385a = aVar.f37390a;
-        this.f37386b = aVar.f37391b;
-        this.f37387c = aVar.f37392c.a();
-        this.f37388d = aVar.f37393d;
-        this.f37389e = aVar.f37394e != null ? aVar.f37394e : this;
+        this.f74227a = aVar.f74232a;
+        this.f74228b = aVar.f74233b;
+        this.f74229c = aVar.f74234c.a();
+        this.f74230d = aVar.f74235d;
+        this.f74231e = aVar.f74236e != null ? aVar.f74236e : this;
     }
 
     public f a() {
-        return this.f37385a;
+        return this.f74227a;
     }
 
     public String a(String str) {
-        return this.f37387c.a(str);
+        return this.f74229c.a(str);
     }
 
     public String b() {
-        return this.f37386b;
+        return this.f74228b;
     }
 
     public int c() {
@@ -179,30 +180,30 @@ public class i {
     }
 
     public c d() {
-        return this.f37387c;
+        return this.f74229c;
     }
 
     public j e() {
-        return this.f37388d;
+        return this.f74230d;
     }
 
     public boolean f() {
-        return this.f37385a.a();
+        return this.f74227a.a();
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Request{method=");
-        sb.append(this.f37386b);
+        sb.append(this.f74228b);
         sb.append(", url=");
-        sb.append(this.f37385a);
+        sb.append(this.f74227a);
         sb.append(", tag=");
-        Object obj = this.f37389e;
+        Object obj = this.f74231e;
         if (obj == this) {
             obj = null;
         }
         sb.append(obj);
-        sb.append('}');
+        sb.append(ExtendedMessageFormat.END_FE);
         return sb.toString();
     }
 }

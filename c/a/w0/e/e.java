@@ -1,0 +1,484 @@
+package c.a.w0.e;
+
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.util.concurrent.atomic.AtomicBoolean;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
+public class e {
+    public static /* synthetic */ Interceptable $ic = null;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f30756c = "UnionIDHelper";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static boolean f30757d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f30758e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final String f30759f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final Object f30760g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static e f30761h;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public volatile c.a.w0.e.f.c f30762a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public AtomicBoolean f30763b;
+
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Context f30764e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ b f30765f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ e f30766g;
+
+        public a(e eVar, Context context, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, context, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f30766g = eVar;
+            this.f30764e = context;
+            this.f30765f = bVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (e.f30757d) {
+                    String unused = e.f30756c;
+                }
+                c.a.w0.e.f.a m = this.f30766g.m(this.f30764e);
+                if (e.f30757d) {
+                    String unused2 = e.f30756c;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("asyncRequest, cachedBean == null ？");
+                    sb.append(m == null);
+                    sb.toString();
+                }
+                if (m == null || this.f30766g.q(m)) {
+                    if (e.f30757d) {
+                        String unused3 = e.f30756c;
+                    }
+                    this.f30766g.r();
+                    if (e.f30757d) {
+                        String unused4 = e.f30756c;
+                    }
+                    this.f30766g.f30763b.set(this.f30766g.t(this.f30764e));
+                    if (e.f30757d) {
+                        String unused5 = e.f30756c;
+                    }
+                }
+                if (e.f30757d) {
+                    String unused6 = e.f30756c;
+                }
+                this.f30765f.obtainMessage(100, this.f30766g.f30762a).sendToTarget();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public c.a.w0.e.f.b f30767a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(Looper looper, c.a.w0.e.f.b bVar) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f30767a = bVar;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                if (message.what != 100) {
+                    return;
+                }
+                c.a.w0.e.f.c cVar = (c.a.w0.e.f.c) message.obj;
+                if (e.f30757d) {
+                    String unused = e.f30756c;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("handleMessage ，what：");
+                    sb.append(cVar == null ? "" : cVar.getOAID());
+                    sb.toString();
+                }
+                c.a.w0.e.f.b bVar = this.f30767a;
+                if (bVar != null) {
+                    bVar.a(cVar);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-492672528, "Lc/a/w0/e/e;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-492672528, "Lc/a/w0/e/e;");
+                return;
+            }
+        }
+        f30757d = c.a.w0.e.a.e();
+        f30758e = j(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
+        f30759f = j(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
+        f30760g = new Object();
+    }
+
+    public e() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        new AtomicBoolean(false);
+        this.f30763b = new AtomicBoolean(false);
+    }
+
+    public static String j(byte[]... bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte[] bArr2 : bArr) {
+                sb.append(new String(c.a.w0.e.h.c.a(bArr2)));
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                return new String(c.a.w0.e.h.a.a(f30758e, f30759f, c.a.w0.e.h.c.a(str.getBytes())));
+            } catch (Exception e2) {
+                if (f30757d) {
+                    String str2 = "getCacheObject ，decryptUnionID：" + e2.getMessage();
+                    return "";
+                }
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                return c.a.w0.e.h.c.c(c.a.w0.e.h.a.b(f30758e, f30759f, str.getBytes()), "utf-8");
+            } catch (UnsupportedEncodingException | Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static e o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            if (f30761h == null) {
+                synchronized (e.class) {
+                    if (f30761h == null) {
+                        f30761h = new e();
+                    }
+                }
+            }
+            return f30761h;
+        }
+        return (e) invokeV.objValue;
+    }
+
+    public synchronized void i(Context context, @NonNull Looper looper, @Nullable c.a.w0.e.f.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, looper, bVar) == null) {
+            synchronized (this) {
+                if (looper != null) {
+                    b bVar2 = new b(looper, bVar);
+                    if (p()) {
+                        bVar2.obtainMessage(100, null).sendToTarget();
+                        return;
+                    }
+                    if (this.f30762a != null && this.f30763b.get()) {
+                        if (f30757d) {
+                            String str = "asyncRequest, mIUnionId.getOAID：" + this.f30762a.getOAID();
+                            String str2 = "asyncRequest, mIUnionId.isTrackLimited：" + this.f30762a.c();
+                            String str3 = "asyncRequest, mIUnionId.getStatusCode：" + this.f30762a.getStatusCode();
+                        }
+                        bVar2.obtainMessage(100, this.f30762a).sendToTarget();
+                    } else {
+                        if (!this.f30763b.get()) {
+                            this.f30762a = new c(context).f30753a;
+                        }
+                        new Thread(new a(this, context, bVar2)).start();
+                    }
+                    return;
+                }
+                throw new NullPointerException("param looper not null");
+            }
+        }
+    }
+
+    public final c.a.w0.e.f.a m(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
+            if (!file.exists()) {
+                boolean z = f30757d;
+                return null;
+            }
+            File file2 = new File(file, ".bd_un_info.so");
+            if (!file2.exists()) {
+                boolean z2 = f30757d;
+                return null;
+            }
+            String a2 = c.a.w0.e.h.e.a(file2, f30760g);
+            if (f30757d) {
+                String str = "getCacheObject ，content：" + a2;
+            }
+            if (TextUtils.isEmpty(a2)) {
+                return null;
+            }
+            String k = k(a2);
+            if (f30757d) {
+                String str2 = "getCacheObject ，json：" + k;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(k);
+                c.a.w0.e.f.a aVar = new c.a.w0.e.f.a();
+                s(aVar, jSONObject);
+                return aVar;
+            } catch (Exception e2) {
+                if (f30757d) {
+                    String str3 = "getCacheObject , " + e2.getMessage();
+                }
+                return null;
+            }
+        }
+        return (c.a.w0.e.f.a) invokeL.objValue;
+    }
+
+    public final long n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.a.w0.e.a.a(c.a.w0.e.b.a()) * 60 * 1000 : invokeV.longValue;
+    }
+
+    public final boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? c.a.w0.e.a.d(c.a.w0.e.b.a()) : invokeV.booleanValue;
+    }
+
+    public final boolean q(@NonNull c.a.w0.e.f.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
+            if (Math.abs(System.currentTimeMillis() - aVar.f30768a) > n()) {
+                boolean z = f30757d;
+                return true;
+            }
+            boolean z2 = f30757d;
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.f30762a = this.f30762a.d();
+            if (f30757d) {
+                String str = "asyncRequest, requestFromManufacturer done :" + this.f30762a.getOAID();
+            }
+        }
+    }
+
+    public final boolean s(c.a.w0.e.f.a aVar, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, aVar, jSONObject)) == null) {
+            try {
+                long optLong = jSONObject.optLong(new String(c.a.w0.e.h.c.a("dGltZQ==".getBytes())));
+                aVar.f30768a = optLong;
+                if (f30757d) {
+                    String str = "tryParseCacheJsonObject ，time：" + optLong;
+                    String str2 = "tryParseCacheJsonObject ，System.currentTimeMillis() - time：" + (System.currentTimeMillis() - optLong);
+                }
+                String str3 = new String(c.a.w0.e.h.c.a("dW5pb25JRG9iag==".getBytes()));
+                if (f30757d) {
+                    String str4 = "tryParseCacheJsonObject objKey：" + str3;
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject(str3);
+                if (f30757d) {
+                    String str5 = "tryParseCacheJsonObject ，jsonObject：" + optJSONObject;
+                }
+                if (optJSONObject != null) {
+                    String str6 = new String(c.a.w0.e.h.c.a("aXNUcmFja0xpbWl0ZWQ=".getBytes()));
+                    String str7 = new String(c.a.w0.e.h.c.a("aXNTdXBwb3J0".getBytes()));
+                    String str8 = new String(c.a.w0.e.h.c.a("c3RhdHVzY29kZQ==".getBytes()));
+                    String str9 = new String(c.a.w0.e.h.c.a("b2FpZA==".getBytes()));
+                    String str10 = new String(c.a.w0.e.h.c.a("YWFpZA==".getBytes()));
+                    String str11 = new String(c.a.w0.e.h.c.a("dmFpZA==".getBytes()));
+                    boolean optBoolean = optJSONObject.optBoolean(str6);
+                    boolean optBoolean2 = optJSONObject.optBoolean(str7);
+                    int optInt = optJSONObject.optInt(str8);
+                    String optString = optJSONObject.optString(str9);
+                    String optString2 = optJSONObject.optString(str10);
+                    String optString3 = optJSONObject.optString(str11);
+                    this.f30762a.i(optBoolean);
+                    this.f30762a.e(optBoolean2);
+                    this.f30762a.a(optInt);
+                    this.f30762a.g(optString);
+                    this.f30762a.f(optString2);
+                    this.f30762a.b(optString3);
+                    aVar.f30769b = this.f30762a;
+                    return true;
+                }
+                aVar.f30769b = null;
+                boolean z = f30757d;
+                return false;
+            } catch (Exception e2) {
+                if (f30757d) {
+                    String str12 = "tryParseCacheJsonObject ：" + e2.getMessage();
+                }
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final boolean t(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
+            try {
+                if (this.f30762a != null && !TextUtils.isEmpty(this.f30762a.getOAID())) {
+                    File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
+                    if (!file.exists()) {
+                        file.mkdirs();
+                    }
+                    File file2 = new File(file, ".bd_un_info.so");
+                    String str = new String(c.a.w0.e.h.c.a("dGltZQ==".getBytes()));
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put(str, System.currentTimeMillis());
+                    String str2 = new String(c.a.w0.e.h.c.a("dW5pb25JRG9iag==".getBytes()));
+                    JSONObject optJSONObject = jSONObject.optJSONObject(str2);
+                    if (optJSONObject == null) {
+                        optJSONObject = new JSONObject();
+                    }
+                    String str3 = new String(c.a.w0.e.h.c.a("aXNUcmFja0xpbWl0ZWQ=".getBytes()));
+                    String str4 = new String(c.a.w0.e.h.c.a("aXNTdXBwb3J0".getBytes()));
+                    String str5 = new String(c.a.w0.e.h.c.a("c3RhdHVzY29kZQ==".getBytes()));
+                    String str6 = new String(c.a.w0.e.h.c.a("b2FpZA==".getBytes()));
+                    String str7 = new String(c.a.w0.e.h.c.a("YWFpZA==".getBytes()));
+                    String str8 = new String(c.a.w0.e.h.c.a("dmFpZA==".getBytes()));
+                    optJSONObject.put(str3, this.f30762a.c());
+                    optJSONObject.put(str4, this.f30762a.h());
+                    optJSONObject.put(str5, this.f30762a.getStatusCode());
+                    optJSONObject.put(str6, this.f30762a.getOAID());
+                    optJSONObject.put(str7, this.f30762a.getAAID());
+                    optJSONObject.put(str8, this.f30762a.getVAID());
+                    jSONObject.put(str2, optJSONObject);
+                    c.a.w0.e.h.e.b(l(jSONObject.toString()), file2, false, f30760g);
+                    if (f30757d) {
+                        String str9 = "trySaveFiles, app: " + jSONObject.toString();
+                        return true;
+                    }
+                    return true;
+                }
+                return false;
+            } catch (Exception e2) {
+                if (f30757d) {
+                    String str10 = "trySaveFiles, error " + e2.getMessage();
+                }
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+}

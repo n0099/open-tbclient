@@ -17,7 +17,8 @@ import com.googlecode.mp4parser.authoring.Track;
 import com.googlecode.mp4parser.authoring.TrackMetaData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class MultiplyTimeScaleTrack implements Track {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -152,7 +153,7 @@ public class MultiplyTimeScaleTrack implements Track {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return "MultiplyTimeScaleTrack{source=" + this.source + '}';
+            return "MultiplyTimeScaleTrack{source=" + this.source + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

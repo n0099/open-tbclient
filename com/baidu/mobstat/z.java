@@ -19,12 +19,12 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class z {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final z f9056a;
+    public static final z f43692a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class z {
                 return;
             }
         }
-        f9056a = new z();
+        f43692a = new z();
     }
 
     public z() {
@@ -62,7 +62,7 @@ public class z {
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context) == null) {
             bb.c().a("collectAPWithStretegy 1");
             y a2 = y.a(context);
-            long a3 = a2.a(g.f9003a);
+            long a3 = a2.a(g.f43637a);
             long currentTimeMillis = System.currentTimeMillis();
             long e2 = a2.e();
             bb c2 = bb.c();
@@ -80,7 +80,7 @@ public class z {
             bb.c().a("collectAPPListWithStretegy 1");
             long currentTimeMillis = System.currentTimeMillis();
             y a2 = y.a(context);
-            long a3 = a2.a(g.f9004b);
+            long a3 = a2.a(g.f43638b);
             long f2 = a2.f();
             bb c2 = bb.c();
             c2.a("now time: " + currentTimeMillis + ": last time: " + a3 + "; userInterval : " + f2);
@@ -88,7 +88,7 @@ public class z {
                 bb.c().a("collectUserAPPListWithStretegy 2");
                 c.a(context, false);
             }
-            long a4 = a2.a(g.f9005c);
+            long a4 = a2.a(g.f43639c);
             long g2 = a2.g();
             bb c3 = bb.c();
             c3.a("now time: " + currentTimeMillis + ": last time: " + a4 + "; sysInterval : " + g2);
@@ -105,7 +105,7 @@ public class z {
             bb.c().a("collectAPPTraceWithStretegy 1");
             long currentTimeMillis = System.currentTimeMillis();
             y a2 = y.a(context);
-            long a3 = a2.a(g.f9007e);
+            long a3 = a2.a(g.f43641e);
             long i2 = a2.i();
             bb c2 = bb.c();
             c2.a("now time: " + currentTimeMillis + ": last time: " + a3 + "; time interval: " + i2);
@@ -122,7 +122,7 @@ public class z {
             bb.c().a("collectAPKWithStretegy 1");
             long currentTimeMillis = System.currentTimeMillis();
             y a2 = y.a(context);
-            long a3 = a2.a(g.f9009g);
+            long a3 = a2.a(g.f43643g);
             long h2 = a2.h();
             bb c2 = bb.c();
             c2.a("now time: " + currentTimeMillis + ": last time: " + a3 + "; interval : " + h2);
@@ -136,7 +136,7 @@ public class z {
     private void g(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, context) == null) {
-            y.a(context).a(g.f9010h, System.currentTimeMillis());
+            y.a(context).a(g.f43644h, System.currentTimeMillis());
             JSONObject a2 = h.a(context);
             bb c2 = bb.c();
             c2.a("header: " + a2);
@@ -162,7 +162,7 @@ public class z {
             bb c2 = bb.c();
             c2.a("is data collect closed:" + a3);
             if (!a3) {
-                if (!k.f9016a.b(10000)) {
+                if (!k.f43651a.b(10000)) {
                     c(context);
                 }
                 String str = android.os.Build.MANUFACTURER;
@@ -171,13 +171,13 @@ public class z {
                 if (!TextUtils.isEmpty(str) && RomUtils.MANUFACTURER_HUAWEI.equals(str.trim().toLowerCase()) && i2 >= 28) {
                     z = true;
                 }
-                if (!k.f9017b.b(10000) && !z) {
+                if (!k.f43652b.b(10000) && !z) {
                     d(context);
                 }
-                if (!k.f9018c.b(10000) && !z) {
+                if (!k.f43653c.b(10000) && !z) {
                     e(context);
                 }
-                if (ab.f8645e && !k.f9020e.b(10000) && !z) {
+                if (ab.f42945e && !k.f43655e.b(10000) && !z) {
                     f(context);
                 }
                 boolean q = bw.q(context);
@@ -207,7 +207,7 @@ public class z {
             JSONObject jSONObject2 = new JSONObject();
             int i2 = 0;
             try {
-                jSONObject2.put(Config.HEADER_PART, jSONObject);
+                jSONObject2.put("he", jSONObject);
                 i2 = 0 + jSONObject.toString().length();
             } catch (JSONException e2) {
                 bb.c().a(e2);
@@ -228,7 +228,7 @@ public class z {
                 }
             }
             bb.c().a("APP_APK");
-            List<String> a2 = k.f9020e.a(LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_EXTRA);
+            List<String> a2 = k.f43655e.a(LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_EXTRA);
             JSONArray jSONArray2 = new JSONArray();
             for (String str : a2) {
                 bb.c().a(str);
@@ -243,7 +243,7 @@ public class z {
                 }
             }
             bb.c().a("APP_CHANGE");
-            List<String> a3 = k.f9019d.a(10240);
+            List<String> a3 = k.f43654d.a(10240);
             JSONArray jSONArray3 = new JSONArray();
             for (String str2 : a3) {
                 bb.c().a(str2);
@@ -258,7 +258,7 @@ public class z {
                 }
             }
             bb.c().a("APP_TRACE");
-            List<String> a4 = k.f9018c.a(15360);
+            List<String> a4 = k.f43653c.a(15360);
             JSONArray jSONArray4 = new JSONArray();
             for (String str3 : a4) {
                 bb.c().a(str3);
@@ -273,7 +273,7 @@ public class z {
                 }
             }
             bb.c().a("APP_LIST");
-            List<String> a5 = k.f9017b.a(46080);
+            List<String> a5 = k.f43652b.a(46080);
             JSONArray jSONArray5 = new JSONArray();
             for (String str4 : a5) {
                 bb.c().a(str4);
@@ -288,7 +288,7 @@ public class z {
                 }
             }
             bb.c().a("AP_LIST");
-            List<String> a6 = k.f9016a.a(Config.MAX_CACHE_JSON_CAPACITY - i2);
+            List<String> a6 = k.f43651a.a(184320 - i2);
             JSONArray jSONArray6 = new JSONArray();
             for (String str5 : a6) {
                 bb.c().a(str5);
@@ -320,9 +320,9 @@ public class z {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, jSONObject) == null) {
             ac acVar = new ac(jSONObject);
-            ab.f8642b = acVar.f8646a;
-            ab.f8643c = acVar.f8647b;
-            ab.f8644d = acVar.f8648c;
+            ab.f42942b = acVar.f42946a;
+            ab.f42943c = acVar.f42947b;
+            ab.f42944d = acVar.f42948c;
         }
     }
 
@@ -333,17 +333,17 @@ public class z {
         }
     }
 
-    public void a(Context context, long j) {
+    public void a(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048576, this, context, j) == null) {
-            y.a(context).a(g.f9011i, j);
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, context, j2) == null) {
+            y.a(context).a(g.f43645i, j2);
         }
     }
 
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? (k.f9016a.b() && k.f9017b.b() && k.f9018c.b() && k.f9019d.b() && k.f9020e.b()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? (k.f43651a.b() && k.f43652b.b() && k.f43653c.b() && k.f43654d.b() && k.f43655e.b()) ? false : true : invokeV.booleanValue;
     }
 
     public boolean a(Context context) {
@@ -352,7 +352,7 @@ public class z {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             if (bw.c().booleanValue()) {
                 y a2 = y.a(context);
-                long a3 = a2.a(g.f9011i);
+                long a3 = a2.a(g.f43645i);
                 long c2 = a2.c();
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - a3 > c2) {

@@ -1,6 +1,5 @@
 package com.baidu.android.common.others.lang;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -29,7 +28,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class StringUtil implements IStringUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARRAY_ELEMENT_SEPARATOR = ", ";
@@ -380,7 +379,7 @@ public final class StringUtil implements IStringUtil {
                 try {
                     i2 = inputStream.read(bArr, 0, 1024);
                 } catch (IOException e2) {
-                    Log.e(TAG, e2.toString());
+                    e2.toString();
                     i2 = 0;
                 }
                 if (i2 == -1) {
@@ -392,7 +391,7 @@ public final class StringUtil implements IStringUtil {
             try {
                 byteArrayOutputStream.close();
             } catch (IOException e3) {
-                Log.e(TAG, e3.toString());
+                e3.toString();
             }
             return byteArray;
         }
@@ -434,40 +433,45 @@ public final class StringUtil implements IStringUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, inputStream)) == null) {
             try {
                 try {
-                    try {
-                        byte[] byteFromInputStream = getByteFromInputStream(inputStream);
-                        if (byteFromInputStream != null) {
-                            String str = new String(byteFromInputStream);
-                            if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
-                                str = str.substring(1);
-                            }
-                            return str;
-                        } else if (inputStream != null) {
-                            inputStream.close();
-                            return null;
-                        } else {
-                            return null;
-                        }
-                    } catch (Exception e2) {
-                        Log.e(TAG, " getStringFromInput exception: ", e2);
+                    byte[] byteFromInputStream = getByteFromInputStream(inputStream);
+                    if (byteFromInputStream == null) {
                         if (inputStream != null) {
                             inputStream.close();
                             return null;
                         }
                         return null;
                     }
+                    String str = new String(byteFromInputStream);
+                    if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
+                        str = str.substring(1);
+                    }
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (Exception e2) {
+                            e2.toString();
+                        }
+                    }
+                    return str;
                 } catch (Exception e3) {
-                    Log.e(TAG, e3.toString());
+                    e3.toString();
                     return null;
                 }
-            } finally {
+            } catch (Exception unused) {
+                if (inputStream != null) {
+                    inputStream.close();
+                    return null;
+                }
+                return null;
+            } catch (Throwable th) {
                 if (inputStream != null) {
                     try {
                         inputStream.close();
                     } catch (Exception e4) {
-                        Log.e(TAG, e4.toString());
+                        e4.toString();
                     }
                 }
+                throw th;
             }
         }
         return (String) invokeL.objValue;
@@ -979,7 +983,7 @@ public final class StringUtil implements IStringUtil {
     public static String unqualify(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65621, null, str)) == null) ? unqualify(str, IStringUtil.EXTENSION_SEPARATOR) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65621, null, str)) == null) ? unqualify(str, '.') : (String) invokeL.objValue;
     }
 
     public static void validateLocalePart(String str) {

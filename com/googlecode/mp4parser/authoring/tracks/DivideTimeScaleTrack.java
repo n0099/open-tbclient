@@ -18,7 +18,8 @@ import com.googlecode.mp4parser.authoring.TrackMetaData;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class DivideTimeScaleTrack implements Track {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,11 +74,11 @@ public class DivideTimeScaleTrack implements Track {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long j = 0;
-            for (long j2 : getSampleDurations()) {
-                j += j2;
+            long j2 = 0;
+            for (long j3 : getSampleDurations()) {
+                j2 += j3;
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }
@@ -162,7 +163,7 @@ public class DivideTimeScaleTrack implements Track {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return "MultiplyTimeScaleTrack{source=" + this.source + '}';
+            return "MultiplyTimeScaleTrack{source=" + this.source + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

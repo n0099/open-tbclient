@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class y implements InvocationHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f1722a;
+    public g f35558a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class<?> f1723b;
+    public Class<?> f35559b;
 
     /* renamed from: c  reason: collision with root package name */
-    public z f1724c;
+    public z f35560c;
 
     public y(g gVar, Class<?> cls, z zVar) {
         Interceptable interceptable = $ic;
@@ -36,15 +36,15 @@ public final class y implements InvocationHandler {
                 return;
             }
         }
-        this.f1722a = gVar;
-        this.f1723b = cls;
-        this.f1724c = zVar;
+        this.f35558a = gVar;
+        this.f35559b = cls;
+        this.f35560c = zVar;
     }
 
     @Override // java.lang.reflect.InvocationHandler
     public final Object invoke(Object obj, Method method, Object[] objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, method, objArr)) == null) ? this.f1724c.a(method, objArr) : invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, method, objArr)) == null) ? this.f35560c.a(method, objArr) : invokeLLL.objValue;
     }
 }

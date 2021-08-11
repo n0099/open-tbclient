@@ -8,7 +8,6 @@ import android.graphics.fonts.FontVariationAxis;
 import android.net.Uri;
 import android.os.CancellationSignal;
 import android.os.ParcelFileDescriptor;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -83,7 +82,7 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
             method = obtainCreateFromFamiliesWithDefaultMethod(obtainFontFamily);
             cls = obtainFontFamily;
         } catch (ClassNotFoundException | NoSuchMethodException e2) {
-            Log.e(TAG, "Unable to collect necessary methods for class " + e2.getClass().getName(), e2);
+            String str = "Unable to collect necessary methods for class " + e2.getClass().getName();
             method = null;
             constructor = null;
             method2 = null;
@@ -153,9 +152,7 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            if (this.mAddFontFromAssetManager == null) {
-                Log.w(TAG, "Unable to collect necessary private methods. Fallback to legacy implementation.");
-            }
+            Method method = this.mAddFontFromAssetManager;
             return this.mAddFontFromAssetManager != null;
         }
         return invokeV.booleanValue;
@@ -232,7 +229,7 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
             if (!isFontFamilyPrivateAPIAvailable()) {
                 FontsContractCompat.FontInfo findBestInfo = findBestInfo(fontInfoArr, i2);
                 try {
-                    ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo.getUri(), r.f7788a, cancellationSignal);
+                    ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo.getUri(), r.f42062a, cancellationSignal);
                     if (openFileDescriptor == null) {
                         if (openFileDescriptor != null) {
                             openFileDescriptor.close();

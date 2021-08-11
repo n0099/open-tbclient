@@ -4,7 +4,6 @@ import android.annotation.TargetApi;
 import android.media.AudioAttributes;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -114,13 +113,13 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
             }
             Method audioAttributesToLegacyStreamTypeMethod = getAudioAttributesToLegacyStreamTypeMethod();
             if (audioAttributesToLegacyStreamTypeMethod == null) {
-                Log.w(TAG, "No AudioAttributes#toLegacyStreamType() on API: " + Build.VERSION.SDK_INT);
+                String str = "No AudioAttributes#toLegacyStreamType() on API: " + Build.VERSION.SDK_INT;
                 return -1;
             }
             try {
                 return ((Integer) audioAttributesToLegacyStreamTypeMethod.invoke(null, this.mAudioAttributes)).intValue();
-            } catch (IllegalAccessException | InvocationTargetException e2) {
-                Log.w(TAG, "getLegacyStreamType() failed on API: " + Build.VERSION.SDK_INT, e2);
+            } catch (IllegalAccessException | InvocationTargetException unused) {
+                String str2 = "getLegacyStreamType() failed on API: " + Build.VERSION.SDK_INT;
                 return -1;
             }
         }

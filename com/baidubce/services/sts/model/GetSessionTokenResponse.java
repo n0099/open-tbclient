@@ -9,7 +9,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.model.AbstractBceResponse;
 import java.util.Date;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes9.dex */
 public class GetSessionTokenResponse extends AbstractBceResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +89,7 @@ public class GetSessionTokenResponse extends AbstractBceResponse {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "Credentials{accessKeyId='" + this.accessKeyId + "', secretAccessKey='" + this.secretAccessKey + "', sessionToken='" + this.sessionToken + "', expiration=" + this.expiration + '}';
+            return "Credentials{accessKeyId='" + this.accessKeyId + ExtendedMessageFormat.QUOTE + ", secretAccessKey='" + this.secretAccessKey + ExtendedMessageFormat.QUOTE + ", sessionToken='" + this.sessionToken + ExtendedMessageFormat.QUOTE + ", expiration=" + this.expiration + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

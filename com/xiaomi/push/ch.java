@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
 import com.xiaomi.push.cg;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ch extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ cg f40204a;
+    public final /* synthetic */ cg f77055a;
 
     public ch(cg cgVar) {
         Interceptable interceptable = $ic;
@@ -32,12 +32,12 @@ public class ch extends ai.a {
                 return;
             }
         }
-        this.f40204a = cgVar;
+        this.f77055a = cgVar;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo184a() {
+    public String mo187a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "100957" : (String) invokeV.objValue;
@@ -53,21 +53,21 @@ public class ch extends ai.a {
         ArrayList<cg.a> arrayList6;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            arrayList = this.f40204a.f175a;
+            arrayList = this.f77055a.f179a;
             synchronized (arrayList) {
-                arrayList2 = this.f40204a.f175a;
+                arrayList2 = this.f77055a.f179a;
                 if (arrayList2.size() > 0) {
-                    arrayList3 = this.f40204a.f175a;
+                    arrayList3 = this.f77055a.f179a;
                     if (arrayList3.size() > 1) {
-                        cg cgVar = this.f40204a;
-                        arrayList6 = this.f40204a.f175a;
+                        cg cgVar = this.f77055a;
+                        arrayList6 = this.f77055a.f179a;
                         cgVar.a(arrayList6);
                     } else {
-                        cg cgVar2 = this.f40204a;
-                        arrayList4 = this.f40204a.f175a;
+                        cg cgVar2 = this.f77055a;
+                        arrayList4 = this.f77055a.f179a;
                         cgVar2.b((cg.a) arrayList4.get(0));
                     }
-                    arrayList5 = this.f40204a.f175a;
+                    arrayList5 = this.f77055a.f179a;
                     arrayList5.clear();
                     System.gc();
                 }

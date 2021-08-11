@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class LimitedAgeMemoryCache implements MemoryCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,12 +20,12 @@ public class LimitedAgeMemoryCache implements MemoryCache {
     public final Map<String, Long> loadingDates;
     public final long maxAge;
 
-    public LimitedAgeMemoryCache(MemoryCache memoryCache, long j) {
+    public LimitedAgeMemoryCache(MemoryCache memoryCache, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {memoryCache, Long.valueOf(j)};
+            Object[] objArr = {memoryCache, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -37,7 +37,7 @@ public class LimitedAgeMemoryCache implements MemoryCache {
         }
         this.loadingDates = Collections.synchronizedMap(new HashMap());
         this.cache = memoryCache;
-        this.maxAge = j * 1000;
+        this.maxAge = j2 * 1000;
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache

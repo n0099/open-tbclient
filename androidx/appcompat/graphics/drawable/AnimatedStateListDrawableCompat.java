@@ -18,7 +18,6 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.StateSet;
 import android.util.Xml;
 import androidx.annotation.DrawableRes;
@@ -176,11 +175,11 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), drawable, Boolean.valueOf(z)})) == null) {
                 int addChild = super.addChild(drawable);
                 long generateTransitionKey = generateTransitionKey(i2, i3);
-                long j = z ? REVERSIBLE_FLAG_BIT : 0L;
-                long j2 = addChild;
-                this.mTransitions.append(generateTransitionKey, Long.valueOf(j2 | j));
+                long j2 = z ? REVERSIBLE_FLAG_BIT : 0L;
+                long j3 = addChild;
+                this.mTransitions.append(generateTransitionKey, Long.valueOf(j3 | j2));
                 if (z) {
-                    this.mTransitions.append(generateTransitionKey(i3, i2), Long.valueOf(4294967296L | j2 | j));
+                    this.mTransitions.append(generateTransitionKey(i3, i2), Long.valueOf(4294967296L | j3 | j2));
                 }
                 return addChild;
             }
@@ -522,8 +521,8 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
 
     @Nullable
     public static AnimatedStateListDrawableCompat create(@NonNull Context context, @DrawableRes int i2, @Nullable Resources.Theme theme) {
-        InterceptResult invokeLIL;
         int next;
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, context, i2, theme)) == null) {
             try {
@@ -540,11 +539,7 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
                     return createFromXmlInner(context, resources, xml, asAttributeSet, theme);
                 }
                 throw new XmlPullParserException("No start tag found");
-            } catch (IOException e2) {
-                Log.e(LOGTAG, "parser error", e2);
-                return null;
-            } catch (XmlPullParserException e3) {
-                Log.e(LOGTAG, "parser error", e3);
+            } catch (IOException | XmlPullParserException unused) {
                 return null;
             }
         }
@@ -923,8 +918,8 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable.Callback
-    public /* bridge */ /* synthetic */ void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
-        super.scheduleDrawable(drawable, runnable, j);
+    public /* bridge */ /* synthetic */ void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j2) {
+        super.scheduleDrawable(drawable, runnable, j2);
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable

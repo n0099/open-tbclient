@@ -6,26 +6,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.n0.a.c;
+import c.a.n0.a.d;
+import c.a.n0.a.f;
+import c.a.n0.a.g;
+import c.a.n0.a.h;
+import c.a.n0.a.r1.n.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.c;
-import d.a.o0.a.d;
-import d.a.o0.a.f;
-import d.a.o0.a.g;
-import d.a.o0.a.h;
-import d.a.o0.a.r1.n.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class FooterLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public LoadingAnimView f11397i;
-    public TextView j;
+    public LoadingAnimView f46103i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public TextView f46104j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FooterLoadingLayout(Context context) {
@@ -45,14 +47,25 @@ public class FooterLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        n(context);
+        a(context);
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.f46103i = (LoadingAnimView) findViewById(f.pull_to_load_footer_progressbar);
+            TextView textView = (TextView) findViewById(f.pull_to_load_footer_hint_textview);
+            this.f46104j = textView;
+            textView.setTextColor(getResources().getColor(c.aiapps_picture_loading_text_color));
+            setState(ILoadingLayout$State.RESET);
+        }
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
+    public View createLoadingView(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, viewGroup, attributeSet)) == null) {
             View b2 = a.a().b(g.aiapps_pull_to_load_footer, viewGroup, false);
             b2.setBackgroundColor(context.getResources().getColor(c.aiapps_pull_loading_bg));
             return b2;
@@ -61,28 +74,10 @@ public class FooterLoadingLayout extends LoadingLayout {
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.j.setVisibility(0);
-            this.j.setText(h.aiapps_pull_to_refresh_header_no_more_msg);
-        }
-    }
-
-    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.j.setVisibility(0);
-            this.j.setText(h.aiapps_pull_to_refresh_header_hint_normal);
-        }
-    }
-
-    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getContentSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             View findViewById = findViewById(f.pull_to_load_footer_content);
             if (findViewById != null) {
                 return findViewById.getHeight();
@@ -93,52 +88,59 @@ public class FooterLoadingLayout extends LoadingLayout {
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void h() {
+    public void onNoMoreData() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f46104j.setVisibility(0);
+            this.f46104j.setText(h.aiapps_pull_to_refresh_header_no_more_msg);
+        }
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
+    public void onPullToRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f11397i.setVisibility(0);
-            this.f11397i.d();
-            this.j.setVisibility(0);
-            this.j.setText(h.aiapps_pull_to_refresh_header_hint_loading);
+            this.f46104j.setVisibility(0);
+            this.f46104j.setText(h.aiapps_pull_to_refresh_header_hint_normal);
         }
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void j() {
+    public void onRefreshing() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.j.setVisibility(0);
-            this.j.setText(h.aiapps_pull_to_refresh_header_hint_ready);
+            this.f46103i.setVisibility(0);
+            this.f46103i.startAnim();
+            this.f46104j.setVisibility(0);
+            this.f46104j.setText(h.aiapps_pull_to_refresh_header_hint_loading);
         }
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void k() {
+    public void onReleaseToRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.j.setText(h.aiapps_pull_to_refresh_header_hint_loading);
+            this.f46104j.setVisibility(0);
+            this.f46104j.setText(h.aiapps_pull_to_refresh_header_hint_ready);
         }
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void l(ILoadingLayout$State iLoadingLayout$State, ILoadingLayout$State iLoadingLayout$State2) {
+    public void onReset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, iLoadingLayout$State, iLoadingLayout$State2) == null) {
-            this.f11397i.setVisibility(8);
-            this.f11397i.e();
-            this.j.setVisibility(4);
-            super.l(iLoadingLayout$State, iLoadingLayout$State2);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.f46104j.setText(h.aiapps_pull_to_refresh_header_hint_loading);
         }
     }
 
-    public final void n(Context context) {
+    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
+    public void onStateChanged(ILoadingLayout$State iLoadingLayout$State, ILoadingLayout$State iLoadingLayout$State2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            this.f11397i = (LoadingAnimView) findViewById(f.pull_to_load_footer_progressbar);
-            TextView textView = (TextView) findViewById(f.pull_to_load_footer_hint_textview);
-            this.j = textView;
-            textView.setTextColor(getResources().getColor(c.aiapps_picture_loading_text_color));
-            setState(ILoadingLayout$State.RESET);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iLoadingLayout$State, iLoadingLayout$State2) == null) {
+            this.f46103i.setVisibility(8);
+            this.f46103i.stopAnim();
+            this.f46104j.setVisibility(4);
+            super.onStateChanged(iLoadingLayout$State, iLoadingLayout$State2);
         }
     }
 
@@ -147,6 +149,15 @@ public class FooterLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, charSequence) == null) {
         }
+    }
+
+    public void showTopDivider(boolean z) {
+        View findViewById;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (findViewById = findViewById(f.top_divider)) == null) {
+            return;
+        }
+        findViewById.setVisibility(z ? 0 : 8);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -168,6 +179,6 @@ public class FooterLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        n(context);
+        a(context);
     }
 }

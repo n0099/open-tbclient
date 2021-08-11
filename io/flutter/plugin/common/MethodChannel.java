@@ -1,6 +1,5 @@
 package io.flutter.plugin.common;
 
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.plugin.common.BinaryMessenger;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class MethodChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MethodChannel#";
@@ -20,7 +19,7 @@ public final class MethodChannel {
     public final BinaryMessenger messenger;
     public final String name;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final class IncomingMethodCallHandler implements BinaryMessenger.BinaryMessageHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,14 +101,14 @@ public final class MethodChannel {
                         }
                     });
                 } catch (RuntimeException e2) {
-                    Log.e(MethodChannel.TAG + this.this$0.name, "Failed to handle method call", e2);
+                    String str = MethodChannel.TAG + this.this$0.name;
                     binaryReply.reply(this.this$0.codec.encodeErrorEnvelope("error", e2.getMessage(), null));
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final class IncomingResultHandler implements BinaryMessenger.BinaryReply {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,20 +149,20 @@ public final class MethodChannel {
                             this.callback.error(e2.code, e2.getMessage(), e2.details);
                         }
                     }
-                } catch (RuntimeException e3) {
-                    Log.e(MethodChannel.TAG + this.this$0.name, "Failed to handle method call result", e3);
+                } catch (RuntimeException unused) {
+                    String str = MethodChannel.TAG + this.this$0.name;
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface MethodCallHandler {
         @UiThread
         void onMethodCall(@NonNull MethodCall methodCall, @NonNull Result result);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface Result {
         @UiThread
         void error(String str, @Nullable String str2, @Nullable Object obj);

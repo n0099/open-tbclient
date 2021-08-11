@@ -5,6 +5,9 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import androidx.core.view.InputDeviceCompat;
+import c.a.v0.j.b;
+import c.a.v0.t.h;
+import c.a.z.b.a.k.c;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffectKeyData;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
@@ -26,9 +29,6 @@ import com.baidu.ugc.editvideo.record.entity.TemplateInfo;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.ImportExportConfigUtil;
 import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
 import com.baidu.ugc.utils.FileUtils;
-import d.a.a0.b.a.k.c;
-import d.a.w0.j.b;
-import d.a.w0.t.h;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -44,7 +44,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class InnerImportExportConfigUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,14 +63,15 @@ public class InnerImportExportConfigUtil {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:111:0x0235  */
-    /* JADX WARN: Removed duplicated region for block: B:138:0x0283  */
-    /* JADX WARN: Removed duplicated region for block: B:145:0x02a8  */
-    /* JADX WARN: Removed duplicated region for block: B:151:0x02bb  */
-    /* JADX WARN: Removed duplicated region for block: B:152:0x02c0  */
-    /* JADX WARN: Removed duplicated region for block: B:155:0x02cf  */
-    /* JADX WARN: Removed duplicated region for block: B:159:0x02d7  */
-    /* JADX WARN: Removed duplicated region for block: B:234:0x02e7 A[ADDED_TO_REGION, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:103:0x020c  */
+    /* JADX WARN: Removed duplicated region for block: B:110:0x0225  */
+    /* JADX WARN: Removed duplicated region for block: B:114:0x0242  */
+    /* JADX WARN: Removed duplicated region for block: B:143:0x0293  */
+    /* JADX WARN: Removed duplicated region for block: B:150:0x02b8  */
+    /* JADX WARN: Removed duplicated region for block: B:156:0x02cb  */
+    /* JADX WARN: Removed duplicated region for block: B:157:0x02d0  */
+    /* JADX WARN: Removed duplicated region for block: B:160:0x02df  */
+    /* JADX WARN: Removed duplicated region for block: B:164:0x02e9  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -79,24 +80,25 @@ public class InnerImportExportConfigUtil {
         ArrayList arrayList;
         ArrayList arrayList2;
         ArrayList arrayList3;
-        char c2;
+        MediaTrackConfig mediaTrackConfig2;
+        MediaTrack mediaTrack;
         String str2;
-        String str3;
         MediaAEffect mediaAEffect;
         ArrayList arrayList4;
+        char c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, map, list, multiMediaDataTrack, mediaTrackConfig, str)) == null) {
             List<MediaTrack> list2 = list;
-            String str4 = str;
-            MediaTrackConfig mediaTrackConfig2 = new MediaTrackConfig();
+            String str3 = str;
+            MediaTrackConfig mediaTrackConfig3 = new MediaTrackConfig();
             if (mediaTrackConfig != null) {
-                mediaTrackConfig2 = mediaTrackConfig.m18clone();
+                mediaTrackConfig3 = mediaTrackConfig.m18clone();
             }
             HashMap hashMap = new HashMap();
             HashMap hashMap2 = new HashMap();
             if (map != null) {
                 for (Map.Entry<String, ShaderConfig> entry : map.entrySet()) {
-                    if (!TextUtils.equals(entry.getKey(), c.f41273b) && !TextUtils.equals(entry.getKey(), c.f41276e) && (!TextUtils.equals(entry.getKey(), c.f41274c) || !h.e(entry.getValue().textures))) {
+                    if (!TextUtils.equals(entry.getKey(), c.f31089b) && !TextUtils.equals(entry.getKey(), c.f31092e) && (!TextUtils.equals(entry.getKey(), c.f31090c) || !h.e(entry.getValue().textures))) {
                         ShaderConfig shaderConfig = (ShaderConfig) entry.getValue().clone();
                         if (!TextUtils.isEmpty(shaderConfig.resourcePath)) {
                             File file = new File(shaderConfig.resourcePath);
@@ -129,190 +131,229 @@ public class InnerImportExportConfigUtil {
                         hashMap.put(entry.getKey(), shaderConfig);
                     }
                 }
-                mediaTrackConfig2.shaderResourceMap = hashMap2;
-                mediaTrackConfig2.shaderConfigMapDebug = hashMap;
+                mediaTrackConfig3.shaderResourceMap = hashMap2;
+                mediaTrackConfig3.shaderConfigMapDebug = hashMap;
             }
             if (mediaTrackConfig != null && mediaTrackConfig.effectConfigMap != null) {
-                mediaTrackConfig2.effectConfigMap = new LinkedHashMap();
+                mediaTrackConfig3.effectConfigMap = new LinkedHashMap();
                 for (Map.Entry<String, MediaAEffect> entry2 : mediaTrackConfig.effectConfigMap.entrySet()) {
-                    mediaTrackConfig2.effectConfigMap.put(entry2.getKey(), entry2.getValue().m15clone());
+                    mediaTrackConfig3.effectConfigMap.put(entry2.getKey(), entry2.getValue().m15clone());
                 }
             }
             ArrayList arrayList5 = new ArrayList();
             if (list2 != null) {
-                mediaTrackConfig2.mediaTracks = new ArrayList();
+                mediaTrackConfig3.mediaTracks = new ArrayList();
                 int i3 = 0;
                 while (i3 < list.size()) {
-                    MediaTrack mediaTrack = list2.get(i3);
-                    if (TextUtils.equals(str4, MediaTrackConfig.AE_IMPORT_DRAFT) || !c.l(mediaTrack, "input_blank")) {
-                        if (!TextUtils.equals(str4, MediaTrackConfig.AE_IMPORT_DRAFT)) {
-                            if (c.l(mediaTrack, "edit_sticker")) {
-                                mediaTrack.mediaSegments = null;
-                                mediaTrack.mediaTransitions = null;
+                    MediaTrack mediaTrack2 = list2.get(i3);
+                    if (TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT) || !c.m(mediaTrack2, "input_blank")) {
+                        if (!TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT)) {
+                            if (c.m(mediaTrack2, "edit_sticker")) {
+                                mediaTrack2.mediaSegments = null;
+                                mediaTrack2.mediaTransitions = null;
                             }
-                            if (!h.e(mediaTrack.mediaAEffectKeyData)) {
-                                for (MediaAEffectKeyData mediaAEffectKeyData : mediaTrack.mediaAEffectKeyData) {
-                                    mediaAEffectKeyData.effectConfigList = null;
+                            if (!h.e(mediaTrack2.mediaAEffectKeyData)) {
+                                for (MediaAEffectKeyData mediaAEffectKeyData : mediaTrack2.mediaAEffectKeyData) {
+                                    mediaAEffectKeyData.calculateEffectKeys = null;
                                 }
                             }
                         }
-                        MediaTrack mediaTrack2 = (MediaTrack) mediaTrack.clone();
-                        if (mediaTrack.mediaSegments != null) {
+                        MediaTrack mediaTrack3 = (MediaTrack) mediaTrack2.clone();
+                        if (mediaTrack2.mediaSegments != null) {
                             ArrayList arrayList6 = new ArrayList();
                             int i4 = 0;
                             boolean z = false;
-                            while (i4 < mediaTrack.mediaSegments.size()) {
-                                MediaSegment mediaSegment = mediaTrack.mediaSegments.get(i4);
+                            while (i4 < mediaTrack2.mediaSegments.size()) {
+                                MediaSegment mediaSegment = mediaTrack2.mediaSegments.get(i4);
                                 MediaSegment m17clone = mediaSegment.m17clone();
                                 ArrayList arrayList7 = arrayList6;
-                                if (TextUtils.equals(str4, "input") || TextUtils.equals(str4, MediaTrackConfig.AE_IMPORT_ONE_INPUT)) {
+                                if (TextUtils.equals(str3, "input") || TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_ONE_INPUT)) {
                                     m17clone.start = 0L;
                                     m17clone.end = 0L;
                                     m17clone.effectStart = 0L;
                                     m17clone.effectEnd = 0L;
                                 }
-                                String str5 = mediaSegment.type;
-                                int hashCode = str5.hashCode();
+                                boolean isEmpty = TextUtils.isEmpty(mediaSegment.type);
+                                String str4 = MediaSegment.SEG_TYPE_INPUT_HEADER;
                                 ArrayList arrayList8 = arrayList5;
-                                MediaTrack mediaTrack3 = mediaTrack2;
-                                if (hashCode == -2060497896) {
-                                    if (str5.equals(SubtitleLog.TAG)) {
-                                        c2 = 2;
-                                    }
-                                    c2 = 65535;
-                                } else if (hashCode != 761324464) {
-                                    if (hashCode == 808915106 && str5.equals(MediaSegment.SEG_TYPE_INPUT_HEADER)) {
-                                        c2 = 0;
-                                    }
-                                    c2 = 65535;
+                                if (isEmpty) {
+                                    mediaTrackConfig2 = mediaTrackConfig3;
+                                    mediaTrack = mediaTrack3;
                                 } else {
-                                    if (str5.equals(MediaSegment.SEG_TYPE_INPUT_FOOTER)) {
-                                        c2 = 1;
-                                    }
-                                    c2 = 65535;
-                                }
-                                if (c2 == 0 || c2 == 1) {
-                                    if (!TextUtils.equals(str4, MediaTrackConfig.AE_IMPORT_DRAFT)) {
-                                        m17clone.start = 0L;
-                                        long j = mediaSegment.end;
-                                        str2 = MediaSegment.SEG_TYPE_INPUT_HEADER;
-                                        str3 = MediaSegment.SEG_TYPE_INPUT_FOOTER;
-                                        m17clone.end = j - mediaSegment.start;
-                                        m17clone.effectStart = 0L;
-                                        m17clone.effectEnd = mediaSegment.effectEnd - mediaSegment.effectStart;
-                                        if (i3 == 0) {
-                                            String str6 = TextUtils.equals(str4, MediaTrackConfig.AE_IMPORT_DRAFT) ? mediaSegment.type : "input";
-                                            if (multiMediaDataTrack != null) {
-                                                if (i4 == 0 && multiMediaDataTrack.hasHeader()) {
-                                                    str6 = str2;
-                                                } else {
-                                                    if (i4 == mediaTrack.mediaSegments.size() - 1 && multiMediaDataTrack.hasFooter()) {
-                                                        str6 = str3;
+                                    String str5 = mediaSegment.type;
+                                    int hashCode = str5.hashCode();
+                                    mediaTrack = mediaTrack3;
+                                    mediaTrackConfig2 = mediaTrackConfig3;
+                                    if (hashCode == -2060497896) {
+                                        if (str5.equals(SubtitleLog.TAG)) {
+                                            c2 = 2;
+                                            if (c2 != 0) {
+                                            }
+                                            if (!TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT)) {
+                                            }
+                                        }
+                                        c2 = 65535;
+                                        if (c2 != 0) {
+                                        }
+                                        if (!TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT)) {
+                                        }
+                                    } else if (hashCode != 761324464) {
+                                        if (hashCode == 808915106 && str5.equals(MediaSegment.SEG_TYPE_INPUT_HEADER)) {
+                                            c2 = 0;
+                                            if (c2 != 0 || c2 == 1) {
+                                                if (!TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT)) {
+                                                    m17clone.start = 0L;
+                                                    long j2 = mediaSegment.end;
+                                                    str2 = MediaSegment.SEG_TYPE_INPUT_FOOTER;
+                                                    m17clone.end = j2 - mediaSegment.start;
+                                                    m17clone.effectStart = 0L;
+                                                    m17clone.effectEnd = mediaSegment.effectEnd - mediaSegment.effectStart;
+                                                    if (i3 == 0) {
+                                                        String str6 = TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT) ? mediaSegment.type : "input";
+                                                        if (multiMediaDataTrack != null) {
+                                                            if (i4 != 0 || !multiMediaDataTrack.hasHeader()) {
+                                                                if (i4 == mediaTrack2.mediaSegments.size() - 1 && multiMediaDataTrack.hasFooter()) {
+                                                                    str4 = str2;
+                                                                }
+                                                            }
+                                                            m17clone.type = str4;
+                                                            if (!TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_ONE_INPUT) && TextUtils.equals(str4, "input") && z) {
+                                                                arrayList4 = arrayList7;
+                                                                mediaTrackConfig3 = mediaTrackConfig2;
+                                                                i4++;
+                                                                arrayList6 = arrayList4;
+                                                                arrayList5 = arrayList8;
+                                                                mediaTrack3 = mediaTrack;
+                                                            } else if (TextUtils.equals(str4, "input") && !z) {
+                                                                z = true;
+                                                            }
+                                                        }
+                                                        str4 = str6;
+                                                        m17clone.type = str4;
+                                                        if (!TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_ONE_INPUT)) {
+                                                        }
+                                                        if (TextUtils.equals(str4, "input")) {
+                                                            z = true;
+                                                        }
                                                     }
-                                                    m17clone.type = str6;
-                                                    if (!TextUtils.equals(str4, MediaTrackConfig.AE_IMPORT_ONE_INPUT) && TextUtils.equals(str6, "input") && z) {
+                                                    if (!TextUtils.isEmpty(mediaSegment.effectConfigKey)) {
+                                                        MediaAEffect mediaAEffect2 = mediaSegment.mediaAEffect;
+                                                        if (mediaAEffect2 != null) {
+                                                            mediaSegment.effectConfigKey = TextUtils.isEmpty(mediaAEffect2.name) ? "exportEffect" + i4 : mediaSegment.mediaAEffect.name;
+                                                        }
+                                                    } else if (mediaSegment.mediaAEffect == null) {
+                                                        mediaAEffect = null;
+                                                        mediaSegment.effectConfigKey = null;
+                                                        m17clone.effectConfigKey = mediaSegment.effectConfigKey;
+                                                        if (TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT)) {
+                                                            m17clone.mediaAEffect = mediaSegment.mediaAEffect;
+                                                        } else {
+                                                            m17clone.mediaAEffect = mediaAEffect;
+                                                        }
                                                         arrayList4 = arrayList7;
+                                                        arrayList4.add(m17clone);
+                                                        if (!TextUtils.isEmpty(mediaSegment.effectConfigKey) && mediaSegment.mediaAEffect != null) {
+                                                            mediaTrackConfig3 = mediaTrackConfig2;
+                                                            if (mediaTrackConfig3.effectConfigMap == null) {
+                                                                mediaTrackConfig3.effectConfigMap = new LinkedHashMap();
+                                                            }
+                                                            mediaTrackConfig3.effectConfigMap.put(mediaSegment.effectConfigKey, mediaSegment.mediaAEffect);
+                                                            i4++;
+                                                            arrayList6 = arrayList4;
+                                                            arrayList5 = arrayList8;
+                                                            mediaTrack3 = mediaTrack;
+                                                        }
+                                                        mediaTrackConfig3 = mediaTrackConfig2;
                                                         i4++;
                                                         arrayList6 = arrayList4;
                                                         arrayList5 = arrayList8;
-                                                        mediaTrack2 = mediaTrack3;
-                                                    } else if (TextUtils.equals(str6, "input") && !z) {
-                                                        z = true;
+                                                        mediaTrack3 = mediaTrack;
                                                     }
+                                                    mediaAEffect = null;
+                                                    m17clone.effectConfigKey = mediaSegment.effectConfigKey;
+                                                    if (TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT)) {
+                                                    }
+                                                    arrayList4 = arrayList7;
+                                                    arrayList4.add(m17clone);
+                                                    if (!TextUtils.isEmpty(mediaSegment.effectConfigKey)) {
+                                                        mediaTrackConfig3 = mediaTrackConfig2;
+                                                        if (mediaTrackConfig3.effectConfigMap == null) {
+                                                        }
+                                                        mediaTrackConfig3.effectConfigMap.put(mediaSegment.effectConfigKey, mediaSegment.mediaAEffect);
+                                                        i4++;
+                                                        arrayList6 = arrayList4;
+                                                        arrayList5 = arrayList8;
+                                                        mediaTrack3 = mediaTrack;
+                                                    }
+                                                    mediaTrackConfig3 = mediaTrackConfig2;
+                                                    i4++;
+                                                    arrayList6 = arrayList4;
+                                                    arrayList5 = arrayList8;
+                                                    mediaTrack3 = mediaTrack;
                                                 }
-                                            }
-                                            m17clone.type = str6;
-                                            if (!TextUtils.equals(str4, MediaTrackConfig.AE_IMPORT_ONE_INPUT)) {
-                                            }
-                                            if (TextUtils.equals(str6, "input")) {
-                                                z = true;
+                                            } else if (c2 == 2) {
+                                                m17clone.start = 0L;
+                                                m17clone.end = 0L;
+                                                m17clone.effectStart = 0L;
+                                                m17clone.effectEnd = 0L;
                                             }
                                         }
-                                        if (!TextUtils.isEmpty(mediaSegment.effectConfigKey)) {
-                                            MediaAEffect mediaAEffect2 = mediaSegment.mediaAEffect;
-                                            if (mediaAEffect2 != null) {
-                                                mediaSegment.effectConfigKey = TextUtils.isEmpty(mediaAEffect2.name) ? "exportEffect" + i4 : mediaSegment.mediaAEffect.name;
-                                            }
-                                        } else if (mediaSegment.mediaAEffect == null) {
-                                            mediaAEffect = null;
-                                            mediaSegment.effectConfigKey = null;
-                                            m17clone.effectConfigKey = mediaSegment.effectConfigKey;
-                                            if (TextUtils.equals(str4, MediaTrackConfig.AE_IMPORT_DRAFT)) {
-                                                m17clone.mediaAEffect = mediaSegment.mediaAEffect;
-                                            } else {
-                                                m17clone.mediaAEffect = mediaAEffect;
-                                            }
-                                            arrayList4 = arrayList7;
-                                            arrayList4.add(m17clone);
-                                            if (TextUtils.isEmpty(mediaSegment.effectConfigKey) && mediaSegment.mediaAEffect != null) {
-                                                if (mediaTrackConfig2.effectConfigMap == null) {
-                                                    mediaTrackConfig2.effectConfigMap = new LinkedHashMap();
-                                                }
-                                                mediaTrackConfig2.effectConfigMap.put(mediaSegment.effectConfigKey, mediaSegment.mediaAEffect);
-                                            }
-                                            i4++;
-                                            arrayList6 = arrayList4;
-                                            arrayList5 = arrayList8;
-                                            mediaTrack2 = mediaTrack3;
+                                        c2 = 65535;
+                                        if (c2 != 0) {
                                         }
-                                        mediaAEffect = null;
-                                        m17clone.effectConfigKey = mediaSegment.effectConfigKey;
-                                        if (TextUtils.equals(str4, MediaTrackConfig.AE_IMPORT_DRAFT)) {
+                                        if (!TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT)) {
                                         }
-                                        arrayList4 = arrayList7;
-                                        arrayList4.add(m17clone);
-                                        if (TextUtils.isEmpty(mediaSegment.effectConfigKey)) {
-                                            if (mediaTrackConfig2.effectConfigMap == null) {
+                                    } else {
+                                        if (str5.equals(MediaSegment.SEG_TYPE_INPUT_FOOTER)) {
+                                            c2 = 1;
+                                            if (c2 != 0) {
                                             }
-                                            mediaTrackConfig2.effectConfigMap.put(mediaSegment.effectConfigKey, mediaSegment.mediaAEffect);
+                                            if (!TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT)) {
+                                            }
                                         }
-                                        i4++;
-                                        arrayList6 = arrayList4;
-                                        arrayList5 = arrayList8;
-                                        mediaTrack2 = mediaTrack3;
+                                        c2 = 65535;
+                                        if (c2 != 0) {
+                                        }
+                                        if (!TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT)) {
+                                        }
                                     }
-                                } else if (c2 == 2) {
-                                    m17clone.start = 0L;
-                                    m17clone.end = 0L;
-                                    m17clone.effectStart = 0L;
-                                    m17clone.effectEnd = 0L;
                                 }
-                                str2 = MediaSegment.SEG_TYPE_INPUT_HEADER;
-                                str3 = MediaSegment.SEG_TYPE_INPUT_FOOTER;
+                                str2 = MediaSegment.SEG_TYPE_INPUT_FOOTER;
                                 if (i3 == 0) {
                                 }
                                 if (!TextUtils.isEmpty(mediaSegment.effectConfigKey)) {
                                 }
                                 mediaAEffect = null;
                                 m17clone.effectConfigKey = mediaSegment.effectConfigKey;
-                                if (TextUtils.equals(str4, MediaTrackConfig.AE_IMPORT_DRAFT)) {
+                                if (TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT)) {
                                 }
                                 arrayList4 = arrayList7;
                                 arrayList4.add(m17clone);
-                                if (TextUtils.isEmpty(mediaSegment.effectConfigKey)) {
+                                if (!TextUtils.isEmpty(mediaSegment.effectConfigKey)) {
                                 }
+                                mediaTrackConfig3 = mediaTrackConfig2;
                                 i4++;
                                 arrayList6 = arrayList4;
                                 arrayList5 = arrayList8;
-                                mediaTrack2 = mediaTrack3;
+                                mediaTrack3 = mediaTrack;
                             }
                             arrayList = arrayList5;
-                            mediaTrack2.mediaSegments = arrayList6;
+                            mediaTrack3.mediaSegments = arrayList6;
                         } else {
                             arrayList = arrayList5;
                         }
-                        if (mediaTrack.mediaTransitions != null) {
+                        if (mediaTrack2.mediaTransitions != null) {
                             HashSet hashSet = new HashSet();
                             int i5 = 0;
-                            while (i5 < mediaTrack.mediaTransitions.size()) {
+                            while (i5 < mediaTrack2.mediaTransitions.size()) {
                                 MediaTransition mediaTransition = new MediaTransition();
-                                MediaTransition mediaTransition2 = mediaTrack.mediaTransitions.get(i5);
-                                if (TextUtils.isEmpty(mediaTransition2.name) || (!TextUtils.equals(str4, MediaTrackConfig.AE_IMPORT_DRAFT) && mediaTrack.transitionMode.equals("fixed") && hashSet.contains(mediaTransition2.name))) {
+                                MediaTransition mediaTransition2 = mediaTrack2.mediaTransitions.get(i5);
+                                if (TextUtils.isEmpty(mediaTransition2.name) || (!TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT) && mediaTrack2.transitionMode.equals("fixed") && hashSet.contains(mediaTransition2.name))) {
                                     arrayList3 = arrayList;
                                 } else {
                                     hashSet.add(mediaTransition2.name);
                                     mediaTransition.duration = mediaTransition2.duration;
-                                    if (TextUtils.equals(str4, MediaTrackConfig.AE_IMPORT_TEMPLATE) || TextUtils.equals(str4, MediaTrackConfig.AE_IMPORT_DRAFT)) {
+                                    if (TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_TEMPLATE) || TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT)) {
                                         mediaTransition.start = mediaTransition2.start;
                                         mediaTransition.end = mediaTransition2.end;
                                     }
@@ -326,23 +367,23 @@ public class InnerImportExportConfigUtil {
                                 arrayList = arrayList3;
                             }
                             arrayList2 = arrayList;
-                            mediaTrack2.mediaTransitions = TextUtils.equals(str4, MediaTrackConfig.AE_IMPORT_DRAFT) ? mediaTrack.mediaTransitions : null;
+                            mediaTrack3.mediaTransitions = TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT) ? mediaTrack2.mediaTransitions : null;
                         } else {
                             arrayList2 = arrayList;
                         }
-                        MediaSegment mediaSegment2 = mediaTrack.superpositionFooter;
+                        MediaSegment mediaSegment2 = mediaTrack2.superpositionFooter;
                         if (mediaSegment2 != null) {
                             MediaSegment m17clone2 = mediaSegment2.m17clone();
-                            setSuperpositionSegment(mediaTrackConfig2.effectConfigMap, mediaTrack.superpositionFooter, m17clone2, str4);
-                            mediaTrack2.superpositionFooter = m17clone2;
+                            setSuperpositionSegment(mediaTrackConfig3.effectConfigMap, mediaTrack2.superpositionFooter, m17clone2, str3);
+                            mediaTrack3.superpositionFooter = m17clone2;
                         }
-                        MediaSegment mediaSegment3 = mediaTrack.superpositionHeader;
+                        MediaSegment mediaSegment3 = mediaTrack2.superpositionHeader;
                         if (mediaSegment3 != null) {
                             MediaSegment m17clone3 = mediaSegment3.m17clone();
-                            setSuperpositionSegment(mediaTrackConfig2.effectConfigMap, mediaTrack.superpositionHeader, m17clone3, str4);
-                            mediaTrack2.superpositionHeader = m17clone3;
+                            setSuperpositionSegment(mediaTrackConfig3.effectConfigMap, mediaTrack2.superpositionHeader, m17clone3, str3);
+                            mediaTrack3.superpositionHeader = m17clone3;
                         }
-                        mediaTrackConfig2.mediaTracks.add(mediaTrack2);
+                        mediaTrackConfig3.mediaTracks.add(mediaTrack3);
                     } else {
                         arrayList2 = arrayList5;
                     }
@@ -351,12 +392,12 @@ public class InnerImportExportConfigUtil {
                     arrayList5 = arrayList2;
                 }
             }
-            mediaTrackConfig2.transitionConfigs = arrayList5;
-            if (TextUtils.equals(str4, MediaTrackConfig.AE_IMPORT_ONE_INPUT)) {
-                str4 = "input";
+            mediaTrackConfig3.transitionConfigs = arrayList5;
+            if (TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_ONE_INPUT)) {
+                str3 = "input";
             }
-            mediaTrackConfig2.importType = str4;
-            return mediaTrackConfig2;
+            mediaTrackConfig3.importType = str3;
+            return mediaTrackConfig3;
         }
         return (MediaTrackConfig) invokeLLLLL.objValue;
     }
@@ -400,8 +441,8 @@ public class InnerImportExportConfigUtil {
                     }
                 }
                 if (!TextUtils.isEmpty(str3) && !str3.contains("default")) {
-                    String j = c.j(context, parent, str3);
-                    if (!TextUtils.isEmpty(j)) {
+                    String j2 = c.j(context, parent, str3);
+                    if (!TextUtils.isEmpty(j2)) {
                         if (!str3.endsWith(".glsl")) {
                             str3 = str3 + ".glsl";
                         }
@@ -410,7 +451,7 @@ public class InnerImportExportConfigUtil {
                             file4.createNewFile();
                         }
                         FileOutputStream fileOutputStream3 = new FileOutputStream(file4);
-                        fileOutputStream3.write(j.getBytes());
+                        fileOutputStream3.write(j2.getBytes());
                         fileOutputStream3.close();
                     }
                 }
@@ -595,8 +636,8 @@ public class InnerImportExportConfigUtil {
                     }
                 }
                 if (!TextUtils.isEmpty(str4) && !str4.contains("default")) {
-                    String j = c.j(context, parent, str4);
-                    if (!TextUtils.isEmpty(j)) {
+                    String j2 = c.j(context, parent, str4);
+                    if (!TextUtils.isEmpty(j2)) {
                         if (!str4.endsWith(".glsl")) {
                             str4 = str4 + ".glsl";
                         }
@@ -605,7 +646,7 @@ public class InnerImportExportConfigUtil {
                             file4.createNewFile();
                         }
                         FileOutputStream fileOutputStream3 = new FileOutputStream(file4);
-                        fileOutputStream3.write(j.getBytes());
+                        fileOutputStream3.write(j2.getBytes());
                         fileOutputStream3.close();
                     }
                 }
@@ -779,7 +820,7 @@ public class InnerImportExportConfigUtil {
         Iterator<Map.Entry<String, ShaderConfig>> it;
         HashMap hashMap;
         List<MediaTextureData> mediaTextureDates;
-        String j;
+        String j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65543, null, context, str, file, mediaTrackConfig, onExportListener)) == null) {
             HashMap hashMap2 = new HashMap();
@@ -834,8 +875,8 @@ public class InnerImportExportConfigUtil {
                                             fileOutputStream.close();
                                             str2 = str4;
                                             if (!TextUtils.isEmpty(str3) && !str3.contains("default")) {
-                                                j = c.j(context, parent, str3);
-                                                if (!TextUtils.isEmpty(j)) {
+                                                j2 = c.j(context, parent, str3);
+                                                if (!TextUtils.isEmpty(j2)) {
                                                     if (!str3.endsWith(".glsl")) {
                                                         str3 = str3 + ".glsl";
                                                     }
@@ -844,7 +885,7 @@ public class InnerImportExportConfigUtil {
                                                         file5.createNewFile();
                                                     }
                                                     FileOutputStream fileOutputStream2 = new FileOutputStream(file5);
-                                                    fileOutputStream2.write(j.getBytes());
+                                                    fileOutputStream2.write(j2.getBytes());
                                                     fileOutputStream2.close();
                                                 }
                                             }
@@ -870,8 +911,8 @@ public class InnerImportExportConfigUtil {
                             }
                             hashMap = hashMap2;
                             if (!TextUtils.isEmpty(str3)) {
-                                j = c.j(context, parent, str3);
-                                if (!TextUtils.isEmpty(j)) {
+                                j2 = c.j(context, parent, str3);
+                                if (!TextUtils.isEmpty(j2)) {
                                 }
                             }
                             shaderConfig.fragmentShader = str2;
@@ -977,11 +1018,11 @@ public class InnerImportExportConfigUtil {
         }
         if (!TextUtils.equals(str, MediaTrackConfig.AE_IMPORT_DRAFT)) {
             mediaSegment2.start = 0L;
-            long j = mediaSegment.end;
-            long j2 = mediaSegment.start;
-            mediaSegment2.end = j - j2;
+            long j2 = mediaSegment.end;
+            long j3 = mediaSegment.start;
+            mediaSegment2.end = j2 - j3;
             mediaSegment2.effectStart = 0L;
-            mediaSegment2.effectEnd = mediaSegment.effectEnd - j2;
+            mediaSegment2.effectEnd = mediaSegment.effectEnd - j3;
         }
         if (!TextUtils.isEmpty(mediaSegment.effectConfigKey) && mediaSegment.mediaAEffect != null) {
             if (map == null) {

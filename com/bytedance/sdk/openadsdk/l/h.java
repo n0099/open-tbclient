@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SensorManager f31705a;
+    public static SensorManager f67650a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public h() {
@@ -62,14 +62,14 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            if (f31705a == null) {
+            if (f67650a == null) {
                 synchronized (h.class) {
-                    if (f31705a == null) {
-                        f31705a = (SensorManager) context.getSystemService("sensor");
+                    if (f67650a == null) {
+                        f67650a = (SensorManager) context.getSystemService("sensor");
                     }
                 }
             }
-            return f31705a;
+            return f67650a;
         }
         return (SensorManager) invokeL.objValue;
     }

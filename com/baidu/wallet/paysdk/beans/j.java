@@ -1,43 +1,24 @@
 package com.baidu.wallet.paysdk.beans;
 
 import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.armor.SafePay;
-import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.controllers.PasswordController;
-import com.baidu.wallet.base.datamodel.PayData;
-import com.baidu.wallet.base.datamodel.UserData;
-import com.baidu.wallet.core.domain.DomainConfig;
-import com.baidu.wallet.paysdk.PayUtils;
-import com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse;
-import com.baidu.wallet.paysdk.datamodel.ErrorContentResponse;
-import com.baidu.wallet.paysdk.datamodel.PayRequest;
-import com.baidu.wallet.paysdk.datamodel.PayResponse;
-import com.baidu.wallet.paysdk.datamodel.PwdRequest;
-import com.baidu.wallet.paysdk.fingerprint.WalletFingerprint;
-import com.baidu.wallet.paysdk.storage.PayDataCache;
-import com.baidu.wallet.paysdk.storage.PayRequestCache;
-import java.util.ArrayList;
+import com.baidu.wallet.paysdk.datamodel.FindPwdCardCheckResponse;
+import com.dxmpay.apollon.restnet.RestNameValuePair;
+import com.dxmpay.wallet.core.beans.BaseBean;
+import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class j extends PayBaseBean<PayResponse> {
+/* loaded from: classes8.dex */
+public class j extends BaseBean<j> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public PwdRequest f26150a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public PayRequest f26151b;
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j(Context context) {
+    public <T> j(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -54,129 +35,47 @@ public class j extends PayBaseBean<PayResponse> {
                 return;
             }
         }
-        this.f26150a = null;
-        this.f26151b = null;
-        this.f26150a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
-        this.f26151b = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.execBean(PayResponse.class, ErrorContentResponse.class);
+            super.execBean(FindPwdCardCheckResponse.class);
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.NetworkBean
+    @Override // com.dxmpay.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         InterceptResult invokeV;
-        PayData.DirectPayPay directPayPay;
-        PayData.CreditPay creditPay;
-        PayData.CreditInfo creditInfo;
-        PayData.InstalmentPlan[] instalmentPlanArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            PwdRequest pwdRequest = this.f26150a;
-            if (pwdRequest != null && !TextUtils.isEmpty(pwdRequest.mPayPass)) {
-                String seed = PasswordController.getSeed();
-                arrayList.add(new RestNameValuePair("mobilepwd", PasswordController.handlePwd(this.f26150a.mPayPass, seed)));
-                arrayList.add(new RestNameValuePair("seed", SafePay.getInstance().encryptProxy(seed)));
-            } else if (!PayDataCache.getInstance().isPassFree() && this.f26151b != null && !com.baidu.wallet.paysdk.a.b.a()) {
-                String generateOTPKey = WalletFingerprint.getInstance(this.mContext).generateOTPKey(this.f26151b.otp_seed);
-                String sn = WalletFingerprint.getInstance(this.mContext).getSN();
-                if (!TextUtils.isEmpty(generateOTPKey) && !TextUtils.isEmpty(sn)) {
-                    arrayList.add(new RestNameValuePair("f_token_code", SafePay.getInstance().encrypt(generateOTPKey)));
-                    arrayList.add(new RestNameValuePair("f_serial_num", SafePay.getInstance().encrypt(sn)));
-                }
-            }
-            PayRequest payRequest = this.f26151b;
-            if (payRequest != null && !TextUtils.isEmpty(payRequest.mSmsCode)) {
-                arrayList.add(new RestNameValuePair("message_vcode", this.f26151b.mSmsCode));
-                this.f26151b.mSmsCode = null;
-            }
-            DirectPayContentResponse payResponse = PayDataCache.getInstance().getPayResponse();
-            if (payResponse != null && (directPayPay = payResponse.pay) != null && (creditPay = directPayPay.credit_pay) != null && (creditInfo = creditPay.credit_info) != null && (instalmentPlanArr = creditInfo.instalment_plan) != null && instalmentPlanArr.length > 0) {
-                arrayList.add(new RestNameValuePair("credit_rate", instalmentPlanArr[0].rate));
-                arrayList.add(new RestNameValuePair("stage_number", payResponse.pay.credit_pay.credit_info.instalment_plan[0].instalment));
-                arrayList.add(new RestNameValuePair("each_repayment", payResponse.pay.credit_pay.credit_info.instalment_plan[0].amount));
-            }
-            arrayList.addAll(PayDataCache.getInstance().getCreditPayPostInfo());
-            if (!TextUtils.isEmpty(PayDataCache.getInstance().getPaySessionInfo())) {
-                arrayList.add(new RestNameValuePair("session_info", PayDataCache.getInstance().getPaySessionInfo()));
-            }
-            PayRequest payRequest2 = this.f26151b;
-            if (payRequest2 != null && !TextUtils.isEmpty(payRequest2.withholding_auth)) {
-                arrayList.add(new RestNameValuePair("need_open_authorize", this.f26151b.withholding_auth));
-            }
-            PayRequest payRequest3 = this.f26151b;
-            if (payRequest3 != null && !TextUtils.isEmpty(payRequest3.mSecurityParams)) {
-                arrayList.add(new RestNameValuePair("security_sdk_param", this.f26151b.mSecurityParams));
-            }
-            UserData.UserModel userInfo = PayDataCache.getInstance().getUserInfo();
-            if (userInfo != null && !TextUtils.isEmpty(userInfo.getPassfreeMsg())) {
-                arrayList.add(new RestNameValuePair("need_open_passfree", String.valueOf(this.f26151b.getOpenPassFreeFlag())));
-            }
-            if (!TextUtils.isEmpty(this.f26151b.getmBankCardNumber())) {
-                arrayList.add(new RestNameValuePair("card_no_required", PayUtils.encrypt("card_no", this.f26151b.getmBankCardNumber())));
-            }
-            if (!TextUtils.isEmpty(this.f26151b.getmCvv2())) {
-                arrayList.add(new RestNameValuePair("verify_code_required", PayUtils.encrypt("cvv2", this.f26151b.getmCvv2())));
-            }
-            if (!TextUtils.isEmpty(this.f26151b.getmIdCard())) {
-                arrayList.add(new RestNameValuePair("certificate_code_required", PayUtils.encrypt("identity_code", this.f26151b.getmIdCard())));
-            }
-            this.f26151b.setmBankCardNumber("");
-            this.f26151b.setmCvv2("");
-            this.f26151b.setmIdCard("");
-            PayRequestCache.getInstance().addBeanRequestToCache(BeanConstants.REQUEST_ID_PAY, this.f26151b);
-            PayRequest payRequest4 = this.f26151b;
-            if (payRequest4 != null && !TextUtils.isEmpty(payRequest4.mLivingKey)) {
-                arrayList.add(new RestNameValuePair("living_key", this.f26151b.mLivingKey));
-                this.f26151b.mLivingKey = null;
-            }
-            PayRequest payRequest5 = this.f26151b;
-            if (payRequest5 != null && !TextUtils.isEmpty(payRequest5.mLivingResultCode)) {
-                arrayList.add(new RestNameValuePair("living_result_code", this.f26151b.mLivingResultCode));
-                this.f26151b.mLivingResultCode = null;
-            }
-            return arrayList;
+            return null;
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PayBeanFactory.BEAN_ID_CREDIT_PAY : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PayBeanFactory.BEAN_ID_FIND_MOBILE_PWD_BY_OLDCARD_GET_CARD_LIST : invokeV.intValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public String getEncode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "UTF-8" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "gbk" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_DO_PAY;
+            return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_FIND_PASS_FROM_OLD_CARD_GET_CARD_LIST;
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.wallet.core.beans.BaseBean, com.baidu.wallet.core.beans.NetworkBean
-    public boolean needNonce() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

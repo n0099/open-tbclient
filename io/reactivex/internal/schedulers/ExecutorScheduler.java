@@ -29,7 +29,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ExecutorScheduler extends Scheduler {
     public static /* synthetic */ Interceptable $ic;
     public static final Scheduler HELPER;
@@ -37,7 +37,7 @@ public final class ExecutorScheduler extends Scheduler {
     @NonNull
     public final Executor executor;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public final class DelayedDispose implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public final class ExecutorScheduler extends Scheduler {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class DelayedRunnable extends AtomicReference<Runnable> implements Runnable, Disposable, SchedulerRunnableIntrospection {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4101336210206799084L;
@@ -216,36 +216,36 @@ public final class ExecutorScheduler extends Scheduler {
 
     @Override // io.reactivex.Scheduler
     @NonNull
-    public Disposable schedulePeriodicallyDirect(@NonNull Runnable runnable, long j, long j2, TimeUnit timeUnit) {
+    public Disposable schedulePeriodicallyDirect(@NonNull Runnable runnable, long j2, long j3, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) {
             if (this.executor instanceof ScheduledExecutorService) {
                 try {
                     ScheduledDirectPeriodicTask scheduledDirectPeriodicTask = new ScheduledDirectPeriodicTask(RxJavaPlugins.onSchedule(runnable));
-                    scheduledDirectPeriodicTask.setFuture(((ScheduledExecutorService) this.executor).scheduleAtFixedRate(scheduledDirectPeriodicTask, j, j2, timeUnit));
+                    scheduledDirectPeriodicTask.setFuture(((ScheduledExecutorService) this.executor).scheduleAtFixedRate(scheduledDirectPeriodicTask, j2, j3, timeUnit));
                     return scheduledDirectPeriodicTask;
                 } catch (RejectedExecutionException e2) {
                     RxJavaPlugins.onError(e2);
                     return EmptyDisposable.INSTANCE;
                 }
             }
-            return super.schedulePeriodicallyDirect(runnable, j, j2, timeUnit);
+            return super.schedulePeriodicallyDirect(runnable, j2, j3, timeUnit);
         }
         return (Disposable) invokeCommon.objValue;
     }
 
     @Override // io.reactivex.Scheduler
     @NonNull
-    public Disposable scheduleDirect(@NonNull Runnable runnable, long j, TimeUnit timeUnit) {
+    public Disposable scheduleDirect(@NonNull Runnable runnable, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
             Runnable onSchedule = RxJavaPlugins.onSchedule(runnable);
             if (this.executor instanceof ScheduledExecutorService) {
                 try {
                     ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(onSchedule);
-                    scheduledDirectTask.setFuture(((ScheduledExecutorService) this.executor).schedule(scheduledDirectTask, j, timeUnit));
+                    scheduledDirectTask.setFuture(((ScheduledExecutorService) this.executor).schedule(scheduledDirectTask, j2, timeUnit));
                     return scheduledDirectTask;
                 } catch (RejectedExecutionException e2) {
                     RxJavaPlugins.onError(e2);
@@ -253,13 +253,13 @@ public final class ExecutorScheduler extends Scheduler {
                 }
             }
             DelayedRunnable delayedRunnable = new DelayedRunnable(onSchedule);
-            delayedRunnable.timed.replace(HELPER.scheduleDirect(new DelayedDispose(this, delayedRunnable), j, timeUnit));
+            delayedRunnable.timed.replace(HELPER.scheduleDirect(new DelayedDispose(this, delayedRunnable), j2, timeUnit));
             return delayedRunnable;
         }
         return (Disposable) invokeCommon.objValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class ExecutorWorker extends Scheduler.Worker implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -269,7 +269,7 @@ public final class ExecutorScheduler extends Scheduler {
         public final CompositeDisposable tasks;
         public final AtomicInteger wip;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes2.dex */
         public static final class BooleanRunnable extends AtomicBoolean implements Runnable, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -2421395018820541164L;
@@ -323,7 +323,7 @@ public final class ExecutorScheduler extends Scheduler {
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes2.dex */
         public final class SequentialDispose implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -473,11 +473,11 @@ public final class ExecutorScheduler extends Scheduler {
 
         @Override // io.reactivex.Scheduler.Worker
         @NonNull
-        public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
+        public Disposable schedule(@NonNull Runnable runnable, long j2, @NonNull TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
-                if (j <= 0) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
+                if (j2 <= 0) {
                     return schedule(runnable);
                 }
                 if (this.disposed) {
@@ -490,14 +490,14 @@ public final class ExecutorScheduler extends Scheduler {
                 Executor executor = this.executor;
                 if (executor instanceof ScheduledExecutorService) {
                     try {
-                        scheduledRunnable.setFuture(((ScheduledExecutorService) executor).schedule((Callable) scheduledRunnable, j, timeUnit));
+                        scheduledRunnable.setFuture(((ScheduledExecutorService) executor).schedule((Callable) scheduledRunnable, j2, timeUnit));
                     } catch (RejectedExecutionException e2) {
                         this.disposed = true;
                         RxJavaPlugins.onError(e2);
                         return EmptyDisposable.INSTANCE;
                     }
                 } else {
-                    scheduledRunnable.setFuture(new DisposeOnCancel(ExecutorScheduler.HELPER.scheduleDirect(scheduledRunnable, j, timeUnit)));
+                    scheduledRunnable.setFuture(new DisposeOnCancel(ExecutorScheduler.HELPER.scheduleDirect(scheduledRunnable, j2, timeUnit)));
                 }
                 sequentialDisposable.replace(scheduledRunnable);
                 return sequentialDisposable2;

@@ -51,7 +51,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class ShareUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_SHARE_ACTIVITY = "baidu.intent.action.account.SHARE_ACTIVITY";
@@ -225,9 +225,9 @@ public final class ShareUtils {
         return (List) invokeL.objValue;
     }
 
-    public static void getShareModels(long j, Context context, String str, ShareModelCallback shareModelCallback) {
+    public static void getShareModels(long j2, Context context, String str, ShareModelCallback shareModelCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Long.valueOf(j), context, str, shareModelCallback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Long.valueOf(j2), context, str, shareModelCallback}) == null) {
             List<String> installedApps = getInstalledApps(context);
             if (installedApps != null && installedApps.size() > 0) {
                 List<ShareStorage.StorageModel> shareModelsFromQuickCache = getShareModelsFromQuickCache(installedApps);
@@ -297,7 +297,7 @@ public final class ShareUtils {
                     }
                 };
                 handler.removeCallbacksAndMessages(null);
-                handler.sendEmptyMessageDelayed(0, j);
+                handler.sendEmptyMessageDelayed(0, j2);
                 getShareV3App(context, str, installedApps, new GetShareV3AppCallback(handler, shareModelCallback) { // from class: com.baidu.sapi2.share.ShareUtils.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;

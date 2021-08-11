@@ -11,7 +11,7 @@ import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.kwad.sdk.api.KsNativeAd;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
 import com.win.opensdk.PBNative;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ChannelNativeAds_6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public class ChannelNativeAds_6 {
     public final KsNativeAd ksNative;
     public GdtADStatusChangeListener mListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface GdtADStatusChangeListener {
         void onADStatusChanged(NativeUnifiedADData nativeUnifiedADData);
     }

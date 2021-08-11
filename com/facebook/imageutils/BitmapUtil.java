@@ -21,7 +21,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class BitmapUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALPHA_8_BYTES_PER_PIXEL = 1;
@@ -36,7 +36,7 @@ public final class BitmapUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.imageutils.BitmapUtil$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
         public static /* synthetic */ Interceptable $ic;

@@ -5,7 +5,6 @@ import android.content.ContextWrapper;
 import android.content.res.TypedArray;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.InflateException;
 import android.view.View;
 import androidx.annotation.NonNull;
@@ -43,6 +42,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import org.apache.commons.lang3.CharUtils;
 /* loaded from: classes.dex */
 public class AppCompatViewInflater {
     public static /* synthetic */ Interceptable $ic = null;
@@ -240,8 +240,8 @@ public class AppCompatViewInflater {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, attributeSet, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.View, 0, 0);
             int resourceId = z ? obtainStyledAttributes.getResourceId(R.styleable.View_android_theme, 0) : 0;
-            if (z2 && resourceId == 0 && (resourceId = obtainStyledAttributes.getResourceId(R.styleable.View_theme, 0)) != 0) {
-                Log.i(LOG_TAG, "app:theme is now deprecated. Please move to using android:theme instead.");
+            if (z2 && resourceId == 0) {
+                resourceId = obtainStyledAttributes.getResourceId(R.styleable.View_theme, 0);
             }
             obtainStyledAttributes.recycle();
             return resourceId != 0 ? ((context instanceof ContextThemeWrapper) && ((ContextThemeWrapper) context).getThemeResId() == resourceId) ? context : new ContextThemeWrapper(context, resourceId) : context;
@@ -428,7 +428,7 @@ public class AppCompatViewInflater {
                     break;
                 case 799298502:
                     if (str.equals("ToggleButton")) {
-                        c2 = '\r';
+                        c2 = CharUtils.CR;
                         break;
                     }
                     break;

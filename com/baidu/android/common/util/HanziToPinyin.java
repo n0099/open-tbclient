@@ -1,6 +1,5 @@
 package com.baidu.android.common.util;
 
-import android.util.Log;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import kotlin.jvm.internal.CharCompanionObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class HanziToPinyin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -40,7 +39,7 @@ public class HanziToPinyin {
     public short[] PINYIN_TABLE;
     public final boolean mHasChinaCollator;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class Token {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DIGIT = 3;
@@ -350,7 +349,7 @@ public class HanziToPinyin {
             String[] strArr = new String[length];
             for (int i2 = length - 1; i2 >= 0; i2--) {
                 if (POLYPHONE.indexOfKey(cArr[i2]) > 0) {
-                    Log.e("Pinyin", c2 + " links to a polyphone: " + cArr[i2] + "!!");
+                    String str = c2 + " links to a polyphone: " + cArr[i2] + "!!";
                 }
                 strArr[i2] = getToken(cArr[i2], true).target;
             }

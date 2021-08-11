@@ -4,14 +4,12 @@ import android.graphics.Bitmap;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.StatusCode;
 import com.faceunity.gles.GeneratedTexture;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -19,7 +17,7 @@ import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class TextureRender {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLOAT_SIZE_BYTES = 4;
@@ -76,9 +74,6 @@ public class TextureRender {
             }
             int glCreateProgram = GLES20.glCreateProgram();
             checkGlError("glCreateProgram");
-            if (glCreateProgram == 0) {
-                Log.e(TAG, "Could not create program");
-            }
             GLES20.glAttachShader(glCreateProgram, loadShader2);
             checkGlError("glAttachShader");
             GLES20.glAttachShader(glCreateProgram, loadShader);
@@ -87,8 +82,7 @@ public class TextureRender {
             int[] iArr = new int[1];
             GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
             if (iArr[0] != 1) {
-                Log.e(TAG, "Could not link program: ");
-                Log.e(TAG, GLES20.glGetProgramInfoLog(glCreateProgram));
+                GLES20.glGetProgramInfoLog(glCreateProgram);
                 GLES20.glDeleteProgram(glCreateProgram);
                 return 0;
             }
@@ -108,11 +102,8 @@ public class TextureRender {
             int[] iArr = new int[1];
             GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
             if (iArr[0] == 0) {
-                Log.e(TAG, "Could not compile shader " + i2 + ":");
-                StringBuilder sb = new StringBuilder();
-                sb.append(" ");
-                sb.append(GLES20.glGetShaderInfoLog(glCreateShader));
-                Log.e(TAG, sb.toString());
+                String str2 = "Could not compile shader " + i2 + ":";
+                String str3 = " " + GLES20.glGetShaderInfoLog(glCreateShader);
                 GLES20.glDeleteShader(glCreateShader);
                 return 0;
             }
@@ -191,7 +182,7 @@ public class TextureRender {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (glGetError = GLES20.glGetError()) == 0) {
             return;
         }
-        Log.e(TAG, str + ": glError " + glGetError);
+        String str2 = str + ": glError " + glGetError;
         throw new RuntimeException(str + ": glError " + glGetError);
     }
 
@@ -207,12 +198,12 @@ public class TextureRender {
             GLES20.glActiveTexture(33984);
             GLES20.glBindTexture(36197, this.mTextureID);
             this.mTriangleVertices.position(0);
-            GLES20.glVertexAttribPointer(this.maPositionHandle, 3, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 20, (Buffer) this.mTriangleVertices);
+            GLES20.glVertexAttribPointer(this.maPositionHandle, 3, 5126, false, 20, (Buffer) this.mTriangleVertices);
             checkGlError("glVertexAttribPointer maPosition");
             GLES20.glEnableVertexAttribArray(this.maPositionHandle);
             checkGlError("glEnableVertexAttribArray maPositionHandle");
             this.mTriangleVertices.position(3);
-            GLES20.glVertexAttribPointer(this.maTextureHandle, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 20, (Buffer) this.mTriangleVertices);
+            GLES20.glVertexAttribPointer(this.maTextureHandle, 2, 5126, false, 20, (Buffer) this.mTriangleVertices);
             checkGlError("glVertexAttribPointer maTextureHandle");
             GLES20.glEnableVertexAttribArray(this.maTextureHandle);
             checkGlError("glEnableVertexAttribArray maTextureHandle");

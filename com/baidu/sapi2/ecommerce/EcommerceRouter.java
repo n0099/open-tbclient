@@ -3,7 +3,6 @@ package com.baidu.sapi2.ecommerce;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.PassportViewManager;
@@ -20,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class EcommerceRouter implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public static EcommerceRouter instance;
@@ -73,7 +72,7 @@ public class EcommerceRouter implements NoProguard {
                 intent = new Intent(context, AddressListActivity.class);
             }
             if (!(context instanceof Activity)) {
-                intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.setFlags(268435456);
             }
             context.startActivity(intent);
         }
@@ -125,7 +124,7 @@ public class EcommerceRouter implements NoProguard {
             }
             Intent intent = new Intent(context, InvoiceBuildActivity.class);
             if (!(context instanceof Activity)) {
-                intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.setFlags(268435456);
             }
             context.startActivity(intent);
         }

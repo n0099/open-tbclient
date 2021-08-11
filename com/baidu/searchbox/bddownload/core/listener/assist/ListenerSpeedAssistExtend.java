@@ -16,26 +16,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ListenerSpeedAssistExtend implements DownloadBlockProgressListenerAssist.AssistExtend, ListenerModelHandler.ModelCreator<Listener4SpeedModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Listener4SpeedCallback callback;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface Listener4SpeedCallback {
         void blockEnd(@NonNull DownloadTask downloadTask, int i2, BlockInfo blockInfo, @NonNull SpeedCalculator speedCalculator);
 
         void infoReady(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, boolean z, @NonNull Listener4SpeedModel listener4SpeedModel);
 
-        void progress(@NonNull DownloadTask downloadTask, long j, @NonNull SpeedCalculator speedCalculator);
+        void progress(@NonNull DownloadTask downloadTask, long j2, @NonNull SpeedCalculator speedCalculator);
 
-        void progressBlock(@NonNull DownloadTask downloadTask, int i2, long j, @NonNull SpeedCalculator speedCalculator);
+        void progressBlock(@NonNull DownloadTask downloadTask, int i2, long j2, @NonNull SpeedCalculator speedCalculator);
 
         void taskEnd(@NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc, @NonNull SpeedCalculator speedCalculator);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class Listener4SpeedModel extends DownloadBlockProgressListenerAssist.Listener4Model {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,13 +121,13 @@ public class ListenerSpeedAssistExtend implements DownloadBlockProgressListenerA
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.AssistExtend
-    public boolean dispatchFetchProgress(@NonNull DownloadTask downloadTask, int i2, long j, @NonNull DownloadBlockProgressListenerAssist.Listener4Model listener4Model) {
+    public boolean dispatchFetchProgress(@NonNull DownloadTask downloadTask, int i2, long j2, @NonNull DownloadBlockProgressListenerAssist.Listener4Model listener4Model) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j), listener4Model})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j2), listener4Model})) == null) {
             Listener4SpeedModel listener4SpeedModel = (Listener4SpeedModel) listener4Model;
-            listener4SpeedModel.blockSpeeds.get(i2).downloading(j);
-            listener4SpeedModel.taskSpeed.downloading(j);
+            listener4SpeedModel.blockSpeeds.get(i2).downloading(j2);
+            listener4SpeedModel.taskSpeed.downloading(j2);
             Listener4SpeedCallback listener4SpeedCallback = this.callback;
             if (listener4SpeedCallback != null) {
                 listener4SpeedCallback.progressBlock(downloadTask, i2, listener4Model.blockCurrentOffsetMap.get(i2).longValue(), listener4SpeedModel.getBlockSpeed(i2));

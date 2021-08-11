@@ -22,8 +22,8 @@ import java.util.GregorianCalendar;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
-import kotlin.text.Typography;
-/* loaded from: classes.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes4.dex */
 public class CalendarCodec extends ContextObjectDeserializer implements ObjectSerializer, ObjectDeserializer, ContextObjectSerializer {
     public static /* synthetic */ Interceptable $ic;
     public static final CalendarCodec instance;
@@ -149,7 +149,7 @@ public class CalendarCodec extends ContextObjectDeserializer implements ObjectSe
                 calendar = (Calendar) obj;
             }
             if (serializeWriter.isEnabled(SerializerFeature.UseISO8601DateFormat)) {
-                char c2 = serializeWriter.isEnabled(SerializerFeature.UseSingleQuotes) ? '\'' : Typography.quote;
+                char c2 = serializeWriter.isEnabled(SerializerFeature.UseSingleQuotes) ? ExtendedMessageFormat.QUOTE : '\"';
                 serializeWriter.append(c2);
                 int i3 = calendar.get(1);
                 int i4 = calendar.get(2) + 1;

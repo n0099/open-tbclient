@@ -13,26 +13,30 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PersonTabView extends LinearLayout {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int TAB_REPLY = 1;
+    public static final int TAB_THREAD = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20382e;
+    public Context f55753e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f20383f;
+    public TextView f55754f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20384g;
+    public TextView f55755g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f20385h;
+    public View f55756h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f20386i;
-    public View j;
+    public View f55757i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public View f55758j;
     public View k;
     public int l;
     public int m;
@@ -40,13 +44,13 @@ public class PersonTabView extends LinearLayout {
     public b o;
     public View.OnClickListener p;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonTabView f20387e;
+        public final /* synthetic */ PersonTabView f55759e;
 
         public a(PersonTabView personTabView) {
             Interceptable interceptable = $ic;
@@ -63,7 +67,7 @@ public class PersonTabView extends LinearLayout {
                     return;
                 }
             }
-            this.f20387e = personTabView;
+            this.f55759e = personTabView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -71,18 +75,18 @@ public class PersonTabView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (view.getId() == R.id.main_thread_btn) {
-                    this.f20387e.setCurrentTab(0);
+                    this.f55759e.setCurrentTab(0);
                 } else if (view.getId() == R.id.reply_btn) {
-                    this.f20387e.setCurrentTab(1);
+                    this.f55759e.setCurrentTab(1);
                 }
-                if (this.f20387e.o != null) {
-                    this.f20387e.o.onTabSelect(this.f20387e.l);
+                if (this.f55759e.o != null) {
+                    this.f55759e.o.onTabSelect(this.f55759e.l);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void onTabSelect(int i2);
     }
@@ -115,44 +119,65 @@ public class PersonTabView extends LinearLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f20382e = context;
+            this.f55753e = context;
             LayoutInflater.from(context).inflate(R.layout.person_button_header_view, this);
             TextView textView = (TextView) findViewById(R.id.main_thread_btn);
-            this.f20383f = textView;
+            this.f55754f = textView;
             textView.setOnClickListener(this.p);
             TextView textView2 = (TextView) findViewById(R.id.reply_btn);
-            this.f20384g = textView2;
+            this.f55755g = textView2;
             textView2.setOnClickListener(this.p);
-            this.f20385h = findViewById(R.id.main_thread_divider);
-            this.f20386i = findViewById(R.id.reply_btn_divider);
-            this.j = findViewById(R.id.main_thread_bottom_divider);
+            this.f55756h = findViewById(R.id.main_thread_divider);
+            this.f55757i = findViewById(R.id.reply_btn_divider);
+            this.f55758j = findViewById(R.id.main_thread_bottom_divider);
             this.k = findViewById(R.id.reply_btn_bottom_divider);
             setCurrentTab(0);
         }
     }
 
+    public void onChangeSkinType() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.m = SkinManager.getColor(R.color.CAM_X0105);
+            this.n = SkinManager.getColor(R.color.CAM_X0107);
+            SkinManager.setBackgroundResource(this, R.drawable.item_person_header_attention_bg_selector);
+            SkinManager.setBackgroundResource(this.f55756h, R.drawable.roundline);
+            SkinManager.setBackgroundResource(this.f55757i, R.drawable.roundline);
+            SkinManager.setBackgroundColor(this.f55758j, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
+            int i2 = this.l;
+            if (i2 == 0) {
+                this.f55754f.setTextColor(this.m);
+                this.f55755g.setTextColor(this.n);
+            } else if (i2 == 1) {
+                this.f55754f.setTextColor(this.n);
+                this.f55755g.setTextColor(this.m);
+            }
+        }
+    }
+
     public void setCurrentTab(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 == this.l) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 == this.l) {
             return;
         }
         this.l = i2;
         if (i2 == 0) {
-            this.f20385h.setVisibility(0);
-            this.f20386i.setVisibility(4);
-            this.f20383f.setTextColor(this.m);
-            this.f20384g.setTextColor(this.n);
+            this.f55756h.setVisibility(0);
+            this.f55757i.setVisibility(4);
+            this.f55754f.setTextColor(this.m);
+            this.f55755g.setTextColor(this.n);
         } else if (i2 == 1) {
-            this.f20385h.setVisibility(4);
-            this.f20386i.setVisibility(0);
-            this.f20383f.setTextColor(this.n);
-            this.f20384g.setTextColor(this.m);
+            this.f55756h.setVisibility(4);
+            this.f55757i.setVisibility(0);
+            this.f55754f.setTextColor(this.n);
+            this.f55755g.setTextColor(this.m);
         }
     }
 
     public void setOnTabSelectListener(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             this.o = bVar;
         }
     }

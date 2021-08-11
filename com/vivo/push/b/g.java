@@ -1,23 +1,24 @@
 package com.vivo.push.b;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.DebugConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class g extends com.vivo.push.y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39300a;
+    public int f76132a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g() {
-        super(2015);
+        super(SpeedStatsStampTable.INIT_VERSION_STAMP_KEY);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,7 +32,7 @@ public final class g extends com.vivo.push.y {
                 return;
             }
         }
-        this.f39300a = -1;
+        this.f76132a = -1;
     }
 
     public static boolean a(int i2) {
@@ -43,15 +44,15 @@ public final class g extends com.vivo.push.y {
     public final void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f39300a = i2;
+            this.f76132a = i2;
         }
     }
 
     @Override // com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && a(this.f39300a)) {
-            aVar.a(DebugConfig.f24817e, this.f39300a);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && a(this.f76132a)) {
+            aVar.a(DebugConfig.f60529e, this.f76132a);
         }
     }
 
@@ -59,7 +60,7 @@ public final class g extends com.vivo.push.y {
     public final void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f39300a = aVar.b(DebugConfig.f24817e, 1);
+            this.f76132a = aVar.b(DebugConfig.f60529e, 1);
         }
     }
 }

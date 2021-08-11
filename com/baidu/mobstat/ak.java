@@ -19,24 +19,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ak {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f8672a = true;
+    public static volatile boolean f42972a = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f8673b;
+    public a f42973b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Activity f8674c;
+    public Activity f42974c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f8675d;
+    public Handler f42975d;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a();
     }
@@ -71,12 +71,12 @@ public class ak {
                 return;
             }
         }
-        this.f8675d = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.mobstat.ak.1
+        this.f42975d = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.mobstat.ak.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ak f8676a;
+            public final /* synthetic */ ak f42976a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -96,18 +96,18 @@ public class ak {
                         return;
                     }
                 }
-                this.f8676a = this;
+                this.f42976a = this;
             }
 
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) && message.what == 100 && this.f8676a.f8673b != null) {
-                    this.f8676a.f8673b.a();
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) && message.what == 100 && this.f42976a.f42973b != null) {
+                    this.f42976a.f42973b.a();
                 }
             }
         };
-        this.f8673b = aVar;
+        this.f42973b = aVar;
     }
 
     private void c(Activity activity) {
@@ -131,7 +131,7 @@ public class ak {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ak f8677a;
+            public final /* synthetic */ ak f42977a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -148,7 +148,7 @@ public class ak {
                         return;
                     }
                 }
-                this.f8677a = this;
+                this.f42977a = this;
             }
 
             @Override // com.baidu.mobstat.al.a
@@ -166,16 +166,16 @@ public class ak {
                     int actionMasked = motionEvent.getActionMasked();
                     if (actionMasked != 5) {
                         if (actionMasked == 6 && motionEvent.getEventTime() - motionEvent.getDownTime() < TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS) {
-                            this.f8677a.f8675d.removeMessages(100);
+                            this.f42977a.f42975d.removeMessages(100);
                             return;
                         }
                         return;
                     }
                     int pointerCount = motionEvent.getPointerCount();
                     if (pointerCount == 3 && motionEvent.getEventTime() - motionEvent.getDownTime() <= 50) {
-                        this.f8677a.f8675d.sendEmptyMessageDelayed(100, TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
+                        this.f42977a.f42975d.sendEmptyMessageDelayed(100, TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
                     } else if (pointerCount > 3) {
-                        this.f8677a.f8675d.removeMessages(100);
+                        this.f42977a.f42975d.removeMessages(100);
                     }
                 }
             }
@@ -188,22 +188,22 @@ public class ak {
             if (z) {
                 an.a();
             }
-            f8672a = z;
+            f42972a = z;
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c(this.f8674c);
-            this.f8674c = null;
+            c(this.f42974c);
+            this.f42974c = null;
         }
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f8672a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f42972a : invokeV.booleanValue;
     }
 
     private void b(Activity activity) {
@@ -218,7 +218,7 @@ public class ak {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, activity) == null) || activity == null) {
             return;
         }
-        this.f8674c = activity;
+        this.f42974c = activity;
         b(activity);
     }
 

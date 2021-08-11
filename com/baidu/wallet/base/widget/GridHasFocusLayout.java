@@ -16,51 +16,53 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class GridHasFocusLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f24406a = 3;
+    public static final int f60087a = 3;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f24407b = 1;
+    public static final int f60088b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f24408c = 1;
+    public static final int f60089c = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f24409d;
+    public int f60090d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f24410e;
+    public int f60091e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f24411f;
+    public int f60092f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f24412g;
+    public RectF f60093g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f24413h;
+    public Paint f60094h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Integer f24414i;
-    public int j;
+    public Integer f60095i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f60096j;
     public boolean k;
     public Paint l;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f24415a;
+        public int f60097a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f24416b;
+        public int f60098b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(int i2, int i3) {
@@ -144,8 +146,8 @@ public class GridHasFocusLayout extends ViewGroup {
                 return;
             }
         }
-        this.f24414i = null;
-        this.j = -1;
+        this.f60095i = null;
+        this.f60096j = -1;
         this.k = true;
         this.l = new Paint();
         a();
@@ -154,11 +156,11 @@ public class GridHasFocusLayout extends ViewGroup {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f24409d = 3;
-            this.f24410e = DisplayUtils.dip2px(getContext(), 1.0f);
-            this.f24411f = DisplayUtils.dip2px(getContext(), 1.0f);
-            this.f24412g = new RectF();
-            this.f24413h = new Paint();
+            this.f60090d = 3;
+            this.f60091e = DisplayUtils.dip2px(getContext(), 1.0f);
+            this.f60092f = DisplayUtils.dip2px(getContext(), 1.0f);
+            this.f60093g = new RectF();
+            this.f60094h = new Paint();
             this.l.setColor(SupportMenu.CATEGORY_MASK);
         }
     }
@@ -166,7 +168,7 @@ public class GridHasFocusLayout extends ViewGroup {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.j = -1;
+            this.f60096j = -1;
             invalidate();
         }
     }
@@ -190,13 +192,13 @@ public class GridHasFocusLayout extends ViewGroup {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
             a(canvas);
-            if (getChildCount() % this.f24409d == 0 || this.f24414i == null) {
+            if (getChildCount() % this.f60090d == 0 || this.f60095i == null) {
                 return;
             }
             View childAt = getChildAt(getChildCount() - 1);
-            this.f24412g.set(childAt.getLeft() + childAt.getWidth() + this.f24410e, childAt.getTop(), getLeft() + getWidth(), getTop() + getHeight());
-            this.f24413h.setColor(this.f24414i.intValue());
-            canvas.drawRect(this.f24412g, this.f24413h);
+            this.f60093g.set(childAt.getLeft() + childAt.getWidth() + this.f60091e, childAt.getTop(), getLeft() + getWidth(), getTop() + getHeight());
+            this.f60094h.setColor(this.f60095i.intValue());
+            canvas.drawRect(this.f60093g, this.f60094h);
         }
     }
 
@@ -209,8 +211,8 @@ public class GridHasFocusLayout extends ViewGroup {
                 View childAt = getChildAt(i6);
                 if (childAt.getVisibility() != 8) {
                     LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-                    int i7 = layoutParams.f24415a;
-                    int i8 = layoutParams.f24416b;
+                    int i7 = layoutParams.f60097a;
+                    int i8 = layoutParams.f60098b;
                     childAt.layout(i7, i8, ((ViewGroup.LayoutParams) layoutParams).width + i7, ((ViewGroup.LayoutParams) layoutParams).height + i8);
                 }
             }
@@ -226,9 +228,9 @@ public class GridHasFocusLayout extends ViewGroup {
             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i3), 0);
             int size = (View.MeasureSpec.getSize(i2) - getPaddingLeft()) - getPaddingRight();
             int childCount = getChildCount();
-            int i4 = size - (this.k ? this.f24410e * 2 : 0);
-            int i5 = this.f24410e;
-            int i6 = this.f24409d;
+            int i4 = size - (this.k ? this.f60091e * 2 : 0);
+            int i5 = this.f60091e;
+            int i6 = this.f60090d;
             int i7 = (i4 - (i5 * (i6 - 1))) / i6;
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
@@ -240,15 +242,15 @@ public class GridHasFocusLayout extends ViewGroup {
                     measureChild(childAt, i2, makeMeasureSpec);
                     i9 = childAt.getMeasuredHeight();
                     childAt.measure(View.MeasureSpec.makeMeasureSpec(i7, 1073741824), View.MeasureSpec.makeMeasureSpec(i9, 1073741824));
-                    if ((i10 - i8) % this.f24409d == 0) {
-                        paddingLeft = getPaddingLeft() + (this.k ? this.f24410e : 0);
+                    if ((i10 - i8) % this.f60090d == 0) {
+                        paddingLeft = getPaddingLeft() + (this.k ? this.f60091e : 0);
                         if (i10 != 0) {
-                            paddingTop += this.f24411f + i9;
+                            paddingTop += this.f60092f + i9;
                         } else {
-                            paddingTop = this.k ? this.f24411f : 0;
+                            paddingTop = this.k ? this.f60092f : 0;
                         }
                     } else {
-                        paddingLeft += this.f24410e + i7;
+                        paddingLeft += this.f60091e + i7;
                     }
                     if (childAt.getLayoutParams() != null && (childAt.getLayoutParams() instanceof LayoutParams)) {
                         layoutParams = (LayoutParams) childAt.getLayoutParams();
@@ -257,8 +259,8 @@ public class GridHasFocusLayout extends ViewGroup {
                         childAt.setLayoutParams(layoutParams2);
                         layoutParams = layoutParams2;
                     }
-                    layoutParams.f24415a = paddingLeft;
-                    layoutParams.f24416b = paddingTop;
+                    layoutParams.f60097a = paddingLeft;
+                    layoutParams.f60098b = paddingTop;
                     ((ViewGroup.LayoutParams) layoutParams).width = i7;
                     ((ViewGroup.LayoutParams) layoutParams).height = i9;
                 } else {
@@ -266,9 +268,9 @@ public class GridHasFocusLayout extends ViewGroup {
                 }
             }
             int i11 = childCount - i8;
-            int i12 = this.f24409d;
+            int i12 = this.f60090d;
             int i13 = (i11 / i12) + (i11 % i12 == 0 ? 0 : 1);
-            int i14 = this.f24411f;
+            int i14 = this.f60092f;
             setMeasuredDimension(View.MeasureSpec.getSize(i2), (i9 * i13) + ((i13 - 1) * i14) + (this.k ? i14 * 2 : 0));
         }
     }
@@ -276,28 +278,28 @@ public class GridHasFocusLayout extends ViewGroup {
     public void setColumnCount(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f24409d = i2;
+            this.f60090d = i2;
         }
     }
 
     public void setEmptyAreaColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f24414i = Integer.valueOf(i2);
+            this.f60095i = Integer.valueOf(i2);
         }
     }
 
     public void setHorizontalSpacing(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f24410e = i2;
+            this.f60091e = i2;
         }
     }
 
     public void setSelection(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.j = i2;
+            this.f60096j = i2;
             invalidate();
         }
     }
@@ -305,7 +307,7 @@ public class GridHasFocusLayout extends ViewGroup {
     public void setVerticalSpacing(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f24411f = i2;
+            this.f60092f = i2;
         }
     }
 
@@ -334,8 +336,8 @@ public class GridHasFocusLayout extends ViewGroup {
                 return;
             }
         }
-        this.f24414i = null;
-        this.j = -1;
+        this.f60095i = null;
+        this.f60096j = -1;
         this.k = true;
         this.l = new Paint();
         a();
@@ -344,15 +346,15 @@ public class GridHasFocusLayout extends ViewGroup {
     private void a(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, canvas) == null) {
-            this.l.setStrokeWidth(this.f24410e);
-            int i2 = this.j;
+            this.l.setStrokeWidth(this.f60091e);
+            int i2 = this.f60096j;
             if (i2 < 0 || i2 >= getChildCount()) {
                 return;
             }
-            View childAt = getChildAt(this.j);
-            float left = childAt.getLeft() - (this.k ? this.f24411f : 0);
-            float top = childAt.getTop() - (this.k ? this.f24410e : 0);
-            float left2 = ((childAt.getLeft() + childAt.getWidth()) + (this.k ? this.f24411f : 0)) - 1;
+            View childAt = getChildAt(this.f60096j);
+            float left = childAt.getLeft() - (this.k ? this.f60092f : 0);
+            float top = childAt.getTop() - (this.k ? this.f60091e : 0);
+            float left2 = ((childAt.getLeft() + childAt.getWidth()) + (this.k ? this.f60092f : 0)) - 1;
             float top2 = ((childAt.getTop() + childAt.getHeight()) + 0) - 1;
             canvas.drawLine(left, top, left, top2, this.l);
             canvas.drawLine(left, top2, left2, top2, this.l);

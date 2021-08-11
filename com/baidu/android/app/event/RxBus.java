@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.d;
-import h.j;
-import h.k;
-import h.n.b;
-import h.t.c;
+import i.d;
+import i.j;
+import i.k;
+import i.n.b;
+import i.t.c;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import rx.subjects.PublishSubject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class RxBus {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -29,7 +29,7 @@ public class RxBus {
     public final c<Object, Object> mRxBusSubject;
     public ConcurrentHashMap<Object, ConcurrentHashMap<Class, List<j>>> mSubscribers;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class Remover implements k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,14 +60,14 @@ public class RxBus {
             this.mSubscription = kVar;
         }
 
-        @Override // h.k
+        @Override // i.k
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.isUnsubscribed : invokeV.booleanValue;
         }
 
-        @Override // h.k
+        @Override // i.k
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -80,7 +80,7 @@ public class RxBus {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class TagKeeperOperator<T> implements d.b<T, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +108,7 @@ public class RxBus {
             this.type = cls;
         }
 
-        @Override // h.n.f
+        @Override // i.n.f
         public /* bridge */ /* synthetic */ Object call(Object obj) {
             return call((j) ((j) obj));
         }
@@ -158,7 +158,7 @@ public class RxBus {
                         this.val$subscriber = jVar;
                     }
 
-                    @Override // h.e
+                    @Override // i.e
                     public void onCompleted() {
                         Interceptable interceptable2 = $ic;
                         if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.val$subscriber.isUnsubscribed()) {
@@ -167,7 +167,7 @@ public class RxBus {
                         this.val$subscriber.onCompleted();
                     }
 
-                    @Override // h.e
+                    @Override // i.e
                     public void onError(Throwable th) {
                         Interceptable interceptable2 = $ic;
                         if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) || this.val$subscriber.isUnsubscribed()) {
@@ -176,7 +176,7 @@ public class RxBus {
                         this.val$subscriber.onError(th);
                     }
 
-                    @Override // h.e
+                    @Override // i.e
                     public void onNext(T t) {
                         Interceptable interceptable2 = $ic;
                         if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.val$subscriber.isUnsubscribed()) {
@@ -292,7 +292,7 @@ public class RxBus {
                 this.val$tag = obj;
             }
 
-            @Override // h.n.b
+            @Override // i.n.b
             public void call(T t) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, t) == null) {

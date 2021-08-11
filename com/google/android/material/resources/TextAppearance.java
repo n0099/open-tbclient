@@ -6,7 +6,6 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.text.TextPaint;
-import android.util.Log;
 import androidx.annotation.FontRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class TextAppearance {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TextAppearance";
@@ -137,8 +136,8 @@ public class TextAppearance {
                         this.font = Typeface.create(font, this.textStyle);
                     }
                 } catch (Resources.NotFoundException | UnsupportedOperationException unused) {
-                } catch (Exception e2) {
-                    Log.d(TAG, "Error loading font " + this.fontFamily, e2);
+                } catch (Exception unused2) {
+                    String str = "Error loading font " + this.fontFamily;
                 }
             }
             createFallbackFont();
@@ -212,8 +211,8 @@ public class TextAppearance {
             } catch (Resources.NotFoundException unused) {
                 this.fontResolved = true;
                 textAppearanceFontCallback.onFontRetrievalFailed(1);
-            } catch (Exception e2) {
-                Log.d(TAG, "Error loading font " + this.fontFamily, e2);
+            } catch (Exception unused2) {
+                String str = "Error loading font " + this.fontFamily;
                 this.fontResolved = true;
                 textAppearanceFontCallback.onFontRetrievalFailed(-3);
             }

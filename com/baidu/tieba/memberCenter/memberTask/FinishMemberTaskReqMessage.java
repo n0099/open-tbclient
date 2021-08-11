@@ -1,5 +1,6 @@
 package com.baidu.tieba.memberCenter.memberTask;
 
+import c.a.o0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -8,10 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.b1.w;
 import tbclient.FinishMemberTask.DataReq;
 import tbclient.FinishMemberTask.FinishMemberTaskReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FinishMemberTaskReqMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,10 +53,10 @@ public class FinishMemberTaskReqMessage extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public void setTaskId(long j) {
+    public void setTaskId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.taskId = j;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            this.taskId = j2;
         }
     }
 }

@@ -22,13 +22,13 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class FlowableRepeatWhen<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Function<? super Flowable<Object>, ? extends Publisher<?>> handler;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class RepeatWhenSubscriber<T> extends WhenSourceSubscriber<T, Object> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2680129890138081029L;
@@ -73,7 +73,7 @@ public final class FlowableRepeatWhen<T> extends AbstractFlowableWithUpstream<T,
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class WhenReceiver<T, U> extends AtomicInteger implements FlowableSubscriber<Object>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2827772011130406689L;
@@ -151,15 +151,15 @@ public final class FlowableRepeatWhen<T> extends AbstractFlowableWithUpstream<T,
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-                SubscriptionHelper.deferredRequest(this.subscription, this.requested, j);
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+                SubscriptionHelper.deferredRequest(this.subscription, this.requested, j2);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static abstract class WhenSourceSubscriber<T, U> extends SubscriptionArbiter implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5604623027276966720L;
@@ -192,10 +192,10 @@ public final class FlowableRepeatWhen<T> extends AbstractFlowableWithUpstream<T,
         public final void again(U u) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, u) == null) {
-                long j = this.produced;
-                if (j != 0) {
+                long j2 = this.produced;
+                if (j2 != 0) {
                     this.produced = 0L;
-                    produced(j);
+                    produced(j2);
                 }
                 this.receiver.request(1L);
                 this.processor.onNext(u);

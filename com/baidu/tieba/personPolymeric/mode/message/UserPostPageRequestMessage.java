@@ -3,6 +3,8 @@ package com.baidu.tieba.personPolymeric.mode.message;
 import UserPost.DataReq;
 import UserPost.UserPostReqIdl;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.m.b;
+import c.a.o0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -13,10 +15,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
-import d.a.d.e.m.b;
-import d.a.p0.b1.w;
 import tbclient.User;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class UserPostPageRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

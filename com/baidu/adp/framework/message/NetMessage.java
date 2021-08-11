@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.HttpVersion;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HTTP_DATA_KEY = "data";
@@ -31,7 +31,7 @@ public abstract class NetMessage {
     public BdUniqueId tag;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -92,7 +92,7 @@ public abstract class NetMessage {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         boolean checkToSwitchHttp(SocketResponsedMessage socketResponsedMessage);
     }
@@ -233,10 +233,10 @@ public abstract class NetMessage {
         }
     }
 
-    public void setLogID(long j) {
+    public void setLogID(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.clientLogID = j;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+            this.clientLogID = j2;
         }
     }
 
@@ -247,10 +247,10 @@ public abstract class NetMessage {
         }
     }
 
-    public void setSocketCostTime(long j) {
+    public void setSocketCostTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.socketCostTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+            this.socketCostTime = j2;
         }
     }
 

@@ -19,7 +19,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -94,13 +94,13 @@ public class c {
         }
     }
 
-    public static void a(b bVar, long j) {
+    public static void a(b bVar, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(AdIconUtil.AD_TEXT_ID, null, bVar, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(AdIconUtil.AD_TEXT_ID, null, bVar, j2) == null) {
             if (bVar instanceof com.kwad.sdk.collector.model.jni.b) {
-                AppStatusNative.appRunningInfoSetLastRunningTime((com.kwad.sdk.collector.model.jni.b) bVar, j);
+                AppStatusNative.appRunningInfoSetLastRunningTime((com.kwad.sdk.collector.model.jni.b) bVar, j2);
             } else if (bVar instanceof com.kwad.sdk.collector.model.a.b) {
-                ((com.kwad.sdk.collector.model.a.b) bVar).b(j);
+                ((com.kwad.sdk.collector.model.a.b) bVar).b(j2);
             }
         }
     }

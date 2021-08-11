@@ -1,6 +1,5 @@
 package com.cmic.sso.sdk.d;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f32830a;
+    public static final c f68801a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f32831b;
+    public static boolean f68802b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,8 +32,8 @@ public class c {
                 return;
             }
         }
-        f32830a = new c();
-        f32831b = false;
+        f68801a = new c();
+        f68802b = false;
     }
 
     public c() {
@@ -54,21 +53,23 @@ public class c {
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
-            f32831b = z;
+            f68802b = z;
         }
     }
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f32831b) {
-            Log.d("CMCC-SDK:" + str, "" + str2);
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f68802b) {
+            String str3 = "CMCC-SDK:" + str;
+            String str4 = "" + str2;
         }
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && f32831b) {
-            Log.e("CMCC-SDK:" + str, "" + str2);
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && f68802b) {
+            String str3 = "CMCC-SDK:" + str;
+            String str4 = "" + str2;
         }
     }
 }

@@ -11,6 +11,8 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import c.a.h0.a.f.d;
+import c.a.h0.a.f.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,40 +21,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.i0.a.f.d;
-import d.a.i0.a.f.e;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
-public class GifAnimView extends View implements d.a.i0.a.f.a {
+/* loaded from: classes5.dex */
+public class GifAnimView extends View implements c.a.h0.a.f.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.i0.a.f.b f10149e;
+    public c.a.h0.a.f.b f44818e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f10150f;
+    public Bitmap f44819f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f10151g;
+    public boolean f44820g;
+    public e gifViewListener;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f10152h;
+    public boolean f44821h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f10153i;
-    public Rect j;
+    public int f44822i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public Rect f44823j;
     public c k;
     public GifImageType l;
     public boolean m;
-    public e n;
-    public d o;
-    public int p;
+    public d n;
+    public int o;
     @SuppressLint({"HandlerLeak"})
-    public Handler q;
+    public Handler p;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class GifImageType {
         public static final /* synthetic */ GifImageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -116,13 +118,13 @@ public class GifAnimView extends View implements d.a.i0.a.f.a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GifAnimView f10154a;
+        public final /* synthetic */ GifAnimView f44824a;
 
         public a(GifAnimView gifAnimView) {
             Interceptable interceptable = $ic;
@@ -139,27 +141,27 @@ public class GifAnimView extends View implements d.a.i0.a.f.a {
                     return;
                 }
             }
-            this.f10154a = gifAnimView;
+            this.f44824a = gifAnimView;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.f10154a.invalidate();
-                if (this.f10154a.o != null) {
-                    this.f10154a.o.callback();
+                this.f44824a.invalidate();
+                if (this.f44824a.n != null) {
+                    this.f44824a.n.callback();
                 }
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f10155a;
+        public static final /* synthetic */ int[] f44825a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -176,29 +178,29 @@ public class GifAnimView extends View implements d.a.i0.a.f.a {
                 }
             }
             int[] iArr = new int[GifImageType.values().length];
-            f10155a = iArr;
+            f44825a = iArr;
             try {
                 iArr[GifImageType.WAIT_FINISH.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f10155a[GifImageType.COVER.ordinal()] = 2;
+                f44825a[GifImageType.COVER.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f10155a[GifImageType.SYNC_DECODER.ordinal()] = 3;
+                f44825a[GifImageType.SYNC_DECODER.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class c extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GifAnimView f10156e;
+        public final /* synthetic */ GifAnimView f44826e;
 
         public c(GifAnimView gifAnimView) {
             Interceptable interceptable = $ic;
@@ -215,25 +217,25 @@ public class GifAnimView extends View implements d.a.i0.a.f.a {
                     return;
                 }
             }
-            this.f10156e = gifAnimView;
+            this.f44826e = gifAnimView;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f10156e.f10149e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f44826e.f44818e == null) {
                 return;
             }
-            while (this.f10156e.f10151g) {
-                if (!this.f10156e.f10152h) {
-                    d.a.i0.a.f.c i2 = this.f10156e.f10149e.i();
-                    this.f10156e.f10150f = i2.f42990a;
-                    long j = i2.f42991b;
-                    if (this.f10156e.q == null) {
+            while (this.f44826e.f44820g) {
+                if (!this.f44826e.f44821h) {
+                    c.a.h0.a.f.c i2 = this.f44826e.f44818e.i();
+                    this.f44826e.f44819f = i2.f3321a;
+                    long j2 = i2.f3322b;
+                    if (this.f44826e.p == null) {
                         return;
                     }
-                    this.f10156e.q.sendMessage(this.f10156e.q.obtainMessage());
-                    SystemClock.sleep(j);
+                    this.f44826e.p.sendMessage(this.f44826e.p.obtainMessage());
+                    SystemClock.sleep(j2);
                 } else {
                     SystemClock.sleep(500L);
                 }
@@ -263,115 +265,47 @@ public class GifAnimView extends View implements d.a.i0.a.f.a {
                 return;
             }
         }
-        this.f10149e = null;
-        this.f10150f = null;
-        this.f10151g = true;
-        this.f10152h = false;
-        this.f10153i = -1;
-        this.j = null;
+        this.f44818e = null;
+        this.f44819f = null;
+        this.f44820g = true;
+        this.f44821h = false;
+        this.f44822i = -1;
+        this.f44823j = null;
         this.k = null;
         this.l = GifImageType.SYNC_DECODER;
         this.m = true;
-        this.p = 255;
-        this.q = new a(this);
+        this.o = 255;
+        this.p = new a(this);
     }
 
     private void setGifDecoderImage(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, bArr) == null) {
-            d.a.i0.a.f.b bVar = this.f10149e;
+            c.a.h0.a.f.b bVar = this.f44818e;
             if (bVar != null) {
                 bVar.c();
-                this.f10149e = null;
+                this.f44818e = null;
             }
-            d.a.i0.a.f.b bVar2 = new d.a.i0.a.f.b(bArr, this);
-            this.f10149e = bVar2;
+            c.a.h0.a.f.b bVar2 = new c.a.h0.a.f.b(bArr, this);
+            this.f44818e = bVar2;
             bVar2.start();
         }
     }
 
-    @Override // d.a.i0.a.f.a
-    public void a(boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) && z && this.f10149e != null) {
-            int i3 = b.f10155a[this.l.ordinal()];
-            if (i3 == 1) {
-                if (i2 == -1) {
-                    if (this.f10149e.e() > 1) {
-                        new c(this, null).start();
-                    } else {
-                        h();
-                    }
-                }
-            } else if (i3 != 2) {
-                if (i3 != 3) {
-                    return;
-                }
-                if (i2 == 1) {
-                    this.f10150f = this.f10149e.g();
-                    h();
-                } else if (i2 == -1) {
-                    h();
-                } else if (this.k == null) {
-                    c cVar = new c(this, null);
-                    this.k = cVar;
-                    cVar.start();
-                }
-            } else if (i2 == 1) {
-                this.f10150f = this.f10149e.g();
-                h();
-            } else if (i2 == -1) {
-                if (this.f10149e.e() > 1) {
-                    if (this.k == null) {
-                        c cVar2 = new c(this, null);
-                        this.k = cVar2;
-                        cVar2.start();
-                        return;
-                    }
-                    return;
-                }
-                h();
-            }
-        }
-    }
-
-    public final void h() {
+    public final void g() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (handler = this.q) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (handler = this.p) == null) {
             return;
         }
-        this.q.sendMessage(handler.obtainMessage());
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f10152h = false;
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f10152h = true;
-            this.f10151g = false;
-            d.a.i0.a.f.b bVar = this.f10149e;
-            if (bVar != null) {
-                bVar.c();
-                this.f10149e = null;
-            }
-            if (this.n != null) {
-                this.n = null;
-            }
-        }
+        this.p.sendMessage(handler.obtainMessage());
     }
 
     @Override // android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            j();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            stopAnimation();
             super.onDetachedFromWindow();
         }
     }
@@ -380,30 +314,30 @@ public class GifAnimView extends View implements d.a.i0.a.f.a {
     @SuppressLint({"DrawAllocation"})
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            d.a.i0.a.f.b bVar = this.f10149e;
+            c.a.h0.a.f.b bVar = this.f44818e;
             if (bVar == null) {
                 return;
             }
-            if (this.f10150f == null) {
-                this.f10150f = bVar.g();
+            if (this.f44819f == null) {
+                this.f44819f = bVar.g();
             }
-            if (this.f10150f == null) {
+            if (this.f44819f == null) {
                 return;
             }
             int saveCount = canvas.getSaveCount();
             canvas.save();
             canvas.translate(getPaddingLeft(), getPaddingTop());
             Paint paint = new Paint();
-            paint.setAlpha(this.p);
-            if (this.f10153i == -1) {
-                canvas.drawBitmap(this.f10150f, 0.0f, 0.0f, paint);
+            paint.setAlpha(this.o);
+            if (this.f44822i == -1) {
+                canvas.drawBitmap(this.f44819f, 0.0f, 0.0f, paint);
             } else {
-                canvas.drawBitmap(this.f10150f, (Rect) null, this.j, paint);
+                canvas.drawBitmap(this.f44819f, (Rect) null, this.f44823j, paint);
             }
             canvas.restoreToCount(saveCount);
-            e eVar = this.n;
+            e eVar = this.gifViewListener;
             if (eVar == null || !this.m) {
                 return;
             }
@@ -416,18 +350,18 @@ public class GifAnimView extends View implements d.a.i0.a.f.a {
     public void onMeasure(int i2, int i3) {
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
             int paddingLeft = getPaddingLeft();
             int paddingRight = getPaddingRight();
             int paddingTop = getPaddingTop();
             int paddingBottom = getPaddingBottom();
-            d.a.i0.a.f.b bVar = this.f10149e;
+            c.a.h0.a.f.b bVar = this.f44818e;
             int i5 = 1;
             if (bVar == null) {
                 i4 = 1;
             } else {
-                i5 = bVar.f42987g;
-                i4 = bVar.f42988h;
+                i5 = bVar.f3317g;
+                i4 = bVar.f3318h;
             }
             setMeasuredDimension(View.resolveSize(Math.max(i5 + paddingLeft + paddingRight, getSuggestedMinimumWidth()), i2), View.resolveSize(Math.max(i4 + paddingTop + paddingBottom, getSuggestedMinimumHeight()), i3));
         }
@@ -436,58 +370,151 @@ public class GifAnimView extends View implements d.a.i0.a.f.a {
     @Override // android.view.View
     public void onWindowVisibilityChanged(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             super.onWindowVisibilityChanged(i2);
-            this.f10152h = i2 != 0;
+            this.f44821h = i2 != 0;
+        }
+    }
+
+    @Override // c.a.h0.a.f.a
+    public void parseOk(boolean z, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) && z && this.f44818e != null) {
+            int i3 = b.f44825a[this.l.ordinal()];
+            if (i3 == 1) {
+                if (i2 == -1) {
+                    if (this.f44818e.e() > 1) {
+                        new c(this, null).start();
+                    } else {
+                        g();
+                    }
+                }
+            } else if (i3 != 2) {
+                if (i3 != 3) {
+                    return;
+                }
+                if (i2 == 1) {
+                    this.f44819f = this.f44818e.g();
+                    g();
+                } else if (i2 == -1) {
+                    g();
+                } else if (this.k == null) {
+                    c cVar = new c(this, null);
+                    this.k = cVar;
+                    cVar.start();
+                }
+            } else if (i2 == 1) {
+                this.f44819f = this.f44818e.g();
+                g();
+            } else if (i2 == -1) {
+                if (this.f44818e.e() > 1) {
+                    if (this.k == null) {
+                        c cVar2 = new c(this, null);
+                        this.k = cVar2;
+                        cVar2.start();
+                        return;
+                    }
+                    return;
+                }
+                g();
+            }
+        }
+    }
+
+    public void pauseAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.f44821h = true;
         }
     }
 
     public void setAlpha(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.p = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            this.o = i2;
             invalidate();
         }
     }
 
     public void setGifImage(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bArr) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, bArr) == null) {
             setGifDecoderImage(bArr);
         }
     }
 
     public void setGifImageType(GifImageType gifImageType) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, gifImageType) == null) && this.f10149e == null) {
+        if ((interceptable == null || interceptable.invokeL(1048587, this, gifImageType) == null) && this.f44818e == null) {
             this.l = gifImageType;
         }
     }
 
     public void setShowDimension(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048589, this, i2, i3) == null) || i2 <= 0 || i3 <= 0) {
+        if (!(interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) || i2 <= 0 || i3 <= 0) {
             return;
         }
-        this.f10153i = i2;
+        this.f44822i = i2;
         Rect rect = new Rect();
-        this.j = rect;
+        this.f44823j = rect;
         rect.left = 0;
         rect.top = 0;
         rect.right = i2;
         rect.bottom = i3;
     }
 
+    public void showAnimation() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.f44821h) {
+            this.f44821h = false;
+        }
+    }
+
+    public void showCover() {
+        c.a.h0.a.f.b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (bVar = this.f44818e) == null) {
+            return;
+        }
+        this.f44821h = true;
+        this.f44819f = bVar.g();
+        invalidate();
+    }
+
+    public void startAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.f44821h = false;
+        }
+    }
+
+    public void stopAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.f44821h = true;
+            this.f44820g = false;
+            c.a.h0.a.f.b bVar = this.f44818e;
+            if (bVar != null) {
+                bVar.c();
+                this.f44818e = null;
+            }
+            if (this.gifViewListener != null) {
+                this.gifViewListener = null;
+            }
+        }
+    }
+
     public void setGifImage(InputStream inputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, inputStream) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, inputStream) == null) {
             setGifDecoderImage(inputStream);
         }
     }
 
     public void setGifImage(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
             setGifDecoderImage(getResources().openRawResource(i2));
         }
     }
@@ -495,13 +522,13 @@ public class GifAnimView extends View implements d.a.i0.a.f.a {
     private void setGifDecoderImage(InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, inputStream) == null) {
-            d.a.i0.a.f.b bVar = this.f10149e;
+            c.a.h0.a.f.b bVar = this.f44818e;
             if (bVar != null) {
                 bVar.c();
-                this.f10149e = null;
+                this.f44818e = null;
             }
-            d.a.i0.a.f.b bVar2 = new d.a.i0.a.f.b(inputStream, this);
-            this.f10149e = bVar2;
+            c.a.h0.a.f.b bVar2 = new c.a.h0.a.f.b(inputStream, this);
+            this.f44818e = bVar2;
             bVar2.start();
         }
     }
@@ -524,6 +551,6 @@ public class GifAnimView extends View implements d.a.i0.a.f.a {
                 return;
             }
         }
-        this.o = dVar;
+        this.n = dVar;
     }
 }

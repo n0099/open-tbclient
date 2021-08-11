@@ -40,7 +40,8 @@ import java.text.DateFormat;
 import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes9.dex */
 public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long APPROXIMATE_START_TIME;
@@ -60,7 +61,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     public final Thread.UncaughtExceptionHandler mPreviousHandler;
 
     /* renamed from: com.baidu.webkit.sdk.dumper.ZeusCrashHandler$5  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass5 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo;
         public static /* synthetic */ Interceptable $ic;
@@ -132,13 +133,13 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface CrashFilter {
         boolean filt(Thread thread, Throwable th);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class ExtraInfo {
         public static final /* synthetic */ ExtraInfo[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -229,7 +230,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class ZeusCrashHandlerClient {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "CrashHandlerClientImpl";
@@ -538,11 +539,11 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, writer) == null) {
             writer.write("Crash reason: ");
             writer.write(this.mCrash.toString());
-            writer.write("\n");
+            writer.write(StringUtils.LF);
             StackTraceElement[] stackTrace = this.mCrash.getStackTrace();
             writer.write("Crash address: ");
             writer.write(stackTrace != null ? stackTrace[0].toString() : "Unkown");
-            writer.write("\n");
+            writer.write(StringUtils.LF);
             writer.write(String.format("Process uptime: %s H\n\n", String.valueOf((this.mCrashTime - APPROXIMATE_START_TIME) / 3600000.0d)));
             writer.write(String.format("Thread %d:%s (crashed)\n", Long.valueOf(this.mCrashThread.getId()), this.mCrashThread.getName()));
             this.mCrash.printStackTrace(new PrintWriter(writer));
@@ -802,10 +803,10 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         return (File) invokeV.objValue;
     }
 
-    public static String getTimestmapString(long j) {
+    public static String getTimestmapString(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65550, null, j)) == null) ? DateFormat.getDateTimeInstance().format(Long.valueOf(j)) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65550, null, j2)) == null) ? DateFormat.getDateTimeInstance().format(Long.valueOf(j2)) : (String) invokeJ.objValue;
     }
 
     public static void init() {
@@ -860,13 +861,13 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
                     return;
                 }
                 writer.write(readLine);
-                writer.write("\n");
+                writer.write(StringUtils.LF);
             }
         } catch (Throwable th) {
             try {
                 writer.write("Throwable:");
                 writer.write(th.getMessage());
-                writer.write("\n");
+                writer.write(StringUtils.LF);
             } catch (Throwable unused) {
             }
             Log.e(TAG, "", th);
@@ -893,7 +894,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
                         }
                     }
                     writer.write(readLine);
-                    writer.write("\n");
+                    writer.write(StringUtils.LF);
                 } catch (Throwable th) {
                     th = th;
                     bufferedReader = bufferedReader2;
@@ -994,10 +995,10 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    public void setCrashTime(long j) {
+    public void setCrashTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.mCrashTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            this.mCrashTime = j2;
         }
     }
 

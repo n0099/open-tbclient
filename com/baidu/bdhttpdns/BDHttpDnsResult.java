@@ -9,25 +9,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class BDHttpDnsResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ResolveType f4312a;
+    public ResolveType f38252a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ResolveStatus f4313b;
+    public final ResolveStatus f38253b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f4314c;
+    public ArrayList<String> f38254c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<String> f4315d;
+    public ArrayList<String> f38255d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public static final class ResolveStatus {
         public static final /* synthetic */ ResolveStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -91,7 +91,7 @@ public class BDHttpDnsResult {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public static final class ResolveType {
         public static final /* synthetic */ ResolveType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -173,8 +173,8 @@ public class BDHttpDnsResult {
                 return;
             }
         }
-        this.f4312a = ResolveType.RESOLVE_NONE;
-        this.f4313b = resolveStatus;
+        this.f38252a = ResolveType.RESOLVE_NONE;
+        this.f38253b = resolveStatus;
     }
 
     public BDHttpDnsResult(ResolveType resolveType, ResolveStatus resolveStatus, ArrayList<String> arrayList, ArrayList<String> arrayList2) {
@@ -192,34 +192,34 @@ public class BDHttpDnsResult {
                 return;
             }
         }
-        this.f4312a = ResolveType.RESOLVE_NONE;
-        this.f4312a = resolveType;
-        this.f4313b = resolveStatus;
-        this.f4314c = arrayList;
-        this.f4315d = arrayList2;
+        this.f38252a = ResolveType.RESOLVE_NONE;
+        this.f38252a = resolveType;
+        this.f38253b = resolveStatus;
+        this.f38254c = arrayList;
+        this.f38255d = arrayList2;
     }
 
     public ArrayList<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4314c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38254c : (ArrayList) invokeV.objValue;
     }
 
     public ArrayList<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4315d : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38255d : (ArrayList) invokeV.objValue;
     }
 
     public ResolveStatus c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4313b : (ResolveStatus) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38253b : (ResolveStatus) invokeV.objValue;
     }
 
     public ResolveType d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4312a : (ResolveType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38252a : (ResolveType) invokeV.objValue;
     }
 }

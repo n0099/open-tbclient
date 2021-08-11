@@ -6,9 +6,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.apollon.statistics.g;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,7 +20,7 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class RequsetNetworkUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RequsetNetworkUtils";
@@ -91,7 +89,7 @@ public class RequsetNetworkUtils {
                     }
                 }
             } catch (Exception e2) {
-                Log.d("RequsetNetworkUtils", "getMobileIp exception :" + e2.getMessage());
+                String str2 = "getMobileIp exception :" + e2.getMessage();
             }
             return str;
         }
@@ -124,7 +122,7 @@ public class RequsetNetworkUtils {
                     case 14:
                     case 15:
                     case 17:
-                        str = g.f4012b;
+                        str = "3G";
                         break;
                     case 13:
                     case 18:
@@ -160,25 +158,16 @@ public class RequsetNetworkUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
-            NetworkInfo networkInfo = null;
             try {
-                Context applicationContext = context.getApplicationContext();
-                if (applicationContext == null) {
-                    Log.d("RequsetNetworkUtils", "context is null !!!");
-                }
-                ConnectivityManager connectivityManager = getConnectivityManager(applicationContext);
+                ConnectivityManager connectivityManager = getConnectivityManager(context.getApplicationContext());
                 if (connectivityManager != null) {
-                    networkInfo = connectivityManager.getActiveNetworkInfo();
-                    if (networkInfo == null) {
-                        Log.e("RequsetNetworkUtils", "networkInfo is null !!!");
-                    }
-                } else {
-                    Log.e("RequsetNetworkUtils", "connManager is null !!!");
+                    return connectivityManager.getActiveNetworkInfo();
                 }
+                return null;
             } catch (Exception e2) {
-                Log.e("RequsetNetworkUtils", "exp: " + e2.getMessage());
+                String str = "exp: " + e2.getMessage();
+                return null;
             }
-            return networkInfo;
         }
         return (NetworkInfo) invokeL.objValue;
     }

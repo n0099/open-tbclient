@@ -19,7 +19,7 @@ import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class NHCreditMiniGroup extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float HIEGHT = 98.5f;
@@ -28,13 +28,13 @@ public class NHCreditMiniGroup extends BaseItemLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NHTitleView f25355a;
+    public NHTitleView f61089a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f25356b;
+    public LinearLayout f61090b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f25357c;
+    public List<BaseItemView> f61091c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHCreditMiniGroup(Context context) {
@@ -54,14 +54,14 @@ public class NHCreditMiniGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f25357c = new ArrayList();
+        this.f61091c = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25357c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61091c : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -69,8 +69,8 @@ public class NHCreditMiniGroup extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_credit_mini_layout"), this);
-            this.f25355a = (NHTitleView) findViewById(ResUtils.id(getContext(), "credit_mini_title"));
-            this.f25356b = (LinearLayout) findViewById(ResUtils.id(getContext(), "credit_mini_layout"));
+            this.f61089a = (NHTitleView) findViewById(ResUtils.id(getContext(), "credit_mini_title"));
+            this.f61090b = (LinearLayout) findViewById(ResUtils.id(getContext(), "credit_mini_layout"));
         }
     }
 
@@ -91,14 +91,14 @@ public class NHCreditMiniGroup extends BaseItemLayout {
         int dip2px;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f25355a.setData(this.mConfigData, getWalletInterface());
-            this.f25355a.setHasGap(this.mConfigData.isLayoutHasGap());
+            this.f61089a.setData(this.mConfigData, getWalletInterface());
+            this.f61089a.setHasGap(this.mConfigData.isLayoutHasGap());
             int displayWidth = DisplayUtils.getDisplayWidth(getContext());
             if (this.mConfigData.list.length <= 2) {
-                this.f25356b.setLayoutParams(new FrameLayout.LayoutParams(displayWidth, -2));
+                this.f61090b.setLayoutParams(new FrameLayout.LayoutParams(displayWidth, -2));
                 dip2px = (int) ((displayWidth - (DisplayUtils.dip2px(getContext(), 15.0f) * 3.0f)) / 2.0f);
             } else {
-                this.f25356b.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+                this.f61090b.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
                 dip2px = (int) ((displayWidth - (DisplayUtils.dip2px(getContext(), 15.0f) * 3.0f)) / 2.2d);
             }
             HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
@@ -109,10 +109,10 @@ public class NHCreditMiniGroup extends BaseItemLayout {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dip2px, DisplayUtils.dip2px(getContext(), 98.5f));
                 layoutParams.width = dip2px;
                 layoutParams.setMargins(DisplayUtils.dip2px(getContext(), 15.0f), 0, 0, 0);
-                this.f25356b.addView(nHCreditMiniItem, layoutParams);
-                this.f25357c.add(nHCreditMiniItem);
+                this.f61090b.addView(nHCreditMiniItem, layoutParams);
+                this.f61091c.add(nHCreditMiniItem);
             }
-            this.f25356b.addView(new View(getContext()), new LinearLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 15.0f), DisplayUtils.dip2px(getContext(), 98.5f)));
+            this.f61090b.addView(new View(getContext()), new LinearLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 15.0f), DisplayUtils.dip2px(getContext(), 98.5f)));
         }
     }
 
@@ -135,6 +135,6 @@ public class NHCreditMiniGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f25357c = new ArrayList();
+        this.f61091c = new ArrayList();
     }
 }

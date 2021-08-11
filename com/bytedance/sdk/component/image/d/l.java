@@ -12,19 +12,19 @@ import com.bytedance.sdk.component.image.ILoaderListener;
 import com.bytedance.sdk.component.image.ImageResponse;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class l<T> extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public T f28985a;
+    public T f64851a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.component.image.b.d f28986b;
+    public com.bytedance.sdk.component.image.b.d f64852b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28987c;
+    public boolean f64853c;
 
     public l(T t) {
         Interceptable interceptable = $ic;
@@ -41,14 +41,14 @@ public class l<T> extends a {
                 return;
             }
         }
-        this.f28985a = t;
+        this.f64851a = t;
     }
 
     private Map<String, String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            com.bytedance.sdk.component.image.b.d dVar = this.f28986b;
+            com.bytedance.sdk.component.image.b.d dVar = this.f64852b;
             if (dVar != null) {
                 return dVar.e();
             }
@@ -98,8 +98,8 @@ public class l<T> extends a {
                 return;
             }
         }
-        this.f28985a = t;
-        this.f28986b = dVar;
+        this.f64851a = t;
+        this.f64852b = dVar;
     }
 
     private void b(com.bytedance.sdk.component.image.c.a aVar) {
@@ -108,7 +108,7 @@ public class l<T> extends a {
         if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, aVar) == null) || (c2 = aVar.c()) == null) {
             return;
         }
-        c2.onSuccess(new ImageResponse().fromReuqest(aVar, this.f28985a, b(), this.f28987c));
+        c2.onSuccess(new ImageResponse().fromReuqest(aVar, this.f64851a, b(), this.f64853c));
     }
 
     public l(T t, boolean z) {
@@ -126,8 +126,8 @@ public class l<T> extends a {
                 return;
             }
         }
-        this.f28985a = t;
-        this.f28987c = z;
+        this.f64851a = t;
+        this.f64853c = z;
     }
 
     public l(T t, com.bytedance.sdk.component.image.b.d dVar, boolean z) {
@@ -145,8 +145,8 @@ public class l<T> extends a {
                 return;
             }
         }
-        this.f28985a = t;
-        this.f28986b = dVar;
-        this.f28987c = z;
+        this.f64851a = t;
+        this.f64852b = dVar;
+        this.f64853c = z;
     }
 }

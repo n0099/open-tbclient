@@ -1,7 +1,6 @@
 package com.baidu.rtc.record;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.RemoteAudioSamplesInterceptor;
@@ -14,7 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import org.webrtc.EglBase_CC;
 import org.webrtc.VideoTrack;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class RTCMediaRecorderImpl implements IMediaRecord {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RTCMediaRecorderImpl";
@@ -50,7 +49,7 @@ public class RTCMediaRecorderImpl implements IMediaRecord {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.isRunning : invokeV.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x009a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x0093, code lost:
         r11.onRecordCompleted(false, "Is current recording with file path " + r9);
      */
     @Override // com.baidu.rtc.record.IMediaRecord
@@ -95,7 +94,6 @@ public class RTCMediaRecorderImpl implements IMediaRecord {
                         }
                         this.isRunning = true;
                     } else {
-                        Log.e(TAG, "Video track is null");
                         if (this.audioInterceptor != null) {
                             recorderCallback.onRecordCompleted(false, "Audio only is not support, add video track");
                         }

@@ -13,7 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -46,7 +45,7 @@ import java.util.List;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_DIALOG_URL = "key_dialog_url";
@@ -118,10 +117,10 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
             com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
             this.mJsBridgeContext = aVar;
-            aVar.f35288b = this.mAdTemplate;
-            aVar.f35287a = 0;
-            aVar.f35292f = this.mAdWebView;
-            aVar.f35291e = this.mWebContainer;
+            aVar.f72043b = this.mAdTemplate;
+            aVar.f72042a = 0;
+            aVar.f72047f = this.mAdWebView;
+            aVar.f72046e = this.mWebContainer;
         }
     }
 
@@ -137,7 +136,7 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdLandPageActivityProxy f34880a;
+                public final /* synthetic */ AdLandPageActivityProxy f71624a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -154,14 +153,14 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                             return;
                         }
                     }
-                    this.f34880a = this;
+                    this.f71624a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f34880a.mWebTipBarLayout.setVisibility(8);
+                        this.f71624a.mWebTipBarLayout.setVisibility(8);
                     }
                 }
             });
@@ -198,7 +197,7 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdLandPageActivityProxy f34876a;
+                public final /* synthetic */ AdLandPageActivityProxy f71620a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -215,14 +214,14 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                             return;
                         }
                     }
-                    this.f34876a = this;
+                    this.f71620a = this;
                 }
 
                 @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.c
                 public void a(View view, int i2, int i3, int i4, int i5) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) && this.f34876a.mWebTipBarLayout.getVisibility() == 0) {
-                        this.f34876a.mWebTipBarLayout.setVisibility(8);
+                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) && this.f71620a.mWebTipBarLayout.getVisibility() == 0) {
+                        this.f71620a.mWebTipBarLayout.setVisibility(8);
                     }
                 }
             });
@@ -240,7 +239,7 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ AdLandPageActivityProxy f34877a;
+                        public final /* synthetic */ AdLandPageActivityProxy f71621a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -257,14 +256,14 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                                     return;
                                 }
                             }
-                            this.f34877a = this;
+                            this.f71621a = this;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                this.f34877a.finish();
+                                this.f71621a.finish();
                             }
                         }
                     });
@@ -273,7 +272,7 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ AdLandPageActivityProxy f34878a;
+                        public final /* synthetic */ AdLandPageActivityProxy f71622a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -290,14 +289,14 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                                     return;
                                 }
                             }
-                            this.f34878a = this;
+                            this.f71622a = this;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                this.f34878a.onBackPressed();
+                                this.f71622a.onBackPressed();
                             }
                         }
                     });
@@ -321,7 +320,7 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ AdLandPageActivityProxy f34879a;
+                        public final /* synthetic */ AdLandPageActivityProxy f71623a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -338,16 +337,16 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                                     return;
                                 }
                             }
-                            this.f34879a = this;
+                            this.f71623a = this;
                         }
 
                         @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
                         public void a() {
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f34879a.webCardRegisterLifecycleListenerHandler == null) {
+                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f71623a.webCardRegisterLifecycleListenerHandler == null) {
                                 return;
                             }
-                            this.f34879a.webCardRegisterLifecycleListenerHandler.c();
+                            this.f71623a.webCardRegisterLifecycleListenerHandler.c();
                         }
 
                         @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
@@ -360,10 +359,10 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                         @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
                         public void b() {
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f34879a.webCardRegisterLifecycleListenerHandler == null) {
+                            if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f71623a.webCardRegisterLifecycleListenerHandler == null) {
                                 return;
                             }
-                            this.f34879a.webCardRegisterLifecycleListenerHandler.d();
+                            this.f71623a.webCardRegisterLifecycleListenerHandler.d();
                         }
                     });
                 }
@@ -374,7 +373,7 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdLandPageActivityProxy f34877a;
+                public final /* synthetic */ AdLandPageActivityProxy f71621a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -391,14 +390,14 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                             return;
                         }
                     }
-                    this.f34877a = this;
+                    this.f71621a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f34877a.finish();
+                        this.f71621a.finish();
                     }
                 }
             });
@@ -407,7 +406,7 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdLandPageActivityProxy f34878a;
+                public final /* synthetic */ AdLandPageActivityProxy f71622a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -424,14 +423,14 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                             return;
                         }
                     }
-                    this.f34878a = this;
+                    this.f71622a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f34878a.onBackPressed();
+                        this.f71622a.onBackPressed();
                     }
                 }
             });
@@ -444,7 +443,7 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdLandPageActivityProxy f34879a;
+                public final /* synthetic */ AdLandPageActivityProxy f71623a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -461,16 +460,16 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                             return;
                         }
                     }
-                    this.f34879a = this;
+                    this.f71623a = this;
                 }
 
                 @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
                 public void a() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f34879a.webCardRegisterLifecycleListenerHandler == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f71623a.webCardRegisterLifecycleListenerHandler == null) {
                         return;
                     }
-                    this.f34879a.webCardRegisterLifecycleListenerHandler.c();
+                    this.f71623a.webCardRegisterLifecycleListenerHandler.c();
                 }
 
                 @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
@@ -483,10 +482,10 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                 @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
                 public void b() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f34879a.webCardRegisterLifecycleListenerHandler == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f71623a.webCardRegisterLifecycleListenerHandler == null) {
                         return;
                     }
-                    this.f34879a.webCardRegisterLifecycleListenerHandler.d();
+                    this.f71623a.webCardRegisterLifecycleListenerHandler.d();
                 }
             });
         }
@@ -505,7 +504,7 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
         }
         KsAdSDKImpl.putComponentProxy(AdWebViewActivity.class, AdLandPageActivityProxy.class);
         Intent intent = new Intent(context, AdWebViewActivity.class);
-        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+        intent.addFlags(268435456);
         intent.putExtra("key_template_json", adTemplate.toJson().toString());
         intent.putExtra(KEY_DIALOG_URL, str);
         context.startActivity(intent);
@@ -527,7 +526,7 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdLandPageActivityProxy f34874a;
+                public final /* synthetic */ AdLandPageActivityProxy f71618a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -544,13 +543,13 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                             return;
                         }
                     }
-                    this.f34874a = this;
+                    this.f71618a = this;
                 }
 
                 @Override // com.kwad.sdk.core.webview.jshandler.a.b
-                public void a(a.C0429a c0429a) {
+                public void a(a.C1996a c1996a) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, c0429a) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, c1996a) == null) {
                     }
                 }
             }));
@@ -562,7 +561,7 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AdLandPageActivityProxy f34875a;
+                public final /* synthetic */ AdLandPageActivityProxy f71619a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -579,7 +578,7 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.c.a {
                             return;
                         }
                     }
-                    this.f34875a = this;
+                    this.f71619a = this;
                 }
 
                 @Override // com.kwad.sdk.core.webview.jshandler.m.b

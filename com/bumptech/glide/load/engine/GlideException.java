@@ -1,6 +1,5 @@
 package com.bumptech.glide.load.engine;
 
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
@@ -23,7 +22,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class GlideException extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
     public static final StackTraceElement[] EMPTY_ELEMENTS;
@@ -198,7 +197,8 @@ public final class GlideException extends Exception {
                 sb.append(" of ");
                 sb.append(size);
                 sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                Log.i(str, sb.toString(), rootCauses.get(i2));
+                sb.toString();
+                rootCauses.get(i2);
                 i2 = i3;
             }
         }
@@ -293,7 +293,7 @@ public final class GlideException extends Exception {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class IndentedAppendable implements Appendable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EMPTY_SEQUENCE = "";

@@ -5,6 +5,10 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Process;
 import androidx.core.view.InputDeviceCompat;
+import c.a.v0.r.a;
+import c.a.v0.t.c;
+import c.a.v0.t.h;
+import c.a.z.b.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
@@ -22,17 +26,13 @@ import com.baidu.ugc.editvideo.record.processor.IEffectProcessor;
 import com.baidu.ugc.editvideo.record.processor.observer.EffectChangeObserver;
 import com.baidu.ugc.editvideo.record.processor.observer.MediaTrackChangeObserver;
 import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
-import d.a.a0.b.a.e;
-import d.a.w0.r.a;
-import d.a.w0.t.c;
-import d.a.w0.t.h;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle, EffectChangeObserver, MediaTrackChangeObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,17 +65,17 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
     public e mVlogEdit;
     public boolean mWaitingDrawFrame;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface OnDrawFrameFrequencyListener {
         void onDrawFrameFrequency(GLViewPortLocation gLViewPortLocation);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface OnEditStickerListener {
         boolean canDoProcessor();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface OnMediaGLRendererStatusListener {
         void onError(int i2, String str);
     }
@@ -105,10 +105,10 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
         this.mProcessorCostTimeList = new CopyOnWriteArrayList();
     }
 
-    private void debugProcessorCostTime(long j) {
+    private void debugProcessorCostTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65537, this, j) == null) {
-            this.mProcessorCostTimeList.add(Long.valueOf(j));
+        if (interceptable == null || interceptable.invokeJ(65537, this, j2) == null) {
+            this.mProcessorCostTimeList.add(Long.valueOf(j2));
         }
     }
 
@@ -161,13 +161,13 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
             if (h.e(this.mProcessorCostTimeList)) {
                 return 0.0d;
             }
-            long j = 0;
+            long j2 = 0;
             int size = this.mProcessorCostTimeList.size();
             for (Long l : this.mProcessorCostTimeList) {
-                j += l.longValue();
+                j2 += l.longValue();
             }
             this.mProcessorCostTimeList.clear();
-            return j / size;
+            return j2 / size;
         }
         return invokeV.doubleValue;
     }
@@ -208,13 +208,16 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
         }
     }
 
-    public void onDrawFrame(int i2, long j) {
+    public void onDrawFrame(int i2, long j2) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) || (eVar = this.mVlogEdit) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (eVar = this.mVlogEdit) == null) {
             return;
         }
-        eVar.g(i2, j);
+        eVar.g(i2, j2);
+        e eVar2 = this.mVlogEdit;
+        GLViewPortLocation gLViewPortLocation = this.mGLViewPortLocation;
+        eVar2.b(gLViewPortLocation.width, gLViewPortLocation.height);
     }
 
     @Override // com.baidu.ugc.editvideo.record.IMediaLifeCycle
@@ -469,7 +472,7 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
         if (!(interceptable == null || interceptable.invokeL(1048583, this, list) == null) || (eVar = this.mVlogEdit) == null) {
             return;
         }
-        eVar.m(list);
+        eVar.n(list);
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
@@ -505,68 +508,63 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
                             iMediaRenderer.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
                         }
                     }
-                } else {
-                    if (this.mVlogEdit != null) {
-                        this.mVlogEdit.b(this.mGLViewPortLocation.width, this.mGLViewPortLocation.height);
+                } else if (h.e(this.mIEffectProcessors) && h.e(this.mIMediaRenderers)) {
+                    GLES20.glViewport(this.mGLViewPortLocation.x, this.mGLViewPortLocation.y, this.mGLViewPortLocation.width, this.mGLViewPortLocation.height);
+                    if (i3 == 0) {
+                        this.mFullScreenEXT.setScaleAndTranslate(this.mScaleX, this.mScaleY, this.mTx, this.mTy);
+                        this.mFullScreenEXT.drawFrame(i2, fArr);
+                    } else {
+                        this.mFullScreen2D.setScaleAndTranslate(this.mScaleX, this.mScaleY, this.mTx, this.mTy);
+                        this.mFullScreen2D.drawFrame(i2, fArr);
                     }
-                    if (h.e(this.mIEffectProcessors) && h.e(this.mIMediaRenderers)) {
+                } else {
+                    if (this.mIEffectProcessors != null) {
+                        long currentTimeMillis = System.currentTimeMillis();
+                        Iterator<IEffectProcessor> it = this.mIEffectProcessors.iterator();
+                        int i4 = i3;
+                        int i5 = i4;
+                        loop1: while (true) {
+                            int i6 = i2;
+                            while (it.hasNext()) {
+                                next = it.next();
+                                next.setInputTextureMode(i5);
+                                next.setGlClearColor(this.mRed, this.mGreen, this.mBlue, this.mAlpha);
+                                onProcessFrame = next.onProcessFrame(this.mVlogEdit, i6, fArr);
+                                if (onProcessFrame <= 0 || onProcessFrame == i6) {
+                                }
+                            }
+                            i4 = next.getOutputTextureMode();
+                            i5 = i4;
+                            i2 = onProcessFrame;
+                        }
+                        debugProcessorCostTime(System.currentTimeMillis() - currentTimeMillis);
+                        i3 = i4;
+                    }
+                    this.mUpdateTextureId = i2;
+                    this.mUpdateTextureMode = i3;
+                    if (!h.e(this.mIMediaRenderers)) {
+                        for (IMediaRenderer iMediaRenderer2 : this.mIMediaRenderers) {
+                            iMediaRenderer2.onGLLocation(this.mGLViewPortLocation);
+                            iMediaRenderer2.setTextureMode(i3);
+                            iMediaRenderer2.setGlClearColor(this.mRed, this.mGreen, this.mBlue, this.mAlpha);
+                            iMediaRenderer2.setScaleAndTranslate(this.mScaleX, this.mScaleY, this.mTx, this.mTy);
+                            iMediaRenderer2.onDrawFrame(this.mVlogEdit, i2, fArr);
+                            iMediaRenderer2.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
+                        }
+                    } else {
                         GLES20.glViewport(this.mGLViewPortLocation.x, this.mGLViewPortLocation.y, this.mGLViewPortLocation.width, this.mGLViewPortLocation.height);
+                        GLES20.glEnable(3042);
+                        GLES20.glBlendFunc(BankSignFactory.BEAN_ID_QUERY, BankSignFactory.BEAN_ID_BIND_CARD);
                         if (i3 == 0) {
                             this.mFullScreenEXT.setScaleAndTranslate(this.mScaleX, this.mScaleY, this.mTx, this.mTy);
                             this.mFullScreenEXT.drawFrame(i2, fArr);
+                            this.mFullScreenEXT.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
                         } else {
                             this.mFullScreen2D.setScaleAndTranslate(this.mScaleX, this.mScaleY, this.mTx, this.mTy);
                             this.mFullScreen2D.drawFrame(i2, fArr);
+                            this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
                         }
-                    } else {
-                        if (this.mIEffectProcessors != null) {
-                            long currentTimeMillis = System.currentTimeMillis();
-                            Iterator<IEffectProcessor> it = this.mIEffectProcessors.iterator();
-                            int i4 = i3;
-                            int i5 = i4;
-                            loop1: while (true) {
-                                int i6 = i2;
-                                while (it.hasNext()) {
-                                    next = it.next();
-                                    next.setInputTextureMode(i5);
-                                    onProcessFrame = next.onProcessFrame(this.mVlogEdit, i6, fArr);
-                                    if (onProcessFrame <= 0 || onProcessFrame == i6) {
-                                    }
-                                }
-                                i4 = next.getOutputTextureMode();
-                                next.setGlClearColor(this.mRed, this.mGreen, this.mBlue, this.mAlpha);
-                                i5 = i4;
-                                i2 = onProcessFrame;
-                            }
-                            debugProcessorCostTime(System.currentTimeMillis() - currentTimeMillis);
-                            i3 = i4;
-                        }
-                        this.mUpdateTextureId = i2;
-                        this.mUpdateTextureMode = i3;
-                        if (!h.e(this.mIMediaRenderers)) {
-                            for (IMediaRenderer iMediaRenderer2 : this.mIMediaRenderers) {
-                                iMediaRenderer2.onGLLocation(this.mGLViewPortLocation);
-                                iMediaRenderer2.setTextureMode(i3);
-                                iMediaRenderer2.setGlClearColor(this.mRed, this.mGreen, this.mBlue, this.mAlpha);
-                                iMediaRenderer2.setScaleAndTranslate(this.mScaleX, this.mScaleY, this.mTx, this.mTy);
-                                iMediaRenderer2.onDrawFrame(this.mVlogEdit, i2, fArr);
-                                iMediaRenderer2.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
-                            }
-                        } else {
-                            GLES20.glViewport(this.mGLViewPortLocation.x, this.mGLViewPortLocation.y, this.mGLViewPortLocation.width, this.mGLViewPortLocation.height);
-                            GLES20.glEnable(3042);
-                            GLES20.glBlendFunc(BankSignFactory.BEAN_ID_QUERY, BankSignFactory.BEAN_ID_BIND_CARD);
-                            if (i3 == 0) {
-                                this.mFullScreenEXT.setScaleAndTranslate(this.mScaleX, this.mScaleY, this.mTx, this.mTy);
-                                this.mFullScreenEXT.drawFrame(i2, fArr);
-                                this.mFullScreenEXT.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
-                            } else {
-                                this.mFullScreen2D.setScaleAndTranslate(this.mScaleX, this.mScaleY, this.mTx, this.mTy);
-                                this.mFullScreen2D.drawFrame(i2, fArr);
-                                this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
-                            }
-                            GLES20.glDisable(3042);
-                        }
+                        GLES20.glDisable(3042);
                     }
                 }
                 if (this.mTextureReader != null) {

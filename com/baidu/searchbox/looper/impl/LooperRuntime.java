@@ -2,7 +2,10 @@ package com.baidu.searchbox.looper.impl;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
+import c.a.g0.a.b.b;
+import c.a.g0.a.b.c;
+import c.a.g0.a.b.d;
+import c.h.b.a.j.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.config.AppConfig;
@@ -20,11 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.h0.a.b.b;
-import d.a.h0.a.b.c;
-import d.a.h0.a.b.d;
-import d.e.b.a.j.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class LooperRuntime {
     public static /* synthetic */ Interceptable $ic;
     public static final ILooperUIContext EMPTY_RUKA_UI_CONTEXT;
@@ -143,10 +142,7 @@ public class LooperRuntime {
             }
             for (ILooperRegister iLooperRegister : this.mLooperMonitordList.getList()) {
                 if (iLooperRegister != null && iLooperRegister.checkEnable()) {
-                    if (AppConfig.isDebug()) {
-                        Log.d("Ruka", "enableLooper = true");
-                        return true;
-                    }
+                    AppConfig.isDebug();
                     return true;
                 }
             }
@@ -192,7 +188,7 @@ public class LooperRuntime {
     public void initmLooperNeedContext() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            d.a.h0.a.b.a b2 = d.a.h0.a.b.a.b();
+            c.a.g0.a.b.a b2 = c.a.g0.a.b.a.b();
             this.mLooperNeedContext = b2;
             b2.a(new ILooperNeedContext_LooperRuntime_Provider());
         }

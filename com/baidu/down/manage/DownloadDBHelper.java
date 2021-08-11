@@ -4,7 +4,6 @@ import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class DownloadDBHelper extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static int DATA_VERSION = 0;
@@ -67,7 +66,7 @@ public final class DownloadDBHelper extends SQLiteOpenHelper {
             try {
                 sQLiteDatabase.execSQL("ALTER TABLE downloads ADD COLUMN " + str + " " + str2);
             } catch (SQLException e2) {
-                Log.e(TAG, "couldn't add column: " + e2.toString());
+                String str3 = "couldn't add column: " + e2.toString();
             }
         }
     }

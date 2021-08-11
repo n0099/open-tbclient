@@ -50,6 +50,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes.dex */
 public final class MediaBrowserCompat {
     public static /* synthetic */ Interceptable $ic = null;
@@ -109,7 +110,7 @@ public final class MediaBrowserCompat {
                 } else if (i2 == 2) {
                     mediaBrowserServiceCallbackImpl.onConnectionFailed(messenger);
                 } else if (i2 != 3) {
-                    Log.w(MediaBrowserCompat.TAG, "Unhandled message: " + message + "\n  Client version: 1\n  Service version: " + message.arg1);
+                    String str = "Unhandled message: " + message + "\n  Client version: 1\n  Service version: " + message.arg1;
                 } else {
                     Bundle bundle2 = data.getBundle(MediaBrowserProtocol.DATA_OPTIONS);
                     MediaSessionCompat.ensureClassLoader(bundle2);
@@ -118,7 +119,6 @@ public final class MediaBrowserCompat {
                     mediaBrowserServiceCallbackImpl.onLoadChildren(messenger, data.getString(MediaBrowserProtocol.DATA_MEDIA_ITEM_ID), data.getParcelableArrayList(MediaBrowserProtocol.DATA_MEDIA_ITEM_LIST), bundle2, bundle3);
                 }
             } catch (BadParcelableException unused) {
-                Log.e(MediaBrowserCompat.TAG, "Could not unparcel the data.");
                 if (message.what == 1) {
                     mediaBrowserServiceCallbackImpl.onConnectionFailed(messenger);
                 }
@@ -337,7 +337,7 @@ public final class MediaBrowserCompat {
             } else if (i2 == 0) {
                 this.mCallback.onResult(this.mAction, this.mExtras, bundle);
             } else if (i2 != 1) {
-                Log.w(MediaBrowserCompat.TAG, "Unknown result code: " + i2 + " (extras=" + this.mExtras + ", resultData=" + bundle + SmallTailInfo.EMOTION_SUFFIX);
+                String str = "Unknown result code: " + i2 + " (extras=" + this.mExtras + ", resultData=" + bundle + SmallTailInfo.EMOTION_SUFFIX;
             } else {
                 this.mCallback.onProgressUpdate(this.mAction, this.mExtras, bundle);
             }
@@ -571,7 +571,6 @@ public final class MediaBrowserCompat {
                     try {
                         serviceBinderWrapper.unregisterCallbackMessenger(messenger);
                     } catch (RemoteException unused) {
-                        Log.i(MediaBrowserCompat.TAG, "Remote error unregistering client messenger.");
                     }
                 }
                 MediaBrowserCompatApi21.disconnect(this.mBrowserObj);
@@ -595,7 +594,6 @@ public final class MediaBrowserCompat {
                 }
                 if (itemCallback != null) {
                     if (!MediaBrowserCompatApi21.isConnected(this.mBrowserObj)) {
-                        Log.i(MediaBrowserCompat.TAG, "Not connected, unable to retrieve the MediaItem.");
                         this.mHandler.post(new Runnable(this, itemCallback, str) { // from class: android.support.v4.media.MediaBrowserCompat.MediaBrowserImplApi21.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -674,7 +672,7 @@ public final class MediaBrowserCompat {
                             this.mServiceBinderWrapper.getMediaItem(str, new ItemReceiver(str, itemCallback, this.mHandler), this.mCallbacksMessenger);
                             return;
                         } catch (RemoteException unused) {
-                            Log.i(MediaBrowserCompat.TAG, "Remote error getting media item: " + str);
+                            String str2 = "Remote error getting media item: " + str;
                             this.mHandler.post(new Runnable(this, itemCallback, str) { // from class: android.support.v4.media.MediaBrowserCompat.MediaBrowserImplApi21.3
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
@@ -778,7 +776,6 @@ public final class MediaBrowserCompat {
                 try {
                     this.mServiceBinderWrapper.registerCallbackMessenger(this.mContext, this.mCallbacksMessenger);
                 } catch (RemoteException unused) {
-                    Log.i(MediaBrowserCompat.TAG, "Remote error registering client messenger.");
                 }
             }
             IMediaSession asInterface = IMediaSession.Stub.asInterface(BundleCompat.getBinder(extras, MediaBrowserProtocol.EXTRA_SESSION_BINDER));
@@ -819,7 +816,7 @@ public final class MediaBrowserCompat {
                 Subscription subscription = this.mSubscriptions.get(str);
                 if (subscription == null) {
                     if (MediaBrowserCompat.DEBUG) {
-                        Log.d(MediaBrowserCompat.TAG, "onLoadChildren for id that isn't subscribed id=" + str);
+                        String str2 = "onLoadChildren for id that isn't subscribed id=" + str;
                         return;
                     }
                     return;
@@ -858,7 +855,6 @@ public final class MediaBrowserCompat {
             if (interceptable == null || interceptable.invokeLLL(1048591, this, str, bundle, searchCallback) == null) {
                 if (isConnected()) {
                     if (this.mServiceBinderWrapper == null) {
-                        Log.i(MediaBrowserCompat.TAG, "The connected service doesn't support search.");
                         this.mHandler.post(new Runnable(this, searchCallback, str, bundle) { // from class: android.support.v4.media.MediaBrowserCompat.MediaBrowserImplApi21.4
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -901,8 +897,8 @@ public final class MediaBrowserCompat {
                     try {
                         this.mServiceBinderWrapper.search(str, bundle, new SearchResultReceiver(str, bundle, searchCallback, this.mHandler), this.mCallbacksMessenger);
                         return;
-                    } catch (RemoteException e2) {
-                        Log.i(MediaBrowserCompat.TAG, "Remote error searching items with query: " + str, e2);
+                    } catch (RemoteException unused) {
+                        String str2 = "Remote error searching items with query: " + str;
                         this.mHandler.post(new Runnable(this, searchCallback, str, bundle) { // from class: android.support.v4.media.MediaBrowserCompat.MediaBrowserImplApi21.5
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -952,53 +948,50 @@ public final class MediaBrowserCompat {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048592, this, str, bundle, customActionCallback) == null) {
                 if (isConnected()) {
-                    if (this.mServiceBinderWrapper == null) {
-                        Log.i(MediaBrowserCompat.TAG, "The connected service doesn't support sendCustomAction.");
-                        if (customActionCallback != null) {
-                            this.mHandler.post(new Runnable(this, customActionCallback, str, bundle) { // from class: android.support.v4.media.MediaBrowserCompat.MediaBrowserImplApi21.6
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ MediaBrowserImplApi21 this$0;
-                                public final /* synthetic */ String val$action;
-                                public final /* synthetic */ CustomActionCallback val$callback;
-                                public final /* synthetic */ Bundle val$extras;
+                    if (this.mServiceBinderWrapper == null && customActionCallback != null) {
+                        this.mHandler.post(new Runnable(this, customActionCallback, str, bundle) { // from class: android.support.v4.media.MediaBrowserCompat.MediaBrowserImplApi21.6
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ MediaBrowserImplApi21 this$0;
+                            public final /* synthetic */ String val$action;
+                            public final /* synthetic */ CustomActionCallback val$callback;
+                            public final /* synthetic */ Bundle val$extras;
 
-                                {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this, customActionCallback, str, bundle};
-                                        interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable2.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.this$0 = this;
-                                    this.val$callback = customActionCallback;
-                                    this.val$action = str;
-                                    this.val$extras = bundle;
-                                }
-
-                                @Override // java.lang.Runnable
-                                public void run() {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                        this.val$callback.onError(this.val$action, this.val$extras, null);
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this, customActionCallback, str, bundle};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
                                     }
                                 }
-                            });
-                        }
+                                this.this$0 = this;
+                                this.val$callback = customActionCallback;
+                                this.val$action = str;
+                                this.val$extras = bundle;
+                            }
+
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                    this.val$callback.onError(this.val$action, this.val$extras, null);
+                                }
+                            }
+                        });
                     }
                     try {
                         this.mServiceBinderWrapper.sendCustomAction(str, bundle, new CustomActionResultReceiver(str, bundle, customActionCallback, this.mHandler), this.mCallbacksMessenger);
                         return;
-                    } catch (RemoteException e2) {
-                        Log.i(MediaBrowserCompat.TAG, "Remote error sending a custom action: action=" + str + ", extras=" + bundle, e2);
+                    } catch (RemoteException unused) {
+                        String str2 = "Remote error sending a custom action: action=" + str + ", extras=" + bundle;
                         if (customActionCallback != null) {
                             this.mHandler.post(new Runnable(this, customActionCallback, str, bundle) { // from class: android.support.v4.media.MediaBrowserCompat.MediaBrowserImplApi21.7
                                 public static /* synthetic */ Interceptable $ic;
@@ -1066,7 +1059,7 @@ public final class MediaBrowserCompat {
                 try {
                     serviceBinderWrapper.addSubscription(str, subscriptionCallback.mToken, bundle2, this.mCallbacksMessenger);
                 } catch (RemoteException unused) {
-                    Log.i(MediaBrowserCompat.TAG, "Remote error subscribing media item: " + str);
+                    String str2 = "Remote error subscribing media item: " + str;
                 }
             }
         }
@@ -1095,7 +1088,7 @@ public final class MediaBrowserCompat {
                         }
                     }
                 } catch (RemoteException unused) {
-                    Log.d(MediaBrowserCompat.TAG, "removeSubscription failed with RemoteException parentId=" + str);
+                    String str2 = "removeSubscription failed with RemoteException parentId=" + str;
                 }
             } else if (subscriptionCallback == null) {
                 MediaBrowserCompatApi21.unsubscribe(this.mBrowserObj, str);
@@ -1284,7 +1277,7 @@ public final class MediaBrowserCompat {
                         if (i3 == 0 || i3 == 1) {
                             return false;
                         }
-                        Log.i(MediaBrowserCompat.TAG, str + " for " + this.this$0.mServiceComponent + " with mServiceConnection=" + this.this$0.mServiceConnection + " this=" + this);
+                        String str2 = str + " for " + this.this$0.mServiceComponent + " with mServiceConnection=" + this.this$0.mServiceConnection + " this=" + this;
                         return false;
                     }
                     return true;
@@ -1328,7 +1321,7 @@ public final class MediaBrowserCompat {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 if (MediaBrowserCompat.DEBUG) {
-                                    Log.d(MediaBrowserCompat.TAG, "MediaServiceConnection.onServiceConnected name=" + this.val$name + " binder=" + this.val$binder);
+                                    String str = "MediaServiceConnection.onServiceConnected name=" + this.val$name + " binder=" + this.val$binder;
                                     this.this$1.this$0.dump();
                                 }
                                 if (this.this$1.isCurrent("onServiceConnected")) {
@@ -1340,14 +1333,12 @@ public final class MediaBrowserCompat {
                                     this.this$1.this$0.mState = 2;
                                     try {
                                         if (MediaBrowserCompat.DEBUG) {
-                                            Log.d(MediaBrowserCompat.TAG, "ServiceCallbacks.onConnect...");
                                             this.this$1.this$0.dump();
                                         }
                                         this.this$1.this$0.mServiceBinderWrapper.connect(this.this$1.this$0.mContext, this.this$1.this$0.mCallbacksMessenger);
                                     } catch (RemoteException unused) {
-                                        Log.w(MediaBrowserCompat.TAG, "RemoteException during connect for " + this.this$1.this$0.mServiceComponent);
+                                        String str2 = "RemoteException during connect for " + this.this$1.this$0.mServiceComponent;
                                         if (MediaBrowserCompat.DEBUG) {
-                                            Log.d(MediaBrowserCompat.TAG, "ServiceCallbacks.onConnect...");
                                             this.this$1.this$0.dump();
                                         }
                                     }
@@ -1392,7 +1383,7 @@ public final class MediaBrowserCompat {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 if (MediaBrowserCompat.DEBUG) {
-                                    Log.d(MediaBrowserCompat.TAG, "MediaServiceConnection.onServiceDisconnected name=" + this.val$name + " this=" + this + " mServiceConnection=" + this.this$1.this$0.mServiceConnection);
+                                    String str = "MediaServiceConnection.onServiceDisconnected name=" + this.val$name + " this=" + this + " mServiceConnection=" + this.this$1.this$0.mServiceConnection;
                                     this.this$1.this$0.dump();
                                 }
                                 if (this.this$1.isCurrent("onServiceDisconnected")) {
@@ -1479,7 +1470,7 @@ public final class MediaBrowserCompat {
                     if (i3 == 0 || i3 == 1) {
                         return false;
                     }
-                    Log.i(MediaBrowserCompat.TAG, str + " for " + this.mServiceComponent + " with mCallbacksMessenger=" + this.mCallbacksMessenger + " this=" + this);
+                    String str2 = str + " for " + this.mServiceComponent + " with mCallbacksMessenger=" + this.mCallbacksMessenger + " this=" + this;
                     return false;
                 }
                 return true;
@@ -1542,14 +1533,13 @@ public final class MediaBrowserCompat {
                                     try {
                                         z = this.this$0.mContext.bindService(intent, this.this$0.mServiceConnection, 1);
                                     } catch (Exception unused) {
-                                        Log.e(MediaBrowserCompat.TAG, "Failed binding to service " + this.this$0.mServiceComponent);
+                                        String str = "Failed binding to service " + this.this$0.mServiceComponent;
                                     }
                                     if (!z) {
                                         this.this$0.forceCloseConnection();
                                         this.this$0.mCallback.onConnectionFailed();
                                     }
                                     if (MediaBrowserCompat.DEBUG) {
-                                        Log.d(MediaBrowserCompat.TAG, "connect...");
                                         this.this$0.dump();
                                         return;
                                     }
@@ -1602,7 +1592,7 @@ public final class MediaBrowserCompat {
                                 try {
                                     mediaBrowserImplBase.mServiceBinderWrapper.disconnect(messenger);
                                 } catch (RemoteException unused) {
-                                    Log.w(MediaBrowserCompat.TAG, "RemoteException during connect for " + this.this$0.mServiceComponent);
+                                    String str = "RemoteException during connect for " + this.this$0.mServiceComponent;
                                 }
                             }
                             MediaBrowserImplBase mediaBrowserImplBase2 = this.this$0;
@@ -1612,7 +1602,6 @@ public final class MediaBrowserCompat {
                                 this.this$0.mState = i2;
                             }
                             if (MediaBrowserCompat.DEBUG) {
-                                Log.d(MediaBrowserCompat.TAG, "disconnect...");
                                 this.this$0.dump();
                             }
                         }
@@ -1624,16 +1613,15 @@ public final class MediaBrowserCompat {
         public void dump() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                Log.d(MediaBrowserCompat.TAG, "MediaBrowserCompat...");
-                Log.d(MediaBrowserCompat.TAG, "  mServiceComponent=" + this.mServiceComponent);
-                Log.d(MediaBrowserCompat.TAG, "  mCallback=" + this.mCallback);
-                Log.d(MediaBrowserCompat.TAG, "  mRootHints=" + this.mRootHints);
-                Log.d(MediaBrowserCompat.TAG, "  mState=" + getStateLabel(this.mState));
-                Log.d(MediaBrowserCompat.TAG, "  mServiceConnection=" + this.mServiceConnection);
-                Log.d(MediaBrowserCompat.TAG, "  mServiceBinderWrapper=" + this.mServiceBinderWrapper);
-                Log.d(MediaBrowserCompat.TAG, "  mCallbacksMessenger=" + this.mCallbacksMessenger);
-                Log.d(MediaBrowserCompat.TAG, "  mRootId=" + this.mRootId);
-                Log.d(MediaBrowserCompat.TAG, "  mMediaSessionToken=" + this.mMediaSessionToken);
+                String str = "  mServiceComponent=" + this.mServiceComponent;
+                String str2 = "  mCallback=" + this.mCallback;
+                String str3 = "  mRootHints=" + this.mRootHints;
+                String str4 = "  mState=" + getStateLabel(this.mState);
+                String str5 = "  mServiceConnection=" + this.mServiceConnection;
+                String str6 = "  mServiceBinderWrapper=" + this.mServiceBinderWrapper;
+                String str7 = "  mCallbacksMessenger=" + this.mCallbacksMessenger;
+                String str8 = "  mRootId=" + this.mRootId;
+                String str9 = "  mMediaSessionToken=" + this.mMediaSessionToken;
             }
         }
 
@@ -1677,7 +1665,6 @@ public final class MediaBrowserCompat {
                 }
                 if (itemCallback != null) {
                     if (!isConnected()) {
-                        Log.i(MediaBrowserCompat.TAG, "Not connected, unable to retrieve the MediaItem.");
                         this.mHandler.post(new Runnable(this, itemCallback, str) { // from class: android.support.v4.media.MediaBrowserCompat.MediaBrowserImplBase.3
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -1719,7 +1706,7 @@ public final class MediaBrowserCompat {
                         this.mServiceBinderWrapper.getMediaItem(str, new ItemReceiver(str, itemCallback, this.mHandler), this.mCallbacksMessenger);
                         return;
                     } catch (RemoteException unused) {
-                        Log.i(MediaBrowserCompat.TAG, "Remote error getting media item: " + str);
+                        String str2 = "Remote error getting media item: " + str;
                         this.mHandler.post(new Runnable(this, itemCallback, str) { // from class: android.support.v4.media.MediaBrowserCompat.MediaBrowserImplBase.4
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -1822,10 +1809,10 @@ public final class MediaBrowserCompat {
         public void onConnectionFailed(Messenger messenger) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048587, this, messenger) == null) {
-                Log.e(MediaBrowserCompat.TAG, "onConnectFailed for " + this.mServiceComponent);
+                String str = "onConnectFailed for " + this.mServiceComponent;
                 if (isCurrent(messenger, "onConnectFailed")) {
                     if (this.mState != 2) {
-                        Log.w(MediaBrowserCompat.TAG, "onConnect from service while mState=" + getStateLabel(this.mState) + "... ignoring");
+                        String str2 = "onConnect from service while mState=" + getStateLabel(this.mState) + "... ignoring";
                         return;
                     }
                     forceCloseConnection();
@@ -1839,12 +1826,12 @@ public final class MediaBrowserCompat {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLLLLL(1048588, this, messenger, str, list, bundle, bundle2) == null) && isCurrent(messenger, "onLoadChildren")) {
                 if (MediaBrowserCompat.DEBUG) {
-                    Log.d(MediaBrowserCompat.TAG, "onLoadChildren for " + this.mServiceComponent + " id=" + str);
+                    String str2 = "onLoadChildren for " + this.mServiceComponent + " id=" + str;
                 }
                 Subscription subscription = this.mSubscriptions.get(str);
                 if (subscription == null) {
                     if (MediaBrowserCompat.DEBUG) {
-                        Log.d(MediaBrowserCompat.TAG, "onLoadChildren for id that isn't subscribed id=" + str);
+                        String str3 = "onLoadChildren for id that isn't subscribed id=" + str;
                         return;
                     }
                     return;
@@ -1875,7 +1862,7 @@ public final class MediaBrowserCompat {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLLLL(1048589, this, messenger, str, token, bundle) == null) && isCurrent(messenger, "onConnect")) {
                 if (this.mState != 2) {
-                    Log.w(MediaBrowserCompat.TAG, "onConnect from service while mState=" + getStateLabel(this.mState) + "... ignoring");
+                    String str2 = "onConnect from service while mState=" + getStateLabel(this.mState) + "... ignoring";
                     return;
                 }
                 this.mRootId = str;
@@ -1883,7 +1870,6 @@ public final class MediaBrowserCompat {
                 this.mExtras = bundle;
                 this.mState = 3;
                 if (MediaBrowserCompat.DEBUG) {
-                    Log.d(MediaBrowserCompat.TAG, "ServiceCallbacks.onConnect...");
                     dump();
                 }
                 this.mCallback.onConnected();
@@ -1898,7 +1884,6 @@ public final class MediaBrowserCompat {
                         }
                     }
                 } catch (RemoteException unused) {
-                    Log.d(MediaBrowserCompat.TAG, "addSubscription failed with RemoteException.");
                 }
             }
         }
@@ -1911,8 +1896,8 @@ public final class MediaBrowserCompat {
                     try {
                         this.mServiceBinderWrapper.search(str, bundle, new SearchResultReceiver(str, bundle, searchCallback, this.mHandler), this.mCallbacksMessenger);
                         return;
-                    } catch (RemoteException e2) {
-                        Log.i(MediaBrowserCompat.TAG, "Remote error searching items with query: " + str, e2);
+                    } catch (RemoteException unused) {
+                        String str2 = "Remote error searching items with query: " + str;
                         this.mHandler.post(new Runnable(this, searchCallback, str, bundle) { // from class: android.support.v4.media.MediaBrowserCompat.MediaBrowserImplBase.5
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -1965,8 +1950,8 @@ public final class MediaBrowserCompat {
                     try {
                         this.mServiceBinderWrapper.sendCustomAction(str, bundle, new CustomActionResultReceiver(str, bundle, customActionCallback, this.mHandler), this.mCallbacksMessenger);
                         return;
-                    } catch (RemoteException e2) {
-                        Log.i(MediaBrowserCompat.TAG, "Remote error sending a custom action: action=" + str + ", extras=" + bundle, e2);
+                    } catch (RemoteException unused) {
+                        String str2 = "Remote error sending a custom action: action=" + str + ", extras=" + bundle;
                         if (customActionCallback != null) {
                             this.mHandler.post(new Runnable(this, customActionCallback, str, bundle) { // from class: android.support.v4.media.MediaBrowserCompat.MediaBrowserImplBase.6
                                 public static /* synthetic */ Interceptable $ic;
@@ -2029,7 +2014,7 @@ public final class MediaBrowserCompat {
                     try {
                         this.mServiceBinderWrapper.addSubscription(str, subscriptionCallback.mToken, bundle2, this.mCallbacksMessenger);
                     } catch (RemoteException unused) {
-                        Log.d(MediaBrowserCompat.TAG, "addSubscription failed with RemoteException parentId=" + str);
+                        String str2 = "addSubscription failed with RemoteException parentId=" + str;
                     }
                 }
             }
@@ -2061,7 +2046,7 @@ public final class MediaBrowserCompat {
                     }
                 }
             } catch (RemoteException unused) {
-                Log.d(MediaBrowserCompat.TAG, "removeSubscription failed with RemoteException parentId=" + str);
+                String str2 = "removeSubscription failed with RemoteException parentId=" + str;
             }
             if (subscription.isEmpty() || subscriptionCallback == null) {
                 this.mSubscriptions.remove(str);
@@ -2905,7 +2890,7 @@ public final class MediaBrowserCompat {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return "MediaItem{mFlags=" + this.mFlags + ", mDescription=" + this.mDescription + '}';
+                return "MediaItem{mFlags=" + this.mFlags + ", mDescription=" + this.mDescription + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }

@@ -3,7 +3,6 @@ package com.baidu.ar.arplay.d;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.PorterDuff;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,16 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class a extends WebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0071a fZ;
+    public C1618a fZ;
     public boolean ga;
 
     /* renamed from: com.baidu.ar.arplay.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class C0071a {
+    /* loaded from: classes5.dex */
+    public static class C1618a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int dM;
@@ -32,7 +31,7 @@ public class a extends WebView {
         public String url;
         public int width;
 
-        public C0071a() {
+        public C1618a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,7 +75,7 @@ public class a extends WebView {
         }
         c p = d.bp().p(this.fZ.dM);
         if (p == null) {
-            Log.e("GLWebView", "HtmlTextureHolder is null: mTextureId: " + this.fZ.dM);
+            String str = "HtmlTextureHolder is null: mTextureId: " + this.fZ.dM;
             return;
         }
         Canvas lockCanvas = p.lockCanvas();
@@ -126,10 +125,10 @@ public class a extends WebView {
         });
     }
 
-    public C0071a getWebViewData() {
+    public C1618a getWebViewData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.fZ : (C0071a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.fZ : (C1618a) invokeV.objValue;
     }
 
     @Override // android.webkit.WebView, android.view.View
@@ -146,10 +145,10 @@ public class a extends WebView {
         }
     }
 
-    public void setWebViewData(C0071a c0071a) {
+    public void setWebViewData(C1618a c1618a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c0071a) == null) {
-            this.fZ = c0071a;
+        if (interceptable == null || interceptable.invokeL(1048580, this, c1618a) == null) {
+            this.fZ = c1618a;
         }
     }
 }

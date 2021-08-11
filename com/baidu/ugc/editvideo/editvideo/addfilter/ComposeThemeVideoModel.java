@@ -5,6 +5,15 @@ import android.content.Context;
 import android.media.MediaMetadataRetriever;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.v0.b;
+import c.a.v0.t.c;
+import c.a.v0.t.d;
+import c.a.v0.t.h;
+import c.a.v0.t.m;
+import c.a.v0.t.n;
+import c.a.v0.t.u;
+import c.a.z.a.f.a;
+import c.a.z.b.a.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.arface.bean.BeautyType;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -33,15 +42,6 @@ import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUti
 import com.baidu.ugc.editvideo.subtitle.SubTitleConfig;
 import com.baidu.ugc.editvideo.subtitle.SubTitleUnit;
 import com.baidu.ugc.utils.FileUtils;
-import d.a.a0.a.f.a;
-import d.a.a0.b.a.j;
-import d.a.w0.b;
-import d.a.w0.t.c;
-import d.a.w0.t.d;
-import d.a.w0.t.h;
-import d.a.w0.t.m;
-import d.a.w0.t.n;
-import d.a.w0.t.u;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -49,7 +49,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 @TargetApi(18)
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class ComposeThemeVideoModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -855,11 +855,11 @@ public class ComposeThemeVideoModel {
         }
     }
 
-    public void setClipRange(long j, long j2) {
+    public void setClipRange(long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.mClipPoint = j;
-            this.mClipDuration = j2;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            this.mClipPoint = j2;
+            this.mClipDuration = j3;
         }
     }
 

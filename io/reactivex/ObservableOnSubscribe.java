@@ -1,7 +1,7 @@
 package io.reactivex;
 
 import io.reactivex.annotations.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface ObservableOnSubscribe<T> {
     void subscribe(@NonNull ObservableEmitter<T> observableEmitter) throws Exception;
 }

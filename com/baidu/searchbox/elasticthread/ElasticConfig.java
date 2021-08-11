@@ -3,11 +3,9 @@ package com.baidu.searchbox.elasticthread;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.app.statistic.c;
+import com.alipay.sdk.app.statistic.b;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +22,7 @@ import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class ElasticConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static int ARTERY_CONFIG_BACKGROUND_CORE_POOL_SIZE = 0;
@@ -172,52 +170,48 @@ public final class ElasticConfig {
         Context appContext;
         FileWriter fileWriter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            if (AppContextHolder.getAppContext() == null) {
-                Log.w(TAG, "saveConfigFile is called while sAppContext is null. Just return");
-            } else if (TextUtils.isEmpty(str)) {
-            } else {
-                synchronized (elasticConfigMutex) {
-                    String str2 = appContext.getFilesDir().getAbsolutePath() + File.separator + ELASTIC_CONFIG_FILE_DIR;
-                    File file = new File(str2);
-                    if (!file.exists()) {
-                        file.mkdirs();
-                    }
-                    File file2 = new File(str2 + File.separator + ELASTIC_CONFIG_FILE_NAME);
-                    if (file2.exists()) {
-                        file2.delete();
-                    }
-                    FileWriter fileWriter2 = null;
-                    try {
-                        try {
-                            file2.createNewFile();
-                            fileWriter = new FileWriter(file2);
-                        } catch (IOException unused) {
-                        }
-                    } catch (IOException unused2) {
-                    } catch (Throwable th) {
-                        th = th;
-                    }
-                    try {
-                        fileWriter.write(str);
-                        fileWriter.close();
-                    } catch (IOException unused3) {
-                        fileWriter2 = fileWriter;
-                        if (fileWriter2 != null) {
-                            fileWriter2.close();
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        fileWriter2 = fileWriter;
-                        if (fileWriter2 != null) {
-                            try {
-                                fileWriter2.close();
-                            } catch (IOException unused4) {
-                            }
-                        }
-                        throw th;
-                    }
+        if (!(interceptable == null || interceptable.invokeL(65543, null, str) == null) || (appContext = AppContextHolder.getAppContext()) == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        synchronized (elasticConfigMutex) {
+            String str2 = appContext.getFilesDir().getAbsolutePath() + File.separator + ELASTIC_CONFIG_FILE_DIR;
+            File file = new File(str2);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            File file2 = new File(str2 + File.separator + ELASTIC_CONFIG_FILE_NAME);
+            if (file2.exists()) {
+                file2.delete();
+            }
+            FileWriter fileWriter2 = null;
+            try {
+                try {
+                    file2.createNewFile();
+                    fileWriter = new FileWriter(file2);
+                } catch (IOException unused) {
                 }
+                try {
+                    fileWriter.write(str);
+                    fileWriter.close();
+                } catch (IOException unused2) {
+                    fileWriter2 = fileWriter;
+                    if (fileWriter2 != null) {
+                        fileWriter2.close();
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    fileWriter2 = fileWriter;
+                    if (fileWriter2 != null) {
+                        try {
+                            fileWriter2.close();
+                        } catch (IOException unused3) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (IOException unused4) {
+            } catch (Throwable th2) {
+                th = th2;
             }
         }
     }
@@ -283,9 +277,9 @@ public final class ElasticConfig {
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("block_weight");
             if (optJSONObject3 != null) {
-                QUEUE_CONFIG_FIRST_PRIORITY_TASK_WEIGHT = optJSONObject3.optDouble(Config.TRACE_VISIT_FIRST, QUEUE_CONFIG_FIRST_PRIORITY_TASK_WEIGHT);
+                QUEUE_CONFIG_FIRST_PRIORITY_TASK_WEIGHT = optJSONObject3.optDouble("first", QUEUE_CONFIG_FIRST_PRIORITY_TASK_WEIGHT);
                 QUEUE_CONFIG_SECOND_PRIORITY_TASK_WEIGHT = optJSONObject3.optDouble(TypeAdapters.AnonymousClass27.SECOND, QUEUE_CONFIG_SECOND_PRIORITY_TASK_WEIGHT);
-                double optDouble = optJSONObject3.optDouble(c.f1860e, QUEUE_CONFIG_THIRD_PRIORITY_TASK_WEIGHT);
+                double optDouble = optJSONObject3.optDouble(b.f35702e, QUEUE_CONFIG_THIRD_PRIORITY_TASK_WEIGHT);
                 QUEUE_CONFIG_THIRD_PRIORITY_TASK_WEIGHT = optDouble;
                 ELASTIC_QUEUE_BLOCK_WEIGHT = new double[]{QUEUE_CONFIG_IMMEDIATE_PRIORITY_TASK_WEIGHT, QUEUE_CONFIG_FIRST_PRIORITY_TASK_WEIGHT, QUEUE_CONFIG_SECOND_PRIORITY_TASK_WEIGHT, optDouble};
             }

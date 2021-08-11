@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMGetPaTypeRequest extends PaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String mKey;
     public long mPaId;
 
-    public IMGetPaTypeRequest(Context context, String str, long j) {
+    public IMGetPaTypeRequest(Context context, String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j)};
+            Object[] objArr = {context, str, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -40,7 +40,7 @@ public class IMGetPaTypeRequest extends PaBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mPaId = j;
+        this.mPaId = j2;
         this.mKey = str;
     }
 

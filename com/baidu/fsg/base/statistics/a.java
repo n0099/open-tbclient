@@ -21,15 +21,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5306a = "utf-8";
+    public static final String f39247a = "utf-8";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5307b = "c82c403505338808201aad86f8194734";
+    public static final String f39248b = "c82c403505338808201aad86f8194734";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -44,6 +44,78 @@ public class a {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                NetworkInfo activeNetworkInfo = ((ConnectivityManager) RimStatisticsUtil.getAppContext().getSystemService("connectivity")).getActiveNetworkInfo();
+                if (activeNetworkInfo != null) {
+                    String typeName = activeNetworkInfo.getTypeName();
+                    return (typeName.equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING) || activeNetworkInfo.getSubtypeName() == null) ? typeName : activeNetworkInfo.getSubtypeName();
+                }
+                return "";
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            if (context == null) {
+                return null;
+            }
+            try {
+                byte[] b2 = b(context, str);
+                return b2 != null ? new String(b2, "utf-8") : "";
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b2 : bArr) {
+                String hexString = Integer.toHexString(b2 & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
+            }
+            return sb.toString();
+        }
+        return (String) invokeLLZ.objValue;
+    }
+
+    public static String a(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                return a(messageDigest.digest(), "", z);
+            } catch (NoSuchAlgorithmException e2) {
+                throw new RuntimeException(e2);
+            }
+        }
+        return (String) invokeLZ.objValue;
     }
 
     public static void a(Context context, String str, String str2, boolean z) {
@@ -77,6 +149,25 @@ public class a {
             fileOutputStream.close();
         } catch (Exception unused3) {
         }
+    }
+
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
+        ConnectivityManager connectivityManager;
+        NetworkInfo activeNetworkInfo;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) ? (context == null || (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null || !activeNetworkInfo.isAvailable()) ? false : true : invokeL.booleanValue;
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+            ((ActivityManager) context.getSystemService("activity")).getMemoryInfo(memoryInfo);
+            return Formatter.formatFileSize(context, memoryInfo.availMem) + "_" + memoryInfo.lowMemory + "_" + Formatter.formatFileSize(context, memoryInfo.threshold);
+        }
+        return (String) invokeL.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:21:0x002e, code lost:
@@ -149,6 +240,22 @@ public class a {
         return bArr;
     }
 
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            long j2 = 0;
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
+                j2 = Long.valueOf(bufferedReader.readLine().split("\\s+")[1]).longValue() * 1024;
+                bufferedReader.close();
+            } catch (IOException unused) {
+            }
+            return Formatter.formatFileSize(context, j2);
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static boolean c(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -159,112 +266,5 @@ public class a {
             return context.getFileStreamPath(str).exists();
         }
         return invokeLL.booleanValue;
-    }
-
-    public static String c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            long j = 0;
-            try {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
-                j = Long.valueOf(bufferedReader.readLine().split("\\s+")[1]).longValue() * 1024;
-                bufferedReader.close();
-            } catch (IOException unused) {
-            }
-            return Formatter.formatFileSize(context, j);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            if (context == null) {
-                return null;
-            }
-            try {
-                byte[] b2 = b(context, str);
-                return b2 != null ? new String(b2, "utf-8") : "";
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String a(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, z)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                return a(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException e2) {
-                throw new RuntimeException(e2);
-            }
-        }
-        return (String) invokeLZ.objValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            ((ActivityManager) context.getSystemService("activity")).getMemoryInfo(memoryInfo);
-            return Formatter.formatFileSize(context, memoryInfo.availMem) + "_" + memoryInfo.lowMemory + "_" + Formatter.formatFileSize(context, memoryInfo.threshold);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String a(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b2 : bArr) {
-                String hexString = Integer.toHexString(b2 & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
-            }
-            return sb.toString();
-        }
-        return (String) invokeLLZ.objValue;
-    }
-
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        ConnectivityManager connectivityManager;
-        NetworkInfo activeNetworkInfo;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) ? (context == null || (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null || !activeNetworkInfo.isAvailable()) ? false : true : invokeL.booleanValue;
-    }
-
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            try {
-                NetworkInfo activeNetworkInfo = ((ConnectivityManager) RimStatisticsUtil.getAppContext().getSystemService("connectivity")).getActiveNetworkInfo();
-                if (activeNetworkInfo != null) {
-                    String typeName = activeNetworkInfo.getTypeName();
-                    return (typeName.equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING) || activeNetworkInfo.getSubtypeName() == null) ? typeName : activeNetworkInfo.getSubtypeName();
-                }
-                return "";
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
     }
 }

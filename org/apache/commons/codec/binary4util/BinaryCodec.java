@@ -14,7 +14,7 @@ import org.apache.commons.base.BinaryDecoder;
 import org.apache.commons.base.BinaryEncoder;
 import org.apache.commons.base.DecoderException;
 import org.apache.commons.base.EncoderException;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BITS;

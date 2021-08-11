@@ -1,5 +1,11 @@
 package com.baidu.tieba.ala.alasquare.live_tab.message;
 
+import c.a.e.e.p.k;
+import c.a.p0.v.d.c.e.a;
+import c.a.p0.v.d.c.e.d;
+import c.a.p0.v.d.c.e.g;
+import c.a.p0.v.d.c.e.h;
+import c.a.p0.v.d.c.e.j;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -7,14 +13,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
-import d.a.q0.v.d.c.e.a;
-import d.a.q0.v.d.c.e.d;
-import d.a.q0.v.d.c.e.g;
-import d.a.q0.v.d.c.e.h;
-import d.a.q0.v.d.c.e.j;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaTabLiveResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

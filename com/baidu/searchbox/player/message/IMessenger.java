@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.interfaces.INeuron;
 import com.baidu.searchbox.player.interfaces.IVideoEventInterceptor;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface IMessenger {
     String getType();
 

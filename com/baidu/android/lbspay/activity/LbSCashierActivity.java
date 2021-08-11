@@ -34,10 +34,6 @@ import com.baidu.android.lbspay.view.ChannelFootView;
 import com.baidu.android.lbspay.view.ChannelListView;
 import com.baidu.android.lbspay.view.PayChannelController;
 import com.baidu.android.lbspay.view.TitleBar;
-import com.baidu.apollon.eventbus.EventBus;
-import com.baidu.apollon.utils.CheckUtils;
-import com.baidu.apollon.utils.GlobalUtils;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.tbadk.core.atomData.WalletPayResultActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -47,17 +43,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.PayStatServiceEvent;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
-import com.baidu.wallet.base.widget.dialog.PromptDialog;
-import com.baidu.wallet.base.widget.dialog.PromptMultiBtnDialog;
-import com.baidu.wallet.core.beans.BeanManager;
-import com.baidu.wallet.core.utils.LogUtil;
-import com.baidu.wallet.core.utils.StringUtils;
-import com.baidu.wallet.core.utils.WalletGlobalUtils;
-import com.baidu.wallet.paysdk.api.BaiduPay;
 import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
-import com.baidu.wallet.statistics.api.StatisticManager;
-import com.baidu.wallet.util.StatHelper;
+import com.dxmpay.apollon.eventbus.EventBus;
+import com.dxmpay.apollon.utils.CheckUtils;
+import com.dxmpay.apollon.utils.GlobalUtils;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.base.statistics.StatServiceEvent;
+import com.dxmpay.wallet.base.widget.dialog.PromptDialog;
+import com.dxmpay.wallet.base.widget.dialog.PromptMultiBtnDialog;
+import com.dxmpay.wallet.core.beans.BeanManager;
+import com.dxmpay.wallet.core.utils.StringUtils;
+import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
+import com.dxmpay.wallet.utils.StatHelper;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -65,7 +63,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INoSupportAliAuthorizePay {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTHPAY_CANCEL_HOST = "BdwAliPayWithholdingCancel";
@@ -139,7 +137,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
             String orderNo = this.mCashierData.getOrderNo();
             List<String> collectData = StatHelper.collectData(orderNo, this.mChannelId + "");
             HashMap hashMap = new HashMap();
-            hashMap.put(BaiduPay.AMOUNT, StatHelper.getPayAmount());
+            hashMap.put("pay_amount", StatHelper.getPayAmount());
             StatisticManager.onEventWithValues(PayStatServiceEvent.LBS_PAY_CHANNEL, collectData, hashMap);
             StatisticManager.onEventWithValue(StatServiceEvent.LBS_DO_PAY_CLICK, ChannelPayUtil.getChannelTag(this.mBaseChannel.getChanelId()));
             StatisticManager.onEventStart(StatServiceEvent.LBS_API_GET_PAY);
@@ -229,7 +227,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                     this.mAmount.setText(StringUtils.fen2Yuan(amount));
                 }
                 try {
-                    Typeface createFromAsset = Typeface.createFromAsset(getAssets(), "wallet_base_font/FDCfont-Bold.ttf");
+                    Typeface createFromAsset = Typeface.createFromAsset(getAssets(), "dxm_wallet_base_font/FDCfont-Bold.ttf");
                     if (createFromAsset != null) {
                         this.mAmount.setTypeface(createFromAsset);
                     }
@@ -256,7 +254,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LbSCashierActivity f2655a;
+                public final /* synthetic */ LbSCashierActivity f36530a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -273,14 +271,14 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                             return;
                         }
                     }
-                    this.f2655a = this;
+                    this.f36530a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f2655a.getPay();
+                        this.f36530a.getPay();
                     }
                 }
             });
@@ -289,7 +287,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LbSCashierActivity f2656a;
+                public final /* synthetic */ LbSCashierActivity f36531a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -306,15 +304,15 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                             return;
                         }
                     }
-                    this.f2656a = this;
+                    this.f36531a = this;
                 }
 
                 @Override // com.baidu.android.lbspay.view.PayChannelController.SelectChannelListener
                 public void onSelectChannel(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                        TextView textView = this.f2656a.mPayText;
-                        textView.setText(ResUtils.getString(this.f2656a, "lbspay_pay_confirm_paydesc") + "   " + String.format(ResUtils.getString(this.f2656a, "lbspay_pay_confirm_payamount"), StringUtils.fen2Yuan(str)));
+                        TextView textView = this.f36531a.mPayText;
+                        textView.setText(ResUtils.getString(this.f36531a, "lbspay_pay_confirm_paydesc") + "   " + String.format(ResUtils.getString(this.f36531a, "lbspay_pay_confirm_payamount"), StringUtils.fen2Yuan(str)));
                     }
                 }
             });
@@ -323,7 +321,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LbSCashierActivity f2657a;
+                public final /* synthetic */ LbSCashierActivity f36532a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -340,14 +338,14 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                             return;
                         }
                     }
-                    this.f2657a = this;
+                    this.f36532a = this;
                 }
 
                 @Override // com.baidu.android.lbspay.view.PayChannelController.DoShowAllChannelClick
                 public void doClick() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f2657a.setBootomDivierVisiable();
+                        this.f36532a.setBootomDivierVisiable();
                     }
                 }
             });
@@ -408,7 +406,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LbSCashierActivity f2653a;
+                public final /* synthetic */ LbSCashierActivity f36528a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -425,22 +423,22 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                             return;
                         }
                     }
-                    this.f2653a = this;
+                    this.f36528a = this;
                 }
 
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        LbSCashierActivity lbSCashierActivity = this.f2653a;
+                        LbSCashierActivity lbSCashierActivity = this.f36528a;
                         View findViewById = lbSCashierActivity.findViewById(ResUtils.id(lbSCashierActivity, "lbspay_cashier_wap"));
-                        LbSCashierActivity lbSCashierActivity2 = this.f2653a;
+                        LbSCashierActivity lbSCashierActivity2 = this.f36528a;
                         if (lbSCashierActivity2.findViewById(ResUtils.id(lbSCashierActivity2, "content_layout")).getMeasuredHeight() > findViewById.getMeasuredHeight()) {
-                            if (this.f2653a.mChannelFootView != null) {
-                                this.f2653a.mChannelFootView.setPadding(30, 30, 30, 30);
+                            if (this.f36528a.mChannelFootView != null) {
+                                this.f36528a.mChannelFootView.setPadding(30, 30, 30, 30);
                             }
-                        } else if (this.f2653a.mChannelFootView != null) {
-                            this.f2653a.mChannelFootView.setPadding(30, 30, 30, 0);
+                        } else if (this.f36528a.mChannelFootView != null) {
+                            this.f36528a.mChannelFootView.setPadding(30, 30, 30, 0);
                         }
                     }
                 }
@@ -514,7 +512,6 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
     public void handleFailure(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, str) == null) {
-            LogUtil.d("LbsCashier handle failed!");
             WalletGlobalUtils.safeDismissDialog(this, 0);
             if (i2 == 2) {
                 LBSPayAli.getInstance().clearChannelPay();
@@ -537,7 +534,6 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
         GetPayBean getPayBean;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, obj, str) == null) {
-            LogUtil.d("LbsCashier handle success");
             WalletGlobalUtils.safeDismissDialog(this, 0);
             if (obj != null && i2 == 2) {
                 CashierDataNew cashierDataNew = this.mCashierData;
@@ -564,19 +560,19 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
         Bundle extras;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048579, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
-            LogUtil.logd("requestCode=" + i2 + "#resultCode=" + i3);
+            String str = "requestCode=" + i2 + "#resultCode=" + i3;
             if (intent == null || (extras = intent.getExtras()) == null) {
                 return;
             }
-            LogUtil.logd("bundle =" + extras.toString());
+            String str2 = "bundle =" + extras.toString();
             String string = extras.getString(WalletPayResultActivityConfig.PAY_RESULT);
-            LogUtil.logd("result =" + string);
+            String str3 = "result =" + string;
             if (TextUtils.isEmpty(string)) {
                 return;
             }
@@ -591,12 +587,12 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                     iChannelPay2.payCancel();
                 }
             } else {
-                string.equalsIgnoreCase(e.f2000a);
+                string.equalsIgnoreCase(e.f35855a);
             }
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
+    @Override // com.dxmpay.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -605,7 +601,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
         }
     }
 
-    @Override // com.baidu.android.lbspay.activity.LBSBaseActivity, com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.android.lbspay.activity.LBSBaseActivity, com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
@@ -616,7 +612,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, android.app.Activity
+    @Override // com.dxmpay.wallet.core.BaseActivity, android.app.Activity
     public Dialog onCreateDialog(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -632,7 +628,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
         return (Dialog) invokeI.objValue;
     }
 
-    @Override // com.baidu.android.lbspay.activity.LBSBaseActivity, com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.android.lbspay.activity.LBSBaseActivity, com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -683,7 +679,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ LbSCashierActivity f2651a;
+                        public final /* synthetic */ LbSCashierActivity f36526a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -700,14 +696,14 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                                     return;
                                 }
                             }
-                            this.f2651a = this;
+                            this.f36526a = this;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.f2651a.getPay();
+                                this.f36526a.getPay();
                             }
                         }
                     }, 500L);
@@ -743,7 +739,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, android.app.Activity
+    @Override // com.dxmpay.wallet.core.BaseActivity, android.app.Activity
     public void onPrepareDialog(int i2, Dialog dialog) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048588, this, i2, dialog) == null) {
@@ -757,7 +753,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ LbSCashierActivity f2658a;
+                    public final /* synthetic */ LbSCashierActivity f36533a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -774,15 +770,15 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                                 return;
                             }
                         }
-                        this.f2658a = this;
+                        this.f36533a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f2658a, 3);
-                            this.f2658a.onBackPressed();
+                            WalletGlobalUtils.safeDismissDialog(this.f36533a, 3);
+                            this.f36533a.onBackPressed();
                         }
                     }
                 });
@@ -796,7 +792,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ LbSCashierActivity f2659a;
+                    public final /* synthetic */ LbSCashierActivity f36534a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -813,7 +809,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                                 return;
                             }
                         }
-                        this.f2659a = this;
+                        this.f36534a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -821,11 +817,11 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             StatisticManager.onEvent(LbsStatistics.WALLET_LBS_ALI_FAIL_GUIDE_DXM_PAY_CONFIRM);
-                            LbSCashierActivity lbSCashierActivity = this.f2659a;
+                            LbSCashierActivity lbSCashierActivity = this.f36534a;
                             lbSCashierActivity.mBaseChannel = lbSCashierActivity.mSupportBaiFuBaoChannel;
-                            this.f2659a.mChannelListView.selectChannelById(this.f2659a.mBaseChannel.getChanelId());
-                            WalletGlobalUtils.safeDismissDialog(this.f2659a, LbSCashierActivity.DIALOG_PROMPT_GUIDE_DXM_WALLET_PAY);
-                            this.f2659a.asyncGetPayAPI();
+                            this.f36534a.mChannelListView.selectChannelById(this.f36534a.mBaseChannel.getChanelId());
+                            WalletGlobalUtils.safeDismissDialog(this.f36534a, LbSCashierActivity.DIALOG_PROMPT_GUIDE_DXM_WALLET_PAY);
+                            this.f36534a.asyncGetPayAPI();
                         }
                     }
                 });
@@ -834,7 +830,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ LbSCashierActivity f2660a;
+                    public final /* synthetic */ LbSCashierActivity f36535a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -851,7 +847,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                                 return;
                             }
                         }
-                        this.f2660a = this;
+                        this.f36535a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -859,8 +855,8 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             StatisticManager.onEvent(LbsStatistics.WALLET_LBS_ALI_FAIL_GUIDE_DXM_PAY_INSTALL_ALI_PAY_PKG);
-                            WalletGlobalUtils.safeDismissDialog(this.f2660a, LbSCashierActivity.DIALOG_PROMPT_GUIDE_DXM_WALLET_PAY);
-                            this.f2660a.openSystemBrowser();
+                            WalletGlobalUtils.safeDismissDialog(this.f36535a, LbSCashierActivity.DIALOG_PROMPT_GUIDE_DXM_WALLET_PAY);
+                            this.f36535a.openSystemBrowser();
                         }
                     }
                 });
@@ -869,7 +865,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ LbSCashierActivity f2661a;
+                    public final /* synthetic */ LbSCashierActivity f36536a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -886,7 +882,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                                 return;
                             }
                         }
-                        this.f2661a = this;
+                        this.f36536a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -894,7 +890,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             StatisticManager.onEvent(LbsStatistics.WALLET_LBS_ALI_FAIL_GUIDE_DXM_PAY_CANCEL);
-                            WalletGlobalUtils.safeDismissDialog(this.f2661a, LbSCashierActivity.DIALOG_PROMPT_GUIDE_DXM_WALLET_PAY);
+                            WalletGlobalUtils.safeDismissDialog(this.f36536a, LbSCashierActivity.DIALOG_PROMPT_GUIDE_DXM_WALLET_PAY);
                         }
                     }
                 });
@@ -909,7 +905,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ LbSCashierActivity f2662a;
+                    public final /* synthetic */ LbSCashierActivity f36537a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -926,7 +922,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                                 return;
                             }
                         }
-                        this.f2662a = this;
+                        this.f36537a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -934,7 +930,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             StatisticManager.onEvent(LbsStatistics.WALLET_LBS_ALI_FAIL_GUIDE_INSTALL_CANCEL);
-                            WalletGlobalUtils.safeDismissDialog(this.f2662a, LbSCashierActivity.DIALOG_PROMPT_GUIDE_INSTALL_ALI_PAY_PKG);
+                            WalletGlobalUtils.safeDismissDialog(this.f36537a, LbSCashierActivity.DIALOG_PROMPT_GUIDE_INSTALL_ALI_PAY_PKG);
                         }
                     }
                 });
@@ -944,7 +940,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ LbSCashierActivity f2652a;
+                    public final /* synthetic */ LbSCashierActivity f36527a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -961,7 +957,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                                 return;
                             }
                         }
-                        this.f2652a = this;
+                        this.f36527a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -969,8 +965,8 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             StatisticManager.onEvent(LbsStatistics.WALLET_LBS_ALI_FAIL_GUIDE_INSTALL_CONFIRM);
-                            WalletGlobalUtils.safeDismissDialog(this.f2652a, LbSCashierActivity.DIALOG_PROMPT_GUIDE_INSTALL_ALI_PAY_PKG);
-                            this.f2652a.openSystemBrowser();
+                            WalletGlobalUtils.safeDismissDialog(this.f36527a, LbSCashierActivity.DIALOG_PROMPT_GUIDE_INSTALL_ALI_PAY_PKG);
+                            this.f36527a.openSystemBrowser();
                         }
                     }
                 });
@@ -980,7 +976,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
@@ -988,7 +984,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, bundle) == null) {
@@ -1010,7 +1006,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LbSCashierActivity f2654a;
+            public final /* synthetic */ LbSCashierActivity f36529a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1027,7 +1023,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                         return;
                     }
                 }
-                this.f2654a = this;
+                this.f36529a = this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -1035,7 +1031,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                     StatisticManager.onEvent(StatServiceEvent.LBS_TITLE_BACK);
-                    this.f2654a.onBackPressed();
+                    this.f36529a.onBackPressed();
                 }
             }
         });

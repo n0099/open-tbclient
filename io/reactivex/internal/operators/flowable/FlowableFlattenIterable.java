@@ -29,14 +29,14 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Function<? super T, ? extends Iterable<? extends R>> mapper;
     public final int prefetch;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class FlattenIterableSubscriber<T, R> extends BasicIntQueueSubscription<R> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3096000382929934955L;
@@ -194,10 +194,10 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
                     }
                 }
                 if (it != null) {
-                    long j = this.requested.get();
-                    long j2 = 0;
+                    long j2 = this.requested.get();
+                    long j3 = 0;
                     while (true) {
-                        if (j2 == j) {
+                        if (j3 == j2) {
                             break;
                         } else if (checkTerminated(this.done, false, subscriber, simpleQueue)) {
                             return;
@@ -207,7 +207,7 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
                                 if (checkTerminated(this.done, false, subscriber, simpleQueue)) {
                                     return;
                                 }
-                                j2++;
+                                j3++;
                                 try {
                                     if (!it.hasNext()) {
                                         consumedOne(z);
@@ -233,13 +233,13 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
                             }
                         }
                     }
-                    if (j2 == j) {
+                    if (j3 == j2) {
                         if (checkTerminated(this.done, simpleQueue.isEmpty() && it == null, subscriber, simpleQueue)) {
                             return;
                         }
                     }
-                    if (j2 != 0 && j != Long.MAX_VALUE) {
-                        this.requested.addAndGet(-j2);
+                    if (j3 != 0 && j2 != Long.MAX_VALUE) {
+                        this.requested.addAndGet(-j3);
                     }
                 }
                 i2 = addAndGet(-i2);
@@ -364,10 +364,10 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048587, this, j) == null) && SubscriptionHelper.validate(j)) {
-                BackpressureHelper.add(this.requested, j);
+            if ((interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+                BackpressureHelper.add(this.requested, j2);
                 drain();
             }
         }

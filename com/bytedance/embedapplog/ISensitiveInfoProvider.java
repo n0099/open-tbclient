@@ -1,5 +1,5 @@
 package com.bytedance.embedapplog;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface ISensitiveInfoProvider {
     String getImsi();
 

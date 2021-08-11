@@ -1,6 +1,9 @@
 package com.baidu.tieba.chosen.posts;
 
 import android.os.Bundle;
+import c.a.o0.i0.c.a;
+import c.a.p0.b0.a.b;
+import c.a.p0.b0.a.c.d;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -12,10 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.i0.c.a;
-import d.a.q0.b0.a.b;
-import d.a.q0.b0.a.c.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> implements a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EVENT_ID_PICTURE_CLICK = 4096;
@@ -44,10 +44,10 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         }
     }
 
-    private void handlePictureClick(d.a.p0.i0.c.b bVar) {
+    private void handlePictureClick(c.a.o0.i0.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, bVar) == null) {
-            d.a.p0.i0.b.a a2 = bVar.a();
+            c.a.o0.i0.b.a a2 = bVar.a();
             if (a2 instanceof d) {
                 sendMessage(((d) a2).a(getPageContext().getPageActivity()));
             }
@@ -90,7 +90,7 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         return (b) invokeV.objValue;
     }
 
-    @Override // d.a.p0.i0.c.a
+    @Override // c.a.o0.i0.c.a
     public boolean isEventMustSelf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             super.onChangeSkinType(i2);
-            getViewController().p(getPageContext(), i2);
+            getViewController().n(getPageContext(), i2);
         }
     }
 
@@ -124,22 +124,22 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
             } else {
                 this.mModelController.B(null);
             }
-            setContentView(this.mViewController.q());
-            this.mViewController.s();
-            this.mViewController.p(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            setContentView(this.mViewController.o());
+            this.mViewController.q();
+            this.mViewController.n(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             adjustResizeForSoftInput();
         }
     }
 
-    @Override // d.a.p0.i0.c.a
-    public boolean onEventDispatch(d.a.p0.i0.c.b bVar) {
+    @Override // c.a.o0.i0.c.a
+    public boolean onEventDispatch(c.a.o0.i0.c.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bVar)) == null) {
             if (bVar.b() == 4096) {
                 handlePictureClick(bVar);
             }
-            return getViewController().r(bVar) || getModelController().D(bVar);
+            return getViewController().p(bVar) || getModelController().D(bVar);
         }
         return invokeL.booleanValue;
     }

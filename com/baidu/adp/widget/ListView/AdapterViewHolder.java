@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AdapterViewHolder<T extends View> extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public T f2350a;
+    public T mAdapterView;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdapterViewHolder(T t) {
@@ -33,12 +31,12 @@ public class AdapterViewHolder<T extends View> extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f2350a = t;
+        this.mAdapterView = t;
     }
 
-    public T b() {
+    public T getAdapterView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2350a : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAdapterView : (T) invokeV.objValue;
     }
 }

@@ -9,34 +9,34 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.video.a.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class a implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c.e f35122a;
+    public c.e f71873a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b f35123b;
+    public c.b f71874b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a f35124c;
+    public c.a f71875c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.f f35125d;
+    public c.f f71876d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.h f35126e;
+    public c.h f71877e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.InterfaceC0424c f35127f;
+    public c.InterfaceC1991c f71878f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.d f35128g;
+    public c.d f71879g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.g f35129h;
+    public c.g f71880h;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -55,21 +55,21 @@ public abstract class a implements c {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f35122a = null;
-            this.f35124c = null;
-            this.f35123b = null;
-            this.f35125d = null;
-            this.f35126e = null;
-            this.f35127f = null;
-            this.f35128g = null;
-            this.f35129h = null;
+            this.f71873a = null;
+            this.f71875c = null;
+            this.f71874b = null;
+            this.f71876d = null;
+            this.f71877e = null;
+            this.f71878f = null;
+            this.f71879g = null;
+            this.f71880h = null;
         }
     }
 
     public final void a(int i2) {
         c.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (aVar = this.f35124c) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (aVar = this.f71875c) == null) {
             return;
         }
         aVar.a(this, i2);
@@ -78,7 +78,7 @@ public abstract class a implements c {
     public final void a(int i2, int i3) {
         c.h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) || (hVar = this.f35126e) == null) {
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) || (hVar = this.f71877e) == null) {
             return;
         }
         hVar.a(this, i2, i3);
@@ -87,7 +87,7 @@ public abstract class a implements c {
     public final void a(TimedText timedText) {
         c.g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, timedText) == null) || (gVar = this.f35129h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, timedText) == null) || (gVar = this.f71880h) == null) {
             return;
         }
         gVar.a(this, timedText);
@@ -97,7 +97,7 @@ public abstract class a implements c {
     public void a(c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f35124c = aVar;
+            this.f71875c = aVar;
         }
     }
 
@@ -105,15 +105,15 @@ public abstract class a implements c {
     public void a(c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f35123b = bVar;
+            this.f71874b = bVar;
         }
     }
 
     @Override // com.kwad.sdk.core.video.a.c
-    public void a(c.InterfaceC0424c interfaceC0424c) {
+    public void a(c.InterfaceC1991c interfaceC1991c) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0424c) == null) {
-            this.f35127f = interfaceC0424c;
+        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC1991c) == null) {
+            this.f71878f = interfaceC1991c;
         }
     }
 
@@ -121,7 +121,7 @@ public abstract class a implements c {
     public void a(c.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
-            this.f35128g = dVar;
+            this.f71879g = dVar;
         }
     }
 
@@ -129,7 +129,7 @@ public abstract class a implements c {
     public void a(c.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eVar) == null) {
-            this.f35122a = eVar;
+            this.f71873a = eVar;
         }
     }
 
@@ -137,7 +137,7 @@ public abstract class a implements c {
     public void a(c.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, fVar) == null) {
-            this.f35125d = fVar;
+            this.f71876d = fVar;
         }
     }
 
@@ -145,14 +145,14 @@ public abstract class a implements c {
     public void a(c.h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, hVar) == null) {
-            this.f35126e = hVar;
+            this.f71877e = hVar;
         }
     }
 
     public final void b() {
         c.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (eVar = this.f35122a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (eVar = this.f71873a) == null) {
             return;
         }
         eVar.a(this);
@@ -162,8 +162,8 @@ public abstract class a implements c {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048588, this, i2, i3)) == null) {
-            c.InterfaceC0424c interfaceC0424c = this.f35127f;
-            return interfaceC0424c != null && interfaceC0424c.a(this, i2, i3);
+            c.InterfaceC1991c interfaceC1991c = this.f71878f;
+            return interfaceC1991c != null && interfaceC1991c.a(this, i2, i3);
         }
         return invokeII.booleanValue;
     }
@@ -171,7 +171,7 @@ public abstract class a implements c {
     public final void c() {
         c.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (bVar = this.f35123b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (bVar = this.f71874b) == null) {
             return;
         }
         bVar.a(this);
@@ -181,7 +181,7 @@ public abstract class a implements c {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048590, this, i2, i3)) == null) {
-            c.d dVar = this.f35128g;
+            c.d dVar = this.f71879g;
             return dVar != null && dVar.a(this, i2, i3);
         }
         return invokeII.booleanValue;
@@ -190,7 +190,7 @@ public abstract class a implements c {
     public final void d() {
         c.f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (fVar = this.f35125d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (fVar = this.f71876d) == null) {
             return;
         }
         fVar.a(this);

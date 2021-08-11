@@ -11,9 +11,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.model.AbstractBceResponse;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class GetMediaResourceResponse extends AbstractBceResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +55,7 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
                 getMediaResourceResponse.setStatus(jSONObject.getString("status"));
                 getMediaResourceResponse.setAttributes(Attributes.formatFromJson(jSONObject.getJSONObject("attributes")));
                 getMediaResourceResponse.setMeta(MediaMeta.formatFromJson(jSONObject.getJSONObject("meta")));
-                if (getMediaResourceResponse.getStatus().equalsIgnoreCase(e.f2000a)) {
+                if (getMediaResourceResponse.getStatus().equalsIgnoreCase(e.f35855a)) {
                     getMediaResourceResponse.setError(VodError.formatFromJson(jSONObject.getJSONObject("error")));
                 }
                 getMediaResourceResponse.setPublishTime(jSONObject.optString("publishTime"));
@@ -233,46 +234,46 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
             StringBuilder sb = new StringBuilder("GetMediaResourceResponse { \n");
             sb.append("  mediaId = ");
             sb.append(this.mediaId);
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             sb.append("  status = ");
             sb.append(this.status);
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             sb.append("  attributes = ");
             sb.append(this.attributes);
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             sb.append("  meta = ");
             sb.append(this.meta);
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             sb.append("  createTime = ");
             sb.append(this.createTime);
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             sb.append("  publishTime = ");
             sb.append(this.publishTime);
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             sb.append("  transcodingPresetGroupName = ");
             sb.append(this.transcodingPresetGroupName);
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             sb.append("  source = ");
             sb.append(this.source);
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             sb.append("  playableUrlList = [");
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             for (PlayableUrl playableUrl : this.playableUrlList) {
                 sb.append(playableUrl.toString());
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             }
             sb.append("] \n");
             sb.append("  thumbnailList = [");
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             for (String str : this.thumbnailList) {
                 sb.append("    thumbnail =");
                 sb.append(str);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             }
             VodError vodError = this.error;
             if (vodError != null) {
                 sb.append(vodError);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             }
             sb.append("}\n");
             return sb.toString();

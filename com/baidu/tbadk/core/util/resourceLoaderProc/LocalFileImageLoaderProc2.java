@@ -1,6 +1,11 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.graphics.Bitmap;
+import c.a.e.e.l.b;
+import c.a.e.e.l.e;
+import c.a.e.e.p.l;
+import c.a.e.k.d.a;
+import c.a.o0.b0.c;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -11,12 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.l.b;
-import d.a.d.e.l.e;
-import d.a.d.e.p.l;
-import d.a.d.k.d.a;
-import d.a.p0.b0.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LocalFileImageLoaderProc2 implements e<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class LocalFileImageLoaderProc2 implements e<a> {
         return (a) invokeLL.objValue;
     }
 
-    @Override // d.a.d.e.l.e
+    @Override // c.a.e.e.l.e
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class LocalFileImageLoaderProc2 implements e<a> {
         return (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // d.a.d.e.l.e
+    @Override // c.a.e.e.l.e
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class LocalFileImageLoaderProc2 implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.a.d.e.l.e
+    @Override // c.a.e.e.l.e
     public a getFromRemote(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class LocalFileImageLoaderProc2 implements e<a> {
         return (a) invokeCommon.objValue;
     }
 
-    @Override // d.a.d.e.l.e
+    @Override // c.a.e.e.l.e
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -139,7 +139,7 @@ public class LocalFileImageLoaderProc2 implements e<a> {
         return (String) invokeLII.objValue;
     }
 
-    @Override // d.a.d.e.l.e
+    @Override // c.a.e.e.l.e
     public void updateMemory(String str, Object obj, int i2, int i3, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i2), Integer.valueOf(i3), objArr}) == null) && obj != null && (obj instanceof a)) {
@@ -154,7 +154,7 @@ public class LocalFileImageLoaderProc2 implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.a.d.e.l.e
+    @Override // c.a.e.e.l.e
     public a getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -169,7 +169,7 @@ public class LocalFileImageLoaderProc2 implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.a.d.e.l.e
+    @Override // c.a.e.e.l.e
     public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;

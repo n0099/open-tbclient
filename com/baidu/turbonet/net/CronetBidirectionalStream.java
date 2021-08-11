@@ -24,41 +24,43 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.RejectedExecutionException;
 import javax.annotation.concurrent.GuardedBy;
 @JNINamespace
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CronetBidirectionalStream extends BidirectionalStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final CronetUrlRequestContext f23198a;
+    public final CronetUrlRequestContext f58917a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Executor f23199b;
+    public final Executor f58918b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final BidirectionalStream.Callback f23200c;
+    public final BidirectionalStream.Callback f58919c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f23201d;
+    public final String f58920d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f23202e;
+    public final String f58921e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f23203f;
+    public final boolean f58922f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Object f23204g;
+    public final Object f58923g;
     @GuardedBy("mNativeStreamLock")
 
     /* renamed from: h  reason: collision with root package name */
-    public LinkedList<ByteBuffer> f23205h;
+    public LinkedList<ByteBuffer> f58924h;
     @GuardedBy("mNativeStreamLock")
 
     /* renamed from: i  reason: collision with root package name */
-    public LinkedList<ByteBuffer> f23206i;
+    public LinkedList<ByteBuffer> f58925i;
     @GuardedBy("mNativeStreamLock")
-    public boolean j;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f58926j;
     @GuardedBy("mNativeStreamLock")
     public boolean k;
     @GuardedBy("mNativeStreamLock")
@@ -72,7 +74,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
     public Runnable q;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -109,7 +111,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
             READING_DONE = new State("READING_DONE", 4);
             CANCELED = new State("CANCELED", 5);
             ERROR = new State("ERROR", 6);
-            SUCCESS = new State(com.alipay.security.mobile.module.http.model.c.f2136g, 7);
+            SUCCESS = new State(com.alipay.security.mobile.module.http.model.c.f35984g, 7);
             WAITING_FOR_FLUSH = new State("WAITING_FOR_FLUSH", 8);
             WRITING = new State("WRITING", 9);
             State state = new State("WRITING_DONE", 10);
@@ -149,16 +151,16 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f23207e;
+        public final /* synthetic */ boolean f58927e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CronetBidirectionalStream f23208f;
+        public final /* synthetic */ CronetBidirectionalStream f58928f;
 
         public a(CronetBidirectionalStream cronetBidirectionalStream, boolean z) {
             Interceptable interceptable = $ic;
@@ -175,42 +177,42 @@ public class CronetBidirectionalStream extends BidirectionalStream {
                     return;
                 }
             }
-            this.f23208f = cronetBidirectionalStream;
-            this.f23207e = z;
+            this.f58928f = cronetBidirectionalStream;
+            this.f58927e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f23208f.f23204g) {
-                    if (this.f23208f.x()) {
+                synchronized (this.f58928f.f58923g) {
+                    if (this.f58928f.x()) {
                         return;
                     }
-                    this.f23208f.k = this.f23207e;
-                    this.f23208f.m = State.WAITING_FOR_READ;
-                    if (!CronetBidirectionalStream.s(this.f23208f.f23202e) && this.f23208f.k) {
-                        this.f23208f.n = State.WRITING_DONE;
+                    this.f58928f.k = this.f58927e;
+                    this.f58928f.m = State.WAITING_FOR_READ;
+                    if (!CronetBidirectionalStream.s(this.f58928f.f58921e) && this.f58928f.k) {
+                        this.f58928f.n = State.WRITING_DONE;
                     } else {
-                        this.f23208f.n = State.WAITING_FOR_FLUSH;
+                        this.f58928f.n = State.WAITING_FOR_FLUSH;
                     }
                     try {
-                        this.f23208f.f23200c.f(this.f23208f);
+                        this.f58928f.f58919c.f(this.f58928f);
                     } catch (Exception e2) {
-                        this.f23208f.z(e2);
+                        this.f58928f.z(e2);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CronetBidirectionalStream f23209e;
+        public final /* synthetic */ CronetBidirectionalStream f58929e;
 
         public b(CronetBidirectionalStream cronetBidirectionalStream) {
             Interceptable interceptable = $ic;
@@ -227,38 +229,38 @@ public class CronetBidirectionalStream extends BidirectionalStream {
                     return;
                 }
             }
-            this.f23209e = cronetBidirectionalStream;
+            this.f58929e = cronetBidirectionalStream;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f23209e.f23204g) {
-                    if (this.f23209e.x()) {
+                synchronized (this.f58929e.f58923g) {
+                    if (this.f58929e.x()) {
                         return;
                     }
-                    this.f23209e.m = State.WAITING_FOR_READ;
+                    this.f58929e.m = State.WAITING_FOR_READ;
                     try {
-                        this.f23209e.f23200c.d(this.f23209e, this.f23209e.o);
+                        this.f58929e.f58919c.d(this.f58929e, this.f58929e.o);
                     } catch (Exception e2) {
-                        this.f23209e.z(e2);
+                        this.f58929e.z(e2);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UrlResponseInfo.HeaderBlock f23210e;
+        public final /* synthetic */ UrlResponseInfo.HeaderBlock f58930e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CronetBidirectionalStream f23211f;
+        public final /* synthetic */ CronetBidirectionalStream f58931f;
 
         public c(CronetBidirectionalStream cronetBidirectionalStream, UrlResponseInfo.HeaderBlock headerBlock) {
             Interceptable interceptable = $ic;
@@ -275,35 +277,35 @@ public class CronetBidirectionalStream extends BidirectionalStream {
                     return;
                 }
             }
-            this.f23211f = cronetBidirectionalStream;
-            this.f23210e = headerBlock;
+            this.f58931f = cronetBidirectionalStream;
+            this.f58930e = headerBlock;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f23211f.f23204g) {
-                    if (this.f23211f.x()) {
+                synchronized (this.f58931f.f58923g) {
+                    if (this.f58931f.x()) {
                         return;
                     }
                     try {
-                        this.f23211f.f23200c.e(this.f23211f, this.f23211f.o, this.f23210e);
+                        this.f58931f.f58919c.e(this.f58931f, this.f58931f.o, this.f58930e);
                     } catch (Exception e2) {
-                        this.f23211f.z(e2);
+                        this.f58931f.z(e2);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CronetBidirectionalStream f23212e;
+        public final /* synthetic */ CronetBidirectionalStream f58932e;
 
         public d(CronetBidirectionalStream cronetBidirectionalStream) {
             Interceptable interceptable = $ic;
@@ -320,7 +322,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
                     return;
                 }
             }
-            this.f23212e = cronetBidirectionalStream;
+            this.f58932e = cronetBidirectionalStream;
         }
 
         @Override // java.lang.Runnable
@@ -328,24 +330,24 @@ public class CronetBidirectionalStream extends BidirectionalStream {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f23212e.f23200c.a(this.f23212e, this.f23212e.o);
+                    this.f58932e.f58919c.a(this.f58932e, this.f58932e.o);
                 } catch (Exception e2) {
-                    d.a.r0.a.a.c("ChromiumNetwork", "Exception in onCanceled method", e2);
+                    c.a.q0.a.a.c("ChromiumNetwork", "Exception in onCanceled method", e2);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TurbonetException f23213e;
+        public final /* synthetic */ TurbonetException f58933e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CronetBidirectionalStream f23214f;
+        public final /* synthetic */ CronetBidirectionalStream f58934f;
 
         public e(CronetBidirectionalStream cronetBidirectionalStream, TurbonetException turbonetException) {
             Interceptable interceptable = $ic;
@@ -362,32 +364,32 @@ public class CronetBidirectionalStream extends BidirectionalStream {
                     return;
                 }
             }
-            this.f23214f = cronetBidirectionalStream;
-            this.f23213e = turbonetException;
+            this.f58934f = cronetBidirectionalStream;
+            this.f58933e = turbonetException;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f23214f.u(this.f23213e);
+                this.f58934f.u(this.f58933e);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public final class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public ByteBuffer f23215e;
+        public ByteBuffer f58935e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f23216f;
+        public boolean f58936f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CronetBidirectionalStream f23217g;
+        public final /* synthetic */ CronetBidirectionalStream f58937g;
 
         public f(CronetBidirectionalStream cronetBidirectionalStream) {
             Interceptable interceptable = $ic;
@@ -404,7 +406,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
                     return;
                 }
             }
-            this.f23217g = cronetBidirectionalStream;
+            this.f58937g = cronetBidirectionalStream;
         }
 
         @Override // java.lang.Runnable
@@ -412,28 +414,28 @@ public class CronetBidirectionalStream extends BidirectionalStream {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    ByteBuffer byteBuffer = this.f23215e;
-                    this.f23215e = null;
-                    synchronized (this.f23217g.f23204g) {
-                        if (this.f23217g.x()) {
+                    ByteBuffer byteBuffer = this.f58935e;
+                    this.f58935e = null;
+                    synchronized (this.f58937g.f58923g) {
+                        if (this.f58937g.x()) {
                             return;
                         }
                         boolean z = false;
-                        if (this.f23216f) {
-                            this.f23217g.m = State.READING_DONE;
-                            if (this.f23217g.n == State.WRITING_DONE) {
+                        if (this.f58936f) {
+                            this.f58937g.m = State.READING_DONE;
+                            if (this.f58937g.n == State.WRITING_DONE) {
                                 z = true;
                             }
                         } else {
-                            this.f23217g.m = State.WAITING_FOR_READ;
+                            this.f58937g.m = State.WAITING_FOR_READ;
                         }
-                        this.f23217g.f23200c.c(this.f23217g, this.f23217g.o, byteBuffer, this.f23216f);
+                        this.f58937g.f58919c.c(this.f58937g, this.f58937g.o, byteBuffer, this.f58936f);
                         if (z) {
-                            this.f23217g.y();
+                            this.f58937g.y();
                         }
                     }
                 } catch (Exception e2) {
-                    this.f23217g.z(e2);
+                    this.f58937g.z(e2);
                 }
             }
         }
@@ -443,19 +445,19 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public final class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public ByteBuffer f23218e;
+        public ByteBuffer f58938e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f23219f;
+        public final boolean f58939f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CronetBidirectionalStream f23220g;
+        public final /* synthetic */ CronetBidirectionalStream f58940g;
 
         public g(CronetBidirectionalStream cronetBidirectionalStream, ByteBuffer byteBuffer, boolean z) {
             Interceptable interceptable = $ic;
@@ -472,9 +474,9 @@ public class CronetBidirectionalStream extends BidirectionalStream {
                     return;
                 }
             }
-            this.f23220g = cronetBidirectionalStream;
-            this.f23218e = byteBuffer;
-            this.f23219f = z;
+            this.f58940g = cronetBidirectionalStream;
+            this.f58938e = byteBuffer;
+            this.f58939f = z;
         }
 
         @Override // java.lang.Runnable
@@ -482,26 +484,26 @@ public class CronetBidirectionalStream extends BidirectionalStream {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    ByteBuffer byteBuffer = this.f23218e;
-                    this.f23218e = null;
-                    synchronized (this.f23220g.f23204g) {
-                        if (this.f23220g.x()) {
+                    ByteBuffer byteBuffer = this.f58938e;
+                    this.f58938e = null;
+                    synchronized (this.f58940g.f58923g) {
+                        if (this.f58940g.x()) {
                             return;
                         }
                         boolean z = false;
-                        if (this.f23219f) {
-                            this.f23220g.n = State.WRITING_DONE;
-                            if (this.f23220g.m == State.READING_DONE) {
+                        if (this.f58939f) {
+                            this.f58940g.n = State.WRITING_DONE;
+                            if (this.f58940g.m == State.READING_DONE) {
                                 z = true;
                             }
                         }
-                        this.f23220g.f23200c.h(this.f23220g, this.f23220g.o, byteBuffer, this.f23219f);
+                        this.f58940g.f58919c.h(this.f58940g, this.f58940g.o, byteBuffer, this.f58939f);
                         if (z) {
-                            this.f23220g.y();
+                            this.f58940g.y();
                         }
                     }
                 } catch (Exception e2) {
-                    this.f23220g.z(e2);
+                    this.f58940g.z(e2);
                 }
             }
         }
@@ -522,22 +524,22 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         }
     }
 
-    private native long nativeCreateBidirectionalStream(long j, boolean z);
+    private native long nativeCreateBidirectionalStream(long j2, boolean z);
 
     @NativeClassQualifiedName
-    private native void nativeDestroy(long j, boolean z);
+    private native void nativeDestroy(long j2, boolean z);
 
     @NativeClassQualifiedName
-    private native boolean nativeReadData(long j, ByteBuffer byteBuffer, int i2, int i3);
+    private native boolean nativeReadData(long j2, ByteBuffer byteBuffer, int i2, int i3);
 
     @NativeClassQualifiedName
-    private native void nativeSendRequestHeaders(long j);
+    private native void nativeSendRequestHeaders(long j2);
 
     @NativeClassQualifiedName
-    private native int nativeStart(long j, String str, int i2, String str2, String[] strArr, boolean z);
+    private native int nativeStart(long j2, String str, int i2, String str2, String[] strArr, boolean z);
 
     @NativeClassQualifiedName
-    private native boolean nativeWritevData(long j, ByteBuffer[] byteBufferArr, int[] iArr, int[] iArr2, boolean z);
+    private native boolean nativeWritevData(long j2, ByteBuffer[] byteBufferArr, int[] iArr, int[] iArr2, boolean z);
 
     @CalledByNative
     private void onCanceled() {
@@ -548,12 +550,12 @@ public class CronetBidirectionalStream extends BidirectionalStream {
     }
 
     @CalledByNative
-    private void onError(int i2, int i3, int i4, String str, long j) {
+    private void onError(int i2, int i3, int i4, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65557, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65557, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Long.valueOf(j2)}) == null) {
             UrlResponseInfo urlResponseInfo = this.o;
             if (urlResponseInfo != null) {
-                urlResponseInfo.j(j);
+                urlResponseInfo.j(j2);
             }
             if (i2 == 11) {
                 t(new QuicException("Exception in BidirectionalStream: " + str, i3, i4));
@@ -564,18 +566,18 @@ public class CronetBidirectionalStream extends BidirectionalStream {
     }
 
     @CalledByNative
-    private void onReadCompleted(ByteBuffer byteBuffer, int i2, int i3, int i4, long j) {
+    private void onReadCompleted(ByteBuffer byteBuffer, int i2, int i3, int i4, long j2) {
         int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65558, this, new Object[]{byteBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j)}) == null) {
-            this.o.j(j);
+        if (interceptable == null || interceptable.invokeCommon(65558, this, new Object[]{byteBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
+            this.o.j(j2);
             if (byteBuffer.position() != i3 || byteBuffer.limit() != i4) {
                 t(new TurbonetException("ByteBuffer modified externally during read", null));
             } else if (i2 >= 0 && (i5 = i3 + i2) <= i4) {
                 byteBuffer.position(i5);
                 f fVar = this.p;
-                fVar.f23215e = byteBuffer;
-                fVar.f23216f = i2 == 0;
+                fVar.f58935e = byteBuffer;
+                fVar.f58936f = i2 == 0;
                 A(this.p);
             } else {
                 t(new TurbonetException("Invalid number of bytes read", null));
@@ -584,11 +586,11 @@ public class CronetBidirectionalStream extends BidirectionalStream {
     }
 
     @CalledByNative
-    private void onResponseHeadersReceived(int i2, String str, String[] strArr, long j) {
+    private void onResponseHeadersReceived(int i2, String str, String[] strArr, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65559, this, new Object[]{Integer.valueOf(i2), str, strArr, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65559, this, new Object[]{Integer.valueOf(i2), str, strArr, Long.valueOf(j2)}) == null) {
             try {
-                this.o = B(i2, str, strArr, j);
+                this.o = B(i2, str, strArr, j2);
                 A(new b(this));
             } catch (Exception unused) {
                 t(new TurbonetException("Cannot prepare ResponseInfo", null));
@@ -616,9 +618,9 @@ public class CronetBidirectionalStream extends BidirectionalStream {
     private void onWritevCompleted(ByteBuffer[] byteBufferArr, int[] iArr, int[] iArr2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65562, this, new Object[]{byteBufferArr, iArr, iArr2, Boolean.valueOf(z)}) == null) {
-            synchronized (this.f23204g) {
+            synchronized (this.f58923g) {
                 this.n = State.WAITING_FOR_FLUSH;
-                if (!this.f23206i.isEmpty()) {
+                if (!this.f58925i.isEmpty()) {
                     C();
                 }
             }
@@ -662,10 +664,10 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
             try {
-                this.f23199b.execute(runnable);
+                this.f58918b.execute(runnable);
             } catch (RejectedExecutionException e2) {
-                d.a.r0.a.a.c("ChromiumNetwork", "Exception posting task to executor", e2);
-                synchronized (this.f23204g) {
+                c.a.q0.a.a.c("ChromiumNetwork", "Exception posting task to executor", e2);
+                synchronized (this.f58923g) {
                     State state = State.ERROR;
                     this.n = state;
                     this.m = state;
@@ -675,12 +677,12 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         }
     }
 
-    public final UrlResponseInfo B(int i2, String str, String[] strArr, long j) {
+    public final UrlResponseInfo B(int i2, String str, String[] strArr, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, strArr, Long.valueOf(j)})) == null) {
-            UrlResponseInfo urlResponseInfo = new UrlResponseInfo(Arrays.asList(this.f23201d), i2, "", w(strArr), false, str, null);
-            urlResponseInfo.j(j);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, strArr, Long.valueOf(j2)})) == null) {
+            UrlResponseInfo urlResponseInfo = new UrlResponseInfo(Arrays.asList(this.f58920d), i2, "", w(strArr), false, str, null);
+            urlResponseInfo.j(j2);
             return urlResponseInfo;
         }
         return (UrlResponseInfo) invokeCommon.objValue;
@@ -689,18 +691,18 @@ public class CronetBidirectionalStream extends BidirectionalStream {
     public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int size = this.f23206i.size();
+            int size = this.f58925i.size();
             ByteBuffer[] byteBufferArr = new ByteBuffer[size];
             int[] iArr = new int[size];
             int[] iArr2 = new int[size];
             for (int i2 = 0; i2 < size; i2++) {
-                ByteBuffer poll = this.f23206i.poll();
+                ByteBuffer poll = this.f58925i.poll();
                 byteBufferArr[i2] = poll;
                 iArr[i2] = poll.position();
                 iArr2[i2] = poll.limit();
             }
             this.n = State.WRITING;
-            if (nativeWritevData(this.l, byteBufferArr, iArr, iArr2, this.j && this.f23205h.isEmpty())) {
+            if (nativeWritevData(this.l, byteBufferArr, iArr, iArr2, this.f58926j && this.f58924h.isEmpty())) {
                 return;
             }
             this.n = State.WAITING_FOR_FLUSH;
@@ -712,9 +714,9 @@ public class CronetBidirectionalStream extends BidirectionalStream {
     public void a(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) {
-            synchronized (this.f23204g) {
-                d.a.r0.b.b.b(byteBuffer);
-                d.a.r0.b.b.a(byteBuffer);
+            synchronized (this.f58923g) {
+                c.a.q0.b.b.b(byteBuffer);
+                c.a.q0.b.b.a(byteBuffer);
                 if (this.m == State.WAITING_FOR_READ) {
                     if (x()) {
                         return;
@@ -738,20 +740,20 @@ public class CronetBidirectionalStream extends BidirectionalStream {
     public void b(ByteBuffer byteBuffer, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048580, this, byteBuffer, z) == null) {
-            synchronized (this.f23204g) {
-                d.a.r0.b.b.a(byteBuffer);
+            synchronized (this.f58923g) {
+                c.a.q0.b.b.a(byteBuffer);
                 if (!byteBuffer.hasRemaining() && !z) {
                     throw new IllegalArgumentException("Empty buffer before end of stream.");
                 }
-                if (!this.j) {
+                if (!this.f58926j) {
                     if (x()) {
                         return;
                     }
-                    this.f23205h.add(byteBuffer);
+                    this.f58924h.add(byteBuffer);
                     if (z) {
-                        this.j = true;
+                        this.f58926j = true;
                     }
-                    if (!this.f23203f) {
+                    if (!this.f58922f) {
                         v();
                     }
                     return;
@@ -765,14 +767,14 @@ public class CronetBidirectionalStream extends BidirectionalStream {
     public final void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            d.a.r0.a.a.h("ChromiumNetwork", "destroyNativeStreamLocked " + toString(), new Object[0]);
-            long j = this.l;
-            if (j == 0) {
+            c.a.q0.a.a.h("ChromiumNetwork", "destroyNativeStreamLocked " + toString(), new Object[0]);
+            long j2 = this.l;
+            if (j2 == 0) {
                 return;
             }
-            nativeDestroy(j, z);
+            nativeDestroy(j2, z);
             this.l = 0L;
-            this.f23198a.s();
+            this.f58917a.s();
             Runnable runnable = this.q;
             if (runnable != null) {
                 runnable.run();
@@ -790,7 +792,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
     public final void u(TurbonetException turbonetException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, turbonetException) == null) {
-            synchronized (this.f23204g) {
+            synchronized (this.f58923g) {
                 if (x()) {
                     return;
                 }
@@ -799,9 +801,9 @@ public class CronetBidirectionalStream extends BidirectionalStream {
                 this.m = state;
                 r(false);
                 try {
-                    this.f23200c.b(this, this.o, turbonetException);
+                    this.f58919c.b(this, this.o, turbonetException);
                 } catch (Exception e2) {
-                    d.a.r0.a.a.c("ChromiumNetwork", "Exception notifying of failed request", e2);
+                    c.a.q0.a.a.c("ChromiumNetwork", "Exception notifying of failed request", e2);
                 }
             }
         }
@@ -814,21 +816,21 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         }
         State state = this.n;
         if (state == State.WAITING_FOR_FLUSH || state == State.WRITING) {
-            if (this.f23205h.isEmpty() && this.f23206i.isEmpty()) {
+            if (this.f58924h.isEmpty() && this.f58925i.isEmpty()) {
                 if (this.k) {
                     return;
                 }
                 this.k = true;
                 nativeSendRequestHeaders(this.l);
-                if (s(this.f23202e)) {
+                if (s(this.f58921e)) {
                     return;
                 }
                 this.n = State.WRITING_DONE;
                 return;
             }
-            if (!this.f23205h.isEmpty()) {
-                this.f23206i.addAll(this.f23205h);
-                this.f23205h.clear();
+            if (!this.f58924h.isEmpty()) {
+                this.f58925i.addAll(this.f58924h);
+                this.f58924h.clear();
             }
             if (this.n == State.WRITING) {
                 return;
@@ -847,7 +849,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (this.f23204g) {
+            synchronized (this.f58923g) {
                 if (x()) {
                     return;
                 }
@@ -857,9 +859,9 @@ public class CronetBidirectionalStream extends BidirectionalStream {
                     this.m = state;
                     r(false);
                     try {
-                        this.f23200c.g(this, this.o);
+                        this.f58919c.g(this, this.o);
                     } catch (Exception e2) {
-                        d.a.r0.a.a.c("ChromiumNetwork", "Exception in onSucceeded method", e2);
+                        c.a.q0.a.a.c("ChromiumNetwork", "Exception in onSucceeded method", e2);
                     }
                 }
             }
@@ -870,7 +872,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, exc) == null) {
             TurbonetException turbonetException = new TurbonetException("CalledByNative method has thrown an exception", exc);
-            d.a.r0.a.a.c("ChromiumNetwork", "Exception in CalledByNative method", exc);
+            c.a.q0.a.a.c("ChromiumNetwork", "Exception in CalledByNative method", exc);
             u(turbonetException);
         }
     }

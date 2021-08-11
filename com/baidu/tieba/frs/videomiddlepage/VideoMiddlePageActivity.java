@@ -8,6 +8,10 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentManager;
+import c.a.e.e.m.b;
+import c.a.e.e.p.k;
+import c.a.o0.m0.d;
+import c.a.p0.u3.c;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,12 +31,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.m.b;
-import d.a.d.e.p.k;
-import d.a.p0.m0.d;
-import d.a.q0.t3.c;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class VideoMiddlePageActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         }
         VideoMiddlePageFragment videoMiddlePageFragment = (VideoMiddlePageFragment) supportFragmentManager.findFragmentByTag(VideoMiddlePageFragment.class.getCanonicalName());
         if (videoMiddlePageFragment == null) {
-            videoMiddlePageFragment = VideoMiddlePageFragment.V0(this.mFrom, this.mId);
+            videoMiddlePageFragment = VideoMiddlePageFragment.getInstance(this.mFrom, this.mId);
             supportFragmentManager.beginTransaction().add(R.id.video_middle_page_container, videoMiddlePageFragment, VideoMiddlePageFragment.class.getCanonicalName()).commitAllowingStateLoss();
         }
         this.mFragment = videoMiddlePageFragment;
@@ -124,7 +124,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.p0.m0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.o0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -161,7 +161,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
                 } else if ("homepage".equals(this.mFrom)) {
                     arrayList.add("a002");
                 }
-                pageStayDurationItem.u(arrayList);
+                pageStayDurationItem.v(arrayList);
                 pageStayDurationItem.l = "0";
                 pageStayDurationItem.p = TextUtils.isEmpty(this.mNid) ? "0" : "1";
             }
@@ -208,7 +208,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !d.a.d.a.b.f().h("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.e.a.b.f().h("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {
@@ -240,7 +240,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i2, keyEvent)) == null) {
             if (keyEvent != null && (videoMiddlePageFragment = this.mFragment) != null) {
-                if (videoMiddlePageFragment.Z0(i2)) {
+                if (videoMiddlePageFragment.onKeyDown(i2)) {
                     return true;
                 }
                 return super.onKeyDown(i2, keyEvent);
@@ -255,7 +255,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPause();
-            d.a.p0.a.d.y().E();
+            c.a.o0.a.d.y().E();
         }
     }
 
@@ -267,7 +267,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
             if (k.isEmpty(this.mId)) {
                 return;
             }
-            d.a.p0.a.d.y().P(d.a.p0.a.c.Z, b.f(this.mId, 0L));
+            c.a.o0.a.d.y().P(c.a.o0.a.c.Z, b.f(this.mId, 0L));
         }
     }
 

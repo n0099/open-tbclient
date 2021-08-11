@@ -1,7 +1,7 @@
 package com.bytedance.embedapplog;
 
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface IDataObserver {
     void onIdLoaded(String str, String str2, String str3);
 

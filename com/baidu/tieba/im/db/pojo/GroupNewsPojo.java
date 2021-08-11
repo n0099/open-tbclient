@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GroupNewsPojo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int hide = 3;
@@ -198,10 +198,10 @@ public class GroupNewsPojo implements Serializable {
         }
     }
 
-    public void setTime(long j) {
+    public void setTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            this.time = j;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
+            this.time = j2;
         }
     }
 

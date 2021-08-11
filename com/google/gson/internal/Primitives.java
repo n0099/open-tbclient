@@ -13,7 +13,7 @@ import java.lang.reflect.Type;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class Primitives {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<Class<?>, Class<?>> PRIMITIVE_TO_WRAPPER_TYPE;

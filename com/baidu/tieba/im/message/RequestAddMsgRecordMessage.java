@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.message;
 
+import c.a.o0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -9,12 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.b1.w;
 import java.util.List;
 import tbclient.AddMsgRecord.AddMsgRecordReqIdl;
 import tbclient.AddMsgRecord.DataReq;
 import tbclient.AddMsgRecord.MsgRecord;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RequestAddMsgRecordMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CLICK = 3;

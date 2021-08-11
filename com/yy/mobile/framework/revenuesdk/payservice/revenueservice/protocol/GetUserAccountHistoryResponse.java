@@ -10,13 +10,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IBaseJsonResponse;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.RevenueRecord;
-import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class GetUserAccountHistoryResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +43,7 @@ public class GetUserAccountHistoryResponse implements IBaseJsonResponse {
                 return;
             }
         }
-        this.cmd = RevenueServerConst.GetUserAccountHistoryResponse;
+        this.cmd = 2046;
         this.userAccountHistoryInfos = new ArrayList();
         parserResponse(str);
     }

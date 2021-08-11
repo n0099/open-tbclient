@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class l extends u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39305a;
+    public int f76137a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f39306b;
+    public int f76138b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l() {
@@ -33,8 +33,8 @@ public final class l extends u {
                 return;
             }
         }
-        this.f39305a = -1;
-        this.f39306b = -1;
+        this.f76137a = -1;
+        this.f76138b = -1;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
@@ -42,21 +42,21 @@ public final class l extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.f39305a);
-            aVar.a("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.f39306b);
+            aVar.a("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.f76137a);
+            aVar.a("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.f76138b);
         }
     }
 
     public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39305a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76137a : invokeV.intValue;
     }
 
     public final int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39306b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f76138b : invokeV.intValue;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
@@ -71,8 +71,8 @@ public final class l extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
-            this.f39305a = aVar.b("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.f39305a);
-            this.f39306b = aVar.b("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.f39306b);
+            this.f76137a = aVar.b("OnChangePushStatus.EXTRA_REQ_SERVICE_STATUS", this.f76137a);
+            this.f76138b = aVar.b("OnChangePushStatus.EXTRA_REQ_RECEIVER_STATUS", this.f76138b);
         }
     }
 }

@@ -1,0 +1,221 @@
+package com.baidu.live.business.model.data;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class LiveRoomEntity implements Parcelable {
+    public static /* synthetic */ Interceptable $ic;
+    public static final Parcelable.Creator<LiveRoomEntity> CREATOR;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int audienceCount;
+    public String cmd;
+    public String cover;
+    public String feedId;
+    public String grExt;
+    public LiveHostInfo hostInfo;
+    public LeftLableInfo leftLabel;
+    public int liveStatus;
+    public boolean needLogShow;
+    public String nid;
+    public RightLableInfo rightLabel;
+    public String roomId;
+    public int showTpl;
+    public LiveStatInfo statInfo;
+    public int templateId;
+    public String title;
+
+    /* loaded from: classes5.dex */
+    public static class a implements Parcelable.Creator<LiveRoomEntity> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public LiveRoomEntity createFromParcel(Parcel parcel) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new LiveRoomEntity(parcel) : (LiveRoomEntity) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: b */
+        public LiveRoomEntity[] newArray(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new LiveRoomEntity[i2] : (LiveRoomEntity[]) invokeI.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-405535092, "Lcom/baidu/live/business/model/data/LiveRoomEntity;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-405535092, "Lcom/baidu/live/business/model/data/LiveRoomEntity;");
+                return;
+            }
+        }
+        CREATOR = new a();
+    }
+
+    public LiveRoomEntity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.needLogShow = true;
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        this.nid = jSONObject.optString("nid");
+        this.feedId = jSONObject.optString("feed_id");
+        this.roomId = jSONObject.optString("room_id");
+        this.title = jSONObject.optString("title");
+        this.cover = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
+        this.liveStatus = jSONObject.optInt(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS);
+        this.audienceCount = jSONObject.optInt("audience_count");
+        this.cmd = jSONObject.optString("cmd");
+        this.showTpl = jSONObject.optInt("show_tpl");
+        this.templateId = jSONObject.optInt("template_id");
+        JSONObject optJSONObject = jSONObject.optJSONObject("host");
+        if (optJSONObject != null) {
+            LiveHostInfo liveHostInfo = new LiveHostInfo();
+            this.hostInfo = liveHostInfo;
+            liveHostInfo.parserJson(optJSONObject);
+        }
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("left_label");
+        if (optJSONObject2 != null) {
+            LeftLableInfo leftLableInfo = new LeftLableInfo();
+            this.leftLabel = leftLableInfo;
+            leftLableInfo.parserJson(optJSONObject2);
+        }
+        JSONObject optJSONObject3 = jSONObject.optJSONObject("right_label");
+        if (optJSONObject3 != null) {
+            RightLableInfo rightLableInfo = new RightLableInfo();
+            this.rightLabel = rightLableInfo;
+            rightLableInfo.parserJson(optJSONObject3);
+        }
+        JSONObject optJSONObject4 = jSONObject.optJSONObject("stat");
+        if (optJSONObject4 != null) {
+            LiveStatInfo liveStatInfo = new LiveStatInfo();
+            this.statInfo = liveStatInfo;
+            liveStatInfo.parserJson(optJSONObject4);
+        }
+        JSONObject optJSONObject5 = jSONObject.optJSONObject("gr_ext");
+        if (optJSONObject5 != null) {
+            this.grExt = optJSONObject5.toString();
+        } else {
+            this.grExt = "";
+        }
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i2) == null) {
+            parcel.writeString(this.nid);
+            parcel.writeString(this.feedId);
+            parcel.writeString(this.roomId);
+            parcel.writeString(this.title);
+            parcel.writeString(this.cover);
+            parcel.writeInt(this.liveStatus);
+            parcel.writeInt(this.audienceCount);
+            parcel.writeString(this.cmd);
+            parcel.writeInt(this.showTpl);
+            parcel.writeInt(this.templateId);
+            parcel.writeParcelable(this.hostInfo, i2);
+            parcel.writeParcelable(this.leftLabel, i2);
+            parcel.writeParcelable(this.rightLabel, i2);
+            parcel.writeParcelable(this.statInfo, i2);
+            parcel.writeByte(this.needLogShow ? (byte) 1 : (byte) 0);
+            parcel.writeString(this.grExt);
+        }
+    }
+
+    public LiveRoomEntity(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.needLogShow = true;
+        this.nid = parcel.readString();
+        this.feedId = parcel.readString();
+        this.roomId = parcel.readString();
+        this.title = parcel.readString();
+        this.cover = parcel.readString();
+        this.liveStatus = parcel.readInt();
+        this.audienceCount = parcel.readInt();
+        this.cmd = parcel.readString();
+        this.showTpl = parcel.readInt();
+        this.templateId = parcel.readInt();
+        this.hostInfo = (LiveHostInfo) parcel.readParcelable(LiveHostInfo.class.getClassLoader());
+        this.leftLabel = (LeftLableInfo) parcel.readParcelable(LeftLableInfo.class.getClassLoader());
+        this.rightLabel = (RightLableInfo) parcel.readParcelable(RightLableInfo.class.getClassLoader());
+        this.statInfo = (LiveStatInfo) parcel.readParcelable(LiveStatInfo.class.getClassLoader());
+        this.needLogShow = parcel.readByte() == 1;
+        this.grExt = parcel.readString();
+    }
+}

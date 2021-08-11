@@ -1,6 +1,5 @@
 package com.baidu.searchbox.logsystem.util;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;
@@ -18,7 +17,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class CpuInfoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CPU_INFO_DIR = "/sys/devices/system/cpu/";
@@ -122,10 +121,8 @@ public class CpuInfoUtils {
                 try {
                     File[] listFiles = new File("/sys/devices/system/cpu/").listFiles(fileFilter);
                     sCoreNum = listFiles == null ? -1 : listFiles.length;
-                } catch (Exception e2) {
-                    if (DEBUG) {
-                        Log.e("CpuInfoUtils", "getNumCores exception occurred, e= ", e2);
-                    }
+                } catch (Exception unused) {
+                    boolean z = DEBUG;
                     sCoreNum = -1;
                 }
             }
@@ -134,8 +131,8 @@ public class CpuInfoUtils {
         return invokeV.intValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0066 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x005f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x0054 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x005b A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -144,25 +141,15 @@ public class CpuInfoUtils {
         FileInputStream fileInputStream;
         Throwable th;
         BufferedReader bufferedReader;
-        Exception e2;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) != null) {
             return invokeL.floatValue;
         }
+        FileInputStream fileInputStream2 = null;
         try {
             fileInputStream = new FileInputStream(new File(str));
-        } catch (Exception e3) {
-            fileInputStream = null;
-            e2 = e3;
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            fileInputStream = null;
-            th = th2;
-            bufferedReader = null;
-        }
-        try {
-            bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
             try {
+                bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
                 try {
                     float parseLong = (((float) Long.parseLong(bufferedReader.readLine())) / 1000.0f) / 1000.0f;
                     try {
@@ -174,52 +161,60 @@ public class CpuInfoUtils {
                     } catch (IOException unused2) {
                     }
                     return parseLong;
-                } catch (Exception e4) {
-                    e2 = e4;
-                    if (DEBUG) {
-                        Log.e("CpuInfoUtils", "getCpuFrequency Exception occurred, e=", e2);
-                    }
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException unused3) {
+                } catch (Exception unused3) {
+                    fileInputStream2 = fileInputStream;
+                    try {
+                        boolean z = DEBUG;
+                        if (fileInputStream2 != null) {
+                            try {
+                                fileInputStream2.close();
+                            } catch (IOException unused4) {
+                            }
                         }
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (IOException unused5) {
+                            }
+                        }
+                        return -1.0f;
+                    } catch (Throwable th2) {
+                        fileInputStream = fileInputStream2;
+                        th = th2;
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException unused6) {
+                            }
+                        }
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (IOException unused7) {
+                            }
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th3) {
+                    th = th3;
+                    if (fileInputStream != null) {
                     }
                     if (bufferedReader != null) {
-                        try {
-                            bufferedReader.close();
-                        } catch (IOException unused4) {
-                        }
                     }
-                    return -1.0f;
+                    throw th;
                 }
-            } catch (Throwable th3) {
-                th = th3;
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException unused5) {
-                    }
-                }
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException unused6) {
-                    }
-                }
-                throw th;
+            } catch (Exception unused8) {
+                bufferedReader = null;
+            } catch (Throwable th4) {
+                th = th4;
+                bufferedReader = null;
             }
-        } catch (Exception e5) {
-            e2 = e5;
+        } catch (Exception unused9) {
             bufferedReader = null;
-        } catch (Throwable th4) {
-            th = th4;
+        } catch (Throwable th5) {
+            fileInputStream = null;
+            th = th5;
             bufferedReader = null;
-            if (fileInputStream != null) {
-            }
-            if (bufferedReader != null) {
-            }
-            throw th;
         }
     }
 }

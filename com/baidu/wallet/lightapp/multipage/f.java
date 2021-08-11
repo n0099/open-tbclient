@@ -1,8 +1,6 @@
 package com.baidu.wallet.lightapp.multipage;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,32 +8,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
 import com.baidu.wallet.core.utils.LogUtil;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Vector;
-/* loaded from: classes5.dex */
-public class f {
+import com.baidu.wallet.lightapp.multipage.i;
+/* loaded from: classes8.dex */
+public class f implements i.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Collection<Collection<c>> f25913a;
+    public boolean f61821a;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.f$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static f f25914a;
+        public static f f61822a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -51,7 +46,7 @@ public class f {
                     return;
                 }
             }
-            f25914a = new f(null);
+            f61822a = new f(null);
         }
     }
 
@@ -62,27 +57,7 @@ public class f {
     public static f a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f25914a : (f) invokeV.objValue;
-    }
-
-    public void b(Collection<c> collection) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, collection) == null) || collection == null) {
-            return;
-        }
-        this.f25913a.remove(collection);
-    }
-
-    public float c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Runtime runtime = Runtime.getRuntime();
-            float maxMemory = (float) (((runtime.maxMemory() - runtime.totalMemory()) + runtime.freeMemory()) / 1048576);
-            LogUtil.d("LangbridgeRamMonitor", "FreeRam:" + maxMemory);
-            return maxMemory;
-        }
-        return invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f61822a : (f) invokeV.objValue;
     }
 
     public f() {
@@ -98,53 +73,23 @@ public class f {
                 return;
             }
         }
-        this.f25913a = new Vector();
+        this.f61821a = true;
     }
 
-    public void a(Collection<c> collection) {
+    @Override // com.baidu.wallet.lightapp.multipage.i.b
+    public LangbridgeSettings a(Context context, LangbridgeSettings langbridgeSettings) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, collection) == null) || collection == null) {
-            return;
-        }
-        this.f25913a.add(collection);
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = 0;
-            for (Collection<c> collection : this.f25913a) {
-                i2 += collection.size();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, langbridgeSettings)) == null) {
+            if (this.f61821a) {
+                return langbridgeSettings;
             }
-            LogUtil.d("LangbridgeRamMonitor", "UsingCellCount:" + i2);
-            return i2;
+            LangbridgeSettings m46clone = langbridgeSettings.m46clone();
+            m46clone.MW_ON = false;
+            m46clone.MW_USE_OLD = true;
+            LogUtil.d("LangbridgeSettings", "");
+            return m46clone;
         }
-        return invokeV.intValue;
-    }
-
-    public boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            LangbridgeSettings a2 = h.a().a(context);
-            boolean z = a2.MW_LANG_CELL_LIMIT == -1 || b() < a2.MW_LANG_CELL_LIMIT;
-            boolean z2 = a2.MW_LANG_RAM_LIMIT == -1.0d || ((double) c()) > a2.MW_LANG_RAM_LIMIT;
-            boolean z3 = z && z2;
-            if (!z3) {
-                String[] strArr = new String[1];
-                StringBuilder sb = new StringBuilder();
-                sb.append(z ? "1" : "0");
-                sb.append(z2 ? "1" : "0");
-                strArr[0] = sb.toString();
-                DXMSdkSAUtils.onEventWithValues("#MW_LRM_NoNewCell", Arrays.asList(strArr));
-                StringBuilder sb2 = new StringBuilder();
-                sb2.append(z ? "1" : "0");
-                sb2.append(z2 ? "1" : "0");
-                PayStatisticsUtil.onEventWithValue("#MW_LRM_NoNewCell", sb2.toString());
-            }
-            return z3;
-        }
-        return invokeL.booleanValue;
+        return (LangbridgeSettings) invokeLL.objValue;
     }
 }

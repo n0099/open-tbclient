@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class eg implements ed {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,17 +46,17 @@ public class eg implements ed {
     private void b(Context context, dz dzVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, context, dzVar) == null) {
-            String m279a = dzVar.m279a();
+            String m282a = dzVar.m282a();
             String b2 = dzVar.b();
             String d2 = dzVar.d();
             int a2 = dzVar.a();
-            if (context == null || TextUtils.isEmpty(m279a) || TextUtils.isEmpty(b2) || TextUtils.isEmpty(d2)) {
+            if (context == null || TextUtils.isEmpty(m282a) || TextUtils.isEmpty(b2) || TextUtils.isEmpty(d2)) {
                 if (TextUtils.isEmpty(d2)) {
                     dw.a(context, "service", 1008, "argument error");
                 } else {
                     dw.a(context, d2, 1008, "argument error");
                 }
-            } else if (!com.xiaomi.push.service.g.a(context, m279a, b2)) {
+            } else if (!com.xiaomi.push.service.g.a(context, m282a, b2)) {
                 dw.a(context, d2, 1003, "B is not ready");
             } else {
                 dw.a(context, d2, 1002, "B is ready");
@@ -64,9 +64,9 @@ public class eg implements ed {
                 try {
                     Intent intent = new Intent();
                     intent.setAction(b2);
-                    intent.setPackage(m279a);
+                    intent.setPackage(m282a);
                     intent.putExtra("awake_info", dv.a(d2));
-                    if (a2 == 1 && !ea.m282a(context)) {
+                    if (a2 == 1 && !ea.m285a(context)) {
                         dw.a(context, d2, 1008, "A not in foreground");
                     } else if (context.startService(intent) == null) {
                         dw.a(context, d2, 1008, "A is fail to help B's service");

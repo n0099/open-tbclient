@@ -6,6 +6,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.k.e.g;
+import c.a.e.k.e.h;
+import c.a.e.k.e.n;
+import c.a.e.k.e.s;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,28 +19,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.k.e.g;
-import d.a.d.k.e.h;
-import d.a.d.k.e.n;
-import d.a.d.k.e.s;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class BdTypeListView extends BdListView implements s<BdTypeListView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TypeAdapter K;
-    public HashMap<BdUniqueId, d.a.d.k.e.a> L;
+    public HashMap<BdUniqueId, c.a.e.k.e.a> L;
     public HashMap<BdUniqueId, h> M;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdTypeListView f2412e;
+        public final /* synthetic */ BdTypeListView f36278e;
 
         public a(BdTypeListView bdTypeListView) {
             Interceptable interceptable = $ic;
@@ -53,27 +53,27 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                     return;
                 }
             }
-            this.f2412e = bdTypeListView;
+            this.f36278e = bdTypeListView;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             TypeAdapter typeAdapter;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (typeAdapter = this.f2412e.K) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (typeAdapter = this.f36278e.K) == null) {
                 return;
             }
-            typeAdapter.f(adapterView, view, i2, j);
+            typeAdapter.d(adapterView, view, i2, j2);
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class b implements AdapterView.OnItemLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdTypeListView f2413e;
+        public final /* synthetic */ BdTypeListView f36279e;
 
         public b(BdTypeListView bdTypeListView) {
             Interceptable interceptable = $ic;
@@ -90,17 +90,17 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                     return;
                 }
             }
-            this.f2413e = bdTypeListView;
+            this.f36279e = bdTypeListView;
         }
 
         @Override // android.widget.AdapterView.OnItemLongClickListener
-        public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j) {
+        public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
-                TypeAdapter typeAdapter = this.f2413e.K;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+                TypeAdapter typeAdapter = this.f36279e.K;
                 if (typeAdapter != null) {
-                    return typeAdapter.g(adapterView, view, i2, j);
+                    return typeAdapter.e(adapterView, view, i2, j2);
                 }
                 return false;
             }
@@ -127,18 +127,163 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
             }
         }
         this.K = null;
-        H();
+        x();
     }
 
-    public n G(int i2) {
+    @Override // c.a.e.k.e.s
+    public void addAdapters(List<c.a.e.k.e.a> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            for (c.a.e.k.e.a<n, TypeAdapter.ViewHolder> aVar : list) {
+                if (aVar != null) {
+                    BdUniqueId bdUniqueId = null;
+                    if (aVar.y() != null) {
+                        bdUniqueId = aVar.y();
+                        if (!this.M.containsKey(bdUniqueId)) {
+                            h hVar = new h(aVar.f2904e, bdUniqueId, aVar.f2908i);
+                            hVar.j0(aVar);
+                            this.K.a(hVar);
+                            this.M.put(bdUniqueId, hVar);
+                        }
+                    }
+                    if (aVar.w() != null) {
+                        bdUniqueId = aVar.w();
+                        if (!this.M.containsKey(bdUniqueId)) {
+                            h hVar2 = new h(aVar.f2904e, bdUniqueId, aVar.f2908i);
+                            hVar2.j0(aVar);
+                            this.K.a(hVar2);
+                            this.M.put(bdUniqueId, hVar2);
+                        }
+                    }
+                    if (aVar.x() != null) {
+                        bdUniqueId = aVar.x();
+                        if (!this.M.containsKey(bdUniqueId)) {
+                            h hVar3 = new h(aVar.f2904e, bdUniqueId, aVar.f2908i);
+                            hVar3.j0(aVar);
+                            this.K.a(hVar3);
+                            this.M.put(bdUniqueId, hVar3);
+                        }
+                    }
+                    if (aVar.v() != null) {
+                        bdUniqueId = aVar.v();
+                        if (!this.M.containsKey(bdUniqueId)) {
+                            h hVar4 = new h(aVar.f2904e, bdUniqueId, aVar.f2908i);
+                            hVar4.j0(aVar);
+                            this.K.a(hVar4);
+                            this.M.put(bdUniqueId, hVar4);
+                        }
+                    }
+                    if (bdUniqueId == null) {
+                        this.K.a(aVar);
+                    } else {
+                        this.L.put(aVar.f2907h, aVar);
+                    }
+                }
+            }
+            setAdapter((ListAdapter) this.K);
+        }
+    }
+
+    @Override // c.a.e.k.e.s
+    public List<n> getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.K.b() : (List) invokeV.objValue;
+    }
+
+    public n getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.K.getItem(i2) : (n) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.K.getItem(i2) : (n) invokeI.objValue;
     }
 
-    public final void H() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.widget.ListView.BdTypeListView' to match base method */
+    @Override // com.baidu.adp.widget.ListView.BdListView, c.a.e.k.e.p
+    /* renamed from: getListView */
+    public BdListView getListView2() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (BdTypeListView) invokeV.objValue;
+    }
+
+    @Override // c.a.e.k.e.s
+    public void setData(List<? extends n> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (n nVar : list) {
+                if (nVar != null) {
+                    if (this.L.containsKey(nVar.getType())) {
+                        c.a.e.k.e.a aVar = this.L.get(nVar.getType());
+                        if (aVar.y() != null) {
+                            g gVar = new g();
+                            gVar.k(aVar.y());
+                            if (nVar instanceof BaseCardInfo) {
+                                gVar.position = ((BaseCardInfo) nVar).position;
+                                gVar.setSupportType(BaseCardInfo.SupportType.TOP);
+                            }
+                            gVar.i(nVar);
+                            arrayList.add(gVar);
+                        }
+                        if (aVar.w() != null) {
+                            g gVar2 = new g();
+                            gVar2.k(aVar.w());
+                            if (nVar instanceof BaseCardInfo) {
+                                gVar2.position = ((BaseCardInfo) nVar).position;
+                                gVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                            }
+                            gVar2.i(nVar);
+                            arrayList.add(gVar2);
+                        }
+                        if (aVar.x() != null) {
+                            g gVar3 = new g();
+                            gVar3.k(aVar.x());
+                            if (nVar instanceof BaseCardInfo) {
+                                gVar3.position = ((BaseCardInfo) nVar).position;
+                                gVar3.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            }
+                            gVar3.i(nVar);
+                            arrayList.add(gVar3);
+                        }
+                        if (aVar.v() != null) {
+                            g gVar4 = new g();
+                            gVar4.k(aVar.v());
+                            if (nVar instanceof BaseCardInfo) {
+                                gVar4.position = ((BaseCardInfo) nVar).position;
+                                gVar4.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                            }
+                            gVar4.i(nVar);
+                            arrayList.add(gVar4);
+                        }
+                    } else {
+                        arrayList.add(nVar);
+                    }
+                }
+            }
+            this.K.f(arrayList);
+        }
+    }
+
+    @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AdapterView
+    @Deprecated
+    public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onItemClickListener) == null) {
+        }
+    }
+
+    @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AdapterView
+    @Deprecated
+    public void setOnItemLongClickListener(AdapterView.OnItemLongClickListener onItemLongClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onItemLongClickListener) == null) {
+        }
+    }
+
+    public final void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (this.K == null) {
                 this.K = new TypeAdapter();
             }
@@ -150,151 +295,6 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
             }
             super.setOnItemClickListener(new a(this));
             super.setOnItemLongClickListener(new b(this));
-        }
-    }
-
-    @Override // d.a.d.k.e.s
-    public void a(List<d.a.d.k.e.a> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            for (d.a.d.k.e.a<n, TypeAdapter.ViewHolder> aVar : list) {
-                if (aVar != null) {
-                    BdUniqueId bdUniqueId = null;
-                    if (aVar.y() != null) {
-                        bdUniqueId = aVar.y();
-                        if (!this.M.containsKey(bdUniqueId)) {
-                            h hVar = new h(aVar.f42341e, bdUniqueId, aVar.f42345i);
-                            hVar.g0(aVar);
-                            this.K.a(hVar);
-                            this.M.put(bdUniqueId, hVar);
-                        }
-                    }
-                    if (aVar.w() != null) {
-                        bdUniqueId = aVar.w();
-                        if (!this.M.containsKey(bdUniqueId)) {
-                            h hVar2 = new h(aVar.f42341e, bdUniqueId, aVar.f42345i);
-                            hVar2.g0(aVar);
-                            this.K.a(hVar2);
-                            this.M.put(bdUniqueId, hVar2);
-                        }
-                    }
-                    if (aVar.x() != null) {
-                        bdUniqueId = aVar.x();
-                        if (!this.M.containsKey(bdUniqueId)) {
-                            h hVar3 = new h(aVar.f42341e, bdUniqueId, aVar.f42345i);
-                            hVar3.g0(aVar);
-                            this.K.a(hVar3);
-                            this.M.put(bdUniqueId, hVar3);
-                        }
-                    }
-                    if (aVar.v() != null) {
-                        bdUniqueId = aVar.v();
-                        if (!this.M.containsKey(bdUniqueId)) {
-                            h hVar4 = new h(aVar.f42341e, bdUniqueId, aVar.f42345i);
-                            hVar4.g0(aVar);
-                            this.K.a(hVar4);
-                            this.M.put(bdUniqueId, hVar4);
-                        }
-                    }
-                    if (bdUniqueId == null) {
-                        this.K.a(aVar);
-                    } else {
-                        this.L.put(aVar.f42344h, aVar);
-                    }
-                }
-            }
-            setAdapter((ListAdapter) this.K);
-        }
-    }
-
-    @Override // d.a.d.k.e.s
-    public List<n> getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.K.d() : (List) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.widget.ListView.BdTypeListView' to match base method */
-    @Override // com.baidu.adp.widget.ListView.BdListView, d.a.d.k.e.p
-    /* renamed from: getListView */
-    public BdListView getListView2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (BdTypeListView) invokeV.objValue;
-    }
-
-    @Override // d.a.d.k.e.s
-    public void setData(List<? extends n> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (n nVar : list) {
-                if (nVar != null) {
-                    if (this.L.containsKey(nVar.getType())) {
-                        d.a.d.k.e.a aVar = this.L.get(nVar.getType());
-                        if (aVar.y() != null) {
-                            g gVar = new g();
-                            gVar.e(aVar.y());
-                            if (nVar instanceof BaseCardInfo) {
-                                gVar.position = ((BaseCardInfo) nVar).position;
-                                gVar.setSupportType(BaseCardInfo.SupportType.TOP);
-                            }
-                            gVar.d(nVar);
-                            arrayList.add(gVar);
-                        }
-                        if (aVar.w() != null) {
-                            g gVar2 = new g();
-                            gVar2.e(aVar.w());
-                            if (nVar instanceof BaseCardInfo) {
-                                gVar2.position = ((BaseCardInfo) nVar).position;
-                                gVar2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                            }
-                            gVar2.d(nVar);
-                            arrayList.add(gVar2);
-                        }
-                        if (aVar.x() != null) {
-                            g gVar3 = new g();
-                            gVar3.e(aVar.x());
-                            if (nVar instanceof BaseCardInfo) {
-                                gVar3.position = ((BaseCardInfo) nVar).position;
-                                gVar3.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            }
-                            gVar3.d(nVar);
-                            arrayList.add(gVar3);
-                        }
-                        if (aVar.v() != null) {
-                            g gVar4 = new g();
-                            gVar4.e(aVar.v());
-                            if (nVar instanceof BaseCardInfo) {
-                                gVar4.position = ((BaseCardInfo) nVar).position;
-                                gVar4.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                            }
-                            gVar4.d(nVar);
-                            arrayList.add(gVar4);
-                        }
-                    } else {
-                        arrayList.add(nVar);
-                    }
-                }
-            }
-            this.K.h(arrayList);
-        }
-    }
-
-    @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AdapterView
-    @Deprecated
-    public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onItemClickListener) == null) {
-        }
-    }
-
-    @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AdapterView
-    @Deprecated
-    public void setOnItemLongClickListener(AdapterView.OnItemLongClickListener onItemLongClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, onItemLongClickListener) == null) {
         }
     }
 
@@ -318,7 +318,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
             }
         }
         this.K = null;
-        H();
+        x();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -341,6 +341,6 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
             }
         }
         this.K = null;
-        H();
+        x();
     }
 }

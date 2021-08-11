@@ -15,15 +15,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.JProtect;
 @Keep
 @JProtect
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SparseArray<a> f73534a;
+    public static SparseArray<a> f78832a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,16 +42,16 @@ public final class b {
             }
         }
 
-        public Object a(int i2, int i3, long j, String str, Object obj) throws Throwable {
+        public Object a(int i2, int i3, long j2, String str, Object obj) throws Throwable {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), str, obj})) == null) ? b(i3, j, str, obj) : invokeCommon.objValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), str, obj})) == null) ? b(i3, j2, str, obj) : invokeCommon.objValue;
         }
 
-        public Object b(int i2, long j, String str, Object obj) throws Throwable {
+        public Object b(int i2, long j2, String str, Object obj) throws Throwable {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), str, obj})) == null) {
                 return null;
             }
             return invokeCommon.objValue;
@@ -71,7 +71,7 @@ public final class b {
                 return;
             }
         }
-        f73534a = new SparseArray<>();
+        f78832a = new SparseArray<>();
     }
 
     public static Object a(int i2) {
@@ -118,16 +118,16 @@ public final class b {
         return invokeI.objValue;
     }
 
-    public static Object a(int i2, int i3, long j, String str, Object obj) {
+    public static Object a(int i2, int i3, long j2, String str, Object obj) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), str, obj})) == null) ? h.a(i2, i3, j, str, obj) : invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), str, obj})) == null) ? h.a(i2, i3, j2, str, obj) : invokeCommon.objValue;
     }
 
-    public static Object a(int i2, long j) {
+    public static Object a(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             while (true) {
                 char c2 = ']';
                 char c3 = ']';
@@ -163,7 +163,7 @@ public final class b {
                     }
                 }
             }
-            return h.a(i2, 0, j, null, null);
+            return h.a(i2, 0, j2, null, null);
         }
         return invokeCommon.objValue;
     }
@@ -179,11 +179,11 @@ public final class b {
         if (interceptable != null && interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, null, i2, aVar) != null) {
             return;
         }
-        a aVar2 = f73534a.get(i2);
+        a aVar2 = f78832a.get(i2);
         if (aVar2 != null) {
             throw new RuntimeException(String.format((String) h.a(16777217, 0, 0L, "0148cc", new byte[]{100, 32, 7, 68, 93, 112, 115, 18, 96, 109, 47, 115, 85, 73, 91, 125, 32, 4, 96, 122, 111}), aVar2.toString()));
         }
-        f73534a.put(i2, aVar);
+        f78832a.put(i2, aVar);
         while (true) {
             char c2 = 'R';
             while (true) {
@@ -200,14 +200,14 @@ public final class b {
         }
     }
 
-    public static Object b(int i2, int i3, long j, String str, Object obj) {
+    public static Object b(int i2, int i3, long j2, String str, Object obj) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), str, obj})) == null) {
-            a aVar = f73534a.get(i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), str, obj})) == null) {
+            a aVar = f78832a.get(i2);
             if (aVar != null) {
                 try {
-                    return aVar.a(i2, i3, j, str, obj);
+                    return aVar.a(i2, i3, j2, str, obj);
                 } catch (Throwable th) {
                     throw new RuntimeException(th);
                 }

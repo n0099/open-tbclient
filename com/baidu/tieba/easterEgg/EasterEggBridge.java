@@ -1,21 +1,21 @@
 package com.baidu.tieba.easterEgg;
 
 import android.webkit.JsPromptResult;
+import c.a.e.e.p.k;
+import c.a.p0.i3.l0.b;
+import c.a.p0.j0.f.a.a;
+import c.a.p0.j0.f.a.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
-import d.a.q0.h3.l0.b;
-import d.a.q0.j0.f.a.a;
-import d.a.q0.j0.f.a.c;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class EasterEggBridge implements b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ARGS = "args";
@@ -24,7 +24,7 @@ public class EasterEggBridge implements b {
     public static final String KEY_INTERFACE_NAME = "EasterEggBridge";
     public static final String KEY_METHOD_NAME = "method_name";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<d.a.q0.j0.b> mListener;
+    public List<c.a.p0.j0.b> mListener;
 
     public EasterEggBridge() {
         Interceptable interceptable = $ic;
@@ -40,13 +40,13 @@ public class EasterEggBridge implements b {
             }
         }
         this.mListener = new ArrayList();
-        addListener(new d.a.q0.j0.f.a.b());
+        addListener(new c.a.p0.j0.f.a.b());
         addListener(new c());
         addListener(new a());
     }
 
-    public void addListener(d.a.q0.j0.b bVar) {
-        List<d.a.q0.j0.b> list;
+    public void addListener(c.a.p0.j0.b bVar) {
+        List<c.a.p0.j0.b> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null || (list = this.mListener) == null) {
             return;
@@ -55,7 +55,7 @@ public class EasterEggBridge implements b {
     }
 
     public void clearListener() {
-        List<d.a.q0.j0.b> list;
+        List<c.a.p0.j0.b> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (list = this.mListener) == null) {
             return;
@@ -63,7 +63,7 @@ public class EasterEggBridge implements b {
         list.clear();
     }
 
-    @Override // d.a.q0.h3.l0.b
+    @Override // c.a.p0.i3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public class EasterEggBridge implements b {
                         return false;
                     }
                     String trim = optString.trim();
-                    for (d.a.q0.j0.b bVar : this.mListener) {
+                    for (c.a.p0.j0.b bVar : this.mListener) {
                         if (trim.equals(bVar.b())) {
                             bVar.a(trim, jSONObject.optString("args"), jSONObject.optString(KEY_ARGS_EXT), jSONObject.optString(KEY_CALLBACK), jsPromptResult);
                         }
@@ -89,8 +89,8 @@ public class EasterEggBridge implements b {
         return invokeLLLL.booleanValue;
     }
 
-    public void removeListener(d.a.q0.j0.b bVar) {
-        List<d.a.q0.j0.b> list;
+    public void removeListener(c.a.p0.j0.b bVar) {
+        List<c.a.p0.j0.b> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) || bVar == null || (list = this.mListener) == null) {
             return;

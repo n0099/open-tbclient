@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class HotTopicActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM_BANG = "5";
@@ -58,13 +58,13 @@ public class HotTopicActivityConfig extends IntentConfig {
         return (HotTopicActivityConfig) invokeLLL.objValue;
     }
 
-    public void setExtra(long j, String str, String str2, long j2) {
+    public void setExtra(long j2, String str, String str2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, Long.valueOf(j2)}) == null) {
-            getIntent().putExtra(IntentConfig.TOPIC_FID, j);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), str, str2, Long.valueOf(j3)}) == null) {
+            getIntent().putExtra(IntentConfig.TOPIC_FID, j2);
             getIntent().putExtra(IntentConfig.TOPIC_FIRST_DIR, str);
             getIntent().putExtra(IntentConfig.TOPIC_SECOND_DIR, str2);
-            getIntent().putExtra(IntentConfig.TOPIC_TID, j2);
+            getIntent().putExtra(IntentConfig.TOPIC_TID, j3);
         }
     }
 }

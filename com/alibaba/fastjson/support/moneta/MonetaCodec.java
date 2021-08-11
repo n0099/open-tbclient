@@ -19,8 +19,9 @@ import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import javax.money.Monetary;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.javamoney.moneta.Money;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class MonetaCodec implements ObjectSerializer, ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public static final MonetaCodec instance;
@@ -98,7 +99,7 @@ public class MonetaCodec implements ObjectSerializer, ObjectDeserializer {
                 return;
             }
             SerializeWriter serializeWriter = jSONSerializer.out;
-            serializeWriter.writeFieldValue('{', "numberStripped", money.getNumberStripped());
+            serializeWriter.writeFieldValue(ExtendedMessageFormat.START_FE, "numberStripped", money.getNumberStripped());
             serializeWriter.writeFieldValue(',', "currency", money.getCurrency().getCurrencyCode());
             serializeWriter.write(125);
         }

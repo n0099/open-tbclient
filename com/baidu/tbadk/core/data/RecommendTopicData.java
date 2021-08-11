@@ -3,6 +3,8 @@ package com.baidu.tbadk.core.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
+import c.a.p0.a0.d0.m;
+import c.a.p0.a0.d0.n;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -16,26 +18,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a0.e0.m;
-import d.a.q0.a0.e0.n;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
 import tbclient.RecomTopicInfo;
 import tbclient.RecomTopicList;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RecommendTopicData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f12290a;
+    public String f47209a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<RecommendTopicListData> f12291b;
+    public List<RecommendTopicListData> f47210b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class RecommendTopicListData implements Serializable, Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<RecommendTopicListData> CREATOR;
@@ -48,7 +48,7 @@ public class RecommendTopicData {
         public String topicPic;
         public int type;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes6.dex */
         public static class a implements Parcelable.Creator<RecommendTopicListData> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -131,9 +131,9 @@ public class RecommendTopicData {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 m mVar = new m();
-                mVar.f54363c = this.tag;
-                mVar.f54361a = this.topicId;
-                mVar.f54362b = this.topicName;
+                mVar.f14985c = this.tag;
+                mVar.f14983a = this.topicId;
+                mVar.f14984b = this.topicName;
                 return mVar;
             }
             return (m) invokeV.objValue;
@@ -261,7 +261,7 @@ public class RecommendTopicData {
                 return;
             }
         }
-        this.f12291b = new ArrayList();
+        this.f47210b = new ArrayList();
     }
 
     public n a() {
@@ -270,10 +270,10 @@ public class RecommendTopicData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             n nVar = new n();
-            nVar.f54366g = b();
-            if (this.f12291b != null) {
+            nVar.f14988g = b();
+            if (this.f47210b != null) {
                 arrayList = new ArrayList();
-                for (RecommendTopicListData recommendTopicListData : this.f12291b) {
+                for (RecommendTopicListData recommendTopicListData : this.f47210b) {
                     if (recommendTopicListData != null) {
                         arrayList.add(recommendTopicListData.getConvertedCardData());
                     }
@@ -281,7 +281,7 @@ public class RecommendTopicData {
             } else {
                 arrayList = null;
             }
-            nVar.f54367h = arrayList;
+            nVar.f14989h = arrayList;
             return nVar;
         }
         return (n) invokeV.objValue;
@@ -291,10 +291,10 @@ public class RecommendTopicData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (StringUtils.isNull(this.f12290a)) {
+            if (StringUtils.isNull(this.f47209a)) {
                 return TbadkCoreApplication.getInst().getString(R.string.hot_topic_card_title);
             }
-            return this.f12290a;
+            return this.f47209a;
         }
         return (String) invokeV.objValue;
     }
@@ -310,14 +310,14 @@ public class RecommendTopicData {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, recomTopicInfo) == null) || recomTopicInfo == null) {
             return;
         }
-        this.f12290a = recomTopicInfo.recom_title;
+        this.f47209a = recomTopicInfo.recom_title;
         if (ListUtils.getCount(recomTopicInfo.topic_list) > 0) {
             for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
                 if (recomTopicList != null) {
                     RecommendTopicListData recommendTopicListData = new RecommendTopicListData();
                     recommendTopicListData.parserProtoBuf(recomTopicList);
                     if (!c(recommendTopicListData)) {
-                        this.f12291b.add(recommendTopicListData);
+                        this.f47210b.add(recommendTopicListData);
                     }
                 }
             }

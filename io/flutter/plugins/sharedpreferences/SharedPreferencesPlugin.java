@@ -10,7 +10,7 @@ import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.PluginRegistry;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SharedPreferencesPlugin implements FlutterPlugin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHANNEL_NAME = "plugins.flutter.io/shared_preferences";

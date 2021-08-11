@@ -11,7 +11,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.ReadableByteChannel;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ChannelHelper {
     public static /* synthetic */ Interceptable $ic;
     public static ByteBuffer empty;

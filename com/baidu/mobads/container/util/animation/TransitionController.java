@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 @TargetApi(21)
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class TransitionController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM_RADIUS = "from_r";
@@ -53,7 +53,7 @@ public class TransitionController {
     public TransitionCache mTransitionCache;
     public BDSplashIconView splashIconView;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class TransitionCache {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

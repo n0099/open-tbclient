@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class Strings {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +34,9 @@ public class Strings {
             return i2 == 0 ? "" : str;
         }
         int length = str.length();
-        long j = length * i2;
-        int i3 = (int) j;
-        if (i3 == j) {
+        long j2 = length * i2;
+        int i3 = (int) j2;
+        if (i3 == j2) {
             char[] cArr = new char[i3];
             str.getChars(0, length, cArr, 0);
             while (true) {
@@ -50,7 +50,7 @@ public class Strings {
                 }
             }
         } else {
-            throw new ArrayIndexOutOfBoundsException("Required array size too large: " + j);
+            throw new ArrayIndexOutOfBoundsException("Required array size too large: " + j2);
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.titan.sdk.runtime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public interface Interceptable {
     InterceptResult invokeB(int i2, Object obj, byte b2);
 
@@ -23,9 +23,9 @@ public interface Interceptable {
 
     void invokeInitBody(int i2, InitContext initContext);
 
-    InterceptResult invokeJ(int i2, Object obj, long j);
+    InterceptResult invokeJ(int i2, Object obj, long j2);
 
-    InterceptResult invokeJL(int i2, Object obj, long j, Object obj2);
+    InterceptResult invokeJL(int i2, Object obj, long j2, Object obj2);
 
     InterceptResult invokeL(int i2, Object obj, Object obj2);
 
@@ -41,7 +41,7 @@ public interface Interceptable {
 
     InterceptResult invokeLILL(int i2, Object obj, Object obj2, int i3, Object obj3, Object obj4);
 
-    InterceptResult invokeLJ(int i2, Object obj, Object obj2, long j);
+    InterceptResult invokeLJ(int i2, Object obj, Object obj2, long j2);
 
     InterceptResult invokeLL(int i2, Object obj, Object obj2, Object obj3);
 

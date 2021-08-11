@@ -7,7 +7,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.TimeZone;
 import kotlin.text.Typography;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public static final TimeZone GMT;
@@ -31,7 +32,7 @@ public final class c {
         }
         q = new long[]{300, 200, 300, 200};
         GMT = TimeZone.getTimeZone("GMT");
-        r = new char[]{Typography.less, Typography.greater, Typography.quote, '\'', Typography.amp};
+        r = new char[]{Typography.less, Typography.greater, '\"', ExtendedMessageFormat.QUOTE, Typography.amp};
         s = new String[]{"&lt;", "&gt;", "&quot;", "&apos;", "&amp;"};
     }
 

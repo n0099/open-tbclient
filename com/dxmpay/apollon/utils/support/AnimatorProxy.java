@@ -1,0 +1,459 @@
+package com.dxmpay.apollon.utils.support;
+
+import android.graphics.Camera;
+import android.graphics.Matrix;
+import android.graphics.RectF;
+import android.os.Build;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.WeakHashMap;
+/* loaded from: classes9.dex */
+public final class AnimatorProxy extends Animation {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean NEEDS_PROXY;
+    public static final WeakHashMap<View, AnimatorProxy> u;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final WeakReference<View> f69081e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final Camera f69082f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final RectF f69083g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final RectF f69084h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public final Matrix f69085i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f69086j;
+    public float k;
+    public float l;
+    public float m;
+    public float n;
+    public float o;
+    public float p;
+    public float q;
+    public float r;
+    public float s;
+    public float t;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2052761192, "Lcom/dxmpay/apollon/utils/support/AnimatorProxy;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(2052761192, "Lcom/dxmpay/apollon/utils/support/AnimatorProxy;");
+                return;
+            }
+        }
+        NEEDS_PROXY = Integer.valueOf(Build.VERSION.SDK).intValue() < 11;
+        u = new WeakHashMap<>();
+    }
+
+    public AnimatorProxy(View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f69082f = new Camera();
+        this.f69083g = new RectF();
+        this.f69084h = new RectF();
+        this.f69085i = new Matrix();
+        this.k = 1.0f;
+        this.q = 1.0f;
+        this.r = 1.0f;
+        setDuration(0L);
+        setFillAfter(true);
+        view.setAnimation(this);
+        this.f69081e = new WeakReference<>(view);
+    }
+
+    public static AnimatorProxy wrap(View view) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view)) == null) {
+            AnimatorProxy animatorProxy = u.get(view);
+            if (animatorProxy == null || animatorProxy != view.getAnimation()) {
+                AnimatorProxy animatorProxy2 = new AnimatorProxy(view);
+                u.put(view, animatorProxy2);
+                return animatorProxy2;
+            }
+            return animatorProxy;
+        }
+        return (AnimatorProxy) invokeL.objValue;
+    }
+
+    @Override // android.view.animation.Animation
+    public void applyTransformation(float f2, Transformation transformation) {
+        View view;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) || (view = this.f69081e.get()) == null) {
+            return;
+        }
+        transformation.setAlpha(this.k);
+        e(transformation.getMatrix(), view);
+    }
+
+    public final void d() {
+        View view;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (view = this.f69081e.get()) == null) {
+            return;
+        }
+        f(this.f69083g, view);
+    }
+
+    public final void e(Matrix matrix, View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, matrix, view) == null) {
+            float width = view.getWidth();
+            float height = view.getHeight();
+            boolean z = this.f69086j;
+            float f2 = z ? this.l : width / 2.0f;
+            float f3 = z ? this.m : height / 2.0f;
+            float f4 = this.n;
+            float f5 = this.o;
+            float f6 = this.p;
+            if (f4 != 0.0f || f5 != 0.0f || f6 != 0.0f) {
+                Camera camera = this.f69082f;
+                camera.save();
+                camera.rotateX(f4);
+                camera.rotateY(f5);
+                camera.rotateZ(-f6);
+                camera.getMatrix(matrix);
+                camera.restore();
+                matrix.preTranslate(-f2, -f3);
+                matrix.postTranslate(f2, f3);
+            }
+            float f7 = this.q;
+            float f8 = this.r;
+            if (f7 != 1.0f || f8 != 1.0f) {
+                matrix.postScale(f7, f8);
+                matrix.postTranslate((-(f2 / width)) * ((f7 * width) - width), (-(f3 / height)) * ((f8 * height) - height));
+            }
+            matrix.postTranslate(this.s, this.t);
+        }
+    }
+
+    public final void f(RectF rectF, View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, rectF, view) == null) {
+            rectF.set(0.0f, 0.0f, view.getWidth(), view.getHeight());
+            Matrix matrix = this.f69085i;
+            matrix.reset();
+            e(matrix, view);
+            this.f69085i.mapRect(rectF);
+            rectF.offset(view.getLeft(), view.getTop());
+            float f2 = rectF.right;
+            float f3 = rectF.left;
+            if (f2 < f3) {
+                rectF.right = f3;
+                rectF.left = f2;
+            }
+            float f4 = rectF.bottom;
+            float f5 = rectF.top;
+            if (f4 < f5) {
+                rectF.top = f4;
+                rectF.bottom = f5;
+            }
+        }
+    }
+
+    public final void g() {
+        View view;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (view = this.f69081e.get()) == null || view.getParent() == null) {
+            return;
+        }
+        RectF rectF = this.f69084h;
+        f(rectF, view);
+        rectF.union(this.f69083g);
+        ((View) view.getParent()).invalidate((int) Math.floor(rectF.left), (int) Math.floor(rectF.top), (int) Math.ceil(rectF.right), (int) Math.ceil(rectF.bottom));
+    }
+
+    public float getAlpha() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.k : invokeV.floatValue;
+    }
+
+    public float getPivotX() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.l : invokeV.floatValue;
+    }
+
+    public float getPivotY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.m : invokeV.floatValue;
+    }
+
+    public float getRotation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.p : invokeV.floatValue;
+    }
+
+    public float getRotationX() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.n : invokeV.floatValue;
+    }
+
+    public float getRotationY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.o : invokeV.floatValue;
+    }
+
+    public float getScaleX() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.q : invokeV.floatValue;
+    }
+
+    public float getScaleY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.r : invokeV.floatValue;
+    }
+
+    public int getScrollX() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            View view = this.f69081e.get();
+            if (view == null) {
+                return 0;
+            }
+            return view.getScrollX();
+        }
+        return invokeV.intValue;
+    }
+
+    public int getScrollY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            View view = this.f69081e.get();
+            if (view == null) {
+                return 0;
+            }
+            return view.getScrollY();
+        }
+        return invokeV.intValue;
+    }
+
+    public float getTranslationX() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.s : invokeV.floatValue;
+    }
+
+    public float getTranslationY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.t : invokeV.floatValue;
+    }
+
+    public float getX() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            View view = this.f69081e.get();
+            if (view == null) {
+                return 0.0f;
+            }
+            return view.getLeft() + this.s;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            View view = this.f69081e.get();
+            if (view == null) {
+                return 0.0f;
+            }
+            return view.getTop() + this.t;
+        }
+        return invokeV.floatValue;
+    }
+
+    public void setAlpha(float f2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(1048595, this, f2) == null) || this.k == f2) {
+            return;
+        }
+        this.k = f2;
+        View view = this.f69081e.get();
+        if (view != null) {
+            view.invalidate();
+        }
+    }
+
+    public void setPivotX(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048596, this, f2) == null) {
+            if (this.f69086j && this.l == f2) {
+                return;
+            }
+            d();
+            this.f69086j = true;
+            this.l = f2;
+            g();
+        }
+    }
+
+    public void setPivotY(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048597, this, f2) == null) {
+            if (this.f69086j && this.m == f2) {
+                return;
+            }
+            d();
+            this.f69086j = true;
+            this.m = f2;
+            g();
+        }
+    }
+
+    public void setRotation(float f2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(1048598, this, f2) == null) || this.p == f2) {
+            return;
+        }
+        d();
+        this.p = f2;
+        g();
+    }
+
+    public void setRotationX(float f2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(1048599, this, f2) == null) || this.n == f2) {
+            return;
+        }
+        d();
+        this.n = f2;
+        g();
+    }
+
+    public void setRotationY(float f2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(1048600, this, f2) == null) || this.o == f2) {
+            return;
+        }
+        d();
+        this.o = f2;
+        g();
+    }
+
+    public void setScaleX(float f2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(1048601, this, f2) == null) || this.q == f2) {
+            return;
+        }
+        d();
+        this.q = f2;
+        g();
+    }
+
+    public void setScaleY(float f2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(1048602, this, f2) == null) || this.r == f2) {
+            return;
+        }
+        d();
+        this.r = f2;
+        g();
+    }
+
+    public void setScrollX(int i2) {
+        View view;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048603, this, i2) == null) || (view = this.f69081e.get()) == null) {
+            return;
+        }
+        view.scrollTo(i2, view.getScrollY());
+    }
+
+    public void setScrollY(int i2) {
+        View view;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048604, this, i2) == null) || (view = this.f69081e.get()) == null) {
+            return;
+        }
+        view.scrollTo(view.getScrollX(), i2);
+    }
+
+    public void setTranslationX(float f2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(1048605, this, f2) == null) || this.s == f2) {
+            return;
+        }
+        d();
+        this.s = f2;
+        g();
+    }
+
+    public void setTranslationY(float f2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(1048606, this, f2) == null) || this.t == f2) {
+            return;
+        }
+        d();
+        this.t = f2;
+        g();
+    }
+
+    public void setX(float f2) {
+        View view;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(1048607, this, f2) == null) || (view = this.f69081e.get()) == null) {
+            return;
+        }
+        setTranslationX(f2 - view.getLeft());
+    }
+
+    public void setY(float f2) {
+        View view;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(1048608, this, f2) == null) || (view = this.f69081e.get()) == null) {
+            return;
+        }
+        setTranslationY(f2 - view.getTop());
+    }
+}

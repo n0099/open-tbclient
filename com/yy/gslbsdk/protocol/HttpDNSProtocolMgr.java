@@ -1,6 +1,7 @@
 package com.yy.gslbsdk.protocol;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.apollon.restnet.http.b;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.cache.disk.DefaultDiskStorage;
 import com.yy.gslbsdk.cache.DataCacheMgr;
 import com.yy.gslbsdk.control.IpVersionController;
 import com.yy.gslbsdk.db.ResultTB;
@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class HttpDNSProtocolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpDNSProtocolMgr";
@@ -78,7 +78,7 @@ public class HttpDNSProtocolMgr {
                     resInfo.setUserIp(jSONObject.getString("u"));
                     resInfo.setUserView(jSONObject.getString("v"));
                     LinkedHashMap<String, DnsInfo> linkedHashMap = new LinkedHashMap<>();
-                    JSONArray jSONArray = jSONObject.getJSONArray("dns");
+                    JSONArray jSONArray = jSONObject.getJSONArray(b.InterfaceC1611b.f37853b);
                     int i3 = 0;
                     while (i3 < jSONArray.length()) {
                         JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
@@ -162,15 +162,15 @@ public class HttpDNSProtocolMgr {
         return invokeI.intValue;
     }
 
-    public static String udpRequestProtocolV2(String[] strArr, long j, boolean z) {
+    public static String udpRequestProtocolV2(String[] strArr, long j2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{strArr, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{strArr, Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
             if (strArr != null && strArr.length > 0) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("seq_id", j);
-                    jSONObject.put("version", DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX);
+                    jSONObject.put("seq_id", j2);
+                    jSONObject.put("version", "v2");
                     JSONArray jSONArray = new JSONArray();
                     for (String str : strArr) {
                         jSONArray.put(str);

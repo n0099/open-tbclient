@@ -3,6 +3,7 @@ package com.baidu.tieba.video;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
+import c.a.p0.w3.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,15 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.v3.f;
 import java.io.Serializable;
 import java.util.Objects;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class VideoItemModel implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<VideoItemModel> CREATOR;
     public static final int TYPE_FUNAD = 2;
     public static final int TYPE_LOADING = 99999;
+    public static final int TYPE_NAD_AD = 5;
     public static final int TYPE_NOATTENTION = 4;
     public static final int TYPE_NOLOGIN = 3;
     public static final int TYPE_VIDEO = 1;
@@ -29,7 +30,7 @@ public class VideoItemModel implements Serializable, Parcelable {
     public f videoAdData;
     public final VideoItemData videoItemData;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Parcelable.Creator<VideoItemModel> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +125,7 @@ public class VideoItemModel implements Serializable, Parcelable {
                 return false;
             }
             VideoItemModel videoItemModel = (VideoItemModel) obj;
-            return (isNoLoginType() && videoItemModel.isNoLoginType()) ? this.mHashCode == videoItemModel.hashCode() : (isNoAttentionType() && videoItemModel.isNoAttentionType()) ? this.mHashCode == videoItemModel.hashCode() : (isFunAdType() && videoItemModel.isFunAdType()) ? this.mHashCode == videoItemModel.hashCode() : isFunAdType() == videoItemModel.isFunAdType() && Objects.equals(this.videoItemData, videoItemModel.videoItemData);
+            return (isNoLoginType() && videoItemModel.isNoLoginType()) ? this.mHashCode == videoItemModel.hashCode() : (isNoAttentionType() && videoItemModel.isNoAttentionType()) ? this.mHashCode == videoItemModel.hashCode() : (isFunAdType() && videoItemModel.isFunAdType()) ? this.mHashCode == videoItemModel.hashCode() : (isNADType() && videoItemModel.isNADType()) ? this.mHashCode == videoItemModel.hashCode() : isFunAdType() == videoItemModel.isFunAdType() && Objects.equals(this.videoItemData, videoItemModel.videoItemData);
         }
         return invokeL.booleanValue;
     }
@@ -165,21 +166,27 @@ public class VideoItemModel implements Serializable, Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.dataType == 99999 : invokeV.booleanValue;
     }
 
+    public boolean isNADType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.dataType == 5 : invokeV.booleanValue;
+    }
+
     public boolean isNoAttentionType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.dataType == 4 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.dataType == 4 : invokeV.booleanValue;
     }
 
     public boolean isNoLoginType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.dataType == 3 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.dataType == 3 : invokeV.booleanValue;
     }
 
     public void setVideoAdData(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, fVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, fVar) == null) {
             this.videoAdData = fVar;
         }
     }
@@ -187,7 +194,7 @@ public class VideoItemModel implements Serializable, Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048588, this, parcel, i2) == null) {
             parcel.writeParcelable(this.videoItemData, i2);
             parcel.writeInt(this.dataType);
             parcel.writeInt(this.mHashCode);

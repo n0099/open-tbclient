@@ -27,7 +27,6 @@ import android.os.PowerManager;
 import android.text.TextUtils;
 import android.util.AndroidRuntimeException;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.ActionMode;
 import android.view.ContextThemeWrapper;
@@ -1872,8 +1871,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                     }
                     ActivityInfo activityInfo = packageManager.getActivityInfo(new ComponentName(this.mContext, this.mHost.getClass()), i2);
                     this.mActivityHandlesUiMode = (activityInfo == null || (activityInfo.configChanges & 512) == 0) ? false : true;
-                } catch (PackageManager.NameNotFoundException e2) {
-                    Log.d(AppCompatDelegate.TAG, "Exception while getting ActivityInfo", e2);
+                } catch (PackageManager.NameNotFoundException unused) {
                     this.mActivityHandlesUiMode = false;
                 }
             }
@@ -1902,6 +1900,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     private boolean onKeyUpPanel(int i2, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         boolean z;
+        AudioManager audioManager;
         DecorContentParent decorContentParent;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65561, this, i2, keyEvent)) == null) {
@@ -1937,13 +1936,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 closePanel(panelState, true);
                 z2 = z3;
             }
-            if (z2) {
-                AudioManager audioManager = (AudioManager) this.mContext.getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
-                if (audioManager != null) {
-                    audioManager.playSoundEffect(0);
-                } else {
-                    Log.w(AppCompatDelegate.TAG, "Couldn't get audio manager");
-                }
+            if (z2 && (audioManager = (AudioManager) this.mContext.getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)) != null) {
+                audioManager.playSoundEffect(0);
             }
             return z2;
         }
@@ -2153,14 +2147,12 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65566, this, i2)) == null) {
             if (i2 == 8) {
-                Log.i(AppCompatDelegate.TAG, "You should now use the AppCompatDelegate.FEATURE_SUPPORT_ACTION_BAR id when requesting this feature.");
                 return 108;
-            } else if (i2 == 9) {
-                Log.i(AppCompatDelegate.TAG, "You should now use the AppCompatDelegate.FEATURE_SUPPORT_ACTION_BAR_OVERLAY id when requesting this feature.");
-                return 109;
-            } else {
-                return i2;
             }
+            if (i2 == 9) {
+                return 109;
+            }
+            return i2;
         }
         return invokeI.intValue;
     }
@@ -2422,8 +2414,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 } else {
                     try {
                         this.mAppCompatViewInflater = (AppCompatViewInflater) Class.forName(string).getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-                    } catch (Throwable th) {
-                        Log.i(AppCompatDelegate.TAG, "Failed to instantiate custom view inflater " + string + ". Falling back to default.", th);
+                    } catch (Throwable unused) {
+                        String str2 = "Failed to instantiate custom view inflater " + string + ". Falling back to default.";
                         this.mAppCompatViewInflater = new AppCompatViewInflater();
                     }
                 }
@@ -2693,9 +2685,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             LayoutInflater from = LayoutInflater.from(this.mContext);
             if (from.getFactory() == null) {
                 LayoutInflaterCompat.setFactory2(from, this);
-            } else if (from.getFactory2() instanceof AppCompatDelegateImpl) {
             } else {
-                Log.i(AppCompatDelegate.TAG, "The Activity's LayoutInflater already has a Factory installed so we can not install AppCompat's");
+                boolean z = from.getFactory2() instanceof AppCompatDelegateImpl;
             }
         }
     }

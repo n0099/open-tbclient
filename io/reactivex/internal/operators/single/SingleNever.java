@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.internal.disposables.EmptyDisposable;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class SingleNever extends Single<Object> {
     public static /* synthetic */ Interceptable $ic;
     public static final Single<Object> INSTANCE;

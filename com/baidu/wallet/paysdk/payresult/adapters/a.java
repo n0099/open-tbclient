@@ -3,11 +3,10 @@ package com.baidu.wallet.paysdk.payresult.adapters;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.wallet.core.BaseActivity;
-import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.paysdk.api.BaiduPay;
+import com.dxmpay.wallet.core.BaseActivity;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +17,7 @@ public class a {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, baseActivity, i2)) == null) {
             try {
             } catch (Throwable th) {
-                LogUtil.d(th.getMessage());
+                th.getMessage();
             }
             if (i2 != 1) {
                 if (i2 != 3) {
@@ -78,7 +77,7 @@ public class a {
                 }
                 return null;
             } catch (Exception e2) {
-                LogUtil.d(e2.getMessage());
+                e2.getMessage();
                 return null;
             }
         }

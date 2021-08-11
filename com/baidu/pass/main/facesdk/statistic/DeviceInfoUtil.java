@@ -23,7 +23,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class DeviceInfoUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final FileFilter CPU_FILTER;
@@ -372,9 +372,9 @@ public class DeviceInfoUtil {
             StatFs statFs = new StatFs(new File(storagePath).getPath());
             long blockCountLong = statFs.getBlockCountLong();
             long blockSizeLong = statFs.getBlockSizeLong();
-            long j = blockCountLong * blockSizeLong;
+            long j2 = blockCountLong * blockSizeLong;
             long availableBlocksLong = statFs.getAvailableBlocksLong() * blockSizeLong;
-            return "可用/总共：" + Long.toString(availableBlocksLong) + "/" + Long.toString(j);
+            return "可用/总共：" + Long.toString(availableBlocksLong) + "/" + Long.toString(j2);
         }
         return (String) invokeLI.objValue;
     }

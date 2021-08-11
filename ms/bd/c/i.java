@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class i extends j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,9 +27,9 @@ public final class i extends j {
     }
 
     @Override // ms.bd.c.j
-    public void d(long j, long j2, String str, String str2, String str3, int i2, JSONObject jSONObject) {
+    public void d(long j2, long j3, String str, String str2, String str3, int i2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2, str3, Integer.valueOf(i2), jSONObject}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2, str3, Integer.valueOf(i2), jSONObject}) == null) {
         }
     }
 
@@ -51,9 +51,9 @@ public final class i extends j {
     }
 
     @Override // ms.bd.c.j
-    public void h(long j, long j2, String str, String str2, String str3, int i2, JSONObject jSONObject) {
+    public void h(long j2, long j3, String str, String str2, String str3, int i2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2, str3, Integer.valueOf(i2), jSONObject}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2, str3, Integer.valueOf(i2), jSONObject}) == null) {
         }
     }
 }

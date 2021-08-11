@@ -13,21 +13,21 @@ import com.bytedance.sdk.component.b.b.z;
 import java.io.IOException;
 import java.net.ProtocolException;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class b implements u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f28327a;
+    public final boolean f64176a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class a extends com.bytedance.sdk.component.b.a.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f28328a;
+        public long f64177a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(r rVar) {
@@ -50,11 +50,11 @@ public final class b implements u {
         }
 
         @Override // com.bytedance.sdk.component.b.a.g, com.bytedance.sdk.component.b.a.r
-        public void a_(com.bytedance.sdk.component.b.a.c cVar, long j) throws IOException {
+        public void a_(com.bytedance.sdk.component.b.a.c cVar, long j2) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048576, this, cVar, j) == null) {
-                super.a_(cVar, j);
-                this.f28328a += j;
+            if (interceptable == null || interceptable.invokeLJ(1048576, this, cVar, j2) == null) {
+                super.a_(cVar, j2);
+                this.f64177a += j2;
             }
         }
     }
@@ -74,7 +74,7 @@ public final class b implements u {
                 return;
             }
         }
-        this.f28327a = z;
+        this.f64176a = z;
     }
 
     @Override // com.bytedance.sdk.component.b.b.u
@@ -105,7 +105,7 @@ public final class b implements u {
                     com.bytedance.sdk.component.b.a.d a4 = com.bytedance.sdk.component.b.a.l.a(aVar3);
                     a3.d().a(a4);
                     a4.close();
-                    gVar.i().a(gVar.h(), aVar3.f28328a);
+                    gVar.i().a(gVar.h(), aVar3.f64177a);
                 } else if (!cVar.e()) {
                     f2.d();
                 }
@@ -118,8 +118,8 @@ public final class b implements u {
             ab a5 = aVar2.a(a3).a(f2.b().d()).a(currentTimeMillis).b(System.currentTimeMillis()).a();
             gVar.i().a(gVar.h(), a5);
             int c2 = a5.c();
-            if (this.f28327a && c2 == 101) {
-                a2 = a5.i().a(com.bytedance.sdk.component.b.b.a.c.f28317c).a();
+            if (this.f64176a && c2 == 101) {
+                a2 = a5.i().a(com.bytedance.sdk.component.b.b.a.c.f64165c).a();
             } else {
                 a2 = a5.i().a(g2.a(a5)).a();
             }

@@ -12,22 +12,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class n extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f23497a;
+    public ImageView f59226a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f23498b;
+    public Handler f59227b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f23499c;
+    public Context f59228c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f23500d;
+    public TextView f59229d;
 
     public n(Context context, ImageView imageView, Handler handler) {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public final class n extends Handler {
                 return;
             }
         }
-        this.f23500d = null;
-        this.f23497a = imageView;
-        this.f23498b = handler;
-        this.f23499c = context;
+        this.f59229d = null;
+        this.f59226a = imageView;
+        this.f59227b = handler;
+        this.f59228c = context;
     }
 
     public n(Context context, TextView textView, Handler handler) {
@@ -65,10 +65,10 @@ public final class n extends Handler {
                 return;
             }
         }
-        this.f23500d = null;
-        this.f23500d = textView;
-        this.f23498b = handler;
-        this.f23499c = context;
+        this.f59229d = null;
+        this.f59229d = textView;
+        this.f59227b = handler;
+        this.f59228c = context;
     }
 
     @Override // android.os.Handler
@@ -81,26 +81,26 @@ public final class n extends Handler {
             Object obj = message.obj;
             if (obj != null) {
                 Bitmap bitmap = (Bitmap) obj;
-                if (this.f23500d != null) {
-                    ImageSpan imageSpan = new ImageSpan(this.f23499c, bitmap);
+                if (this.f59229d != null) {
+                    ImageSpan imageSpan = new ImageSpan(this.f59228c, bitmap);
                     SpannableString spannableString = new SpannableString("icon");
                     spannableString.setSpan(imageSpan, 0, 4, 33);
-                    this.f23500d.setText(spannableString.toString());
+                    this.f59229d.setText(spannableString.toString());
                     return;
                 }
-                this.f23497a.setImageBitmap(bitmap);
+                this.f59226a.setImageBitmap(bitmap);
                 if (bitmap.getHeight() > bitmap.getWidth()) {
-                    this.f23497a.setMaxWidth(i.a(this.f23499c, 80.0f));
-                    imageView = this.f23497a;
-                    a2 = i.a(this.f23499c, 120.0f);
+                    this.f59226a.setMaxWidth(i.a(this.f59228c, 80.0f));
+                    imageView = this.f59226a;
+                    a2 = i.a(this.f59228c, 120.0f);
                 } else {
-                    this.f23497a.setMaxWidth(i.a(this.f23499c, 120.0f));
-                    imageView = this.f23497a;
-                    a2 = i.a(this.f23499c, 80.0f);
+                    this.f59226a.setMaxWidth(i.a(this.f59228c, 120.0f));
+                    imageView = this.f59226a;
+                    a2 = i.a(this.f59228c, 80.0f);
                 }
                 imageView.setMaxHeight(a2);
             }
-            Handler handler = this.f23498b;
+            Handler handler = this.f59227b;
             if (handler != null) {
                 handler.obtainMessage(6).sendToTarget();
             }

@@ -22,7 +22,6 @@ import com.baidu.android.util.io.PathUtils;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +30,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.VideoCloudSetting;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import dalvik.system.BaseDexClassLoader;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -52,32 +50,33 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f5001a = ".video_cache";
+    public static String f38935a = ".video_cache";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f5002b = "last_file_cache_time";
+    public static String f38936b = "last_file_cache_time";
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f5003c = 86400000;
+    public static long f38937c = 86400000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f5004d = 104857600;
+    public static long f38938d = 104857600;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile int f5005e = -1;
+    public static volatile int f38939e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile int f5006f = -1;
+    public static volatile int f38940f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile String f5007g;
+    public static volatile String f38941g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -103,17 +102,17 @@ public class o {
                 long i2 = d.i();
                 d.a(bool.booleanValue() ? 0L : CyberCfgManager.getInstance().getCfgLongValue("file_lru_expired_duration", 600L));
                 long i3 = d.i();
-                CyberCfgManager.getInstance().setPrefLong(f5002b, System.currentTimeMillis());
+                CyberCfgManager.getInstance().setPrefLong(f38936b, System.currentTimeMillis());
                 StringBuilder sb = new StringBuilder();
                 sb.append("delete file success,  beforeSpace = ");
                 sb.append(i2);
                 sb.append(" afterSpace = ");
                 sb.append(i3);
                 sb.append(" deleteSpaceSize = ");
-                long j = i2 - i3;
-                sb.append(j);
+                long j2 = i2 - i3;
+                sb.append(j2);
                 CyberLog.i("sdk_Utils", sb.toString());
-                return j;
+                return j2;
             }
             return 0L;
         }
@@ -361,10 +360,10 @@ public class o {
         return (Map) invokeL.objValue;
     }
 
-    public static void a(long j) {
+    public static void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65546, null, j) == null) {
-            d.b(j);
+        if (interceptable == null || interceptable.invokeJ(65546, null, j2) == null) {
+            d.b(j2);
         }
     }
 
@@ -385,15 +384,15 @@ public class o {
         }
     }
 
-    public static void a(StringBuilder sb, String str, long j) {
+    public static void a(StringBuilder sb, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{sb, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{sb, str, Long.valueOf(j2)}) == null) {
             if (sb.length() > 0) {
                 sb.append("&");
             }
             sb.append(str);
             sb.append("=");
-            sb.append(j);
+            sb.append(j2);
         }
     }
 
@@ -421,7 +420,7 @@ public class o {
                 throw new Exception(file.getName() + " is not exists");
             }
             String a2 = a(file);
-            CyberLog.d("sdk_Utils", str2 + "---->MD5\n" + str + "\n" + a2);
+            CyberLog.d("sdk_Utils", str2 + "---->MD5\n" + str + StringUtils.LF + a2);
             return str.equalsIgnoreCase(a2);
         }
         return invokeLL.booleanValue;
@@ -451,7 +450,7 @@ public class o {
             }
             String str2 = context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer";
             CyberLog.i("sdk_Utils", "Utils.getExternalStorageSpace():" + f());
-            if (f() < Config.FULL_TRACE_LOG_LIMIT || str == null) {
+            if (f() < 10485760 || str == null) {
                 str = str2;
             }
             new File(str).mkdirs();
@@ -542,7 +541,7 @@ public class o {
             if (context != null && (packageManager = context.getPackageManager()) != null) {
                 try {
                     if (packageManager.checkPermission("android.permission.READ_EXTERNAL_STORAGE", context.getPackageName()) == 0) {
-                        return packageManager.checkPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION, context.getPackageName()) == 0;
+                        return packageManager.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", context.getPackageName()) == 0;
                     }
                     return false;
                 } catch (Exception e2) {
@@ -726,14 +725,14 @@ public class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
-            if (TextUtils.isEmpty(f5007g)) {
-                f5007g = t();
-                if (TextUtils.isEmpty(f5007g)) {
-                    f5007g = u();
+            if (TextUtils.isEmpty(f38941g)) {
+                f38941g = t();
+                if (TextUtils.isEmpty(f38941g)) {
+                    f38941g = u();
                 }
-                return f5007g;
+                return f38941g;
             }
-            return f5007g;
+            return f38941g;
         }
         return (String) invokeV.objValue;
     }
@@ -742,15 +741,15 @@ public class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
-            if (f5005e < 0) {
+            if (f38939e < 0) {
                 Context applicationContext = CyberPlayerManager.getApplicationContext();
                 if (applicationContext == null || applicationContext.getPackageName().equals(l())) {
-                    f5005e = 1;
+                    f38939e = 1;
                 } else {
-                    f5005e = 0;
+                    f38939e = 0;
                 }
             }
-            return f5005e == 1;
+            return f38939e == 1;
         }
         return invokeV.booleanValue;
     }
@@ -787,10 +786,10 @@ public class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
-            if (f5006f < 0) {
-                f5006f = Build.VERSION.SDK_INT >= 23 ? Process.is64Bit() : ((BaseDexClassLoader) CyberPlayerManager.getApplicationContext().getClassLoader()).findLibrary("c").contains("lib64");
+            if (f38940f < 0) {
+                f38940f = Build.VERSION.SDK_INT >= 23 ? Process.is64Bit() : ((BaseDexClassLoader) CyberPlayerManager.getApplicationContext().getClassLoader()).findLibrary("c").contains("lib64");
             }
-            return f5006f == 1 ? "arm64-v8a" : "armeabi-v7a";
+            return f38940f == 1 ? "arm64-v8a" : "armeabi-v7a";
         }
         return (String) invokeV.objValue;
     }
@@ -805,7 +804,7 @@ public class o {
             String str = "";
             try {
                 byte[] bArr = new byte[1024];
-                RandomAccessFile randomAccessFile = new RandomAccessFile("/proc/cpuinfo", r.f7788a);
+                RandomAccessFile randomAccessFile = new RandomAccessFile("/proc/cpuinfo", r.f42062a);
                 randomAccessFile.read(bArr);
                 String str2 = new String(bArr);
                 int indexOf = str2.indexOf(0);
@@ -822,7 +821,7 @@ public class o {
     public static long q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? CyberCfgManager.getInstance().getCfgLongValue("file_cache_max_size", f5004d) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? CyberCfgManager.getInstance().getCfgLongValue("file_cache_max_size", f38938d) : invokeV.longValue;
     }
 
     public static boolean r() {
@@ -830,12 +829,12 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
             try {
-                long prefLong = CyberCfgManager.getInstance().getPrefLong(f5002b, 0L);
+                long prefLong = CyberCfgManager.getInstance().getPrefLong(f38936b, 0L);
                 long currentTimeMillis = System.currentTimeMillis();
                 if (prefLong > 0) {
                     return (((currentTimeMillis - prefLong) > s() ? 1 : ((currentTimeMillis - prefLong) == s() ? 0 : -1)) > 0) || ((d.i() > q() ? 1 : (d.i() == q() ? 0 : -1)) > 0);
                 }
-                CyberCfgManager.getInstance().setPrefLong(f5002b, currentTimeMillis);
+                CyberCfgManager.getInstance().setPrefLong(f38936b, currentTimeMillis);
                 return false;
             } catch (Exception | OutOfMemoryError unused) {
                 return true;
@@ -847,7 +846,7 @@ public class o {
     public static long s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) ? CyberCfgManager.getInstance().getCfgLongValue("file_cache_delete_interval", f5003c) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) ? CyberCfgManager.getInstance().getCfgLongValue("file_cache_delete_interval", f38937c) : invokeV.longValue;
     }
 
     public static String t() {

@@ -1,23 +1,23 @@
 package com.baidu.swan.apps.core.prefetch.image.config.image;
 
 import androidx.annotation.NonNull;
+import c.a.n0.a.h0.o.h.d.b.a;
+import c.a.n0.a.h0.o.h.g.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.h0.o.h.d.b.a;
-import d.a.o0.a.h0.o.h.g.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CustomStrategyImpl implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<String> f10997a;
+    public final List<String> f45696a;
 
     public CustomStrategyImpl() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class CustomStrategyImpl implements a {
                 return;
             }
         }
-        this.f10997a = new ArrayList<String>(this) { // from class: com.baidu.swan.apps.core.prefetch.image.config.image.CustomStrategyImpl.1
+        this.f45696a = new ArrayList<String>(this) { // from class: com.baidu.swan.apps.core.prefetch.image.config.image.CustomStrategyImpl.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomStrategyImpl this$0;
@@ -59,13 +59,13 @@ public class CustomStrategyImpl implements a {
         };
     }
 
-    @Override // d.a.o0.a.h0.o.h.d.b.a
+    @Override // c.a.n0.a.h0.o.h.d.b.a
     public boolean a(@NonNull g gVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
             String d2 = gVar.d();
-            for (String str : this.f10997a) {
+            for (String str : this.f45696a) {
                 if (d2.startsWith(str)) {
                     return true;
                 }

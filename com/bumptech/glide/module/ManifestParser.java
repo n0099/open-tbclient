@@ -13,7 +13,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class ManifestParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GLIDE_MODULE_VALUE = "GlideModule";
@@ -79,32 +79,26 @@ public final class ManifestParser {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (Log.isLoggable(TAG, 3)) {
-                Log.d(TAG, "Loading Glide modules");
-            }
+            Log.isLoggable(TAG, 3);
             ArrayList arrayList = new ArrayList();
             try {
                 ApplicationInfo applicationInfo = this.context.getPackageManager().getApplicationInfo(this.context.getPackageName(), 128);
                 if (applicationInfo.metaData == null) {
-                    if (Log.isLoggable(TAG, 3)) {
-                        Log.d(TAG, "Got null app info metadata");
-                    }
+                    Log.isLoggable(TAG, 3);
                     return arrayList;
                 }
                 if (Log.isLoggable(TAG, 2)) {
-                    Log.v(TAG, "Got app info metadata: " + applicationInfo.metaData);
+                    String str = "Got app info metadata: " + applicationInfo.metaData;
                 }
-                for (String str : applicationInfo.metaData.keySet()) {
-                    if (GLIDE_MODULE_VALUE.equals(applicationInfo.metaData.get(str))) {
-                        arrayList.add(parseModule(str));
+                for (String str2 : applicationInfo.metaData.keySet()) {
+                    if (GLIDE_MODULE_VALUE.equals(applicationInfo.metaData.get(str2))) {
+                        arrayList.add(parseModule(str2));
                         if (Log.isLoggable(TAG, 3)) {
-                            Log.d(TAG, "Loaded Glide module: " + str);
+                            String str3 = "Loaded Glide module: " + str2;
                         }
                     }
                 }
-                if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "Finished loading Glide modules");
-                }
+                Log.isLoggable(TAG, 3);
                 return arrayList;
             } catch (PackageManager.NameNotFoundException e2) {
                 throw new RuntimeException("Unable to find metadata to parse GlideModules", e2);

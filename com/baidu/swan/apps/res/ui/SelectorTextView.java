@@ -3,9 +3,9 @@ package com.baidu.swan.apps.res.ui;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.TextView;
+import c.a.n0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,18 +14,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.k;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SelectorTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f11365f;
+    public static final boolean f46068f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f11366e;
+    public boolean f46069e;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +39,7 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        f11365f = k.f46335a;
+        f46068f = k.f6803a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,7 +60,7 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        this.f11366e = false;
+        this.f46069e = false;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -72,18 +71,14 @@ public class SelectorTextView extends TextView {
             if (isEnabled()) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
-                    if (f11365f) {
-                        Log.d("ACTION_DOWN", "ACTION_DOWN");
-                    }
-                    if (this.f11366e) {
+                    boolean z = f46068f;
+                    if (this.f46069e) {
                         setAlpha(0.5f);
                     } else {
                         setAlpha(0.4f);
                     }
                 } else if (action == 1 || action == 3) {
-                    if (f11365f) {
-                        Log.d("ACTION_UP", "ACTION_UP");
-                    }
+                    boolean z2 = f46068f;
                     setAlpha(1.0f);
                 }
             }
@@ -95,7 +90,7 @@ public class SelectorTextView extends TextView {
     public void setMode(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f11366e = z;
+            this.f46069e = z;
         }
     }
 
@@ -118,7 +113,7 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        this.f11366e = false;
+        this.f46069e = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -140,6 +135,6 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        this.f11366e = false;
+        this.f46069e = false;
     }
 }

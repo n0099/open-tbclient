@@ -4,34 +4,34 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.f;
-import h.j;
-import h.o.a.a;
+import i.f;
+import i.j;
+import i.o.a.a;
 import java.util.ArrayDeque;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class OperatorBufferWithSize$BufferOverlap<T> extends j<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final j<? super List<T>> f73673e;
+    public final j<? super List<T>> f78975e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f73674f;
+    public final int f78976f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f73675g;
+    public final int f78977g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final ArrayDeque<List<T>> f73676h;
+    public final ArrayDeque<List<T>> f78978h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final AtomicLong f73677i;
+    public final AtomicLong f78979i;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public final class BufferOverlapProducer extends AtomicBoolean implements f {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4015894850868853147L;
@@ -56,18 +56,18 @@ public final class OperatorBufferWithSize$BufferOverlap<T> extends j<T> {
             this.this$0 = operatorBufferWithSize$BufferOverlap;
         }
 
-        @Override // h.f
-        public void request(long j) {
+        @Override // i.f
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
                 OperatorBufferWithSize$BufferOverlap operatorBufferWithSize$BufferOverlap = this.this$0;
-                if (!a.e(operatorBufferWithSize$BufferOverlap.f73677i, j, operatorBufferWithSize$BufferOverlap.f73676h, operatorBufferWithSize$BufferOverlap.f73673e) || j == 0) {
+                if (!a.e(operatorBufferWithSize$BufferOverlap.f78979i, j2, operatorBufferWithSize$BufferOverlap.f78978h, operatorBufferWithSize$BufferOverlap.f78975e) || j2 == 0) {
                     return;
                 }
                 if (get() || !compareAndSet(false, true)) {
-                    operatorBufferWithSize$BufferOverlap.request(a.c(operatorBufferWithSize$BufferOverlap.f73675g, j));
+                    operatorBufferWithSize$BufferOverlap.request(a.c(operatorBufferWithSize$BufferOverlap.f78977g, j2));
                 } else {
-                    operatorBufferWithSize$BufferOverlap.request(a.a(a.c(operatorBufferWithSize$BufferOverlap.f73675g, j - 1), operatorBufferWithSize$BufferOverlap.f73674f));
+                    operatorBufferWithSize$BufferOverlap.request(a.a(a.c(operatorBufferWithSize$BufferOverlap.f78977g, j2 - 1), operatorBufferWithSize$BufferOverlap.f78976f));
                 }
             }
         }

@@ -9,29 +9,29 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.apollon.utils.ResUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.api.Constants;
-import com.baidu.wallet.base.widget.SafeKeyBoardEditText;
-import com.baidu.wallet.base.widget.SafeScrollView;
-import com.baidu.wallet.base.widget.SixNumberPwdView;
-import com.baidu.wallet.core.utils.NFCUtil;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.datamodel.PwdRequest;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.base.widget.SafeKeyBoardEditText;
+import com.dxmpay.wallet.base.widget.SafeScrollView;
+import com.dxmpay.wallet.base.widget.SixNumberPwdView;
+import com.dxmpay.wallet.core.utils.NFCUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumberPwdView.OnPwdChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SixNumberPwdView f26792a;
+    public SixNumberPwdView f62660a;
     public String extraFromH5;
     public boolean isOpenHalfScreenPwdVerify;
     public TextView mErrorTip;
@@ -70,7 +70,7 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
         }
         if (!TextUtils.isEmpty(str)) {
             try {
-                optString = new JSONObject(str).optString(Constants.HALF_SCREEN_PWD_VERIFY);
+                optString = new JSONObject(str).optString("half_screen_pwd_verify");
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -99,18 +99,18 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
     public String getPwd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26792a.getPwd() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62660a.getPwd() : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.dxmpay.wallet.core.beans.BeanActivity
     public void handleFailure(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, i2, i3, str) == null) {
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, str) == null) {
             super.handleFailure(i2, i3, str);
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.dxmpay.wallet.core.beans.BeanActivity
     public void handleResponse(int i2, Object obj, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i2, obj, str) == null) {
@@ -124,7 +124,7 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity
+    @Override // com.dxmpay.wallet.core.BaseActivity
     public boolean isWindowNightMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -134,7 +134,7 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.dxmpay.wallet.core.beans.BeanActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
@@ -149,7 +149,7 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
                 PayRequestCache.getInstance().addBeanRequestToCache(this.mPwdRequest.getRequestId(), this.mPwdRequest);
             }
             if (getIntent() != null) {
-                String stringExtra = getIntent().getStringExtra(Constants.HALF_SCREEN_PWD_VERIFY);
+                String stringExtra = getIntent().getStringExtra("half_screen_pwd_verify");
                 this.extraFromH5 = stringExtra;
                 this.isOpenHalfScreenPwdVerify = a(stringExtra);
             }
@@ -162,24 +162,24 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
             }
             this.mTip = (TextView) findViewById(ResUtils.id(getActivity(), "pwd_tip"));
             this.mSubTip = (TextView) findViewById(ResUtils.id(getActivity(), "pwd_sub_tip"));
-            this.f26792a = (SixNumberPwdView) findViewById(ResUtils.id(getActivity(), "pwd_input_box"));
+            this.f62660a = (SixNumberPwdView) findViewById(ResUtils.id(getActivity(), "pwd_input_box"));
             this.mErrorTip = (TextView) findViewById(ResUtils.id(getActivity(), "error_tip"));
             this.mForgetPasswd = findViewById(ResUtils.id(getActivity(), "forget_pwd"));
             hideErrorMsg();
             this.mRootView = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "root_view"));
             this.mScrollView = (SafeScrollView) findViewById(ResUtils.id(getActivity(), "scrollview"));
-            SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f26792a.findViewById(ResUtils.id(getActivity(), "pwd_input"));
+            SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f62660a.findViewById(ResUtils.id(getActivity(), "pwd_input"));
             this.mSafeEditText = safeKeyBoardEditText;
             safeKeyBoardEditText.initSafeKeyBoardParams(this.mRootView, this.mScrollView, safeKeyBoardEditText, false);
             this.mSafeEditText.setGap(20);
             this.mSafeEditText.setDisablePast(true);
-            this.f26792a.addSixNumberPwdChangedListenter(this);
+            this.f62660a.addSixNumberPwdChangedListenter(this);
             setSafeScrollView(this.mScrollView);
             this.mSafeEditText.requestFocus();
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -190,7 +190,7 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.dxmpay.wallet.core.beans.BeanActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -201,7 +201,7 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
@@ -213,7 +213,7 @@ public abstract class PwdBaseActivity extends PayBaseActivity implements SixNumb
     public void resetPwd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f26792a.resetPwd();
+            this.f62660a.resetPwd();
         }
     }
 

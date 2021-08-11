@@ -2,7 +2,6 @@ package com.baidu.wallet.core;
 
 import android.content.Context;
 import android.net.http.HttpResponseCache;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,12 +9,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.utils.LogUtil;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+import java.net.MalformedURLException;
+import java.net.URL;
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24824a = "HttpCache";
+    public static final String f60537a = "HttpCache";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -36,9 +37,15 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             try {
-                HttpResponseCache.install(new File(context.getCacheDir(), "http"), Config.FULL_TRACE_LOG_LIMIT);
+                if (context == null) {
+                    LogUtil.i(f60537a, "HTTP response cache installation failed, context is null");
+                } else if (HttpResponseCache.getInstalled() == null) {
+                    new URL("https://www.duxiaoman.com/index").openConnection().setDefaultUseCaches(false);
+                    HttpResponseCache.install(new File(context.getCacheDir(), "http"), 10485760L);
+                }
+            } catch (MalformedURLException unused) {
             } catch (IOException e2) {
-                LogUtil.i(f24824a, "HTTP response cache installation failed:" + e2);
+                LogUtil.i(f60537a, "HTTP response cache installation failed:" + e2);
             }
         }
     }

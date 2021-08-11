@@ -1,6 +1,5 @@
 package com.baidu.rtc;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class RTCOpglesRender {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RTCOpglesRender";
@@ -72,7 +71,7 @@ public class RTCOpglesRender {
     public void setupRender() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Log.d(TAG, "testing " + stringFromJNI());
+            String str = "testing " + stringFromJNI();
         }
     }
 

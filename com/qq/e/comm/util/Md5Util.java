@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class Md5Util {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f38255a;
+    public static final String[] f75038a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class Md5Util {
                 return;
             }
         }
-        f38255a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+        f75038a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
     }
 
     public Md5Util() {
@@ -60,7 +60,7 @@ public class Md5Util {
                 if (i2 < 0) {
                     i2 += 256;
                 }
-                stringBuffer.append(f38255a[i2 / 16] + f38255a[i2 % 16]);
+                stringBuffer.append(f75038a[i2 / 16] + f75038a[i2 % 16]);
             }
             return stringBuffer.toString();
         }
@@ -146,8 +146,8 @@ public class Md5Util {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
             try {
                 return byteArrayToHexString(MessageDigest.getInstance("MD5").digest(Base64.decode(str, 0)));
-            } catch (Exception e2) {
-                GDTLogger.e("Exception while md5 base64String", e2);
+            } catch (Exception unused) {
+                GDTLogger.d("Exception while md5 base64String");
                 return null;
             }
         }

@@ -1,68 +1,92 @@
 package com.alipay.sdk.widget;
 
-import android.os.Handler;
-import com.alipay.sdk.widget.a;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.text.TextUtils;
+import android.view.KeyEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
-public class b implements Runnable {
+/* loaded from: classes4.dex */
+public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f2057a;
-
-    public b(a aVar) {
+    public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f2057a = aVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        a.AlertDialogC0018a alertDialogC0018a;
-        a.AlertDialogC0018a alertDialogC0018a2;
-        a.AlertDialogC0018a alertDialogC0018a3;
-        Handler handler;
-        a.AlertDialogC0018a alertDialogC0018a4;
-        boolean z;
+    public static Dialog a(Context context, String str, String str2, String str3, DialogInterface.OnClickListener onClickListener, String str4, DialogInterface.OnClickListener onClickListener2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            alertDialogC0018a = this.f2057a.f2051e;
-            if (alertDialogC0018a == null) {
-                a aVar = this.f2057a;
-                a aVar2 = this.f2057a;
-                aVar.f2051e = new a.AlertDialogC0018a(aVar2, aVar2.f2052f);
-                alertDialogC0018a4 = this.f2057a.f2051e;
-                z = this.f2057a.k;
-                alertDialogC0018a4.setCancelable(z);
-            }
-            try {
-                alertDialogC0018a2 = this.f2057a.f2051e;
-                if (alertDialogC0018a2.isShowing()) {
-                    return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, str2, str3, onClickListener, str4, onClickListener2})) == null) {
+            AlertDialog.Builder a2 = a(context, str, str3, onClickListener, str4, onClickListener2);
+            a2.setTitle(str);
+            a2.setMessage(str2);
+            AlertDialog create = a2.create();
+            create.setCanceledOnTouchOutside(false);
+            create.setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.alipay.sdk.widget.b.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
                 }
-                alertDialogC0018a3 = this.f2057a.f2051e;
-                alertDialogC0018a3.show();
-                handler = this.f2057a.l;
-                handler.sendEmptyMessageDelayed(1, 15000L);
-            } catch (Exception e2) {
-                com.alipay.sdk.util.c.a(e2);
+
+                @Override // android.content.DialogInterface.OnKeyListener
+                public boolean onKey(DialogInterface dialogInterface, int i2, KeyEvent keyEvent) {
+                    InterceptResult invokeLIL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, dialogInterface, i2, keyEvent)) == null) ? i2 == 4 : invokeLIL.booleanValue;
+                }
+            });
+            try {
+                create.show();
+            } catch (Throwable th) {
+                com.alipay.sdk.util.c.a(com.alipay.sdk.cons.a.x, "showDialog ", th);
             }
+            return create;
         }
+        return (Dialog) invokeCommon.objValue;
+    }
+
+    public static AlertDialog.Builder a(Context context, String str, String str2, DialogInterface.OnClickListener onClickListener, String str3, DialogInterface.OnClickListener onClickListener2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, str2, onClickListener, str3, onClickListener2})) == null) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            if (!TextUtils.isEmpty(str3) && onClickListener2 != null) {
+                builder.setPositiveButton(str3, onClickListener2);
+            }
+            if (!TextUtils.isEmpty(str2) && onClickListener != null) {
+                builder.setNegativeButton(str2, onClickListener);
+            }
+            return builder;
+        }
+        return (AlertDialog.Builder) invokeCommon.objValue;
     }
 }

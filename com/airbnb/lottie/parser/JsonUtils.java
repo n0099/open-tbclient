@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class JsonUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final JsonReader.Options POINT_NAMES;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.airbnb.lottie.parser.JsonUtils$1  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$parser$moshi$JsonReader$Token;
         public static /* synthetic */ Interceptable $ic;

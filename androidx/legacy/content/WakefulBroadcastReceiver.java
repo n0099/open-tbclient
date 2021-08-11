@@ -5,7 +5,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.PowerManager;
-import android.util.Log;
 import android.util.SparseArray;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -69,7 +68,7 @@ public abstract class WakefulBroadcastReceiver extends BroadcastReceiver {
                     sActiveWakeLocks.remove(intExtra);
                     return true;
                 }
-                Log.w("WakefulBroadcastReceiv.", "No active wake lock id #" + intExtra);
+                String str = "No active wake lock id #" + intExtra;
                 return true;
             }
         }

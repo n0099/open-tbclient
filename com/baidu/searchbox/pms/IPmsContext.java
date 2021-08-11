@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface IPmsContext {
     public static final IPmsContext EMPTY = new IPmsContext() { // from class: com.baidu.searchbox.pms.IPmsContext.1
         public static /* synthetic */ Interceptable $ic;

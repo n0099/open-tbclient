@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.text.TextUtils;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,12 +16,12 @@ import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class Z1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39723a;
+    public static String f76563a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean a(Context context, Uri uri) {
@@ -43,7 +42,7 @@ public class Z1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, uri) == null) {
             Intent intent = new Intent("android.intent.action.VIEW", uri);
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            intent.addFlags(268435456);
             uri.getScheme();
             if (c2.a(uri)) {
                 str = "com.huawei.appmarket";
@@ -54,7 +53,7 @@ public class Z1 {
                 } catch (URISyntaxException e2) {
                     e2.printStackTrace();
                 }
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
                 context.startActivity(intent);
             } else {
                 str = "com.android.vending";
@@ -79,7 +78,7 @@ public class Z1 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, uri)) == null) {
             Intent intent = new Intent("android.intent.action.VIEW");
             intent.setData(uri);
-            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            intent.setFlags(268435456);
             String str = null;
             boolean z = false;
             try {

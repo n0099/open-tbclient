@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.m.a;
-import h.r.f;
+import i.m.a;
+import i.r.f;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class OnErrorThrowable extends RuntimeException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -569558213262703934L;
@@ -22,19 +22,19 @@ public final class OnErrorThrowable extends RuntimeException {
     public final boolean hasValue;
     public final Object value;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class OnNextValue extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3454462756050397899L;
         public transient /* synthetic */ FieldHolder $fh;
         public final Object value;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes2.dex */
         public static final class a {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static final Set<Class<?>> f73629a;
+            public static final Set<Class<?>> f78931a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -50,7 +50,7 @@ public final class OnErrorThrowable extends RuntimeException {
                         return;
                     }
                 }
-                f73629a = a();
+                f78931a = a();
             }
 
             public static Set<Class<?>> a() {
@@ -107,7 +107,7 @@ public final class OnErrorThrowable extends RuntimeException {
                 if (obj == null) {
                     return StringUtil.NULL_STRING;
                 }
-                if (a.f73629a.contains(obj.getClass())) {
+                if (a.f78931a.contains(obj.getClass())) {
                     return obj.toString();
                 }
                 if (obj instanceof String) {

@@ -2,6 +2,8 @@ package com.baidu.tieba.newfaceshop.message;
 
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
+import c.a.p0.d2.f.a;
+import c.a.p0.d2.f.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -11,14 +13,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.SocialConstants;
-import d.a.q0.c2.f.a;
-import d.a.q0.c2.f.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,19 +71,19 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
             }
             a aVar = new a();
             String optString = jSONObject.optString("id");
-            aVar.f55233a = optString;
+            aVar.f16435a = optString;
             if (TextUtils.isEmpty(optString)) {
                 return null;
             }
-            aVar.f55234b = jSONObject.optString("name");
+            aVar.f16436b = jSONObject.optString("name");
             jSONObject.optInt("type");
             jSONObject.optString("owner");
             jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
             jSONObject.optString("timestamp");
             jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-            aVar.f55235c = jSONObject.optString("covername");
-            aVar.f55236d = jSONObject.optString("url");
-            aVar.f55237e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
+            aVar.f16437c = jSONObject.optString("covername");
+            aVar.f16438d = jSONObject.optString("url");
+            aVar.f16439e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -101,13 +101,13 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
                 try {
                     JSONObject jSONObject = jSONArray.getJSONObject(i2);
                     b bVar = new b();
-                    bVar.f55239f = jSONObject.optString("id");
+                    bVar.f16441f = jSONObject.optString("id");
                     jSONObject.optString("url");
                     jSONObject.optString("thumbnail");
-                    bVar.f55240g = jSONObject.optString("name");
-                    bVar.f55241h = jSONObject.optString("thumbname");
-                    bVar.j = jSONObject.optInt("width");
-                    bVar.f55242i = jSONObject.optInt("height");
+                    bVar.f16442g = jSONObject.optString("name");
+                    bVar.f16443h = jSONObject.optString("thumbname");
+                    bVar.f16445j = jSONObject.optInt("width");
+                    bVar.f16444i = jSONObject.optInt("height");
                     arrayList.add(bVar);
                 } catch (JSONException e2) {
                     e2.printStackTrace();

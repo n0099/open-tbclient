@@ -16,7 +16,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -137,11 +137,11 @@ public class q {
         }
     }
 
-    public static void a(JSONObject jSONObject, String str, long j) {
+    public static void a(JSONObject jSONObject, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{jSONObject, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{jSONObject, str, Long.valueOf(j2)}) == null) {
             try {
-                jSONObject.put(str, j);
+                jSONObject.put(str, j2);
             } catch (JSONException unused) {
             }
         }

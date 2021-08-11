@@ -6,7 +6,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +40,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static volatile b gf;
@@ -58,7 +57,7 @@ public class b {
     public WebChromeClient gp;
     public Context mContext;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,13 +150,13 @@ public class b {
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                     super.handleMessage(message);
                     Object obj = message.obj;
-                    a.C0071a c0071a = obj instanceof a.C0071a ? (a.C0071a) obj : null;
+                    a.C1618a c1618a = obj instanceof a.C1618a ? (a.C1618a) obj : null;
                     switch (message.what) {
                         case 103:
-                            this.gq.a(c0071a);
+                            this.gq.a(c1618a);
                             return;
                         case 104:
-                            if (c0071a == null || (n = this.gq.n(c0071a.dM)) == null || (str = c0071a.ge) == null) {
+                            if (c1618a == null || (n = this.gq.n(c1618a.dM)) == null || (str = c1618a.ge) == null) {
                                 return;
                             }
                             n.evaluateJavascript(str, new ValueCallback<String>(this, n) { // from class: com.baidu.ar.arplay.d.b.1.1
@@ -207,7 +206,7 @@ public class b {
                             }
                             return;
                         case 106:
-                            this.gq.b(c0071a);
+                            this.gq.b(c1618a);
                             return;
                         default:
                             return;
@@ -349,28 +348,28 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(a.C0071a c0071a) {
+    public void a(a.C1618a c1618a) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, c0071a) == null) && c0071a != null && isValid()) {
-            com.baidu.ar.arplay.d.a e2 = e(c0071a.width, c0071a.height);
-            e2.setWebViewData(c0071a);
-            d.bp().b(c0071a.dM, c0071a.width, c0071a.height);
-            e2.setTag(Integer.valueOf(c0071a.dM));
-            String str = c0071a.url;
-            if (!c0071a.gd) {
+        if ((interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, c1618a) == null) && c1618a != null && isValid()) {
+            com.baidu.ar.arplay.d.a e2 = e(c1618a.width, c1618a.height);
+            e2.setWebViewData(c1618a);
+            d.bp().b(c1618a.dM, c1618a.width, c1618a.height);
+            e2.setTag(Integer.valueOf(c1618a.dM));
+            String str = c1618a.url;
+            if (!c1618a.gd) {
                 str = "file://" + this.mContext.getFilesDir().getAbsolutePath().concat(File.separator) + "ar/" + str;
             }
             e2.loadUrl(str);
             e2.invalidate();
             e2.setIsNeedRender(true);
-            e(c0071a);
+            e(c1618a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(a.C0071a c0071a) {
+    public void b(a.C1618a c1618a) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65546, this, c0071a) == null) && c0071a != null && bn()) {
+        if ((interceptable == null || interceptable.invokeL(65546, this, c1618a) == null) && c1618a != null && bn()) {
             if (this.gm == null) {
                 WebView webView = new WebView(this.mContext);
                 this.gm = webView;
@@ -419,8 +418,8 @@ public class b {
                 });
                 this.gl.addView(this.gm, layoutParams);
             }
-            String str = c0071a.url;
-            if (!c0071a.gd) {
+            String str = c1618a.url;
+            if (!c1618a.gd) {
                 str = "file://" + this.mContext.getFilesDir().getAbsolutePath().concat(File.separator) + "ar/" + str;
             }
             this.gm.loadUrl(str);
@@ -447,14 +446,7 @@ public class b {
     private boolean bn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
-            if (this.mContext == null || this.gl == null) {
-                Log.e("GLWebView", "Native WebView context or root is null!");
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? (this.mContext == null || this.gl == null) ? false : true : invokeV.booleanValue;
     }
 
     private com.baidu.ar.arplay.d.a e(int i2, int i3) {
@@ -557,14 +549,7 @@ public class b {
     private boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) {
-            if (this.mContext == null || this.gg == null) {
-                Log.e("GLWebView", "GLWebView context or root is null!");
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) ? (this.mContext == null || this.gg == null) ? false : true : invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -678,35 +663,35 @@ public class b {
         }
     }
 
-    public void c(a.C0071a c0071a) {
+    public void c(a.C1618a c1618a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, c0071a) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, c1618a) == null) {
             Message obtainMessage = this.gn.obtainMessage();
             obtainMessage.what = 103;
-            obtainMessage.obj = c0071a;
+            obtainMessage.obj = c1618a;
             this.gn.sendMessage(obtainMessage);
         }
     }
 
-    public void d(a.C0071a c0071a) {
+    public void d(a.C1618a c1618a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c0071a) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, c1618a) == null) {
             Message obtainMessage = this.gn.obtainMessage();
             obtainMessage.what = 106;
-            obtainMessage.obj = c0071a;
+            obtainMessage.obj = c1618a;
             this.gn.sendMessage(obtainMessage);
         }
     }
 
-    public void e(a.C0071a c0071a) {
+    public void e(a.C1618a c1618a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, c0071a) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, c1618a) == null) {
             Message obtainMessage = this.gn.obtainMessage();
             obtainMessage.what = 104;
-            obtainMessage.obj = c0071a;
-            com.baidu.ar.arplay.d.a n = n(c0071a.dM);
+            obtainMessage.obj = c1618a;
+            com.baidu.ar.arplay.d.a n = n(c1618a.dM);
             if (n != null) {
-                n.setWebViewData(c0071a);
+                n.setWebViewData(c1618a);
                 this.gn.sendMessage(obtainMessage);
             }
         }

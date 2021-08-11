@@ -1,0 +1,149 @@
+package com.baidu.searchbox.launch;
+
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class LaunchStatsUtils {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String AD = "ad";
+    public static int COLD_LAUNCH_TYPE = 0;
+    public static final boolean DEBUG;
+    public static final String EXTERNAL_LAUNCH = "external";
+    public static int HOT_LAUNCH_TYPE = 0;
+    public static final long INVALID_LONG = -1;
+    public static final String NEW_INSTALL_LAUNCH = "newInstall";
+    public static final String NORMAL_LAUNCH = "normal";
+    public static final String SKIN = "skin";
+    public static final String TAG = "LaunchStatsUtils";
+    public static final String UPGRADE_LAUNCH = "upgrade";
+    public static long sAppCreateTimeStamp;
+    public static long sHomePageFirstRenderEndTimeStamp;
+    public static int sLaunchType;
+    public static String sLaunchTypeDetail;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(98570996, "Lcom/baidu/searchbox/launch/LaunchStatsUtils;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(98570996, "Lcom/baidu/searchbox/launch/LaunchStatsUtils;");
+                return;
+            }
+        }
+        DEBUG = AppConfig.isDebug();
+        COLD_LAUNCH_TYPE = 0;
+        HOT_LAUNCH_TYPE = 1;
+        sAppCreateTimeStamp = -1L;
+        sHomePageFirstRenderEndTimeStamp = -1L;
+        sLaunchType = 0;
+    }
+
+    public LaunchStatsUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static long getAppCreateTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sAppCreateTimeStamp : invokeV.longValue;
+    }
+
+    public static long getHomePageFirstRenderEndTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sHomePageFirstRenderEndTimeStamp : invokeV.longValue;
+    }
+
+    public static int getLaunchType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? sLaunchType : invokeV.intValue;
+    }
+
+    public static String getLaunchTypeDetail() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? sLaunchTypeDetail : (String) invokeV.objValue;
+    }
+
+    public static boolean isAppCreateTimeValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? sAppCreateTimeStamp != -1 : invokeV.booleanValue;
+    }
+
+    public static boolean isHomePageFirstRenderEndTimeValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? sHomePageFirstRenderEndTimeStamp != -1 : invokeV.booleanValue;
+    }
+
+    public static void setAppCreateTime(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65544, null, j2) == null) {
+            sAppCreateTimeStamp = j2;
+        }
+    }
+
+    public static void setHomePageFirstRenderEndTime(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65545, null, j2) == null) {
+            sHomePageFirstRenderEndTimeStamp = j2;
+        }
+    }
+
+    public static void setLaunchType(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65546, null, i2) == null) {
+            sLaunchType = i2;
+        }
+    }
+
+    public static void setLaunchTypeDetail(int i2, boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            if (!z) {
+                sLaunchTypeDetail = EXTERNAL_LAUNCH;
+            } else if (i2 == 0) {
+                sLaunchTypeDetail = "normal";
+            } else if (i2 == 1) {
+                sLaunchTypeDetail = "upgrade";
+            } else if (i2 == 2) {
+                sLaunchTypeDetail = NEW_INSTALL_LAUNCH;
+            }
+            if (z2) {
+                sLaunchTypeDetail += "_skin";
+            }
+            if (z3 && i2 != 2) {
+                sLaunchTypeDetail += "_ad";
+            }
+            if (DEBUG) {
+                String str = "isLaunchFromLauncher: " + z + " hasSkin " + z2 + " hasAd " + z3;
+                String str2 = "sLaunchType: " + sLaunchType;
+            }
+        }
+    }
+}

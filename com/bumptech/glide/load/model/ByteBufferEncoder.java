@@ -14,7 +14,7 @@ import com.bumptech.glide.util.ByteBufferUtil;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ByteBufferEncoder implements Encoder<ByteBuffer> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ByteBufferEncoder";
@@ -43,10 +43,8 @@ public class ByteBufferEncoder implements Encoder<ByteBuffer> {
             try {
                 ByteBufferUtil.toFile(byteBuffer, file);
                 return true;
-            } catch (IOException e2) {
-                if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "Failed to write data", e2);
-                }
+            } catch (IOException unused) {
+                Log.isLoggable(TAG, 3);
                 return false;
             }
         }

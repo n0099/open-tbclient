@@ -2,7 +2,8 @@ package com.duxiaoman.dxmpay.statistics.internal;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.widget.j;
+import c.d.a.a.a.e;
+import com.alipay.sdk.widget.d;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,22 +12,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.d.a.a.b.i;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class StatService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, Long> f32867a;
+    public ConcurrentHashMap<String, Long> f68857a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class ETag {
         public static final /* synthetic */ ETag[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -52,7 +52,7 @@ public class StatService {
             in = new ETag("in", 0);
             out = new ETag("out", 1);
             push = new ETag("push", 2);
-            ETag eTag = new ETag(j.j, 3);
+            ETag eTag = new ETag(d.l, 3);
             back = eTag;
             $VALUES = new ETag[]{in, out, push, eTag};
         }
@@ -89,12 +89,12 @@ public class StatService {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static StatService f32868a;
+        public static StatService f68858a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -110,11 +110,11 @@ public class StatService {
                     return;
                 }
             }
-            f32868a = new StatService(null);
+            f68858a = new StatService(null);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,84 +127,136 @@ public class StatService {
     public static StatService a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f32868a : (StatService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f68858a : (StatService) invokeV.objValue;
     }
 
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a().f32867a.put(str, Long.valueOf(System.currentTimeMillis()));
+            a().f68857a.put(str, Long.valueOf(System.currentTimeMillis()));
         }
     }
 
-    public static void c(String str, String str2, String str3) {
+    public static synchronized void c(String str, ETag eTag, Collection<String> collection) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) == null) || TextUtils.isEmpty(str)) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, eTag, collection) == null) {
+            synchronized (StatService.class) {
+                if (eTag != null) {
+                    f(str, eTag.name(), collection, null);
+                }
+            }
+        }
+    }
+
+    public static void d(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, str3) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        i.a().c(str, null, str2, str3, System.currentTimeMillis());
+        e.a().c(str, null, str2, str3, System.currentTimeMillis());
     }
 
-    public static void d(String str, String str2, String str3, String str4) {
+    public static void e(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, str3, str4) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, str3, str4) == null) {
             HashMap hashMap = new HashMap();
             ArrayList arrayList = new ArrayList();
             arrayList.add(0, "");
-            long f2 = f(str);
-            if (f2 > 0) {
-                arrayList.add(Long.toString(f2));
-                hashMap.put("duration", Long.valueOf(f2));
+            long i2 = i(str);
+            if (i2 > 0) {
+                arrayList.add(Long.toString(i2));
+                hashMap.put("duration", Long.valueOf(i2));
             }
             arrayList.add(str2);
             if (str3 != null) {
                 arrayList.add(str3);
             }
-            e(str, null, arrayList, hashMap, str4);
+            g(str, null, arrayList, hashMap, str4);
         }
     }
 
-    public static void e(String str, String str2, Collection<String> collection, Map<String, Object> map, String str3) {
+    public static void f(String str, String str2, Collection<String> collection, String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, collection, map, str3) == null) || TextUtils.isEmpty(str)) {
+        if (interceptable == null || interceptable.invokeLLLL(65543, null, str, str2, collection, str3) == null) {
+            g(str, str2, collection, null, str3);
+        }
+    }
+
+    public static void g(String str, String str2, Collection<String> collection, Map<String, Object> map, String str3) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLLL(65544, null, str, str2, collection, map, str3) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        i.a().d(str, str2, collection, map, str3, System.currentTimeMillis());
+        e.a().d(str, str2, collection, map, str3, System.currentTimeMillis());
     }
 
-    public static long f(String str) {
+    public static void h(String str, Collection<String> collection, Map<String, Object> map, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65545, null, str, collection, map, str2) == null) {
+            ArrayList arrayList = new ArrayList();
+            long i2 = i(str);
+            if (i2 > 0) {
+                if (map == null) {
+                    map = new HashMap<>();
+                }
+                map.put("duration", Long.valueOf(i2));
+            }
+            if (collection != null) {
+                arrayList.addAll(collection);
+            }
+            g(str, null, arrayList, map, str2);
+        }
+    }
+
+    public static long i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            Long l = a().f32867a.get(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            Long l = a().f68857a.get(str);
             if (l == null) {
                 return -1L;
             }
             Long valueOf = Long.valueOf(System.currentTimeMillis() - l.longValue());
-            a().f32867a.remove(str);
+            a().f68857a.remove(str);
             return valueOf.longValue();
         }
         return invokeL.longValue;
     }
 
-    public static void g(String str, String str2, Collection<String> collection, Map<String, Object> map, String str3) {
+    public static void j(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65544, null, str, str2, collection, map, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65547, null, str, str2, str3) == null) {
+            HashMap hashMap = new HashMap();
+            ArrayList arrayList = new ArrayList();
+            long i2 = i(str);
+            if (i2 > 0) {
+                hashMap.put("duration", Long.valueOf(i2));
+            }
+            if (str2 != null) {
+                arrayList.add(str2);
+            }
+            g(str, null, arrayList, hashMap, str3);
+        }
+    }
+
+    public static void k(String str, String str2, Collection<String> collection, Map<String, Object> map, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65548, null, str, str2, collection, map, str3) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(0, "");
-            long f2 = f(str);
-            if (f2 > 0) {
-                arrayList.add(Long.toString(f2));
+            long i2 = i(str);
+            if (i2 > 0) {
+                arrayList.add(Long.toString(i2));
                 if (map == null) {
                     map = new HashMap<>();
                 }
-                map.put("duration", Long.valueOf(f2));
+                map.put("duration", Long.valueOf(i2));
             }
             arrayList.add(str2);
             if (collection != null) {
                 arrayList.addAll(collection);
             }
-            e(str, null, arrayList, map, str3);
+            g(str, null, arrayList, map, str3);
         }
     }
 
@@ -221,6 +273,6 @@ public class StatService {
                 return;
             }
         }
-        this.f32867a = new ConcurrentHashMap<>();
+        this.f68857a = new ConcurrentHashMap<>();
     }
 }

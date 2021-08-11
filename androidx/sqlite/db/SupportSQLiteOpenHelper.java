@@ -4,7 +4,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.os.Build;
-import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -51,21 +50,14 @@ public interface SupportSQLiteOpenHelper {
             if (!(interceptable == null || interceptable.invokeL(65537, this, str) == null) || str.equalsIgnoreCase(":memory:") || str.trim().length() == 0) {
                 return;
             }
-            Log.w(TAG, "deleting the database file: " + str);
+            String str2 = "deleting the database file: " + str;
             try {
                 if (Build.VERSION.SDK_INT >= 16) {
                     SQLiteDatabase.deleteDatabase(new File(str));
-                } else {
-                    try {
-                        if (!new File(str).delete()) {
-                            Log.e(TAG, "Could not delete the database file " + str);
-                        }
-                    } catch (Exception e2) {
-                        Log.e(TAG, "error while deleting corrupted database file", e2);
-                    }
+                } else if (!new File(str).delete()) {
+                    String str3 = "Could not delete the database file " + str;
                 }
-            } catch (Exception e3) {
-                Log.w(TAG, "delete failed: ", e3);
+            } catch (Exception unused) {
             }
         }
 
@@ -78,7 +70,7 @@ public interface SupportSQLiteOpenHelper {
         public void onCorruption(SupportSQLiteDatabase supportSQLiteDatabase) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, supportSQLiteDatabase) == null) {
-                Log.e(TAG, "Corruption reported by sqlite on database: " + supportSQLiteDatabase.getPath());
+                String str = "Corruption reported by sqlite on database: " + supportSQLiteDatabase.getPath();
                 if (!supportSQLiteDatabase.isOpen()) {
                     deleteDatabaseFile(supportSQLiteDatabase.getPath());
                     return;

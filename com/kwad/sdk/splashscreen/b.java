@@ -19,20 +19,20 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.core.preload.SplashPreloadManager;
 import com.kwad.sdk.core.response.model.AdResultData;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b extends AbstrackKsSplashScreenAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdResultData f36640a;
+    public AdResultData f73458a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsScene f36641b;
+    public KsScene f73459b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public final AdTemplate f36642c;
+    public final AdTemplate f73460c;
 
     public b(@NonNull KsScene ksScene, @NonNull AdResultData adResultData) {
         Interceptable interceptable = $ic;
@@ -49,16 +49,16 @@ public class b extends AbstrackKsSplashScreenAd {
                 return;
             }
         }
-        this.f36640a = adResultData;
-        this.f36641b = ksScene;
-        this.f36642c = adResultData.adTemplateList.get(0);
+        this.f73458a = adResultData;
+        this.f73459b = ksScene;
+        this.f73460c = adResultData.adTemplateList.get(0);
     }
 
     @Override // com.kwad.sdk.api.KsSplashScreenAd
     public int getECPM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwad.sdk.core.response.b.a.x(com.kwad.sdk.core.response.b.c.i(this.f36642c)) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwad.sdk.core.response.b.a.x(com.kwad.sdk.core.response.b.c.i(this.f73460c)) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.core.AbstrackKsSplashScreenAd
@@ -67,7 +67,7 @@ public class b extends AbstrackKsSplashScreenAd {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, splashScreenAdInteractionListener)) == null) {
-            KsSplashScreenFragment a2 = KsSplashScreenFragment.a(this.f36641b, this.f36640a);
+            KsSplashScreenFragment a2 = KsSplashScreenFragment.a(this.f73459b, this.f73458a);
             a2.a(splashScreenAdInteractionListener);
             return a2;
         }
@@ -78,14 +78,14 @@ public class b extends AbstrackKsSplashScreenAd {
     public int getInteractionType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.response.b.a.w(com.kwad.sdk.core.response.b.c.i(this.f36642c)) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.response.b.a.w(com.kwad.sdk.core.response.b.c.i(this.f73460c)) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.KsSplashScreenAd
     public int getMaterialType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? com.kwad.sdk.core.response.b.a.H(com.kwad.sdk.core.response.b.c.i(this.f36642c)) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? com.kwad.sdk.core.response.b.a.H(com.kwad.sdk.core.response.b.c.i(this.f73460c)) : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.core.AbstrackKsSplashScreenAd
@@ -94,7 +94,7 @@ public class b extends AbstrackKsSplashScreenAd {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, splashScreenAdInteractionListener)) == null) {
-            c a2 = c.a(context, this.f36641b, this.f36640a);
+            c a2 = c.a(context, this.f73459b, this.f73458a);
             a2.setSplashScreenAdListener(splashScreenAdInteractionListener);
             return a2;
         }
@@ -105,21 +105,21 @@ public class b extends AbstrackKsSplashScreenAd {
     public boolean isAdEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? SplashPreloadManager.b().a(this.f36640a) || SplashPreloadManager.b().b(this.f36640a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? SplashPreloadManager.b().a(this.f73458a) || SplashPreloadManager.b().b(this.f73458a) : invokeV.booleanValue;
     }
 
     @Override // com.kwad.sdk.api.KsSplashScreenAd
     public boolean isVideo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? com.kwad.sdk.core.response.b.a.F(com.kwad.sdk.core.response.b.c.i(this.f36640a.adTemplateList.get(0))) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? com.kwad.sdk.core.response.b.a.F(com.kwad.sdk.core.response.b.c.i(this.f73458a.adTemplateList.get(0))) : invokeV.booleanValue;
     }
 
     @Override // com.kwad.sdk.api.KsSplashScreenAd
     public void setBidEcpm(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            AdTemplate adTemplate = this.f36642c;
+            AdTemplate adTemplate = this.f73460c;
             adTemplate.mBidEcpm = i2;
             com.kwad.sdk.core.report.a.m(adTemplate);
         }
@@ -130,7 +130,7 @@ public class b extends AbstrackKsSplashScreenAd {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, splashScreenAdInteractionListener, rect)) == null) {
-            String a2 = com.kwad.sdk.core.response.b.a.a(com.kwad.sdk.core.response.b.c.i(this.f36642c));
+            String a2 = com.kwad.sdk.core.response.b.a.a(com.kwad.sdk.core.response.b.c.i(this.f73460c));
             if (a2 == null || StringUtil.NULL_STRING.equals(a2) || a2.equals("")) {
                 return false;
             }

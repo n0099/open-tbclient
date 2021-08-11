@@ -9,7 +9,7 @@ import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,14 +18,13 @@ public final class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            com.alipay.security.mobile.module.deviceinfo.b a2 = com.alipay.security.mobile.module.deviceinfo.b.a();
+            com.alipay.security.mobile.module.b.b a2 = com.alipay.security.mobile.module.b.b.a();
             HashMap hashMap = new HashMap();
             f a3 = com.alipay.apmobilesecuritysdk.e.e.a(context);
-            String a4 = a2.a(context);
-            String b2 = a2.b(context);
-            String p = a2.p(context);
-            String s = a2.s(context);
-            String r = a2.r(context);
+            String a4 = com.alipay.security.mobile.module.b.b.a(context);
+            String b2 = com.alipay.security.mobile.module.b.b.b(context);
+            String k = com.alipay.security.mobile.module.b.b.k(context);
+            String m = com.alipay.security.mobile.module.b.b.m(context);
             if (a3 != null) {
                 if (com.alipay.security.mobile.module.a.a.a(a4)) {
                     a4 = a3.a();
@@ -33,17 +32,14 @@ public final class c {
                 if (com.alipay.security.mobile.module.a.a.a(b2)) {
                     b2 = a3.b();
                 }
-                if (com.alipay.security.mobile.module.a.a.a(p)) {
-                    p = a3.c();
+                if (com.alipay.security.mobile.module.a.a.a(k)) {
+                    k = a3.c();
                 }
-                if (com.alipay.security.mobile.module.a.a.a(s)) {
-                    s = a3.d();
-                }
-                if (com.alipay.security.mobile.module.a.a.a(r)) {
-                    r = a3.e();
+                if (com.alipay.security.mobile.module.a.a.a(m)) {
+                    m = a3.e();
                 }
             }
-            f fVar = new f(a4, b2, p, s, r);
+            f fVar = new f(a4, b2, k, "", m);
             if (context != null) {
                 try {
                     JSONObject jSONObject = new JSONObject();
@@ -61,44 +57,43 @@ public final class c {
             }
             hashMap.put("AD1", a4);
             hashMap.put("AD2", b2);
-            hashMap.put("AD3", a2.j(context));
-            hashMap.put("AD5", a2.l(context));
-            hashMap.put("AD6", a2.n(context));
-            hashMap.put("AD7", a2.o(context));
-            hashMap.put("AD8", p);
-            hashMap.put("AD9", a2.q(context));
-            hashMap.put("AD10", r);
-            hashMap.put("AD11", a2.d());
-            hashMap.put("AD12", a2.f());
-            hashMap.put("AD13", a2.g());
-            hashMap.put("AD14", a2.i());
-            hashMap.put("AD15", a2.j());
-            hashMap.put("AD16", a2.k());
+            hashMap.put("AD3", com.alipay.security.mobile.module.b.b.f(context));
+            hashMap.put("AD5", com.alipay.security.mobile.module.b.b.h(context));
+            hashMap.put("AD6", com.alipay.security.mobile.module.b.b.i(context));
+            hashMap.put("AD7", com.alipay.security.mobile.module.b.b.j(context));
+            hashMap.put("AD8", k);
+            hashMap.put("AD9", com.alipay.security.mobile.module.b.b.l(context));
+            hashMap.put("AD10", m);
+            hashMap.put("AD11", com.alipay.security.mobile.module.b.b.d());
+            hashMap.put("AD12", a2.e());
+            hashMap.put("AD13", com.alipay.security.mobile.module.b.b.f());
+            hashMap.put("AD14", com.alipay.security.mobile.module.b.b.h());
+            hashMap.put("AD15", com.alipay.security.mobile.module.b.b.i());
+            hashMap.put("AD16", com.alipay.security.mobile.module.b.b.j());
             hashMap.put("AD17", "");
-            hashMap.put("AD18", s);
-            hashMap.put("AD19", a2.t(context));
-            hashMap.put("AD20", a2.n());
+            hashMap.put("AD19", com.alipay.security.mobile.module.b.b.n(context));
+            hashMap.put("AD20", com.alipay.security.mobile.module.b.b.k());
             hashMap.put("AD22", "");
-            hashMap.put("AD23", a2.p());
-            hashMap.put("AD24", com.alipay.security.mobile.module.a.a.g(a2.k(context)));
-            hashMap.put("AD26", a2.g(context));
-            hashMap.put("AD27", a2.w());
-            hashMap.put("AD28", a2.y());
-            hashMap.put("AD29", a2.A());
-            hashMap.put("AD30", a2.x());
-            hashMap.put("AD31", a2.z());
-            hashMap.put("AD32", a2.u());
-            hashMap.put("AD33", a2.v());
-            hashMap.put("AD34", a2.x(context));
-            hashMap.put("AD35", a2.y(context));
-            hashMap.put("AD36", a2.v(context));
-            hashMap.put("AD37", a2.s());
-            hashMap.put("AD38", a2.q());
-            hashMap.put("AD39", a2.c(context));
-            hashMap.put("AD40", a2.d(context));
-            hashMap.put("AD41", a2.b());
-            hashMap.put("AD42", a2.c());
-            hashMap.put("AL3", a2.u(context));
+            hashMap.put("AD23", com.alipay.security.mobile.module.b.b.p(context));
+            hashMap.put("AD24", com.alipay.security.mobile.module.a.a.g(com.alipay.security.mobile.module.b.b.g(context)));
+            hashMap.put("AD26", com.alipay.security.mobile.module.b.b.e(context));
+            hashMap.put("AD27", com.alipay.security.mobile.module.b.b.p());
+            hashMap.put("AD28", com.alipay.security.mobile.module.b.b.r());
+            hashMap.put("AD29", com.alipay.security.mobile.module.b.b.t());
+            hashMap.put("AD30", com.alipay.security.mobile.module.b.b.q());
+            hashMap.put("AD31", com.alipay.security.mobile.module.b.b.s());
+            hashMap.put("AD32", com.alipay.security.mobile.module.b.b.n());
+            hashMap.put("AD33", com.alipay.security.mobile.module.b.b.o());
+            hashMap.put("AD34", com.alipay.security.mobile.module.b.b.r(context));
+            hashMap.put("AD35", com.alipay.security.mobile.module.b.b.s(context));
+            hashMap.put("AD36", com.alipay.security.mobile.module.b.b.q(context));
+            hashMap.put("AD37", com.alipay.security.mobile.module.b.b.m());
+            hashMap.put("AD38", com.alipay.security.mobile.module.b.b.l());
+            hashMap.put("AD39", com.alipay.security.mobile.module.b.b.c(context));
+            hashMap.put("AD40", com.alipay.security.mobile.module.b.b.d(context));
+            hashMap.put("AD41", com.alipay.security.mobile.module.b.b.b());
+            hashMap.put("AD42", com.alipay.security.mobile.module.b.b.c());
+            hashMap.put("AL3", com.alipay.security.mobile.module.b.b.o(context));
             return hashMap;
         }
         return (Map) invokeL.objValue;

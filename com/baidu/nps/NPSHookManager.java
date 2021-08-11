@@ -2,12 +2,12 @@ package com.baidu.nps;
 
 import android.app.Application;
 import android.os.Build;
+import c.a.a0.b.a.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.b0.b.a.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class NPSHookManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

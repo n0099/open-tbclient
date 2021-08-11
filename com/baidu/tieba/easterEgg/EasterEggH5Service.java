@@ -9,6 +9,8 @@ import android.webkit.JsPromptResult;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import c.a.e.e.p.k;
+import c.a.p0.j0.d;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -27,36 +29,34 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
-import d.a.d.e.p.k;
-import d.a.q0.j0.d;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class EasterEggH5Service extends Service {
     public static /* synthetic */ Interceptable $ic = null;
     public static String KEY_URL = "url";
     public transient /* synthetic */ FieldHolder $fh;
     public EasterEggBridge eggBridge;
     public Gson gson;
-    public d.a.q0.h3.l0.a jsBridge;
-    public d.a.q0.j0.g.a mHttpRule;
-    public d.a.q0.j0.g.b mSocketRule;
+    public c.a.p0.i3.l0.a jsBridge;
+    public c.a.p0.j0.g.a mHttpRule;
+    public c.a.p0.j0.g.b mSocketRule;
     public BdUniqueId mTag;
     public String mUrl;
     public BaseWebView mWebView;
-    public d.a.q0.j0.d model;
-    public d.a.q0.j0.c onHitEventListener;
+    public c.a.p0.j0.d model;
+    public c.a.p0.j0.c onHitEventListener;
     public CustomMessageListener onSearchEventListener;
     public CustomMessageListener onWriteReadListener;
 
-    /* loaded from: classes4.dex */
-    public class a implements d.a.q0.j0.c {
+    /* loaded from: classes7.dex */
+    public class a implements c.a.p0.j0.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EasterEggH5Service f14628a;
+        public final /* synthetic */ EasterEggH5Service f49810a;
 
         public a(EasterEggH5Service easterEggH5Service) {
             Interceptable interceptable = $ic;
@@ -73,27 +73,27 @@ public class EasterEggH5Service extends Service {
                     return;
                 }
             }
-            this.f14628a = easterEggH5Service;
+            this.f49810a = easterEggH5Service;
         }
 
-        @Override // d.a.q0.j0.c
+        @Override // c.a.p0.j0.c
         public void a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) || this.f14628a.mWebView == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) || this.f49810a.mWebView == null) {
                 return;
             }
-            EasterEggH5Service easterEggH5Service = this.f14628a;
+            EasterEggH5Service easterEggH5Service = this.f49810a;
             easterEggH5Service.loadJsUrl(easterEggH5Service.mWebView, "receiveEvent", str2, str3);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EasterEggH5Service f14629a;
+        public final /* synthetic */ EasterEggH5Service f49811a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(EasterEggH5Service easterEggH5Service, int i2) {
@@ -113,7 +113,7 @@ public class EasterEggH5Service extends Service {
                     return;
                 }
             }
-            this.f14629a = easterEggH5Service;
+            this.f49811a = easterEggH5Service;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -121,12 +121,12 @@ public class EasterEggH5Service extends Service {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof String)) {
-                String a2 = this.f14629a.mHttpRule != null ? this.f14629a.mHttpRule.a("reindeer_search") : null;
+                String a2 = this.f49811a.mHttpRule != null ? this.f49811a.mHttpRule.a("reindeer_search") : null;
                 if (a2 != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("content", customResponsedMessage.getData());
-                        this.f14629a.onHitEventListener.a("reindeer_search", this.f14629a.gson.toJson(a2), this.f14629a.gson.toJson(jSONObject.toString()));
+                        this.f49811a.onHitEventListener.a("reindeer_search", this.f49811a.gson.toJson(a2), this.f49811a.gson.toJson(jSONObject.toString()));
                     } catch (JSONException unused) {
                     }
                 }
@@ -134,13 +134,13 @@ public class EasterEggH5Service extends Service {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EasterEggH5Service f14630a;
+        public final /* synthetic */ EasterEggH5Service f49812a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(EasterEggH5Service easterEggH5Service, int i2) {
@@ -160,7 +160,7 @@ public class EasterEggH5Service extends Service {
                     return;
                 }
             }
-            this.f14630a = easterEggH5Service;
+            this.f49812a = easterEggH5Service;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -169,7 +169,7 @@ public class EasterEggH5Service extends Service {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof NetWorkParam)) {
                 NetWorkParam netWorkParam = (NetWorkParam) customResponsedMessage.getData();
-                String a2 = this.f14630a.mHttpRule != null ? this.f14630a.mHttpRule.a(netWorkParam.mUrl) : null;
+                String a2 = this.f49812a.mHttpRule != null ? this.f49812a.mHttpRule.a(netWorkParam.mUrl) : null;
                 if (a2 != null) {
                     HashMap hashMap = new HashMap();
                     if (!ListUtils.isEmpty(netWorkParam.mPostData)) {
@@ -179,19 +179,19 @@ public class EasterEggH5Service extends Service {
                             }
                         }
                     }
-                    this.f14630a.onHitEventListener.a(netWorkParam.mUrl, this.f14630a.gson.toJson(a2), this.f14630a.gson.toJson(this.f14630a.gson.toJson(hashMap)));
+                    this.f49812a.onHitEventListener.a(netWorkParam.mUrl, this.f49812a.gson.toJson(a2), this.f49812a.gson.toJson(this.f49812a.gson.toJson(hashMap)));
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class d implements d.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EasterEggH5Service f14631a;
+        public final /* synthetic */ EasterEggH5Service f49813a;
 
         public d(EasterEggH5Service easterEggH5Service) {
             Interceptable interceptable = $ic;
@@ -208,37 +208,37 @@ public class EasterEggH5Service extends Service {
                     return;
                 }
             }
-            this.f14631a = easterEggH5Service;
+            this.f49813a = easterEggH5Service;
         }
 
-        @Override // d.a.q0.j0.d.b
-        public void a(boolean z, d.a.q0.j0.e.a aVar) {
+        @Override // c.a.p0.j0.d.b
+        public void a(boolean z, c.a.p0.j0.e.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, aVar) == null) {
                 if (z && aVar != null && !k.isEmpty(aVar.a()) && aVar.c()) {
-                    if (this.f14631a.mWebView != null) {
-                        this.f14631a.mWebView.loadUrl(aVar.a());
+                    if (this.f49813a.mWebView != null) {
+                        this.f49813a.mWebView.loadUrl(aVar.a());
                     }
                     HashMap<String, String> b2 = aVar.b();
                     if (b2 != null) {
-                        this.f14631a.mHttpRule.d(b2);
-                        this.f14631a.mSocketRule.d(b2);
+                        this.f49813a.mHttpRule.c(b2);
+                        this.f49813a.mSocketRule.c(b2);
                         return;
                     }
                     return;
                 }
-                this.f14631a.stopSelf();
+                this.f49813a.stopSelf();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class e extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EasterEggH5Service f14632a;
+        public final /* synthetic */ EasterEggH5Service f49814a;
 
         public e(EasterEggH5Service easterEggH5Service) {
             Interceptable interceptable = $ic;
@@ -255,7 +255,7 @@ public class EasterEggH5Service extends Service {
                     return;
                 }
             }
-            this.f14632a = easterEggH5Service;
+            this.f49814a = easterEggH5Service;
         }
 
         @Override // android.webkit.WebViewClient
@@ -268,13 +268,13 @@ public class EasterEggH5Service extends Service {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class f implements d.a.q0.h3.l0.c {
+    /* loaded from: classes7.dex */
+    public class f implements c.a.p0.i3.l0.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EasterEggH5Service f14633a;
+        public final /* synthetic */ EasterEggH5Service f49815a;
 
         public f(EasterEggH5Service easterEggH5Service) {
             Interceptable interceptable = $ic;
@@ -291,14 +291,14 @@ public class EasterEggH5Service extends Service {
                     return;
                 }
             }
-            this.f14633a = easterEggH5Service;
+            this.f49815a = easterEggH5Service;
         }
 
-        @Override // d.a.q0.h3.l0.c
+        @Override // c.a.p0.i3.l0.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) ? this.f14633a.jsBridge != null && this.f14633a.jsBridge.b(this.f14633a.mWebView, str, jsPromptResult) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) ? this.f49815a.jsBridge != null && this.f49815a.jsBridge.b(this.f49815a.mWebView, str, jsPromptResult) : invokeLL.booleanValue;
         }
     }
 
@@ -345,13 +345,13 @@ public class EasterEggH5Service extends Service {
             MessageManager.getInstance().registerListener(this.onSearchEventListener);
             this.onWriteReadListener.setTag(this.mTag);
             MessageManager.getInstance().registerListener(this.onWriteReadListener);
-            d.a.q0.j0.g.a aVar = new d.a.q0.j0.g.a(0);
+            c.a.p0.j0.g.a aVar = new c.a.p0.j0.g.a(0);
             this.mHttpRule = aVar;
-            aVar.c(this.onHitEventListener);
+            aVar.b(this.onHitEventListener);
             MessageManager.getInstance().addMessageRule(this.mHttpRule);
-            d.a.q0.j0.g.b bVar = new d.a.q0.j0.g.b(0);
+            c.a.p0.j0.g.b bVar = new c.a.p0.j0.g.b(0);
             this.mSocketRule = bVar;
-            bVar.c(this.onHitEventListener);
+            bVar.b(this.onHitEventListener);
             MessageManager.getInstance().addMessageRule(this.mSocketRule);
         }
     }
@@ -361,7 +361,7 @@ public class EasterEggH5Service extends Service {
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             try {
                 this.mWebView = new BaseWebView(this);
-                this.jsBridge = new d.a.q0.h3.l0.a();
+                this.jsBridge = new c.a.p0.i3.l0.a();
                 this.mWebView.initCommonJsBridge(this);
                 if (Build.VERSION.SDK_INT >= 21) {
                     this.mWebView.getSettings().setMixedContentMode(0);
@@ -372,7 +372,7 @@ public class EasterEggH5Service extends Service {
                 this.jsBridge.a(easterEggBridge);
                 this.mWebView.setOnJsPromptCallback(new f(this));
             } catch (Throwable th) {
-                d.a.p0.s.z.a.a("img", -1L, 0, "easteregg_error", 0, th.getClass().getName(), "", "");
+                c.a.o0.s.z.a.a("img", -1L, 0, "easteregg_error", 0, th.getClass().getName(), "", "");
                 TbadkCoreApplication.getInst().onLowMemory();
                 stopSelf();
             }
@@ -419,7 +419,7 @@ public class EasterEggH5Service extends Service {
             super.onCreate();
             initWebView();
             initListenerAndRule();
-            d.a.q0.j0.d dVar = new d.a.q0.j0.d();
+            c.a.p0.j0.d dVar = new c.a.p0.j0.d();
             this.model = dVar;
             dVar.d(new d(this));
             this.model.e();
@@ -430,7 +430,7 @@ public class EasterEggH5Service extends Service {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d.a.q0.j0.d dVar = this.model;
+            c.a.p0.j0.d dVar = this.model;
             if (dVar != null) {
                 dVar.c();
             }

@@ -1,6 +1,6 @@
 package org.apache.http;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public interface RequestLine {
     String getMethod();
 

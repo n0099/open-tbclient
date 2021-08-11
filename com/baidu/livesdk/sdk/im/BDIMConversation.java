@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BDIMConversation implements IMConversation {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -94,13 +94,13 @@ public class BDIMConversation implements IMConversation {
                 }
 
                 @Override // com.baidu.android.imsdk.mcast.IMcastSetListener
-                public void onResult(int i2, long j, long j2) {
+                public void onResult(int i2, long j2, long j3) {
                     IMCastSetListener iMCastSetListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)}) == null) || (iMCastSetListener2 = this.val$listener) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) || (iMCastSetListener2 = this.val$listener) == null) {
                         return;
                     }
-                    iMCastSetListener2.onResult(i2, j, j2);
+                    iMCastSetListener2.onResult(i2, j2, j3);
                 }
             });
         }
@@ -136,13 +136,13 @@ public class BDIMConversation implements IMConversation {
                 }
 
                 @Override // com.baidu.android.imsdk.mcast.IMcastSetListener
-                public void onResult(int i2, long j, long j2) {
+                public void onResult(int i2, long j2, long j3) {
                     IMCastSetListener iMCastSetListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)}) == null) || (iMCastSetListener2 = this.val$listener) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) || (iMCastSetListener2 = this.val$listener) == null) {
                         return;
                     }
-                    iMCastSetListener2.onResult(i2, j, j2);
+                    iMCastSetListener2.onResult(i2, j2, j3);
                 }
             });
         }
@@ -163,15 +163,15 @@ public class BDIMConversation implements IMConversation {
 
     @Override // com.baidu.livesdk.api.im.IMConversation
     public void registerMsgReceiveListener(String str, MsgReceiveListener msgReceiveListener) {
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, msgReceiveListener) == null) {
             try {
-                j = Long.parseLong(str);
+                j2 = Long.parseLong(str);
             } catch (Exception unused) {
-                j = 0;
+                j2 = 0;
             }
-            this.mConversation.registerLiveMsgReceiveListener(j, new ILiveMsgReceiveListener(this, msgReceiveListener) { // from class: com.baidu.livesdk.sdk.im.BDIMConversation.1
+            this.mConversation.registerLiveMsgReceiveListener(j2, new ILiveMsgReceiveListener(this, msgReceiveListener) { // from class: com.baidu.livesdk.sdk.im.BDIMConversation.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BDIMConversation this$0;

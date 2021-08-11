@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
-import android.util.Log;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -374,12 +373,11 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
                         this.this$0.postResultIfNotInvoked(get());
-                    } catch (InterruptedException e2) {
-                        Log.w(ModernAsyncTask.LOG_TAG, e2);
-                    } catch (CancellationException unused) {
+                    } catch (InterruptedException unused) {
+                    } catch (CancellationException unused2) {
                         this.this$0.postResultIfNotInvoked(null);
-                    } catch (ExecutionException e3) {
-                        throw new RuntimeException("An error occurred while executing doInBackground()", e3.getCause());
+                    } catch (ExecutionException e2) {
+                        throw new RuntimeException("An error occurred while executing doInBackground()", e2.getCause());
                     } catch (Throwable th) {
                         throw new RuntimeException("An error occurred while executing doInBackground()", th);
                     }
@@ -547,9 +545,9 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
         }
     }
 
-    public final Result get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public final Result get(long j2, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048582, this, j, timeUnit)) == null) ? this.mFuture.get(j, timeUnit) : (Result) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048582, this, j2, timeUnit)) == null) ? this.mFuture.get(j2, timeUnit) : (Result) invokeJL.objValue;
     }
 }

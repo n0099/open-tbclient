@@ -4,19 +4,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class c extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f34645a;
+    public int f71386a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34646b;
+    public int f71387b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34647c;
+    public int f71388c;
 
     public c(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -33,11 +33,11 @@ public class c extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.co
                 return;
             }
         }
-        this.f34645a = -1;
-        this.f34646b = -1;
-        this.f34647c = -1;
-        this.f34645a = i2;
-        this.f34646b = i3;
-        this.f34647c = i4;
+        this.f71386a = -1;
+        this.f71387b = -1;
+        this.f71388c = -1;
+        this.f71386a = i2;
+        this.f71387b = i3;
+        this.f71388c = i4;
     }
 }

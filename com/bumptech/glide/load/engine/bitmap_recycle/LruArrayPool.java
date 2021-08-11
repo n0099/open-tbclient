@@ -16,7 +16,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes9.dex */
 public final class LruArrayPool implements ArrayPool {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SIZE = 4194304;
@@ -31,7 +32,7 @@ public final class LruArrayPool implements ArrayPool {
     public final int maxSize;
     public final Map<Class<?>, NavigableMap<Integer, Integer>> sortedSizes;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class Key implements Poolable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,13 +102,13 @@ public final class LruArrayPool implements ArrayPool {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return "Key{size=" + this.size + "array=" + this.arrayClass + '}';
+                return "Key{size=" + this.size + "array=" + this.arrayClass + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class KeyPool extends BaseKeyPool<Key> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -203,7 +204,8 @@ public final class LruArrayPool implements ArrayPool {
                 this.currentSize -= adapterFromObject.getArrayLength(removeLast) * adapterFromObject.getElementSizeInBytes();
                 decrementArrayOfSize(adapterFromObject.getArrayLength(removeLast), removeLast.getClass());
                 if (Log.isLoggable(adapterFromObject.getTag(), 2)) {
-                    Log.v(adapterFromObject.getTag(), "evicted: " + adapterFromObject.getArrayLength(removeLast));
+                    adapterFromObject.getTag();
+                    String str = "evicted: " + adapterFromObject.getArrayLength(removeLast);
                 }
             }
         }
@@ -254,7 +256,8 @@ public final class LruArrayPool implements ArrayPool {
             }
             if (t == null) {
                 if (Log.isLoggable(adapterFromType.getTag(), 2)) {
-                    Log.v(adapterFromType.getTag(), "Allocated " + key.size + " bytes");
+                    adapterFromType.getTag();
+                    String str = "Allocated " + key.size + " bytes";
                 }
                 return adapterFromType.newArray(key.size);
             }

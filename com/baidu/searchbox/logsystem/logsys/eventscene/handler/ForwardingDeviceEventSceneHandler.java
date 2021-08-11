@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ForwardingCrash";
@@ -58,8 +58,8 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, deviceEventSceneHandler)) == null) {
             if (deviceEventSceneHandler != null) {
                 this.mEventSceneHandlers.add(deviceEventSceneHandler);
-            } else if (LLog.sDebug) {
-                Log.d("ForwardingCrash", "callback instance should not be null in addEventHandleCallback()");
+            } else {
+                boolean z = LLog.sDebug;
             }
             return this;
         }
@@ -72,8 +72,8 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, file, eventObject)) == null) {
-            if (context == null && LLog.sDebug) {
-                Log.d("ForwardingCrash", "Context is null in ForwardingEventSceneHandler.getCustomizedSnapshots.");
+            if (context == null) {
+                boolean z = LLog.sDebug;
             }
             HashSet hashSet = null;
             for (DeviceEventSceneHandler deviceEventSceneHandler : this.mEventSceneHandlers) {
@@ -88,7 +88,7 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
                         }
                     } catch (Exception e2) {
                         if (LLog.sDebug) {
-                            Log.d("ForwardingCrash", Log.getStackTraceString(e2));
+                            Log.getStackTraceString(e2);
                         }
                     }
                 }
@@ -117,7 +117,7 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
                         }
                     } catch (Exception e2) {
                         if (LLog.sDebug) {
-                            Log.d("ForwardingCrash", Log.getStackTraceString(e2));
+                            Log.getStackTraceString(e2);
                         }
                     }
                 }
@@ -143,7 +143,7 @@ public class ForwardingDeviceEventSceneHandler extends DeviceEventSceneHandler {
                             }
                         } catch (Exception e2) {
                             if (LLog.sDebug) {
-                                Log.d("ForwardingCrash", Log.getStackTraceString(e2));
+                                Log.getStackTraceString(e2);
                             }
                         }
                     }

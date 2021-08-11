@@ -13,21 +13,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.dialog.WalletDialog;
 import com.baidu.wallet.base.widget.dialog.binding.BaseDialogBinding;
 import com.baidu.wallet.base.widget.dialog.model.BaseDialogModel;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class BaseAdapter extends WalletDialog.Adapter<BaseHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseDialogModel f24662a;
+    public BaseDialogModel f60369a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class BaseHolder extends WalletDialog.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BaseAdapter f24663a;
+        public final /* synthetic */ BaseAdapter f60370a;
         public final BaseDialogBinding binding;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,7 +48,7 @@ public class BaseAdapter extends WalletDialog.Adapter<BaseHolder> {
                     return;
                 }
             }
-            this.f24663a = baseAdapter;
+            this.f60370a = baseAdapter;
             this.binding = baseDialogBinding;
         }
     }
@@ -68,7 +68,7 @@ public class BaseAdapter extends WalletDialog.Adapter<BaseHolder> {
                 return;
             }
         }
-        this.f24662a = baseDialogModel;
+        this.f60369a = baseDialogModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class BaseAdapter extends WalletDialog.Adapter<BaseHolder> {
     public void onBindViewHolder(BaseHolder baseHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseHolder) == null) {
-            baseHolder.binding.setViewModel(this.f24662a);
+            baseHolder.binding.setViewModel(this.f60369a);
         }
     }
 

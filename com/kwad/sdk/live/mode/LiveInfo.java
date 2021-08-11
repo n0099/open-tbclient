@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class LiveInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6382708726460249425L;
@@ -21,7 +21,7 @@ public class LiveInfo extends com.kwad.sdk.core.response.a.a implements Serializ
     public String playInfo;
     public User user;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class CoverThumbnailUrl extends com.kwad.sdk.core.response.a.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -9411857293708312L;
@@ -45,7 +45,7 @@ public class LiveInfo extends com.kwad.sdk.core.response.a.a implements Serializ
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class User extends com.kwad.sdk.core.response.a.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8394855164198099170L;
@@ -54,7 +54,7 @@ public class LiveInfo extends com.kwad.sdk.core.response.a.a implements Serializ
         public long user_id;
         public String user_name;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes10.dex */
         public static class HeadUrl extends com.kwad.sdk.core.response.a.a implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 7710129978455547652L;

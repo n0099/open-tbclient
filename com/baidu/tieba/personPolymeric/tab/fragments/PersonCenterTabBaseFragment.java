@@ -2,6 +2,9 @@ package com.baidu.tieba.personPolymeric.tab.fragments;
 
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import c.a.p0.n2.j.l;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.R;
@@ -9,15 +12,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.m2.j.l;
 import tbclient.User;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class PersonCenterTabBaseFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public l f20341e;
+    public l f55708e;
 
     public PersonCenterTabBaseFragment() {
         Interceptable interceptable = $ic;
@@ -33,57 +35,59 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
         }
     }
 
-    public abstract void M0(boolean z);
+    public abstract void forceRefresh(boolean z);
 
-    public abstract int N0();
-
-    public abstract boolean O0();
-
-    public void P0(MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, metaData) == null) {
-        }
-    }
-
-    public abstract void Q0(User user);
+    public abstract int getTabType();
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view) {
         l lVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view) == null) || (lVar = this.f20341e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (lVar = this.f55708e) == null) {
             return;
         }
         lVar.dettachView(view);
     }
 
+    public abstract boolean isHost();
+
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             super.onChangeSkinType(i2);
-            l lVar = this.f20341e;
+            l lVar = this.f55708e;
             if (lVar != null) {
                 lVar.onChangeSkinType();
             }
         }
     }
 
+    public abstract void scrollToTop();
+
+    public void setAuthor(MetaData metaData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, metaData) == null) {
+        }
+    }
+
+    public abstract void setUser(User user);
+
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showNetRefreshView(View view, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048583, this, view, str, z) == null) {
-            if (this.f20341e == null) {
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, str, z) == null) {
+            if (this.f55708e == null) {
                 l lVar = new l(getPageContext().getPageActivity(), getNetRefreshListener());
-                this.f20341e = lVar;
+                this.f55708e = lVar;
                 lVar.e(getPageContext().getResources().getString(R.string.refresh_view_title_text));
-                this.f20341e.d(null);
-                this.f20341e.c(getPageContext().getResources().getString(R.string.refresh_view_button_text));
-                this.f20341e.f();
-                this.f20341e.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+                this.f55708e.d(null);
+                this.f55708e.c(getPageContext().getResources().getString(R.string.refresh_view_button_text));
+                this.f55708e.f();
+                this.f55708e.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }
-            this.f20341e.onChangeSkinType();
-            this.f20341e.attachView(view, z);
+            this.f55708e.onChangeSkinType();
+            this.f55708e.attachView(view, z);
         }
     }
 }

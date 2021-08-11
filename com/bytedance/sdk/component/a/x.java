@@ -11,21 +11,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class x {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final x f27975a;
+    public static final x f63812a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final x f27976b;
+    public static final x f63813b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final x f27977c;
+    public static final x f63814c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ x[] f27978d;
+    public static final /* synthetic */ x[] f63815d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,11 +41,11 @@ public final class x {
                 return;
             }
         }
-        f27975a = new x("PUBLIC", 0);
-        f27976b = new x("PROTECTED", 1);
+        f63812a = new x("PUBLIC", 0);
+        f63813b = new x("PROTECTED", 1);
         x xVar = new x("PRIVATE", 2);
-        f27977c = xVar;
-        f27978d = new x[]{f27975a, f27976b, xVar};
+        f63814c = xVar;
+        f63815d = new x[]{f63812a, f63813b, xVar};
     }
 
     public x(String str, int i2) {
@@ -72,16 +72,16 @@ public final class x {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return f27975a;
+                return f63812a;
             }
             String lowerCase = str.toLowerCase();
             if (TextUtils.equals("protected", lowerCase)) {
-                return f27976b;
+                return f63813b;
             }
             if (TextUtils.equals(PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE, lowerCase)) {
-                return f27977c;
+                return f63814c;
             }
-            return f27975a;
+            return f63812a;
         }
         return (x) invokeL.objValue;
     }
@@ -95,13 +95,13 @@ public final class x {
     public static x[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (x[]) f27978d.clone() : (x[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (x[]) f63815d.clone() : (x[]) invokeV.objValue;
     }
 
     @Override // java.lang.Enum
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this == f27977c ? PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE : this == f27976b ? "protected" : "public" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this == f63814c ? PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE : this == f63813b ? "protected" : "public" : (String) invokeV.objValue;
     }
 }

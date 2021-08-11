@@ -26,32 +26,36 @@ import com.baidu.wallet.home.ui.widget.newhome.NHCreditGroup;
 import com.baidu.wallet.home.ui.widget.newhome.NHCreditLongGroup;
 import com.baidu.wallet.home.ui.widget.newhome.NHCreditMiniGroup;
 import com.baidu.wallet.home.ui.widget.newhome.NHCreditPicGroup;
+import com.baidu.wallet.home.ui.widget.newhome.NHFinanceGroup;
+import com.baidu.wallet.home.ui.widget.newhome.NHHeadGroup;
+import com.baidu.wallet.home.ui.widget.newhome.NHHeadToolGroup;
 import com.baidu.wallet.home.ui.widget.newhome.NHHorListLayout;
 import com.baidu.wallet.home.ui.widget.newhome.NHLifeGridLayout;
+import com.baidu.wallet.home.ui.widget.newhome.NHNewCreditGroup;
 import com.baidu.wallet.home.ui.widget.newhome.NHToolGroup;
 import com.baidu.wallet.home.ui.widget.umoneyhome.UMHBigCreditCardGroup;
 import com.baidu.wallet.home.ui.widget.umoneyhome.UMHGuideGroup;
 import com.baidu.wallet.home.ui.widget.umoneyhome.UMHHeadGroup;
 import com.baidu.wallet.home.ui.widget.umoneyhome.UMHNoticeBarGroup;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.home.ui.widget.a$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.wallet.home.ui.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0268a {
+    /* loaded from: classes8.dex */
+    public static class C1823a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f25237a;
+        public static a f60969a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -67,7 +71,7 @@ public class a {
                     return;
                 }
             }
-            f25237a = new a(null);
+            f60969a = new a(null);
         }
     }
 
@@ -78,7 +82,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0268a.f25237a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1823a.f60969a : (a) invokeV.objValue;
     }
 
     public a() {
@@ -152,6 +156,18 @@ public class a {
             }
             if (configData.group_layout.equals(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE210)) {
                 return new NHCreditMiniGroup(context);
+            }
+            if (configData.group_layout.equals(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE211)) {
+                return new NHHeadGroup(context);
+            }
+            if (configData.group_layout.equals(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE212)) {
+                return new NHHeadToolGroup(context);
+            }
+            if (configData.group_layout.equals(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE214)) {
+                return new NHNewCreditGroup(context);
+            }
+            if (configData.group_layout.equals(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE215)) {
+                return new NHFinanceGroup(context);
             }
             if (configData.group_layout.equals("501")) {
                 return new CHToolGroup(context);

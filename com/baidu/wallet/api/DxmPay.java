@@ -2,7 +2,6 @@ package com.baidu.wallet.api;
 
 import android.app.Application;
 import android.content.Context;
-import com.baidu.apollon.armor.SafePay;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,22 +9,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.utils.ReflectUtils;
 import com.baidu.wallet.router.LocalRouter;
 import com.baidu.wallet.router.RouterProvider;
-import com.baidu.wallet.statistics.impl.SensorsSyncHttpImpl;
-import com.baidu.wallet.statistics.impl.StatConfig;
-/* loaded from: classes5.dex */
+import com.dxmpay.wallet.core.utils.ReflectUtils;
+/* loaded from: classes8.dex */
 public class DxmPay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* renamed from: com.baidu.wallet.api.DxmPay$1  reason: invalid class name */
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final DxmPay f24052a;
+        public static final DxmPay f59786a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -41,8 +45,12 @@ public class DxmPay {
                     return;
                 }
             }
-            f24052a = new DxmPay();
+            f59786a = new DxmPay(null);
         }
+    }
+
+    public /* synthetic */ DxmPay(AnonymousClass1 anonymousClass1) {
+        this();
     }
 
     private void a(Application application) {
@@ -52,62 +60,29 @@ public class DxmPay {
             if (providerObject != null && (providerObject instanceof RouterProvider)) {
                 LocalRouter.getInstance(application).registerProvider("dxmPay", (RouterProvider) providerObject);
             }
-            Object providerObject2 = ReflectUtils.getProviderObject("com.baidu.wallet.bankdetection.entrance.BankCardDetectionProvider");
-            if (providerObject2 == null || !(providerObject2 instanceof RouterProvider)) {
+            Object providerObject2 = ReflectUtils.getProviderObject("com.dxmpay.wallet.router.DxmPayServiceSDKProvider");
+            if (providerObject2 != null && (providerObject2 instanceof RouterProvider)) {
+                LocalRouter.getInstance(application).registerProvider("dxmPayService", (RouterProvider) providerObject2);
+            }
+            Object providerObject3 = ReflectUtils.getProviderObject("com.baidu.wallet.bankdetection.entrance.BankCardDetectionProvider");
+            if (providerObject3 == null || !(providerObject3 instanceof RouterProvider)) {
                 return;
             }
-            LocalRouter.getInstance(application).registerProvider("bankdetection", (RouterProvider) providerObject2);
+            LocalRouter.getInstance(application).registerProvider("bankdetection", (RouterProvider) providerObject3);
         }
     }
 
     public static DxmPay getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f24052a : (DxmPay) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f59786a : (DxmPay) invokeV.objValue;
     }
 
     public void initWallet(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             a((Application) context.getApplicationContext());
-            new Thread(new Runnable(this, context) { // from class: com.baidu.wallet.api.DxmPay.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f24050a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ DxmPay f24051b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, context};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f24051b = this;
-                    this.f24050a = context;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && SafePay.getInstance().prepareCompleted()) {
-                        d.d.a.a.a.g(this.f24050a.getApplicationContext(), StatConfig.getInstance(this.f24050a.getApplicationContext()));
-                        d.d.a.a.a.x(new SensorsSyncHttpImpl());
-                    }
-                }
-            }, "DXMPaySDK").start();
+            com.dxmpay.wallet.api.BaiduWalletDelegate.getInstance().initWallet(context);
         }
     }
 
@@ -122,6 +97,30 @@ public class DxmPay {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    public void initWallet(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) {
+            a((Application) context.getApplicationContext());
+            com.dxmpay.wallet.api.BaiduWalletDelegate.getInstance().initWallet(context, str);
+        }
+    }
+
+    public void initWallet(IWalletListener iWalletListener, Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, iWalletListener, context, str) == null) {
+            a((Application) context.getApplicationContext());
+            com.dxmpay.wallet.api.BaiduWalletDelegate.getInstance().initWallet(iWalletListener, context, str);
+        }
+    }
+
+    public void initWallet(IWalletListener iWalletListener, Context context, String str, ISecurityListener iSecurityListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, iWalletListener, context, str, iSecurityListener) == null) {
+            a((Application) context.getApplicationContext());
+            com.dxmpay.wallet.api.BaiduWalletDelegate.getInstance().initWallet(iWalletListener, context, str, iSecurityListener);
         }
     }
 }

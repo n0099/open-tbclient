@@ -14,13 +14,13 @@ import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.qrcodescanner.datamodel.QRCodeWhiteListResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class b extends BaseBean<QRCodeWhiteListResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27431a;
+    public String f63280a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -40,13 +40,13 @@ public class b extends BaseBean<QRCodeWhiteListResponse> {
                 return;
             }
         }
-        this.f27431a = "";
+        this.f63280a = "";
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f27431a = str;
+            this.f63280a = str;
         }
     }
 
@@ -64,10 +64,10 @@ public class b extends BaseBean<QRCodeWhiteListResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (TextUtils.isEmpty(this.f27431a)) {
-                this.f27431a = "";
+            if (TextUtils.isEmpty(this.f63280a)) {
+                this.f63280a = "";
             }
-            arrayList.add(new RestNameValuePair("cate[whitelist]", this.f27431a));
+            arrayList.add(new RestNameValuePair("cate[whitelist]", this.f63280a));
             return arrayList;
         }
         return (List) invokeV.objValue;

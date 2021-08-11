@@ -13,6 +13,7 @@ import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
+import android.webkit.RenderProcessGoneDetail;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebStorage;
@@ -26,37 +27,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ForumTestWebView extends WebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public WebViewClient f14707e;
+    public WebViewClient f49884e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f14708f;
+    public h f49885f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f14709g;
+    public c f49886g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f14710h;
+    public e f49887h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f14711i;
-    public f j;
-    public g k;
-    public d.a.q0.l0.e.a.a l;
-    public d.a.q0.l0.e.a.c m;
+    public d f49888i;
 
-    /* loaded from: classes4.dex */
-    public class a implements d.a.q0.l0.e.a.c {
+    /* renamed from: j  reason: collision with root package name */
+    public f f49889j;
+    public g k;
+    public c.a.p0.m0.e.a.c l;
+    public c.a.p0.m0.e.a.a mJsBridge;
+
+    /* loaded from: classes7.dex */
+    public class a implements c.a.p0.m0.e.a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumTestWebView f14712a;
+        public final /* synthetic */ ForumTestWebView f49890a;
 
         public a(ForumTestWebView forumTestWebView) {
             Interceptable interceptable = $ic;
@@ -73,15 +76,15 @@ public class ForumTestWebView extends WebView {
                     return;
                 }
             }
-            this.f14712a = forumTestWebView;
+            this.f49890a = forumTestWebView;
         }
 
-        @Override // d.a.q0.l0.e.a.c
+        @Override // c.a.p0.m0.e.a.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
-                d.a.q0.l0.e.a.a aVar = this.f14712a.l;
+                c.a.p0.m0.e.a.a aVar = this.f49890a.mJsBridge;
                 if (aVar != null) {
                     return aVar.b(str, jsPromptResult);
                 }
@@ -91,13 +94,13 @@ public class ForumTestWebView extends WebView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumTestWebView f14713a;
+        public final /* synthetic */ ForumTestWebView f49891a;
 
         public b(ForumTestWebView forumTestWebView) {
             Interceptable interceptable = $ic;
@@ -114,7 +117,7 @@ public class ForumTestWebView extends WebView {
                     return;
                 }
             }
-            this.f14713a = forumTestWebView;
+            this.f49891a = forumTestWebView;
         }
 
         @Override // android.webkit.WebViewClient
@@ -130,8 +133,8 @@ public class ForumTestWebView extends WebView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                if (this.f14713a.f14711i != null) {
-                    this.f14713a.f14711i.onPageFinished(webView, str);
+                if (this.f49891a.f49888i != null) {
+                    this.f49891a.f49888i.onPageFinished(webView, str);
                 }
             }
         }
@@ -141,26 +144,36 @@ public class ForumTestWebView extends WebView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
                 super.onPageStarted(webView, str, bitmap);
-                if (this.f14713a.f14710h != null) {
-                    this.f14713a.f14710h.a(webView, str);
+                if (this.f49891a.f49887h != null) {
+                    this.f49891a.f49887h.a(webView, str);
                 }
             }
+        }
+
+        @Override // android.webkit.WebViewClient
+        public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, renderProcessGoneDetail)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
         }
 
         @Override // android.webkit.WebViewClient
         public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) ? super.shouldInterceptRequest(webView, str) : (WebResourceResponse) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) ? super.shouldInterceptRequest(webView, str) : (WebResourceResponse) invokeLL.objValue;
         }
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                if (this.f14713a.f14709g != null) {
-                    return this.f14713a.f14709g.shouldOverrideUrlLoading(webView, str);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, str)) == null) {
+                if (this.f49891a.f49886g != null) {
+                    return this.f49891a.f49886g.shouldOverrideUrlLoading(webView, str);
                 }
                 return super.shouldOverrideUrlLoading(webView, str);
             }
@@ -168,38 +181,38 @@ public class ForumTestWebView extends WebView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface c {
         boolean shouldOverrideUrlLoading(WebView webView, String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface d {
         void onPageFinished(WebView webView, String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface e {
         void a(WebView webView, String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface f {
         void a(WebView webView, int i2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface g {
         void a(String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class h extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumTestWebView f14714a;
+        public final /* synthetic */ ForumTestWebView f49892a;
 
         public h(ForumTestWebView forumTestWebView) {
             Interceptable interceptable = $ic;
@@ -216,7 +229,7 @@ public class ForumTestWebView extends WebView {
                     return;
                 }
             }
-            this.f14714a = forumTestWebView;
+            this.f49892a = forumTestWebView;
         }
 
         @Override // android.webkit.WebChromeClient
@@ -224,7 +237,7 @@ public class ForumTestWebView extends WebView {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                FrameLayout frameLayout = new FrameLayout(this.f14714a.getContext());
+                FrameLayout frameLayout = new FrameLayout(this.f49892a.getContext());
                 frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
                 return frameLayout;
             }
@@ -232,11 +245,11 @@ public class ForumTestWebView extends WebView {
         }
 
         @Override // android.webkit.WebChromeClient
-        public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+        public void onExceededDatabaseQuota(String str, String str2, long j2, long j3, long j4, WebStorage.QuotaUpdater quotaUpdater) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
-                super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
-                quotaUpdater.updateQuota(j2 * 2);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), quotaUpdater}) == null) {
+                super.onExceededDatabaseQuota(str, str2, j2, j3, j4, quotaUpdater);
+                quotaUpdater.updateQuota(j3 * 2);
             }
         }
 
@@ -245,7 +258,7 @@ public class ForumTestWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, jsResult)) == null) {
-                if ((this.f14714a.getContext() instanceof Activity) && d.a.d.e.m.g.e((Activity) this.f14714a.getContext())) {
+                if ((this.f49892a.getContext() instanceof Activity) && c.a.e.e.m.g.e((Activity) this.f49892a.getContext())) {
                     return super.onJsAlert(webView, str, str2, jsResult);
                 }
                 return true;
@@ -258,7 +271,7 @@ public class ForumTestWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
-                if ((this.f14714a.getContext() instanceof Activity) && d.a.d.e.m.g.e((Activity) this.f14714a.getContext())) {
+                if ((this.f49892a.getContext() instanceof Activity) && c.a.e.e.m.g.e((Activity) this.f49892a.getContext())) {
                     return super.onJsBeforeUnload(webView, str, str2, jsResult);
                 }
                 return true;
@@ -271,7 +284,7 @@ public class ForumTestWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
-                if ((this.f14714a.getContext() instanceof Activity) && d.a.d.e.m.g.e((Activity) this.f14714a.getContext())) {
+                if ((this.f49892a.getContext() instanceof Activity) && c.a.e.e.m.g.e((Activity) this.f49892a.getContext())) {
                     return super.onJsConfirm(webView, str, str2, jsResult);
                 }
                 return true;
@@ -284,7 +297,7 @@ public class ForumTestWebView extends WebView {
             InterceptResult invokeLLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
-                if (this.f14714a.m == null || !this.f14714a.m.onJsPrompt(str2, jsPromptResult)) {
+                if (this.f49892a.l == null || !this.f49892a.l.onJsPrompt(str2, jsPromptResult)) {
                     jsPromptResult.cancel();
                     return true;
                 }
@@ -298,8 +311,8 @@ public class ForumTestWebView extends WebView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048582, this, webView, i2) == null) {
                 super.onProgressChanged(webView, i2);
-                if (this.f14714a.j != null) {
-                    this.f14714a.j.a(webView, i2);
+                if (this.f49892a.f49889j != null) {
+                    this.f49892a.f49889j.a(webView, i2);
                 }
             }
         }
@@ -309,8 +322,8 @@ public class ForumTestWebView extends WebView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048583, this, webView, str) == null) {
                 super.onReceivedTitle(webView, str);
-                if (this.f14714a.k != null) {
-                    this.f14714a.k.a(str);
+                if (this.f49892a.k != null) {
+                    this.f49892a.k.a(str);
                 }
             }
         }
@@ -338,7 +351,7 @@ public class ForumTestWebView extends WebView {
                 return;
             }
         }
-        this.m = new a(this);
+        this.l = new a(this);
     }
 
     @Override // android.webkit.WebView
@@ -346,19 +359,19 @@ public class ForumTestWebView extends WebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.destroy();
-            this.f14707e = null;
-            this.f14708f = null;
-            this.f14709g = null;
-            this.f14710h = null;
-            this.f14711i = null;
-            this.j = null;
+            this.f49884e = null;
+            this.f49885f = null;
+            this.f49886g = null;
+            this.f49887h = null;
+            this.f49888i = null;
+            this.f49889j = null;
             this.k = null;
-            this.m = null;
+            this.l = null;
         }
     }
 
     @SuppressLint({"SetJavaScriptEnabled"})
-    public void g(d.a.q0.l0.e.a.b bVar) {
+    public void init(c.a.p0.m0.e.a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             getSettings().setJavaScriptEnabled(true);
@@ -377,15 +390,15 @@ public class ForumTestWebView extends WebView {
             setScrollBarStyle(33554432);
             getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion());
             WebViewClient bVar2 = new b(this);
-            this.f14707e = bVar2;
+            this.f49884e = bVar2;
             setWebViewClient(bVar2);
             h hVar = new h(this, null);
-            this.f14708f = hVar;
+            this.f49885f = hVar;
             setWebChromeClient(hVar);
-            d.a.q0.l0.e.a.a aVar = new d.a.q0.l0.e.a.a();
-            this.l = aVar;
+            c.a.p0.m0.e.a.a aVar = new c.a.p0.m0.e.a.a();
+            this.mJsBridge = aVar;
             aVar.a(bVar);
-            d.a.p0.m.a.f(getContext());
+            c.a.o0.m.a.f(getContext());
             removeJavascriptInterface("searchBoxJavaBridge_");
             removeJavascriptInterface("accessibility");
             removeJavascriptInterface("accessibilityTraversal");
@@ -444,7 +457,7 @@ public class ForumTestWebView extends WebView {
                 return;
             }
         }
-        this.m = new a(this);
+        this.l = new a(this);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -466,6 +479,6 @@ public class ForumTestWebView extends WebView {
                 return;
             }
         }
-        this.m = new a(this);
+        this.l = new a(this);
     }
 }

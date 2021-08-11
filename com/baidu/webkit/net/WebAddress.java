@@ -14,7 +14,7 @@ import com.bytedance.sdk.component.net.tnc.TNCManager;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class WebAddress implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GOOD_IRI_CHAR = "a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef";

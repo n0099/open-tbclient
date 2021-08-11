@@ -14,20 +14,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.permission.PermissionManager;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.CheckUtils;
 import com.baidu.apollon.utils.DisplayUtils;
 import com.baidu.apollon.utils.GlobalUtils;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,50 +39,46 @@ import com.baidu.wallet.base.camera.internal.CameraCtrl;
 import com.baidu.wallet.base.camera.internal.Yuv;
 import com.baidu.wallet.base.camera.util.ImageUtils;
 import com.baidu.wallet.base.controllers.IdCardDetectionController;
+import com.baidu.wallet.base.iddetect.statistics.IdCardDetectStatistics;
+import com.baidu.wallet.base.iddetect.utils.BitmapUtil;
+import com.baidu.wallet.base.iddetect.view.MistViewForIdCard;
+import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
-import com.baidu.wallet.base.widget.MistView;
+import com.baidu.wallet.core.utils.BaiduWalletUtils;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.utils.AccessibilityUtils;
 import java.io.File;
+import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class IdentityCardDetectionActivity extends CameraBaseActivity implements View.OnClickListener, IImageProcess {
     public static /* synthetic */ Interceptable $ic = null;
-    public static int x = 1;
+    public static int mSteps = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bundle A;
-    public boolean B;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final String f24214e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final int f24215f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public MistView f24216g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public View f24217h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public ImageView f24218i;
-    public RelativeLayout j;
-    public LinearLayout k;
-    public TextView l;
-    public TextView m;
-    public ImageView n;
-    public FrameLayout o;
-    public ImageView p;
-    public ImageView q;
-    public TextView r;
-    public TextView s;
-    public ImageView t;
-    public AtomicBoolean u;
-    public String v;
-    public String w;
-    public Bitmap y;
-    public Bitmap z;
+    public final int ID_REQUST_STORAGE_PERMISSION;
+    public final int SELECT_PICTURE_FROM_ALBUM;
+    public final String TAG;
+    public Bundle mBundle;
+    public RelativeLayout mChooseOicLayout;
+    public String mCurrentFileName;
+    public ImageView mFlashIcon;
+    public View mFocusView;
+    public ImageView mGuoHuiPicView;
+    public Bitmap mIamgeBp;
+    public Bitmap mImageBp4TP;
+    public MistViewForIdCard mMistView;
+    public TextView mOpenAlbum;
+    public FrameLayout mPicDisplayView;
+    public ImageView mPicView;
+    public ImageView mRenTouPicView;
+    public TextView mRestartTakePic;
+    public ImageView mTakePic;
+    public RelativeLayout mTakePicLayout;
+    public TextView mTakePicOk;
+    public AtomicBoolean mToTakePhoto;
+    public String ready2UseFileName;
+    public boolean showAlbum;
+    public TextView tipsView;
 
     static {
         InterceptResult invokeClinit;
@@ -114,36 +108,139 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
                 return;
             }
         }
-        this.f24214e = IdentityCardDetectionActivity.class.getSimpleName();
-        this.f24215f = 17;
-        this.f24217h = null;
-        this.f24218i = null;
-        this.j = null;
-        this.k = null;
-        this.l = null;
-        this.m = null;
-        this.n = null;
-        this.o = null;
-        this.p = null;
-        this.q = null;
-        this.r = null;
-        this.s = null;
-        this.t = null;
-        this.u = new AtomicBoolean(false);
-        this.v = "";
-        this.w = "";
-        this.A = new Bundle();
-        this.B = true;
+        this.TAG = IdentityCardDetectionActivity.class.getSimpleName();
+        this.SELECT_PICTURE_FROM_ALBUM = 17;
+        this.ID_REQUST_STORAGE_PERMISSION = 18;
+        this.mFocusView = null;
+        this.mFlashIcon = null;
+        this.mTakePicLayout = null;
+        this.mChooseOicLayout = null;
+        this.tipsView = null;
+        this.mTakePicOk = null;
+        this.mPicView = null;
+        this.mPicDisplayView = null;
+        this.mRenTouPicView = null;
+        this.mGuoHuiPicView = null;
+        this.mRestartTakePic = null;
+        this.mOpenAlbum = null;
+        this.mTakePic = null;
+        this.mToTakePhoto = new AtomicBoolean(false);
+        this.mCurrentFileName = "";
+        this.ready2UseFileName = "";
+        this.mBundle = new Bundle();
+        this.showAlbum = true;
+    }
+
+    private void chage2TakePicView(Boolean bool) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, this, bool) == null) {
+            if (bool.booleanValue()) {
+                this.mCurrentFileName = this.ready2UseFileName;
+            }
+            this.mFocusView.setVisibility(0);
+            this.tipsView.setVisibility(0);
+            this.mTakePicLayout.setVisibility(0);
+            this.mChooseOicLayout.setVisibility(8);
+            this.mPicDisplayView.setVisibility(8);
+            this.mPicView.setImageDrawable(null);
+            onResume();
+        }
+    }
+
+    private void gotoSysAlbum() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
+            Intent intent = new Intent();
+            intent.addCategory("android.intent.category.OPENABLE");
+            if (Build.VERSION.SDK_INT < 19) {
+                intent.setAction("android.intent.action.GET_CONTENT");
+            } else {
+                intent.setAction("android.intent.action.OPEN_DOCUMENT");
+            }
+            intent.setDataAndType(MediaStore.Images.Media.INTERNAL_CONTENT_URI, BdUploadHandler.IMAGE_MIME_TYPE);
+            startActivityForResult(Intent.createChooser(intent, "选择图片"), 17);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void handleNoStoragePermission() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65554, this) == null) {
+            restartScan();
+            GlobalUtils.toast(getActivity(), ResUtils.getString(getActivity(), "wallet_base_permission_open_album_error"));
+        }
+    }
+
+    private void openSysAlbum() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
+            if (PermissionManager.checkCallingPermission(getActivity(), "android.permission.READ_EXTERNAL_STORAGE")) {
+                gotoSysAlbum();
+            } else {
+                BaiduWalletUtils.requestPermissionsDialog("", this, new String[]{"android.permission.READ_EXTERNAL_STORAGE"}, new BaiduWalletUtils.IRequestPermissionCallBack(this) { // from class: com.baidu.wallet.base.iddetect.IdentityCardDetectionActivity.4
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ IdentityCardDetectionActivity this$0;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                    public void isAllAgree(Boolean bool) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
+                            if (bool.booleanValue()) {
+                                if (PermissionManager.checkCallingOrSelfPermission(this.this$0.getActivity(), new String[]{"android.permission.READ_EXTERNAL_STORAGE"}, 18)) {
+                                    return;
+                                }
+                                this.this$0.handleNoStoragePermission();
+                            } else if (Build.VERSION.SDK_INT >= 23) {
+                                this.this$0.onRequestPermissionsResult(1, new String[]{"android.permission.READ_EXTERNAL_STORAGE"}, new int[]{-1});
+                            }
+                        }
+                    }
+
+                    @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                    public void isShow(String str, Boolean bool) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bool) == null) {
+                        }
+                    }
+
+                    @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                    public void requestResult(String str, Boolean bool) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bool) == null) {
+                        }
+                    }
+                });
+            }
+        }
     }
 
     public void deleteReady2USeFile() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            File file = new File(this.w);
+            File file = new File(this.ready2UseFileName);
             if (file.exists()) {
                 file.delete();
             }
-            this.w = "";
+            this.ready2UseFileName = "";
         }
     }
 
@@ -169,9 +266,9 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            MistView mistView = (MistView) View.inflate(this, ResUtils.layout(getActivity(), "wallet_base_identity_card_detection_activity"), null);
-            this.f24216g = mistView;
-            return mistView;
+            MistViewForIdCard mistViewForIdCard = (MistViewForIdCard) View.inflate(this, ResUtils.layout(getActivity(), "wallet_base_identity_card_detection_activity"), null);
+            this.mMistView = mistViewForIdCard;
+            return mistViewForIdCard;
         }
         return (View) invokeV.objValue;
     }
@@ -191,7 +288,7 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0.631f;
+            return 0.62416106f;
         }
         return invokeV.floatValue;
     }
@@ -206,29 +303,28 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
     public void getPicFinished() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            int i2 = x;
+            int i2 = mSteps;
             if (i2 == 1) {
-                this.A.putInt(ShaderParams.VALUE_TYPE_STEP, i2);
-                x++;
-                a(Boolean.TRUE);
-                this.A.putString("pic1", this.v);
-                this.f24216g.setMistColor(MistView.MASK_COLOR_DEFAULT_TRANSPARENT);
+                this.mBundle.putInt(ShaderParams.VALUE_TYPE_STEP, i2);
+                mSteps++;
+                chage2TakePicView(Boolean.TRUE);
+                this.mBundle.putString("pic1", this.mCurrentFileName);
                 restartScan();
             } else if (i2 == 2) {
-                String str = this.w;
-                this.v = str;
-                this.A.putString("pic2", str);
-                x = 1;
-                IdCardDetectionController.getInstance().IdCardDeteSuccess(this.A);
+                String str = this.ready2UseFileName;
+                this.mCurrentFileName = str;
+                this.mBundle.putString("pic2", str);
+                mSteps = 1;
+                IdCardDetectionController.getInstance().IdCardDeteSuccess(this.mBundle);
                 finishWithoutAnim();
             } else if (i2 != 3 && i2 != 4) {
                 finishWithoutAnim();
             } else {
-                this.A.putInt(ShaderParams.VALUE_TYPE_STEP, x);
-                this.v = this.w;
-                this.A.putString(x != 3 ? "pic2" : "pic1", this.v);
-                x = 1;
-                IdCardDetectionController.getInstance().IdCardDeteSuccess(this.A);
+                this.mBundle.putInt(ShaderParams.VALUE_TYPE_STEP, mSteps);
+                this.mCurrentFileName = this.ready2UseFileName;
+                this.mBundle.putString(mSteps != 3 ? "pic2" : "pic1", this.mCurrentFileName);
+                mSteps = 1;
+                IdCardDetectionController.getInstance().IdCardDeteSuccess(this.mBundle);
                 finishWithoutAnim();
             }
         }
@@ -272,16 +368,17 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
                 options.inSampleSize = ImageUtils.calSampleSize(getActivity(), uri);
                 Bitmap bitmapFromUri = ImageUtils.getBitmapFromUri(getActivity(), uri, options);
                 Activity activity = getActivity();
-                this.w = ImageUtils.saveBitmapToCache(activity, bitmapFromUri, System.currentTimeMillis() + ".jpg", 90);
+                this.ready2UseFileName = ImageUtils.saveBitmapToCache(activity, bitmapFromUri, System.currentTimeMillis() + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX, 90);
                 if (bitmapFromUri != null) {
                     bitmapFromUri.recycle();
                 }
-                if (x == 1) {
+                if (mSteps == 1) {
                     GlobalUtils.toast(getActivity(), ResUtils.getString(getActivity(), "wallet_base_idcard_promo_f_album_tips"));
                 }
                 getPicFinished();
             } catch (Exception e2) {
                 e2.printStackTrace();
+                DXMSdkSAUtils.onEventWithValues(StatServiceEvent.SDK_SELF_DEFINE_GET_SELECT_PIC_FAILED, Arrays.asList(e2.getMessage()));
             }
         }
     }
@@ -302,31 +399,29 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
             int id = view.getId();
             if (ResUtils.id(getActivity(), "idcards_flash_light_switch") == id) {
                 triggerFlash();
-                return;
-            }
-            if (ResUtils.id(getActivity(), "idcards_take_pic_start") == id) {
-                PayStatisticsUtil.onEventWithValue(StatServiceEvent.SDK_FRONTPAGE_IDAUTH_TYPE_CAMERA_SHOOT, x != 1 ? "1" : "0");
-                if (this.u.compareAndSet(false, true)) {
+            } else if (ResUtils.id(getActivity(), "idcards_take_pic_start") == id) {
+                DXMSdkSAUtils.onEvent(IdCardDetectStatistics.IDCARD_PHOTO_SHUTTER);
+                if (this.mToTakePhoto.compareAndSet(false, true)) {
                     view.setClickable(false);
                     takePicture();
                 }
             } else if (ResUtils.id(getActivity(), "idcard_take_pic_finish") == id) {
-                PayStatisticsUtil.onEventWithValue(StatServiceEvent.SDK_FRONT_PAGE_IDAUTH_TYPE_CARMERA_FINISH, x != 2 ? "1" : "0");
+                int i2 = mSteps;
+                if (i2 == 2 || i2 == 3 || i2 == 4) {
+                    DXMSdkSAUtils.onEvent(IdCardDetectStatistics.IDCARD_PHOTO_COMPLETE);
+                }
                 getPicFinished();
             } else if (ResUtils.id(getActivity(), "idcard_restart_take_pic") == id) {
-                PayStatisticsUtil.onEventWithValue(StatServiceEvent.SDK_FRONTPAGE_IDAUTH_TYPE_CAMERA_AGAGIN, x != 2 ? "1" : "0");
+                DXMSdkSAUtils.onEvent(IdCardDetectStatistics.IDCARD_PHOTO_RESET);
                 deleteReady2USeFile();
-                a(Boolean.FALSE);
-                this.f24216g.setMistColor(MistView.MASK_COLOR_DEFAULT_TRANSPARENT);
+                chage2TakePicView(Boolean.FALSE);
                 restartScan();
             } else if (ResUtils.id(getActivity(), "idcards_title_back") == id) {
                 IdCardDetectionController.getInstance().IdCardDeteFailed(-2, "canceled by user");
                 finishWithoutAnim();
             } else if (ResUtils.id(getActivity(), "idcards_open_album") != id || CheckUtils.isFastDoubleClick()) {
             } else {
-                int i2 = x;
-                PayStatisticsUtil.onEvent((i2 == 1 || i2 == 3) ? StatServiceEvent.RNAUTH_MANUEL_CLICK_OPEN_ALBUM_TO_FRONT : StatServiceEvent.RNAUTH_MANUEL_CLICK_OPEN_ALBUM_TO_BACK);
-                a();
+                openSysAlbum();
             }
         }
     }
@@ -338,45 +433,43 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
             super.onCreate(bundle);
             Bundle extras = getIntent().getExtras();
             if (extras != null) {
-                x = extras.getInt(ShaderParams.VALUE_TYPE_STEP);
-                this.B = extras.getBoolean("show_album");
+                mSteps = extras.getInt(ShaderParams.VALUE_TYPE_STEP);
+                this.showAlbum = extras.getBoolean("show_album");
             }
-            this.f24217h = findViewById(ResUtils.id(getActivity(), "focus_view"));
-            this.f24218i = (ImageView) findViewById(ResUtils.id(getActivity(), "idcards_flash_light_switch"));
-            this.l = (TextView) findViewById(ResUtils.id(getActivity(), "bd_wallet_promo"));
-            this.j = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "idcard_take_pic_bottom_layout"));
-            this.k = (LinearLayout) findViewById(ResUtils.id(getActivity(), "idcard_pic_preview_bottom_layout"));
-            this.r = (TextView) findViewById(ResUtils.id(getActivity(), "idcard_restart_take_pic"));
-            this.m = (TextView) findViewById(ResUtils.id(getActivity(), "idcard_take_pic_finish"));
-            this.n = (ImageView) findViewById(ResUtils.id(getActivity(), "img_snapshot"));
-            this.o = (FrameLayout) findViewById(ResUtils.id(getActivity(), "img_display_layout"));
-            this.q = (ImageView) findViewById(ResUtils.id(getActivity(), "idcards_prompt_image_view_b"));
-            this.p = (ImageView) findViewById(ResUtils.id(getActivity(), "idcards_prompt_image_view_f"));
+            this.mFocusView = findViewById(ResUtils.id(getActivity(), "focus_view"));
+            this.mFlashIcon = (ImageView) findViewById(ResUtils.id(getActivity(), "idcards_flash_light_switch"));
+            this.tipsView = (TextView) findViewById(ResUtils.id(getActivity(), "bd_wallet_promo"));
+            this.mTakePicLayout = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "idcard_take_pic_bottom_layout"));
+            this.mChooseOicLayout = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "idcard_pic_preview_bottom_layout"));
+            this.mRestartTakePic = (TextView) findViewById(ResUtils.id(getActivity(), "idcard_restart_take_pic"));
+            this.mTakePicOk = (TextView) findViewById(ResUtils.id(getActivity(), "idcard_take_pic_finish"));
+            this.mPicView = (ImageView) findViewById(ResUtils.id(getActivity(), "img_snapshot"));
+            this.mPicDisplayView = (FrameLayout) findViewById(ResUtils.id(getActivity(), "img_display_layout"));
+            this.mGuoHuiPicView = (ImageView) findViewById(ResUtils.id(getActivity(), "idcards_prompt_image_view_b"));
+            this.mRenTouPicView = (ImageView) findViewById(ResUtils.id(getActivity(), "idcards_prompt_image_view_f"));
             TextView textView = (TextView) findViewById(ResUtils.id(getActivity(), "idcards_open_album"));
-            this.s = textView;
+            this.mOpenAlbum = textView;
             textView.setOnClickListener(this);
-            if (!this.B) {
-                this.s.setVisibility(8);
+            if (!this.showAlbum) {
+                this.mOpenAlbum.setVisibility(8);
             }
             if (CameraCtrl.isSupprtFlashLight(getPackageManager())) {
-                this.f24218i.setOnClickListener(this);
-                this.f24218i.setVisibility(0);
-                AccessibilityUtils.setContentDescription(this.f24218i, "打开闪光灯");
+                this.mFlashIcon.setOnClickListener(this);
+                this.mFlashIcon.setVisibility(0);
+                AccessibilityUtils.setContentDescription(this.mFlashIcon, "打开闪光灯");
             } else {
-                this.f24218i.setVisibility(4);
+                this.mFlashIcon.setVisibility(4);
             }
-            this.r.setOnClickListener(this);
-            this.m.setOnClickListener(this);
+            this.mRestartTakePic.setOnClickListener(this);
+            this.mTakePicOk.setOnClickListener(this);
             findViewById(ResUtils.id(getActivity(), "idcards_title_back")).setOnClickListener(this);
             ImageView imageView = (ImageView) findViewById(ResUtils.id(getActivity(), "idcards_take_pic_start"));
-            this.t = imageView;
+            this.mTakePic = imageView;
             imageView.setOnClickListener(this);
             this.mPreviewView.setOnTouchListener(new View.OnTouchListener(this) { // from class: com.baidu.wallet.base.iddetect.IdentityCardDetectionActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IdentityCardDetectionActivity f24219a;
+                public final /* synthetic */ IdentityCardDetectionActivity this$0;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -393,7 +486,7 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
                             return;
                         }
                     }
-                    this.f24219a = this;
+                    this.this$0 = this;
                 }
 
                 @Override // android.view.View.OnTouchListener
@@ -402,7 +495,7 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
                         if (motionEvent.getAction() == 0) {
-                            this.f24219a.autoFoucus();
+                            this.this$0.autoFoucus();
                             return true;
                         }
                         return false;
@@ -418,12 +511,12 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onDestroy();
-            Bitmap bitmap = this.y;
+            Bitmap bitmap = this.mIamgeBp;
             if (bitmap == null || bitmap.isRecycled()) {
                 return;
             }
-            this.y.recycle();
-            this.y = null;
+            this.mIamgeBp.recycle();
+            this.mIamgeBp = null;
         }
     }
 
@@ -442,12 +535,8 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
             runOnUiThread(new Runnable(this, objArr) { // from class: com.baidu.wallet.base.iddetect.IdentityCardDetectionActivity.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Object[] f24222a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ IdentityCardDetectionActivity f24223b;
+                public final /* synthetic */ IdentityCardDetectionActivity this$0;
+                public final /* synthetic */ Object[] val$result;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -464,39 +553,67 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
                             return;
                         }
                     }
-                    this.f24223b = this;
-                    this.f24222a = objArr;
+                    this.this$0 = this;
+                    this.val$result = objArr;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f24223b.f24217h.setVisibility(8);
-                        this.f24223b.l.setVisibility(8);
-                        this.f24223b.j.setVisibility(8);
-                        this.f24223b.k.setVisibility(0);
+                        if (this.this$0.mGuoHuiPicView.getVisibility() == 0) {
+                            this.this$0.mGuoHuiPicView.setVisibility(8);
+                        }
+                        if (this.this$0.mRenTouPicView.getVisibility() == 0) {
+                            this.this$0.mRenTouPicView.setVisibility(8);
+                        }
+                        this.this$0.tipsView.setVisibility(8);
+                        this.this$0.mTakePicLayout.setVisibility(8);
+                        this.this$0.mChooseOicLayout.setVisibility(0);
                         long currentTimeMillis = System.currentTimeMillis();
-                        IdentityCardDetectionActivity identityCardDetectionActivity = this.f24223b;
-                        identityCardDetectionActivity.w = ImageUtils.saveBitmapToCache(identityCardDetectionActivity.getActivity(), (Bitmap) this.f24222a[0], System.currentTimeMillis() + ".jpg", 90);
-                        Bitmap bPfromsdcard = ImageUtils.getBPfromsdcard(this.f24223b.w);
+                        IdentityCardDetectionActivity identityCardDetectionActivity = this.this$0;
+                        identityCardDetectionActivity.ready2UseFileName = ImageUtils.saveBitmapToCache(identityCardDetectionActivity.getActivity(), (Bitmap) this.val$result[0], System.currentTimeMillis() + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX, 90);
+                        Bitmap bPfromsdcard = ImageUtils.getBPfromsdcard(this.this$0.ready2UseFileName);
                         LogUtil.i("IdentityCardDetectionActivity", "re save and show time:" + (System.currentTimeMillis() - currentTimeMillis));
-                        this.f24223b.n.setImageBitmap(bPfromsdcard);
-                        this.f24223b.pauseCamera();
-                        this.f24223b.u.compareAndSet(true, false);
-                        this.f24223b.t.setClickable(true);
+                        this.this$0.mPicView.setImageBitmap(bPfromsdcard);
+                        this.this$0.pauseCamera();
+                        this.this$0.mToTakePhoto.compareAndSet(true, false);
+                        this.this$0.mTakePic.setClickable(true);
                     }
                 }
             });
         }
     }
 
+    @Override // com.baidu.wallet.base.camera.CameraBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
+    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048593, this, i2, strArr, iArr) == null) {
+            super.onRequestPermissionsResult(i2, strArr, iArr);
+            if (i2 == 18) {
+                if (strArr != null && iArr != null && strArr.length != 0 && iArr.length != 0) {
+                    for (int i3 = 0; i3 < strArr.length; i3++) {
+                        if ("android.permission.READ_EXTERNAL_STORAGE".equalsIgnoreCase(strArr[i3]) && iArr != null && iArr.length > i3) {
+                            if (iArr[i3] == 0) {
+                                gotoSysAlbum();
+                            } else if (-1 == iArr[i3]) {
+                                handleNoStoragePermission();
+                            }
+                        }
+                    }
+                    return;
+                }
+                handleNoStoragePermission();
+            }
+        }
+    }
+
     @Override // com.baidu.wallet.base.camera.CameraBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onResume();
-            int i2 = x;
+            int i2 = mSteps;
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
@@ -505,14 +622,16 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
                         }
                     }
                 }
-                this.l.setText(ResUtils.string(getActivity(), "wallet_base_idcard_promo_b"));
-                this.q.setVisibility(0);
-                this.p.setVisibility(8);
+                this.mTakePicOk.setText(ResUtils.string(getActivity(), "wallet_base_idcard_retake_pic_finish"));
+                this.tipsView.setText(ResUtils.string(getActivity(), "wallet_base_idcard_promo_b"));
+                this.mGuoHuiPicView.setVisibility(0);
+                this.mRenTouPicView.setVisibility(8);
                 return;
             }
-            this.l.setText(ResUtils.string(getActivity(), "wallet_base_idcard_promo_f"));
-            this.q.setVisibility(8);
-            this.p.setVisibility(0);
+            this.mTakePicOk.setText(ResUtils.string(getActivity(), "wallet_base_idcard_take_another"));
+            this.tipsView.setText(ResUtils.string(getActivity(), "wallet_base_idcard_promo_f"));
+            this.mGuoHuiPicView.setVisibility(8);
+            this.mRenTouPicView.setVisibility(0);
         }
     }
 
@@ -520,17 +639,16 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
     public Object[] processImage(byte[] bArr, int i2, int i3, Rect rect, byte[] bArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), rect, bArr2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), rect, bArr2})) == null) {
             if (this.mInCaptureTimeOut.compareAndSet(true, false)) {
-                LogUtil.d(this.f24214e, "preview process");
-                PayStatisticsUtil.onEvent(StatServiceEvent.SDK_FRONTPAGE_IDAUTH_TYPE_TAKE_PICTURE_FAILED);
-                if (this.u.get()) {
+                LogUtil.d(this.TAG, "preview process");
+                if (this.mToTakePhoto.get()) {
                     rect.set(0, 0, i2, i3);
-                    if (this.y == null) {
-                        this.y = Bitmap.createBitmap(rect.height(), rect.width(), Bitmap.Config.ARGB_8888);
+                    if (this.mIamgeBp == null) {
+                        this.mIamgeBp = Bitmap.createBitmap(rect.height(), rect.width(), Bitmap.Config.ARGB_8888);
                     }
-                    Yuv.rotateCropBmp(bArr, i2, i3, rect.left, rect.top, 270, this.y);
-                    return new Bitmap[]{this.y};
+                    Yuv.rotateCropBmp(bArr, i2, i3, rect.left, rect.top, 270, this.mIamgeBp);
+                    return new Bitmap[]{this.mIamgeBp};
                 }
             }
             return null;
@@ -542,15 +660,15 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
     public Object[] processImageJpegData(byte[] bArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048595, this, bArr, i2, i3)) == null) {
-            if (this.u.get()) {
-                LogUtil.d(this.f24214e, "takepic process");
-                Bitmap a2 = com.baidu.wallet.base.iddetect.utils.a.a(bArr, i2, i3);
-                this.z = a2;
-                if (a2 != null) {
-                    this.z = ImageUtils.rotateBitmap(90, a2);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048596, this, bArr, i2, i3)) == null) {
+            if (this.mToTakePhoto.get()) {
+                LogUtil.d(this.TAG, "takepic process");
+                Bitmap decodeSampledBitmapFromByteArray = BitmapUtil.decodeSampledBitmapFromByteArray(bArr, i2, i3);
+                this.mImageBp4TP = decodeSampledBitmapFromByteArray;
+                if (decodeSampledBitmapFromByteArray != null) {
+                    this.mImageBp4TP = ImageUtils.rotateBitmap(90, decodeSampledBitmapFromByteArray);
                 }
-                return new Bitmap[]{this.z};
+                return new Bitmap[]{this.mImageBp4TP};
             }
             return null;
         }
@@ -560,20 +678,16 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
     @Override // com.baidu.wallet.base.camera.CameraBaseActivity
     public void relayoutUi() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            ViewGroup.LayoutParams layoutParams = this.f24217h.getLayoutParams();
-            int width = this.f24217h.getWidth();
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            ViewGroup.LayoutParams layoutParams = this.mFocusView.getLayoutParams();
+            int width = this.mFocusView.getWidth();
             layoutParams.width = width;
             layoutParams.height = (int) (width * getFocusDataYXRatioal() * this.mScaleCoefficient);
-            this.f24217h.post(new Runnable(this, layoutParams) { // from class: com.baidu.wallet.base.iddetect.IdentityCardDetectionActivity.2
+            this.mFocusView.post(new Runnable(this, layoutParams) { // from class: com.baidu.wallet.base.iddetect.IdentityCardDetectionActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ViewGroup.LayoutParams f24220a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ IdentityCardDetectionActivity f24221b;
+                public final /* synthetic */ IdentityCardDetectionActivity this$0;
+                public final /* synthetic */ ViewGroup.LayoutParams val$lp;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -590,15 +704,15 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
                             return;
                         }
                     }
-                    this.f24221b = this;
-                    this.f24220a = layoutParams;
+                    this.this$0 = this;
+                    this.val$lp = layoutParams;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f24221b.f24217h.setLayoutParams(this.f24220a);
+                        this.this$0.mFocusView.setLayoutParams(this.val$lp);
                     }
                 }
             });
@@ -606,70 +720,39 @@ public class IdentityCardDetectionActivity extends CameraBaseActivity implements
             getWindow().getDecorView().getWindowVisibleDisplayFrame(new Rect());
             int[] iArr2 = new int[2];
             this.mPreviewView.getLocationOnScreen(iArr2);
-            this.f24217h.getLocationOnScreen(iArr);
+            this.mFocusView.getLocationOnScreen(iArr);
             Rect rect = this.mFocusViewRect;
             int i2 = iArr[0] - iArr2[0];
             rect.left = i2;
-            rect.right = (i2 + layoutParams.width) - 1;
+            rect.right = i2 + layoutParams.width;
             int i3 = iArr[1] - iArr2[1];
             rect.top = i3;
-            rect.bottom = (i3 + layoutParams.height) - 1;
-            this.f24216g.getFocusFrame().set(this.mFocusViewRect);
-            ViewGroup.LayoutParams layoutParams2 = this.n.getLayoutParams();
+            rect.bottom = i3 + layoutParams.height;
+            this.mMistView.getFocusFrame().set(this.mFocusViewRect);
+            ViewGroup.LayoutParams layoutParams2 = this.mPicView.getLayoutParams();
             layoutParams2.width = layoutParams.width;
             layoutParams2.height = layoutParams.height;
-            this.n.setLayoutParams(layoutParams2);
-            this.n.requestLayout();
-            ((FrameLayout.LayoutParams) this.l.getLayoutParams()).topMargin = this.mFocusViewRect.bottom + DisplayUtils.dip2px(getActivity(), 15.0f);
-            this.l.requestLayout();
+            this.mPicView.setLayoutParams(layoutParams2);
+            this.mPicView.requestLayout();
+            ((FrameLayout.LayoutParams) this.tipsView.getLayoutParams()).topMargin = this.mFocusViewRect.bottom + DisplayUtils.dip2px(getActivity(), 25.0f);
+            this.tipsView.requestLayout();
         }
     }
 
     @Override // com.baidu.wallet.base.camera.CameraBaseActivity
     public void setFocusRectValue(Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, rect) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, rect) == null) {
         }
     }
 
     @Override // com.baidu.wallet.base.camera.CameraBaseActivity
     public void updateFlashLightUi(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048598, this, z) == null) || this.f24218i == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048599, this, z) == null) || this.mFlashIcon == null) {
             return;
         }
-        this.f24218i.setImageResource(ResUtils.drawable(getActivity(), z ? "wallet_base_camera_flashlight_on_btn" : "wallet_base_camera_flashlight_off_btn"));
-        AccessibilityUtils.setContentDescription(this.f24218i, z ? "关闭闪光灯" : "打开闪光灯");
-    }
-
-    private void a(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, bool) == null) {
-            if (bool.booleanValue()) {
-                this.v = this.w;
-            }
-            this.f24217h.setVisibility(0);
-            this.l.setVisibility(0);
-            this.j.setVisibility(0);
-            this.k.setVisibility(8);
-            this.o.setVisibility(8);
-            this.n.setImageDrawable(null);
-            onResume();
-        }
-    }
-
-    private void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && PermissionManager.checkCallingPermission(getActivity(), "android.permission.READ_EXTERNAL_STORAGE")) {
-            Intent intent = new Intent();
-            intent.addCategory("android.intent.category.OPENABLE");
-            if (Build.VERSION.SDK_INT < 19) {
-                intent.setAction("android.intent.action.GET_CONTENT");
-            } else {
-                intent.setAction("android.intent.action.OPEN_DOCUMENT");
-            }
-            intent.setDataAndType(MediaStore.Images.Media.INTERNAL_CONTENT_URI, BdUploadHandler.IMAGE_MIME_TYPE);
-            startActivityForResult(Intent.createChooser(intent, "选择图片"), 17);
-        }
+        this.mFlashIcon.setImageResource(ResUtils.drawable(getActivity(), z ? "wallet_base_camera_flashlight_on_btn" : "wallet_base_camera_flashlight_off_btn"));
+        AccessibilityUtils.setContentDescription(this.mFlashIcon, z ? "关闭闪光灯" : "打开闪光灯");
     }
 }

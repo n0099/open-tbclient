@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.e;
-import h.f;
-import h.j;
-import h.k;
-import h.o.a.q;
+import i.e;
+import i.f;
+import i.j;
+import i.k;
+import i.o.a.q;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicLong implements f, k, e<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object EMPTY;
@@ -82,12 +82,12 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
             this.missed = false;
             while (true) {
                 try {
-                    long j = get();
-                    if (j == Long.MIN_VALUE) {
+                    long j2 = get();
+                    if (j2 == Long.MIN_VALUE) {
                         return;
                     }
                     Object obj = this.value.get();
-                    if (j > 0 && obj != EMPTY) {
+                    if (j2 > 0 && obj != EMPTY) {
                         this.child.onNext(obj);
                         this.value.compareAndSet(obj, EMPTY);
                         produced(1L);
@@ -137,14 +137,14 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
         }
     }
 
-    @Override // h.k
+    @Override // i.k
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() == Long.MIN_VALUE : invokeV.booleanValue;
     }
 
-    @Override // h.e
+    @Override // i.e
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -153,7 +153,7 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
         }
     }
 
-    @Override // h.e
+    @Override // i.e
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
@@ -163,7 +163,7 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
         }
     }
 
-    @Override // h.e
+    @Override // i.e
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
@@ -172,55 +172,55 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
         }
     }
 
-    public long produced(long j) {
-        long j2;
+    public long produced(long j2) {
         long j3;
+        long j4;
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
             do {
-                j2 = get();
-                if (j2 < 0) {
-                    return j2;
+                j3 = get();
+                if (j3 < 0) {
+                    return j3;
                 }
-                j3 = j2 - j;
-            } while (!compareAndSet(j2, j3));
-            return j3;
+                j4 = j3 - j2;
+            } while (!compareAndSet(j3, j4));
+            return j4;
         }
         return invokeJ.longValue;
     }
 
-    @Override // h.f
-    public void request(long j) {
-        long j2;
-        int i2;
+    @Override // i.f
+    public void request(long j2) {
         long j3;
+        int i2;
+        long j4;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048582, this, j) == null) || j < 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) || j2 < 0) {
             return;
         }
         do {
-            j2 = get();
-            if (j2 == Long.MIN_VALUE) {
+            j3 = get();
+            if (j3 == Long.MIN_VALUE) {
                 return;
             }
-            i2 = (j2 > (-4611686018427387904L) ? 1 : (j2 == (-4611686018427387904L) ? 0 : -1));
+            i2 = (j3 > (-4611686018427387904L) ? 1 : (j3 == (-4611686018427387904L) ? 0 : -1));
             if (i2 == 0) {
-                j3 = j;
+                j4 = j2;
             } else {
-                j3 = j2 + j;
-                if (j3 < 0) {
-                    j3 = Long.MAX_VALUE;
+                j4 = j3 + j2;
+                if (j4 < 0) {
+                    j4 = Long.MAX_VALUE;
                 }
             }
-        } while (!compareAndSet(j2, j3));
+        } while (!compareAndSet(j3, j4));
         if (i2 == 0) {
             this.parent.b(Long.MAX_VALUE);
         }
         emit();
     }
 
-    @Override // h.k
+    @Override // i.k
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || get() < 0) {

@@ -1,7 +1,6 @@
 package com.baidu.searchbox.unitedscheme.moniter;
 
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Hashtable;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class TimeCostMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -38,12 +37,12 @@ public class TimeCostMonitor {
         DEBUG = AppConfig.isDebug();
     }
 
-    public TimeCostMonitor(TimeCostHandler timeCostHandler, long j) {
+    public TimeCostMonitor(TimeCostHandler timeCostHandler, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {timeCostHandler, Long.valueOf(j)};
+            Object[] objArr = {timeCostHandler, Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -54,7 +53,7 @@ public class TimeCostMonitor {
             }
         }
         this.mTimeoutHandler = timeCostHandler;
-        this.mThresholdValue = j;
+        this.mThresholdValue = j2;
         this.mEventRecorder = new Hashtable<>();
     }
 
@@ -72,7 +71,7 @@ public class TimeCostMonitor {
             timeCostHandler.handle(l.longValue(), currentTimeMillis, this.mThresholdValue, str);
         }
         if (DEBUG) {
-            Log.i(TAG, "执行耗时：" + longValue + "，开始时间：" + l + "，结束时间：" + currentTimeMillis + "，event：" + str);
+            String str2 = "执行耗时：" + longValue + "，开始时间：" + l + "，结束时间：" + currentTimeMillis + "，event：" + str;
         }
         this.mEventRecorder.remove(str);
     }

@@ -1,7 +1,7 @@
 package com.baidu.rtc.signalling.mode;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface IJsonSignalling {
     JSONObject asJSONObject();
 

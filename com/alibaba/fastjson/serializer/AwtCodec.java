@@ -21,7 +21,8 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.io.IOException;
 import java.lang.reflect.Type;
-/* loaded from: classes.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes4.dex */
 public class AwtCodec implements ObjectSerializer, ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public static final AwtCodec instance;
@@ -141,7 +142,7 @@ public class AwtCodec implements ObjectSerializer, ObjectDeserializer {
                     if (jSONLexer.token() == 2) {
                         int intValue = jSONLexer.intValue();
                         jSONLexer.nextToken();
-                        if (stringVal.equalsIgnoreCase(r.f7788a)) {
+                        if (stringVal.equalsIgnoreCase(r.f42062a)) {
                             i2 = intValue;
                         } else if (stringVal.equalsIgnoreCase("g")) {
                             i3 = intValue;
@@ -324,22 +325,22 @@ public class AwtCodec implements ObjectSerializer, ObjectDeserializer {
             }
             if (obj instanceof Point) {
                 Point point = (Point) obj;
-                serializeWriter.writeFieldValue(writeClassName(serializeWriter, Point.class, '{'), "x", point.x);
+                serializeWriter.writeFieldValue(writeClassName(serializeWriter, Point.class, ExtendedMessageFormat.START_FE), "x", point.x);
                 serializeWriter.writeFieldValue(',', "y", point.y);
             } else if (obj instanceof Font) {
                 Font font = (Font) obj;
-                serializeWriter.writeFieldValue(writeClassName(serializeWriter, Font.class, '{'), "name", font.getName());
+                serializeWriter.writeFieldValue(writeClassName(serializeWriter, Font.class, ExtendedMessageFormat.START_FE), "name", font.getName());
                 serializeWriter.writeFieldValue(',', "style", font.getStyle());
                 serializeWriter.writeFieldValue(',', "size", font.getSize());
             } else if (obj instanceof Rectangle) {
                 Rectangle rectangle = (Rectangle) obj;
-                serializeWriter.writeFieldValue(writeClassName(serializeWriter, Rectangle.class, '{'), "x", rectangle.x);
+                serializeWriter.writeFieldValue(writeClassName(serializeWriter, Rectangle.class, ExtendedMessageFormat.START_FE), "x", rectangle.x);
                 serializeWriter.writeFieldValue(',', "y", rectangle.y);
                 serializeWriter.writeFieldValue(',', "width", rectangle.width);
                 serializeWriter.writeFieldValue(',', "height", rectangle.height);
             } else if (obj instanceof Color) {
                 Color color = (Color) obj;
-                serializeWriter.writeFieldValue(writeClassName(serializeWriter, Color.class, '{'), r.f7788a, color.getRed());
+                serializeWriter.writeFieldValue(writeClassName(serializeWriter, Color.class, ExtendedMessageFormat.START_FE), r.f42062a, color.getRed());
                 serializeWriter.writeFieldValue(',', "g", color.getGreen());
                 serializeWriter.writeFieldValue(',', "b", color.getBlue());
                 if (color.getAlpha() > 0) {

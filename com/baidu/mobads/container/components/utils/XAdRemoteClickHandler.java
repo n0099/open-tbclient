@@ -50,7 +50,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class XAdRemoteClickHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACT_TYPE_APO = 512;
@@ -71,7 +71,7 @@ public class XAdRemoteClickHandler {
     public IOAdEventListener mDlStatusListener;
     public int numOfCheckAPOAppIsAtFront;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class MarketDownloadBackupTask extends BaseTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -7,7 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +126,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return "SlamModel{id='" + this.id + "', placeType=" + this.yC + ", position='" + this.yD + "', distance=" + this.yE + ", pitchAngle=" + this.yF + ", rotation='" + this.yG + "', mImmediatelyPlaceModel=" + this.yH + '}';
+            return "SlamModel{id='" + this.id + ExtendedMessageFormat.QUOTE + ", placeType=" + this.yC + ", position='" + this.yD + ExtendedMessageFormat.QUOTE + ", distance=" + this.yE + ", pitchAngle=" + this.yF + ", rotation='" + this.yG + ExtendedMessageFormat.QUOTE + ", mImmediatelyPlaceModel=" + this.yH + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

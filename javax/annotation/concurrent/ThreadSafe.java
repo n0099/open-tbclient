@@ -8,6 +8,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @Documented
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public @interface ThreadSafe {
 }

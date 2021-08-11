@@ -4,6 +4,7 @@ import android.graphics.PointF;
 import android.opengl.Matrix;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.v0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,21 +20,21 @@ import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUti
 import com.baidu.ugc.editvideo.sticker.OnChangeStickerListener;
 import com.baidu.ugc.editvideo.sticker.a;
 import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
-import d.a.w0.t.h;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnMediaPreviewTouchEventListener {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int STATUS_CLICK = 104;
-    public static final int STATUS_DELETE = 101;
-    public static final int STATUS_EDIT = 106;
+    public static final int STATUS_DELETE = 106;
+    public static final int STATUS_EDIT = 105;
     public static final int STATUS_IDLE = 100;
-    public static final int STATUS_MOVE = 102;
-    public static final int STATUS_POINTER_ROTATE = 105;
-    public static final int STATUS_ROTATE = 103;
-    public static final int TOUCH_OFFSET = 3;
+    public static final int STATUS_IN = 101;
+    public static final int STATUS_MOVE = 107;
+    public static final int STATUS_OUT = 102;
+    public static final int STATUS_POINTER_ROTATE = 103;
+    public static final int STATUS_ROTATE = 104;
+    public static final int TOUCH_OFFSET = 5;
     public transient /* synthetic */ FieldHolder $fh;
     public String TAG;
     public boolean mChangeMoveProperty;
@@ -82,162 +83,120 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
         this.mEditButtonPosition = "right_top";
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x004e, code lost:
-        if (105 == r3) goto L12;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00e8  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0100  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private void handleTouchDrag(float f2, float f3, float f4, float f5) {
         MultiMediaData b2;
-        int i2;
         GLViewPortLocation gLViewPortLocation;
-        float f6;
-        float f7;
-        OnChangeStickerListener onChangeStickerListener;
         GLViewPortLocation gLViewPortLocation2;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) || this.mCurrentItem == null || (b2 = this.mCurrentItem.b()) == null) {
             return;
         }
-        float f8 = b2.x;
-        float f9 = b2.y;
+        float f6 = b2.x;
+        float f7 = b2.y;
+        int i2 = this.mSelectStatus;
+        if (104 == i2 || 103 == i2) {
+            float f8 = b2.angle + f5;
+            b2.angle = f8;
+            b2.angle = f8 % 360.0f;
+            b2.scaleX *= f4;
+            b2.scaleY *= f4;
+        } else {
+            b2.x = f6 + f2;
+            b2.y = f7 + f3;
+            if (f2 > 0.0f || f3 > 0.0f) {
+                this.mSelectStatus = 107;
+                this.mChangeMoveProperty = true;
+            }
+        }
         int i3 = this.mSelectStatus;
-        if (103 != i3) {
-            if (102 == i3) {
-                b2.x = f8 + f2;
-                b2.y = f9 + f3;
-                if (f2 > 0.0f || f3 > 0.0f) {
-                    this.mChangeMoveProperty = true;
-                }
-            }
-            i2 = this.mSelectStatus;
-            if (105 != i2 || 103 == i2) {
-                float min = Math.min(b2.scaleX, this.mMaxScale);
-                b2.scaleX = min;
-                b2.scaleX = Math.max(min, this.mMinScale);
-                float min2 = Math.min(b2.scaleY, this.mMaxScale);
-                b2.scaleY = min2;
-                b2.scaleY = Math.max(min2, this.mMinScale);
-            }
-            if (102 == this.mSelectStatus && this.mCheckMoveBounds && (gLViewPortLocation2 = this.mGLViewPortLocation) != null) {
-                float min3 = Math.min(b2.x, gLViewPortLocation2.width - (b2.width / 2.0f));
-                b2.x = min3;
-                b2.x = Math.max(min3, (-b2.width) / 2.0f);
-                float min4 = Math.min(b2.y, this.mGLViewPortLocation.height - (b2.height / 2.0f));
-                b2.y = min4;
-                b2.y = Math.max(min4, (-b2.height) / 2.0f);
-            }
-            if (checkForSubline() && (gLViewPortLocation = this.mGLViewPortLocation) != null) {
-                f6 = (gLViewPortLocation.width - b2.width) / 2.0f;
-                f7 = (gLViewPortLocation.height - b2.height) / 2.0f;
-                boolean z = false;
-                if (Math.abs(f6 - b2.x) <= 3.0f) {
-                    b2.x = f6;
-                    if (Math.abs(f6 - f8) > 3.0f) {
-                        z = true;
-                    }
-                }
-                if (Math.abs(f7 - b2.y) <= 3.0f) {
-                    b2.y = f7;
-                    if (Math.abs(f7 - f9) > 3.0f) {
-                        z = true;
-                    }
-                }
-                onChangeStickerListener = this.mInnerOnChangeStickerListener;
-                if (onChangeStickerListener != null && z) {
-                    this.mChangeMoveProperty = true;
-                    onChangeStickerListener.onAutoAdjust(this.mEditTrackType);
-                }
-            }
-            if (this.mInnerOnChangeStickerListener == null && isEditStatus()) {
-                this.mInnerOnChangeStickerListener.onChangeSticker(this.mSelectStatus, this.mCurrentItem.b(), this.mEditTrackType);
-                return;
-            }
+        if (103 == i3 || 104 == i3) {
+            float min = Math.min(b2.scaleX, this.mMaxScale);
+            b2.scaleX = min;
+            b2.scaleX = Math.max(min, this.mMinScale);
+            float min2 = Math.min(b2.scaleY, this.mMaxScale);
+            b2.scaleY = min2;
+            b2.scaleY = Math.max(min2, this.mMinScale);
         }
-        float f10 = b2.angle + f5;
-        b2.angle = f10;
-        b2.angle = f10 % 360.0f;
-        b2.scaleX *= f4;
-        b2.scaleY *= f4;
-        i2 = this.mSelectStatus;
-        if (105 != i2) {
+        if (107 == this.mSelectStatus && this.mCheckMoveBounds && (gLViewPortLocation2 = this.mGLViewPortLocation) != null) {
+            float min3 = Math.min(b2.x, gLViewPortLocation2.width - (b2.width / 2.0f));
+            b2.x = min3;
+            b2.x = Math.max(min3, (-b2.width) / 2.0f);
+            float min4 = Math.min(b2.y, this.mGLViewPortLocation.height - (b2.height / 2.0f));
+            b2.y = min4;
+            b2.y = Math.max(min4, (-b2.height) / 2.0f);
         }
-        float min5 = Math.min(b2.scaleX, this.mMaxScale);
-        b2.scaleX = min5;
-        b2.scaleX = Math.max(min5, this.mMinScale);
-        float min22 = Math.min(b2.scaleY, this.mMaxScale);
-        b2.scaleY = min22;
-        b2.scaleY = Math.max(min22, this.mMinScale);
-        if (102 == this.mSelectStatus) {
-            float min32 = Math.min(b2.x, gLViewPortLocation2.width - (b2.width / 2.0f));
-            b2.x = min32;
-            b2.x = Math.max(min32, (-b2.width) / 2.0f);
-            float min42 = Math.min(b2.y, this.mGLViewPortLocation.height - (b2.height / 2.0f));
-            b2.y = min42;
-            b2.y = Math.max(min42, (-b2.height) / 2.0f);
-        }
-        if (checkForSubline()) {
-            f6 = (gLViewPortLocation.width - b2.width) / 2.0f;
-            f7 = (gLViewPortLocation.height - b2.height) / 2.0f;
-            boolean z2 = false;
-            if (Math.abs(f6 - b2.x) <= 3.0f) {
+        if (checkForSubline() && (gLViewPortLocation = this.mGLViewPortLocation) != null) {
+            float f9 = (gLViewPortLocation.width - b2.width) / 2.0f;
+            float f10 = (gLViewPortLocation.height - b2.height) / 2.0f;
+            boolean z = false;
+            if (Math.abs(f9 - b2.x) <= 5.0f) {
+                b2.x = f9;
+                if (Math.abs(f9 - f6) > 5.0f) {
+                    z = true;
+                }
             }
-            if (Math.abs(f7 - b2.y) <= 3.0f) {
+            if (Math.abs(f10 - b2.y) <= 5.0f) {
+                b2.y = f10;
+                if (Math.abs(f10 - f7) > 5.0f) {
+                    z = true;
+                }
             }
-            onChangeStickerListener = this.mInnerOnChangeStickerListener;
-            if (onChangeStickerListener != null) {
+            OnChangeStickerListener onChangeStickerListener = this.mInnerOnChangeStickerListener;
+            if (onChangeStickerListener != null && z) {
                 this.mChangeMoveProperty = true;
                 onChangeStickerListener.onAutoAdjust(this.mEditTrackType);
             }
         }
-        if (this.mInnerOnChangeStickerListener == null) {
+        if (this.mInnerOnChangeStickerListener == null || !isEditStatus()) {
+            return;
         }
+        this.mInnerOnChangeStickerListener.onChangeSticker(this.mSelectStatus, this.mCurrentItem.b(), this.mEditTrackType);
     }
 
     private boolean handleTouchPress(float f2, float f3, float f4, float f5) {
         InterceptResult invokeCommon;
-        boolean z;
-        OnChangeStickerListener onChangeStickerListener;
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
-            this.mSelectStatus = 100;
             this.mChangeMoveProperty = false;
-            List<a> list = this.mVisibleStickerItems;
-            ListIterator<a> listIterator = list.listIterator(list.size());
-            while (listIterator.hasPrevious()) {
-                a previous = listIterator.previous();
-                if (previous != null && previous.a()) {
-                    if (previous.c(f2, f3)) {
-                        i2 = 101;
-                    } else if (previous.b(f2, f3)) {
-                        i2 = 103;
-                    } else if (previous.d(f2, f3)) {
-                        i2 = 106;
-                    } else if (previous.a(f2, f3)) {
-                        this.mSelectStatus = 102;
-                        setCurrentItem(previous);
-                        z = true;
+            if (this.mSelectStatus == 100 || this.mCurrentItem == null) {
+                List<a> list = this.mVisibleStickerItems;
+                ListIterator<a> listIterator = list.listIterator(list.size());
+                while (true) {
+                    if (!listIterator.hasPrevious()) {
                         break;
                     }
-                    this.mSelectStatus = i2;
-                    this.mCurrentItem = previous;
-                    z = true;
-                    break;
+                    a previous = listIterator.previous();
+                    if (previous != null && previous.a()) {
+                        if (previous.a(f2, f3)) {
+                            this.mSelectStatus = 101;
+                            setCurrentItem(previous);
+                            break;
+                        }
+                        this.mSelectStatus = 102;
+                    }
                 }
-            }
-            z = false;
-            if (this.mCurrentItem != null && this.mCurrentItem.a(f2, f3) && this.mCurrentItem.a(f4, f5)) {
-                this.mSelectStatus = 105;
-            }
-            if (!z) {
-                this.mCurrentItem = null;
-            }
-            if (this.mCurrentItem == null && (onChangeStickerListener = this.mInnerOnChangeStickerListener) != null) {
-                onChangeStickerListener.onClickStickerOutside(this.mEditTrackType);
+            } else {
+                if (this.mCurrentItem.c(f2, f3)) {
+                    i2 = 106;
+                } else if (this.mCurrentItem.b(f2, f3)) {
+                    i2 = 104;
+                } else if (this.mCurrentItem.d(f2, f3)) {
+                    i2 = 105;
+                } else {
+                    if (this.mCurrentItem.a(f2, f3)) {
+                        this.mSelectStatus = 101;
+                    } else {
+                        this.mSelectStatus = 102;
+                    }
+                    if (this.mCurrentItem != null && f4 > -2.1474836E9f && f5 > -2.1474836E9f) {
+                        this.mSelectStatus = 103;
+                    }
+                }
+                this.mSelectStatus = i2;
+                if (this.mCurrentItem != null) {
+                    this.mSelectStatus = 103;
+                }
             }
             return this.mCurrentItem != null;
         }
@@ -253,22 +212,32 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
                 return;
             }
             int i2 = this.mSelectStatus;
-            if (i2 == 101) {
-                deleteCurrentStickerItem(this.mCurrentItem, this.mEditTrackType, false);
-            } else if (i2 == 106) {
-                OnChangeStickerListener onChangeStickerListener = this.mInnerOnChangeStickerListener;
-                if (onChangeStickerListener != null) {
-                    onChangeStickerListener.onEditSticker(this.mCurrentItem.b(), this.mEditTrackType);
+            if (i2 != 106) {
+                if (i2 == 105) {
+                    OnChangeStickerListener onChangeStickerListener = this.mInnerOnChangeStickerListener;
+                    if (onChangeStickerListener != null) {
+                        onChangeStickerListener.onEditSticker(this.mCurrentItem.b(), this.mEditTrackType);
+                    }
+                } else if (this.mChangeMoveProperty || !this.mCurrentItem.a(f2, f3)) {
+                    int i3 = this.mSelectStatus;
+                    if (i3 == 102) {
+                        if (this.mCurrentItem != null && this.mInnerOnChangeStickerListener != null) {
+                            this.mCurrentItem = null;
+                            this.mInnerOnChangeStickerListener.onClickStickerOutside(this.mEditTrackType);
+                        }
+                    } else if (i3 == 107) {
+                        this.mSelectStatus = 101;
+                    }
+                } else {
+                    OnChangeStickerListener onChangeStickerListener2 = this.mInnerOnChangeStickerListener;
+                    if (onChangeStickerListener2 != null) {
+                        onChangeStickerListener2.onClickSticker(this.mCurrentItem.b(), this.mEditTrackType, false);
+                    }
                 }
-            } else if (this.mChangeMoveProperty || !this.mCurrentItem.a(f2, f3)) {
-                this.mSelectStatus = 100;
-            } else {
-                this.mSelectStatus = 104;
-                OnChangeStickerListener onChangeStickerListener2 = this.mInnerOnChangeStickerListener;
-                if (onChangeStickerListener2 != null) {
-                    onChangeStickerListener2.onClickSticker(this.mCurrentItem.b(), this.mEditTrackType, false);
-                }
+                this.mChangeMoveProperty = false;
             }
+            deleteCurrentStickerItem(this.mCurrentItem, this.mEditTrackType, false);
+            this.mSelectStatus = 100;
             this.mChangeMoveProperty = false;
         }
     }
@@ -278,7 +247,7 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             int i2 = this.mSelectStatus;
-            return 103 == i2 || 102 == i2 || 105 == i2;
+            return 104 == i2 || 107 == i2 || 103 == i2;
         }
         return invokeV.booleanValue;
     }
@@ -304,7 +273,7 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
     public boolean checkForSubline() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCurrentItem != null && 102 == this.mSelectStatus && (TextUtils.equals(this.mEditTrackType, "text") || TextUtils.equals(this.mEditTrackType, SubtitleLog.TAG) || TextUtils.equals(this.mEditTrackType, "cover_sticker")) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCurrentItem != null && this.mSelectStatus == 107 && (TextUtils.equals(this.mEditTrackType, "text") || TextUtils.equals(this.mEditTrackType, SubtitleLog.TAG) || TextUtils.equals(this.mEditTrackType, "cover_sticker")) : invokeV.booleanValue;
     }
 
     public void createButtonTexture() {

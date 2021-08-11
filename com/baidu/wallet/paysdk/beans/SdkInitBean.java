@@ -13,7 +13,7 @@ import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.paysdk.datamodel.SdkInitResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class SdkInitBean extends BaseBean<SdkInitResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class SdkInitBean extends BaseBean<SdkInitResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return DomainConfig.getInstance().getInitHost(false) + com.baidu.wallet.core.beans.BeanConstants.API_GET_FP;
+            return DomainConfig.getInstance().getInitHost(false) + "/odp/wireless/sdk/init";
         }
         return (String) invokeV.objValue;
     }

@@ -5,32 +5,30 @@ import android.content.Intent;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.utils.GlobalUtils;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
-import com.baidu.wallet.core.NoProguard;
-import com.baidu.wallet.core.utils.LogUtil;
-import com.baidu.wallet.core.utils.WalletGlobalUtils;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
-import com.baidu.wallet.paysdk.beans.x;
+import com.baidu.wallet.paysdk.beans.t;
 import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.datamodel.PwdRequest;
 import com.baidu.wallet.paysdk.presenter.NetWorkPresenter;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.PwdPayActivity;
 import com.baidu.wallet.paysdk.ui.WalletSmsActivity;
-import com.baidu.wallet.statistics.api.StatisticManager;
+import com.dxmpay.apollon.utils.GlobalUtils;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.core.NoProguard;
+import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface PwdPayContract {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static abstract class Presenter extends NetWorkPresenter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,11 +98,10 @@ public interface PwdPayContract {
                 pwdRequest.mRequestType = 2;
                 pwdRequest.mPayPass = str;
                 PayRequestCache.getInstance().addBeanRequestToCache(pwdRequest.getRequestId(), pwdRequest);
-                x xVar = (x) PayBeanFactory.getInstance().getBean((Context) this.mActivity, 257, this.TAG);
+                t tVar = (t) PayBeanFactory.getInstance().getBean((Context) this.mActivity, 257, this.TAG);
                 this.mActivity.showLoading(-1);
-                xVar.setResponseCallback(this);
-                xVar.execBean();
-                StatisticManager.onEventStart(StatServiceEvent.CHECK_PASSWORD);
+                tVar.setResponseCallback(this);
+                tVar.execBean();
             }
         }
 
@@ -120,7 +117,6 @@ public interface PwdPayContract {
             if (interceptable == null || interceptable.invokeIIL(1048582, this, i2, i3, str) == null) {
                 this.mActivity.dismissLoading(-1);
                 if (i2 == 257) {
-                    StatisticManager.onEventEnd(StatServiceEvent.CHECK_PASSWORD, i3);
                     this.mActivity.showPWdInputView(true);
                     clearPayPwdCache(i3);
                     if (i3 == 100015) {
@@ -147,14 +143,13 @@ public interface PwdPayContract {
                     } else if (65312 == i3) {
                         PwdPayActivity pwdPayActivity3 = this.mActivity;
                         GlobalUtils.toast(pwdPayActivity3, ResUtils.getString(pwdPayActivity3, "bd_wallet_fingerprint_auth_failed"));
-                        String str2 = this.TAG;
-                        LogUtil.d(str2, "指纹验证失败, 切到密码输入模式   , wireless-pay接口请求失败 错误码是  : " + i3);
+                        String str2 = "指纹验证失败, 切到密码输入模式   , wireless-pay接口请求失败 错误码是  : " + i3;
                         this.mActivity.turntoPwdPay(true, null);
                         return;
                     } else {
                         PwdPayActivity pwdPayActivity4 = this.mActivity;
                         if (TextUtils.isEmpty(str)) {
-                            str = ResUtils.getString(this.mActivity, "fp_get_data_fail");
+                            str = ResUtils.getString(this.mActivity, "dxm_fp_get_data_fail");
                         }
                         pwdPayActivity4.mDialogMsg = str;
                         WalletGlobalUtils.safeShowDialog(this.mActivity, 12, "");
@@ -224,7 +219,7 @@ public interface PwdPayContract {
         public void triggleSmsPay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-                StatisticManager.onEvent(StatServiceEvent.TRIGGLESMSVERIFY);
+                StatisticManager.onEvent("triggleSmsVerify");
                 Intent intent = new Intent();
                 intent.setClass(this.mActivity, WalletSmsActivity.class);
                 intent.putExtra(BeanConstants.SMS_ACTIVITY_FROM_KEY, 1);
@@ -234,12 +229,12 @@ public interface PwdPayContract {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void onProtocolClicked(boolean z);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class protocolModel implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

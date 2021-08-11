@@ -15,15 +15,15 @@ import com.bytedance.sdk.openadsdk.IRewardAdInteractionListener;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class f extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, RemoteCallbackList<IRewardAdInteractionListener>> f31728a;
+    public static Map<String, RemoteCallbackList<IRewardAdInteractionListener>> f67673a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile f f31729b;
+    public static volatile f f67674b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class f extends a {
                 return;
             }
         }
-        f31728a = Collections.synchronizedMap(new HashMap());
+        f67673a = Collections.synchronizedMap(new HashMap());
     }
 
     public f() {
@@ -60,14 +60,14 @@ public class f extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f31729b == null) {
+            if (f67674b == null) {
                 synchronized (f.class) {
-                    if (f31729b == null) {
-                        f31729b = new f();
+                    if (f67674b == null) {
+                        f67674b = new f();
                     }
                 }
             }
-            return f31729b;
+            return f67674b;
         }
         return (f) invokeV.objValue;
     }
@@ -87,7 +87,7 @@ public class f extends a {
             synchronized (this) {
                 RemoteCallbackList<IRewardAdInteractionListener> remoteCallbackList = new RemoteCallbackList<>();
                 remoteCallbackList.register(iRewardAdInteractionListener);
-                f31728a.put(str, remoteCallbackList);
+                f67673a.put(str, remoteCallbackList);
             }
         }
     }
@@ -98,11 +98,11 @@ public class f extends a {
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i2), str3, Integer.valueOf(i3), str4}) == null) {
             synchronized (this) {
                 try {
-                    if (f31728a != null) {
+                    if (f67673a != null) {
                         if ("recycleRes".equals(str2)) {
-                            remoteCallbackList = f31728a.remove(str);
+                            remoteCallbackList = f67673a.remove(str);
                         } else {
-                            remoteCallbackList = f31728a.get(str);
+                            remoteCallbackList = f67673a.get(str);
                         }
                         RemoteCallbackList<IRewardAdInteractionListener> remoteCallbackList2 = remoteCallbackList;
                         if (remoteCallbackList2 != null) {

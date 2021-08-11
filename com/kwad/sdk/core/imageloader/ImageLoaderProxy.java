@@ -17,7 +17,7 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.core.imageloader.core.DisplayImageOptions;
 import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class ImageLoaderProxy implements IImageLoader {
     public static final /* synthetic */ ImageLoaderProxy[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

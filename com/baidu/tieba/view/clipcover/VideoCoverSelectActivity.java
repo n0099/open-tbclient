@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoCoverSelectActivityConfig;
 import com.baidu.tbadk.core.util.FileHelper;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActivity> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,13 +45,13 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
     }
 
     private void generateUriAndReturn() {
-        Bitmap c2;
+        Bitmap clip;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (c2 = this.mCoverSelsctLayout.c()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (clip = this.mCoverSelsctLayout.clip()) == null) {
             return;
         }
         String str = getIntent().getBooleanExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, false) ? "tbNewVideo/temp/" : "tbVideo/temp/";
-        String SaveFile = FileHelper.SaveFile(str, System.currentTimeMillis() + ".jpg", c2, 90);
+        String SaveFile = FileHelper.SaveFile(str, System.currentTimeMillis() + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX, clip, 90);
         Intent intent = new Intent();
         intent.putExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH, SaveFile);
         setResult(-1, intent);

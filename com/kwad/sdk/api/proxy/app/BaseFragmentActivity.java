@@ -12,13 +12,13 @@ import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.proxy.BaseProxyFragmentActivity;
 import com.kwad.sdk.api.proxy.IFragmentActivityProxy;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class DeveloperConfigActivity extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class EpisodeDetailActivity extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class FragmentActivity1 extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +104,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class FragmentActivity10 extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,7 +133,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class FragmentActivity2 extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +162,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class FragmentActivity3 extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -191,7 +191,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class FragmentActivity4 extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -220,7 +220,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class FragmentActivity5 extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -249,7 +249,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class FragmentActivity6 extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -278,7 +278,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class FragmentActivity7 extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -307,7 +307,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class FragmentActivity8 extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -336,7 +336,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class FragmentActivity9 extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -364,7 +364,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class FragmentActivitySingleInstance1 extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -392,7 +392,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class FragmentActivitySingleInstance2 extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -421,7 +421,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class FragmentActivitySingleTop1 extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -450,7 +450,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class FragmentActivitySingleTop2 extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -479,7 +479,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class KsTrendsActivity extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -507,7 +507,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class ProfileHomeActivity extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -535,7 +535,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class ProfileVideoDetailActivity extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -563,7 +563,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class TubeDetailActivity extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -591,7 +591,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class TubeProfileActivity extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

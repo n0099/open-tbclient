@@ -9,6 +9,7 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.route.IndoorRouteLine;
 import com.baidu.mapapi.search.route.IndoorRouteResult;
 import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class f extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +77,7 @@ public class f extends com.baidu.platform.base.d {
             }
             try {
                 JSONObject optJSONObject3 = new JSONObject(str).optJSONObject("indoor_navi");
-                if (optJSONObject3 == null || (optJSONObject = optJSONObject3.optJSONObject("option")) == null) {
+                if (optJSONObject3 == null || (optJSONObject = optJSONObject3.optJSONObject(SpeedStatsUtils.UBC_KEY_OPTION)) == null) {
                     return false;
                 }
                 int optInt = optJSONObject.optInt("error");

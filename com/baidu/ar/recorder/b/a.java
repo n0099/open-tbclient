@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class a extends b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "a";
@@ -97,8 +97,8 @@ public class a extends b {
     }
 
     @Override // com.baidu.ar.recorder.b.b
-    public /* bridge */ /* synthetic */ void a(boolean z, ByteBuffer byteBuffer, int i2, long j) {
-        super.a(z, byteBuffer, i2, j);
+    public /* bridge */ /* synthetic */ void a(boolean z, ByteBuffer byteBuffer, int i2, long j2) {
+        super.a(z, byteBuffer, i2, j2);
     }
 
     @Override // com.baidu.ar.recorder.b.b
@@ -109,13 +109,13 @@ public class a extends b {
                 this.uU = this.uR.presentationTimeUs;
             }
             MediaCodec.BufferInfo bufferInfo = this.uR;
-            long j = bufferInfo.presentationTimeUs - this.uU;
-            bufferInfo.presentationTimeUs = j;
-            long j2 = this.uM;
-            if (j < j2) {
-                long j3 = j2 + 10000;
-                this.uM = j3;
-                bufferInfo.presentationTimeUs = j3;
+            long j2 = bufferInfo.presentationTimeUs - this.uU;
+            bufferInfo.presentationTimeUs = j2;
+            long j3 = this.uM;
+            if (j2 < j3) {
+                long j4 = j3 + 10000;
+                this.uM = j4;
+                bufferInfo.presentationTimeUs = j4;
             }
             this.uM = this.uR.presentationTimeUs;
             String str = TAG;

@@ -6,8 +6,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class NativeOperationParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +37,7 @@ public class NativeOperationParams {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "NativeOperationParams{opCode=" + this.opCode + "params=" + this.params + '}';
+            return "NativeOperationParams{opCode=" + this.opCode + "params=" + this.params + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -6,17 +6,17 @@ import android.graphics.Typeface;
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
+import c.a.v0.b;
+import c.a.v0.t.g;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.TextWordsEntity;
-import d.a.w0.b;
-import d.a.w0.t.g;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class SubTitleConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CENTER = 0;
@@ -57,6 +57,7 @@ public class SubTitleConfig {
     public int mSubTitleX;
     @Deprecated
     public int mSubTitleY;
+    public TextWordsEntity.TextColorEntity mTextColorEntity;
     public TextWordsEntity.TextStyleEntity mTextStyleEntity;
     public int mVideoHeight;
     public int mVideoWidth;
@@ -64,7 +65,7 @@ public class SubTitleConfig {
     public int maxEngLineNum;
     public Paint.Align textGravity;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class ShadowConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +92,7 @@ public class SubTitleConfig {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class StrokeConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +117,7 @@ public class SubTitleConfig {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class TypefaceConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CREATE_FROM_ASSET = 1;
@@ -279,31 +280,37 @@ public class SubTitleConfig {
                 jSONObject.put("maxEngLineNum", subTitleConfig.maxEngLineNum);
                 jSONObject.put("isChineseCenterBlank", subTitleConfig.isChineseCenterBlank);
                 jSONObject.put("isEngCenterBlank", subTitleConfig.isEngCenterBlank);
-                if (subTitleConfig.chineseShadowConfig != null) {
+                if (subTitleConfig.mTextColorEntity != null) {
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("shadowRadius", String.valueOf(subTitleConfig.chineseShadowConfig.shadowRadius));
-                    jSONObject2.put("shadowDx", String.valueOf(subTitleConfig.chineseShadowConfig.shadowDx));
-                    jSONObject2.put("shadowDy", String.valueOf(subTitleConfig.chineseShadowConfig.shadowDy));
-                    jSONObject.put("chinese_shadow_config", jSONObject2);
+                    jSONObject2.put("color", subTitleConfig.mTextColorEntity.mColor);
+                    jSONObject2.put("alpha", subTitleConfig.mTextColorEntity.mAlpha);
+                    jSONObject.put("textColor", jSONObject2);
+                }
+                if (subTitleConfig.chineseShadowConfig != null) {
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.put("shadowRadius", String.valueOf(subTitleConfig.chineseShadowConfig.shadowRadius));
+                    jSONObject3.put("shadowDx", String.valueOf(subTitleConfig.chineseShadowConfig.shadowDx));
+                    jSONObject3.put("shadowDy", String.valueOf(subTitleConfig.chineseShadowConfig.shadowDy));
+                    jSONObject.put("chinese_shadow_config", jSONObject3);
                 }
                 if (subTitleConfig.engShadowConfig != null) {
-                    JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("shadowRadius", String.valueOf(subTitleConfig.engShadowConfig.shadowRadius));
-                    jSONObject3.put("shadowDx", String.valueOf(subTitleConfig.engShadowConfig.shadowDx));
-                    jSONObject3.put("shadowDy", String.valueOf(subTitleConfig.engShadowConfig.shadowDy));
-                    jSONObject.put("eng_shadow_config", jSONObject3);
+                    JSONObject jSONObject4 = new JSONObject();
+                    jSONObject4.put("shadowRadius", String.valueOf(subTitleConfig.engShadowConfig.shadowRadius));
+                    jSONObject4.put("shadowDx", String.valueOf(subTitleConfig.engShadowConfig.shadowDx));
+                    jSONObject4.put("shadowDy", String.valueOf(subTitleConfig.engShadowConfig.shadowDy));
+                    jSONObject.put("eng_shadow_config", jSONObject4);
                 }
                 if (subTitleConfig.chineseStrokeConfig != null) {
-                    JSONObject jSONObject4 = new JSONObject();
-                    jSONObject4.put("strokeColor", subTitleConfig.chineseStrokeConfig.strokeColor);
-                    jSONObject4.put("strokeWidth", subTitleConfig.chineseStrokeConfig.strokeWidth);
-                    jSONObject.put("chineseStrokeConfig", jSONObject4);
+                    JSONObject jSONObject5 = new JSONObject();
+                    jSONObject5.put("strokeColor", subTitleConfig.chineseStrokeConfig.strokeColor);
+                    jSONObject5.put("strokeWidth", subTitleConfig.chineseStrokeConfig.strokeWidth);
+                    jSONObject.put("chineseStrokeConfig", jSONObject5);
                 }
                 if (subTitleConfig.engStrokeConfig != null) {
-                    JSONObject jSONObject5 = new JSONObject();
-                    jSONObject5.put("strokeColor", subTitleConfig.engStrokeConfig.strokeColor);
-                    jSONObject5.put("strokeWidth", subTitleConfig.engStrokeConfig.strokeWidth);
-                    jSONObject.put("engStrokeConfig", jSONObject5);
+                    JSONObject jSONObject6 = new JSONObject();
+                    jSONObject6.put("strokeColor", subTitleConfig.engStrokeConfig.strokeColor);
+                    jSONObject6.put("strokeWidth", subTitleConfig.engStrokeConfig.strokeWidth);
+                    jSONObject.put("engStrokeConfig", jSONObject6);
                 }
                 jSONObject.put("isHorizontal", subTitleConfig.isHorizontal);
                 jSONObject.put("mScale", String.valueOf(subTitleConfig.mScale));
@@ -361,34 +368,38 @@ public class SubTitleConfig {
                 subTitleConfig.maxEngLineNum = jSONObject.optInt("maxEngLineNum", 2);
                 subTitleConfig.isChineseCenterBlank = jSONObject.optInt("isChineseCenterBlank");
                 subTitleConfig.isEngCenterBlank = jSONObject.optInt("isEngCenterBlank");
-                JSONObject optJSONObject = jSONObject.optJSONObject("chinese_shadow_config");
+                JSONObject optJSONObject = jSONObject.optJSONObject("textColor");
                 if (optJSONObject != null) {
+                    subTitleConfig.mTextColorEntity = TextWordsEntity.TextColorEntity.parse(optJSONObject);
+                }
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("chinese_shadow_config");
+                if (optJSONObject2 != null) {
                     ShadowConfig shadowConfig = new ShadowConfig();
-                    shadowConfig.shadowRadius = g.a(optJSONObject.optString("shadowRadius"), 2.0f);
-                    shadowConfig.shadowDx = g.a(optJSONObject.optString("shadowDx"), 0.0f);
-                    shadowConfig.shadowDy = g.a(optJSONObject.optString("shadowDy"), 2.0f);
+                    shadowConfig.shadowRadius = g.a(optJSONObject2.optString("shadowRadius"), 2.0f);
+                    shadowConfig.shadowDx = g.a(optJSONObject2.optString("shadowDx"), 0.0f);
+                    shadowConfig.shadowDy = g.a(optJSONObject2.optString("shadowDy"), 2.0f);
                     subTitleConfig.chineseShadowConfig = shadowConfig;
                 }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("eng_shadow_config");
-                if (optJSONObject2 != null) {
+                JSONObject optJSONObject3 = jSONObject.optJSONObject("eng_shadow_config");
+                if (optJSONObject3 != null) {
                     ShadowConfig shadowConfig2 = new ShadowConfig();
-                    shadowConfig2.shadowRadius = g.a(optJSONObject2.optString("shadowRadius"), 2.0f);
-                    shadowConfig2.shadowDx = g.a(optJSONObject2.optString("shadowDx"), 0.0f);
-                    shadowConfig2.shadowDy = g.a(optJSONObject2.optString("shadowDy"), 2.0f);
+                    shadowConfig2.shadowRadius = g.a(optJSONObject3.optString("shadowRadius"), 2.0f);
+                    shadowConfig2.shadowDx = g.a(optJSONObject3.optString("shadowDx"), 0.0f);
+                    shadowConfig2.shadowDy = g.a(optJSONObject3.optString("shadowDy"), 2.0f);
                     subTitleConfig.engShadowConfig = shadowConfig2;
                 }
-                JSONObject optJSONObject3 = jSONObject.optJSONObject("chineseStrokeConfig");
-                if (optJSONObject3 != null) {
+                JSONObject optJSONObject4 = jSONObject.optJSONObject("chineseStrokeConfig");
+                if (optJSONObject4 != null) {
                     StrokeConfig strokeConfig = new StrokeConfig();
-                    strokeConfig.strokeWidth = g.a(optJSONObject3.optString("strokeWidth"), 0.0f);
-                    strokeConfig.strokeColor = optJSONObject3.optInt("strokeColor");
+                    strokeConfig.strokeWidth = g.a(optJSONObject4.optString("strokeWidth"), 0.0f);
+                    strokeConfig.strokeColor = optJSONObject4.optInt("strokeColor");
                     subTitleConfig.chineseStrokeConfig = strokeConfig;
                 }
-                JSONObject optJSONObject4 = jSONObject.optJSONObject("engStrokeConfig");
-                if (optJSONObject4 != null) {
+                JSONObject optJSONObject5 = jSONObject.optJSONObject("engStrokeConfig");
+                if (optJSONObject5 != null) {
                     StrokeConfig strokeConfig2 = new StrokeConfig();
-                    strokeConfig2.strokeWidth = g.a(optJSONObject4.optString("strokeWidth"), 0.0f);
-                    strokeConfig2.strokeColor = optJSONObject4.optInt("strokeColor");
+                    strokeConfig2.strokeWidth = g.a(optJSONObject5.optString("strokeWidth"), 0.0f);
+                    strokeConfig2.strokeColor = optJSONObject5.optInt("strokeColor");
                     subTitleConfig.engStrokeConfig = strokeConfig2;
                 }
                 subTitleConfig.isHorizontal = jSONObject.optBoolean("isHorizontal", false);
@@ -410,9 +421,9 @@ public class SubTitleConfig {
                 if (a2 != -2.1474836E9f && a3 != -2.1474836E9f) {
                     subTitleConfig.mCenterPoint = new PointF(a2, a3);
                 }
-                JSONObject optJSONObject5 = jSONObject.optJSONObject("textStyleEntity");
-                if (optJSONObject5 != null) {
-                    subTitleConfig.mTextStyleEntity = TextWordsEntity.TextStyleEntity.parse(optJSONObject5);
+                JSONObject optJSONObject6 = jSONObject.optJSONObject("textStyleEntity");
+                if (optJSONObject6 != null) {
+                    subTitleConfig.mTextStyleEntity = TextWordsEntity.TextStyleEntity.parse(optJSONObject6);
                 }
                 return subTitleConfig;
             } catch (Exception unused) {

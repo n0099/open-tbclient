@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class f extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f40014a;
+    public final /* synthetic */ a f76865a;
 
     public f(a aVar) {
         Interceptable interceptable = $ic;
@@ -31,12 +31,12 @@ public class f extends ai.a {
                 return;
             }
         }
-        this.f40014a = aVar;
+        this.f76865a = aVar;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo184a() {
+    public String mo187a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "100889" : (String) invokeV.objValue;
@@ -48,9 +48,9 @@ public class f extends ai.a {
         ExecutorService executorService;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b2 = this.f40014a.b();
+            b2 = this.f76865a.b();
             if (b2 > 0) {
-                executorService = this.f40014a.f37a;
+                executorService = this.f76865a.f41a;
                 executorService.execute(new g(this));
             }
         }

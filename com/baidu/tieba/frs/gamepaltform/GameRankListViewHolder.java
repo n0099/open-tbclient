@@ -8,16 +8,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GameRankListViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public GameRankHorizontalLayout f15773a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f15774b;
+    public TextView mCloseBtn;
+    public GameRankHorizontalLayout mGameRankHorizontalLayout;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GameRankListViewHolder(View view) {
@@ -37,7 +33,7 @@ public class GameRankListViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f15773a = (GameRankHorizontalLayout) view.findViewById(R.id.game_rank_list_viewpager);
-        this.f15774b = (TextView) view.findViewById(R.id.close_game_rank_btn);
+        this.mGameRankHorizontalLayout = (GameRankHorizontalLayout) view.findViewById(R.id.game_rank_list_viewpager);
+        this.mCloseBtn = (TextView) view.findViewById(R.id.close_game_rank_btn);
     }
 }

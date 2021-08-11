@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.ImmutableMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class MimeTypeMapWrapper {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<String, String> sExtensionToMimeTypeMap;

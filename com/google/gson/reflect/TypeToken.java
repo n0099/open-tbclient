@@ -1,7 +1,6 @@
 package com.google.gson.reflect;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -18,7 +17,7 @@ import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class TypeToken<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +57,7 @@ public class TypeToken<T> {
             sb.append(type.getClass().getName());
             sb.append(", for type token: ");
             sb.append(type.toString());
-            sb.append(IStringUtil.EXTENSION_SEPARATOR);
+            sb.append('.');
             return new AssertionError(sb.toString());
         }
         return (AssertionError) invokeLL.objValue;

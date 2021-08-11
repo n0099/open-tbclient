@@ -1,6 +1,5 @@
 package com.sdk.base.framework.f;
 
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.c.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +26,7 @@ public class a {
                 return;
             }
         }
-        boolean z = f.f38384b;
+        boolean z = f.f75169b;
     }
 
     public a() {
@@ -47,7 +46,7 @@ public class a {
     public static void a(String str, String str2, Object obj, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, obj, Boolean.valueOf(z)}) == null) && z) {
-            Log.e(str, "==>" + str2 + "\n==>" + obj);
+            String str3 = "==>" + str2 + "\n==>" + obj;
         }
     }
 }

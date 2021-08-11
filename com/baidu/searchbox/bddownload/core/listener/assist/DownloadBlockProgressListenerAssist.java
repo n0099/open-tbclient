@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class DownloadBlockProgressListenerAssist<T extends Listener4Model> implements ListenerAssist {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,31 +24,31 @@ public class DownloadBlockProgressListenerAssist<T extends Listener4Model> imple
     public Listener4Callback callback;
     public final ListenerModelHandler<T> modelHandler;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface AssistExtend {
         boolean dispatchBlockEnd(DownloadTask downloadTask, int i2, Listener4Model listener4Model);
 
-        boolean dispatchFetchProgress(@NonNull DownloadTask downloadTask, int i2, long j, @NonNull Listener4Model listener4Model);
+        boolean dispatchFetchProgress(@NonNull DownloadTask downloadTask, int i2, long j2, @NonNull Listener4Model listener4Model);
 
         boolean dispatchInfoReady(DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, boolean z, @NonNull Listener4Model listener4Model);
 
         boolean dispatchTaskEnd(DownloadTask downloadTask, EndCause endCause, @Nullable Exception exc, @NonNull Listener4Model listener4Model);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface Listener4Callback {
         void blockEnd(DownloadTask downloadTask, int i2, BlockInfo blockInfo);
 
         void infoReady(DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, boolean z, @NonNull Listener4Model listener4Model);
 
-        void progress(DownloadTask downloadTask, long j);
+        void progress(DownloadTask downloadTask, long j2);
 
-        void progressBlock(DownloadTask downloadTask, int i2, long j);
+        void progressBlock(DownloadTask downloadTask, int i2, long j2);
 
         void taskEnd(DownloadTask downloadTask, EndCause endCause, @Nullable Exception exc, @NonNull Listener4Model listener4Model);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class Listener4Model implements ListenerModelHandler.ListenerModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -159,18 +159,18 @@ public class DownloadBlockProgressListenerAssist<T extends Listener4Model> imple
         }
     }
 
-    public void fetchProgress(DownloadTask downloadTask, int i2, long j) {
+    public void fetchProgress(DownloadTask downloadTask, int i2, long j2) {
         T orRecoverModel;
         Listener4Callback listener4Callback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (orRecoverModel = this.modelHandler.getOrRecoverModel(downloadTask, downloadTask.getInfo())) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (orRecoverModel = this.modelHandler.getOrRecoverModel(downloadTask, downloadTask.getInfo())) == null) {
             return;
         }
-        long longValue = orRecoverModel.blockCurrentOffsetMap.get(i2).longValue() + j;
+        long longValue = orRecoverModel.blockCurrentOffsetMap.get(i2).longValue() + j2;
         orRecoverModel.blockCurrentOffsetMap.put(i2, Long.valueOf(longValue));
-        orRecoverModel.currentOffset += j;
+        orRecoverModel.currentOffset += j2;
         AssistExtend assistExtend = this.assistExtend;
-        if ((assistExtend == null || !assistExtend.dispatchFetchProgress(downloadTask, i2, j, orRecoverModel)) && (listener4Callback = this.callback) != null) {
+        if ((assistExtend == null || !assistExtend.dispatchFetchProgress(downloadTask, i2, j2, orRecoverModel)) && (listener4Callback = this.callback) != null) {
             listener4Callback.progressBlock(downloadTask, i2, longValue);
             this.callback.progress(downloadTask, orRecoverModel.currentOffset);
         }

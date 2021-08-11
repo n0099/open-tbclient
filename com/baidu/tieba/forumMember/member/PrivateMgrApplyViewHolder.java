@@ -10,28 +10,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PrivateMgrApplyViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public TextView f15310a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f15311b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f15312c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public View f15313d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f15314e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f15315f;
+    public RelativeLayout mAssistApplyLayout;
+    public TextView mAssistRemainNum;
+    public View mLineView;
+    public LinearLayout mRootLayout;
+    public int mSkinType;
+    public TextView mTipAssistLeft;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PrivateMgrApplyViewHolder(View view) {
@@ -51,11 +39,11 @@ public class PrivateMgrApplyViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f15315f = 3;
-        this.f15314e = (LinearLayout) view.findViewById(R.id.root_private_member_apply);
-        this.f15313d = view.findViewById(R.id.private_apply_line);
-        this.f15310a = (TextView) view.findViewById(R.id.private_apply_tip);
-        this.f15311b = (TextView) view.findViewById(R.id.private_left_tv);
-        this.f15312c = (RelativeLayout) view.findViewById(R.id.private_apply_layout);
+        this.mSkinType = 3;
+        this.mRootLayout = (LinearLayout) view.findViewById(R.id.root_private_member_apply);
+        this.mLineView = view.findViewById(R.id.private_apply_line);
+        this.mTipAssistLeft = (TextView) view.findViewById(R.id.private_apply_tip);
+        this.mAssistRemainNum = (TextView) view.findViewById(R.id.private_left_tv);
+        this.mAssistApplyLayout = (RelativeLayout) view.findViewById(R.id.private_apply_layout);
     }
 }

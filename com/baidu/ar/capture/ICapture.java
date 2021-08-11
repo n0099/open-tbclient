@@ -2,7 +2,7 @@ package com.baidu.ar.capture;
 
 import android.graphics.Bitmap;
 import com.baidu.ar.callback.ICallbackWith;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public interface ICapture {
     void capture(ICallbackWith<ICaptureResult> iCallbackWith);
 

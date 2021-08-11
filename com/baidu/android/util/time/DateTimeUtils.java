@@ -18,7 +18,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class DateTimeUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DATE_FORMAT = "yyyy-MM-dd";
@@ -153,17 +153,17 @@ public final class DateTimeUtils {
         return (String) invokeLL.objValue;
     }
 
-    public static String getFormatTeletextTime(Context context, long j) {
+    public static String getFormatTeletextTime(Context context, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65546, null, context, j)) == null) ? getFormatTeletextTime(context, j, true) : (String) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65546, null, context, j2)) == null) ? getFormatTeletextTime(context, j2, true) : (String) invokeLJ.objValue;
     }
 
-    public static long getNextDayByMode(long j, int i2) {
+    public static long getNextDayByMode(long j2, int i2) {
         InterceptResult invokeCommon;
         Set<Integer> set;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
             if (i2 == 1) {
                 set = NORMAL_DAY;
             } else if (i2 == 2) {
@@ -174,7 +174,7 @@ public final class DateTimeUtils {
                 set = WEEKEND_DAY;
             }
             Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(j + 86400000);
+            calendar.setTimeInMillis(j2 + 86400000);
             while (!set.contains(Integer.valueOf(calendar.get(7)))) {
                 calendar.setTimeInMillis(calendar.getTimeInMillis() + 86400000);
             }
@@ -210,16 +210,16 @@ public final class DateTimeUtils {
         return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? getWeekInZH(new Date()) : (String) invokeV.objValue;
     }
 
-    public static long interval(long j, long j2) {
+    public static long interval(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? Math.abs((j2 - j) / 86400000) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? Math.abs((j3 - j2) / 86400000) : invokeCommon.longValue;
     }
 
-    public static boolean isFewDaysAgo(long j, int i2) {
+    public static boolean isFewDaysAgo(long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
             Calendar calendar = Calendar.getInstance();
             Calendar calendar2 = Calendar.getInstance();
             calendar2.add(6, -i2);
@@ -228,20 +228,20 @@ public final class DateTimeUtils {
             calendar2.set(13, 0);
             calendar2.set(14, 0);
             Calendar calendar3 = Calendar.getInstance();
-            calendar3.setTimeInMillis(j);
+            calendar3.setTimeInMillis(j2);
             return calendar3.after(calendar2) && calendar3.before(calendar);
         }
         return invokeCommon.booleanValue;
     }
 
-    public static boolean isSameDay(long j, long j2) {
+    public static boolean isSameDay(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(j);
+            calendar.setTimeInMillis(j2);
             Calendar calendar2 = Calendar.getInstance();
-            calendar2.setTimeInMillis(j2);
+            calendar2.setTimeInMillis(j3);
             return calendar.get(1) == calendar2.get(1) && calendar.get(6) == calendar2.get(6);
         }
         return invokeCommon.booleanValue;
@@ -278,27 +278,27 @@ public final class DateTimeUtils {
         return invokeL.booleanValue;
     }
 
-    public static String getFormatTeletextTime(Context context, long j, boolean z) {
+    public static String getFormatTeletextTime(Context context, long j2, boolean z) {
         InterceptResult invokeCommon;
-        long j2;
         long j3;
+        long j4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{context, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{context, Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
             try {
-                j2 = System.currentTimeMillis();
-                j3 = j2 - j;
-                if (j3 >= 0) {
-                    j2 = j;
+                j3 = System.currentTimeMillis();
+                j4 = j3 - j2;
+                if (j4 >= 0) {
+                    j3 = j2;
                 }
             } catch (Exception e2) {
                 e = e2;
-                j2 = j;
+                j3 = j2;
             }
             try {
                 Calendar calendar = Calendar.getInstance();
-                calendar.setTimeInMillis(j2);
-                long j4 = (j3 % MSEC_OF_ONE_DAY) / MSEC_OF_ONE_HOUR;
-                long j5 = ((j3 % MSEC_OF_ONE_DAY) % MSEC_OF_ONE_HOUR) / MSEC_OF_ONE_MINUTE;
+                calendar.setTimeInMillis(j3);
+                long j5 = (j4 % MSEC_OF_ONE_DAY) / MSEC_OF_ONE_HOUR;
+                long j6 = ((j4 % MSEC_OF_ONE_DAY) % MSEC_OF_ONE_HOUR) / MSEC_OF_ONE_MINUTE;
                 Calendar calendar2 = Calendar.getInstance();
                 calendar2.set(11, 0);
                 calendar2.set(12, 0);
@@ -312,7 +312,7 @@ public final class DateTimeUtils {
                 calendar3.set(13, 0);
                 calendar3.set(14, 0);
                 if (calendar.after(calendar2)) {
-                    return j4 > 0 ? String.format(context.getString(R.string.time_liveshow_teletext_time_hour_before), Long.valueOf(j4)) : j5 > 0 ? String.format(context.getString(R.string.time_liveshow_teletext_time_min_before), Long.valueOf(j5)) : context.getString(R.string.time_liveshow_teletext_time_sec_before);
+                    return j5 > 0 ? String.format(context.getString(R.string.time_liveshow_teletext_time_hour_before), Long.valueOf(j5)) : j6 > 0 ? String.format(context.getString(R.string.time_liveshow_teletext_time_min_before), Long.valueOf(j6)) : context.getString(R.string.time_liveshow_teletext_time_sec_before);
                 } else if (calendar.after(calendar3)) {
                     return String.format(context.getString(R.string.time_liveshow_teletext_time_day_before), Integer.valueOf((int) (((calendar2.getTimeInMillis() - calendar.getTimeInMillis()) / MSEC_OF_ONE_DAY) + 1)));
                 } else {
@@ -324,7 +324,7 @@ public final class DateTimeUtils {
             } catch (Exception e3) {
                 e = e3;
                 e.printStackTrace();
-                return String.valueOf(j2);
+                return String.valueOf(j3);
             }
         }
         return (String) invokeCommon.objValue;

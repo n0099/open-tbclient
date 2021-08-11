@@ -3,6 +3,9 @@ package com.baidu.tieba.frs.game.strategy.view;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import c.a.o0.s.q.c2;
+import c.a.p0.a0.b;
+import c.a.p0.i3.n0.d;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,11 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.q.b2;
-import d.a.q0.a0.b;
-import d.a.q0.h3.n0.d;
-/* loaded from: classes4.dex */
-public class FrsGameStrategyItemView extends b<d.a.q0.u0.r1.a.a.b> {
+/* loaded from: classes7.dex */
+public class FrsGameStrategyItemView extends b<c.a.p0.v0.r1.a.a.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
@@ -32,17 +32,15 @@ public class FrsGameStrategyItemView extends b<d.a.q0.u0.r1.a.a.b> {
     public TextView r;
     public TextView s;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class FrsGameStrategyItemViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public FrsGameStrategyItemView f15761a;
+        public FrsGameStrategyItemView mView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public FrsGameStrategyItemViewHolder(FrsGameStrategyItemView frsGameStrategyItemView) {
-            super(frsGameStrategyItemView.k());
+            super(frsGameStrategyItemView.j());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +56,7 @@ public class FrsGameStrategyItemView extends b<d.a.q0.u0.r1.a.a.b> {
                     return;
                 }
             }
-            this.f15761a = frsGameStrategyItemView;
+            this.mView = frsGameStrategyItemView;
         }
     }
 
@@ -81,19 +79,19 @@ public class FrsGameStrategyItemView extends b<d.a.q0.u0.r1.a.a.b> {
             }
         }
         this.m = tbPageContext;
-        this.n = k();
-        q();
+        this.n = j();
+        p();
     }
 
-    @Override // d.a.q0.a0.b
-    public int g() {
+    @Override // c.a.p0.a0.b
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.frs_game_strategy_item_layout : invokeV.intValue;
     }
 
-    @Override // d.a.q0.a0.b
-    public void m(TbPageContext<?> tbPageContext, int i2) {
+    @Override // c.a.p0.a0.b
+    public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0105);
@@ -110,7 +108,7 @@ public class FrsGameStrategyItemView extends b<d.a.q0.u0.r1.a.a.b> {
         }
     }
 
-    public final void q() {
+    public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             TbImageView tbImageView = (TbImageView) this.n.findViewById(R.id.frs_game_left_image);
@@ -120,46 +118,46 @@ public class FrsGameStrategyItemView extends b<d.a.q0.u0.r1.a.a.b> {
             this.q = (TextView) this.n.findViewById(R.id.frs_game_strategy_title);
             this.r = (TextView) this.n.findViewById(R.id.frs_game_strategy_scan_info);
             this.s = (TextView) this.n.findViewById(R.id.frs_game_strategy_info_source);
-            m(this.m, TbadkCoreApplication.getInst().getSkinType());
+            l(this.m, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.q0.a0.b
-    /* renamed from: s */
-    public void l(d.a.q0.u0.r1.a.a.b bVar) {
+    @Override // c.a.p0.a0.b
+    /* renamed from: q */
+    public void k(c.a.p0.v0.r1.a.a.b bVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) || bVar == null || bVar.getThreadData() == null) {
             return;
         }
-        b2 threadData = bVar.getThreadData();
+        c2 threadData = bVar.getThreadData();
         this.q.setText(threadData.getTitle());
         d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-        if (readThreadHistory != null && readThreadHistory.d(threadData.d0())) {
+        if (readThreadHistory != null && readThreadHistory.d(threadData.f0())) {
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0108);
         } else {
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0105);
         }
-        String numberUniformFormat = StringHelper.numberUniformFormat(threadData.x1());
-        String formatTimeShort = StringHelper.getFormatTimeShort(threadData.G());
+        String numberUniformFormat = StringHelper.numberUniformFormat(threadData.A1());
+        String formatTimeShort = StringHelper.getFormatTimeShort(threadData.I());
         if (!StringUtils.isNull(numberUniformFormat) && !StringUtils.isNull(formatTimeShort)) {
-            this.r.setText(String.format(this.f54321g.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
+            this.r.setText(String.format(this.f14947g.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
         }
         String str = null;
-        if (threadData.k1() == 40) {
+        if (threadData.m1() == 40) {
             this.p.setVisibility(0);
-            if (threadData.m1() != null) {
-                str = threadData.m1().thumbnail_url;
+            if (threadData.o1() != null) {
+                str = threadData.o1().thumbnail_url;
             }
         } else {
             this.p.setVisibility(8);
-            if (threadData.A0() != null && threadData.A0().size() >= 1) {
-                str = threadData.A0().get(0).getOriginalUrl();
+            if (threadData.C0() != null && threadData.C0().size() >= 1) {
+                str = threadData.C0().get(0).getOriginalUrl();
             }
         }
-        this.o.M(str, 10, false);
-        if (!StringUtils.isNull(threadData.Z())) {
-            this.s.setText(threadData.Z());
+        this.o.startLoad(str, 10, false);
+        if (!StringUtils.isNull(threadData.b0())) {
+            this.s.setText(threadData.b0());
             this.s.setVisibility(0);
             return;
         }

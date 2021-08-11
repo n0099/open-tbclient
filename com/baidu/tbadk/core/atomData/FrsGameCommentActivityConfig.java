@@ -1,14 +1,13 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.ar.gesture.GestureAR;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class FrsGameCommentActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +30,7 @@ public class FrsGameCommentActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE, i2);
+        getIntent().putExtra("score", i2);
         getIntent().putExtra("forum_id", i3);
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(21002);

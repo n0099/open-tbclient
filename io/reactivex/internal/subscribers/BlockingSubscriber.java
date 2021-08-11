@@ -14,7 +14,7 @@ import io.reactivex.internal.util.NotificationLite;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class BlockingSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Subscription {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object TERMINATED;
@@ -103,10 +103,10 @@ public final class BlockingSubscriber<T> extends AtomicReference<Subscription> i
     }
 
     @Override // org.reactivestreams.Subscription
-    public void request(long j) {
+    public void request(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            get().request(j);
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            get().request(j2);
         }
     }
 }

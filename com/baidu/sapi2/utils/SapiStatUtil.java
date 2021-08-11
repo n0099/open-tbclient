@@ -19,13 +19,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.cache.disk.DefaultDiskStorage;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SapiStatUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CLOUND_SHARE_ACCOUNT_STAT_INVOKE_START = 3;
@@ -206,7 +205,7 @@ public class SapiStatUtil {
         if (interceptable == null || interceptable.invokeLL(65547, null, str, list) == null) {
             HashMap hashMap = new HashMap();
             buildStatExtraMap(hashMap, list);
-            if (str.equals(DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX)) {
+            if (str.equals("v2")) {
                 StatService.onEvent("share_v2_click_other", hashMap);
             } else if (str.equals("v1")) {
                 StatService.onEvent("share_v1_click_other", hashMap);

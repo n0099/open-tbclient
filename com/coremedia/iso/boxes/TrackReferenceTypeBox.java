@@ -16,7 +16,7 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class TrackReferenceTypeBox extends AbstractBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE1 = "hint";
@@ -84,8 +84,8 @@ public class TrackReferenceTypeBox extends AbstractBox {
     public void getContent(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
-            for (long j : this.trackIds) {
-                IsoTypeWriter.writeUInt32(byteBuffer, j);
+            for (long j2 : this.trackIds) {
+                IsoTypeWriter.writeUInt32(byteBuffer, j2);
             }
         }
     }

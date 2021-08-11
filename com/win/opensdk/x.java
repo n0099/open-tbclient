@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class x implements m0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Bitmap.CompressFormat f39986a;
+    public final /* synthetic */ Bitmap.CompressFormat f76837a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PBSplash f39987b;
+    public final /* synthetic */ PBSplash f76838b;
 
     public x(PBSplash pBSplash, Bitmap.CompressFormat compressFormat) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class x implements m0 {
                 return;
             }
         }
-        this.f39987b = pBSplash;
-        this.f39986a = compressFormat;
+        this.f76838b = pBSplash;
+        this.f76837a = compressFormat;
     }
 
     @Override // com.win.opensdk.m0
@@ -50,19 +50,19 @@ public class x implements m0 {
     public void a(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-            PBSplash pBSplash = this.f39987b;
-            if (!pBSplash.j) {
-                PBSplashListener pBSplashListener = pBSplash.f39639e;
+            PBSplash pBSplash = this.f76838b;
+            if (!pBSplash.f76481j) {
+                PBSplashListener pBSplashListener = pBSplash.f76476e;
                 if (pBSplashListener != null) {
-                    pBSplash.f39637c = bitmap;
+                    pBSplash.f76474c = bitmap;
                     pBSplashListener.onLoaded();
-                    PBSplash.d(this.f39987b, true);
+                    PBSplash.d(this.f76838b, true);
                 }
             } else if (pBSplash.l.exists()) {
             } else {
-                File file = this.f39987b.l;
+                File file = this.f76838b.l;
                 w wVar = new w(this);
-                Bitmap.CompressFormat compressFormat = this.f39986a;
+                Bitmap.CompressFormat compressFormat = this.f76837a;
                 if (file.isDirectory()) {
                     new l0("the specified path points to a directory, should be a file");
                 } else if (file.exists()) {
@@ -92,10 +92,10 @@ public class x implements m0 {
         PBSplash pBSplash;
         PBSplashListener pBSplashListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l0Var) == null) || (pBSplashListener = (pBSplash = this.f39987b).f39639e) == null || pBSplash.j) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l0Var) == null) || (pBSplashListener = (pBSplash = this.f76838b).f76476e) == null || pBSplash.f76481j) {
             return;
         }
         pBSplashListener.onFail(PBError.NO_RESUOURCE);
-        PBSplash.d(this.f39987b, true);
+        PBSplash.d(this.f76838b, true);
     }
 }

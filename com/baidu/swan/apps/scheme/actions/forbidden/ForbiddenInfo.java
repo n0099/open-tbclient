@@ -3,6 +3,7 @@ package com.baidu.swan.apps.scheme.actions.forbidden;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
+import c.a.n0.a.f1.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.f1.e.b;
-/* loaded from: classes3.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes6.dex */
 public class ForbiddenInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ForbiddenInfo> CREATOR;
@@ -29,7 +30,7 @@ public class ForbiddenInfo implements Parcelable {
     public String launchPath;
     public String launchSource;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<ForbiddenInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +120,7 @@ public class ForbiddenInfo implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "ForbiddenInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', forbiddenReason='" + this.forbiddenReason + "', forbiddenDetail='" + this.forbiddenDetail + "', appTitle='" + this.appTitle + "', launchPath='" + this.launchPath + "', launchSource='" + this.launchSource + "', enableSlidingFlag='" + enableSliding() + "'}";
+            return "ForbiddenInfo{appId='" + this.appId + ExtendedMessageFormat.QUOTE + ", appKey='" + this.appKey + ExtendedMessageFormat.QUOTE + ", forbiddenReason='" + this.forbiddenReason + ExtendedMessageFormat.QUOTE + ", forbiddenDetail='" + this.forbiddenDetail + ExtendedMessageFormat.QUOTE + ", appTitle='" + this.appTitle + ExtendedMessageFormat.QUOTE + ", launchPath='" + this.launchPath + ExtendedMessageFormat.QUOTE + ", launchSource='" + this.launchSource + ExtendedMessageFormat.QUOTE + ", enableSlidingFlag='" + enableSliding() + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -15,13 +15,14 @@ import com.kwad.sdk.collector.AppStatusNative;
 import com.kwad.sdk.utils.q;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b extends NativeObject implements com.kwad.sdk.collector.model.b<b> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f34265a;
+    public static SimpleDateFormat f70996a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,15 +38,15 @@ public class b extends NativeObject implements com.kwad.sdk.collector.model.b<b>
                 return;
             }
         }
-        f34265a = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss");
+        f70996a = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss");
     }
 
-    public b(long j) {
+    public b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -55,15 +56,15 @@ public class b extends NativeObject implements com.kwad.sdk.collector.model.b<b>
                 return;
             }
         }
-        this.mPtr = j;
+        this.mPtr = j2;
     }
 
-    public b(long j, String str, String str2) {
+    public b(long j2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), str, str2};
+            Object[] objArr = {Long.valueOf(j2), str, str2};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -73,7 +74,7 @@ public class b extends NativeObject implements com.kwad.sdk.collector.model.b<b>
                 return;
             }
         }
-        this.mPtr = AppStatusNative.nativeCreateAppRunningInfo(j, str, str2);
+        this.mPtr = AppStatusNative.nativeCreateAppRunningInfo(j2, str, str2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -109,19 +110,19 @@ public class b extends NativeObject implements com.kwad.sdk.collector.model.b<b>
         return (b) invokeV.objValue;
     }
 
-    public String a(long j) {
+    public String a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? f34265a.format(new Date(j)) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? f70996a.format(new Date(j2)) : (String) invokeJ.objValue;
     }
 
     @Override // com.kwad.sdk.collector.model.jni.NativeObject
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            long j = this.mPtr;
-            if (j != 0) {
-                AppStatusNative.nativeDeleteAppRunningInfo(j);
+            long j2 = this.mPtr;
+            if (j2 != 0) {
+                AppStatusNative.nativeDeleteAppRunningInfo(j2);
                 this.mPtr = 0L;
             }
         }
@@ -195,7 +196,7 @@ public class b extends NativeObject implements com.kwad.sdk.collector.model.b<b>
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "AppRunningInfo{packageName='" + com.kwad.sdk.collector.model.c.b(this) + "', lastRunningTime=" + a(com.kwad.sdk.collector.model.c.c(this)) + '}';
+            return "AppRunningInfo{packageName='" + com.kwad.sdk.collector.model.c.b(this) + ExtendedMessageFormat.QUOTE + ", lastRunningTime=" + a(com.kwad.sdk.collector.model.c.c(this)) + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

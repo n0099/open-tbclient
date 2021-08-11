@@ -4,13 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class fi extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ fh f40394a;
+    public final /* synthetic */ fh f77251a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fi(fh fhVar, String str) {
@@ -30,7 +30,7 @@ public class fi extends Thread {
                 return;
             }
         }
-        this.f40394a = fhVar;
+        this.f77251a = fhVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -39,10 +39,10 @@ public class fi extends Thread {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                fcVar = this.f40394a.f40393a;
-                fcVar.m311a();
+                fcVar = this.f77251a.f77250a;
+                fcVar.m314a();
             } catch (Exception e2) {
-                this.f40394a.c(9, e2);
+                this.f77251a.c(9, e2);
             }
         }
     }

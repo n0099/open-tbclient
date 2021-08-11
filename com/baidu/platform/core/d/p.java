@@ -3,13 +3,12 @@ package com.baidu.platform.core.d;
 import com.baidu.mapapi.search.route.PlanNode;
 import com.baidu.mapapi.search.route.WalkingRoutePlanOption;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class p extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,22 +34,22 @@ public class p extends com.baidu.platform.base.e {
     private void a(WalkingRoutePlanOption walkingRoutePlanOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, walkingRoutePlanOption) == null) {
-            this.f9434a.a("qt", "walk2");
-            this.f9434a.a(IAdRequestParam.SN, a(walkingRoutePlanOption.mFrom));
-            this.f9434a.a("en", a(walkingRoutePlanOption.mTo));
+            this.f44083a.a("qt", "walk2");
+            this.f44083a.a(IAdRequestParam.SN, a(walkingRoutePlanOption.mFrom));
+            this.f44083a.a(com.baidu.fsg.base.statistics.f.f39281a, a(walkingRoutePlanOption.mTo));
             PlanNode planNode = walkingRoutePlanOption.mFrom;
             if (planNode != null) {
-                this.f9434a.a(Config.STAT_SDK_CHANNEL, planNode.getCity());
+                this.f44083a.a("sc", planNode.getCity());
             }
             PlanNode planNode2 = walkingRoutePlanOption.mTo;
             if (planNode2 != null) {
-                this.f9434a.a("ec", planNode2.getCity());
+                this.f44083a.a("ec", planNode2.getCity());
             }
-            this.f9434a.a("ie", "utf-8");
-            this.f9434a.a("lrn", "20");
-            this.f9434a.a("version", "3");
-            this.f9434a.a("rp_format", "json");
-            this.f9434a.a("rp_filter", "mobile");
+            this.f44083a.a("ie", "utf-8");
+            this.f44083a.a("lrn", "20");
+            this.f44083a.a("version", "3");
+            this.f44083a.a("rp_format", "json");
+            this.f44083a.a("rp_filter", "mobile");
         }
     }
 

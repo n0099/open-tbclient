@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.util.GDTLogger;
 import org.json.JSONException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class d extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,16 +51,16 @@ public class d extends e {
     public final Object a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f38204a.opt(str) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f74985a.opt(str) : invokeL.objValue;
     }
 
     public final void a(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
             try {
-                this.f38204a.putOpt(str, obj);
-            } catch (JSONException e2) {
-                GDTLogger.e("Exception while update setting", e2);
+                this.f74985a.putOpt(str, obj);
+            } catch (JSONException unused) {
+                GDTLogger.d("Exception while update setting");
             }
         }
     }
@@ -69,7 +69,7 @@ public class d extends e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "GDTSDKSetting[" + this.f38204a.toString() + PreferencesUtil.RIGHT_MOUNT;
+            return "GDTSDKSetting[" + this.f74985a.toString() + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

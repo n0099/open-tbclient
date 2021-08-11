@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.UUID;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1750a = "";
+    public static String f35586a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -53,7 +53,7 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            String a2 = com.alipay.security.mobile.module.b.a.a(context, "vkeyid_settings", "update_time_interval");
+            String a2 = com.alipay.security.mobile.module.c.a.a(context, "vkeyid_settings", "update_time_interval");
             if (com.alipay.security.mobile.module.a.a.b(a2)) {
                 try {
                     return Long.parseLong(a2);
@@ -73,17 +73,17 @@ public class h {
         }
     }
 
-    public static void a(Context context, String str, long j) {
+    public static void a(Context context, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
-            com.alipay.security.mobile.module.b.a.a(context, "vkeyid_settings", "vkey_valid" + str, String.valueOf(j));
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Long.valueOf(j2)}) == null) {
+            com.alipay.security.mobile.module.c.a.a(context, "vkeyid_settings", "vkey_valid" + str, String.valueOf(j2));
         }
     }
 
     public static void a(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, str, str2) == null) {
-            com.alipay.security.mobile.module.b.a.a(context, "vkeyid_settings", str, str2);
+            com.alipay.security.mobile.module.c.a.a(context, "vkeyid_settings", str, str2);
         }
     }
 
@@ -97,7 +97,7 @@ public class h {
     public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? com.alipay.security.mobile.module.b.a.a(context, "vkeyid_settings", "last_apdid_env") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? com.alipay.security.mobile.module.c.a.a(context, "vkeyid_settings", "last_apdid_env") : (String) invokeL.objValue;
     }
 
     public static void b(Context context, String str) {
@@ -118,7 +118,7 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            String a2 = com.alipay.security.mobile.module.b.a.a(context, "vkeyid_settings", "log_switch");
+            String a2 = com.alipay.security.mobile.module.c.a.a(context, "vkeyid_settings", "log_switch");
             return a2 != null && "1".equals(a2);
         }
         return invokeL.booleanValue;
@@ -127,7 +127,7 @@ public class h {
     public static String d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? com.alipay.security.mobile.module.b.a.a(context, "vkeyid_settings", "dynamic_key") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? com.alipay.security.mobile.module.c.a.a(context, "vkeyid_settings", "dynamic_key") : (String) invokeL.objValue;
     }
 
     public static void d(Context context, String str) {
@@ -140,7 +140,7 @@ public class h {
     public static String e(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) ? com.alipay.security.mobile.module.b.a.a(context, "vkeyid_settings", "apse_degrade") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) ? com.alipay.security.mobile.module.c.a.a(context, "vkeyid_settings", "apse_degrade") : (String) invokeL.objValue;
     }
 
     public static void e(Context context, String str) {
@@ -157,19 +157,19 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
             synchronized (h.class) {
-                if (com.alipay.security.mobile.module.a.a.a(f1750a)) {
-                    String a2 = com.alipay.security.mobile.module.b.e.a(context, "alipay_vkey_random", "random", "");
-                    f1750a = a2;
+                if (com.alipay.security.mobile.module.a.a.a(f35586a)) {
+                    String a2 = com.alipay.security.mobile.module.c.e.a(context, "alipay_vkey_random", "random", "");
+                    f35586a = a2;
                     if (com.alipay.security.mobile.module.a.a.a(a2)) {
                         String a3 = com.alipay.security.mobile.module.a.a.b.a(UUID.randomUUID().toString());
-                        f1750a = a3;
+                        f35586a = a3;
                         if (a3 != null && (edit = context.getSharedPreferences("alipay_vkey_random", 0).edit()) != null) {
                             edit.putString("random", a3);
                             edit.commit();
                         }
                     }
                 }
-                str = f1750a;
+                str = f35586a;
             }
             return str;
         }
@@ -195,7 +195,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, context, str)) == null) {
             try {
-                String a2 = com.alipay.security.mobile.module.b.a.a(context, "vkeyid_settings", "vkey_valid" + str);
+                String a2 = com.alipay.security.mobile.module.c.a.a(context, "vkeyid_settings", "vkey_valid" + str);
                 if (com.alipay.security.mobile.module.a.a.a(a2)) {
                     return 0L;
                 }

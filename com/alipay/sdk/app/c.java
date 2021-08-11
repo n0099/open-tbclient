@@ -1,50 +1,160 @@
 package com.alipay.sdk.app;
 
-import android.app.Activity;
-import android.webkit.SslErrorHandler;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.arplay.core.message.ARPMessageType;
+import com.baidu.sapi2.openbduss.PASSMethodCallTransfer;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
-public class c implements Runnable {
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+/* loaded from: classes4.dex */
+public final class c {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Activity f1826a;
+    public static final c f35682a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ SslErrorHandler f1827b;
+    public static final c f35683b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ b f1828c;
+    public static final c f35684c;
 
-    public c(b bVar, Activity activity, SslErrorHandler sslErrorHandler) {
+    /* renamed from: d  reason: collision with root package name */
+    public static final c f35685d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final c f35686e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final c f35687f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final c f35688g;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final /* synthetic */ c[] f35689j;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f35690h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f35691i;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(434189670, "Lcom/alipay/sdk/app/c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(434189670, "Lcom/alipay/sdk/app/c;");
+                return;
+            }
+        }
+        f35682a = new c("SUCCEEDED", 0, 9000, "处理成功");
+        f35683b = new c("FAILED", 1, 4000, "系统繁忙，请稍后再试");
+        f35684c = new c("CANCELED", 2, ARPMessageType.MSG_TYPE_MODEL_LOAD_PROGRESS, "用户取消");
+        f35685d = new c("NETWORK_ERROR", 3, 6002, "网络连接异常");
+        f35686e = new c("PARAMS_ERROR", 4, 4001, PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+        f35687f = new c("DOUBLE_REQUEST", 5, 5000, "重复请求");
+        c cVar = new c("PAY_WAITTING", 6, 8000, "支付结果确认中");
+        f35688g = cVar;
+        f35689j = new c[]{f35682a, f35683b, f35684c, f35685d, f35686e, f35687f, cVar};
+    }
+
+    public c(String str, int i2, int i3, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, activity, sslErrorHandler};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str3 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f1828c = bVar;
-        this.f1826a = activity;
-        this.f1827b = sslErrorHandler;
+        this.f35690h = i3;
+        this.f35691i = str2;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public static c valueOf(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.alipay.sdk.widget.e.a(this.f1826a, "安全警告", "安全连接证书校验无效，将无法保证访问数据的安全性，可能存在风险，请选择是否继续？", "继续", new d(this), "退出", new e(this));
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (c) Enum.valueOf(c.class, str) : (c) invokeL.objValue;
+    }
+
+    public static c[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (c[]) f35689j.clone() : (c[]) invokeV.objValue;
+    }
+
+    public void a(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            this.f35690h = i2;
+        }
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35691i : (String) invokeV.objValue;
+    }
+
+    public static c b(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            if (i2 != 4001) {
+                if (i2 != 5000) {
+                    if (i2 != 8000) {
+                        if (i2 != 9000) {
+                            if (i2 != 6001) {
+                                if (i2 != 6002) {
+                                    return f35683b;
+                                }
+                                return f35685d;
+                            }
+                            return f35684c;
+                        }
+                        return f35682a;
+                    }
+                    return f35688g;
+                }
+                return f35687f;
+            }
+            return f35686e;
+        }
+        return (c) invokeI.objValue;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35690h : invokeV.intValue;
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f35691i = str;
         }
     }
 }

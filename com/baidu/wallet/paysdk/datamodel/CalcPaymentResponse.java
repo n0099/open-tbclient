@@ -3,18 +3,18 @@ package com.baidu.wallet.paysdk.datamodel;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.beans.IBeanResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.PayData;
-import com.baidu.wallet.core.NoProguard;
+import com.dxmpay.apollon.beans.IBeanResponse;
+import com.dxmpay.wallet.core.NoProguard;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class CalcPaymentResponse implements IBeanResponse, NoProguard, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SELECTION_NO_CHANGE = -1;
@@ -50,7 +50,7 @@ public class CalcPaymentResponse implements IBeanResponse, NoProguard, Serializa
         }
     }
 
-    @Override // com.baidu.apollon.beans.IBeanResponse
+    @Override // com.dxmpay.apollon.beans.IBeanResponse
     public boolean checkResponseValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -173,7 +173,7 @@ public class CalcPaymentResponse implements IBeanResponse, NoProguard, Serializa
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? getSelectedDiscountIds(this.activity_list) : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.apollon.beans.IBeanResponse
+    @Override // com.dxmpay.apollon.beans.IBeanResponse
     public void storeResponse(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {

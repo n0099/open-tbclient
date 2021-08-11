@@ -8,7 +8,7 @@ import com.baidu.searchbox.afx.callback.OnVideoErrorListener;
 import com.baidu.searchbox.afx.callback.OnVideoStartedListener;
 import com.baidu.searchbox.afx.gl.GLTextureView;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface IPlayer {
     void destroy();
 
@@ -38,9 +38,9 @@ public interface IPlayer {
 
     void setLoopSection(int i2, int i3);
 
-    void setLoopSection(long j);
+    void setLoopSection(long j2);
 
-    void setLoopSection(long j, long j2);
+    void setLoopSection(long j2, long j3);
 
     void setLooping(boolean z);
 

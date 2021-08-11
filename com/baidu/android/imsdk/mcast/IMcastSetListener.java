@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.mcast;
 
 import com.baidu.android.imsdk.IMListener;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public interface IMcastSetListener extends IMListener {
-    void onResult(int i2, long j, long j2);
+    void onResult(int i2, long j2, long j3);
 }

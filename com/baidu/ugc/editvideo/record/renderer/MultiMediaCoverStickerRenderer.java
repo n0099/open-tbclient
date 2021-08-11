@@ -5,6 +5,10 @@ import android.opengl.GLES20;
 import android.opengl.GLUtils;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.v0.t.c;
+import c.a.v0.t.d;
+import c.a.v0.t.h;
+import c.a.z.b.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,13 +23,9 @@ import com.baidu.ugc.editvideo.sticker.OnChangeStickerListener;
 import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import com.baidu.ugc.editvideo.sticker.a;
 import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
-import d.a.a0.b.a.e;
-import d.a.w0.t.c;
-import d.a.w0.t.d;
-import d.a.w0.t.h;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +134,7 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
         int i4 = gLViewPortLocation.height;
         GLES20.glViewport((int) (gLViewPortLocation.x + (((1.0f - f2) * i3) / 2.0f) + ((i3 * this.mTx) / 2.0f)), (int) (gLViewPortLocation.y + (((1.0f - f3) * i4) / 2.0f) + ((i4 * this.mTy) / 2.0f)), (int) (i3 * f2), (int) (i4 * f3));
         GLES20.glEnable(3042);
-        GLES20.glBlendFunc(BankSignFactory.BEAN_ID_QUERY, BankSignFactory.BEAN_ID_BIND_CARD);
+        GLES20.glBlendFunc(1, BankSignFactory.BEAN_ID_BIND_CARD);
         for (int i5 = 0; i5 < this.mCoverStickerDataList.size(); i5++) {
             MultiMediaData multiMediaData = this.mCoverStickerDataList.get(i5);
             if (multiMediaData != null && multiMediaData.textureId != 0) {
@@ -283,8 +283,8 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
         if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
             boolean z = aVar != this.mCurrentItem;
             super.setCurrentItem(aVar);
-            int indexOf = this.mStickerItems.indexOf(aVar);
             List<a> list = this.mStickerItems;
+            int indexOf = list.indexOf(aVar);
             h.h(list, indexOf, list.size() - 1);
             if (!h.e(this.mCoverStickerDataList)) {
                 List<MultiMediaData> list2 = this.mCoverStickerDataList;

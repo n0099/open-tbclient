@@ -11,14 +11,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
+import com.dxmpay.wallet.utils.StatHelper;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class DecoderJNI implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Wrapper implements INoProGuard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +44,7 @@ public class DecoderJNI implements INoProGuard {
                 }
             }
             this.context = r0;
-            this.lastStatus = a.f27589c;
+            this.lastStatus = a.f63417c;
             this.fresh = true;
             long[] jArr = {0, i2};
             this.inputBuffer = WebSettingsGlobalBlink.kernelBrotliCreate(jArr);
@@ -55,8 +56,8 @@ public class DecoderJNI implements INoProGuard {
         private void parseStatus() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-                long j = this.context[1];
-                this.lastStatus = j == 1 ? a.f27588b : j == 2 ? a.f27589c : j == 3 ? a.f27590d : j == 4 ? a.f27591e : a.f27587a;
+                long j2 = this.context[1];
+                this.lastStatus = j2 == 1 ? a.f63416b : j2 == 2 ? a.f63417c : j2 == 3 ? a.f63418d : j2 == 4 ? a.f63419e : a.f63415a;
             }
         }
 
@@ -105,7 +106,7 @@ public class DecoderJNI implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 if (this.context[0] != 0) {
-                    if (this.lastStatus == a.f27590d || hasOutput()) {
+                    if (this.lastStatus == a.f63418d || hasOutput()) {
                         this.fresh = false;
                         ByteBuffer kernelBrotliPull = WebSettingsGlobalBlink.kernelBrotliPull(this.context);
                         parseStatus();
@@ -128,9 +129,9 @@ public class DecoderJNI implements INoProGuard {
                     throw new IOException("brotli decoder is already destroyed");
                 }
                 a aVar = this.lastStatus;
-                if (aVar != a.f27589c && aVar != a.f27591e) {
+                if (aVar != a.f63417c && aVar != a.f63419e) {
                     throw new IOException("pushing input to decoder in " + this.lastStatus + " state");
-                } else if (this.lastStatus == a.f27591e && i2 != 0) {
+                } else if (this.lastStatus == a.f63419e && i2 != 0) {
                     throw new IOException("pushing input to decoder in OK state");
                 } else {
                     this.fresh = false;
@@ -142,27 +143,27 @@ public class DecoderJNI implements INoProGuard {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f27587a;
+        public static final a f63415a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f27588b;
+        public static final a f63416b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f27589c;
+        public static final a f63417c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f27590d;
+        public static final a f63418d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f27591e;
+        public static final a f63419e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final /* synthetic */ a[] f27592f;
+        public static final /* synthetic */ a[] f63420f;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -178,13 +179,13 @@ public class DecoderJNI implements INoProGuard {
                     return;
                 }
             }
-            f27587a = new a("ERROR", 0);
-            f27588b = new a(AdDownloadApkUtils.DL_STATUS_DONE, 1);
-            f27589c = new a("NEEDS_MORE_INPUT", 2);
-            f27590d = new a("NEEDS_MORE_OUTPUT", 3);
-            a aVar = new a("OK", 4);
-            f27591e = aVar;
-            f27592f = new a[]{f27587a, f27588b, f27589c, f27590d, aVar};
+            f63415a = new a("ERROR", 0);
+            f63416b = new a(AdDownloadApkUtils.DL_STATUS_DONE, 1);
+            f63417c = new a("NEEDS_MORE_INPUT", 2);
+            f63418d = new a("NEEDS_MORE_OUTPUT", 3);
+            a aVar = new a(StatHelper.SENSOR_OK, 4);
+            f63419e = aVar;
+            f63420f = new a[]{f63415a, f63416b, f63417c, f63418d, aVar};
         }
 
         public a(String str, int i2) {
@@ -215,7 +216,7 @@ public class DecoderJNI implements INoProGuard {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f27592f.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f63420f.clone() : (a[]) invokeV.objValue;
         }
     }
 

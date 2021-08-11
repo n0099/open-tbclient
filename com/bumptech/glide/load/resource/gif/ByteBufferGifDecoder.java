@@ -36,7 +36,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDrawable> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final GifDecoderFactory GIF_DECODER_FACTORY;
@@ -50,7 +50,7 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
     public final GifBitmapProvider provider;
 
     @VisibleForTesting
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class GifDecoderFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
     }
 
     @VisibleForTesting
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class GifHeaderParserPool {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,7 +172,7 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
             int min = Math.min(gifHeader.getHeight() / i3, gifHeader.getWidth() / i2);
             int max = Math.max(1, min == 0 ? 0 : Integer.highestOneBit(min));
             if (Log.isLoggable(TAG, 2) && max > 1) {
-                Log.v(TAG, "Downsampling GIF, sampleSize: " + max + ", target dimens: [" + i2 + "x" + i3 + "], actual dimens: [" + gifHeader.getWidth() + "x" + gifHeader.getHeight() + PreferencesUtil.RIGHT_MOUNT);
+                String str = "Downsampling GIF, sampleSize: " + max + ", target dimens: [" + i2 + "x" + i3 + "], actual dimens: [" + gifHeader.getWidth() + "x" + gifHeader.getHeight() + PreferencesUtil.RIGHT_MOUNT;
             }
             return max;
         }
@@ -247,7 +247,7 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
         this.parserPool = gifHeaderParserPool;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, IF] complete} */
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF] complete} */
     @Nullable
     private GifDrawableResource decode(ByteBuffer byteBuffer, int i2, int i3, GifHeaderParser gifHeaderParser, Options options) {
         InterceptResult invokeCommon;
@@ -267,17 +267,17 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
                     }
                     GifDrawableResource gifDrawableResource = new GifDrawableResource(new GifDrawable(this.context, build, UnitTransformation.get(), i2, i3, nextFrame));
                     if (Log.isLoggable(TAG, 2)) {
-                        Log.v(TAG, "Decoded GIF from stream in " + LogTime.getElapsedMillis(logTime));
+                        String str = "Decoded GIF from stream in " + LogTime.getElapsedMillis(logTime);
                     }
                     return gifDrawableResource;
                 }
                 if (Log.isLoggable(TAG, 2)) {
-                    Log.v(TAG, "Decoded GIF from stream in " + LogTime.getElapsedMillis(logTime));
+                    String str2 = "Decoded GIF from stream in " + LogTime.getElapsedMillis(logTime);
                 }
                 return null;
             } finally {
                 if (Log.isLoggable(TAG, 2)) {
-                    Log.v(TAG, "Decoded GIF from stream in " + LogTime.getElapsedMillis(logTime));
+                    String str3 = "Decoded GIF from stream in " + LogTime.getElapsedMillis(logTime);
                 }
             }
         }

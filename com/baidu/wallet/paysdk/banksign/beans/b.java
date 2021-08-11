@@ -3,29 +3,29 @@ package com.baidu.wallet.paysdk.banksign.beans;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.datamodel.UserData;
-import com.baidu.wallet.core.beans.NetworkBean;
-import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.paysdk.banksign.datamodel.GetJumpUrlResponse;
-import com.baidu.wallet.paysdk.beans.PayBaseBean;
 import com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
+import com.dxmpay.apollon.restnet.RestNameValuePair;
+import com.dxmpay.wallet.base.datamodel.UserData;
+import com.dxmpay.wallet.core.beans.BaseBean;
+import com.dxmpay.wallet.core.beans.NetworkBean;
+import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
-public class b extends PayBaseBean<GetJumpUrlResponse> {
+/* loaded from: classes8.dex */
+public class b extends BaseBean<GetJumpUrlResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26092a;
+    public String f62002a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -50,11 +50,11 @@ public class b extends PayBaseBean<GetJumpUrlResponse> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f26092a = str;
+            this.f62002a = str;
         }
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -62,7 +62,7 @@ public class b extends PayBaseBean<GetJumpUrlResponse> {
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.NetworkBean
+    @Override // com.dxmpay.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         InterceptResult invokeV;
         String str;
@@ -87,8 +87,8 @@ public class b extends PayBaseBean<GetJumpUrlResponse> {
             if (!TextUtils.isEmpty(sessionId)) {
                 arrayList.add(new RestNameValuePair("session_id", sessionId));
             }
-            if (!TextUtils.isEmpty(this.f26092a)) {
-                arrayList.add(new RestNameValuePair("selected_card_no", this.f26092a));
+            if (!TextUtils.isEmpty(this.f62002a)) {
+                arrayList.add(new RestNameValuePair("selected_card_no", this.f62002a));
             }
             if (!TextUtils.isEmpty(str2)) {
                 arrayList.add(new RestNameValuePair("serial_num", str2));
@@ -101,7 +101,7 @@ public class b extends PayBaseBean<GetJumpUrlResponse> {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -111,7 +111,7 @@ public class b extends PayBaseBean<GetJumpUrlResponse> {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

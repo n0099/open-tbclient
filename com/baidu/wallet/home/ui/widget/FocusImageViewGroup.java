@@ -3,7 +3,6 @@ package com.baidu.wallet.home.ui.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,7 +12,7 @@ import com.baidu.wallet.base.widget.banner.BannerBaseItemInfo;
 import com.baidu.wallet.base.widget.banner.BannerFocusImageViewGroup;
 import com.baidu.wallet.home.beans.HomeCfgBean;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class FocusImageViewGroup extends BannerFocusImageViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +60,6 @@ public class FocusImageViewGroup extends BannerFocusImageViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             DXMSdkSAUtils.onEventWithValues("newHomeAdClick", Arrays.asList(str));
-            PayStatisticsUtil.onEventWithValue("newHomeAdClick", str);
         }
     }
 

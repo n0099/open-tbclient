@@ -2,7 +2,6 @@ package androidx.core.view;
 
 import android.graphics.Rect;
 import android.os.Build;
-import android.util.Log;
 import android.view.WindowInsets;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
@@ -660,8 +659,7 @@ public class WindowInsetsCompat {
                 if (!sConsumedFieldFetched) {
                     try {
                         sConsumedField = WindowInsets.class.getDeclaredField("CONSUMED");
-                    } catch (ReflectiveOperationException e2) {
-                        Log.i(WindowInsetsCompat.TAG, "Could not retrieve WindowInsets.CONSUMED field", e2);
+                    } catch (ReflectiveOperationException unused) {
                     }
                     sConsumedFieldFetched = true;
                 }
@@ -672,15 +670,13 @@ public class WindowInsetsCompat {
                         if (windowInsets != null) {
                             return new WindowInsets(windowInsets);
                         }
-                    } catch (ReflectiveOperationException e3) {
-                        Log.i(WindowInsetsCompat.TAG, "Could not get value from WindowInsets.CONSUMED field", e3);
+                    } catch (ReflectiveOperationException unused2) {
                     }
                 }
                 if (!sConstructorFetched) {
                     try {
                         sConstructor = WindowInsets.class.getConstructor(Rect.class);
-                    } catch (ReflectiveOperationException e4) {
-                        Log.i(WindowInsetsCompat.TAG, "Could not retrieve WindowInsets(Rect) constructor", e4);
+                    } catch (ReflectiveOperationException unused3) {
                     }
                     sConstructorFetched = true;
                 }
@@ -688,8 +684,7 @@ public class WindowInsetsCompat {
                 if (constructor != null) {
                     try {
                         return constructor.newInstance(new Rect());
-                    } catch (ReflectiveOperationException e5) {
-                        Log.i(WindowInsetsCompat.TAG, "Could not invoke WindowInsets(Rect) constructor", e5);
+                    } catch (ReflectiveOperationException unused4) {
                     }
                 }
                 return null;

@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ForumRecommend.HotSearch;
 import tbclient.ForumRecommend.SearchValue;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class HotSearchInfoData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14699e;
+    public String f49876e;
 
     public HotSearchInfoData() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class HotSearchInfoData extends OrmObject {
     public String w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14699e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f49876e : (String) invokeV.objValue;
     }
 
     public void x(HotSearch hotSearch) {
@@ -43,7 +43,7 @@ public class HotSearchInfoData extends OrmObject {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hotSearch) == null) || hotSearch == null || (searchValue = hotSearch.search_value) == null) {
             return;
         }
-        this.f14699e = hotSearch.search_title;
+        this.f49876e = hotSearch.search_title;
         searchValue.id.longValue();
         SearchValue searchValue2 = hotSearch.search_value;
         String str = searchValue2.name;

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GroupSettingItemData extends ChatSetting implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3083517174627940892L;
@@ -106,10 +106,10 @@ public class GroupSettingItemData extends ChatSetting implements Serializable {
         }
     }
 
-    public void setLastApplyTimeStamp(long j) {
+    public void setLastApplyTimeStamp(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.lastApplyTimeStamp = j;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+            this.lastApplyTimeStamp = j2;
         }
     }
 

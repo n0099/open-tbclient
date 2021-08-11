@@ -1,5 +1,6 @@
 package com.baidu.searchbox.aperf.param;
 
+import c.a.p0.d3.b;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -9,9 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.c3.b;
 @Autowired
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class AperfOverlayRuntime {
     public static /* synthetic */ Interceptable $ic;
     public static final IAperfOverlayContext OVERLAY_EMPTY;

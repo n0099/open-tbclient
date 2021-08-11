@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class StatFsHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_DISK_YELLOW_LEVEL_IN_BYTES = 419430400;
@@ -44,7 +44,7 @@ public class StatFsHelper {
     public long mLastRestatTime;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class StorageType {
         public static final /* synthetic */ StorageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -314,13 +314,13 @@ public class StatFsHelper {
         }
     }
 
-    public boolean testLowDiskSpace(StorageType storageType, long j) {
+    public boolean testLowDiskSpace(StorageType storageType, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, storageType, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, storageType, j2)) == null) {
             ensureInitialized();
             long availableStorageSpace = getAvailableStorageSpace(storageType);
-            return availableStorageSpace <= 0 || availableStorageSpace < j;
+            return availableStorageSpace <= 0 || availableStorageSpace < j2;
         }
         return invokeLJ.booleanValue;
     }

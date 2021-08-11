@@ -7,25 +7,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1745a;
+    public String f35581a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1746b;
+    public String f35582b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1747c;
+    public String f35583c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1748d;
+    public String f35584d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1749e;
+    public String f35585e;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -40,11 +40,11 @@ public final class f {
                 return;
             }
         }
-        this.f1745a = "";
-        this.f1746b = "";
-        this.f1747c = "";
-        this.f1748d = "";
-        this.f1749e = "";
+        this.f35581a = "";
+        this.f35582b = "";
+        this.f35583c = "";
+        this.f35584d = "";
+        this.f35585e = "";
     }
 
     public f(String str, String str2, String str3, String str4, String str5) {
@@ -62,80 +62,80 @@ public final class f {
                 return;
             }
         }
-        this.f1745a = "";
-        this.f1746b = "";
-        this.f1747c = "";
-        this.f1748d = "";
-        this.f1749e = "";
-        this.f1745a = str;
-        this.f1746b = str2;
-        this.f1747c = str3;
-        this.f1748d = str4;
-        this.f1749e = str5;
+        this.f35581a = "";
+        this.f35582b = "";
+        this.f35583c = "";
+        this.f35584d = "";
+        this.f35585e = "";
+        this.f35581a = str;
+        this.f35582b = str2;
+        this.f35583c = str3;
+        this.f35584d = str4;
+        this.f35585e = str5;
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.alipay.security.mobile.module.a.a.d(this.f1745a) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.alipay.security.mobile.module.a.a.d(this.f35581a) : (String) invokeV.objValue;
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f1745a = str;
+            this.f35581a = str;
         }
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.alipay.security.mobile.module.a.a.d(this.f1746b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.alipay.security.mobile.module.a.a.d(this.f35582b) : (String) invokeV.objValue;
     }
 
     public final void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f1746b = str;
+            this.f35582b = str;
         }
     }
 
     public final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? com.alipay.security.mobile.module.a.a.d(this.f1747c) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? com.alipay.security.mobile.module.a.a.d(this.f35583c) : (String) invokeV.objValue;
     }
 
     public final void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f1747c = str;
+            this.f35583c = str;
         }
     }
 
     public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? com.alipay.security.mobile.module.a.a.d(this.f1748d) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? com.alipay.security.mobile.module.a.a.d(this.f35584d) : (String) invokeV.objValue;
     }
 
     public final void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f1748d = str;
+            this.f35584d = str;
         }
     }
 
     public final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? com.alipay.security.mobile.module.a.a.d(this.f1749e) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? com.alipay.security.mobile.module.a.a.d(this.f35585e) : (String) invokeV.objValue;
     }
 
     public final void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f1749e = str;
+            this.f35585e = str;
         }
     }
 }

@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.image.IMemoryCache;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class d implements IMemoryCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final IMemoryCache f28955a;
+    public final IMemoryCache f64820a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.component.image.c.a.c f28956b;
+    public final com.bytedance.sdk.component.image.c.a.c f64821b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public d(IMemoryCache iMemoryCache) {
@@ -56,8 +56,8 @@ public class d implements IMemoryCache {
                 return;
             }
         }
-        this.f28955a = iMemoryCache;
-        this.f28956b = cVar;
+        this.f64820a = iMemoryCache;
+        this.f64821b = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -67,8 +67,8 @@ public class d implements IMemoryCache {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bitmap)) == null) {
-            boolean a2 = this.f28955a.a(str, bitmap);
-            com.bytedance.sdk.component.image.c.a.c cVar = this.f28956b;
+            boolean a2 = this.f64820a.a(str, bitmap);
+            com.bytedance.sdk.component.image.c.a.c cVar = this.f64821b;
             if (cVar != null) {
                 cVar.a(str, Boolean.valueOf(a2));
             }
@@ -84,8 +84,8 @@ public class d implements IMemoryCache {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Bitmap a2 = this.f28955a.a((IMemoryCache) str);
-            com.bytedance.sdk.component.image.c.a.c cVar = this.f28956b;
+            Bitmap a2 = this.f64820a.a((IMemoryCache) str);
+            com.bytedance.sdk.component.image.c.a.c cVar = this.f64821b;
             if (cVar != null) {
                 cVar.b(str, a2);
             }
@@ -98,7 +98,7 @@ public class d implements IMemoryCache {
     public void a(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f28955a.a(d2);
+            this.f64820a.a(d2);
         }
     }
 }

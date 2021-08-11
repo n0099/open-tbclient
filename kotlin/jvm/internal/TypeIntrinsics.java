@@ -39,7 +39,7 @@ import kotlin.jvm.internal.markers.KMutableList;
 import kotlin.jvm.internal.markers.KMutableListIterator;
 import kotlin.jvm.internal.markers.KMutableMap;
 import kotlin.jvm.internal.markers.KMutableSet;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class TypeIntrinsics {
     public static Collection asMutableCollection(Object obj) {
         if ((obj instanceof KMappedMarker) && !(obj instanceof KMutableCollection)) {

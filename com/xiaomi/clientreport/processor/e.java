@@ -21,21 +21,21 @@ import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static PerfClientReport a(PerfClientReport perfClientReport, String str) {
         InterceptResult invokeLL;
-        long[] m81a;
+        long[] m84a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, perfClientReport, str)) == null) {
-            if (perfClientReport == null || (m81a = m81a(str)) == null) {
+            if (perfClientReport == null || (m84a = m84a(str)) == null) {
                 return null;
             }
-            perfClientReport.perfCounts = m81a[0];
-            perfClientReport.perfLatencies = m81a[1];
+            perfClientReport.perfCounts = m84a[0];
+            perfClientReport.perfLatencies = m84a[1];
             return perfClientReport;
         }
         return (PerfClientReport) invokeLL.objValue;
@@ -47,15 +47,15 @@ public class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             PerfClientReport perfClientReport = null;
             try {
-                String[] m82a = m82a(str);
-                if (m82a == null || m82a.length < 4 || TextUtils.isEmpty(m82a[0]) || TextUtils.isEmpty(m82a[1]) || TextUtils.isEmpty(m82a[2]) || TextUtils.isEmpty(m82a[3])) {
+                String[] m85a = m85a(str);
+                if (m85a == null || m85a.length < 4 || TextUtils.isEmpty(m85a[0]) || TextUtils.isEmpty(m85a[1]) || TextUtils.isEmpty(m85a[2]) || TextUtils.isEmpty(m85a[3])) {
                     return null;
                 }
                 perfClientReport = PerfClientReport.getBlankInstance();
-                perfClientReport.production = Integer.parseInt(m82a[0]);
-                perfClientReport.clientInterfaceId = m82a[1];
-                perfClientReport.reportType = Integer.parseInt(m82a[2]);
-                perfClientReport.code = Integer.parseInt(m82a[3]);
+                perfClientReport.production = Integer.parseInt(m85a[0]);
+                perfClientReport.clientInterfaceId = m85a[1];
+                perfClientReport.reportType = Integer.parseInt(m85a[2]);
+                perfClientReport.code = Integer.parseInt(m85a[3]);
                 return perfClientReport;
             } catch (Exception unused) {
                 com.xiaomi.channel.commonutils.logger.b.c("parse per key error");
@@ -75,7 +75,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static HashMap<String, String> m80a(String str) {
+    public static HashMap<String, String> m83a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, str)) != null) {
@@ -156,7 +156,7 @@ public class e {
             try {
                 file = new File(str + ".lock");
                 try {
-                    y.m643a(file);
+                    y.m646a(file);
                     randomAccessFile = new RandomAccessFile(file, "rw");
                     try {
                         FileLock lock = randomAccessFile.getChannel().lock();
@@ -340,25 +340,25 @@ public class e {
         FileLock fileLock = null;
         try {
             File file = new File(str + ".lock");
-            y.m643a(file);
+            y.m646a(file);
             randomAccessFile = new RandomAccessFile(file, "rw");
         } catch (Throwable unused) {
             randomAccessFile = null;
         }
         try {
             fileLock = randomAccessFile.getChannel().lock();
-            HashMap<String, String> m80a = m80a(str);
+            HashMap<String, String> m83a = m83a(str);
             for (com.xiaomi.clientreport.data.a aVar : aVarArr) {
                 if (aVar != null) {
                     String a2 = a((PerfClientReport) aVar);
-                    long j = ((PerfClientReport) aVar).perfCounts;
-                    long j2 = ((PerfClientReport) aVar).perfLatencies;
-                    if (!TextUtils.isEmpty(a2) && j > 0 && j2 >= 0) {
-                        a(m80a, a2, j, j2);
+                    long j2 = ((PerfClientReport) aVar).perfCounts;
+                    long j3 = ((PerfClientReport) aVar).perfLatencies;
+                    if (!TextUtils.isEmpty(a2) && j2 > 0 && j3 >= 0) {
+                        a(m83a, a2, j2, j3);
                     }
                 }
             }
-            a(str, m80a);
+            a(str, m83a);
             if (fileLock != null && fileLock.isValid()) {
                 try {
                     fileLock.release();
@@ -396,32 +396,32 @@ public class e {
         y.a(randomAccessFile);
     }
 
-    public static void a(HashMap<String, String> hashMap, String str, long j, long j2) {
+    public static void a(HashMap<String, String> hashMap, String str, long j2, long j3) {
         StringBuilder sb;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{hashMap, str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{hashMap, str, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             String str2 = hashMap.get(str);
             if (TextUtils.isEmpty(str2)) {
                 sb = new StringBuilder();
             } else {
-                long[] m81a = m81a(str2);
-                if (m81a == null || m81a[0] <= 0 || m81a[1] < 0) {
+                long[] m84a = m84a(str2);
+                if (m84a == null || m84a[0] <= 0 || m84a[1] < 0) {
                     sb = new StringBuilder();
                 } else {
-                    j += m81a[0];
-                    j2 += m81a[1];
+                    j2 += m84a[0];
+                    j3 += m84a[1];
                     sb = new StringBuilder();
                 }
             }
-            sb.append(j);
-            sb.append("#");
             sb.append(j2);
+            sb.append("#");
+            sb.append(j3);
             hashMap.put(str, sb.toString());
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static long[] m81a(String str) {
+    public static long[] m84a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
@@ -442,7 +442,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String[] m82a(String str) {
+    public static String[] m85a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {

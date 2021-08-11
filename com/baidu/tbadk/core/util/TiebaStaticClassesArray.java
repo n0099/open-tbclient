@@ -1,13 +1,12 @@
 package com.baidu.tbadk.core.util;
 
-import android.util.Log;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TiebaStaticClassesArray {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,17 +37,12 @@ public class TiebaStaticClassesArray {
                     return false;
                 }
                 for (String str : this.staticClassesArray) {
-                    try {
-                        Class.forName(str);
-                    } catch (Throwable th) {
-                        BdLog.e(th);
-                        Log.e("TiebaStaticClassesArray", "classforName failed. " + th.getMessage());
-                    }
+                    Class.forName(str);
                 }
                 return true;
-            } catch (Throwable th2) {
-                BdLog.e(th2);
-                Log.e("TiebaStaticClassesArray", "init class failed. " + th2.getMessage());
+            } catch (Throwable th) {
+                BdLog.e(th);
+                String str2 = "init class failed. " + th.getMessage();
                 return false;
             }
         }

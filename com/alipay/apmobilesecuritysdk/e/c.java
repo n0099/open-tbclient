@@ -4,25 +4,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1740a;
+    public String f35576a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1741b;
+    public String f35577b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1742c;
+    public String f35578c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1743d;
+    public String f35579d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1744e;
+    public String f35580e;
 
     public c(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
@@ -39,15 +39,15 @@ public final class c {
                 return;
             }
         }
-        this.f1740a = "";
-        this.f1741b = "";
-        this.f1742c = "";
-        this.f1743d = "";
-        this.f1744e = "";
-        this.f1740a = str;
-        this.f1741b = str2;
-        this.f1742c = str3;
-        this.f1743d = str4;
-        this.f1744e = str5;
+        this.f35576a = "";
+        this.f35577b = "";
+        this.f35578c = "";
+        this.f35579d = "";
+        this.f35580e = "";
+        this.f35576a = str;
+        this.f35577b = str2;
+        this.f35578c = str3;
+        this.f35579d = str4;
+        this.f35580e = str5;
     }
 }

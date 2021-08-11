@@ -10,8 +10,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class o implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +146,7 @@ public class o implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return "PayChannelEntity{display_name='" + this.Xd + "', pay_channel='" + this.Yd + "', pay_text='" + this.pay_text + "', error_text='" + this.Zd + "', icon='" + this.icon + "', is_fold=" + this._d + ", is_selected=" + this.ae + ", is_private=" + this.be + ", free_pay=" + this.ce + ", pre_pay_money=" + this.de + ", enable=" + this.wa + ", display_color='" + this.ee + "', flow=" + this.fe + ", parasitifer=" + this.ge + '}';
+            return "PayChannelEntity{display_name='" + this.Xd + ExtendedMessageFormat.QUOTE + ", pay_channel='" + this.Yd + ExtendedMessageFormat.QUOTE + ", pay_text='" + this.pay_text + ExtendedMessageFormat.QUOTE + ", error_text='" + this.Zd + ExtendedMessageFormat.QUOTE + ", icon='" + this.icon + ExtendedMessageFormat.QUOTE + ", is_fold=" + this._d + ", is_selected=" + this.ae + ", is_private=" + this.be + ", free_pay=" + this.ce + ", pre_pay_money=" + this.de + ", enable=" + this.wa + ", display_color='" + this.ee + ExtendedMessageFormat.QUOTE + ", flow=" + this.fe + ", parasitifer=" + this.ge + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

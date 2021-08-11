@@ -1,6 +1,10 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
+import c.i.d.a.n;
+import c.i.d.a.r;
+import c.i.d.a.s;
+import c.i.d.c.z0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,10 +15,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.Lists;
 import com.google.common.util.concurrent.AbstractFuture;
 import com.google.common.util.concurrent.ForwardingListenableFuture;
-import d.f.d.a.n;
-import d.f.d.a.r;
-import d.f.d.a.s;
-import d.f.d.c.z0;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -38,13 +38,13 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class MoreExecutors {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.common.util.concurrent.MoreExecutors$5  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class AnonymousClass5 implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +120,7 @@ public final class MoreExecutors {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class DirectExecutorService extends AbstractListeningExecutorService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -173,13 +173,13 @@ public final class MoreExecutors {
         }
 
         @Override // java.util.concurrent.ExecutorService
-        public boolean awaitTermination(long j, TimeUnit timeUnit) throws InterruptedException {
+        public boolean awaitTermination(long j2, TimeUnit timeUnit) throws InterruptedException {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) != null) {
+            if (interceptable != null && (invokeJL = interceptable.invokeJL(1048576, this, j2, timeUnit)) != null) {
                 return invokeJL.booleanValue;
             }
-            long nanos = timeUnit.toNanos(j);
+            long nanos = timeUnit.toNanos(j2);
             synchronized (this.lock) {
                 while (true) {
                     if (this.shutdown && this.runningTasks == 0) {
@@ -261,7 +261,7 @@ public final class MoreExecutors {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class ListeningDecorator extends AbstractListeningExecutorService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -287,10 +287,10 @@ public final class MoreExecutors {
         }
 
         @Override // java.util.concurrent.ExecutorService
-        public final boolean awaitTermination(long j, TimeUnit timeUnit) throws InterruptedException {
+        public final boolean awaitTermination(long j2, TimeUnit timeUnit) throws InterruptedException {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) ? this.delegate.awaitTermination(j, timeUnit) : invokeJL.booleanValue;
+            return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, timeUnit)) == null) ? this.delegate.awaitTermination(j2, timeUnit) : invokeJL.booleanValue;
         }
 
         @Override // java.util.concurrent.Executor
@@ -331,13 +331,13 @@ public final class MoreExecutors {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class ScheduledListeningDecorator extends ListeningDecorator implements ListeningScheduledExecutorService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ScheduledExecutorService delegate;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes10.dex */
         public static final class ListenableScheduledTask<V> extends ForwardingListenableFuture.SimpleForwardingListenableFuture<V> implements ListenableScheduledFuture<V> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -394,7 +394,7 @@ public final class MoreExecutors {
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes10.dex */
         public static final class NeverSuccessfulListenableFutureTask extends AbstractFuture.TrustedFuture<Void> implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -458,48 +458,48 @@ public final class MoreExecutors {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.util.concurrent.ListeningScheduledExecutorService, java.util.concurrent.ScheduledExecutorService
-        public ListenableScheduledFuture<?> scheduleAtFixedRate(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
+        public ListenableScheduledFuture<?> scheduleAtFixedRate(Runnable runnable, long j2, long j3, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) {
                 NeverSuccessfulListenableFutureTask neverSuccessfulListenableFutureTask = new NeverSuccessfulListenableFutureTask(runnable);
-                return new ListenableScheduledTask(neverSuccessfulListenableFutureTask, this.delegate.scheduleAtFixedRate(neverSuccessfulListenableFutureTask, j, j2, timeUnit));
+                return new ListenableScheduledTask(neverSuccessfulListenableFutureTask, this.delegate.scheduleAtFixedRate(neverSuccessfulListenableFutureTask, j2, j3, timeUnit));
             }
             return (ListenableScheduledFuture) invokeCommon.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.util.concurrent.ListeningScheduledExecutorService, java.util.concurrent.ScheduledExecutorService
-        public ListenableScheduledFuture<?> scheduleWithFixedDelay(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
+        public ListenableScheduledFuture<?> scheduleWithFixedDelay(Runnable runnable, long j2, long j3, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{runnable, Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) {
                 NeverSuccessfulListenableFutureTask neverSuccessfulListenableFutureTask = new NeverSuccessfulListenableFutureTask(runnable);
-                return new ListenableScheduledTask(neverSuccessfulListenableFutureTask, this.delegate.scheduleWithFixedDelay(neverSuccessfulListenableFutureTask, j, j2, timeUnit));
+                return new ListenableScheduledTask(neverSuccessfulListenableFutureTask, this.delegate.scheduleWithFixedDelay(neverSuccessfulListenableFutureTask, j2, j3, timeUnit));
             }
             return (ListenableScheduledFuture) invokeCommon.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.util.concurrent.ListeningScheduledExecutorService, java.util.concurrent.ScheduledExecutorService
-        public ListenableScheduledFuture<?> schedule(Runnable runnable, long j, TimeUnit timeUnit) {
+        public ListenableScheduledFuture<?> schedule(Runnable runnable, long j2, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
                 TrustedListenableFutureTask create = TrustedListenableFutureTask.create(runnable, null);
-                return new ListenableScheduledTask(create, this.delegate.schedule(create, j, timeUnit));
+                return new ListenableScheduledTask(create, this.delegate.schedule(create, j2, timeUnit));
             }
             return (ListenableScheduledFuture) invokeCommon.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.util.concurrent.ListeningScheduledExecutorService, java.util.concurrent.ScheduledExecutorService
-        public <V> ListenableScheduledFuture<V> schedule(Callable<V> callable, long j, TimeUnit timeUnit) {
+        public <V> ListenableScheduledFuture<V> schedule(Callable<V> callable, long j2, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{callable, Long.valueOf(j), timeUnit})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{callable, Long.valueOf(j2), timeUnit})) == null) {
                 TrustedListenableFutureTask create = TrustedListenableFutureTask.create(callable);
-                return new ListenableScheduledTask(create, this.delegate.schedule(create, j, timeUnit));
+                return new ListenableScheduledTask(create, this.delegate.schedule(create, j2, timeUnit));
             }
             return (ListenableScheduledFuture) invokeCommon.objValue;
         }
@@ -519,10 +519,10 @@ public final class MoreExecutors {
         }
     }
 
-    public static void addDelayedShutdownHook(ExecutorService executorService, long j, TimeUnit timeUnit) {
+    public static void addDelayedShutdownHook(ExecutorService executorService, long j2, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{executorService, Long.valueOf(j), timeUnit}) == null) {
-            new Application().addDelayedShutdownHook(executorService, j, timeUnit);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{executorService, Long.valueOf(j2), timeUnit}) == null) {
+            new Application().addDelayedShutdownHook(executorService, j2, timeUnit);
         }
     }
 
@@ -532,16 +532,16 @@ public final class MoreExecutors {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? DirectExecutor.INSTANCE : (Executor) invokeV.objValue;
     }
 
-    public static ExecutorService getExitingExecutorService(ThreadPoolExecutor threadPoolExecutor, long j, TimeUnit timeUnit) {
+    public static ExecutorService getExitingExecutorService(ThreadPoolExecutor threadPoolExecutor, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{threadPoolExecutor, Long.valueOf(j), timeUnit})) == null) ? new Application().getExitingExecutorService(threadPoolExecutor, j, timeUnit) : (ExecutorService) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{threadPoolExecutor, Long.valueOf(j2), timeUnit})) == null) ? new Application().getExitingExecutorService(threadPoolExecutor, j2, timeUnit) : (ExecutorService) invokeCommon.objValue;
     }
 
-    public static ScheduledExecutorService getExitingScheduledExecutorService(ScheduledThreadPoolExecutor scheduledThreadPoolExecutor, long j, TimeUnit timeUnit) {
+    public static ScheduledExecutorService getExitingScheduledExecutorService(ScheduledThreadPoolExecutor scheduledThreadPoolExecutor, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{scheduledThreadPoolExecutor, Long.valueOf(j), timeUnit})) == null) ? new Application().getExitingScheduledExecutorService(scheduledThreadPoolExecutor, j, timeUnit) : (ScheduledExecutorService) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{scheduledThreadPoolExecutor, Long.valueOf(j2), timeUnit})) == null) ? new Application().getExitingScheduledExecutorService(scheduledThreadPoolExecutor, j2, timeUnit) : (ScheduledExecutorService) invokeCommon.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0096  */
@@ -549,12 +549,12 @@ public final class MoreExecutors {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static <T> T invokeAnyImpl(ListeningExecutorService listeningExecutorService, Collection<? extends Callable<T>> collection, boolean z, long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public static <T> T invokeAnyImpl(ListeningExecutorService listeningExecutorService, Collection<? extends Callable<T>> collection, boolean z, long j2, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeCommon;
         long nanoTime;
-        long j2;
+        long j3;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{listeningExecutorService, collection, Boolean.valueOf(z), Long.valueOf(j), timeUnit})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{listeningExecutorService, collection, Boolean.valueOf(z), Long.valueOf(j2), timeUnit})) != null) {
             return (T) invokeCommon.objValue;
         }
         n.p(listeningExecutorService);
@@ -563,7 +563,7 @@ public final class MoreExecutors {
         n.d(size > 0);
         ArrayList<Future> l = Lists.l(size);
         LinkedBlockingQueue b2 = z0.b();
-        long nanos = timeUnit.toNanos(j);
+        long nanos = timeUnit.toNanos(j2);
         if (z) {
             try {
                 nanoTime = System.nanoTime();
@@ -596,9 +596,9 @@ public final class MoreExecutors {
                 } else if (z) {
                     future2 = (Future) b2.poll(nanos, TimeUnit.NANOSECONDS);
                     if (future2 != null) {
-                        j2 = System.nanoTime();
-                        nanos -= j2 - nanoTime;
-                        long j3 = nanos;
+                        j3 = System.nanoTime();
+                        nanos -= j3 - nanoTime;
+                        long j4 = nanos;
                         int i4 = i2;
                         if (future2 == null) {
                             i3--;
@@ -615,8 +615,8 @@ public final class MoreExecutors {
                             }
                         }
                         i2 = i4;
-                        nanos = j3;
-                        nanoTime = j2;
+                        nanos = j4;
+                        nanoTime = j3;
                     } else {
                         throw new TimeoutException();
                     }
@@ -624,14 +624,14 @@ public final class MoreExecutors {
                     future2 = (Future) b2.take();
                 }
             }
-            j2 = nanoTime;
-            long j32 = nanos;
+            j3 = nanoTime;
+            long j42 = nanos;
             int i42 = i2;
             if (future2 == null) {
             }
             i2 = i42;
-            nanos = j32;
-            nanoTime = j2;
+            nanos = j42;
+            nanoTime = j3;
         }
     }
 
@@ -768,11 +768,11 @@ public final class MoreExecutors {
         return (Executor) invokeLL.objValue;
     }
 
-    public static boolean shutdownAndAwaitTermination(ExecutorService executorService, long j, TimeUnit timeUnit) {
+    public static boolean shutdownAndAwaitTermination(ExecutorService executorService, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{executorService, Long.valueOf(j), timeUnit})) == null) {
-            long nanos = timeUnit.toNanos(j) / 2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{executorService, Long.valueOf(j2), timeUnit})) == null) {
+            long nanos = timeUnit.toNanos(j2) / 2;
             executorService.shutdown();
             try {
                 if (!executorService.awaitTermination(nanos, TimeUnit.NANOSECONDS)) {
@@ -850,7 +850,7 @@ public final class MoreExecutors {
         return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, scheduledExecutorService)) == null) ? scheduledExecutorService instanceof ListeningScheduledExecutorService ? (ListeningScheduledExecutorService) scheduledExecutorService : new ScheduledListeningDecorator(scheduledExecutorService) : (ListeningScheduledExecutorService) invokeL.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class Application {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -869,12 +869,12 @@ public final class MoreExecutors {
             }
         }
 
-        public final void addDelayedShutdownHook(ExecutorService executorService, long j, TimeUnit timeUnit) {
+        public final void addDelayedShutdownHook(ExecutorService executorService, long j2, TimeUnit timeUnit) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{executorService, Long.valueOf(j), timeUnit}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{executorService, Long.valueOf(j2), timeUnit}) == null) {
                 n.p(executorService);
                 n.p(timeUnit);
-                addShutdownHook(MoreExecutors.newThread("DelayedShutdownHook-for-" + executorService, new Runnable(this, executorService, j, timeUnit) { // from class: com.google.common.util.concurrent.MoreExecutors.Application.1
+                addShutdownHook(MoreExecutors.newThread("DelayedShutdownHook-for-" + executorService, new Runnable(this, executorService, j2, timeUnit) { // from class: com.google.common.util.concurrent.MoreExecutors.Application.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ Application this$0;
@@ -887,7 +887,7 @@ public final class MoreExecutors {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, executorService, Long.valueOf(j), timeUnit};
+                            Object[] objArr = {this, executorService, Long.valueOf(j2), timeUnit};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -899,7 +899,7 @@ public final class MoreExecutors {
                         }
                         this.this$0 = this;
                         this.val$service = executorService;
-                        this.val$terminationTimeout = j;
+                        this.val$terminationTimeout = j2;
                         this.val$timeUnit = timeUnit;
                     }
 
@@ -925,25 +925,25 @@ public final class MoreExecutors {
             }
         }
 
-        public final ExecutorService getExitingExecutorService(ThreadPoolExecutor threadPoolExecutor, long j, TimeUnit timeUnit) {
+        public final ExecutorService getExitingExecutorService(ThreadPoolExecutor threadPoolExecutor, long j2, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{threadPoolExecutor, Long.valueOf(j), timeUnit})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{threadPoolExecutor, Long.valueOf(j2), timeUnit})) == null) {
                 MoreExecutors.useDaemonThreadFactory(threadPoolExecutor);
                 ExecutorService unconfigurableExecutorService = Executors.unconfigurableExecutorService(threadPoolExecutor);
-                addDelayedShutdownHook(threadPoolExecutor, j, timeUnit);
+                addDelayedShutdownHook(threadPoolExecutor, j2, timeUnit);
                 return unconfigurableExecutorService;
             }
             return (ExecutorService) invokeCommon.objValue;
         }
 
-        public final ScheduledExecutorService getExitingScheduledExecutorService(ScheduledThreadPoolExecutor scheduledThreadPoolExecutor, long j, TimeUnit timeUnit) {
+        public final ScheduledExecutorService getExitingScheduledExecutorService(ScheduledThreadPoolExecutor scheduledThreadPoolExecutor, long j2, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{scheduledThreadPoolExecutor, Long.valueOf(j), timeUnit})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{scheduledThreadPoolExecutor, Long.valueOf(j2), timeUnit})) == null) {
                 MoreExecutors.useDaemonThreadFactory(scheduledThreadPoolExecutor);
                 ScheduledExecutorService unconfigurableScheduledExecutorService = Executors.unconfigurableScheduledExecutorService(scheduledThreadPoolExecutor);
-                addDelayedShutdownHook(scheduledThreadPoolExecutor, j, timeUnit);
+                addDelayedShutdownHook(scheduledThreadPoolExecutor, j2, timeUnit);
                 return unconfigurableScheduledExecutorService;
             }
             return (ScheduledExecutorService) invokeCommon.objValue;

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMJoinCastMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMJoinCastMsg";
@@ -28,12 +28,12 @@ public class IMJoinCastMsg extends Message {
     public long mRowId;
     public long mToUser;
 
-    public IMJoinCastMsg(Context context, long j, String str) {
+    public IMJoinCastMsg(Context context, long j2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), str};
+            Object[] objArr = {context, Long.valueOf(j2), str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -46,7 +46,7 @@ public class IMJoinCastMsg extends Message {
         this.mContext = context;
         initCommonParameter(context);
         this.mMsgKey = str;
-        this.mToUser = j;
+        this.mToUser = j2;
         setNeedReplay(true);
         setType(201);
     }
@@ -136,7 +136,7 @@ public class IMJoinCastMsg extends Message {
             if (r3 <= 0) goto L61
             int r3 = r3 * 1000
             com.baidu.android.imsdk.internal.Heartbeat.ALARM_TIMEOUT = r3     // Catch: java.lang.Exception -> Ld4
-            boolean r9 = d.a.u.a.f68193e     // Catch: java.lang.Exception -> Ld4
+            boolean r9 = c.a.t.a.f29659e     // Catch: java.lang.Exception -> Ld4
             if (r9 == 0) goto L68
             com.baidu.android.imsdk.conversation.ConversationStudioManImpl.mCastHeartBeatTime = r3     // Catch: java.lang.Exception -> Ld4
             goto L68
@@ -249,13 +249,13 @@ public class IMJoinCastMsg extends Message {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public IMJoinCastMsg(Context context, long j, String str, boolean z) {
-        this(context, j, str);
+    public IMJoinCastMsg(Context context, long j2, String str, boolean z) {
+        this(context, j2, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), str, Boolean.valueOf(z)};
+            Object[] objArr = {context, Long.valueOf(j2), str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {

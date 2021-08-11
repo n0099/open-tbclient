@@ -1,16 +1,17 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes6.dex */
 public class StatisticItem {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -164,7 +165,7 @@ public class StatisticItem {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return "StatisticItem{key='" + this.key + "', position=" + this.position + ", params=" + this.params + '}';
+            return "StatisticItem{key='" + this.key + ExtendedMessageFormat.QUOTE + ", position=" + this.position + ", params=" + this.params + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
@@ -213,27 +214,27 @@ public class StatisticItem {
         return (StatisticItem) invokeLI.objValue;
     }
 
-    public StatisticItem param(String str, long j) {
+    public StatisticItem param(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048592, this, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048592, this, str, j2)) == null) {
             this.params.add(str);
-            this.params.add(Long.valueOf(j));
+            this.params.add(Long.valueOf(j2));
             return this;
         }
         return (StatisticItem) invokeLJ.objValue;
     }
 
-    public StatisticItem addParam(String str, long j) {
+    public StatisticItem addParam(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j2)) == null) {
             int index = getIndex(str);
             if (index > 0) {
-                this.params.set(index, Long.valueOf(j));
+                this.params.set(index, Long.valueOf(j2));
                 return this;
             }
-            return param(str, j);
+            return param(str, j2);
         }
         return (StatisticItem) invokeLJ.objValue;
     }

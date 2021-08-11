@@ -6,8 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.n0.b;
+import c.a.o0.n0.f;
+import c.a.o0.n0.g;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -40,9 +42,6 @@ import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
 import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatProxyCallback;
-import d.a.p0.n0.b;
-import d.a.p0.n0.f;
-import d.a.p0.n0.g;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,7 +51,7 @@ import tv.athena.revenue.api.MiddleRevenueConfig;
 import tv.athena.revenue.payui.YYPayUIKit;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.IYYPayAmountView;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PayActivityStatic {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_WX_RECHARGE_RESULT_ERROR_CODE = "_wxapi_baseresp_errcode";
@@ -103,7 +102,7 @@ public class PayActivityStatic {
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             Context applicationContext = BdBaseApplication.getInst().getApp().getApplicationContext();
             String packageName = applicationContext.getPackageName();
-            String p = d.a.p0.s.d0.b.j().p("version_name", "");
+            String p = c.a.o0.s.d0.b.j().p("version_name", "");
             Context context = TbadkCoreApplication.getInst().getContext();
             MiddleReportConfig build = new MiddleReportConfig.MiddleReportConfigBuilder().build();
             build.setAppName(context.getString(R.string.app_name));
@@ -174,16 +173,16 @@ public class PayActivityStatic {
         }
         initYYPaySDK();
         createUIKit();
-        yyPayResultCallback = fVar.f52789e;
-        Object obj = fVar.f52785a;
+        yyPayResultCallback = fVar.f13363e;
+        Object obj = fVar.f13359a;
         if (!(obj instanceof Activity)) {
             obj = getCurrentActivity();
         }
         IYYPayAmountView.ViewParams viewParams = new IYYPayAmountView.ViewParams();
-        if (!TextUtils.isEmpty(fVar.f52787c)) {
-            viewParams.payAmountDialogTitle = fVar.f52787c;
+        if (!TextUtils.isEmpty(fVar.f13361c)) {
+            viewParams.payAmountDialogTitle = fVar.f13361c;
         }
-        Long l = fVar.f52788d;
+        Long l = fVar.f13362d;
         if (l != null) {
             viewParams.targetAmount = l.intValue();
         }
@@ -241,19 +240,19 @@ public class PayActivityStatic {
                     }
                     g gVar = new g();
                     CurrencyChargeMessage currencyChargeMessage = (CurrencyChargeMessage) obj2;
-                    gVar.f52796g = currencyChargeMessage.status;
-                    gVar.f52791b = currencyChargeMessage.appid;
-                    gVar.f52797h = Long.valueOf(currencyChargeMessage.uid);
-                    gVar.f52798i = currencyChargeMessage.usedChannel;
-                    gVar.f52793d = currencyChargeMessage.currencyType;
-                    gVar.f52790a = Long.valueOf(currencyChargeMessage.amount);
-                    gVar.f52792c = Long.valueOf(currencyChargeMessage.currencyAmount);
-                    gVar.f52795f = currencyChargeMessage.orderId;
-                    gVar.f52794e = currencyChargeMessage.expand;
+                    gVar.f13370g = currencyChargeMessage.status;
+                    gVar.f13365b = currencyChargeMessage.appid;
+                    gVar.f13371h = Long.valueOf(currencyChargeMessage.uid);
+                    gVar.f13372i = currencyChargeMessage.usedChannel;
+                    gVar.f13367d = currencyChargeMessage.currencyType;
+                    gVar.f13364a = Long.valueOf(currencyChargeMessage.amount);
+                    gVar.f13366c = Long.valueOf(currencyChargeMessage.currencyAmount);
+                    gVar.f13369f = currencyChargeMessage.orderId;
+                    gVar.f13368e = currencyChargeMessage.expand;
                     PayActivityStatic.yyPayResultCallback.a(gVar);
                 }
             };
-            if (fVar.f52786b == 0) {
+            if (fVar.f13360b == 0) {
                 yyPayUIKit.startPayDialog((Activity) obj, null, iPayCallback);
             } else {
                 yyPayUIKitYYLive.startPayDialog((Activity) obj, viewParams, iPayCallback);
@@ -316,16 +315,12 @@ public class PayActivityStatic {
             BaiduRIM.getInstance().initRIM(TbadkApplication.getInst().getContext(), hashMap);
             int color = ResUtils.color(TbadkApplication.getInst().getContext(), "ebpay_transparent");
             int color2 = ResUtils.getColor(TbadkApplication.getInst().getContext(), "ebpay_transparent");
-            int color3 = ResUtils.color(TbadkApplication.getInst().getContext(), "ebpay_title_bg");
-            int color4 = ResUtils.getColor(TbadkApplication.getInst().getContext(), "ebpay_title_bg");
-            Log.e("PayActivityStatic", "ebpay_transparent id:" + color + "   ebpay_transparent:" + color2);
-            Log.e("PayActivityStatic", "ebpay_title_bg id:" + color3 + "   ebpay_title_bgColor:" + color4);
-            int color5 = com.baidu.fsg.base.utils.ResUtils.color(TbadkApplication.getInst().getContext(), "ebpay_transparent");
-            int color6 = com.baidu.fsg.base.utils.ResUtils.getColor(TbadkApplication.getInst().getContext(), "ebpay_transparent");
-            int color7 = com.baidu.fsg.base.utils.ResUtils.color(TbadkApplication.getInst().getContext(), "ebpay_title_bg");
-            int color8 = com.baidu.fsg.base.utils.ResUtils.getColor(TbadkApplication.getInst().getContext(), "ebpay_title_bg");
-            Log.e("PayActivityStatic", "base_ebpay_transparent id:" + color5 + "   base_ebpay_transparent:" + color6);
-            Log.e("PayActivityStatic", "base_ebpay_title_bg id:" + color7 + "   base_ebpay_title_bgColor:" + color8);
+            String str = "ebpay_transparent id:" + color + "   ebpay_transparent:" + color2;
+            String str2 = "ebpay_title_bg id:" + ResUtils.color(TbadkApplication.getInst().getContext(), "ebpay_title_bg") + "   ebpay_title_bgColor:" + ResUtils.getColor(TbadkApplication.getInst().getContext(), "ebpay_title_bg");
+            int color3 = com.baidu.fsg.base.utils.ResUtils.color(TbadkApplication.getInst().getContext(), "ebpay_transparent");
+            int color4 = com.baidu.fsg.base.utils.ResUtils.getColor(TbadkApplication.getInst().getContext(), "ebpay_transparent");
+            String str3 = "base_ebpay_transparent id:" + color3 + "   base_ebpay_transparent:" + color4;
+            String str4 = "base_ebpay_title_bg id:" + com.baidu.fsg.base.utils.ResUtils.color(TbadkApplication.getInst().getContext(), "ebpay_title_bg") + "   base_ebpay_title_bgColor:" + com.baidu.fsg.base.utils.ResUtils.getColor(TbadkApplication.getInst().getContext(), "ebpay_title_bg");
         }
     }
 

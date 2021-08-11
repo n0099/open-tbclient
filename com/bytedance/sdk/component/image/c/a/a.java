@@ -1,5 +1,5 @@
 package com.bytedance.sdk.component.image.c.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface a<K, V> {
     V a(K k);
 

@@ -11,7 +11,8 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class SampleImpl implements Sample {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +85,7 @@ public class SampleImpl implements Sample {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "SampleImpl{offset=" + this.offset + "{size=" + this.size + '}';
+            return "SampleImpl{offset=" + this.offset + "{size=" + this.size + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
@@ -125,12 +126,12 @@ public class SampleImpl implements Sample {
         this.parent = null;
     }
 
-    public SampleImpl(long j, long j2, ByteBuffer byteBuffer) {
+    public SampleImpl(long j2, long j3, ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), byteBuffer};
+            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), byteBuffer};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -140,18 +141,18 @@ public class SampleImpl implements Sample {
                 return;
             }
         }
-        this.offset = j;
-        this.size = j2;
+        this.offset = j2;
+        this.size = j3;
         this.data = new ByteBuffer[]{byteBuffer};
         this.parent = null;
     }
 
-    public SampleImpl(long j, long j2, Container container) {
+    public SampleImpl(long j2, long j3, Container container) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), container};
+            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), container};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -161,8 +162,8 @@ public class SampleImpl implements Sample {
                 return;
             }
         }
-        this.offset = j;
-        this.size = j2;
+        this.offset = j2;
+        this.size = j3;
         this.data = null;
         this.parent = container;
     }

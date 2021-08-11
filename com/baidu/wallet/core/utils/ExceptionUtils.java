@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class ExceptionUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,11 +35,11 @@ public class ExceptionUtils {
                 stringBuffer.append(exc.getClass());
                 stringBuffer.append(": ");
                 stringBuffer.append(exc.getMessage());
-                stringBuffer.append("\n");
+                stringBuffer.append(org.apache.commons.lang3.StringUtils.LF);
                 for (StackTraceElement stackTraceElement : exc.getStackTrace()) {
                     stringBuffer.append(TrackUI.SEPERATOR);
                     stringBuffer.append(stackTraceElement.toString());
-                    stringBuffer.append("\n");
+                    stringBuffer.append(org.apache.commons.lang3.StringUtils.LF);
                 }
             }
             return stringBuffer.toString();

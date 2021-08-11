@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38414a = "com.sdk.base.framework.f.g.a";
+    public static final String f75200a = "com.sdk.base.framework.f.g.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f38415b;
+    public static final Boolean f75201b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class a {
                 return;
             }
         }
-        f38415b = Boolean.valueOf(com.sdk.base.framework.c.f.f38384b);
+        f75201b = Boolean.valueOf(com.sdk.base.framework.c.f.f75169b);
     }
 
     public a() {
@@ -56,7 +56,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            c cVar = c.f38418c;
+            c cVar = c.f75204c;
             if (context == null) {
                 return cVar;
             }
@@ -65,13 +65,13 @@ public class a {
                 if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
                     String typeName = activeNetworkInfo.getTypeName();
                     if ("MOBILE".equalsIgnoreCase(typeName)) {
-                        cVar = c.f38417b;
+                        cVar = c.f75203b;
                     } else if (CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING.equalsIgnoreCase(typeName)) {
-                        cVar = c.f38416a;
+                        cVar = c.f75202a;
                     }
                 }
             } catch (Throwable th) {
-                com.sdk.base.framework.a.a.c.b(f38414a, th.getMessage(), f38415b);
+                com.sdk.base.framework.a.a.c.b(f75200a, th.getMessage(), f75201b);
             }
             return cVar;
         }

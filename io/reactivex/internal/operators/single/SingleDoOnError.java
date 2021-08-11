@@ -12,14 +12,14 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Consumer;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class SingleDoOnError<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Consumer<? super Throwable> onError;
     public final SingleSource<T> source;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public final class DoOnError implements SingleObserver<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

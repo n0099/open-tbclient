@@ -1,7 +1,6 @@
 package com.baidu.android.imsdk.utils;
 
 import android.content.Context;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -15,7 +14,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes4.dex */
 public class LogUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static int LOG_LEVEL_D = 3;
@@ -68,11 +68,10 @@ public class LogUtils {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && Constants.isDebugMode() && mLoglevel >= LOG_LEVEL_D) {
             if (mIsWriteToFile) {
-                LogFile.getInstance(sContext).writeByte((currentTime() + str + ZeusCrashHandler.NAME_SEPERATOR + str2 + "\n").getBytes());
+                LogFile.getInstance(sContext).writeByte((currentTime() + str + ZeusCrashHandler.NAME_SEPERATOR + str2 + StringUtils.LF).getBytes());
                 return;
             }
-            String str3 = TAG;
-            Log.d(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+            String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }
 
@@ -80,11 +79,10 @@ public class LogUtils {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && Constants.isDebugMode() && mLoglevel >= LOG_LEVEL_E) {
             if (mIsWriteToFile) {
-                LogFile.getInstance(sContext).writeByte((currentTime() + str + ZeusCrashHandler.NAME_SEPERATOR + str2 + "\n").getBytes());
+                LogFile.getInstance(sContext).writeByte((currentTime() + str + ZeusCrashHandler.NAME_SEPERATOR + str2 + StringUtils.LF).getBytes());
                 return;
             }
-            String str3 = TAG;
-            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+            String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }
 
@@ -110,11 +108,10 @@ public class LogUtils {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) && Constants.isDebugMode() && mLoglevel >= LOG_LEVEL_I) {
             if (mIsWriteToFile) {
-                LogFile.getInstance(sContext).writeByte((currentTime() + str + ZeusCrashHandler.NAME_SEPERATOR + str2 + "\n").getBytes());
+                LogFile.getInstance(sContext).writeByte((currentTime() + str + ZeusCrashHandler.NAME_SEPERATOR + str2 + StringUtils.LF).getBytes());
                 return;
             }
-            String str3 = TAG;
-            Log.i(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+            String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }
 
@@ -144,11 +141,10 @@ public class LogUtils {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65549, null, str, str2) == null) && Constants.isDebugMode() && mLoglevel >= LOG_LEVEL_I) {
             if (mIsWriteToFile) {
-                LogFile.getInstance(sContext).writeByte((currentTime() + str + ZeusCrashHandler.NAME_SEPERATOR + str2 + "\n").getBytes());
+                LogFile.getInstance(sContext).writeByte((currentTime() + str + ZeusCrashHandler.NAME_SEPERATOR + str2 + StringUtils.LF).getBytes());
                 return;
             }
-            String str3 = TAG;
-            Log.w(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+            String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }
 
@@ -156,11 +152,10 @@ public class LogUtils {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, th) == null) && Constants.isDebugMode() && mLoglevel >= LOG_LEVEL_E) {
             if (mIsWriteToFile) {
-                LogFile.getInstance(sContext).writeByte((currentTime() + str + ZeusCrashHandler.NAME_SEPERATOR + str2 + "\n").getBytes());
+                LogFile.getInstance(sContext).writeByte((currentTime() + str + ZeusCrashHandler.NAME_SEPERATOR + str2 + StringUtils.LF).getBytes());
                 return;
             }
-            String str3 = TAG;
-            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2, th);
+            String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }
 

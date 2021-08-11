@@ -3,7 +3,6 @@ package androidx.core.view;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.ViewConfiguration;
 import androidx.annotation.NonNull;
@@ -40,7 +39,6 @@ public final class ViewConfigurationCompat {
             try {
                 sGetScaledScrollFactorMethod = ViewConfiguration.class.getDeclaredMethod("getScaledScrollFactor", new Class[0]);
             } catch (Exception unused) {
-                Log.i(TAG, "Could not find method getScaledScrollFactor() on ViewConfiguration");
             }
         }
     }
@@ -68,7 +66,6 @@ public final class ViewConfigurationCompat {
                 try {
                     return ((Integer) method.invoke(viewConfiguration, new Object[0])).intValue();
                 } catch (Exception unused) {
-                    Log.i(TAG, "Could not find method getScaledScrollFactor() on ViewConfiguration");
                 }
             }
             TypedValue typedValue = new TypedValue();

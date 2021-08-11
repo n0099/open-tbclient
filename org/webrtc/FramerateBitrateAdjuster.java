@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class FramerateBitrateAdjuster extends BaseBitrateAdjuster {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INITIAL_FPS = 30;

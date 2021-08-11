@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class bn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,16 +63,16 @@ public abstract class bn {
         }
     }
 
-    public long a(Context context, String str, long j) {
+    public long a(Context context, String str, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, Long.valueOf(j)})) == null) ? a(context).getLong(str, j) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, Long.valueOf(j2)})) == null) ? a(context).getLong(str, j2) : invokeCommon.longValue;
     }
 
-    public void b(Context context, String str, long j) {
+    public void b(Context context, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, str, Long.valueOf(j)}) == null) {
-            a(context).edit().putLong(str, j).commit();
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, str, Long.valueOf(j2)}) == null) {
+            a(context).edit().putLong(str, j2).commit();
         }
     }
 

@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f1959a;
+    public a f35812a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1960b;
+    public String f35813b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String[] f1961c;
+    public String[] f35814c;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class b {
                 return;
             }
         }
-        this.f1960b = str;
+        this.f35813b = str;
     }
 
     public static void a(b bVar) {
@@ -49,7 +49,7 @@ public class b {
         if (interceptable == null || interceptable.invokeL(65539, null, bVar) == null) {
             String[] c2 = bVar.c();
             if (c2.length == 3 && TextUtils.equals("tid", c2[0])) {
-                com.alipay.sdk.tid.b a2 = com.alipay.sdk.tid.b.a(com.alipay.sdk.sys.b.a().b());
+                com.alipay.sdk.tid.a a2 = com.alipay.sdk.tid.a.a(com.alipay.sdk.sys.b.a().b());
                 if (TextUtils.isEmpty(c2[1]) || TextUtils.isEmpty(c2[2])) {
                     return;
                 }
@@ -73,7 +73,7 @@ public class b {
     public String[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1961c : (String[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35814c : (String[]) invokeV.objValue;
     }
 
     public b(String str, a aVar) {
@@ -91,14 +91,14 @@ public class b {
                 return;
             }
         }
-        this.f1960b = str;
-        this.f1959a = aVar;
+        this.f35813b = str;
+        this.f35812a = aVar;
     }
 
     public a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1959a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35812a : (a) invokeV.objValue;
     }
 
     public static List<b> a(JSONObject jSONObject) {
@@ -112,9 +112,9 @@ public class b {
             String[] b2 = b(jSONObject.optString("name", ""));
             for (int i2 = 0; i2 < b2.length; i2++) {
                 a a2 = a.a(b2[i2]);
-                if (a2 != a.f1951a) {
+                if (a2 != a.f35804a) {
                     b bVar = new b(b2[i2], a2);
-                    bVar.f1961c = a(b2[i2]);
+                    bVar.f35814c = a(b2[i2]);
                     arrayList.add(bVar);
                 }
             }
@@ -144,6 +144,6 @@ public class b {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1960b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35813b : (String) invokeV.objValue;
     }
 }

@@ -19,8 +19,9 @@ import java.io.IOException;
 import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
+import org.apache.commons.lang3.CharUtils;
 import org.apache.http.message.BasicHeaderValueFormatter;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class JsonUtf8Reader extends JsonReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ByteString CLOSING_BLOCK_COMMENT;
@@ -561,7 +562,7 @@ public final class JsonUtf8Reader extends JsonReader {
         }
         char c2 = 1;
         int i2 = 0;
-        long j = 0;
+        long j2 = 0;
         int i3 = 0;
         char c3 = 0;
         boolean z = true;
@@ -583,18 +584,18 @@ public final class JsonUtf8Reader extends JsonReader {
                         if (b2 < 48 || b2 > 57) {
                             break;
                         } else if (c3 == c2 || c3 == 0) {
-                            j = -(b2 - 48);
+                            j2 = -(b2 - 48);
                             i2 = 0;
                             c3 = 2;
                         } else {
                             if (c3 == 2) {
-                                if (j == 0) {
+                                if (j2 == 0) {
                                     return i2;
                                 }
-                                long j2 = (10 * j) - (b2 - 48);
-                                int i5 = (j > (-922337203685477580L) ? 1 : (j == (-922337203685477580L) ? 0 : -1));
-                                z &= i5 > 0 || (i5 == 0 && j2 < j);
-                                j = j2;
+                                long j3 = (10 * j2) - (b2 - 48);
+                                int i5 = (j2 > (-922337203685477580L) ? 1 : (j2 == (-922337203685477580L) ? 0 : -1));
+                                z &= i5 > 0 || (i5 == 0 && j3 < j2);
+                                j2 = j3;
                             } else if (c3 == 3) {
                                 i2 = 0;
                                 c3 = 4;
@@ -674,7 +675,7 @@ public final class JsonUtf8Reader extends JsonReader {
                                 }
                                 return '\t';
                             }
-                            return '\r';
+                            return CharUtils.CR;
                         }
                         return '\n';
                     }
@@ -931,9 +932,9 @@ public final class JsonUtf8Reader extends JsonReader {
                 i2 = doPeek();
             }
             if (i2 == 16) {
-                long j = this.peekedLong;
-                int i3 = (int) j;
-                if (j == i3) {
+                long j2 = this.peekedLong;
+                int i3 = (int) j2;
+                if (j2 == i3) {
                     this.peeked = 0;
                     int[] iArr = this.pathIndices;
                     int i4 = this.stackSize - 1;

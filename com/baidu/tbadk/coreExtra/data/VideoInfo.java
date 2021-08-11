@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class VideoInfo extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DRAFT_JSON_NAME = "new_video_info";
@@ -45,7 +45,7 @@ public class VideoInfo extends OrmObject implements Serializable {
     public long videoLength;
     public String videoMd5;
     public String videoPath;
-    public int videoType;
+    public int videoSource;
     public String videoUriStr;
     public String videoUrl;
     public int videoWidth;
@@ -60,15 +60,17 @@ public class VideoInfo extends OrmObject implements Serializable {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.videoSource = 2;
     }
 
     public String buildContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "#(movideo," + this.thumbId + "," + this.videoWidth + "," + this.videoHeight + "," + this.videoMd5 + "," + this.videoUrl + "," + this.videoDuration + "," + this.videoWidth + "," + this.videoHeight + "," + this.videoLength + "," + this.videoType + SmallTailInfo.EMOTION_SUFFIX;
+            return "#(movideo," + this.thumbId + "," + this.videoWidth + "," + this.videoHeight + "," + this.videoMd5 + "," + this.videoUrl + "," + this.videoDuration + "," + this.videoWidth + "," + this.videoHeight + "," + this.videoLength + "," + this.videoSource + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
@@ -87,7 +89,7 @@ public class VideoInfo extends OrmObject implements Serializable {
         this.videoUrl = videoInfo.videoUrl;
         this.thumbId = videoInfo.thumbId;
         this.videoLength = videoInfo.videoLength;
-        this.videoType = videoInfo.videoType;
+        this.videoSource = videoInfo.videoSource;
         this.mBeautifyListInfo = videoInfo.mBeautifyListInfo;
         this.mFilterListInfo = videoInfo.mFilterListInfo;
         this.mMusicListInfo = videoInfo.mMusicListInfo;
@@ -186,10 +188,10 @@ public class VideoInfo extends OrmObject implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.videoPath : (String) invokeV.objValue;
     }
 
-    public int getVideoType() {
+    public int getVideoSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.videoType : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.videoSource : invokeV.intValue;
     }
 
     public String getVideoUriStr() {
@@ -353,10 +355,10 @@ public class VideoInfo extends OrmObject implements Serializable {
         }
     }
 
-    public void setVideoLength(long j) {
+    public void setVideoLength(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048616, this, j) == null) {
-            this.videoLength = j;
+        if (interceptable == null || interceptable.invokeJ(1048616, this, j2) == null) {
+            this.videoLength = j2;
         }
     }
 
@@ -374,10 +376,10 @@ public class VideoInfo extends OrmObject implements Serializable {
         }
     }
 
-    public void setVideoType(int i2) {
+    public void setVideoSource(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-            this.videoType = i2;
+            this.videoSource = i2;
         }
     }
 

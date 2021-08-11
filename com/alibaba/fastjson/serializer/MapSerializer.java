@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class MapSerializer extends SerializeFilterable implements ObjectSerializer {
     public static /* synthetic */ Interceptable $ic;
     public static final int NON_STRINGKEY_AS_STRING;

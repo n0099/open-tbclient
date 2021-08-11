@@ -52,7 +52,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class TypeAdapters {
     public static /* synthetic */ Interceptable $ic;
     public static final TypeAdapter<AtomicBoolean> ATOMIC_BOOLEAN;
@@ -110,7 +110,7 @@ public final class TypeAdapters {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.gson.internal.bind.TypeAdapters$36  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass36 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
         public static /* synthetic */ Interceptable $ic;
@@ -174,7 +174,7 @@ public final class TypeAdapters {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class EnumTypeAdapter<T extends Enum<T>> extends TypeAdapter<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1567,9 +1567,9 @@ public final class TypeAdapters {
                     while (jsonReader.peek() != JsonToken.END_OBJECT) {
                         String nextName = jsonReader.nextName();
                         int nextInt = jsonReader.nextInt();
-                        if (YEAR.equals(nextName)) {
+                        if ("year".equals(nextName)) {
                             i2 = nextInt;
-                        } else if (MONTH.equals(nextName)) {
+                        } else if ("month".equals(nextName)) {
                             i3 = nextInt;
                         } else if (DAY_OF_MONTH.equals(nextName)) {
                             i4 = nextInt;
@@ -1597,9 +1597,9 @@ public final class TypeAdapters {
                         return;
                     }
                     jsonWriter.beginObject();
-                    jsonWriter.name(YEAR);
+                    jsonWriter.name("year");
                     jsonWriter.value(calendar.get(1));
-                    jsonWriter.name(MONTH);
+                    jsonWriter.name("month");
                     jsonWriter.value(calendar.get(2));
                     jsonWriter.name(DAY_OF_MONTH);
                     jsonWriter.value(calendar.get(5));

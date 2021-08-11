@@ -1,11 +1,12 @@
 package com.baidu.tieba.advert.sdk.data;
 
 import android.content.Context;
+import c.a.p0.t.a.f.d;
+import c.a.p0.t.a.i.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -19,9 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
-import d.a.q0.t.a.f.d;
-import d.a.q0.t.a.i.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SplashHttpRequest extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final TbHttpMessageTask mTask;
@@ -76,7 +75,7 @@ public class SplashHttpRequest extends HttpMessage {
         addParam(SearchJsBridge.COOKIE_OV, d.d());
         addParam(CommandMessage.SDK_VERSION, "1.1.4");
         addParam("nt", d.b(context).intValue());
-        addParam(Config.EXCEPTION_CRASH_TYPE, 2);
+        addParam("ct", 2);
         addParam("sw", d.f(context).intValue());
         addParam(IAdRequestParam.SCREEN_HEIGHT, d.e(context).intValue());
         addParam("imei", d.a(context));

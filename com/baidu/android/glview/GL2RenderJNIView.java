@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
@@ -22,7 +21,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class GL2RenderJNIView extends GLSurfaceView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -45,13 +44,13 @@ public class GL2RenderJNIView extends GLSurfaceView {
     public boolean mloaded;
 
     /* renamed from: com.baidu.android.glview.GL2RenderJNIView$1  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class ConfigChooser implements GLSurfaceView.EGLConfigChooser {
         public static /* synthetic */ Interceptable $ic = null;
         public static int EGL_OPENGL_ES2_BIT = 4;
@@ -121,7 +120,8 @@ public class GL2RenderJNIView extends GLSurfaceView {
                     int i3 = iArr[i2];
                     String str = strArr[i2];
                     if (egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i3, iArr2)) {
-                        Log.w(GL2RenderJNIView.TAG, String.format("  %s: %d\n", str, Integer.valueOf(iArr2[0])));
+                        String unused = GL2RenderJNIView.TAG;
+                        String.format("  %s: %d\n", str, Integer.valueOf(iArr2[0]));
                     } else {
                         do {
                         } while (egl10.eglGetError() != 12288);
@@ -134,9 +134,11 @@ public class GL2RenderJNIView extends GLSurfaceView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, egl10, eGLDisplay, eGLConfigArr) == null) {
                 int length = eGLConfigArr.length;
-                Log.w(GL2RenderJNIView.TAG, String.format("%d configurations", Integer.valueOf(length)));
+                String unused = GL2RenderJNIView.TAG;
+                String.format("%d configurations", Integer.valueOf(length));
                 for (int i2 = 0; i2 < length; i2++) {
-                    Log.w(GL2RenderJNIView.TAG, String.format("Configuration %d:\n", Integer.valueOf(i2)));
+                    String unused2 = GL2RenderJNIView.TAG;
+                    String.format("Configuration %d:\n", Integer.valueOf(i2));
                     printConfig(egl10, eGLDisplay, eGLConfigArr[i2]);
                 }
             }
@@ -183,7 +185,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class ContextFactory implements GLSurfaceView.EGLContextFactory {
         public static /* synthetic */ Interceptable $ic = null;
         public static int EGL_CONTEXT_CLIENT_VERSION = 12440;
@@ -227,7 +229,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, egl10, eGLDisplay, eGLConfig)) == null) {
-                Log.w(GL2RenderJNIView.TAG, "creating OpenGL ES 2.0 context");
+                String unused = GL2RenderJNIView.TAG;
                 GL2RenderJNIView.checkEglError("Before eglCreateContext", egl10);
                 EGLContext eglCreateContext = egl10.eglCreateContext(eGLDisplay, eGLConfig, EGL10.EGL_NO_CONTEXT, new int[]{EGL_CONTEXT_CLIENT_VERSION, 2, ZeusMonitorType.MONITOR_TYPE_AD_FILTER});
                 GL2RenderJNIView.checkEglError("After eglCreateContext", egl10);
@@ -245,7 +247,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class Renderer implements GLSurfaceView.Renderer, SurfaceTexture.OnFrameAvailableListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -289,7 +291,8 @@ public class GL2RenderJNIView extends GLSurfaceView {
                     gL2RenderJNIView.mSurfaceTexture.updateTexImage();
                     this.this$0.mSurfaceTexture.getTransformMatrix(this.mSTMatrix);
                     GLES20.glUniformMatrix4fv(GL2JNILib.getSTMatrixHandle(this.m_hRender), 1, false, this.mSTMatrix, 0);
-                    Log.w(GL2RenderJNIView.TAG, String.format("%s%d\n", "start ondraw frame", Integer.valueOf(this.this$0.mSurfaceTexID)));
+                    String unused = GL2RenderJNIView.TAG;
+                    String.format("%s%d\n", "start ondraw frame", Integer.valueOf(this.this$0.mSurfaceTexID));
                 }
                 GL2JNILib.render(this.m_hRender);
             }
@@ -299,7 +302,8 @@ public class GL2RenderJNIView extends GLSurfaceView {
         public void onFrameAvailable(SurfaceTexture surfaceTexture) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surfaceTexture) == null) {
-                Log.i(GL2RenderJNIView.TAG, String.format("onFrameAvailable:=======\n", new Object[0]));
+                String unused = GL2RenderJNIView.TAG;
+                String.format("onFrameAvailable:=======\n", new Object[0]);
                 this.mUpdateSurfaceTex = true;
                 this.m_SurfaceView.requestRender();
             }
@@ -407,7 +411,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
             if (eglGetError == 12288) {
                 return;
             }
-            Log.e(TAG, String.format("%s: EGL error: 0x%x", str, Integer.valueOf(eglGetError)));
+            String.format("%s: EGL error: 0x%x", str, Integer.valueOf(eglGetError));
         }
     }
 

@@ -15,7 +15,7 @@ import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class GifHeaderParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_FRAME_DELAY = 10;
@@ -121,9 +121,9 @@ public class GifHeaderParser {
                         i3 = this.blockSize - i2;
                         this.rawData.get(this.block, i2, i3);
                         i2 += i3;
-                    } catch (Exception e2) {
+                    } catch (Exception unused) {
                         if (Log.isLoggable(TAG, 3)) {
-                            Log.d(TAG, "Error Reading Block n: " + i2 + " count: " + i3 + " blockSize: " + this.blockSize, e2);
+                            String str = "Error Reading Block n: " + i2 + " count: " + i3 + " blockSize: " + this.blockSize;
                         }
                         this.header.status = 1;
                         return;
@@ -154,10 +154,8 @@ public class GifHeaderParser {
                     i4 = i7;
                     i3 = i8;
                 }
-            } catch (BufferUnderflowException e2) {
-                if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "Format Error Reading Color Table", e2);
-                }
+            } catch (BufferUnderflowException unused) {
+                Log.isLoggable(TAG, 3);
                 this.header.status = 1;
             }
             return iArr;

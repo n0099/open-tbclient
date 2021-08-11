@@ -5,7 +5,6 @@ import android.database.DataSetObservable;
 import android.database.DataSetObserver;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -19,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class PinnedHeaderListView extends BdListView implements AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,13 +36,13 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
     public boolean V;
     public c W;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class a extends DataSetObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PinnedHeaderListView f2433a;
+        public final /* synthetic */ PinnedHeaderListView f36296a;
 
         public a(PinnedHeaderListView pinnedHeaderListView) {
             Interceptable interceptable = $ic;
@@ -60,15 +59,15 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
                     return;
                 }
             }
-            this.f2433a = pinnedHeaderListView;
+            this.f36296a = pinnedHeaderListView;
         }
 
         @Override // android.database.DataSetObserver
         public void onChanged() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2433a.requestLayout();
-                this.f2433a.invalidate();
+                this.f36296a.requestLayout();
+                this.f36296a.invalidate();
             }
         }
 
@@ -76,20 +75,20 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
         public void onInvalidated() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f2433a.R = -1;
-                this.f2433a.requestLayout();
-                this.f2433a.invalidate();
+                this.f36296a.R = -1;
+                this.f36296a.requestLayout();
+                this.f36296a.invalidate();
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class b implements BdListView.r {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PinnedHeaderListView f2434a;
+        public final /* synthetic */ PinnedHeaderListView f36297a;
 
         public b(PinnedHeaderListView pinnedHeaderListView) {
             Interceptable interceptable = $ic;
@@ -106,25 +105,25 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
                     return;
                 }
             }
-            this.f2434a = pinnedHeaderListView;
+            this.f36297a = pinnedHeaderListView;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.r
         public void onScrollToPull(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f2434a.V = z;
+                this.f36297a.V = z;
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static abstract class c implements ListAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final DataSetObservable f2435e;
+        public final DataSetObservable f36298e;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -139,7 +138,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
                     return;
                 }
             }
-            this.f2435e = new DataSetObservable();
+            this.f36298e = new DataSetObservable();
         }
 
         public abstract View a();
@@ -189,7 +188,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
         public void registerDataSetObserver(DataSetObserver dataSetObserver) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, dataSetObserver) == null) {
-                this.f2435e.registerObserver(dataSetObserver);
+                this.f36298e.registerObserver(dataSetObserver);
             }
         }
 
@@ -197,7 +196,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
         public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dataSetObserver) == null) {
-                this.f2435e.unregisterObserver(dataSetObserver);
+                this.f36298e.unregisterObserver(dataSetObserver);
             }
         }
     }
@@ -221,79 +220,13 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
                 return;
             }
         }
-        L();
+        B();
     }
 
-    public final void I() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.M == null) {
-            return;
-        }
-        c cVar = this.W;
-        int firstVisiblePosition = getFirstVisiblePosition();
-        if (firstVisiblePosition > 0) {
-            firstVisiblePosition--;
-        }
-        int i2 = firstVisiblePosition + 1;
-        int itemViewType = cVar.getItemViewType(firstVisiblePosition);
-        int itemViewType2 = cVar.getItemViewType(i2);
-        if (this.U) {
-            int i3 = this.N;
-            if (itemViewType2 == i3) {
-                View childAt = getChildAt(1);
-                if (childAt != null) {
-                    int i4 = this.P;
-                    this.Q = Math.min(i4, Math.max(0, i4 - childAt.getTop()));
-                    invalidate(0, 0, this.O, this.P);
-                }
-            } else if (itemViewType == i3 && firstVisiblePosition != this.R) {
-                cVar.c(this.M, this, firstVisiblePosition);
-                M(getMeasuredWidth(), getMeasuredHeight());
-                this.M.layout(0, 0, this.O, this.P);
-                invalidate(0, 0, this.O, this.P);
-                this.R = firstVisiblePosition;
-                this.T = firstVisiblePosition;
-            } else {
-                this.Q = 0;
-                invalidate(0, 0, this.O, this.P);
-            }
-            int K = K(i2);
-            if (K == -1) {
-                this.U = false;
-                cVar.c(null, this, -1);
-            } else if (K != this.T || K == 0) {
-                cVar.c(this.M, this, K);
-                M(getMeasuredWidth(), getMeasuredHeight());
-                this.M.layout(0, 0, this.O, this.P);
-                invalidate(0, 0, this.O, this.P);
-                this.T = K;
-                this.R = this.S;
-            }
-        } else if (itemViewType == this.N) {
-            this.U = true;
-            this.Q = 0;
-            cVar.c(this.M, this, firstVisiblePosition);
-            M(getMeasuredWidth(), getMeasuredHeight());
-            this.M.layout(0, 0, this.O, this.P);
-            invalidate(0, 0, this.O, this.P);
-            this.R = firstVisiblePosition;
-            this.S = firstVisiblePosition;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.AbsListView, android.view.ViewGroup
-    /* renamed from: J */
-    public AbsListView.LayoutParams generateDefaultLayoutParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new AbsListView.LayoutParams(-1, -2) : (AbsListView.LayoutParams) invokeV.objValue;
-    }
-
-    public final int K(int i2) {
+    public final int A(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             c cVar = this.W;
             for (int i3 = i2 - 1; i3 >= 0; i3--) {
                 if (cVar.getItemViewType(i3) == this.N) {
@@ -305,20 +238,20 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
         return invokeI.intValue;
     }
 
-    public final void L() {
+    public final void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.S = this.R;
             setOnScrollToPullListener(new b(this));
         }
     }
 
-    public final void M(int i2, int i3) {
+    public final void C(int i2, int i3) {
         View view;
         int makeMeasureSpec;
         int makeMeasureSpec2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) || (view = this.M) == null) {
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) || (view = this.M) == null) {
             return;
         }
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
@@ -349,7 +282,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             super.dispatchDraw(canvas);
             if (this.U && !this.V && this.M.getVisibility() == 0) {
                 long drawingTime = getDrawingTime();
@@ -367,17 +300,17 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            I();
+            z();
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, absListView, i2, i3, i4) == null) {
-            I();
+        if (interceptable == null || interceptable.invokeLIII(1048583, this, absListView, i2, i3, i4) == null) {
+            z();
             AbsListView.OnScrollListener onScrollListener = this.K;
             if (onScrollListener != null) {
                 onScrollListener.onScroll(absListView, i2, i3, i4);
@@ -389,7 +322,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
     public void onScrollStateChanged(AbsListView absListView, int i2) {
         AbsListView.OnScrollListener onScrollListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048585, this, absListView, i2) == null) || (onScrollListener = this.K) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, absListView, i2) == null) || (onScrollListener = this.K) == null) {
             return;
         }
         onScrollListener.onScrollStateChanged(absListView, i2);
@@ -398,16 +331,81 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, onScrollListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, onScrollListener) == null) {
             this.K = onScrollListener;
         }
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.M == null) {
+            return;
+        }
+        c cVar = this.W;
+        int firstVisiblePosition = getFirstVisiblePosition();
+        if (firstVisiblePosition > 0) {
+            firstVisiblePosition--;
+        }
+        int i2 = firstVisiblePosition + 1;
+        int itemViewType = cVar.getItemViewType(firstVisiblePosition);
+        int itemViewType2 = cVar.getItemViewType(i2);
+        if (this.U) {
+            int i3 = this.N;
+            if (itemViewType2 == i3) {
+                View childAt = getChildAt(1);
+                if (childAt != null) {
+                    int i4 = this.P;
+                    this.Q = Math.min(i4, Math.max(0, i4 - childAt.getTop()));
+                    invalidate(0, 0, this.O, this.P);
+                }
+            } else if (itemViewType == i3 && firstVisiblePosition != this.R) {
+                cVar.c(this.M, this, firstVisiblePosition);
+                C(getMeasuredWidth(), getMeasuredHeight());
+                this.M.layout(0, 0, this.O, this.P);
+                invalidate(0, 0, this.O, this.P);
+                this.R = firstVisiblePosition;
+                this.T = firstVisiblePosition;
+            } else {
+                this.Q = 0;
+                invalidate(0, 0, this.O, this.P);
+            }
+            int A = A(i2);
+            if (A == -1) {
+                this.U = false;
+                cVar.c(null, this, -1);
+            } else if (A != this.T || A == 0) {
+                cVar.c(this.M, this, A);
+                C(getMeasuredWidth(), getMeasuredHeight());
+                this.M.layout(0, 0, this.O, this.P);
+                invalidate(0, 0, this.O, this.P);
+                this.T = A;
+                this.R = this.S;
+            }
+        } else if (itemViewType == this.N) {
+            this.U = true;
+            this.Q = 0;
+            cVar.c(this.M, this, firstVisiblePosition);
+            C(getMeasuredWidth(), getMeasuredHeight());
+            this.M.layout(0, 0, this.O, this.P);
+            invalidate(0, 0, this.O, this.P);
+            this.R = firstVisiblePosition;
+            this.S = firstVisiblePosition;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.AbsListView, android.view.ViewGroup
+    public AbsListView.LayoutParams generateDefaultLayoutParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new AbsListView.LayoutParams(-1, -2) : (AbsListView.LayoutParams) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AdapterView
     public void setAdapter(ListAdapter listAdapter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, listAdapter) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, listAdapter) == null) {
             if (listAdapter instanceof c) {
                 super.setAdapter(listAdapter);
                 c cVar = (c) listAdapter;
@@ -447,7 +445,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
                 return;
             }
         }
-        L();
+        B();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -473,7 +471,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
         this.N = -1;
         this.V = false;
         super.setOnScrollListener(this);
-        Log.d("PinnedHeaderListView", "head count = " + getHeaderViewsCount());
-        L();
+        String str = "head count = " + getHeaderViewsCount();
+        B();
     }
 }

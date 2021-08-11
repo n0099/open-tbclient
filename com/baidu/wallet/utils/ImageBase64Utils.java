@@ -8,7 +8,6 @@ import android.os.AsyncTask;
 import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.imagemanager.ImageProcessor;
 import com.baidu.mapsdkplatform.comapi.map.r;
@@ -25,7 +24,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class ImageBase64Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static int JPEG_QUALITY = 70;
@@ -33,13 +32,13 @@ public class ImageBase64Utils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.utils.ImageBase64Utils$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class ImageBase64AsyncTask extends AsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +83,7 @@ public class ImageBase64Utils {
                 Context context = this.mContext;
                 if (context != null && this.mImageUri != null) {
                     try {
-                        return context.getContentResolver().openFileDescriptor(this.mImageUri, r.f7788a);
+                        return context.getContentResolver().openFileDescriptor(this.mImageUri, r.f42062a);
                     } catch (FileNotFoundException e2) {
                         e2.printStackTrace();
                     }
@@ -100,7 +99,7 @@ public class ImageBase64Utils {
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
                 if (!TextUtils.isEmpty(this.mImagePath)) {
                     try {
-                        return ParcelFileDescriptor.open(new File(this.mImagePath), Label.FORWARD_REFERENCE_TYPE_SHORT);
+                        return ParcelFileDescriptor.open(new File(this.mImagePath), 268435456);
                     } catch (FileNotFoundException e2) {
                         e2.printStackTrace();
                     }
@@ -161,12 +160,12 @@ public class ImageBase64Utils {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface ImageBase64Listener {
         void onBase64Result(String str);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static ImageBase64Utils sInstance;

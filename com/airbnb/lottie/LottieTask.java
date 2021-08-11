@@ -21,7 +21,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class LottieTask<T> {
     public static /* synthetic */ Interceptable $ic;
     public static Executor EXECUTOR;
@@ -32,7 +32,7 @@ public class LottieTask<T> {
     public volatile LottieResult<T> result;
     public final Set<LottieListener<T>> successListeners;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class LottieFutureTask extends FutureTask<LottieResult<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

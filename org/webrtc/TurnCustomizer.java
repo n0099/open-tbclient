@@ -6,18 +6,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class TurnCustomizer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long nativeTurnCustomizer;
 
-    public TurnCustomizer(long j) {
+    public TurnCustomizer(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -27,7 +27,7 @@ public class TurnCustomizer {
                 return;
             }
         }
-        this.nativeTurnCustomizer = j;
+        this.nativeTurnCustomizer = j2;
     }
 
     private void checkTurnCustomizerExists() {
@@ -37,7 +37,7 @@ public class TurnCustomizer {
         }
     }
 
-    public static native void nativeFreeTurnCustomizer(long j);
+    public static native void nativeFreeTurnCustomizer(long j2);
 
     public void dispose() {
         Interceptable interceptable = $ic;

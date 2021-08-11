@@ -41,20 +41,20 @@ public final class FlowLiveDataConversions {
     }
 
     @JvmOverloads
-    public static final <T> LiveData<T> asLiveData(Flow<? extends T> flow, CoroutineContext coroutineContext, long j) {
+    public static final <T> LiveData<T> asLiveData(Flow<? extends T> flow, CoroutineContext coroutineContext, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{flow, coroutineContext, Long.valueOf(j)})) == null) ? CoroutineLiveDataKt.liveData(coroutineContext, j, new FlowLiveDataConversions$asLiveData$1(flow, null)) : (LiveData) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{flow, coroutineContext, Long.valueOf(j2)})) == null) ? CoroutineLiveDataKt.liveData(coroutineContext, j2, new FlowLiveDataConversions$asLiveData$1(flow, null)) : (LiveData) invokeCommon.objValue;
     }
 
-    public static /* synthetic */ LiveData asLiveData$default(Flow flow, CoroutineContext coroutineContext, long j, int i2, Object obj) {
+    public static /* synthetic */ LiveData asLiveData$default(Flow flow, CoroutineContext coroutineContext, long j2, int i2, Object obj) {
         if ((i2 & 1) != 0) {
             coroutineContext = EmptyCoroutineContext.INSTANCE;
         }
         if ((i2 & 2) != 0) {
-            j = 5000;
+            j2 = 5000;
         }
-        return asLiveData(flow, coroutineContext, j);
+        return asLiveData(flow, coroutineContext, j2);
     }
 
     @RequiresApi(26)

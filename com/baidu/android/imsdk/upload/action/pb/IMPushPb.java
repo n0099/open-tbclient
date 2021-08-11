@@ -27,19 +27,19 @@ import java.io.ObjectStreamException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class IMPushPb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.imsdk.upload.action.pb.IMPushPb$1  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class Ack extends GeneratedMessageLite implements AckOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 5;
@@ -60,7 +60,7 @@ public final class IMPushPb {
         public Object type_;
         public Object value_;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes4.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Ack, Builder> implements AckOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -312,12 +312,12 @@ public final class IMPushPb {
                 return invokeV.booleanValue;
             }
 
-            public Builder setAliasId(long j) {
+            public Builder setAliasId(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048615, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048615, this, j2)) == null) {
                     this.bitField0_ |= 16;
-                    this.aliasId_ = j;
+                    this.aliasId_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -351,12 +351,12 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setTimestamp(long j) {
+            public Builder setTimestamp(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048618, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048618, this, j2)) == null) {
                     this.bitField0_ |= 4;
-                    this.timestamp_ = j;
+                    this.timestamp_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -1078,7 +1078,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface AckOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -1107,7 +1107,7 @@ public final class IMPushPb {
         boolean hasValue();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class Action extends GeneratedMessageLite implements ActionOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ACK_FIELD_NUMBER = 7;
@@ -1136,7 +1136,7 @@ public final class IMPushPb {
         public Request request_;
         public Ui ui_;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes4.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Action, Builder> implements ActionOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -2512,7 +2512,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface ActionOrBuilder extends MessageLiteOrBuilder {
         Ack getAck();
 
@@ -2552,7 +2552,7 @@ public final class IMPushPb {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class ActionType implements Internal.EnumLite {
         public static final /* synthetic */ ActionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -2708,7 +2708,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class AppInfo extends GeneratedMessageLite implements AppInfoOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int APP_CHANNEL_FIELD_NUMBER = 3;
@@ -2725,7 +2725,7 @@ public final class IMPushPb {
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes4.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<AppInfo, Builder> implements AppInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -3601,7 +3601,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface AppInfoOrBuilder extends MessageLiteOrBuilder {
         String getAppChannel();
 
@@ -3622,7 +3622,7 @@ public final class IMPushPb {
         boolean hasAppVersion();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class Common extends GeneratedMessageLite implements CommonOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int APP_INFO_FIELD_NUMBER = 21;
@@ -3649,7 +3649,7 @@ public final class IMPushPb {
         public long timestamp_;
         public long userTimestamp_;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes4.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Common, Builder> implements CommonOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -4132,23 +4132,23 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setTimestamp(long j) {
+            public Builder setTimestamp(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048639, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048639, this, j2)) == null) {
                     this.bitField0_ |= 8;
-                    this.timestamp_ = j;
+                    this.timestamp_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setUserTimestamp(long j) {
+            public Builder setUserTimestamp(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048640, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048640, this, j2)) == null) {
                     this.bitField0_ |= 16;
-                    this.userTimestamp_ = j;
+                    this.userTimestamp_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -4961,7 +4961,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface CommonOrBuilder extends MessageLiteOrBuilder {
         AppInfo getAppInfo();
 
@@ -5000,7 +5000,7 @@ public final class IMPushPb {
         boolean hasUserTimestamp();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class Connection extends GeneratedMessageLite implements ConnectionOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
@@ -5025,7 +5025,7 @@ public final class IMPushPb {
         public long startTime_;
         public long stopTime_;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes4.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Connection, Builder> implements ConnectionOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -5303,12 +5303,12 @@ public final class IMPushPb {
                 return invokeV.booleanValue;
             }
 
-            public Builder setAliasId(long j) {
+            public Builder setAliasId(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048620, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048620, this, j2)) == null) {
                     this.bitField0_ |= 64;
-                    this.aliasId_ = j;
+                    this.aliasId_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -5370,45 +5370,45 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setRetryCount(long j) {
+            public Builder setRetryCount(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048625, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048625, this, j2)) == null) {
                     this.bitField0_ |= 16;
-                    this.retryCount_ = j;
+                    this.retryCount_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setRetryTime(long j) {
+            public Builder setRetryTime(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048626, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048626, this, j2)) == null) {
                     this.bitField0_ |= 8;
-                    this.retryTime_ = j;
+                    this.retryTime_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setStartTime(long j) {
+            public Builder setStartTime(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048627, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048627, this, j2)) == null) {
                     this.bitField0_ |= 1;
-                    this.startTime_ = j;
+                    this.startTime_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setStopTime(long j) {
+            public Builder setStopTime(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j2)) == null) {
                     this.bitField0_ |= 2;
-                    this.stopTime_ = j;
+                    this.stopTime_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -6113,7 +6113,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface ConnectionOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -6148,7 +6148,7 @@ public final class IMPushPb {
         boolean hasStopTime();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class Crash extends GeneratedMessageLite implements CrashOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 4;
@@ -6167,7 +6167,7 @@ public final class IMPushPb {
         public int memoizedSerializedSize;
         public long timestamp_;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes4.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Crash, Builder> implements CrashOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -6367,12 +6367,12 @@ public final class IMPushPb {
                 return invokeV.booleanValue;
             }
 
-            public Builder setAliasId(long j) {
+            public Builder setAliasId(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048611, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048611, this, j2)) == null) {
                     this.bitField0_ |= 8;
-                    this.aliasId_ = j;
+                    this.aliasId_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -6434,12 +6434,12 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setTimestamp(long j) {
+            public Builder setTimestamp(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048616, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048616, this, j2)) == null) {
                     this.bitField0_ |= 2;
-                    this.timestamp_ = j;
+                    this.timestamp_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -7042,7 +7042,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface CrashOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -7065,7 +7065,7 @@ public final class IMPushPb {
         boolean hasTimestamp();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class Db extends GeneratedMessageLite implements DbOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ACTION_FIELD_NUMBER = 4;
@@ -7094,7 +7094,7 @@ public final class IMPushPb {
         public long startTime_;
         public Object table_;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes4.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Db, Builder> implements DbOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -7530,12 +7530,12 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setAliasId(long j) {
+            public Builder setAliasId(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048631, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048631, this, j2)) == null) {
                     this.bitField0_ |= 256;
-                    this.aliasId_ = j;
+                    this.aliasId_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -7569,23 +7569,23 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setDuration(long j) {
+            public Builder setDuration(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048634, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048634, this, j2)) == null) {
                     this.bitField0_ |= 64;
-                    this.duration_ = j;
+                    this.duration_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setEndTime(long j) {
+            public Builder setEndTime(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048635, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048635, this, j2)) == null) {
                     this.bitField0_ |= 32;
-                    this.endTime_ = j;
+                    this.endTime_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -7647,12 +7647,12 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setStartTime(long j) {
+            public Builder setStartTime(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048640, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048640, this, j2)) == null) {
                     this.bitField0_ |= 16;
-                    this.startTime_ = j;
+                    this.startTime_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -8542,7 +8542,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface DbOrBuilder extends MessageLiteOrBuilder {
         String getAction();
 
@@ -8591,7 +8591,7 @@ public final class IMPushPb {
         boolean hasTable();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class DeviceID extends GeneratedMessageLite implements DeviceIDOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CUID_FIELD_NUMBER = 4;
@@ -8604,7 +8604,7 @@ public final class IMPushPb {
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes4.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<DeviceID, Builder> implements DeviceIDOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -9193,7 +9193,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface DeviceIDOrBuilder extends MessageLiteOrBuilder {
         String getCuid();
 
@@ -9202,7 +9202,7 @@ public final class IMPushPb {
         boolean hasCuid();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class LcpNetInfo extends GeneratedMessageLite implements LcpNetInfoOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DOMAIN_FIELD_NUMBER = 4;
@@ -9221,7 +9221,7 @@ public final class IMPushPb {
         public Object port_;
         public Object protocol_;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes4.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<LcpNetInfo, Builder> implements LcpNetInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -10240,7 +10240,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface LcpNetInfoOrBuilder extends MessageLiteOrBuilder {
         String getDomain();
 
@@ -10267,7 +10267,7 @@ public final class IMPushPb {
         boolean hasProtocol();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class MetaData extends GeneratedMessageLite implements MetaDataOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LOG_MODULE_ID_FIELD_NUMBER = 1;
@@ -10284,7 +10284,7 @@ public final class IMPushPb {
         public int memoizedSerializedSize;
         public Object productName_;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes4.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<MetaData, Builder> implements MetaDataOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -11089,7 +11089,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface MetaDataOrBuilder extends MessageLiteOrBuilder {
         int getLogModuleId();
 
@@ -11108,7 +11108,7 @@ public final class IMPushPb {
         boolean hasProductName();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class Msg extends GeneratedMessageLite implements MsgOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 6;
@@ -11133,7 +11133,7 @@ public final class IMPushPb {
         public Object roomId_;
         public long startMsgid_;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes4.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Msg, Builder> implements MsgOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -11411,34 +11411,34 @@ public final class IMPushPb {
                 return invokeV.booleanValue;
             }
 
-            public Builder setAliasId(long j) {
+            public Builder setAliasId(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048620, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048620, this, j2)) == null) {
                     this.bitField0_ |= 32;
-                    this.aliasId_ = j;
+                    this.aliasId_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setDuration(long j) {
+            public Builder setDuration(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j2)) == null) {
                     this.bitField0_ |= 4;
-                    this.duration_ = j;
+                    this.duration_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setEndMsgid(long j) {
+            public Builder setEndMsgid(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048622, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048622, this, j2)) == null) {
                     this.bitField0_ |= 8;
-                    this.endMsgid_ = j;
+                    this.endMsgid_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -11472,12 +11472,12 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setMsgCount(long j) {
+            public Builder setMsgCount(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048625, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048625, this, j2)) == null) {
                     this.bitField0_ |= 1;
-                    this.msgCount_ = j;
+                    this.msgCount_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -11511,12 +11511,12 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setStartMsgid(long j) {
+            public Builder setStartMsgid(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j2)) == null) {
                     this.bitField0_ |= 64;
-                    this.startMsgid_ = j;
+                    this.startMsgid_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -12221,7 +12221,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface MsgOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -12256,7 +12256,7 @@ public final class IMPushPb {
         boolean hasStartMsgid();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class NetInfo extends GeneratedMessageLite implements NetInfoOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NET_APN_FIELD_NUMBER = 2;
@@ -12271,7 +12271,7 @@ public final class IMPushPb {
         public Object netApn_;
         public Object netType_;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes4.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<NetInfo, Builder> implements NetInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -13006,7 +13006,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface NetInfoOrBuilder extends MessageLiteOrBuilder {
         String getNetApn();
 
@@ -13021,7 +13021,7 @@ public final class IMPushPb {
         boolean hasNetType();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class NewConnection extends GeneratedMessageLite implements NewConnectionOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 16;
@@ -13066,7 +13066,7 @@ public final class IMPushPb {
         public long tokenBegin_;
         public long tokenEnd_;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes4.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<NewConnection, Builder> implements NewConnectionOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -13646,12 +13646,12 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setAliasId(long j) {
+            public Builder setAliasId(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048652, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048652, this, j2)) == null) {
                     this.bitField0_ |= 32768;
-                    this.aliasId_ = j;
+                    this.aliasId_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -13713,45 +13713,45 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setConnectState(long j) {
+            public Builder setConnectState(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048657, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048657, this, j2)) == null) {
                     this.bitField0_ |= 4;
-                    this.connectState_ = j;
+                    this.connectState_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setDnsBegin(long j) {
+            public Builder setDnsBegin(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048658, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048658, this, j2)) == null) {
                     this.bitField0_ |= 64;
-                    this.dnsBegin_ = j;
+                    this.dnsBegin_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setDnsEnd(long j) {
+            public Builder setDnsEnd(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048659, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048659, this, j2)) == null) {
                     this.bitField0_ |= 128;
-                    this.dnsEnd_ = j;
+                    this.dnsEnd_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setEndTime(long j) {
+            public Builder setEndTime(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048660, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048660, this, j2)) == null) {
                     this.bitField0_ |= 2;
-                    this.endTime_ = j;
+                    this.endTime_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -13785,23 +13785,23 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setLcpLoginBegin(long j) {
+            public Builder setLcpLoginBegin(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048663, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048663, this, j2)) == null) {
                     this.bitField0_ |= 1024;
-                    this.lcpLoginBegin_ = j;
+                    this.lcpLoginBegin_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setLcpLoginEnd(long j) {
+            public Builder setLcpLoginEnd(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048664, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048664, this, j2)) == null) {
                     this.bitField0_ |= 2048;
-                    this.lcpLoginEnd_ = j;
+                    this.lcpLoginEnd_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -13821,67 +13821,67 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setRetry(long j) {
+            public Builder setRetry(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048667, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048667, this, j2)) == null) {
                     this.bitField0_ |= 65536;
-                    this.retry_ = j;
+                    this.retry_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setSocketBegin(long j) {
+            public Builder setSocketBegin(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048668, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048668, this, j2)) == null) {
                     this.bitField0_ |= 256;
-                    this.socketBegin_ = j;
+                    this.socketBegin_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setSocketEnd(long j) {
+            public Builder setSocketEnd(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048669, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048669, this, j2)) == null) {
                     this.bitField0_ |= 512;
-                    this.socketEnd_ = j;
+                    this.socketEnd_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setStartTime(long j) {
+            public Builder setStartTime(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048670, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048670, this, j2)) == null) {
                     this.bitField0_ |= 1;
-                    this.startTime_ = j;
+                    this.startTime_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setTokenBegin(long j) {
+            public Builder setTokenBegin(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048671, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048671, this, j2)) == null) {
                     this.bitField0_ |= 16;
-                    this.tokenBegin_ = j;
+                    this.tokenBegin_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setTokenEnd(long j) {
+            public Builder setTokenEnd(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048672, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048672, this, j2)) == null) {
                     this.bitField0_ |= 32;
-                    this.tokenEnd_ = j;
+                    this.tokenEnd_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -14992,7 +14992,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface NewConnectionOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -15070,7 +15070,7 @@ public final class IMPushPb {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class OSType implements Internal.EnumLite {
         public static final /* synthetic */ OSType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -15202,7 +15202,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class PushImClient extends GeneratedMessageLite implements PushImClientOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ACTIONS_FIELD_NUMBER = 132;
@@ -15223,7 +15223,7 @@ public final class IMPushPb {
         public Object sdkName_;
         public long sdkVersion_;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes4.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<PushImClient, Builder> implements PushImClientOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -15575,12 +15575,12 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setSdkVersion(long j) {
+            public Builder setSdkVersion(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048630, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048630, this, j2)) == null) {
                     this.bitField0_ |= 8;
-                    this.sdkVersion_ = j;
+                    this.sdkVersion_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -16313,7 +16313,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface PushImClientOrBuilder extends MessageLiteOrBuilder {
         Action getActions(int i2);
 
@@ -16340,7 +16340,7 @@ public final class IMPushPb {
         boolean hasSdkVersion();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class Request extends GeneratedMessageLite implements RequestOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
@@ -16365,7 +16365,7 @@ public final class IMPushPb {
         public long responseTime_;
         public long timestamp_;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes4.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Request, Builder> implements RequestOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -16669,23 +16669,23 @@ public final class IMPushPb {
                 return invokeV.booleanValue;
             }
 
-            public Builder setAliasId(long j) {
+            public Builder setAliasId(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j2)) == null) {
                     this.bitField0_ |= 64;
-                    this.aliasId_ = j;
+                    this.aliasId_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setErrorCode(long j) {
+            public Builder setErrorCode(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048622, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048622, this, j2)) == null) {
                     this.bitField0_ |= 16;
-                    this.errorCode_ = j;
+                    this.errorCode_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -16775,23 +16775,23 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setResponseTime(long j) {
+            public Builder setResponseTime(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048629, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048629, this, j2)) == null) {
                     this.bitField0_ |= 8;
-                    this.responseTime_ = j;
+                    this.responseTime_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setTimestamp(long j) {
+            public Builder setTimestamp(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048630, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048630, this, j2)) == null) {
                     this.bitField0_ |= 4;
-                    this.timestamp_ = j;
+                    this.timestamp_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -17527,7 +17527,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface RequestOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -17564,7 +17564,7 @@ public final class IMPushPb {
         boolean hasTimestamp();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class TerminalInfo extends GeneratedMessageLite implements TerminalInfoOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MANUFACTURER_FIELD_NUMBER = 3;
@@ -17589,7 +17589,7 @@ public final class IMPushPb {
         public int resolutionV_;
         public Object terminalType_;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes4.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<TerminalInfo, Builder> implements TerminalInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -18756,7 +18756,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface TerminalInfoOrBuilder extends MessageLiteOrBuilder {
         String getManufacturer();
 
@@ -18793,7 +18793,7 @@ public final class IMPushPb {
         boolean hasTerminalType();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class Ui extends GeneratedMessageLite implements UiOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
@@ -18818,7 +18818,7 @@ public final class IMPushPb {
         public Object page_;
         public long startTime_;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes4.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Ui, Builder> implements UiOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -19122,12 +19122,12 @@ public final class IMPushPb {
                 return invokeV.booleanValue;
             }
 
-            public Builder setAliasId(long j) {
+            public Builder setAliasId(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j2)) == null) {
                     this.bitField0_ |= 64;
-                    this.aliasId_ = j;
+                    this.aliasId_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -19161,23 +19161,23 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setDuration(long j) {
+            public Builder setDuration(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048624, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048624, this, j2)) == null) {
                     this.bitField0_ |= 16;
-                    this.duration_ = j;
+                    this.duration_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setEndTime(long j) {
+            public Builder setEndTime(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048625, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048625, this, j2)) == null) {
                     this.bitField0_ |= 8;
-                    this.endTime_ = j;
+                    this.endTime_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -19239,12 +19239,12 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setStartTime(long j) {
+            public Builder setStartTime(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048630, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048630, this, j2)) == null) {
                     this.bitField0_ |= 4;
-                    this.startTime_ = j;
+                    this.startTime_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -19980,7 +19980,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface UiOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 

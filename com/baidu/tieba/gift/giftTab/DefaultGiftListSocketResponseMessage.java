@@ -1,6 +1,10 @@
 package com.baidu.tieba.gift.giftTab;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.s.q.j0;
+import c.a.o0.s.q.k0;
+import c.a.p0.z0.b.a;
+import c.a.p0.z0.b.e;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,10 +13,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.p0.s.q.j0;
-import d.a.p0.s.q.k0;
-import d.a.q0.y0.b.a;
-import d.a.q0.y0.b.e;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;
@@ -22,7 +22,7 @@ import tbclient.GetGiftList.PresentCategoryList;
 import tbclient.GetGiftList.PresentGiftList1;
 import tbclient.GetGiftList.PresentNumInfo;
 import tbclient.GetGiftList.UrlTitle;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DefaultGiftListSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -89,10 +89,10 @@ public class DefaultGiftListSocketResponseMessage extends SocketResponsedMessage
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.sceneId : invokeV.longValue;
     }
 
-    public void setSceneId(long j) {
+    public void setSceneId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.sceneId = j;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            this.sceneId = j2;
         }
     }
 
@@ -119,25 +119,25 @@ public class DefaultGiftListSocketResponseMessage extends SocketResponsedMessage
             this.urlTitleData = k0Var;
             DataRes dataRes2 = getGiftListResIdl.data;
             UrlTitle urlTitle = dataRes2.currency_txt;
-            k0Var.f53374a = urlTitle.name;
-            k0Var.f53375b = urlTitle.url;
+            k0Var.f13976a = urlTitle.name;
+            k0Var.f13977b = urlTitle.url;
             List<PresentGiftList1> list = dataRes2.gift_list;
             if (list != null && list.size() > 0) {
                 this.giftList = new ArrayList<>();
                 for (PresentGiftList1 presentGiftList1 : getGiftListResIdl.data.gift_list) {
                     if (presentGiftList1 != null) {
                         j0 j0Var = new j0();
-                        j0Var.f53360a = presentGiftList1.gift_id.intValue();
-                        j0Var.f53361b = presentGiftList1.gift_name;
-                        j0Var.f53362c = presentGiftList1.price.intValue();
-                        j0Var.f53363d = presentGiftList1.thumbnail_url;
+                        j0Var.f13962a = presentGiftList1.gift_id.intValue();
+                        j0Var.f13963b = presentGiftList1.gift_name;
+                        j0Var.f13964c = presentGiftList1.price.intValue();
+                        j0Var.f13965d = presentGiftList1.thumbnail_url;
                         presentGiftList1.ios_price.intValue();
-                        j0Var.f53364e = presentGiftList1.gift_desc;
-                        j0Var.f53365f = presentGiftList1.activity_type.intValue();
-                        j0Var.f53366g = presentGiftList1.mark_url;
-                        j0Var.f53367h = presentGiftList1.begin_time.intValue();
-                        j0Var.f53368i = presentGiftList1.end_time.intValue();
-                        j0Var.j = presentGiftList1.discount.intValue();
+                        j0Var.f13966e = presentGiftList1.gift_desc;
+                        j0Var.f13967f = presentGiftList1.activity_type.intValue();
+                        j0Var.f13968g = presentGiftList1.mark_url;
+                        j0Var.f13969h = presentGiftList1.begin_time.intValue();
+                        j0Var.f13970i = presentGiftList1.end_time.intValue();
+                        j0Var.f13971j = presentGiftList1.discount.intValue();
                         presentGiftList1.ios_discount.intValue();
                         presentGiftList1.proportion.intValue();
                         presentGiftList1.pitch_on.intValue();

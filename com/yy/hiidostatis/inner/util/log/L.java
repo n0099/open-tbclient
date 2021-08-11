@@ -2,7 +2,6 @@ package com.yy.hiidostatis.inner.util.log;
 
 import android.content.Context;
 import android.os.Process;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -22,7 +21,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Properties;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes10.dex */
 public class L {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
@@ -74,12 +74,12 @@ public class L {
             try {
                 if (outputDebug()) {
                     String format = String.format("%s %s", getPreFix(), getLogText(null, str, objArr));
-                    Log.i(getTag(), format);
+                    getTag();
                     writeLog(format, 1);
                 }
             } catch (Throwable th) {
-                String tag = getTag();
-                Log.e(tag, "Log.brief exception=" + th);
+                getTag();
+                String str2 = "Log.brief exception=" + th;
             }
         }
     }
@@ -90,12 +90,12 @@ public class L {
             try {
                 if (outputDebug()) {
                     String format = String.format("%s %s", getPreFix(), getLogText(obj, str, objArr));
-                    Log.i(getTag(), format);
+                    getTag();
                     writeLog(format, 1);
                 }
             } catch (Throwable th) {
-                String tag = getTag();
-                Log.e(tag, "Log.debug exception=" + th);
+                getTag();
+                String str2 = "Log.debug exception=" + th;
             }
         }
     }
@@ -105,11 +105,11 @@ public class L {
         if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, objArr) == null) && isLogOn()) {
             try {
                 String formatErrorMsg = formatErrorMsg(String.format("%s %s", getPreFix(), getLogText(obj, str, objArr)), objArr);
-                Log.e(getTag(), formatErrorMsg);
+                getTag();
                 writeLog(formatErrorMsg, 4);
             } catch (Throwable th) {
-                String tag = getTag();
-                Log.e(tag, "Log.error exception=" + th);
+                getTag();
+                String str2 = "Log.error exception=" + th;
             }
         }
     }
@@ -119,11 +119,11 @@ public class L {
         if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, obj, str, objArr) == null) {
             try {
                 String formatErrorMsg = formatErrorMsg(String.format("%s %s", getPreFix(), getLogText(obj, str, objArr)), objArr);
-                Log.e(getTag(), formatErrorMsg);
+                getTag();
                 writeLog(formatErrorMsg, 4);
             } catch (Throwable th) {
-                String tag = getTag();
-                Log.e(tag, "Log.error exception=" + th);
+                getTag();
+                String str2 = "Log.error exception=" + th;
             }
         }
     }
@@ -184,11 +184,11 @@ public class L {
         if ((interceptable == null || interceptable.invokeLLL(65550, null, obj, str, objArr) == null) && isLogOn()) {
             try {
                 String format = String.format("%s %s", getPreFix(), getLogText(obj, str, objArr));
-                Log.i(getTag(), format);
+                getTag();
                 writeLog(format, 2);
             } catch (Throwable th) {
-                String tag = getTag();
-                Log.e(tag, "Log.info exception=" + th);
+                getTag();
+                String str2 = "Log.info exception=" + th;
             }
         }
     }
@@ -213,11 +213,11 @@ public class L {
         if (interceptable == null || interceptable.invokeLLL(65552, null, obj, str, objArr) == null) {
             try {
                 String format = String.format("%s %s", getPreFix(), getLogText(obj, str, objArr));
-                Log.i(getTag(), format);
+                getTag();
                 writeLog(format, 2);
             } catch (Throwable th) {
-                String tag = getTag();
-                Log.e(tag, "Log.info exception=" + th);
+                getTag();
+                String str2 = "Log.info exception=" + th;
             }
         }
     }
@@ -266,15 +266,13 @@ public class L {
                         if (fileInputStream != null) {
                             try {
                                 fileInputStream.close();
-                            } catch (IOException e2) {
-                                Log.e("L", "", e2);
+                            } catch (IOException unused) {
                             }
                         }
                         throw th3;
                     }
                 }
-            } catch (IOException e3) {
-                Log.e("L", "", e3);
+            } catch (IOException unused2) {
             }
         }
     }
@@ -291,15 +289,14 @@ public class L {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, str, th)) == null) {
             StringWriter stringWriter = new StringWriter();
             stringWriter.write(str);
-            stringWriter.write("\n");
+            stringWriter.write(StringUtils.LF);
             PrintWriter printWriter = new PrintWriter(stringWriter);
             th.printStackTrace(printWriter);
             String stringWriter2 = stringWriter.toString();
             try {
                 printWriter.close();
                 stringWriter.close();
-            } catch (IOException e2) {
-                Log.e("L", "", e2);
+            } catch (IOException unused) {
             }
             return stringWriter2;
         }
@@ -376,12 +373,12 @@ public class L {
             try {
                 if (outputDebug()) {
                     String format = String.format("%s %s", getPreFix(), getLogText(obj, str, objArr));
-                    Log.i(getTag(), format);
+                    getTag();
                     writeLog(format, 1);
                 }
             } catch (Throwable th) {
-                String tag = getTag();
-                Log.e(tag, "Log.verbose exception=" + th);
+                getTag();
+                String str2 = "Log.verbose exception=" + th;
             }
         }
     }
@@ -391,11 +388,11 @@ public class L {
         if ((interceptable == null || interceptable.invokeLLL(65562, null, obj, str, objArr) == null) && isLogOn()) {
             try {
                 String format = String.format("%s %s", getPreFix(), getLogText(obj, str, objArr));
-                Log.w(getTag(), format);
+                getTag();
                 writeLog(format, 3);
             } catch (Throwable th) {
-                String tag = getTag();
-                Log.e(tag, "Log.warn exception=" + th);
+                getTag();
+                String str2 = "Log.warn exception=" + th;
             }
         }
     }
@@ -405,11 +402,11 @@ public class L {
         if (interceptable == null || interceptable.invokeLLL(65563, null, obj, str, objArr) == null) {
             try {
                 String format = String.format("%s %s", getPreFix(), getLogText(obj, str, objArr));
-                Log.w(getTag(), format);
+                getTag();
                 writeLog(format, 3);
             } catch (Throwable th) {
-                String tag = getTag();
-                Log.e(tag, "Log.warn exception=" + th);
+                getTag();
+                String str2 = "Log.warn exception=" + th;
             }
         }
     }

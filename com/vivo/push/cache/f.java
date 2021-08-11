@@ -13,7 +13,7 @@ import com.vivo.push.util.g;
 import com.vivo.push.util.p;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class f extends d<com.vivo.push.model.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,15 +74,15 @@ public final class f extends d<com.vivo.push.model.a> {
     public final String b(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new String(g.a(g.a(d.f39379a), g.a(d.f39380b), Base64.decode(str, 2)), "utf-8") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new String(g.a(g.a(d.f76211a), g.a(d.f76212b), Base64.decode(str, 2)), "utf-8") : (String) invokeL.objValue;
     }
 
     public final String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (d.f39381c) {
-                for (T t : this.f39382d) {
+            synchronized (d.f76213c) {
+                for (T t : this.f76214d) {
                     if (!TextUtils.isEmpty(t.a()) && t.a().equals(str)) {
                         return t.b();
                     }

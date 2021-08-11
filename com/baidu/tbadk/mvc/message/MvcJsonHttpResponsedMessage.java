@@ -1,6 +1,11 @@
 package com.baidu.tbadk.mvc.message;
 
 import android.text.TextUtils;
+import c.a.e.e.d.l;
+import c.a.e.e.j.a.e;
+import c.a.o0.i0.b.d;
+import c.a.o0.i0.b.h;
+import c.a.o0.s.r.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -12,14 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.d.l;
-import d.a.d.e.j.a.e;
-import d.a.p0.i0.b.d;
-import d.a.p0.i0.b.h;
-import d.a.p0.s.r.a;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMessage<D> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +124,7 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
                             return;
                         }
                         e2.g(cacheKey, bArr);
-                    } else if (!(mvcHttpMessage.getRequestData() instanceof d.a.p0.i0.b.e) || (h2 = a.f().h(v, currentAccount)) == null) {
+                    } else if (!(mvcHttpMessage.getRequestData() instanceof c.a.o0.i0.b.e) || (h2 = a.f().h(v, currentAccount)) == null) {
                     } else {
                         try {
                             h2.g(cacheKey, new String(bArr, "UTF-8"));

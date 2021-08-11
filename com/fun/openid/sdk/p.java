@@ -1,168 +1,96 @@
 package com.fun.openid.sdk;
 
 import android.content.Context;
-import android.os.Bundle;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Handler;
-import android.os.HandlerThread;
+import android.os.Looper;
 import android.os.Message;
-import android.os.SystemClock;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class p {
+/* loaded from: classes9.dex */
+public final class p extends Handler {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Context f32973a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f32974b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static q f32975c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static Object f32976d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static HandlerThread f32977e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static Handler f32978f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static String f32979g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static String f32980h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static volatile p f32981i;
-    public static volatile n j;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1740631616, "Lcom/fun/openid/sdk/p;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1740631616, "Lcom/fun/openid/sdk/p;");
-                return;
-            }
-        }
-        f32976d = new Object();
-    }
-
-    public p() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p(Looper looper) {
+        super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {looper};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static void a() {
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0065  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x0080  */
+    @Override // android.os.Handler
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void handleMessage(Message message) {
         String str;
+        Uri parse;
+        Cursor query;
+        StringBuilder sb;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            try {
-                try {
-                    Class<?> cls = Class.forName("android.os.SystemProperties");
-                    str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, "persist.sys.identifierid.supported", "unknown");
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    str = "0";
-                    f32974b = "1".equals(str);
-                }
-            } catch (Throwable unused) {
-                str = "0";
-                f32974b = "1".equals(str);
-            }
-            f32974b = "1".equals(str);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, message) != null) || message.what != 11) {
+            return;
         }
-    }
-
-    public static p a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f32981i == null) {
-                synchronized (p.class) {
-                    f32973a = context.getApplicationContext();
-                    f32981i = new p();
+        int i2 = message.getData().getInt("type");
+        String string = message.getData().getString("appid");
+        o oVar = q.f69671j;
+        oVar.getClass();
+        if (i2 != 0) {
+            if (i2 == 1) {
+                sb = new StringBuilder();
+                str2 = "content://com.vivo.vms.IdProvider/IdentifierId/VAID_";
+            } else if (i2 == 2) {
+                sb = new StringBuilder();
+                str2 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
+            } else if (i2 != 4) {
+                parse = null;
+                query = oVar.f69661a.getContentResolver().query(parse, null, null, null, null);
+                if (query != null) {
+                    r2 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
+                    query.close();
                 }
-            }
-            if (j == null) {
-                synchronized (p.class) {
-                    f32973a = context.getApplicationContext();
-                    HandlerThread handlerThread = new HandlerThread("SqlWorkThread");
-                    f32977e = handlerThread;
-                    handlerThread.start();
-                    f32978f = new o(f32977e.getLooper());
-                    j = new n(f32973a);
-                    a();
+                q.f69668g = r2;
+                Context context = q.f69662a;
+                synchronized (q.f69665d) {
+                    q.f69665d.notify();
                 }
+                return;
+            } else {
+                str = "content://com.vivo.vms.IdProvider/IdentifierId/OAIDSTATUS";
             }
-            return f32981i;
+            sb.append(str2);
+            sb.append(string);
+            str = sb.toString();
+        } else {
+            str = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
         }
-        return (p) invokeL.objValue;
-    }
-
-    public void a(int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-            synchronized (f32976d) {
-                Message obtainMessage = f32978f.obtainMessage();
-                obtainMessage.what = 11;
-                Bundle bundle = new Bundle();
-                bundle.putInt("type", i2);
-                if (i2 == 1 || i2 == 2) {
-                    bundle.putString("appid", str);
-                }
-                obtainMessage.setData(bundle);
-                f32978f.sendMessage(obtainMessage);
-                long uptimeMillis = SystemClock.uptimeMillis();
-                try {
-                    f32976d.wait(2000L);
-                } catch (InterruptedException e2) {
-                    e2.printStackTrace();
-                }
-                if (SystemClock.uptimeMillis() - uptimeMillis < 2000) {
-                    if (i2 == 0) {
-                        f32980h = f32979g;
-                    } else if (i2 != 1) {
-                        if (i2 != 2) {
-                            if (i2 != 4) {
-                            }
-                        } else if (f32979g != null) {
-                            f32979g = null;
-                        } else {
-                            Log.e("VMS_IDLG_SDK_Client", "get aaid failed");
-                        }
-                    } else if (f32979g == null) {
-                        Log.e("VMS_IDLG_SDK_Client", "get vaid failed");
-                    }
-                    f32979g = null;
-                } else {
-                    Log.d("VMS_IDLG_SDK_Client", "query timeout");
-                }
-            }
+        parse = Uri.parse(str);
+        query = oVar.f69661a.getContentResolver().query(parse, null, null, null, null);
+        if (query != null) {
+        }
+        q.f69668g = r2;
+        Context context2 = q.f69662a;
+        synchronized (q.f69665d) {
         }
     }
 }

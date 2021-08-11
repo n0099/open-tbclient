@@ -1,8 +1,8 @@
 package com.baidu.searchbox.logsystem.basic.track;
 
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import c.a.g0.b.a.a;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;
@@ -17,13 +17,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.h0.b.a.a;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class LokiTrackUISaver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char SEPERATOR_ENTER = '\n';
@@ -158,6 +157,7 @@ public class LokiTrackUISaver {
 
     public static void saveToFile(TrackUI trackUI) {
         LinkedList<TrackUI> allTrackUIs;
+        TrackUI trackUI2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, trackUI) == null) {
             File tempTraceFile = getTempTraceFile();
@@ -165,10 +165,9 @@ public class LokiTrackUISaver {
                 mFirstSaveTempFile = false;
                 if (Utility.createNewEmptyFile(tempTraceFile) && (allTrackUIs = Track.getInstance().getAllTrackUIs()) != null && allTrackUIs.size() > 0) {
                     for (int i2 = 0; i2 < allTrackUIs.size(); i2++) {
-                        TrackUI trackUI2 = allTrackUIs.get(i2);
-                        if (trackUI2 != trackUI) {
+                        if (allTrackUIs.get(i2) != trackUI) {
                             if (AppConfig.isDebug()) {
-                                Log.d(TAG, "perTrack = " + trackUI2.toString());
+                                String str = "perTrack = " + trackUI2.toString();
                             }
                             FileUtils.saveToFile(trackUI2.toString() + '\n', tempTraceFile, true);
                         }
@@ -176,7 +175,7 @@ public class LokiTrackUISaver {
                 }
             }
             if (AppConfig.isDebug()) {
-                Log.d(TAG, "uitrackStr = " + trackUI.toString());
+                String str2 = "uitrackStr = " + trackUI.toString();
             }
             FileUtils.saveToFile(trackUI.toString() + '\n', tempTraceFile, true);
         }

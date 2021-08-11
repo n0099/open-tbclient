@@ -9,7 +9,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes5.dex */
 public class PerfExpInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,12 +28,12 @@ public class PerfExpInfo {
     public String mType;
     public String mUbcId;
 
-    public PerfExpInfo(String str, String str2, long j, long j2, String str3, String str4, String str5) {
+    public PerfExpInfo(String str, String str2, long j2, long j3, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Long.valueOf(j), Long.valueOf(j2), str3, str4, str5};
+            Object[] objArr = {str, str2, Long.valueOf(j2), Long.valueOf(j3), str3, str4, str5};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -44,8 +45,8 @@ public class PerfExpInfo {
         }
         this.mUbcId = str;
         this.mType = str2;
-        this.mTime = j;
-        this.mLaunchTime = j2;
+        this.mTime = j2;
+        this.mLaunchTime = j3;
         this.mException = str3;
         this.mPage = str4;
         this.mBusiness = str5;
@@ -149,10 +150,10 @@ public class PerfExpInfo {
         }
     }
 
-    public void setLaunchTime(long j) {
+    public void setLaunchTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.mLaunchTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
+            this.mLaunchTime = j2;
         }
     }
 
@@ -198,10 +199,10 @@ public class PerfExpInfo {
         }
     }
 
-    public void setTime(long j) {
+    public void setTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
-            this.mTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048599, this, j2) == null) {
+            this.mTime = j2;
         }
     }
 
@@ -230,7 +231,7 @@ public class PerfExpInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            return "PerfExpInfo{mUbcId='" + this.mUbcId + "', mType='" + this.mType + "', mLogId='" + this.mLogId + "', mTime=" + this.mTime + ", mException='" + this.mException + "', mPage='" + this.mPage + "', mLaunchTime=" + this.mLaunchTime + ", mBusiness='" + this.mBusiness + "', mTrackUIs=" + this.mTrackUIs + ", mIsNeedPageTrace=" + this.mIsNeedPageTrace + ", mIsNeedDynamicperf=" + this.mIsNeedDynamicperf + ", mIsNeedStaticperf=" + this.mIsNeedStaticperf + ", mIsNeedMainStackTrace=" + this.mIsNeedMainStackTrace + '}';
+            return "PerfExpInfo{mUbcId='" + this.mUbcId + ExtendedMessageFormat.QUOTE + ", mType='" + this.mType + ExtendedMessageFormat.QUOTE + ", mLogId='" + this.mLogId + ExtendedMessageFormat.QUOTE + ", mTime=" + this.mTime + ", mException='" + this.mException + ExtendedMessageFormat.QUOTE + ", mPage='" + this.mPage + ExtendedMessageFormat.QUOTE + ", mLaunchTime=" + this.mLaunchTime + ", mBusiness='" + this.mBusiness + ExtendedMessageFormat.QUOTE + ", mTrackUIs=" + this.mTrackUIs + ", mIsNeedPageTrace=" + this.mIsNeedPageTrace + ", mIsNeedDynamicperf=" + this.mIsNeedDynamicperf + ", mIsNeedStaticperf=" + this.mIsNeedStaticperf + ", mIsNeedMainStackTrace=" + this.mIsNeedMainStackTrace + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,15 +21,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.BdMenu;
 import com.baidu.wallet.base.widget.BdMenuItem;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetChangedListener {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24325a = "BdContextMenuView";
+    public static final String f59991a = "BdContextMenuView";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f24326b = true;
+    public static final boolean f59992b = true;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mMenuLoaded;
 
@@ -110,26 +109,23 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
 
     public void layoutMenu(List<BdMenuItem> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            Log.d(f24325a, "layout menu view");
-            if (this.mMenuLoaded) {
-                return;
-            }
-            removeAllViews();
-            int size = list.size();
-            if (size <= 0) {
-                return;
-            }
-            Context context = getContext();
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(context.getResources().getDimensionPixelSize(ResUtils.dimen(getContext(), "bd_wallet_menu_item_width")), 2);
-            for (int i2 = 0; i2 < size; i2++) {
-                addView(a(list.get(i2), getMenuItemBackgroudResId(i2, size)));
-                if (i2 < size - 1) {
-                    addView(createSeparator(context), layoutParams);
-                }
-            }
-            this.mMenuLoaded = true;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || this.mMenuLoaded) {
+            return;
         }
+        removeAllViews();
+        int size = list.size();
+        if (size <= 0) {
+            return;
+        }
+        Context context = getContext();
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(context.getResources().getDimensionPixelSize(ResUtils.dimen(getContext(), "bd_wallet_menu_item_width")), 2);
+        for (int i2 = 0; i2 < size; i2++) {
+            addView(a(list.get(i2), getMenuItemBackgroudResId(i2, size)));
+            if (i2 < size - 1) {
+                addView(createSeparator(context), layoutParams);
+            }
+        }
+        this.mMenuLoaded = true;
     }
 
     @Override // com.baidu.wallet.base.widget.BdMenu.OnMenuSetChangedListener
@@ -210,10 +206,10 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BdMenuItem f24327a;
+                public final /* synthetic */ BdMenuItem f59993a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BdContextMenuView f24328b;
+                public final /* synthetic */ BdContextMenuView f59994b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -230,18 +226,18 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
                             return;
                         }
                     }
-                    this.f24328b = this;
-                    this.f24327a = bdMenuItem;
+                    this.f59994b = this;
+                    this.f59993a = bdMenuItem;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     BdMenuItem.OnItemClickListener onClickListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (onClickListener = this.f24327a.getOnClickListener()) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (onClickListener = this.f59993a.getOnClickListener()) == null) {
                         return;
                     }
-                    onClickListener.onClick(this.f24327a);
+                    onClickListener.onClick(this.f59993a);
                 }
             });
             if (!TextUtils.isEmpty(str)) {

@@ -31,10 +31,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.utils.StatHelper;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STYLE_BLOCK = 2;
@@ -89,7 +90,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
     public ViewPager mViewPager;
     public float margin;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class InnerPagerAdapter extends FragmentPagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1004,7 +1005,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
         addView(linearLayout);
         obtainAttributes(context, attributeSet);
         String attributeValue = attributeSet.getAttributeValue("http://schemas.android.com/apk/res/android", "layout_height");
-        if (attributeValue.equals("-1") || attributeValue.equals("-2")) {
+        if (attributeValue.equals("-1") || attributeValue.equals(StatHelper.SENSOR_ERR_2)) {
             return;
         }
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842997});

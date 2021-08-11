@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class DistrictSearch extends l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f7312a;
+    public e f41571a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7313b;
+    public boolean f41572b;
 
     public DistrictSearch() {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class DistrictSearch extends l {
                 return;
             }
         }
-        this.f7312a = null;
-        this.f7313b = false;
-        this.f7312a = new d();
+        this.f41571a = null;
+        this.f41572b = false;
+        this.f41571a = new d();
     }
 
     public static DistrictSearch newInstance() {
@@ -51,11 +51,11 @@ public class DistrictSearch extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f7313b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f41572b) {
             return;
         }
-        this.f7313b = true;
-        this.f7312a.a();
+        this.f41572b = true;
+        this.f41571a.a();
         BMapManager.destroy();
     }
 
@@ -64,11 +64,11 @@ public class DistrictSearch extends l {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, districtSearchOption)) == null) {
-            if (this.f7312a != null) {
+            if (this.f41571a != null) {
                 if (districtSearchOption == null || (str = districtSearchOption.mCityName) == null || str.equals("")) {
                     throw new IllegalArgumentException("BDMapSDKException: option or city name can not be null or empty.");
                 }
-                return this.f7312a.a(districtSearchOption);
+                return this.f41571a.a(districtSearchOption);
             }
             throw new IllegalStateException("BDMapSDKException: searcher is null, please call newInstance first.");
         }
@@ -78,7 +78,7 @@ public class DistrictSearch extends l {
     public void setOnDistrictSearchListener(OnGetDistricSearchResultListener onGetDistricSearchResultListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onGetDistricSearchResultListener) == null) {
-            e eVar = this.f7312a;
+            e eVar = this.f41571a;
             if (eVar == null) {
                 throw new IllegalStateException("BDMapSDKException: searcher is null, please call newInstance first.");
             }

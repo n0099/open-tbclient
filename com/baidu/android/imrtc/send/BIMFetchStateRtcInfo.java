@@ -11,9 +11,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class BIMFetchStateRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMFetchStateRtcInfo";
@@ -21,7 +22,7 @@ public class BIMFetchStateRtcInfo extends BIMRtcInfo {
     public List<UserState> mUkStates;
     public String roomStateMsg;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class UserState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -29,12 +30,12 @@ public class BIMFetchStateRtcInfo extends BIMRtcInfo {
         public final /* synthetic */ BIMFetchStateRtcInfo this$0;
         public long uk;
 
-        public UserState(BIMFetchStateRtcInfo bIMFetchStateRtcInfo, long j, int i2) {
+        public UserState(BIMFetchStateRtcInfo bIMFetchStateRtcInfo, long j2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bIMFetchStateRtcInfo, Long.valueOf(j), Integer.valueOf(i2)};
+                Object[] objArr = {bIMFetchStateRtcInfo, Long.valueOf(j2), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -45,7 +46,7 @@ public class BIMFetchStateRtcInfo extends BIMRtcInfo {
                 }
             }
             this.this$0 = bIMFetchStateRtcInfo;
-            this.uk = j;
+            this.uk = j2;
             this.status = i2;
         }
     }
@@ -109,7 +110,7 @@ public class BIMFetchStateRtcInfo extends BIMRtcInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "BIMFetchStateRtcInfo{" + super.toString() + "roomStateMsg=" + this.roomStateMsg + '}';
+            return "BIMFetchStateRtcInfo{" + super.toString() + "roomStateMsg=" + this.roomStateMsg + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

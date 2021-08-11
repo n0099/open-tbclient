@@ -6,13 +6,12 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.os.Process;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class WebViewRendererService extends Service {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String RENDER_SERVICE_PROCESS_NAME_SUFFIX = "sandboxed_process";
@@ -20,7 +19,7 @@ public class WebViewRendererService extends Service {
     public transient /* synthetic */ FieldHolder $fh;
     public ServiceProvider mServiceImpl;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface ServiceProvider {
         IBinder bind(Intent intent);
 
@@ -48,14 +47,13 @@ public class WebViewRendererService extends Service {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            android.util.Log.i("s_mp", "onBind");
             stopSelf();
             ServiceProvider serviceProvider = this.mServiceImpl;
             if (serviceProvider != null) {
                 try {
                     return serviceProvider.bind(intent);
                 } catch (Exception e2) {
-                    android.util.Log.e(TAG, "exception during onBind: ".concat(String.valueOf(e2)));
+                    "exception during onBind: ".concat(String.valueOf(e2));
                     throw e2;
                 }
             }
@@ -74,13 +72,13 @@ public class WebViewRendererService extends Service {
             sb.append(Process.myPid());
             sb.append(", mServiceImpl: ");
             sb.append(this.mServiceImpl != null);
-            android.util.Log.i("s_mp", sb.toString());
+            sb.toString();
             ServiceProvider serviceProvider = this.mServiceImpl;
             if (serviceProvider != null) {
                 try {
                     serviceProvider.create(getApplicationContext());
                 } catch (Exception e2) {
-                    android.util.Log.e(TAG, "exception during onCreate: ".concat(String.valueOf(e2)));
+                    "exception during onCreate: ".concat(String.valueOf(e2));
                     throw e2;
                 }
             }
@@ -91,7 +89,6 @@ public class WebViewRendererService extends Service {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            android.util.Log.i("s_mp", MissionEvent.MESSAGE_DESTROY);
             super.onDestroy();
             ServiceProvider serviceProvider = this.mServiceImpl;
             if (serviceProvider != null) {

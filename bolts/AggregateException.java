@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes.dex */
 public class AggregateException extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
@@ -87,13 +88,13 @@ public class AggregateException extends Exception {
             super.printStackTrace(printStream);
             int i2 = -1;
             for (Throwable th : this.innerThrowables) {
-                printStream.append("\n");
+                printStream.append(StringUtils.LF);
                 printStream.append("  Inner throwable #");
                 i2++;
                 printStream.append((CharSequence) Integer.toString(i2));
                 printStream.append(": ");
                 th.printStackTrace(printStream);
-                printStream.append("\n");
+                printStream.append(StringUtils.LF);
             }
         }
     }
@@ -148,13 +149,13 @@ public class AggregateException extends Exception {
             super.printStackTrace(printWriter);
             int i2 = -1;
             for (Throwable th : this.innerThrowables) {
-                printWriter.append("\n");
+                printWriter.append(StringUtils.LF);
                 printWriter.append("  Inner throwable #");
                 i2++;
                 printWriter.append((CharSequence) Integer.toString(i2));
                 printWriter.append(": ");
                 th.printStackTrace(printWriter);
-                printWriter.append("\n");
+                printWriter.append(StringUtils.LF);
             }
         }
     }

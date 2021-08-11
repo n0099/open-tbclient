@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.GetLivableForumList.DataReq;
 import protobuf.GetLivableForumList.GetLivableForumListReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RequestGetLivableForumList extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,10 +84,10 @@ public class RequestGetLivableForumList extends TbSocketMessage {
         }
     }
 
-    public void setUserId(long j) {
+    public void setUserId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.userId = j;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            this.userId = j2;
         }
     }
 }

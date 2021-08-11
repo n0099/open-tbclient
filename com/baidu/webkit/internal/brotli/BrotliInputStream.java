@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class BrotliInputStream extends InputStream implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_SIZE = 16384;
@@ -144,22 +144,22 @@ public class BrotliInputStream extends InputStream implements INoProGuard {
     }
 
     @Override // java.io.InputStream
-    public long skip(long j) throws IOException {
+    public long skip(long j2) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
             if (this.decoder.closed) {
                 throw new IOException("read after close");
             }
-            long j2 = 0;
-            while (j > 0 && this.decoder.decode() != -1) {
-                int min = (int) Math.min(j, this.decoder.buffer.remaining());
+            long j3 = 0;
+            while (j2 > 0 && this.decoder.decode() != -1) {
+                int min = (int) Math.min(j2, this.decoder.buffer.remaining());
                 this.decoder.discard(min);
-                long j3 = min;
-                j2 += j3;
-                j -= j3;
+                long j4 = min;
+                j3 += j4;
+                j2 -= j4;
             }
-            return j2;
+            return j3;
         }
         return invokeJ.longValue;
     }

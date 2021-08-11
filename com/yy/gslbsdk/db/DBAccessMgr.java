@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class DBAccessMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DBAccessMgr";
@@ -240,7 +240,7 @@ public class DBAccessMgr {
                     contentValues.put("host", resultTB.getHost());
                     contentValues.put("ip", resultTB.getIp());
                     contentValues.put(ResultTB.TTL, Integer.valueOf(resultTB.getTtl()));
-                    contentValues.put(ResultTB.ENDTIME, Long.valueOf(resultTB.getEndTime()));
+                    contentValues.put("end_time", Long.valueOf(resultTB.getEndTime()));
                     contentValues.put("cmd", resultTB.getCmd());
                     contentValues.put("update_time", Long.valueOf(resultTB.getUpdateTime()));
                     contentValues.put(ResultTB.VIEW, resultTB.getView());
@@ -271,7 +271,7 @@ public class DBAccessMgr {
                     contentValues.put("host", resultTB.getHost());
                     contentValues.put("ip", resultTB.getIp());
                     contentValues.put(ResultTB.TTL, Integer.valueOf(resultTB.getTtl()));
-                    contentValues.put(ResultTB.ENDTIME, Long.valueOf(resultTB.getEndTime()));
+                    contentValues.put("end_time", Long.valueOf(resultTB.getEndTime()));
                     contentValues.put("cmd", resultTB.getCmd());
                     contentValues.put("update_time", Long.valueOf(resultTB.getUpdateTime()));
                     contentValues.put(ResultTB.VIEW, resultTB.getView());
@@ -1125,7 +1125,7 @@ public class DBAccessMgr {
                         contentValues.put(ResultTB.TTL, Integer.valueOf(resultTB.getTtl()));
                     }
                     if (resultTB.getEndTime() != -1) {
-                        contentValues.put(ResultTB.ENDTIME, Long.valueOf(resultTB.getEndTime()));
+                        contentValues.put("end_time", Long.valueOf(resultTB.getEndTime()));
                     }
                     if (resultTB.getCmd() != null) {
                         contentValues.put("cmd", resultTB.getCmd());
@@ -1173,7 +1173,7 @@ public class DBAccessMgr {
                         contentValues.put(ResultTB.TTL, Integer.valueOf(resultTB.getTtl()));
                     }
                     if (resultTB.getEndTime() != -1) {
-                        contentValues.put(ResultTB.ENDTIME, Long.valueOf(resultTB.getEndTime()));
+                        contentValues.put("end_time", Long.valueOf(resultTB.getEndTime()));
                     }
                     if (resultTB.getCmd() != null) {
                         contentValues.put("cmd", resultTB.getCmd());

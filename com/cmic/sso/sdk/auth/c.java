@@ -1,7 +1,6 @@
 package com.cmic.sso.sdk.auth;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.sapi2.activity.BaseActivity;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,8 +23,7 @@ public class c {
             try {
                 jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, str);
                 jSONObject.put("desc", str2);
-            } catch (Exception e2) {
-                Log.e("AuthnResult", "Exception", e2);
+            } catch (Exception unused) {
             }
             return jSONObject;
         }
@@ -56,8 +54,7 @@ public class c {
             String[] strArr = {FileUtils.UNKNOW, "移动", "联通", "电信"};
             try {
                 b2 = aVar.b("operatortype", "0");
-            } catch (Exception e2) {
-                Log.e("AuthnResult", "JSONException", e2);
+            } catch (Exception unused) {
             }
             if (!"0".equals(b2) && !TextUtils.isEmpty(b2)) {
                 jSONObject.put("operatorType", strArr[Integer.parseInt(b2)]);

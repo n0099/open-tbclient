@@ -1,5 +1,6 @@
 package com.baidu.tieba.write.share;
 
+import c.a.p0.b4.p.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -8,9 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a4.p.c;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CheckResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,12 +45,12 @@ public class CheckResponse extends JsonHttpResponsedMessage {
             }
             c cVar = new c();
             this.mCheckResponseData = cVar;
-            cVar.f54822a = jSONObject.optString("tbopen_app_key");
-            this.mCheckResponseData.f54824c = jSONObject.optString("tbopen_app_name");
-            this.mCheckResponseData.f54825d = jSONObject.optString("tbopen_app_icon");
+            cVar.f16000a = jSONObject.optString("tbopen_app_key");
+            this.mCheckResponseData.f16002c = jSONObject.optString("tbopen_app_name");
+            this.mCheckResponseData.f16003d = jSONObject.optString("tbopen_app_icon");
             JSONObject optJSONObject = jSONObject.optJSONObject("config");
             if (optJSONObject != null) {
-                this.mCheckResponseData.j = optJSONObject.optString("default_pic");
+                this.mCheckResponseData.f16009j = optJSONObject.optString("default_pic");
             }
         }
     }

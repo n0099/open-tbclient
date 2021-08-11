@@ -21,6 +21,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import c.a.p0.u2.b.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.BitmapHelper;
@@ -31,8 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.t2.b.a.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ScanBoxView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,21 +64,23 @@ public class ScanBoxView extends View {
     public Bitmap c0;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bitmap f20588e;
+    public Bitmap f55973e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f20589f;
+    public Bitmap f55974f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Bitmap f20590g;
+    public Bitmap f55975g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f20591h;
+    public Bitmap f55976h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f20592i;
+    public int f55977i;
     public Bitmap i0;
-    public int j;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f55978j;
     public Bitmap j0;
     public Rect k;
     public float k0;
@@ -143,7 +145,7 @@ public class ScanBoxView extends View {
         this.F = false;
         this.G = 0;
         this.H = false;
-        this.f20592i = a.b(context, 2.0f);
+        this.f55977i = a.b(context, 2.0f);
         this.K = null;
         this.L = a.f(context, 14.0f);
         this.M = -1;
@@ -271,10 +273,10 @@ public class ScanBoxView extends View {
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             this.n.reset();
             this.n.setAntiAlias(false);
-            canvas.drawBitmap(this.f20588e, getMainFrameLeft(), getMainFrameTop(), this.n);
-            canvas.drawBitmap(this.f20589f, getMainFrameRight() - this.f20588e.getWidth(), getMainFrameTop(), this.n);
-            canvas.drawBitmap(this.f20590g, getMainFrameLeft(), getMainFrameBottom() - this.f20588e.getHeight(), this.n);
-            canvas.drawBitmap(this.f20591h, getMainFrameRight() - this.f20588e.getWidth(), getMainFrameBottom() - this.f20588e.getHeight(), this.n);
+            canvas.drawBitmap(this.f55973e, getMainFrameLeft(), getMainFrameTop(), this.n);
+            canvas.drawBitmap(this.f55974f, getMainFrameRight() - this.f55973e.getWidth(), getMainFrameTop(), this.n);
+            canvas.drawBitmap(this.f55975g, getMainFrameLeft(), getMainFrameBottom() - this.f55973e.getHeight(), this.n);
+            canvas.drawBitmap(this.f55976h, getMainFrameRight() - this.f55973e.getWidth(), getMainFrameBottom() - this.f55973e.getHeight(), this.n);
         }
     }
 
@@ -511,88 +513,10 @@ public class ScanBoxView extends View {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.s : invokeV.intValue;
     }
 
-    public Bitmap getScanLineBitmap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.B : (Bitmap) invokeV.objValue;
-    }
-
-    public int getScanLineColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.x : invokeV.intValue;
-    }
-
-    public int getScanLineMargin() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.y : invokeV.intValue;
-    }
-
-    public int getScanLineSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.w : invokeV.intValue;
-    }
-
-    public int getTipBackgroundColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.Q : invokeV.intValue;
-    }
-
-    public int getTipBackgroundRadius() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.m0 : invokeV.intValue;
-    }
-
-    public String getTipText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.K : (String) invokeV.objValue;
-    }
-
-    public int getTipTextColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.M : invokeV.intValue;
-    }
-
-    public int getTipTextMargin() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.O : invokeV.intValue;
-    }
-
-    public int getTipTextSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.L : invokeV.intValue;
-    }
-
-    public StaticLayout getTipTextSl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.l0 : (StaticLayout) invokeV.objValue;
-    }
-
-    public int getToolbarHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.G : invokeV.intValue;
-    }
-
-    public int getTopOffset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.v : invokeV.intValue;
-    }
-
-    public Rect h(int i2) {
+    public Rect getScanBoxAreaRect(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048610, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
             if (this.n0) {
                 Rect rect = new Rect(this.k);
                 float measuredHeight = (i2 * 1.0f) / getMeasuredHeight();
@@ -607,28 +531,106 @@ public class ScanBoxView extends View {
         return (Rect) invokeI.objValue;
     }
 
-    public final void i() {
+    public Bitmap getScanLineBitmap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.B : (Bitmap) invokeV.objValue;
+    }
+
+    public int getScanLineColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.x : invokeV.intValue;
+    }
+
+    public int getScanLineMargin() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.y : invokeV.intValue;
+    }
+
+    public int getScanLineSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.w : invokeV.intValue;
+    }
+
+    public int getTipBackgroundColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.Q : invokeV.intValue;
+    }
+
+    public int getTipBackgroundRadius() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.m0 : invokeV.intValue;
+    }
+
+    public String getTipText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.K : (String) invokeV.objValue;
+    }
+
+    public int getTipTextColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.M : invokeV.intValue;
+    }
+
+    public int getTipTextMargin() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.O : invokeV.intValue;
+    }
+
+    public int getTipTextSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.L : invokeV.intValue;
+    }
+
+    public StaticLayout getTipTextSl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.l0 : (StaticLayout) invokeV.objValue;
+    }
+
+    public int getToolbarHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.G : invokeV.intValue;
+    }
+
+    public int getTopOffset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.v : invokeV.intValue;
+    }
+
+    public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
             int i2 = this.q;
             options.outWidth = i2;
             options.outHeight = i2;
-            this.f20588e = BitmapHelper.getResBitmap(this.o0, R.drawable.icon_scan_upperleft, options);
+            this.f55973e = BitmapHelper.getResBitmap(this.o0, R.drawable.icon_scan_upperleft, options);
             Matrix matrix = new Matrix();
             matrix.postRotate(90.0f);
-            Bitmap bitmap = this.f20588e;
-            this.f20589f = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), this.f20588e.getHeight(), matrix, false);
+            Bitmap bitmap = this.f55973e;
+            this.f55974f = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), this.f55973e.getHeight(), matrix, false);
             matrix.postRotate(180.0f);
-            Bitmap bitmap2 = this.f20588e;
-            this.f20590g = Bitmap.createBitmap(bitmap2, 0, 0, bitmap2.getWidth(), this.f20588e.getHeight(), matrix, false);
+            Bitmap bitmap2 = this.f55973e;
+            this.f55975g = Bitmap.createBitmap(bitmap2, 0, 0, bitmap2.getWidth(), this.f55973e.getHeight(), matrix, false);
             matrix.postRotate(270.0f);
-            Bitmap bitmap3 = this.f20588e;
-            this.f20591h = Bitmap.createBitmap(bitmap3, 0, 0, bitmap3.getWidth(), this.f20588e.getHeight(), matrix, false);
+            Bitmap bitmap3 = this.f55973e;
+            this.f55976h = Bitmap.createBitmap(bitmap3, 0, 0, bitmap3.getWidth(), this.f55973e.getHeight(), matrix, false);
         }
     }
 
-    public final void j(int i2, TypedArray typedArray) {
+    public final void i(int i2, TypedArray typedArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048612, this, i2, typedArray) == null) {
             if (i2 == R$styleable.QRCodeView_qrcv_topOffset) {
@@ -695,26 +697,74 @@ public class ScanBoxView extends View {
         }
     }
 
-    public void k(Context context, AttributeSet attributeSet) {
+    public void initCustomAttrs(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048613, this, context, attributeSet) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.QRCodeView);
             int indexCount = obtainStyledAttributes.getIndexCount();
             for (int i2 = 0; i2 < indexCount; i2++) {
-                j(obtainStyledAttributes.getIndex(i2), obtainStyledAttributes);
+                i(obtainStyledAttributes.getIndex(i2), obtainStyledAttributes);
             }
             obtainStyledAttributes.recycle();
             a();
-            i();
+            h();
         }
     }
 
-    public final void l() {
+    public boolean isCenterVertical() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.F : invokeV.booleanValue;
+    }
+
+    public boolean isOnlyDecodeScanBoxArea() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.n0 : invokeV.booleanValue;
+    }
+
+    public boolean isScanLineReverse() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.S : invokeV.booleanValue;
+    }
+
+    public boolean isShowDefaultGridScanLineDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.T : invokeV.booleanValue;
+    }
+
+    public boolean isShowDefaultScanLineDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.z : invokeV.booleanValue;
+    }
+
+    public boolean isShowTipBackground() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.R : invokeV.booleanValue;
+    }
+
+    public boolean isShowTipTextAsSingleLine() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.P : invokeV.booleanValue;
+    }
+
+    public boolean isTipTextBelowRect() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.N : invokeV.booleanValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
             if (this.H) {
                 if (this.V == null) {
-                    this.m += this.f20592i;
+                    this.m += this.f55977i;
                     int i2 = this.w;
                     Bitmap bitmap = this.B;
                     if (bitmap != null) {
@@ -725,7 +775,7 @@ public class ScanBoxView extends View {
                         Rect rect = this.k;
                         float f3 = this.k0;
                         if (i2 + f2 > rect.right - f3 || f2 < rect.left + f3) {
-                            this.f20592i = -this.f20592i;
+                            this.f55977i = -this.f55977i;
                         }
                     } else {
                         float f4 = this.m + i2;
@@ -736,7 +786,7 @@ public class ScanBoxView extends View {
                         }
                     }
                 } else {
-                    float f6 = this.a0 + this.f20592i;
+                    float f6 = this.a0 + this.f55977i;
                     this.a0 = f6;
                     Rect rect3 = this.k;
                     float f7 = this.k0;
@@ -745,7 +795,7 @@ public class ScanBoxView extends View {
                     }
                 }
             } else if (this.V == null) {
-                this.l += this.f20592i;
+                this.l += this.f55977i;
                 int i3 = this.w;
                 Bitmap bitmap2 = this.B;
                 if (bitmap2 != null) {
@@ -756,7 +806,7 @@ public class ScanBoxView extends View {
                     Rect rect4 = this.k;
                     float f9 = this.k0;
                     if (i3 + f8 > rect4.bottom - f9 || f8 < rect4.top + f9) {
-                        this.f20592i = -this.f20592i;
+                        this.f55977i = -this.f55977i;
                     }
                 } else {
                     float f10 = this.l + i3;
@@ -767,7 +817,7 @@ public class ScanBoxView extends View {
                     }
                 }
             } else {
-                float f12 = this.W + this.f20592i;
+                float f12 = this.W + this.f55977i;
                 this.W = f12;
                 Rect rect6 = this.k;
                 float f13 = this.k0;
@@ -775,25 +825,16 @@ public class ScanBoxView extends View {
                     this.W = rect6.top + f13 + 0.5f;
                 }
             }
-            long j = this.j;
+            long j2 = this.f55978j;
             Rect rect7 = this.k;
-            postInvalidateDelayed(j, rect7.left, rect7.top, rect7.right, rect7.bottom);
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            this.o.setColor(this.M);
-            setIsBarcode(false);
-            invalidate();
+            postInvalidateDelayed(j2, rect7.left, rect7.top, rect7.right, rect7.bottom);
         }
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048616, this, canvas) == null) || this.k == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048623, this, canvas) == null) || this.k == null) {
             return;
         }
         e(canvas);
@@ -801,91 +842,100 @@ public class ScanBoxView extends View {
         f(canvas);
         g(canvas);
         d(canvas);
-        l();
+        j();
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048617, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048624, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
             b();
         }
     }
 
+    public void refreshTipText() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048625, this) == null) {
+            this.o.setColor(this.M);
+            setIsBarcode(false);
+            invalidate();
+        }
+    }
+
     public void setAnimTime(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048626, this, i2) == null) {
             this.E = i2;
         }
     }
 
     public void setBarCodeTipText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048627, this, str) == null) {
             this.J = str;
         }
     }
 
     public void setBarcodeRectHeight(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048628, this, i2) == null) {
             this.u = i2;
         }
     }
 
     public void setBorderColor(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
             this.D = i2;
         }
     }
 
     public void setBorderSize(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048630, this, i2) == null) {
             this.C = i2;
         }
     }
 
     public void setCenterVertical(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048631, this, z) == null) {
             this.F = z;
         }
     }
 
     public void setCornerLength(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048624, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048632, this, i2) == null) {
             this.q = i2;
         }
     }
 
     public void setCornerSize(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048625, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048633, this, i2) == null) {
             this.r = i2;
         }
     }
 
     public void setCustomScanLineDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048626, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048634, this, drawable) == null) {
             this.A = drawable;
         }
     }
 
     public void setHalfCornerSize(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048627, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048635, this, f2) == null) {
             this.k0 = f2;
         }
     }
 
     public void setIsBarcode(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048628, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048636, this, z) == null) {
             this.H = z;
             if (this.U == null && !this.T) {
                 if (this.A != null || this.z) {
@@ -903,12 +953,12 @@ public class ScanBoxView extends View {
             if (this.H) {
                 this.K = this.J;
                 this.t = this.u;
-                this.j = (int) (((this.E * 1.0f) * this.f20592i) / this.s);
+                this.f55978j = (int) (((this.E * 1.0f) * this.f55977i) / this.s);
             } else {
                 this.K = this.I;
                 int i2 = this.s;
                 this.t = i2;
-                this.j = (int) (((this.E * 1.0f) * this.f20592i) / i2);
+                this.f55978j = (int) (((this.E * 1.0f) * this.f55977i) / i2);
             }
             if (!TextUtils.isEmpty(this.K)) {
                 if (this.P) {
@@ -935,168 +985,168 @@ public class ScanBoxView extends View {
 
     public void setMaskColor(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048637, this, i2) == null) {
             this.p = i2;
         }
     }
 
     public void setOnlyDecodeScanBoxArea(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048630, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048638, this, z) == null) {
             this.n0 = z;
         }
     }
 
     public void setQRCodeTipText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048639, this, str) == null) {
             this.I = str;
         }
     }
 
     public void setRectHeight(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048632, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048640, this, i2) == null) {
             this.t = i2;
         }
     }
 
     public void setRectWidth(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048633, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048641, this, i2) == null) {
             this.s = i2;
         }
     }
 
     public void setScanLineBitmap(Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048634, this, bitmap) == null) {
+        if (interceptable == null || interceptable.invokeL(1048642, this, bitmap) == null) {
             this.B = bitmap;
         }
     }
 
     public void setScanLineColor(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048635, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048643, this, i2) == null) {
             this.x = i2;
         }
     }
 
     public void setScanLineMargin(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048636, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048644, this, i2) == null) {
             this.y = i2;
         }
     }
 
     public void setScanLineReverse(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048637, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048645, this, z) == null) {
             this.S = z;
         }
     }
 
     public void setScanLineSize(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048638, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048646, this, i2) == null) {
             this.w = i2;
         }
     }
 
     public void setShowDefaultGridScanLineDrawable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048639, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048647, this, z) == null) {
             this.T = z;
         }
     }
 
     public void setShowDefaultScanLineDrawable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048640, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048648, this, z) == null) {
             this.z = z;
         }
     }
 
     public void setShowTipBackground(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048641, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048649, this, z) == null) {
             this.R = z;
         }
     }
 
     public void setShowTipTextAsSingleLine(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048642, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048650, this, z) == null) {
             this.P = z;
         }
     }
 
     public void setTipBackgroundColor(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048643, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048651, this, i2) == null) {
             this.Q = i2;
         }
     }
 
     public void setTipBackgroundRadius(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048644, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048652, this, i2) == null) {
             this.m0 = i2;
         }
     }
 
     public void setTipText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048645, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048653, this, str) == null) {
             this.K = str;
         }
     }
 
     public void setTipTextBelowRect(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048646, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048654, this, z) == null) {
             this.N = z;
         }
     }
 
     public void setTipTextColor(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048647, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048655, this, i2) == null) {
             this.M = i2;
         }
     }
 
     public void setTipTextMargin(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048648, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048656, this, i2) == null) {
             this.O = i2;
         }
     }
 
     public void setTipTextSize(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048649, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048657, this, i2) == null) {
             this.L = i2;
         }
     }
 
     public void setTipTextSl(StaticLayout staticLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048650, this, staticLayout) == null) {
+        if (interceptable == null || interceptable.invokeL(1048658, this, staticLayout) == null) {
             this.l0 = staticLayout;
         }
     }
 
     public void setToolbarHeight(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048651, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048659, this, i2) == null) {
             this.G = i2;
         }
     }
 
     public void setTopOffset(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048652, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048660, this, i2) == null) {
             this.v = i2;
         }
     }

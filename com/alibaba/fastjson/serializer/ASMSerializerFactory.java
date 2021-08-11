@@ -16,7 +16,6 @@ import com.alibaba.fastjson.util.ASMClassLoader;
 import com.alibaba.fastjson.util.ASMUtils;
 import com.alibaba.fastjson.util.FieldInfo;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -39,7 +38,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ASMSerializerFactory implements Opcodes {
     public static /* synthetic */ Interceptable $ic;
     public static final String JSONSerializer;
@@ -1837,7 +1836,7 @@ public class ASMSerializerFactory implements Opcodes {
                 Package r2 = ASMSerializerFactory.class.getPackage();
                 if (r2 != null) {
                     str = r2.getName() + "." + str7;
-                    str2 = name.replace(IStringUtil.EXTENSION_SEPARATOR, '/') + "/" + str7;
+                    str2 = name.replace('.', '/') + "/" + str7;
                 } else {
                     str = str7;
                     str2 = str;
@@ -2073,7 +2072,7 @@ public class ASMSerializerFactory implements Opcodes {
         return (JavaBeanSerializer) invokeL.objValue;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class Context {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int features = 5;

@@ -3,7 +3,7 @@ package com.baidu.wallet.fastpay.entrance;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.alibaba.fastjson.asm.Label;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.GlobalUtils;
 import com.baidu.apollon.utils.NetworkUtils;
@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.BaiduWalletServiceProviderMap;
 import com.baidu.wallet.api.ILoginBackListener;
 import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.core.utils.BaiduWalletUtils;
@@ -22,14 +21,18 @@ import com.baidu.wallet.passport.LoginBackListenerProxy;
 import com.baidu.wallet.router.LocalRouter;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
+import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
 public class DoPhoneChargeAction implements RouterAction {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String EVENT_DATAS_KEY = "eventData";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LoginBackListenerProxy f24977a;
+    public LoginBackListenerProxy f60692a;
 
     public DoPhoneChargeAction() {
         Interceptable interceptable = $ic;
@@ -58,7 +61,18 @@ public class DoPhoneChargeAction implements RouterAction {
                 }
                 return;
             }
-            a(context, Boolean.parseBoolean((String) hashMap.get("withAnim")));
+            boolean parseBoolean = Boolean.parseBoolean((String) hashMap.get("withAnim"));
+            String str = (String) hashMap.get("extra");
+            ArrayList<String> arrayList = new ArrayList<>();
+            try {
+                JSONArray optJSONArray = new JSONObject(str.trim()).optJSONArray(EVENT_DATAS_KEY);
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    arrayList.add(optJSONArray.optString(i2));
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            a(context, parseBoolean, arrayList);
             if (routerCallback != null) {
                 hashMap2.put("value", "success");
                 routerCallback.onResult(0, hashMap2);
@@ -66,34 +80,37 @@ public class DoPhoneChargeAction implements RouterAction {
         }
     }
 
-    private void a(Context context, boolean z) {
+    private void a(Context context, boolean z, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65538, this, context, z) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{context, Boolean.valueOf(z), arrayList}) == null) {
             if (!NetworkUtils.isNetworkAvailable(context)) {
                 GlobalUtils.toast(context, ResUtils.getString(context, "ebpay_no_network"));
-            } else if (LocalRouter.getInstance(context).isProviderExisted(BaiduWalletServiceProviderMap.PLUGIN_FASTPAY)) {
+            } else if (LocalRouter.getInstance(context).isProviderExisted("fastpay")) {
                 Intent intent = new Intent();
+                Bundle bundle = new Bundle();
+                bundle.putStringArrayList(EVENT_DATAS_KEY, arrayList);
+                intent.putExtras(bundle);
                 intent.setClass(context, ChargeActivity.class);
                 if (context instanceof Activity) {
                     LogUtil.d("DoPhoneChargeAction", "context is activity!");
                 } else {
-                    intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                    intent.setFlags(268435456);
                 }
-                this.f24977a = new LoginBackListenerProxy(context, new ILoginBackListener(this, context, intent, z) { // from class: com.baidu.wallet.fastpay.entrance.DoPhoneChargeAction.1
+                this.f60692a = new LoginBackListenerProxy(context, new ILoginBackListener(this, context, intent, z) { // from class: com.baidu.wallet.fastpay.entrance.DoPhoneChargeAction.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f24978a;
+                    public final /* synthetic */ Context f60693a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Intent f24979b;
+                    public final /* synthetic */ Intent f60694b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ boolean f24980c;
+                    public final /* synthetic */ boolean f60695c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ DoPhoneChargeAction f24981d;
+                    public final /* synthetic */ DoPhoneChargeAction f60696d;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -110,10 +127,10 @@ public class DoPhoneChargeAction implements RouterAction {
                                 return;
                             }
                         }
-                        this.f24981d = this;
-                        this.f24978a = context;
-                        this.f24979b = intent;
-                        this.f24980c = z;
+                        this.f60696d = this;
+                        this.f60693a = context;
+                        this.f60694b = intent;
+                        this.f60695c = z;
                     }
 
                     @Override // com.baidu.wallet.api.ILoginBackListener
@@ -121,18 +138,19 @@ public class DoPhoneChargeAction implements RouterAction {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
                             if (i2 == 603) {
-                                WalletLoginHelper.getInstance().onlyLogin(this.f24981d.f24977a);
+                                WalletLoginHelper.getInstance().onlyLogin(this.f60696d.f60692a);
                                 return;
                             }
-                            this.f24978a.startActivity(this.f24979b);
-                            Context context2 = this.f24978a;
+                            this.f60693a.startActivity(this.f60694b);
+                            Context context2 = this.f60693a;
                             if (context2 instanceof Activity) {
-                                if (this.f24980c) {
+                                if (this.f60695c) {
                                     BaiduWalletUtils.startActivityAnim(context2);
                                 } else {
                                     BaiduWalletUtils.overridePendingTransitionNoAnim((Activity) context2);
                                 }
                             }
+                            this.f60696d.f60692a = null;
                         }
                     }
 
@@ -140,19 +158,20 @@ public class DoPhoneChargeAction implements RouterAction {
                     public void onSuccess(int i2, String str) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                            this.f24978a.startActivity(this.f24979b);
-                            Context context2 = this.f24978a;
+                            this.f60693a.startActivity(this.f60694b);
+                            Context context2 = this.f60693a;
                             if (context2 instanceof Activity) {
-                                if (this.f24980c) {
+                                if (this.f60695c) {
                                     BaiduWalletUtils.startActivityAnim(context2);
                                 } else {
                                     BaiduWalletUtils.overridePendingTransitionNoAnim((Activity) context2);
                                 }
                             }
+                            this.f60696d.f60692a = null;
                         }
                     }
                 });
-                WalletLoginHelper.getInstance().verifyPassLogin(true, this.f24977a);
+                WalletLoginHelper.getInstance().verifyPassLogin(true, this.f60692a);
             }
         }
     }

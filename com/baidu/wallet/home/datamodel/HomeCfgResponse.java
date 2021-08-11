@@ -5,28 +5,36 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.beans.IBeanResponse;
+import com.baidu.apollon.utils.DxmApplicationContextImpl;
+import com.baidu.apollon.utils.SharedPreferencesUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
+import com.baidu.wallet.core.beans.BeanConstants;
 import com.baidu.wallet.home.storage.HomeDataCacheManager;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.ArrayUtils;
+/* loaded from: classes8.dex */
 public class HomeCfgResponse implements IBeanResponse {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String user_status = "";
     public transient /* synthetic */ FieldHolder $fh;
     public String abtype;
     public String android_prefix;
     public String changedSign;
     public String is_login;
     public AllConfig layout_content;
+    public BillboardConfig layout_float;
     public FooterConfig layout_footer;
     public TitleConfig layout_title;
     public String version;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class AllConfig implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6644260416559855999L;
@@ -51,7 +59,78 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
+    public static class BillboardConfig extends AllConfig implements NoProguard {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Billboards[] data;
+
+        public BillboardConfig() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class BillboardModel extends DataItem implements NoProguard {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final String KEY = "sdk_home_billboard_fingerprint";
+        public transient /* synthetic */ FieldHolder $fh;
+        public String closable;
+        public String fingerprint;
+
+        public BillboardModel() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public boolean isValid() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.name) || TextUtils.isEmpty(this.type) || TextUtils.isEmpty(this.link_addr) || TextUtils.isEmpty(this.logo) || TextUtils.isEmpty(this.fingerprint) || TextUtils.isEmpty(this.closable)) ? false : true : invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class Billboards extends ConfigData implements NoProguard {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public BillboardModel[] list;
+
+        public Billboards() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
     public static class ConfigData implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String GROUP_LAYOUR_GAP = "100";
@@ -67,6 +146,10 @@ public class HomeCfgResponse implements IBeanResponse {
         public static final String GROUP_LAYOUT_TYPE208 = "208";
         public static final String GROUP_LAYOUT_TYPE209 = "209";
         public static final String GROUP_LAYOUT_TYPE210 = "210";
+        public static final String GROUP_LAYOUT_TYPE211 = "211";
+        public static final String GROUP_LAYOUT_TYPE212 = "212";
+        public static final String GROUP_LAYOUT_TYPE214 = "214";
+        public static final String GROUP_LAYOUT_TYPE215 = "215";
         public static final String GROUP_LAYOUT_TYPE3 = "3";
         public static final String GROUP_LAYOUT_TYPE4 = "4";
         public static final String GROUP_LAYOUT_TYPE5 = "5";
@@ -187,16 +270,18 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class DataButton implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String btn_type;
+        public String desc;
         public String icon;
         public String link_addr;
         public String name;
         public String prevlogin;
         public Stat stat;
+        public String timestamp_msg;
         public String type;
 
         public DataButton() {
@@ -214,7 +299,7 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class DataIcon implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -236,11 +321,12 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class DataItem extends WalletBannerItem implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8579386834036716930L;
         public transient /* synthetic */ FieldHolder $fh;
+        public String background;
         public DataButton[] buttons;
         public String corner_addr;
         public String desc;
@@ -374,7 +460,7 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class DataRepay implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -400,7 +486,7 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class FooterConfig implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -423,7 +509,7 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class FooterItemDate implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -455,7 +541,7 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class Stat implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -482,7 +568,7 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class TitleConfig implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 740046545863062188L;
@@ -515,7 +601,7 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class TitleItem implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -710174975362084934L;
@@ -550,7 +636,7 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class TitleItemData extends WalletBannerItem implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1114980926835567633L;
@@ -659,16 +745,31 @@ public class HomeCfgResponse implements IBeanResponse {
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1561496237, "Lcom/baidu/wallet/home/datamodel/HomeCfgResponse;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1561496237, "Lcom/baidu/wallet/home/datamodel/HomeCfgResponse;");
+        }
+    }
+
     public HomeCfgResponse() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
@@ -676,14 +777,33 @@ public class HomeCfgResponse implements IBeanResponse {
         this.is_login = "0";
     }
 
+    public static String getUserStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? user_status : (String) invokeV.objValue;
+    }
+
+    public boolean billboardCloseable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TextUtils.equals("1", this.layout_float.data[0].list[0].closable) : invokeV.booleanValue;
+    }
+
     @Override // com.baidu.apollon.beans.IBeanResponse
     public boolean checkResponseValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
+    }
+
+    public void closeBillboard(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, BillboardModel.KEY, getBillboard().fingerprint);
+        }
     }
 
     public HomeCfgResponse combineResponse(HomeCfgResponse homeCfgResponse) {
@@ -691,14 +811,14 @@ public class HomeCfgResponse implements IBeanResponse {
         AllConfig allConfig;
         ConfigData[] configDataArr;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, homeCfgResponse)) == null) ? (homeCfgResponse == null || (allConfig = homeCfgResponse.layout_content) == null || (configDataArr = allConfig.data) == null || configDataArr.length <= 0) ? this : homeCfgResponse : (HomeCfgResponse) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, homeCfgResponse)) == null) ? (homeCfgResponse == null || (allConfig = homeCfgResponse.layout_content) == null || (configDataArr = allConfig.data) == null || configDataArr.length <= 0) ? this : homeCfgResponse : (HomeCfgResponse) invokeL.objValue;
     }
 
     public boolean doCheckValidity() {
         InterceptResult invokeV;
         ConfigData[] configDataArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             AllConfig allConfig = this.layout_content;
             return (allConfig == null || (configDataArr = allConfig.data) == null || configDataArr.length <= 0) ? false : true;
         }
@@ -707,19 +827,19 @@ public class HomeCfgResponse implements IBeanResponse {
 
     public void doStoreResponse(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) {
             new Thread(this, context, str) { // from class: com.baidu.wallet.home.datamodel.HomeCfgResponse.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f25146a;
+                public final /* synthetic */ Context f60878a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f25147b;
+                public final /* synthetic */ String f60879b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ HomeCfgResponse f25148c;
+                public final /* synthetic */ HomeCfgResponse f60880c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -736,32 +856,54 @@ public class HomeCfgResponse implements IBeanResponse {
                             return;
                         }
                     }
-                    this.f25148c = this;
-                    this.f25146a = context;
-                    this.f25147b = str;
+                    this.f60880c = this;
+                    this.f60878a = context;
+                    this.f60879b = str;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        HomeDataCacheManager.getInstance().saveResponseDataToCache(this.f25146a.getApplicationContext(), this.f25148c, this.f25147b);
+                        HomeDataCacheManager.getInstance().saveResponseDataToCache(DxmApplicationContextImpl.getApplicationContext(this.f60878a), this.f60880c, this.f60879b);
                     }
                 }
             }.start();
         }
     }
 
+    public BillboardModel getBillboard() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.layout_float.data[0].list[0] : (BillboardModel) invokeV.objValue;
+    }
+
+    public boolean hasBillboard() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            BillboardConfig billboardConfig = this.layout_float;
+            return (billboardConfig == null || ArrayUtils.isEmpty(billboardConfig.data) || ArrayUtils.isEmpty(this.layout_float.data[0].list) || !this.layout_float.data[0].list[0].isValid()) ? false : true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isBillboardClosed(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) ? TextUtils.equals(getBillboard().fingerprint, String.valueOf(SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, BillboardModel.KEY, ""))) : invokeL.booleanValue;
+    }
+
     public boolean isLogin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "1".equalsIgnoreCase(this.is_login) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "1".equalsIgnoreCase(this.is_login) : invokeV.booleanValue;
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponse
     public void storeResponse(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
         }
     }
 }

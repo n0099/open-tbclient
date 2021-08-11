@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface Container {
     List<Box> getBoxes();
 
@@ -12,7 +12,7 @@ public interface Container {
 
     <T extends Box> List<T> getBoxes(Class<T> cls, boolean z);
 
-    ByteBuffer getByteBuffer(long j, long j2) throws IOException;
+    ByteBuffer getByteBuffer(long j2, long j3) throws IOException;
 
     void setBoxes(List<Box> list);
 

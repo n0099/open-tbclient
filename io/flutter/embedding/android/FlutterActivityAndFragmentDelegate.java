@@ -27,7 +27,7 @@ import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class FlutterActivityAndFragmentDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterActivityAndFragmentDelegate";
@@ -46,7 +46,7 @@ public final class FlutterActivityAndFragmentDelegate {
     @Nullable
     public PlatformPlugin platformPlugin;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface Host extends SplashScreenProvider, FlutterEngineProvider, FlutterEngineConfigurator {
         void cleanUpFlutterEngine(@NonNull FlutterEngine flutterEngine);
 

@@ -45,7 +45,8 @@ import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes9.dex */
 public final class WebKitFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARCH_ARM = "armv";
@@ -105,7 +106,7 @@ public final class WebKitFactory {
     public static boolean sZeusSupportedLoaded;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class DelayedInitTask extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -298,7 +299,7 @@ public final class WebKitFactory {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface IForceInitZeusListener {
         @Keep
         void onForceInitZeusFinish(boolean z);
@@ -308,7 +309,7 @@ public final class WebKitFactory {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class SwitchState {
         public static final /* synthetic */ SwitchState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -369,7 +370,7 @@ public final class WebKitFactory {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface WebkitInstallListener {
         public static final int RET_CANCELED = 3;
         public static final int RET_FAILED_ALREADY_RUNNING = 8;
@@ -855,7 +856,7 @@ public final class WebKitFactory {
                 }
                 ArrayList arrayList22 = new ArrayList();
                 if (bArr != null) {
-                    String[] split = new String(bArr).split("\n");
+                    String[] split = new String(bArr).split(StringUtils.LF);
                     long parseLong = Long.parseLong(sStatisticsSessionId);
                     for (int i2 = 0; i2 < split.length; i2++) {
                         try {
@@ -874,7 +875,7 @@ public final class WebKitFactory {
                 FileOutputStream fileOutputStream22 = new FileOutputStream(str3, false);
                 it = arrayList22.iterator();
                 while (it.hasNext()) {
-                    fileOutputStream22.write((((String) it.next()) + "\n").getBytes());
+                    fileOutputStream22.write((((String) it.next()) + StringUtils.LF).getBytes());
                 }
                 fileOutputStream22.close();
                 int size22 = arrayList22.size();
@@ -1375,13 +1376,13 @@ public final class WebKitFactory {
         JsUploadTask.setFirstJumpUrl(str);
     }
 
-    public static void setFirstScreenTimeJs(long j) {
+    public static void setFirstScreenTimeJs(long j2) {
         JsUploadTask jsUploadTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65625, null, j) == null) || (jsUploadTask = mJavaScriptInterface) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(65625, null, j2) == null) || (jsUploadTask = mJavaScriptInterface) == null) {
             return;
         }
-        jsUploadTask.setFirstScreenTime(j);
+        jsUploadTask.setFirstScreenTime(j2);
     }
 
     public static void setGpuTypeJs(String str) {
@@ -1484,19 +1485,19 @@ public final class WebKitFactory {
         jsUploadTask.setNetcode(i2);
     }
 
-    public static void setPageFinishedTimeJs(long j) {
+    public static void setPageFinishedTimeJs(long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65638, null, j) == null) || mJavaScriptInterface == null) {
+        if (!(interceptable == null || interceptable.invokeJ(65638, null, j2) == null) || mJavaScriptInterface == null) {
             return;
         }
-        JsUploadTask.setPageFinishedTime(j);
+        JsUploadTask.setPageFinishedTime(j2);
     }
 
-    public static void setPageStartTimeStamp(long j) {
+    public static void setPageStartTimeStamp(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65639, null, j) == null) {
-            sPageStartTimeStamp = j;
-            mJavaScriptInterface.setPageStartTime(j);
+        if (interceptable == null || interceptable.invokeJ(65639, null, j2) == null) {
+            sPageStartTimeStamp = j2;
+            mJavaScriptInterface.setPageStartTime(j2);
         }
     }
 

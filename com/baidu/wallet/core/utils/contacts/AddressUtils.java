@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.ContactManager;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class AddressUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24926a = "AddressUtils";
+    public static final String f60644a = "AddressUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

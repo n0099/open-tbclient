@@ -1,7 +1,6 @@
 package com.google.gson.internal.bind.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,9 +16,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
-import kotlin.text.Typography;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ISO8601Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final TimeZone TIMEZONE_UTC;
@@ -152,7 +150,7 @@ public class ISO8601Utils {
                     if (i5 > 59 && i5 < 63) {
                         i5 = 59;
                     }
-                    if (checkOffset(str, i12, IStringUtil.EXTENSION_SEPARATOR)) {
+                    if (checkOffset(str, i12, '.')) {
                         int i13 = i12 + 1;
                         int indexOfNonDigit = indexOfNonDigit(str, i13 + 1);
                         int min = Math.min(indexOfNonDigit, i13 + 3);
@@ -228,7 +226,7 @@ public class ISO8601Utils {
             if (str == null) {
                 str2 = null;
             } else {
-                str2 = Typography.quote + str + Typography.quote;
+                str2 = '\"' + str + '\"';
             }
             String message = e2.getMessage();
             if (message == null || message.isEmpty()) {
@@ -300,7 +298,7 @@ public class ISO8601Utils {
             sb.append(':');
             padInt(sb, gregorianCalendar.get(13), 2);
             if (z) {
-                sb.append(IStringUtil.EXTENSION_SEPARATOR);
+                sb.append('.');
                 padInt(sb, gregorianCalendar.get(14), 3);
             }
             int offset = timeZone.getOffset(gregorianCalendar.getTimeInMillis());

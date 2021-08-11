@@ -10,7 +10,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.Character;
 import java.net.URLEncoder;
-/* loaded from: classes2.dex */
+import org.apache.commons.lang3.CharUtils;
+/* loaded from: classes5.dex */
 public final class EncodeUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -160,19 +161,17 @@ public final class EncodeUtils {
                             i4++;
                             i2 = i6;
                         }
-                        stringBuffer.append((char) i5);
-                    } else {
-                        if (charAt2 == 't') {
-                            charAt2 = '\t';
-                        } else if (charAt2 == 'r') {
-                            charAt2 = '\r';
-                        } else if (charAt2 == 'n') {
-                            charAt2 = '\n';
-                        } else if (charAt2 == 'f') {
-                            charAt2 = '\f';
-                        }
-                        stringBuffer.append(charAt2);
+                        charAt2 = (char) i5;
+                    } else if (charAt2 == 't') {
+                        charAt2 = '\t';
+                    } else if (charAt2 == 'r') {
+                        charAt2 = CharUtils.CR;
+                    } else if (charAt2 == 'n') {
+                        charAt2 = '\n';
+                    } else if (charAt2 == 'f') {
+                        charAt2 = '\f';
                     }
+                    stringBuffer.append(charAt2);
                 } else {
                     stringBuffer.append(charAt);
                     i2 = i3;
@@ -191,6 +190,7 @@ public final class EncodeUtils {
 
     public static String utf8ToUnicode(String str) {
         InterceptResult invokeL;
+        char c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
             char[] charArray = str.toCharArray();
@@ -198,13 +198,14 @@ public final class EncodeUtils {
             for (int i2 = 0; i2 < str.length(); i2++) {
                 Character.UnicodeBlock of = Character.UnicodeBlock.of(charArray[i2]);
                 if (of == Character.UnicodeBlock.BASIC_LATIN) {
-                    stringBuffer.append(charArray[i2]);
+                    c2 = charArray[i2];
                 } else if (of == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS) {
-                    stringBuffer.append((char) (charArray[i2] - 65248));
+                    c2 = (char) (charArray[i2] - 65248);
                 } else {
                     String hexString = Integer.toHexString((short) charArray[i2]);
                     stringBuffer.append(("\\u" + hexString).toLowerCase());
                 }
+                stringBuffer.append(c2);
             }
             return stringBuffer.toString();
         }

@@ -19,25 +19,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class EmotionCenterForumView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f15139e;
+    public TbPageContext f50351e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f15140f;
+    public TextView f50352f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f15141g;
+    public TextView f50353g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f15142h;
+    public ImageView f50354h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EmotionCenterData.EmotionForumData f15143i;
+    public EmotionCenterData.EmotionForumData f50355i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EmotionCenterForumView(TbPageContext tbPageContext) {
@@ -57,7 +57,7 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
                 return;
             }
         }
-        this.f15139e = tbPageContext;
+        this.f50351e = tbPageContext;
         a();
     }
 
@@ -65,35 +65,35 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.emotion_forum_layout, this);
-            this.f15140f = (TextView) findViewById(R.id.forum_title_tv);
-            this.f15141g = (TextView) findViewById(R.id.forum_recommend_tv);
-            this.f15142h = (ImageView) findViewById(R.id.forum_arrow);
+            this.f50352f = (TextView) findViewById(R.id.forum_title_tv);
+            this.f50353g = (TextView) findViewById(R.id.forum_recommend_tv);
+            this.f50354h = (ImageView) findViewById(R.id.forum_arrow);
             setOnClickListener(this);
         }
     }
 
-    public void b(int i2) {
+    public void onChangeSkin(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f15140f, R.color.CAM_X0105, i2);
-            SkinManager.setViewTextColor(this.f15141g, R.color.cp_cont_r, i2);
-            SkinManager.setBackgroundResource(this.f15142h, R.drawable.emotion_center_arrow, i2);
+            SkinManager.setViewTextColor(this.f50352f, R.color.CAM_X0105, i2);
+            SkinManager.setViewTextColor(this.f50353g, R.color.cp_cont_r, i2);
+            SkinManager.setBackgroundResource(this.f50354h, R.drawable.emotion_center_arrow, i2);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view == this && this.f15143i != null) {
-            this.f15139e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f15139e.getPageActivity()).createNormalCfg(this.f15143i.forum_name, null)));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view == this && this.f50355i != null) {
+            this.f50351e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f50351e.getPageActivity()).createNormalCfg(this.f50355i.forum_name, null)));
         }
     }
 
     public void setData(EmotionCenterData.EmotionForumData emotionForumData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, emotionForumData) == null) {
-            b(TbadkCoreApplication.getInst().getSkinType());
-            this.f15143i = emotionForumData;
+            onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
+            this.f50355i = emotionForumData;
         }
     }
 

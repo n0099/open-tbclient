@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class TbPatternsCompat {
     public static /* synthetic */ Interceptable $ic = null;
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})

@@ -9,7 +9,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,7 +21,7 @@ import com.baidu.webkit.sdk.WebViewFactory;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class OpenAppUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_WTAI_MC = "wtai://wp/mc;";
@@ -63,7 +62,7 @@ public class OpenAppUtils {
     public static void browserOutside(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            if (str.startsWith(SCHEME_WTAI_MC)) {
+            if (str.startsWith("wtai://wp/mc;")) {
                 str = "tel:" + str.substring(13);
             }
             try {
@@ -96,7 +95,7 @@ public class OpenAppUtils {
                 }
             } catch (Exception unused) {
                 Intent intent2 = new Intent("android.intent.action.VIEW", Uri.parse(str));
-                intent2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent2.addFlags(268435456);
                 context.startActivity(intent2);
             }
         }
@@ -173,7 +172,7 @@ public class OpenAppUtils {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
             try {
                 Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
-                launchIntentForPackage.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                launchIntentForPackage.addFlags(268435456);
                 context.startActivity(launchIntentForPackage);
             } catch (Exception unused) {
             }

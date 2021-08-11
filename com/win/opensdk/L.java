@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class L {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static L f39593b;
+    public static L f76429b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap f39594a;
+    public ConcurrentHashMap f76430a;
 
     public L() {
         Interceptable interceptable = $ic;
@@ -32,21 +32,21 @@ public class L {
                 return;
             }
         }
-        this.f39594a = new ConcurrentHashMap();
+        this.f76430a = new ConcurrentHashMap();
     }
 
     public static L a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f39593b == null) {
+            if (f76429b == null) {
                 synchronized (L.class) {
-                    if (f39593b == null) {
-                        f39593b = new L();
+                    if (f76429b == null) {
+                        f76429b = new L();
                     }
                 }
             }
-            return f39593b;
+            return f76429b;
         }
         return (L) invokeV.objValue;
     }
@@ -57,7 +57,7 @@ public class L {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             synchronized (L.class) {
-                info = (Info) this.f39594a.remove(str);
+                info = (Info) this.f76430a.remove(str);
             }
             return info;
         }
@@ -68,7 +68,7 @@ public class L {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, info) == null) {
             synchronized (L.class) {
-                this.f39594a.put(str, info);
+                this.f76430a.put(str, info);
             }
         }
     }

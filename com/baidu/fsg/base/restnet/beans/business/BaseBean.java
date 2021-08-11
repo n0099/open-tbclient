@@ -9,7 +9,6 @@ import com.baidu.fsg.base.restnet.a.c;
 import com.baidu.fsg.base.restnet.beans.BeanResponseBase;
 import com.baidu.fsg.base.restnet.beans.IBeanResponse;
 import com.baidu.fsg.base.restnet.beans.IBeanResponseCallback;
-import com.baidu.fsg.base.restnet.rest.RestHttpRequestInterceptor;
 import com.baidu.fsg.base.utils.BussinessUtils;
 import com.baidu.fsg.base.utils.JsonUtils;
 import com.baidu.fsg.base.utils.LogUtil;
@@ -22,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseBean extends NetworkBean {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMET_BEAN = 1;
@@ -49,6 +48,28 @@ public abstract class BaseBean extends NetworkBean {
             }
         }
         this.beanType = -1;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BaseBean(Context context, int i2) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.beanType = -1;
+        this.beanType = i2;
     }
 
     private void checkSign(BeanResponseBase beanResponseBase) throws Exception {
@@ -89,9 +110,15 @@ public abstract class BaseBean extends NetworkBean {
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public <T, E> void handleResponse(Class<T> cls, Class<E> cls2, RestResponseEntity<? extends BeanResponseBase> restResponseEntity) {
+        IBeanResponseCallback iBeanResponseCallback;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, cls2, restResponseEntity) == null) {
-            if (restResponseEntity != null && this.mRspCallback != null) {
+            if (restResponseEntity == null || this.mRspCallback == null) {
+                iBeanResponseCallback = this.mRspCallback;
+                if (iBeanResponseCallback == null) {
+                    return;
+                }
+            } else {
                 handleResponseHeaders(restResponseEntity);
                 BeanResponseBase body = restResponseEntity.getBody();
                 if (body != null) {
@@ -103,11 +130,13 @@ public abstract class BaseBean extends NetworkBean {
                             return;
                         }
                         LogUtil.d("BeasBean", "execBean. ret       . rsp class = " + cls);
-                        if (cls != null) {
-                            if (JsonUtils.DataType.isString(cls)) {
-                                this.mRspCallback.onBeanExecSuccess(getBeanId(), null, body.getRealResponseContent(), body.sign);
-                                return;
-                            }
+                        if (cls == null) {
+                            this.mRspCallback.onBeanExecSuccess(getBeanId(), null, body.getRealResponseContent(), body.sign);
+                            return;
+                        } else if (JsonUtils.DataType.isString(cls)) {
+                            this.mRspCallback.onBeanExecSuccess(getBeanId(), null, body.getRealResponseContent(), body.sign);
+                            return;
+                        } else {
                             Object extractRealResponse = extractRealResponse(body.getRealResponseContent(), cls);
                             LogUtil.d("BeasBean", "execBean. ret ok. real response = " + extractRealResponse);
                             if (extractRealResponse != null) {
@@ -117,27 +146,17 @@ public abstract class BaseBean extends NetworkBean {
                                     this.mRspCallback.onBeanExecSuccess(getBeanId(), extractRealResponse, body.retMsg, body.sign);
                                     return;
                                 }
-                                this.mRspCallback.onBeanExecFailure(getBeanId(), -4, BeanConstants.rim_resolve_error);
-                                return;
                             }
-                            this.mRspCallback.onBeanExecFailure(getBeanId(), -4, BeanConstants.rim_resolve_error);
-                            return;
                         }
-                        this.mRspCallback.onBeanExecSuccess(getBeanId(), null, body.getRealResponseContent(), body.sign);
-                        return;
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         this.mRspCallback.onBeanExecFailure(getBeanId(), -1, BeanConstants.ERROR_MSG_CHECKSIGN);
                         return;
                     }
                 }
-                this.mRspCallback.onBeanExecFailure(getBeanId(), -4, BeanConstants.rim_resolve_error);
-                return;
+                iBeanResponseCallback = this.mRspCallback;
             }
-            IBeanResponseCallback iBeanResponseCallback = this.mRspCallback;
-            if (iBeanResponseCallback != null) {
-                iBeanResponseCallback.onBeanExecFailure(getBeanId(), -4, BeanConstants.rim_resolve_error);
-            }
+            iBeanResponseCallback.onBeanExecFailure(getBeanId(), -4, BeanConstants.rim_resolve_error);
         }
     }
 
@@ -162,42 +181,14 @@ public abstract class BaseBean extends NetworkBean {
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public void prepareRestTemplate() {
-        RestHttpRequestInterceptor ebpayHttpRequestInterceptor;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             Context context = this.mContext;
             this.mRestTemplate = new RestTemplate(context, BussinessUtils.getUA(context), "pay bean http request");
             ArrayList arrayList = new ArrayList();
-            if (this.beanType == 1) {
-                ebpayHttpRequestInterceptor = new CometHttpRequestInterceptor();
-            } else {
-                ebpayHttpRequestInterceptor = new EbpayHttpRequestInterceptor();
-            }
-            arrayList.add(ebpayHttpRequestInterceptor);
+            arrayList.add(this.beanType == 1 ? new CometHttpRequestInterceptor() : new EbpayHttpRequestInterceptor());
             this.mRestTemplate.setRequestInterceptor(arrayList);
             this.mRestTemplate.setMessageConverter(new c());
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseBean(Context context, int i2) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.beanType = -1;
-        this.beanType = i2;
     }
 }

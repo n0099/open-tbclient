@@ -1,5 +1,8 @@
 package com.baidu.tieba.frs.profession.permission;
 
+import c.a.o0.i0.b.g;
+import c.a.p0.v0.f2.a.a;
+import c.a.p0.v0.f2.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
@@ -12,10 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.i0.b.g;
-import d.a.q0.u0.f2.a.a;
-import d.a.q0.u0.f2.a.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FrsProfessionPermissionModel<T> extends NetAutoModel<a, b, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

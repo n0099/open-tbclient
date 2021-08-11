@@ -1,34 +1,55 @@
 package com.baidu.ugc.audioedit;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.v0.g.b;
+import c.a.v0.t.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.audioprocesswrapper.DuAudioProcess;
+import com.baidu.audioprocesswrapper.DuDelayProcess;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.w0.g.b;
-import d.a.w0.t.c;
+import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class AudioChangeOperator implements b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DU_AUDIO_EFFECT_SHIFT_AGC = 4;
+    public static final int DU_AUDIO_EFFECT_SHIFT_AIR = 20;
+    public static final int DU_AUDIO_EFFECT_SHIFT_COMPRESS = 24;
+    public static final int DU_AUDIO_EFFECT_SHIFT_EQUALIZER = 16;
     public static final int DU_AUDIO_EFFECT_SHIFT_NS = 0;
     public static final int DU_AUDIO_EFFECT_SHIFT_PITCH = 12;
     public static final int DU_AUDIO_EFFECT_SHIFT_REVERB = 8;
+    public static final int HARMONY_TYPE_ORIGIN = 700;
     public static final int PITCH_ORIGIN = 0;
     public static final int REVERB_ORIGIN = 100;
     public static final int VOICE_AGC_ORIGIN = 300;
+    public static final int VOICE_AIR_ORIGIN = 500;
+    public static final int VOICE_AUTO_CONFIG_TYPE = 15;
+    public static final int VOICE_COMPRESS_ORIGIN = 600;
     public static final int VOICE_DENOISE_ORIGIN = 200;
+    public static final int VOICE_EQ_ORIGIN = 400;
     public transient /* synthetic */ FieldHolder $fh;
     public int mAgcType;
+    public int mAirType;
+    public AudioChangeConfig mAudioChangeConfig;
     public int mByteWidth;
     public int mChannelCount;
+    public int mCompressType;
+    public volatile int[] mCurrentEQparams;
+    public volatile double[] mCurrentReverbParams;
     public volatile int[] mCurrentTypeArray;
+    public DuDelayProcess mDelayProcess;
     public int mDenoiseType;
     public DuAudioProcess mDuAudioProcess;
+    public int mEQType;
+    public int mHarmonyType;
+    public volatile int[] mLastEQparams;
+    public volatile double[] mLastReverbParams;
     public volatile int[] mLastTypeArray;
     public int mPitchType;
     public int mReverbType;
@@ -47,14 +68,49 @@ public class AudioChangeOperator implements b {
                 return;
             }
         }
+        this.mCompressType = 601;
+        this.mHarmonyType = 700;
         this.mCurrentTypeArray = null;
         this.mLastTypeArray = null;
+        this.mLastEQparams = null;
+        this.mLastReverbParams = null;
+        this.mCurrentEQparams = null;
+        this.mCurrentReverbParams = null;
     }
 
-    private boolean checkTypesEquals(int[] iArr) {
-        InterceptResult invokeL;
+    private void audioSwitch() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, iArr)) == null) {
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            this.mDuAudioProcess.k(this.mPitchType);
+            int i2 = this.mReverbType;
+            if (i2 - 100 != 15) {
+                this.mDuAudioProcess.l(Math.max(i2 - 100, 0));
+            } else if (i2 - 100 == 15 && this.mCurrentReverbParams != null) {
+                this.mDuAudioProcess.m(Math.max(this.mReverbType - 100, 0), this.mCurrentReverbParams);
+            }
+            int i3 = this.mEQType;
+            if (i3 + ErrorCode.ARGS_ERROR != 15) {
+                this.mDuAudioProcess.h(Math.max(i3 + ErrorCode.ARGS_ERROR, 0));
+            } else if (i3 + ErrorCode.ARGS_ERROR == 15 && this.mCurrentEQparams != null) {
+                this.mDuAudioProcess.i(Math.max(this.mEQType + ErrorCode.ARGS_ERROR, 0), this.mCurrentEQparams);
+            }
+            this.mDuAudioProcess.g(Math.max(this.mAirType - 500, 0));
+            this.mDuAudioProcess.j(this.mHarmonyType >= 700 ? 1 : 0);
+            c.d("AudioChangeOperatorNew: 切换效果 mPitchType = " + this.mPitchType);
+            c.d("AudioChangeOperatorNew: 切换效果 mReverbType = " + this.mReverbType);
+        }
+    }
+
+    private boolean canDelay() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.mDelayProcess != null && delayAvailable() : invokeV.booleanValue;
+    }
+
+    private boolean checkTypesEquals(int[] iArr, int[] iArr2, double[] dArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, this, iArr, iArr2, dArr)) == null) {
             if (this.mCurrentTypeArray != null || iArr == null) {
                 if (this.mCurrentTypeArray == iArr) {
                     return true;
@@ -65,68 +121,187 @@ public class AudioChangeOperator implements b {
                 if (this.mCurrentTypeArray != null && this.mCurrentTypeArray.length != 0) {
                     Arrays.sort(this.mCurrentTypeArray);
                 }
-                return Arrays.equals(iArr, this.mCurrentTypeArray);
+                if (iArr != null && Arrays.equals(iArr, this.mCurrentTypeArray)) {
+                    boolean z = true;
+                    boolean z2 = true;
+                    for (int i2 : iArr) {
+                        if (i2 == 415 && iArr2 != null && this.mCurrentEQparams != null && !Arrays.equals(iArr2, this.mCurrentEQparams)) {
+                            z = false;
+                        }
+                        if (i2 == 115 && dArr != null && this.mCurrentReverbParams != null && !Arrays.equals(dArr, this.mCurrentReverbParams)) {
+                            z2 = false;
+                        }
+                    }
+                    if (z && z2) {
+                        return true;
+                    }
+                }
+                return false;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLLL.booleanValue;
+    }
+
+    private void closeDelay() {
+        DuDelayProcess duDelayProcess;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (duDelayProcess = this.mDelayProcess) == null) {
+            return;
+        }
+        try {
+            duDelayProcess.j(0);
+            this.mDelayProcess.f(0.0f);
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    private boolean delayAvailable() {
+        InterceptResult invokeV;
+        DelayConfig delayConfig;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+            AudioChangeConfig audioChangeConfig = this.mAudioChangeConfig;
+            return (audioChangeConfig == null || (delayConfig = audioChangeConfig.getDelayConfig()) == null || !delayConfig.available()) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     private void init() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || checkTypesEquals(this.mLastTypeArray)) {
-            return;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+            if (!checkTypesEquals(this.mLastTypeArray, this.mLastEQparams, this.mLastReverbParams) || delayAvailable()) {
+                this.mCurrentTypeArray = this.mLastTypeArray;
+                this.mCurrentReverbParams = this.mLastReverbParams;
+                this.mCurrentEQparams = this.mLastEQparams;
+                if (initProcess()) {
+                    return;
+                }
+                int i2 = this.mDenoiseType;
+                long j2 = i2 > 200 ? 0 | ((i2 - 200) << 0) : 0L;
+                int i3 = this.mCompressType;
+                if (i3 > 600) {
+                    j2 |= (i3 - 600) << 24;
+                }
+                int i4 = this.mAgcType;
+                if (i4 > 300) {
+                    j2 |= (i4 - 300) << 4;
+                }
+                c.d("AudioChangeOperatorNew: 创建DuAudioProcess开始");
+                this.mDuAudioProcess = new DuAudioProcess(this.mSampleRate, this.mChannelCount, j2);
+                audioSwitch();
+                c.d("AudioChangeOperatorNew: 创建DuAudioProcess完成");
+                c.d("AudioChangeOperatorNew: 创建DuDelayProcess开始");
+                this.mDelayProcess = new DuDelayProcess(this.mSampleRate, 1);
+                setDelayConfig();
+                c.d("AudioChangeOperatorNew: 创建DuDelayProcess完成");
+            }
         }
-        this.mCurrentTypeArray = this.mLastTypeArray;
-        DuAudioProcess duAudioProcess = this.mDuAudioProcess;
-        if (duAudioProcess != null) {
-            duAudioProcess.g(this.mPitchType);
-            this.mDuAudioProcess.h(Math.max(this.mReverbType - 100, 0));
-            c.d("AudioChangeOperatorNew: 切换效果 mPitchType = " + this.mPitchType);
-            c.d("AudioChangeOperatorNew: 切换效果 mReverbType = " + this.mReverbType);
-            return;
+    }
+
+    private boolean initProcess() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            if (this.mDuAudioProcess != null) {
+                audioSwitch();
+                z = true;
+            } else {
+                z = false;
+            }
+            if (this.mDelayProcess != null) {
+                setDelayConfig();
+                return true;
+            }
+            return z;
         }
-        int i2 = this.mDenoiseType;
-        int i3 = i2 > 200 ? 0 | ((i2 - 200) << 0) : 0;
-        int i4 = this.mAgcType;
-        if (i4 > 300) {
-            i3 |= (i4 - 300) << 4;
-        }
-        int i5 = this.mReverbType;
-        if (i5 > 100) {
-            i3 |= (i5 - 100) << 8;
-        }
-        int i6 = this.mPitchType;
-        if (i6 > 0) {
-            i3 |= i6 << 12;
-        }
-        c.d("AudioChangeOperatorNew: 创建DuAudioProcess开始");
-        this.mDuAudioProcess = new DuAudioProcess(this.mSampleRate, this.mChannelCount, i3);
-        c.d("AudioChangeOperatorNew: 创建DuAudioProcess完成");
+        return invokeV.booleanValue;
     }
 
     private void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             this.mAgcType = 300;
             this.mDenoiseType = 200;
             this.mPitchType = 0;
             this.mReverbType = 100;
+            this.mHarmonyType = 700;
         }
     }
 
-    @Override // d.a.w0.g.b
+    private void setDelayConfig() {
+        AudioChangeConfig audioChangeConfig;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.mDelayProcess == null || (audioChangeConfig = this.mAudioChangeConfig) == null) {
+            return;
+        }
+        DelayConfig delayConfig = audioChangeConfig.getDelayConfig();
+        if (shouldClose(delayConfig)) {
+            return;
+        }
+        int delayTime = delayConfig.getDelayTime();
+        float decrease = delayConfig.getDecrease();
+        int pairTimeLength = delayConfig.getPairTimeLength();
+        int[] pairTimeArray = delayConfig.getPairTimeArray();
+        int newPosition = delayConfig.getNewPosition();
+        DuDelayProcess duDelayProcess = this.mDelayProcess;
+        delayConfig.delayMode = 1;
+        duDelayProcess.h(1);
+        if (delayTime >= 0) {
+            this.mDelayProcess.j(delayTime);
+        }
+        if (decrease >= 0.0f && decrease <= 1.0f) {
+            this.mDelayProcess.f(decrease);
+        }
+        if (pairTimeLength > 0 && pairTimeArray != null && pairTimeArray.length > 0) {
+            DuDelayProcess duDelayProcess2 = this.mDelayProcess;
+            delayConfig.delayMode = 2;
+            duDelayProcess2.h(2);
+            this.mDelayProcess.g(pairTimeLength, pairTimeArray);
+        }
+        if (newPosition >= 0) {
+            DuDelayProcess duDelayProcess3 = this.mDelayProcess;
+            delayConfig.delayMode = 2;
+            duDelayProcess3.h(2);
+            this.mDelayProcess.i(newPosition);
+        }
+        c.d("AudioChangeOperatorNew: delayConfig = " + delayConfig.toString());
+    }
+
+    private boolean shouldClose(DelayConfig delayConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, delayConfig)) == null) {
+            if (delayConfig == null) {
+                closeDelay();
+                return true;
+            } else if (delayConfig.available()) {
+                return false;
+            } else {
+                closeDelay();
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // c.a.v0.g.b
     public boolean available() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mReverbType > 100 || this.mPitchType > 0 || this.mDenoiseType > 200 || this.mAgcType > 300 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mReverbType > 100 || this.mPitchType > 0 || this.mDenoiseType > 200 || this.mAgcType > 300 || this.mEQType > 400 || this.mAirType > 500 || this.mHarmonyType > 700 || delayAvailable() : invokeV.booleanValue;
     }
 
-    @Override // d.a.w0.g.b
+    @Override // c.a.v0.g.b
     public int availableBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (canDelay()) {
+                return this.mDelayProcess.a();
+            }
             DuAudioProcess duAudioProcess = this.mDuAudioProcess;
             if (duAudioProcess != null) {
                 return duAudioProcess.a();
@@ -136,7 +311,7 @@ public class AudioChangeOperator implements b {
         return invokeV.intValue;
     }
 
-    @Override // d.a.w0.g.b
+    @Override // c.a.v0.g.b
     public void clearQueues() {
         DuAudioProcess duAudioProcess;
         Interceptable interceptable = $ic;
@@ -146,7 +321,7 @@ public class AudioChangeOperator implements b {
         duAudioProcess.b();
     }
 
-    @Override // d.a.w0.g.b
+    @Override // c.a.v0.g.b
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -154,25 +329,36 @@ public class AudioChangeOperator implements b {
             if (duAudioProcess != null) {
                 duAudioProcess.c();
             }
+            if (canDelay()) {
+                this.mDelayProcess.b();
+            }
             this.mDuAudioProcess = null;
+            this.mDelayProcess = null;
         }
     }
 
-    @Override // d.a.w0.g.b
+    @Override // c.a.v0.g.b
     public void flush() {
-        DuAudioProcess duAudioProcess;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (duAudioProcess = this.mDuAudioProcess) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            DuAudioProcess duAudioProcess = this.mDuAudioProcess;
+            if (duAudioProcess != null) {
+                duAudioProcess.d();
+            }
+            if (canDelay()) {
+                this.mDelayProcess.c();
+            }
         }
-        duAudioProcess.d();
     }
 
-    @Override // d.a.w0.g.b
+    @Override // c.a.v0.g.b
     public int getBytes(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, bArr, i2)) == null) {
+            if (canDelay()) {
+                return this.mDelayProcess.e(bArr, i2);
+            }
             DuAudioProcess duAudioProcess = this.mDuAudioProcess;
             if (duAudioProcess != null) {
                 return duAudioProcess.f(bArr, i2);
@@ -182,7 +368,7 @@ public class AudioChangeOperator implements b {
         return invokeLI.intValue;
     }
 
-    @Override // d.a.w0.g.b
+    @Override // c.a.v0.g.b
     public void initVoiceChanger(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) {
@@ -192,7 +378,7 @@ public class AudioChangeOperator implements b {
         }
     }
 
-    @Override // d.a.w0.g.b
+    @Override // c.a.v0.g.b
     public boolean putBytes(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -200,17 +386,24 @@ public class AudioChangeOperator implements b {
             init();
             DuAudioProcess duAudioProcess = this.mDuAudioProcess;
             if (duAudioProcess != null) {
-                return duAudioProcess.e(bArr, i2);
+                return canDelay() ? this.mDelayProcess.d(bArr, this.mDuAudioProcess.f(bArr, i2)) : duAudioProcess.e(bArr, i2);
             }
             return false;
         }
         return invokeLI.booleanValue;
     }
 
-    @Override // d.a.w0.g.b
+    public void setAudioChangeConfig(AudioChangeConfig audioChangeConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, audioChangeConfig) == null) {
+            this.mAudioChangeConfig = audioChangeConfig;
+        }
+    }
+
+    @Override // c.a.v0.g.b
     public void setVoiceChangeType(int[] iArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iArr) == null) || checkTypesEquals(iArr)) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, iArr) == null) || checkTypesEquals(iArr, this.mLastEQparams, this.mLastReverbParams)) {
             return;
         }
         this.mLastTypeArray = iArr;
@@ -219,7 +412,13 @@ public class AudioChangeOperator implements b {
             return;
         }
         for (int i2 : iArr) {
-            if (i2 >= 300) {
+            if (i2 >= 700) {
+                this.mHarmonyType = i2;
+            } else if (i2 >= 500) {
+                this.mAirType = i2;
+            } else if (i2 >= 400) {
+                this.mEQType = i2;
+            } else if (i2 >= 300) {
                 this.mAgcType = i2;
             } else if (i2 >= 200) {
                 this.mDenoiseType = i2;
@@ -228,6 +427,16 @@ public class AudioChangeOperator implements b {
             } else if (i2 >= 0) {
                 this.mPitchType = i2;
             }
+        }
+    }
+
+    @Override // c.a.v0.g.b
+    public void setVoiceChangeType(int[] iArr, int[] iArr2, double[] dArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048586, this, iArr, iArr2, dArr) == null) {
+            this.mLastEQparams = iArr2;
+            this.mLastReverbParams = dArr;
+            setVoiceChangeType(iArr);
         }
     }
 }

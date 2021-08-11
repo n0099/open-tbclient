@@ -2,7 +2,7 @@ package org.apache.http.entity.mime.content;
 
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public interface ContentBody extends ContentDescriptor {
     String getFilename();
 

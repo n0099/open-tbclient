@@ -22,7 +22,7 @@ import com.vivo.push.model.UnvarnishedMessage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class LocalAliasTagsManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_LOCAL_REQUEST_ID = "push_cache_sp";
@@ -36,7 +36,7 @@ public class LocalAliasTagsManager {
     public ISubscribeAppAliasManager mSubscribeAppAliasManager;
     public ISubscribeAppTagManager mSubscribeAppTagManager;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface LocalMessageCallback {
         boolean onNotificationMessageArrived(Context context, UPSNotificationMessage uPSNotificationMessage);
 

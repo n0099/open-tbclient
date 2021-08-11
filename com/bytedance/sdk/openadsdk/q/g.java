@@ -8,18 +8,19 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.stats.ActivitySpeedStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.k.a.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a();
 
@@ -31,13 +32,13 @@ public class g {
     public static void a(Context context, com.bytedance.sdk.openadsdk.k.a aVar, int i2, a aVar2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, aVar, Integer.valueOf(i2), aVar2, Boolean.valueOf(z)}) == null) {
-            com.bytedance.sdk.component.utils.k.f("splashLoadAd", " getImageBytes url " + aVar);
+            com.bytedance.sdk.component.utils.k.f(ActivitySpeedStats.SPLASH_LOADAD_DURATION, " getImageBytes url " + aVar);
             com.bytedance.sdk.openadsdk.k.d.b().d().a(aVar, new a.b(aVar2) { // from class: com.bytedance.sdk.openadsdk.q.g.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f32509a;
+                public final /* synthetic */ a f68471a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -54,7 +55,7 @@ public class g {
                             return;
                         }
                     }
-                    this.f32509a = aVar2;
+                    this.f68471a = aVar2;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.k.a.a.b
@@ -62,11 +63,11 @@ public class g {
                     a aVar3;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bVar) == null) {
-                        if (bVar.c() && (aVar3 = this.f32509a) != null) {
+                        if (bVar.c() && (aVar3 = this.f68471a) != null) {
                             aVar3.a(bVar);
                             return;
                         }
-                        a aVar4 = this.f32509a;
+                        a aVar4 = this.f68471a;
                         if (aVar4 != null) {
                             aVar4.a();
                         }
@@ -77,7 +78,7 @@ public class g {
                 public void a(int i3, String str, @Nullable Throwable th) {
                     a aVar3;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, str, th) == null) || (aVar3 = this.f32509a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, str, th) == null) || (aVar3 = this.f68471a) == null) {
                         return;
                     }
                     aVar3.a();
@@ -87,7 +88,7 @@ public class g {
                 public void a() {
                     a aVar3;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (aVar3 = this.f32509a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (aVar3 = this.f68471a) == null) {
                         return;
                     }
                     aVar3.b();

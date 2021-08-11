@@ -5,7 +5,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes5.dex */
 public class GetUserInfoResult extends SapiResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_MSG_UNKNOWN = "用户信息获取失败";
@@ -49,7 +50,7 @@ public class GetUserInfoResult extends SapiResult {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "GetUserInfoResult{username='" + this.username + "', displayname='" + this.displayname + "', uid='" + this.uid + "', secureMobile='" + this.secureMobile + "', secureEmail='" + this.secureEmail + "', incompleteUser=" + this.incompleteUser + ", portrait='" + this.portrait + "', portraitSign='" + this.portraitSign + "', isInitialPortrait=" + this.isInitialPortrait + ", havePwd=" + this.havePwd + '}';
+            return "GetUserInfoResult{username='" + this.username + ExtendedMessageFormat.QUOTE + ", displayname='" + this.displayname + ExtendedMessageFormat.QUOTE + ", uid='" + this.uid + ExtendedMessageFormat.QUOTE + ", secureMobile='" + this.secureMobile + ExtendedMessageFormat.QUOTE + ", secureEmail='" + this.secureEmail + ExtendedMessageFormat.QUOTE + ", incompleteUser=" + this.incompleteUser + ", portrait='" + this.portrait + ExtendedMessageFormat.QUOTE + ", portraitSign='" + this.portraitSign + ExtendedMessageFormat.QUOTE + ", isInitialPortrait=" + this.isInitialPortrait + ", havePwd=" + this.havePwd + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

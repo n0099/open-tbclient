@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class MainTabActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean ENTER_FORUM_DELEGATE_AVAILABLE = true;
@@ -97,7 +96,7 @@ public class MainTabActivityConfig extends IntentConfig {
             Intent intent = getIntent();
             intent.setFlags(603979776);
             if (!(getContext() instanceof Activity)) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             if (i2 >= 0) {
                 intent.putExtra("locate_type", i2);
@@ -123,15 +122,15 @@ public class MainTabActivityConfig extends IntentConfig {
             Intent intent = getIntent();
             intent.setFlags(603979776);
             if (i2 != 200 && i2 != 12) {
-                intent.putExtra(FrsActivityConfig.KEY_REFRESH, true);
+                intent.putExtra("refresh_all", true);
             } else {
-                intent.putExtra(FrsActivityConfig.KEY_REFRESH, false);
+                intent.putExtra("refresh_all", false);
             }
             if (i2 >= 0) {
                 intent.putExtra("locate_type", i2);
             }
             if (z) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             intent.putExtra("close_dialog", true);
             return this;

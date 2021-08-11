@@ -5,27 +5,27 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.widget.EditText;
 import androidx.fragment.app.FragmentActivity;
+import c.a.n0.a.v2.x;
+import c.a.n0.b.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.v2.x;
-import d.a.o0.b.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AccountSmsLoginView extends SmsLoginView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context v;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountSmsLoginView f11666e;
+        public final /* synthetic */ AccountSmsLoginView f46508e;
 
         public a(AccountSmsLoginView accountSmsLoginView) {
             Interceptable interceptable = $ic;
@@ -42,25 +42,25 @@ public class AccountSmsLoginView extends SmsLoginView {
                     return;
                 }
             }
-            this.f11666e = accountSmsLoginView;
+            this.f46508e = accountSmsLoginView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x.a(this.f11666e.v, ((FragmentActivity) this.f11666e.v).getWindow().getDecorView().getWindowToken());
+                x.a(this.f46508e.v, ((FragmentActivity) this.f46508e.v).getWindow().getDecorView().getWindowToken());
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountSmsLoginView f11667e;
+        public final /* synthetic */ AccountSmsLoginView f46509e;
 
         public b(AccountSmsLoginView accountSmsLoginView) {
             Interceptable interceptable = $ic;
@@ -77,14 +77,14 @@ public class AccountSmsLoginView extends SmsLoginView {
                     return;
                 }
             }
-            this.f11667e = accountSmsLoginView;
+            this.f46509e = accountSmsLoginView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x.b(this.f11667e.v, false);
+                x.b(this.f46509e.v, false);
             }
         }
     }
@@ -108,7 +108,7 @@ public class AccountSmsLoginView extends SmsLoginView {
             }
         }
         this.v = context;
-        p();
+        requestFocusAndShowKeyBoard();
     }
 
     @Override // com.baidu.sapi2.views.SmsLoginView
@@ -128,10 +128,10 @@ public class AccountSmsLoginView extends SmsLoginView {
         }
     }
 
-    public void p() {
+    public void requestFocusAndShowKeyBoard() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ((EditText) findViewById(e.phone)).requestFocus();
+            ((EditText) findViewById(f.phone)).requestFocus();
             new Handler().postDelayed(new b(this), 100L);
         }
     }
@@ -156,7 +156,7 @@ public class AccountSmsLoginView extends SmsLoginView {
             }
         }
         this.v = context;
-        p();
+        requestFocusAndShowKeyBoard();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -179,6 +179,6 @@ public class AccountSmsLoginView extends SmsLoginView {
             }
         }
         this.v = context;
-        p();
+        requestFocusAndShowKeyBoard();
     }
 }

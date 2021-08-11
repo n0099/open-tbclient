@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public interface IDevices {
     public static final String ABI_MIPS = "mips";
     public static final String ABI_X86 = "x86";
@@ -17,7 +17,7 @@ public interface IDevices {
     public static final int EM_MIPS = 8;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class ARCH {
         public static final /* synthetic */ ARCH[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

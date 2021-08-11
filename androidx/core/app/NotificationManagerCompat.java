@@ -237,7 +237,7 @@ public final class NotificationManagerCompat {
                 if (bindService) {
                     listenerRecord.retryCount = 0;
                 } else {
-                    Log.w(NotificationManagerCompat.TAG, "Unable to bind to listener " + listenerRecord.componentName);
+                    String str = "Unable to bind to listener " + listenerRecord.componentName;
                     this.mContext.unbindService(this);
                 }
                 return listenerRecord.bound;
@@ -300,7 +300,7 @@ public final class NotificationManagerCompat {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65543, this, listenerRecord) == null) {
                 if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                    Log.d(NotificationManagerCompat.TAG, "Processing component " + listenerRecord.componentName + StringUtil.ARRAY_ELEMENT_SEPARATOR + listenerRecord.taskQueue.size() + " queued tasks");
+                    String str = "Processing component " + listenerRecord.componentName + StringUtil.ARRAY_ELEMENT_SEPARATOR + listenerRecord.taskQueue.size() + " queued tasks";
                 }
                 if (listenerRecord.taskQueue.isEmpty()) {
                     return;
@@ -313,16 +313,16 @@ public final class NotificationManagerCompat {
                         }
                         try {
                             if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                                Log.d(NotificationManagerCompat.TAG, "Sending task " + peek);
+                                String str2 = "Sending task " + peek;
                             }
                             peek.send(listenerRecord.service);
                             listenerRecord.taskQueue.remove();
                         } catch (DeadObjectException unused) {
                             if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                                Log.d(NotificationManagerCompat.TAG, "Remote service has died: " + listenerRecord.componentName);
+                                String str3 = "Remote service has died: " + listenerRecord.componentName;
                             }
-                        } catch (RemoteException e2) {
-                            Log.w(NotificationManagerCompat.TAG, "RemoteException communicating with " + listenerRecord.componentName, e2);
+                        } catch (RemoteException unused2) {
+                            String str4 = "RemoteException communicating with " + listenerRecord.componentName;
                         }
                     }
                     if (listenerRecord.taskQueue.isEmpty()) {
@@ -343,13 +343,13 @@ public final class NotificationManagerCompat {
             int i2 = listenerRecord.retryCount + 1;
             listenerRecord.retryCount = i2;
             if (i2 > 6) {
-                Log.w(NotificationManagerCompat.TAG, "Giving up on delivering " + listenerRecord.taskQueue.size() + " tasks to " + listenerRecord.componentName + " after " + listenerRecord.retryCount + " retries");
+                String str = "Giving up on delivering " + listenerRecord.taskQueue.size() + " tasks to " + listenerRecord.componentName + " after " + listenerRecord.retryCount + " retries";
                 listenerRecord.taskQueue.clear();
                 return;
             }
             int i3 = (1 << (i2 - 1)) * 1000;
             if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                Log.d(NotificationManagerCompat.TAG, "Scheduling retry for " + i3 + " ms");
+                String str2 = "Scheduling retry for " + i3 + " ms";
             }
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3, listenerRecord.componentName), i3);
         }
@@ -369,7 +369,7 @@ public final class NotificationManagerCompat {
                         ServiceInfo serviceInfo = resolveInfo.serviceInfo;
                         ComponentName componentName = new ComponentName(serviceInfo.packageName, serviceInfo.name);
                         if (resolveInfo.serviceInfo.permission != null) {
-                            Log.w(NotificationManagerCompat.TAG, "Permission present on component " + componentName + ", not adding listener record.");
+                            String str = "Permission present on component " + componentName + ", not adding listener record.";
                         } else {
                             hashSet.add(componentName);
                         }
@@ -378,7 +378,7 @@ public final class NotificationManagerCompat {
                 for (ComponentName componentName2 : hashSet) {
                     if (!this.mRecordMap.containsKey(componentName2)) {
                         if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                            Log.d(NotificationManagerCompat.TAG, "Adding listener record for " + componentName2);
+                            String str2 = "Adding listener record for " + componentName2;
                         }
                         this.mRecordMap.put(componentName2, new ListenerRecord(componentName2));
                     }
@@ -388,7 +388,7 @@ public final class NotificationManagerCompat {
                     Map.Entry<ComponentName, ListenerRecord> next = it.next();
                     if (!hashSet.contains(next.getKey())) {
                         if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                            Log.d(NotificationManagerCompat.TAG, "Removing listener record for " + next.getKey());
+                            String str3 = "Removing listener record for " + next.getKey();
                         }
                         ensureServiceUnbound(next.getValue());
                         it.remove();
@@ -428,7 +428,7 @@ public final class NotificationManagerCompat {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
                 if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                    Log.d(NotificationManagerCompat.TAG, "Connected to service " + componentName);
+                    String str = "Connected to service " + componentName;
                 }
                 this.mHandler.obtainMessage(1, new ServiceConnectedEvent(componentName, iBinder)).sendToTarget();
             }
@@ -439,7 +439,7 @@ public final class NotificationManagerCompat {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, componentName) == null) {
                 if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                    Log.d(NotificationManagerCompat.TAG, "Disconnected from service " + componentName);
+                    String str = "Disconnected from service " + componentName;
                 }
                 this.mHandler.obtainMessage(2, componentName).sendToTarget();
             }

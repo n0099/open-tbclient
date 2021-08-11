@@ -1,72 +1,67 @@
 package com.alipay.security.mobile.module.b;
 
 import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes.dex */
-public class a {
+/* loaded from: classes4.dex */
+public final class a {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static a f35952a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-920877023, "Lcom/alipay/security/mobile/module/b/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-920877023, "Lcom/alipay/security/mobile/module/b/a;");
+                return;
+            }
+        }
+        f35952a = new a();
+    }
 
     public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static String a(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        String a2;
+    public static a a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, str2)) == null) {
-            synchronized (a.class) {
-                String str3 = null;
-                if (context != null) {
-                    if (!com.alipay.security.mobile.module.a.a.a(str) && !com.alipay.security.mobile.module.a.a.a(str2)) {
-                        try {
-                            a2 = e.a(context, str, str2, "");
-                        } catch (Throwable unused) {
-                        }
-                        if (com.alipay.security.mobile.module.a.a.a(a2)) {
-                            return null;
-                        }
-                        str3 = com.alipay.security.mobile.module.a.a.c.b(com.alipay.security.mobile.module.a.a.c.a(), a2);
-                        return str3;
-                    }
-                }
-                return null;
-            }
-        }
-        return (String) invokeLLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f35952a : (a) invokeV.objValue;
     }
 
-    public static void a(Context context, String str, String str2, String str3) {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, null, context, str, str2, str3) == null) {
-            synchronized (a.class) {
-                if (com.alipay.security.mobile.module.a.a.a(str) || com.alipay.security.mobile.module.a.a.a(str2) || context == null) {
-                    return;
-                }
-                try {
-                    String a2 = com.alipay.security.mobile.module.a.a.c.a(com.alipay.security.mobile.module.a.a.c.a(), str3);
-                    HashMap hashMap = new HashMap();
-                    hashMap.put(str2, a2);
-                    e.a(context, str, hashMap);
-                } catch (Throwable unused) {
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 16).versionName;
+            } catch (Exception unused) {
+                return "0.0.0";
             }
         }
+        return (String) invokeL.objValue;
     }
 }

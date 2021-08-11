@@ -44,7 +44,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class SapiAccountManager implements ISAccountManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SESSION_BDUSS = "bduss";
@@ -64,7 +64,7 @@ public final class SapiAccountManager implements ISAccountManager {
     public transient /* synthetic */ FieldHolder $fh;
     public char isUseOpenBdussTpl;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface CheckUrlIsAvailableListener {
         void handleWebPageUrl(String str);
 
@@ -269,11 +269,7 @@ public final class SapiAccountManager implements ISAccountManager {
             if (sapiConfiguration == null) {
                 getGlobalCallback().onNeedInitPassSdk();
             }
-            if (sapiConfiguration == null) {
-                if (!Log.enabled) {
-                    android.util.Log.e(Log.TAG, "pass sdk have not been initialized");
-                    return;
-                }
+            if (sapiConfiguration == null && Log.enabled) {
                 throw new IllegalStateException(SapiAccountManager.class.getSimpleName() + " have not been initialized");
             }
         }
@@ -361,11 +357,11 @@ public final class SapiAccountManager implements ISAccountManager {
         return (String) invokeLL.objValue;
     }
 
-    public void getShareModels(long j, ShareModelCallback shareModelCallback) {
+    public void getShareModels(long j2, ShareModelCallback shareModelCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048588, this, j, shareModelCallback) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048588, this, j2, shareModelCallback) == null) {
             checkInitialization();
-            ShareLoginModel.getInstance().getShareModels(j, shareModelCallback);
+            ShareLoginModel.getInstance().getShareModels(j2, shareModelCallback);
         }
     }
 

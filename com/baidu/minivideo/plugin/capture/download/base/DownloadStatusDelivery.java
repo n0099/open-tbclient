@@ -1,5 +1,5 @@
 package com.baidu.minivideo.plugin.capture.download.base;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface DownloadStatusDelivery {
     void post(DownloadStatus downloadStatus);
 }

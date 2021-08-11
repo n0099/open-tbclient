@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class VisualSampleEntry extends AbstractSampleEntry implements Container {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -164,9 +164,9 @@ public final class VisualSampleEntry extends AbstractSampleEntry implements Cont
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(78);
             dataSource.read(allocate);
             allocate.position(6);
@@ -196,7 +196,7 @@ public final class VisualSampleEntry extends AbstractSampleEntry implements Cont
             }
             this.depth = IsoTypeReader.readUInt16(allocate);
             IsoTypeReader.readUInt16(allocate);
-            parseContainer(dataSource, j - 78, boxParser);
+            parseContainer(dataSource, j2 - 78, boxParser);
         }
     }
 

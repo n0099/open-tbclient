@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class RemoteCommonUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APPSID = "BaiduMobAd_APP_ID";
@@ -181,9 +181,9 @@ public class RemoteCommonUtils {
         }
     }
 
-    public void sendLog4DlFailed(Context context, long j) {
+    public void sendLog4DlFailed(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048582, this, context, j) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048582, this, context, j2) == null) || context == null) {
             return;
         }
         try {
@@ -197,7 +197,7 @@ public class RemoteCommonUtils {
                     long optLong = jSONObject.optLong(XAdRemoteAPKDownloadExtraInfo.CLICK_TOUCH_TIME);
                     int optInt = jSONObject.optInt("dl");
                     Map<String, ?> map = all;
-                    if (optInt >= 4 && optInt <= 6 && optLong < j) {
+                    if (optInt >= 4 && optInt <= 6 && optLong < j2) {
                         create.append("dlname", AdURIUtils.encodeURIComponent(str));
                         create.append(XAdRemoteAPKDownloadExtraInfo.QK, jSONObject.optString(XAdRemoteAPKDownloadExtraInfo.QK));
                         create.append(XAdRemoteAPKDownloadExtraInfo.ADID, jSONObject.optString(XAdRemoteAPKDownloadExtraInfo.ADID));

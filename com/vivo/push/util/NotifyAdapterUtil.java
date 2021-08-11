@@ -16,7 +16,6 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -32,7 +31,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class NotifyAdapterUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NOTIFY_MULTITERM_STYLE = 1;
@@ -120,9 +119,9 @@ public class NotifyAdapterUtil {
         return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) ? context.getResources().getConfiguration().locale.getLanguage().endsWith("zh") : invokeL.booleanValue;
     }
 
-    public static void pushNotification(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j, int i2) {
+    public static void pushNotification(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, list, insideNotificationItem, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, list, insideNotificationItem, Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
             p.d(TAG, "pushNotification");
             initAdapter(context);
             int notifyMode = NotifyUtil.getNotifyDataAdapter(context).getNotifyMode(insideNotificationItem);
@@ -130,18 +129,18 @@ public class NotifyAdapterUtil {
                 notifyMode = 1;
             }
             if (notifyMode == 2) {
-                pushNotificationBySystem(context, list, insideNotificationItem, j, i2);
+                pushNotificationBySystem(context, list, insideNotificationItem, j2, i2);
             } else if (notifyMode == 1) {
-                pushNotificationByCustom(context, list, insideNotificationItem, j);
+                pushNotificationByCustom(context, list, insideNotificationItem, j2);
             }
         }
     }
 
-    public static void pushNotificationByCustom(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j) {
+    public static void pushNotificationByCustom(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j2) {
         Notification notification;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, list, insideNotificationItem, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, list, insideNotificationItem, Long.valueOf(j2)}) == null) {
             Resources resources = context.getResources();
             String packageName = context.getPackageName();
             String title = insideNotificationItem.getTitle();
@@ -234,14 +233,14 @@ public class NotifyAdapterUtil {
             intent.setPackage(context.getPackageName());
             intent.setClassName(context.getPackageName(), "com.vivo.push.sdk.service.CommandService");
             intent.putExtra("command_type", "reflect_receiver");
-            new com.vivo.push.b.r(packageName, j, insideNotificationItem).b(intent);
-            notification.contentIntent = PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), intent, Label.FORWARD_REFERENCE_TYPE_SHORT);
+            new com.vivo.push.b.r(packageName, j2, insideNotificationItem).b(intent);
+            notification.contentIntent = PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), intent, 268435456);
             if (sNotificationManager != null) {
                 int r = com.vivo.push.p.a().r();
                 if (r == 0) {
                     sNotificationManager.notify(sNotifyId, notification);
                 } else if (r == 1) {
-                    sNotificationManager.notify((int) j, notification);
+                    sNotificationManager.notify((int) j2, notification);
                 } else {
                     p.a(TAG, "unknow notify style " + r);
                 }
@@ -249,12 +248,12 @@ public class NotifyAdapterUtil {
         }
     }
 
-    public static void pushNotificationBySystem(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j, int i2) {
+    public static void pushNotificationBySystem(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j2, int i2) {
         Bitmap bitmap;
         Notification.Builder builder;
         Bitmap decodeResource;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, list, insideNotificationItem, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, list, insideNotificationItem, Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
             String packageName = context.getPackageName();
             String title = insideNotificationItem.getTitle();
             String content = insideNotificationItem.getContent();
@@ -338,8 +337,8 @@ public class NotifyAdapterUtil {
             intent.setPackage(context.getPackageName());
             intent.setClassName(context.getPackageName(), "com.vivo.push.sdk.service.CommandService");
             intent.putExtra("command_type", "reflect_receiver");
-            new com.vivo.push.b.r(packageName, j, insideNotificationItem).b(intent);
-            builder.setContentIntent(PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), intent, Label.FORWARD_REFERENCE_TYPE_SHORT));
+            new com.vivo.push.b.r(packageName, j2, insideNotificationItem).b(intent);
+            builder.setContentIntent(PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), intent, 268435456));
             Notification build = builder.build();
             int r = com.vivo.push.p.a().r();
             NotificationManager notificationManager = sNotificationManager;
@@ -347,7 +346,7 @@ public class NotifyAdapterUtil {
                 if (r == 0) {
                     notificationManager.notify(sNotifyId, build);
                 } else if (r == 1) {
-                    notificationManager.notify((int) j, build);
+                    notificationManager.notify((int) j2, build);
                 } else {
                     p.a(TAG, "unknow notify style " + r);
                 }

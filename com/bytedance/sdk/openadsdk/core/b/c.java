@@ -14,25 +14,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.j.g;
 import com.bytedance.sdk.openadsdk.core.o;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class c implements View.OnClickListener, View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static int C = 8;
 
     /* renamed from: a  reason: collision with root package name */
-    public static float f29946a;
+    public static float f65842a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f29947b;
+    public static float f65843b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static float f29948c;
+    public static float f65844c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static float f29949d;
+    public static float f65845d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f29950e;
+    public static long f65846e;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
     public int B;
@@ -45,29 +45,29 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
     public long y;
     public int z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f29951a;
+        public int f65847a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f29952b;
+        public double f65848b;
 
         /* renamed from: c  reason: collision with root package name */
-        public double f29953c;
+        public double f65849c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f29954d;
+        public long f65850d;
 
-        public a(int i2, double d2, double d3, long j) {
+        public a(int i2, double d2, double d3, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Double.valueOf(d2), Double.valueOf(d3), Long.valueOf(j)};
+                Object[] objArr = {Integer.valueOf(i2), Double.valueOf(d2), Double.valueOf(d3), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -77,11 +77,11 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
                     return;
                 }
             }
-            this.f29951a = -1;
-            this.f29951a = i2;
-            this.f29952b = d2;
-            this.f29953c = d3;
-            this.f29954d = j;
+            this.f65847a = -1;
+            this.f65847a = i2;
+            this.f65848b = d2;
+            this.f65849c = d3;
+            this.f65850d = j2;
         }
     }
 
@@ -101,11 +101,11 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
         if (ViewConfiguration.get(o.a()) != null) {
             C = ViewConfiguration.get(o.a()).getScaledTouchSlop();
         }
-        f29946a = 0.0f;
-        f29947b = 0.0f;
-        f29948c = 0.0f;
-        f29949d = 0.0f;
-        f29950e = 0L;
+        f65842a = 0.0f;
+        f65843b = 0.0f;
+        f65844c = 0.0f;
+        f65845d = 0.0f;
+        f65846e = 0L;
     }
 
     public c() {
@@ -148,7 +148,7 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
                 this.z = motionEvent.getToolType(0);
                 this.A = motionEvent.getDeviceId();
                 this.B = motionEvent.getSource();
-                f29950e = System.currentTimeMillis();
+                f65846e = System.currentTimeMillis();
                 i2 = 0;
             } else if (actionMasked == 1) {
                 this.v = (int) motionEvent.getRawX();
@@ -158,14 +158,14 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
             } else if (actionMasked != 2) {
                 i2 = actionMasked != 3 ? -1 : 4;
             } else {
-                f29948c += Math.abs(motionEvent.getX() - f29946a);
-                f29949d += Math.abs(motionEvent.getY() - f29947b);
-                f29946a = motionEvent.getX();
-                f29947b = motionEvent.getY();
-                if (System.currentTimeMillis() - f29950e > 200) {
-                    float f2 = f29948c;
+                f65844c += Math.abs(motionEvent.getX() - f65842a);
+                f65845d += Math.abs(motionEvent.getY() - f65843b);
+                f65842a = motionEvent.getX();
+                f65843b = motionEvent.getY();
+                if (System.currentTimeMillis() - f65846e > 200) {
+                    float f2 = f65844c;
                     int i3 = C;
-                    if (f2 > i3 || f29949d > i3) {
+                    if (f2 > i3 || f65845d > i3) {
                         i2 = 1;
                     }
                 }

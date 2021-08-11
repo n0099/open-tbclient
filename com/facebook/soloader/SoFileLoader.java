@@ -1,5 +1,5 @@
 package com.facebook.soloader;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface SoFileLoader {
     void load(String str, int i2);
 }

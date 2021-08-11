@@ -11,7 +11,7 @@ import com.kwad.sdk.utils.ad;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class f {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             boolean a2 = ad.a(context);
             com.kwad.sdk.core.d.a.a("InfoCollector", "queryAccessibilityServicePermission result: " + a2);
-            return new g("android.permission.BIND_ACCESSIBILITY_SERVICE", a2 ? g.f34226b : g.f34227c);
+            return new g("android.permission.BIND_ACCESSIBILITY_SERVICE", a2 ? g.f70957b : g.f70958c);
         }
         return (g) invokeL.objValue;
     }
@@ -53,7 +53,7 @@ public class f {
                 if (strArr != null) {
                     for (String str : strArr) {
                         int a2 = ad.a(context, str);
-                        arrayList.add(new g(str, a2 == 0 ? g.f34226b : a2 == -1 ? g.f34227c : g.f34225a));
+                        arrayList.add(new g(str, a2 == 0 ? g.f70957b : a2 == -1 ? g.f70958c : g.f70956a));
                     }
                 }
                 return arrayList;

@@ -14,21 +14,21 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class MemberUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f5457a = 7;
+    public static final int f39403a = 7;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Class<?>[] f5458b;
+    public static final Class<?>[] f39404b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f5459c;
+    public static final Map<Class<?>, Class<?>> f39405c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f5460d;
+    public static final Map<Class<?>, Class<?>> f39406d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,24 +44,24 @@ public class MemberUtils {
                 return;
             }
         }
-        f5458b = new Class[]{Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
-        f5459c = new HashMap();
-        f5460d = new HashMap();
-        f5459c.put(Boolean.TYPE, Boolean.class);
-        f5459c.put(Byte.TYPE, Byte.class);
-        f5459c.put(Character.TYPE, Character.class);
-        f5459c.put(Short.TYPE, Short.class);
-        f5459c.put(Integer.TYPE, Integer.class);
-        f5459c.put(Long.TYPE, Long.class);
-        f5459c.put(Double.TYPE, Double.class);
-        f5459c.put(Float.TYPE, Float.class);
-        Map<Class<?>, Class<?>> map = f5459c;
+        f39404b = new Class[]{Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
+        f39405c = new HashMap();
+        f39406d = new HashMap();
+        f39405c.put(Boolean.TYPE, Boolean.class);
+        f39405c.put(Byte.TYPE, Byte.class);
+        f39405c.put(Character.TYPE, Character.class);
+        f39405c.put(Short.TYPE, Short.class);
+        f39405c.put(Integer.TYPE, Integer.class);
+        f39405c.put(Long.TYPE, Long.class);
+        f39405c.put(Double.TYPE, Double.class);
+        f39405c.put(Float.TYPE, Float.class);
+        Map<Class<?>, Class<?>> map = f39405c;
         Class<?> cls = Void.TYPE;
         map.put(cls, cls);
-        for (Class<?> cls2 : f5459c.keySet()) {
-            Class<?> cls3 = f5459c.get(cls2);
+        for (Class<?> cls2 : f39405c.keySet()) {
+            Class<?> cls3 = f39405c.get(cls2);
             if (!cls2.equals(cls3)) {
-                f5460d.put(cls3, cls2);
+                f39406d.put(cls3, cls2);
             }
         }
     }
@@ -80,125 +80,49 @@ public class MemberUtils {
         }
     }
 
-    public static boolean a(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) ? (i2 & 7) == 0 : invokeI.booleanValue;
-    }
-
-    public static boolean a(Member member) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, member)) == null) ? (member == null || !Modifier.isPublic(member.getModifiers()) || member.isSynthetic()) ? false : true : invokeL.booleanValue;
-    }
-
-    public static Class<?> b(Class<?> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, cls)) == null) ? f5460d.get(cls) : (Class) invokeL.objValue;
-    }
-
-    public static float c(Class<?> cls, Class<?> cls2) {
+    public static float a(Class<?>[] clsArr, Class<?>[] clsArr2) {
         InterceptResult invokeLL;
-        float f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, cls, cls2)) == null) {
-            if (cls.isPrimitive()) {
-                f2 = 0.0f;
-            } else {
-                cls = b(cls);
-                f2 = 0.1f;
-            }
-            int i2 = 0;
-            while (cls != cls2) {
-                Class<?>[] clsArr = f5458b;
-                if (i2 >= clsArr.length) {
-                    break;
-                }
-                if (cls == clsArr[i2]) {
-                    f2 += 0.1f;
-                    if (i2 < clsArr.length - 1) {
-                        cls = clsArr[i2 + 1];
-                    }
-                }
-                i2++;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, clsArr, clsArr2)) == null) {
+            float f2 = 0.0f;
+            for (int i2 = 0; i2 < clsArr.length; i2++) {
+                f2 += b(clsArr[i2], clsArr2[i2]);
             }
             return f2;
         }
         return invokeLL.floatValue;
     }
 
-    public static boolean a(AccessibleObject accessibleObject) {
-        InterceptResult invokeL;
+    public static int a(Class<?>[] clsArr, Class<?>[] clsArr2, Class<?>[] clsArr3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, accessibleObject)) == null) {
-            if (accessibleObject != null && !accessibleObject.isAccessible()) {
-                Member member = (Member) accessibleObject;
-                if (!accessibleObject.isAccessible() && Modifier.isPublic(member.getModifiers()) && a(member.getDeclaringClass().getModifiers())) {
-                    try {
-                        accessibleObject.setAccessible(true);
-                        return true;
-                    } catch (SecurityException unused) {
-                    }
-                }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, clsArr, clsArr2, clsArr3)) == null) {
+            float a2 = a(clsArr3, clsArr);
+            float a3 = a(clsArr3, clsArr2);
+            if (a2 < a3) {
+                return -1;
             }
-            return false;
+            return a3 < a2 ? 1 : 0;
         }
-        return invokeL.booleanValue;
+        return invokeLLL.intValue;
     }
 
-    public static float b(Class<?> cls, Class<?> cls2) {
-        InterceptResult invokeLL;
+    public static Class<?> a(Class<?> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, cls, cls2)) == null) {
-            if (cls2.isPrimitive()) {
-                return c(cls, cls2);
-            }
-            float f2 = 0.0f;
-            while (true) {
-                if (cls != null && !cls2.equals(cls)) {
-                    if (cls2.isInterface() && a(cls, cls2)) {
-                        f2 += 0.25f;
-                        break;
-                    }
-                    f2 += 1.0f;
-                    cls = cls.getSuperclass();
-                } else {
-                    break;
-                }
-            }
-            return cls == null ? f2 + 1.5f : f2;
-        }
-        return invokeLL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) ? (cls == null || !cls.isPrimitive()) ? cls : f39405c.get(cls) : (Class) invokeL.objValue;
+    }
+
+    public static boolean a(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) ? (i2 & 7) == 0 : invokeI.booleanValue;
     }
 
     public static boolean a(Class<?> cls, Class<?> cls2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, cls, cls2)) == null) ? a(cls, cls2, true) : invokeLL.booleanValue;
-    }
-
-    public static boolean a(Class<?>[] clsArr, Class<?>[] clsArr2, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65546, null, clsArr, clsArr2, z)) == null) {
-            if (Utils.a(clsArr, clsArr2)) {
-                if (clsArr == null) {
-                    clsArr = Utils.f5463b;
-                }
-                if (clsArr2 == null) {
-                    clsArr2 = Utils.f5463b;
-                }
-                for (int i2 = 0; i2 < clsArr.length; i2++) {
-                    if (!a(clsArr[i2], clsArr2[i2], z)) {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeLLZ.booleanValue;
     }
 
     public static boolean a(Class<?> cls, Class<?> cls2, boolean z) {
@@ -252,33 +176,109 @@ public class MemberUtils {
         return invokeLLZ.booleanValue;
     }
 
-    public static Class<?> a(Class<?> cls) {
+    public static boolean a(AccessibleObject accessibleObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) ? (cls == null || !cls.isPrimitive()) ? cls : f5459c.get(cls) : (Class) invokeL.objValue;
-    }
-
-    public static int a(Class<?>[] clsArr, Class<?>[] clsArr2, Class<?>[] clsArr3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, clsArr, clsArr2, clsArr3)) == null) {
-            float a2 = a(clsArr3, clsArr);
-            float a3 = a(clsArr3, clsArr2);
-            if (a2 < a3) {
-                return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, accessibleObject)) == null) {
+            if (accessibleObject != null && !accessibleObject.isAccessible()) {
+                Member member = (Member) accessibleObject;
+                if (!accessibleObject.isAccessible() && Modifier.isPublic(member.getModifiers()) && a(member.getDeclaringClass().getModifiers())) {
+                    try {
+                        accessibleObject.setAccessible(true);
+                        return true;
+                    } catch (SecurityException unused) {
+                    }
+                }
             }
-            return a3 < a2 ? 1 : 0;
+            return false;
         }
-        return invokeLLL.intValue;
+        return invokeL.booleanValue;
     }
 
-    public static float a(Class<?>[] clsArr, Class<?>[] clsArr2) {
+    public static boolean a(Member member) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, member)) == null) ? (member == null || !Modifier.isPublic(member.getModifiers()) || member.isSynthetic()) ? false : true : invokeL.booleanValue;
+    }
+
+    public static boolean a(Class<?>[] clsArr, Class<?>[] clsArr2, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65546, null, clsArr, clsArr2, z)) == null) {
+            if (Utils.a(clsArr, clsArr2)) {
+                if (clsArr == null) {
+                    clsArr = Utils.f39409b;
+                }
+                if (clsArr2 == null) {
+                    clsArr2 = Utils.f39409b;
+                }
+                for (int i2 = 0; i2 < clsArr.length; i2++) {
+                    if (!a(clsArr[i2], clsArr2[i2], z)) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeLLZ.booleanValue;
+    }
+
+    public static float b(Class<?> cls, Class<?> cls2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, clsArr, clsArr2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, cls, cls2)) == null) {
+            if (cls2.isPrimitive()) {
+                return c(cls, cls2);
+            }
             float f2 = 0.0f;
-            for (int i2 = 0; i2 < clsArr.length; i2++) {
-                f2 += b(clsArr[i2], clsArr2[i2]);
+            while (true) {
+                if (cls != null && !cls2.equals(cls)) {
+                    if (cls2.isInterface() && a(cls, cls2)) {
+                        f2 += 0.25f;
+                        break;
+                    }
+                    f2 += 1.0f;
+                    cls = cls.getSuperclass();
+                } else {
+                    break;
+                }
+            }
+            return cls == null ? f2 + 1.5f : f2;
+        }
+        return invokeLL.floatValue;
+    }
+
+    public static Class<?> b(Class<?> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, cls)) == null) ? f39406d.get(cls) : (Class) invokeL.objValue;
+    }
+
+    public static float c(Class<?> cls, Class<?> cls2) {
+        InterceptResult invokeLL;
+        float f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, cls, cls2)) == null) {
+            if (cls.isPrimitive()) {
+                f2 = 0.0f;
+            } else {
+                cls = b(cls);
+                f2 = 0.1f;
+            }
+            int i2 = 0;
+            while (cls != cls2) {
+                Class<?>[] clsArr = f39404b;
+                if (i2 >= clsArr.length) {
+                    break;
+                }
+                if (cls == clsArr[i2]) {
+                    f2 += 0.1f;
+                    if (i2 < clsArr.length - 1) {
+                        cls = clsArr[i2 + 1];
+                    }
+                }
+                i2++;
             }
             return f2;
         }
